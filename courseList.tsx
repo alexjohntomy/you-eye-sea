@@ -1,0 +1,31006 @@
+//This file serves to create a cache array of course objects for quick search,
+//to reduce calls to the Prisma DB.
+
+//line 15179 or around there is additional semester
+
+interface courseObject {
+    subject: string;
+    number: number;
+    title: string;
+    professor: string;
+}
+
+const courseList : courseObject[] = [
+  {
+    "subject": "ACTG",
+    "number": 210,
+    "title": "Intro Financial Accounting",
+    "professor": "Savoy, Steven J"
+  },
+  {
+    "subject": "ACTG",
+    "number": 210,
+    "title": "Intro to Fin Actg",
+    "professor": "Savoy, Steven J"
+  },
+  {
+    "subject": "ACTG",
+    "number": 315,
+    "title": "Intermediate Financial Actg I",
+    "professor": "Pandit, Shailendra"
+  },
+  {
+    "subject": "AH",
+    "number": 130,
+    "title": "Photography in History",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "AH",
+    "number": 205,
+    "title": "Roman Art and Archaeology",
+    "professor": "Ros, Karen E"
+  },
+  {
+    "subject": "AHS",
+    "number": 393,
+    "title": "Synthesis in Health &Rehab Sci",
+    "professor": "Rodriguez, Vanessa"
+  },
+  {
+    "subject": "ANTH",
+    "number": 100,
+    "title": "Human Adventure",
+    "professor": "Roosevelt, Anna C"
+  },
+  {
+    "subject": "ANTH",
+    "number": 239,
+    "title": "Anth Perspectives Oral Health",
+    "professor": "Nicholas, Christina Lynne"
+  },
+  {
+    "subject": "ANTH",
+    "number": 481,
+    "title": "Geog Info Systems I",
+    "professor": "Solinis Casparius, Rodrigo"
+  },
+  {
+    "subject": "ARAB",
+    "number": 104,
+    "title": "Intermediate Arabic II",
+    "professor": "Babiker, Mariam"
+  },
+  {
+    "subject": "ARAB",
+    "number": 203,
+    "title": "Arabic for Healthcare",
+    "professor": "Babiker, Mariam"
+  },
+  {
+    "subject": "ARCH",
+    "number": 554,
+    "title": "Architectural Design IV",
+    "professor": "Eisenschmidt, Alexander"
+  },
+  {
+    "subject": "ART",
+    "number": 112,
+    "title": "Introduction to Drawing",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ART",
+    "number": 151,
+    "title": "Intro to Creative Coding",
+    "professor": "Beiersdorfer, Crystal Lynn"
+  },
+  {
+    "subject": "ART",
+    "number": 151,
+    "title": "Intro to Creative Coding",
+    "professor": "Kelley-Hudgins, Jared Christopher"
+  },
+  {
+    "subject": "ART",
+    "number": 170,
+    "title": "Introduction to Filmmaking",
+    "professor": "Wanitwat, Parinda"
+  },
+  {
+    "subject": "ART",
+    "number": 376,
+    "title": "Topics in Audio:Sonic Sorcery",
+    "professor": "Stratman, Deborah Renee"
+  },
+  {
+    "subject": "ART",
+    "number": 460,
+    "title": "Speaking to, for, about, of,",
+    "professor": "Geissler, Beate"
+  },
+  {
+    "subject": "BA",
+    "number": 100,
+    "title": "Intro to Prof Dev",
+    "professor": "Warner, Kimberly"
+  },
+  {
+    "subject": "BA",
+    "number": 200,
+    "title": "Business Communication",
+    "professor": "Hoiberg, Dale Hollis"
+  },
+  {
+    "subject": "BA",
+    "number": 320,
+    "title": "Civic Engagement",
+    "professor": "Bosarge, Elizabeth Marie"
+  },
+  {
+    "subject": "BA",
+    "number": 494,
+    "title": "Strat Analys & Rprt for BBA",
+    "professor": "Porter, Brian Ernst"
+  },
+  {
+    "subject": "BCMG",
+    "number": 599,
+    "title": "PhD Thesis Research",
+    "professor": "Segev, Nava"
+  },
+  {
+    "subject": "BHIS",
+    "number": 437,
+    "title": "Health Care Data",
+    "professor": "Czart, Margaret B"
+  },
+  {
+    "subject": "BHIS",
+    "number": 461,
+    "title": "Info Systems for HIM",
+    "professor": "Williams, Felecia Altevet"
+  },
+  {
+    "subject": "BIOS",
+    "number": 102,
+    "title": "Bio Sci First-Year Seminar",
+    "professor": "Sutherland, Eric Lawrence"
+  },
+  {
+    "subject": "BIOS",
+    "number": 120,
+    "title": "Populations & Communities",
+    "professor": "Molumby, Alan J"
+  },
+  {
+    "subject": "ACTG",
+    "number": 210,
+    "title": "Intro Financial Accounting",
+    "professor": "Mikhail, Michael B"
+  },
+  {
+    "subject": "AH",
+    "number": 264,
+    "title": "African American Art",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "AHS",
+    "number": 200,
+    "title": "Intro Integrated Health",
+    "professor": "Alve, Mohammad Yeasir Arafat"
+  },
+  {
+    "subject": "AHS",
+    "number": 200,
+    "title": "Intro Integrated Health",
+    "professor": "Kieso, Tiana Al-Aswad"
+  },
+  {
+    "subject": "ANTH",
+    "number": 101,
+    "title": "World Cultures",
+    "professor": "Monaghan, John"
+  },
+  {
+    "subject": "ANTH",
+    "number": 229,
+    "title": "Archaeology of Islam",
+    "professor": "Johnson, Peri"
+  },
+  {
+    "subject": "ARAB",
+    "number": 104,
+    "title": "Intermediate Arabic II",
+    "professor": "Aburqayeq, Ghassan"
+  },
+  {
+    "subject": "ARCH",
+    "number": 252,
+    "title": "Modern Architecture",
+    "professor": "Eisenschmidt, Alexander"
+  },
+  {
+    "subject": "ARCH",
+    "number": 360,
+    "title": "Architectural Technology 2",
+    "professor": "McNeil, Spencer G"
+  },
+  {
+    "subject": "ARCH",
+    "number": 564,
+    "title": "Architectural Technology IV",
+    "professor": "Zago, Andrew"
+  },
+  {
+    "subject": "ART",
+    "number": 240,
+    "title": "Topics in Sculpture",
+    "professor": "Young, Nathaniel James"
+  },
+  {
+    "subject": "ART",
+    "number": 382,
+    "title": "THINKING IS MAKING",
+    "professor": "Geissler, Beate"
+  },
+  {
+    "subject": "BA",
+    "number": 100,
+    "title": "Intro to Prof Dev",
+    "professor": "Griffin, Dionna"
+  },
+  {
+    "subject": "BA",
+    "number": 200,
+    "title": "Business Communication",
+    "professor": "Haider, Saima"
+  },
+  {
+    "subject": "BA",
+    "number": 420,
+    "title": "Professional Presence",
+    "professor": "Lord, Morgan"
+  },
+  {
+    "subject": "BHIS",
+    "number": 525,
+    "title": "Social&Org Issues in Hlth Info",
+    "professor": "Lui, Dick Ray"
+  },
+  {
+    "subject": "BHIS",
+    "number": 593,
+    "title": "HI Capstone",
+    "professor": "Isola, Miriam L."
+  },
+  {
+    "subject": "BIOS",
+    "number": 454,
+    "title": "Biochemistry II",
+    "professor": "Jeffery, Constance J"
+  },
+  {
+    "subject": "BIOS",
+    "number": 480,
+    "title": "Intro to Biostatistics with R",
+    "professor": "Nunez Mir, Gabriela"
+  },
+  {
+    "subject": "BIOS",
+    "number": 490,
+    "title": "Immunology",
+    "professor": "Santus, William"
+  },
+  {
+    "subject": "BME",
+    "number": 410,
+    "title": "Medical Device Requirements",
+    "professor": "Browne, Michael Gordon"
+  },
+  {
+    "subject": "BME",
+    "number": 455,
+    "title": "Intro to Cell & Tissue Eng",
+    "professor": "Alsberg, Eben"
+  },
+  {
+    "subject": "BME",
+    "number": 476,
+    "title": "Neural Eng I Lab",
+    "professor": "Hetling, John R"
+  },
+  {
+    "subject": "BME",
+    "number": 494,
+    "title": "Imaging Seminar",
+    "professor": "Wang, Zhinan"
+  },
+  {
+    "subject": "BSTT",
+    "number": 506,
+    "title": "Design of Clinical Trials",
+    "professor": "Reda, Domenic J"
+  },
+  {
+    "subject": "CELE",
+    "number": 600,
+    "title": "Elective Clerkship",
+    "professor": "Moran, Larry M"
+  },
+  {
+    "subject": "CELE",
+    "number": 606,
+    "title": "Special Topics-Medicine",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "ACTG",
+    "number": 493,
+    "title": "Actg Cases Research & Analysis",
+    "professor": "Balachandran, Sudhakar V"
+  },
+  {
+    "subject": "AH",
+    "number": 111,
+    "title": "World Hist Art & Built Env II",
+    "professor": "Stimson, Blake"
+  },
+  {
+    "subject": "AH",
+    "number": 172,
+    "title": "Vis Culture Ancient Americas",
+    "professor": "Deij Prado, Macarena"
+  },
+  {
+    "subject": "AH",
+    "number": 180,
+    "title": "Intro to Museum & Exhibition",
+    "professor": "Stewart, Lorelei"
+  },
+  {
+    "subject": "AHS",
+    "number": 304,
+    "title": "Sexuality and Health",
+    "professor": "Bengtsson, Helene Strange"
+  },
+  {
+    "subject": "AHS",
+    "number": 365,
+    "title": "Measurement in Rehab",
+    "professor": "Akinola, Olayemi"
+  },
+  {
+    "subject": "AHS",
+    "number": 402,
+    "title": "Inter-professional Seminar",
+    "professor": "Wescott, Jennifer J"
+  },
+  {
+    "subject": "ANTH",
+    "number": 105,
+    "title": "Human Evolution",
+    "professor": "Sacks, Lita"
+  },
+  {
+    "subject": "ANTH",
+    "number": 229,
+    "title": "Inca Empire Archaeology",
+    "professor": "Bauer, Brian S"
+  },
+  {
+    "subject": "ARCH",
+    "number": 206,
+    "title": "Architectural Studio 4",
+    "professor": "Materia, Barbara"
+  },
+  {
+    "subject": "ARCH",
+    "number": 466,
+    "title": "Advanced Topic Studio 2",
+    "professor": "Gibson, Grant"
+  },
+  {
+    "subject": "ARCH",
+    "number": 555,
+    "title": "Design Development",
+    "professor": "Kelley, Thomas"
+  },
+  {
+    "subject": "ART",
+    "number": 160,
+    "title": "Intro to Digital Photo",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ART",
+    "number": 160,
+    "title": "Intro to Digital Photo(GEN ED)",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ART",
+    "number": 212,
+    "title": "Topics in Drawing",
+    "professor": "Peterman, Dan"
+  },
+  {
+    "subject": "BA",
+    "number": 100,
+    "title": "Intro to Prof Dev",
+    "professor": "Whittington, James"
+  },
+  {
+    "subject": "BA",
+    "number": 190,
+    "title": "Seminar for Bus Scholars",
+    "professor": "Sanchez, Mayra"
+  },
+  {
+    "subject": "BA",
+    "number": 299,
+    "title": "CBA Study Abroad",
+    "professor": "Sady, Elizabeth Virginia"
+  },
+  {
+    "subject": "BA",
+    "number": 420,
+    "title": "Professional Presence",
+    "professor": "Souri, Ranjit J"
+  },
+  {
+    "subject": "BHIS",
+    "number": 406,
+    "title": "Medical Terminology for HIM",
+    "professor": "Mills, Laura Lynn"
+  },
+  {
+    "subject": "BHIS",
+    "number": 593,
+    "title": "HI Capstone",
+    "professor": "Mills, Laura Lynn"
+  },
+  {
+    "subject": "BIOS",
+    "number": 110,
+    "title": "Biol of Cells & Organisms",
+    "professor": "Daemicke Hansen, Alexandra Kristin"
+  },
+  {
+    "subject": "BIOS",
+    "number": 230,
+    "title": "Evolution and Ecology",
+    "professor": "Chong, Jer Pin"
+  },
+  {
+    "subject": "BIOS",
+    "number": 294,
+    "title": "Visualizing Biological Data",
+    "professor": "Hampton-Marcell, Jarrad Timothy"
+  },
+  {
+    "subject": "BIOS",
+    "number": 310,
+    "title": "Genetics Laboratory",
+    "professor": "Chong, Jer Pin"
+  },
+  {
+    "subject": "BIOS",
+    "number": 352,
+    "title": "Introductory Biochemistry",
+    "professor": "Polikanov, Yury S"
+  },
+  {
+    "subject": "BIOS",
+    "number": 431,
+    "title": "Plant & Animal Interactions",
+    "professor": "Molumby, Alan J"
+  },
+  {
+    "subject": "ACTG",
+    "number": 210,
+    "title": "Intro to Fin Actg",
+    "professor": "Lord Pearson, Eva Marie"
+  },
+  {
+    "subject": "ACTG",
+    "number": 326,
+    "title": "Cost Accounting",
+    "professor": "Patrick, Paige"
+  },
+  {
+    "subject": "ACTG",
+    "number": 355,
+    "title": "Business Law I",
+    "professor": "Scully, George"
+  },
+  {
+    "subject": "ACTG",
+    "number": 445,
+    "title": "Federal Income Tax I",
+    "professor": "Vernon, Mary"
+  },
+  {
+    "subject": "ACTG",
+    "number": 474,
+    "title": "Actg Information Systems",
+    "professor": "Jastrzebski, Ronald J"
+  },
+  {
+    "subject": "AH",
+    "number": 252,
+    "title": "Art of Baroque and Rococo",
+    "professor": "Pollak, Martha"
+  },
+  {
+    "subject": "AHS",
+    "number": 375,
+    "title": "Ethics, Law in Health",
+    "professor": "Jackson, Ann W"
+  },
+  {
+    "subject": "ARCH",
+    "number": 366,
+    "title": "Architectural Studio 6",
+    "professor": "Bair, Kelly"
+  },
+  {
+    "subject": "ARCH",
+    "number": 471,
+    "title": "Structures II",
+    "professor": "Magruder, Robert"
+  },
+  {
+    "subject": "ART",
+    "number": 140,
+    "title": "Intro to Sculpture(Major only)",
+    "professor": "Mancini, Matthew Henry"
+  },
+  {
+    "subject": "ART",
+    "number": 170,
+    "title": "Intro Filmmaking(Major only)",
+    "professor": "Mackenzie, Kera Krystine"
+  },
+  {
+    "subject": "ART",
+    "number": 261,
+    "title": "Topics in Analog Photography",
+    "professor": "Keihm, Colleen"
+  },
+  {
+    "subject": "ART",
+    "number": 470,
+    "title": "Adv Moving Image: TIMEFULNESS",
+    "professor": "Stratman, Deborah Renee"
+  },
+  {
+    "subject": "BA",
+    "number": 289,
+    "title": "Business Internship Prog I",
+    "professor": "Bieliauskas, Rita Maria"
+  },
+  {
+    "subject": "BA",
+    "number": 320,
+    "title": "Civic Engagement",
+    "professor": "Ramos, Norma Elena"
+  },
+  {
+    "subject": "BHIS",
+    "number": 540,
+    "title": "Essentials Hlth Data Science",
+    "professor": "Krive, Jacob"
+  },
+  {
+    "subject": "BIOS",
+    "number": 104,
+    "title": "Biology for Non-majors",
+    "professor": "Muller, Michael T"
+  },
+  {
+    "subject": "BIOS",
+    "number": 296,
+    "title": "Directed Instruction",
+    "professor": "Nelson, Karin Noel"
+  },
+  {
+    "subject": "BIOS",
+    "number": 326,
+    "title": "Embryology Laboratory",
+    "professor": "Bassett, Andrea Louise"
+  },
+  {
+    "subject": "BIOS",
+    "number": 450,
+    "title": "Advanced Microbiology",
+    "professor": "Poretsky, Rachel S"
+  },
+  {
+    "subject": "BME",
+    "number": 250,
+    "title": "Clinical Problems Biomed Eng",
+    "professor": "Hetling, John R"
+  },
+  {
+    "subject": "BME",
+    "number": 310,
+    "title": "Biosystems Analysis",
+    "professor": "Guidetti, Martina"
+  },
+  {
+    "subject": "BME",
+    "number": 475,
+    "title": "Neural Engineering I",
+    "professor": "Hetling, John R"
+  },
+  {
+    "subject": "BME",
+    "number": 538,
+    "title": "Numerical Analysis & Bio Syst",
+    "professor": "Peng, Zhangli"
+  },
+  {
+    "subject": "BVIS",
+    "number": 575,
+    "title": "Business Practices",
+    "professor": "Root-Thompson, Amanda S"
+  },
+  {
+    "subject": "BVIS",
+    "number": 594,
+    "title": "Special Topics in Biomed Vis",
+    "professor": "Kania, Patrick"
+  },
+  {
+    "subject": "CELE",
+    "number": 606,
+    "title": "Research-Medicine",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "CHE",
+    "number": 301,
+    "title": "Chem Engr Thermodynamics",
+    "professor": "Caracotsios, Michael"
+  },
+  {
+    "subject": "ACTG",
+    "number": 211,
+    "title": "Intro Mgrl Actg for BBA online",
+    "professor": "Patel, Neel Vasudev"
+  },
+  {
+    "subject": "ACTG",
+    "number": 446,
+    "title": "Federal Income Tax II",
+    "professor": "Savoy, Steven J"
+  },
+  {
+    "subject": "ACTG",
+    "number": 470,
+    "title": "Ethical Environment Business",
+    "professor": "Scully, George"
+  },
+  {
+    "subject": "ACTG",
+    "number": 475,
+    "title": "Database Accounting Systems",
+    "professor": "Westland, James Christopher"
+  },
+  {
+    "subject": "ACTG",
+    "number": 485,
+    "title": "Valuation",
+    "professor": "McLaughlin, Michael Patrick"
+  },
+  {
+    "subject": "ACTG",
+    "number": 494,
+    "title": "Fraud",
+    "professor": "Magena, Nicholas Karl"
+  },
+  {
+    "subject": "AH",
+    "number": 201,
+    "title": "Reading&Writing Art Criticism",
+    "professor": "Reeves, Christopher Matthew"
+  },
+  {
+    "subject": "AHS",
+    "number": 330,
+    "title": "Phys and Mental Hlth in Rehab",
+    "professor": "Schwartz, Orit"
+  },
+  {
+    "subject": "ANAT",
+    "number": 443,
+    "title": "Clinical Anatomy",
+    "professor": "Savakova, Denitsa"
+  },
+  {
+    "subject": "ANTH",
+    "number": 101,
+    "title": "World Cultures",
+    "professor": "Mouftah, Nermeen"
+  },
+  {
+    "subject": "ANTH",
+    "number": 102,
+    "title": "Intro to Archaeology",
+    "professor": "LaMotta, Vincent"
+  },
+  {
+    "subject": "ANTH",
+    "number": 309,
+    "title": "Writing Culture",
+    "professor": "Hendrickson, Mitchel J"
+  },
+  {
+    "subject": "ANTH",
+    "number": 320,
+    "title": "How Archaeologists Think",
+    "professor": "LaMotta, Vincent"
+  },
+  {
+    "subject": "ARCH",
+    "number": 466,
+    "title": "Advanced Topic Studio 2",
+    "professor": "Venckunaite, Aurelija"
+  },
+  {
+    "subject": "ARCH",
+    "number": 499,
+    "title": "Special Topics",
+    "professor": "Rodriguez, Maria F"
+  },
+  {
+    "subject": "ARCH",
+    "number": 564,
+    "title": "Architectural Technology IV",
+    "professor": "Preissner, Paul"
+  },
+  {
+    "subject": "ARCH",
+    "number": 586,
+    "title": "Arch Theory & History IV",
+    "professor": "Dean, Penelope"
+  },
+  {
+    "subject": "ART",
+    "number": 112,
+    "title": "Intro to Drawing(Major Only)",
+    "professor": "Bernblum, Iris R"
+  },
+  {
+    "subject": "ART",
+    "number": 112,
+    "title": "Introduction to Drawing",
+    "professor": "Aguilar, Sarah"
+  },
+  {
+    "subject": "ART",
+    "number": 160,
+    "title": "Intro:Digital Photo(Major only",
+    "professor": "Mueller, Eileen"
+  },
+  {
+    "subject": "ART",
+    "number": 530,
+    "title": "Advanced Graduate Critique",
+    "professor": "Frid, Dianna"
+  },
+  {
+    "subject": "BA",
+    "number": 200,
+    "title": "Business Communication",
+    "professor": "Andrews, Dean"
+  },
+  {
+    "subject": "BA",
+    "number": 320,
+    "title": "Civic Engagement",
+    "professor": "Walthall, Mary"
+  },
+  {
+    "subject": "BA",
+    "number": 494,
+    "title": "Career Exploration BBA Online",
+    "professor": "Galeher, Janmarie"
+  },
+  {
+    "subject": "BA",
+    "number": 495,
+    "title": "Bus Strtgy for BBA Online",
+    "professor": "Trampas, Ann E"
+  },
+  {
+    "subject": "BHIS",
+    "number": 499,
+    "title": "Info Sources in BHIS",
+    "professor": "Mills, Laura Lynn"
+  },
+  {
+    "subject": "BIOS",
+    "number": 102,
+    "title": "Bio Sci First-Year Seminar",
+    "professor": "Falk, Patrick Joseph"
+  },
+  {
+    "subject": "ACTG",
+    "number": 315,
+    "title": "Intermediate Financial Actg I",
+    "professor": "Nekrasov, Alexander"
+  },
+  {
+    "subject": "ACTG",
+    "number": 392,
+    "title": "Data Analytics for Accountants",
+    "professor": "Gelsomin, Eric"
+  },
+  {
+    "subject": "AH",
+    "number": 206,
+    "title": "Museum & Exhibition in Motion",
+    "professor": "Lee, Lisa Yun"
+  },
+  {
+    "subject": "AH",
+    "number": 263,
+    "title": "Latin Amer Colonial Art",
+    "professor": "Deij Prado, Macarena"
+  },
+  {
+    "subject": "AHS",
+    "number": 210,
+    "title": "Intro to Rehab Science",
+    "professor": "Hasnain, Rooshey"
+  },
+  {
+    "subject": "AHS",
+    "number": 393,
+    "title": "Synthesis in Health &Rehab Sci",
+    "professor": "Kieso, Tiana Al-Aswad"
+  },
+  {
+    "subject": "ANTH",
+    "number": 100,
+    "title": "Human Adventure",
+    "professor": "Bauer, Brian S"
+  },
+  {
+    "subject": "ANTH",
+    "number": 217,
+    "title": "Chicago Ethnic Heritage Sites",
+    "professor": "Johnson, Peri"
+  },
+  {
+    "subject": "ANTH",
+    "number": 239,
+    "title": "Bioanthropology of Health",
+    "professor": "Starkweather, Kathrine Elizabeth"
+  },
+  {
+    "subject": "ARCH",
+    "number": 372,
+    "title": "Architectural Theory 2",
+    "professor": "Somol, Robert E"
+  },
+  {
+    "subject": "ARCH",
+    "number": 466,
+    "title": "Advanced Topic Studio 2",
+    "professor": "Lyster, Clare"
+  },
+  {
+    "subject": "ART",
+    "number": 110,
+    "title": "Intro to Art Education",
+    "professor": "Sanders, Luke Anthony"
+  },
+  {
+    "subject": "ART",
+    "number": 160,
+    "title": "Intro to Digital Photo(GEN ED)",
+    "professor": "MacKenzie-Margulies, Caleb William"
+  },
+  {
+    "subject": "ART",
+    "number": 210,
+    "title": "Learning in Art Education",
+    "professor": "Estrada, William"
+  },
+  {
+    "subject": "ART",
+    "number": 230,
+    "title": "Topics in Painting",
+    "professor": "Patton, Katelyn"
+  },
+  {
+    "subject": "ART",
+    "number": 372,
+    "title": "Radical Drabble: Filmmaking",
+    "professor": "Reeder, Jennifer K"
+  },
+  {
+    "subject": "ASP",
+    "number": 96,
+    "title": "Independent Study",
+    "professor": "Mobley, Marcus"
+  },
+  {
+    "subject": "BA",
+    "number": 100,
+    "title": "Intro to Prof Dev",
+    "professor": "Rodriguez, Paul"
+  },
+  {
+    "subject": "BA",
+    "number": 220,
+    "title": "Business Prof Dev II",
+    "professor": "Rodriguez, Paul"
+  },
+  {
+    "subject": "BA",
+    "number": 300,
+    "title": "Adv Mgrl Comm for BBA Online",
+    "professor": "Atchley, Cindy J"
+  },
+  {
+    "subject": "BCMG",
+    "number": 595,
+    "title": "Student Research Seminars",
+    "professor": "Segev, Nava"
+  },
+  {
+    "subject": "BHIS",
+    "number": 480,
+    "title": "Mgmt & Bus Practices",
+    "professor": "Glondys, Barbara A"
+  },
+  {
+    "subject": "BHIS",
+    "number": 546,
+    "title": "Leadership Dvlpmnt in HI",
+    "professor": "Isola, Miriam L."
+  },
+  {
+    "subject": "BHIS",
+    "number": 570,
+    "title": "Human Factors and Cognition",
+    "professor": "Papautsky, Elizabeth"
+  },
+  {
+    "subject": "BIOS",
+    "number": 222,
+    "title": "Cell Biology",
+    "professor": "Dubreuil, Ronald R."
+  },
+  {
+    "subject": "BIOS",
+    "number": 250,
+    "title": "Microbio & Application Health",
+    "professor": "Mills, Michael"
+  },
+  {
+    "subject": "BIOS",
+    "number": 343,
+    "title": "Animal Physiological Systems",
+    "professor": "Daemicke Hansen, Alexandra Kristin"
+  },
+  {
+    "subject": "ACTG",
+    "number": 210,
+    "title": "Intro to Fin Actg",
+    "professor": "Zufarov, Rustam"
+  },
+  {
+    "subject": "ACTG",
+    "number": 316,
+    "title": "Intermediate Financial Actg II",
+    "professor": "McLaughlin, Michael Patrick"
+  },
+  {
+    "subject": "ACTG",
+    "number": 435,
+    "title": "Auditing",
+    "professor": "Judd, Joshua Scott"
+  },
+  {
+    "subject": "AH",
+    "number": 100,
+    "title": "Intro to Art &Art History",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "AHS",
+    "number": 375,
+    "title": "Ethics, Law in Health",
+    "professor": "Swirsky, Eric S"
+  },
+  {
+    "subject": "ANTH",
+    "number": 227,
+    "title": "Anc Civ Mex and Cent Amer",
+    "professor": "Solinis Casparius, Rodrigo"
+  },
+  {
+    "subject": "ANTH",
+    "number": 503,
+    "title": "Hominids, Phylogeny & Adapt",
+    "professor": "Williams, Sloan R"
+  },
+  {
+    "subject": "ARAB",
+    "number": 102,
+    "title": "Elementary Arabic II",
+    "professor": "Alyassir, Lina"
+  },
+  {
+    "subject": "ARAB",
+    "number": 230,
+    "title": "Arabic Literature in Tran",
+    "professor": "Aburqayeq, Ghassan"
+  },
+  {
+    "subject": "ARCH",
+    "number": 544,
+    "title": "Professional Practices",
+    "professor": "Hanahan, Michael"
+  },
+  {
+    "subject": "ART",
+    "number": 101,
+    "title": "Signifying Practices",
+    "professor": "Reeves, Christopher Matthew"
+  },
+  {
+    "subject": "ART",
+    "number": 151,
+    "title": "Intro to Creative Coding",
+    "professor": "Moreno, Sal"
+  },
+  {
+    "subject": "ART",
+    "number": 312,
+    "title": "Topics in Drawing II",
+    "professor": "Aguilar, Alberto"
+  },
+  {
+    "subject": "ASP",
+    "number": 85,
+    "title": "Boosting Academic Success",
+    "professor": "Mann, Jon"
+  },
+  {
+    "subject": "ASP",
+    "number": 96,
+    "title": "Independent Study",
+    "professor": "Ramirez, Elizabeth"
+  },
+  {
+    "subject": "BA",
+    "number": 100,
+    "title": "Intro to Prof Dev",
+    "professor": "Soriano, Diana Ethel"
+  },
+  {
+    "subject": "BA",
+    "number": 200,
+    "title": "Business Communication",
+    "professor": "Schraufnagel, William"
+  },
+  {
+    "subject": "BA",
+    "number": 420,
+    "title": "Professional Presence",
+    "professor": "Rodriguez, Paul"
+  },
+  {
+    "subject": "BHIS",
+    "number": 460,
+    "title": "Intro to Hlth Informatics",
+    "professor": "Williams, Felecia Altevet"
+  },
+  {
+    "subject": "BHIS",
+    "number": 461,
+    "title": "Info Systems for HIM",
+    "professor": "Cotton, Steven J"
+  },
+  {
+    "subject": "BHIS",
+    "number": 554,
+    "title": "HI Business Intelligence",
+    "professor": "Shah, Sanket"
+  },
+  {
+    "subject": "BHIS",
+    "number": 575,
+    "title": "App Stats Hlth Data Science",
+    "professor": "Bozinovich, Lu"
+  },
+  {
+    "subject": "BIOS",
+    "number": 230,
+    "title": "Evolution and Ecology",
+    "professor": "Nelson, Karin Noel"
+  },
+  {
+    "subject": "BIOS",
+    "number": 236,
+    "title": "Animal Behavior",
+    "professor": "Nelson, Karin Noel"
+  },
+  {
+    "subject": "BIOS",
+    "number": 294,
+    "title": "Conservation Biology",
+    "professor": "Nelson, Karin Noel"
+  },
+  {
+    "subject": "BIOS",
+    "number": 483,
+    "title": "Neuroanatomy",
+    "professor": "Sparta, Dennis"
+  },
+  {
+    "subject": "BIOS",
+    "number": 485,
+    "title": "Neuroscience II",
+    "professor": "Donahey Roitman, Jamie Colleen Kristen"
+  },
+  {
+    "subject": "ACTG",
+    "number": 211,
+    "title": "Intro Managerial Accounting",
+    "professor": "Chang, Nathan"
+  },
+  {
+    "subject": "ANTH",
+    "number": 420,
+    "title": "How Museums Work",
+    "professor": "Parkinson, William Arthur"
+  },
+  {
+    "subject": "ANTH",
+    "number": 437,
+    "title": "Bioarchaeology",
+    "professor": "Sacks, Lita"
+  },
+  {
+    "subject": "ARAB",
+    "number": 103,
+    "title": "Intermediate Arabic I",
+    "professor": "Alyassir, Lina"
+  },
+  {
+    "subject": "ARCH",
+    "number": 106,
+    "title": "Architectural Studio 2",
+    "professor": "Preissner, Paul"
+  },
+  {
+    "subject": "ARCH",
+    "number": 522,
+    "title": "Topics in Arch Technology",
+    "professor": "Lyster, Clare"
+  },
+  {
+    "subject": "ART",
+    "number": 130,
+    "title": "Intro to Painting(Major Only)",
+    "professor": "Banos Arjona, Juan Antonio"
+  },
+  {
+    "subject": "ART",
+    "number": 140,
+    "title": "Introduction to Sculpture",
+    "professor": "Le, Minh Hien"
+  },
+  {
+    "subject": "ART",
+    "number": 374,
+    "title": "Animation Production",
+    "professor": "Lopez, Michael"
+  },
+  {
+    "subject": "ART",
+    "number": 520,
+    "title": "Anthropocene: Weird Sensations",
+    "professor": "Johnson, Garrett Laroy"
+  },
+  {
+    "subject": "ASP",
+    "number": 85,
+    "title": "Boosting Academic Success",
+    "professor": "Baniasad, Bahar"
+  },
+  {
+    "subject": "BA",
+    "number": 100,
+    "title": "Intro to Prof Dev",
+    "professor": "Anderson, Stephanie Leigh"
+  },
+  {
+    "subject": "BA",
+    "number": 200,
+    "title": "Business Communication",
+    "professor": "Bailey, Lisa"
+  },
+  {
+    "subject": "BA",
+    "number": 200,
+    "title": "Business Communication",
+    "professor": "Banks, Jacinta"
+  },
+  {
+    "subject": "BA",
+    "number": 220,
+    "title": "Business Prof Dev II",
+    "professor": "Souri, Ranjit J"
+  },
+  {
+    "subject": "BA",
+    "number": 420,
+    "title": "Professional Presence",
+    "professor": "Warner, Kimberly"
+  },
+  {
+    "subject": "BHIS",
+    "number": 510,
+    "title": "Informatics & Population Hlth",
+    "professor": "Czart, Margaret B"
+  },
+  {
+    "subject": "BHIS",
+    "number": 520,
+    "title": "Hlth Info Syst Analysis & Dsgn",
+    "professor": "McNay, Steven M"
+  },
+  {
+    "subject": "BIOS",
+    "number": 312,
+    "title": "Cell Biology Laboratory",
+    "professor": "Santus, William"
+  },
+  {
+    "subject": "BIOS",
+    "number": 331,
+    "title": "Ecology Laboratory",
+    "professor": "Ale, Som Bahadur"
+  },
+  {
+    "subject": "BIOS",
+    "number": 486,
+    "title": "Animal Behav & Neuroethology",
+    "professor": "Park, Thomas J"
+  },
+  {
+    "subject": "BLST",
+    "number": 258,
+    "title": "Race and Urban Life",
+    "professor": "Johnson, Cedric"
+  },
+  {
+    "subject": "BME",
+    "number": 101,
+    "title": "Intro Biomedical Engineering",
+    "professor": "Wang, Zhinan"
+  },
+  {
+    "subject": "BME",
+    "number": 325,
+    "title": "Biotransport",
+    "professor": "Takoudis, Christos G"
+  },
+  {
+    "subject": "BME",
+    "number": 333,
+    "title": "Bioinstrumentation Lab I",
+    "professor": "Wang, Zhinan"
+  },
+  {
+    "subject": "BME",
+    "number": 397,
+    "title": "Senior Design II",
+    "professor": "Felder, Anthony E"
+  },
+  {
+    "subject": "BME",
+    "number": 399,
+    "title": "Prof Development Biomed Eng",
+    "professor": "Esmailbeigi, Hananeh"
+  },
+  {
+    "subject": "CHE",
+    "number": 313,
+    "title": "Transport Phenomena III",
+    "professor": "Kim, Sangil"
+  },
+  {
+    "subject": "CHEM",
+    "number": 232,
+    "title": "Structure and Function",
+    "professor": "Ayitou, Anoklase Jean-Luc"
+  },
+  {
+    "subject": "CHEM",
+    "number": 421,
+    "title": "Instrumental Analysis",
+    "professor": "Rosenhouse-Dantsker, Avia"
+  },
+  {
+    "subject": "CHEM",
+    "number": 454,
+    "title": "Biochemistry II",
+    "professor": "Jeffery, Constance J"
+  },
+  {
+    "subject": "CHEM",
+    "number": 455,
+    "title": "Biochemistry Laboratory",
+    "professor": "Yang, Xiaojing"
+  },
+  {
+    "subject": "CHEM",
+    "number": 510,
+    "title": "Inorganic Seminar",
+    "professor": "Mankad, Neal"
+  },
+  {
+    "subject": "CHEM",
+    "number": 592,
+    "title": "Chemical Research",
+    "professor": "Lee, Daesung"
+  },
+  {
+    "subject": "CHSC",
+    "number": 411,
+    "title": "Nutrition For Pub Hlth Profsnl",
+    "professor": "Schermbeck, Rebecca Marie"
+  },
+  {
+    "subject": "CI",
+    "number": 464,
+    "title": "Bilingualism and Literacy",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "CL",
+    "number": 103,
+    "title": "Classical&Mediterran Archaeol",
+    "professor": "Ros, Karen E"
+  },
+  {
+    "subject": "CL",
+    "number": 203,
+    "title": "Ancient Rome",
+    "professor": "Papakonstantinou, Zinon"
+  },
+  {
+    "subject": "CLER",
+    "number": 601,
+    "title": "Obstetrics and Gynecology",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "CLJ",
+    "number": 210,
+    "title": "Principles of Criminal Law",
+    "professor": "Williams, David"
+  },
+  {
+    "subject": "CLJ",
+    "number": 424,
+    "title": "Gender, Crime, & Justice",
+    "professor": "Erez, Edna"
+  },
+  {
+    "subject": "CME",
+    "number": 315,
+    "title": "Soil Mechanics & Lab",
+    "professor": "Reddy, Krishna R"
+  },
+  {
+    "subject": "CME",
+    "number": 494,
+    "title": "Adv topics in Envr. ENGR",
+    "professor": "Banjavcic, Scott David"
+  },
+  {
+    "subject": "COMM",
+    "number": 140,
+    "title": "Fundamentals of Media Comm",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "COMM",
+    "number": 200,
+    "title": "Communication Technologies",
+    "professor": "McDowell, Zachary J"
+  },
+  {
+    "subject": "COMM",
+    "number": 491,
+    "title": "Seminar in Media & Comm",
+    "professor": "Rojecki, Andrew"
+  },
+  {
+    "subject": "CS",
+    "number": 294,
+    "title": "Ugrad TA Seminar",
+    "professor": "Cranch, Cody Ingersoll"
+  },
+  {
+    "subject": "CS",
+    "number": 342,
+    "title": "Software Design",
+    "professor": "McCarty, Evan"
+  },
+  {
+    "subject": "CS",
+    "number": 401,
+    "title": "Computer Algorithms I",
+    "professor": "Ibrahim, Omar"
+  },
+  {
+    "subject": "CS",
+    "number": 411,
+    "title": "Artificial Intelligence I",
+    "professor": "Gmytrasiewicz, Piotr"
+  },
+  {
+    "subject": "CS",
+    "number": 422,
+    "title": "User Interface Design",
+    "professor": "Michaelis, Joseph"
+  },
+  {
+    "subject": "CS",
+    "number": 454,
+    "title": "Principles of Concurrent Prog",
+    "professor": "Ganchinho de Pina, Luis Gabriel"
+  },
+  {
+    "subject": "DBCS",
+    "number": 327,
+    "title": "Biomed and Clin Sciences V",
+    "professor": "Brown, Blase P."
+  },
+  {
+    "subject": "DES",
+    "number": 251,
+    "title": "Digital Media Design III",
+    "professor": "Roeger, Oliver L."
+  },
+  {
+    "subject": "DES",
+    "number": 322,
+    "title": "Design Research Methods",
+    "professor": "Lee, Latrina Eleanor"
+  },
+  {
+    "subject": "CHE",
+    "number": 397,
+    "title": "Senior Design II",
+    "professor": "Bilgin, Betul"
+  },
+  {
+    "subject": "CHEM",
+    "number": 101,
+    "title": "Preparatory Chemistry",
+    "professor": "Jardon Martin, Raquel"
+  },
+  {
+    "subject": "CHEM",
+    "number": 122,
+    "title": "Matter and Energy",
+    "professor": "Carmel, Justin"
+  },
+  {
+    "subject": "CHEM",
+    "number": 344,
+    "title": "Physical Chem/Biochemists II",
+    "professor": "Lorieau, Justin L"
+  },
+  {
+    "subject": "CHEM",
+    "number": 452,
+    "title": "Biochemistry I",
+    "professor": "Ondrus, Alison E"
+  },
+  {
+    "subject": "CHEM",
+    "number": 599,
+    "title": "PhD Thesis Research",
+    "professor": "Mankad, Neal"
+  },
+  {
+    "subject": "CHIN",
+    "number": 330,
+    "title": "Linguistic Intro to Chinese",
+    "professor": "Xiang, Xuehua"
+  },
+  {
+    "subject": "CHSC",
+    "number": 422,
+    "title": "Community Health 2",
+    "professor": "Wallace, Katrine L"
+  },
+  {
+    "subject": "CHSC",
+    "number": 512,
+    "title": "Evidence Translation MCH",
+    "professor": "Velonis, Alisa Joy"
+  },
+  {
+    "subject": "CL",
+    "number": 211,
+    "title": "Sex/Gender in Ancient World",
+    "professor": "Burns, Krishni Schaefgen"
+  },
+  {
+    "subject": "CLER",
+    "number": 633,
+    "title": "Pediatrics",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "CLJ",
+    "number": 220,
+    "title": "Criminology",
+    "professor": "Schuck, Amie"
+  },
+  {
+    "subject": "CLJ",
+    "number": 261,
+    "title": "Research Methods I",
+    "professor": "Maggio, Christopher"
+  },
+  {
+    "subject": "CLJ",
+    "number": 561,
+    "title": "Qualitative Methods & Design",
+    "professor": "Gunn, Alana Janell"
+  },
+  {
+    "subject": "CME",
+    "number": 197,
+    "title": "Intro to Civil Environment Eng",
+    "professor": "Ataei, Hossein"
+  },
+  {
+    "subject": "CME",
+    "number": 205,
+    "title": "Structural Analysis I",
+    "professor": "Ansari, Farhad"
+  },
+  {
+    "subject": "CME",
+    "number": 261,
+    "title": "Materials For Manufacturing",
+    "professor": "Karpov, Eduard"
+  },
+  {
+    "subject": "CME",
+    "number": 290,
+    "title": "Engineering Surveying",
+    "professor": "Peiravian, Farideddin"
+  },
+  {
+    "subject": "CME",
+    "number": 421,
+    "title": "Water Treatment Design",
+    "professor": "Khodadoust, Amid"
+  },
+  {
+    "subject": "COMM",
+    "number": 103,
+    "title": "Intro to Media",
+    "professor": "Taylor, Samuel H"
+  },
+  {
+    "subject": "COMM",
+    "number": 240,
+    "title": "Data Journalism",
+    "professor": "Reilley, Michael"
+  },
+  {
+    "subject": "COMM",
+    "number": 250,
+    "title": "Social Media and Society",
+    "professor": "Meraz, Sharon M"
+  },
+  {
+    "subject": "COMM",
+    "number": 270,
+    "title": "Digital Influencers",
+    "professor": "Kim, Do Own"
+  },
+  {
+    "subject": "COMM",
+    "number": 425,
+    "title": "Digital Advocacy",
+    "professor": "Mukherjee, Ishani"
+  },
+  {
+    "subject": "CS",
+    "number": 141,
+    "title": "Program Design II",
+    "professor": "Hodges, Mark Richard"
+  },
+  {
+    "subject": "CS",
+    "number": 277,
+    "title": "Technical Comm in Comp Sci",
+    "professor": "Cranch, Cody Ingersoll"
+  },
+  {
+    "subject": "CS",
+    "number": 361,
+    "title": "Systems Programming",
+    "professor": "Theys, Mitchell D"
+  },
+  {
+    "subject": "CS",
+    "number": 377,
+    "title": "Ethical Issues in Computing",
+    "professor": "Swiatek, Sara Jo"
+  },
+  {
+    "subject": "BIOS",
+    "number": 592,
+    "title": "Research Seminar",
+    "professor": "Orenic, Teresa Vales"
+  },
+  {
+    "subject": "BIOS",
+    "number": 593,
+    "title": "Intro to Lab Research",
+    "professor": "Orenic, Teresa Vales"
+  },
+  {
+    "subject": "BLST",
+    "number": 104,
+    "title": "Race, Place and Schooling",
+    "professor": "Stovall, David O"
+  },
+  {
+    "subject": "BME",
+    "number": 422,
+    "title": "Magnetic Resonance Imaging",
+    "professor": "Iyigunler, Meryem Muge Karaman"
+  },
+  {
+    "subject": "BSTT",
+    "number": 535,
+    "title": "Categorical Data Analysis",
+    "professor": "Wang, Tianhao"
+  },
+  {
+    "subject": "BSTT",
+    "number": 595,
+    "title": "Biostatistics Research Seminar",
+    "professor": "Sun, Jiehuan"
+  },
+  {
+    "subject": "BVIS",
+    "number": 521,
+    "title": "Modeling III",
+    "professor": "Cloninger, Kelly Lee"
+  },
+  {
+    "subject": "CELE",
+    "number": 606,
+    "title": "Sleep Medicine",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "CELE",
+    "number": 607,
+    "title": "M3 Neurology Clerkship",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "CELE",
+    "number": 620,
+    "title": "M4 TeachingElec Hosp Pract",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "CHE",
+    "number": 382,
+    "title": "Chem Engr Lab II",
+    "professor": "Zdunek, Alan"
+  },
+  {
+    "subject": "CHEM",
+    "number": 343,
+    "title": "Physical Chemistry Lab",
+    "professor": "Jiang, Nan"
+  },
+  {
+    "subject": "CHEM",
+    "number": 534,
+    "title": "Advanced Organic Chemistry III",
+    "professor": "Mohr, Justin T"
+  },
+  {
+    "subject": "CHSC",
+    "number": 422,
+    "title": "Community Health 2",
+    "professor": "Ibe-Lamberts, Kelechi D"
+  },
+  {
+    "subject": "CHSC",
+    "number": 446,
+    "title": "Res Meths In Comm Hlth",
+    "professor": "Friend, Daniel Joseph"
+  },
+  {
+    "subject": "CI",
+    "number": 402,
+    "title": "Reading and Writing: Inter Lit",
+    "professor": "Phillips, Nathan C"
+  },
+  {
+    "subject": "CLER",
+    "number": 605,
+    "title": "Medicine",
+    "professor": "Khan, Asra R"
+  },
+  {
+    "subject": "CLJ",
+    "number": 120,
+    "title": "Crime and Society",
+    "professor": "Maggio, Christopher"
+  },
+  {
+    "subject": "CLJ",
+    "number": 493,
+    "title": "Rehabilitation, Therap Justice",
+    "professor": "Thompson, Julian G"
+  },
+  {
+    "subject": "CME",
+    "number": 586,
+    "title": "Construction Regulations",
+    "professor": "Ataei, Hossein"
+  },
+  {
+    "subject": "COMM",
+    "number": 204,
+    "title": "Gender and Popular Culture",
+    "professor": "Celeste, Manoucheka"
+  },
+  {
+    "subject": "COMM",
+    "number": 210,
+    "title": "Race, Media and Culture",
+    "professor": "Tekobbe, Cindy"
+  },
+  {
+    "subject": "COMM",
+    "number": 490,
+    "title": "Sem in Culture and Comm",
+    "professor": "Taylor, Samuel H"
+  },
+  {
+    "subject": "CS",
+    "number": 107,
+    "title": "Intro Comp & Programming",
+    "professor": "Polakis, Jason"
+  },
+  {
+    "subject": "CS",
+    "number": 111,
+    "title": "Program Design I",
+    "professor": "Franke, Baker E"
+  },
+  {
+    "subject": "CS",
+    "number": 211,
+    "title": "Programming Practicum",
+    "professor": "Hayes, David P"
+  },
+  {
+    "subject": "CS",
+    "number": 341,
+    "title": "Programming Language Concepts",
+    "professor": "Kidane, Ellen G"
+  },
+  {
+    "subject": "CS",
+    "number": 362,
+    "title": "Computer Design",
+    "professor": "Troy, Patrick A"
+  },
+  {
+    "subject": "BIOS",
+    "number": 220,
+    "title": "Genetics",
+    "professor": "Mc Cutcheon, Suzanne M"
+  },
+  {
+    "subject": "BIOS",
+    "number": 222,
+    "title": "Cell Biology",
+    "professor": "Alfonso, Aixa"
+  },
+  {
+    "subject": "BIOS",
+    "number": 399,
+    "title": "Independent Research",
+    "professor": "Jeffery, Constance J"
+  },
+  {
+    "subject": "BIOS",
+    "number": 532,
+    "title": "Ecology and Evolution II",
+    "professor": "Mason-Gamer, Roberta J"
+  },
+  {
+    "subject": "BME",
+    "number": 332,
+    "title": "Bioinstrumentation I",
+    "professor": "Papautsky, Ian"
+  },
+  {
+    "subject": "BME",
+    "number": 339,
+    "title": "Biostatistics I",
+    "professor": "Lin, Meishan"
+  },
+  {
+    "subject": "BME",
+    "number": 402,
+    "title": "Medical Tech Assessment",
+    "professor": "Kotche, Miiri Ann"
+  },
+  {
+    "subject": "BSTT",
+    "number": 401,
+    "title": "Biostatistics II",
+    "professor": "Gao, Weihua"
+  },
+  {
+    "subject": "BVIS",
+    "number": 522,
+    "title": "Illustration Techniques",
+    "professor": "Bond, Samantha G"
+  },
+  {
+    "subject": "BVIS",
+    "number": 541,
+    "title": "Animation I",
+    "professor": "Antia-Obong, Amami Elizabeth"
+  },
+  {
+    "subject": "CELE",
+    "number": 600,
+    "title": "Elective Clerkship",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "CELE",
+    "number": 606,
+    "title": "Critical Care Medicine",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "CHE",
+    "number": 201,
+    "title": "Intro to Thermodynamics",
+    "professor": "Bilgin, Betul"
+  },
+  {
+    "subject": "CHE",
+    "number": 230,
+    "title": "Molecular Systems in Chem Eng",
+    "professor": "Ibagere, Ezinne Chidiebere"
+  },
+  {
+    "subject": "CHEM",
+    "number": 125,
+    "title": "Foundations of Chem Inquiry II",
+    "professor": "Stec, Ewa"
+  },
+  {
+    "subject": "CHEM",
+    "number": 222,
+    "title": "Analytical Chemistry",
+    "professor": "Tripa, Cornel Emil"
+  },
+  {
+    "subject": "CHEM",
+    "number": 233,
+    "title": "Synthesis Techniques Lab",
+    "professor": "Yermolina, Maria V"
+  },
+  {
+    "subject": "CHEM",
+    "number": 346,
+    "title": "Physical Chemistry II",
+    "professor": "Glusac, Ksenija D"
+  },
+  {
+    "subject": "CI",
+    "number": 414,
+    "title": "Middle and High School Lit",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "CLER",
+    "number": 604,
+    "title": "Surgery",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "CLER",
+    "number": 620,
+    "title": "Medicine",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "CLJ",
+    "number": 101,
+    "title": "Intro to Crim, Law, & Justice",
+    "professor": "Schuck, Amie"
+  },
+  {
+    "subject": "CLJ",
+    "number": 120,
+    "title": "Crime and Society",
+    "professor": "Muchow, Ashley N"
+  },
+  {
+    "subject": "CLJ",
+    "number": 261,
+    "title": "Research Methods I",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "CLJ",
+    "number": 394,
+    "title": "Intergroup Dialogue",
+    "professor": "Adams, Dean Lynn"
+  },
+  {
+    "subject": "CLJ",
+    "number": 402,
+    "title": "Trial Interaction",
+    "professor": "Matoesian, Greg"
+  },
+  {
+    "subject": "CLJ",
+    "number": 491,
+    "title": "Psych of Torture and Terror",
+    "professor": "Ullman, Sarah E"
+  },
+  {
+    "subject": "BIOS",
+    "number": 365,
+    "title": "Human Ecological Systems",
+    "professor": "Gonzalez-Meler, Miquel Angel"
+  },
+  {
+    "subject": "BIOS",
+    "number": 386,
+    "title": "Neurobiology Seminar",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "BIOS",
+    "number": 430,
+    "title": "Evolution",
+    "professor": "Walker, Joseph"
+  },
+  {
+    "subject": "BIOS",
+    "number": 482,
+    "title": "Mol and Dev Neurobiology Lab",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "BIOS",
+    "number": 539,
+    "title": "Ecology  & Evolution Seminar",
+    "professor": "Igic, Boris"
+  },
+  {
+    "subject": "BIOS",
+    "number": 592,
+    "title": "Research Seminar",
+    "professor": "Zak, Joseph Donald"
+  },
+  {
+    "subject": "BIOS",
+    "number": 595,
+    "title": "Departmental Seminar",
+    "professor": "Orenic, Teresa Vales"
+  },
+  {
+    "subject": "BIOS",
+    "number": 595,
+    "title": "Departmental Seminar",
+    "professor": "Richmond, Janet Elizabeth"
+  },
+  {
+    "subject": "BLST",
+    "number": 101,
+    "title": "Intro Black Diaspora Studies",
+    "professor": "Jackson, Lynette A."
+  },
+  {
+    "subject": "BME",
+    "number": 530,
+    "title": "Stats & Machine Learning",
+    "professor": "Dai, Yang"
+  },
+  {
+    "subject": "BME",
+    "number": 568,
+    "title": "Emerging Optical Imaging Tech",
+    "professor": "Yao, Xincheng"
+  },
+  {
+    "subject": "BME",
+    "number": 598,
+    "title": "Masters Thesis Research",
+    "professor": "Khetani, Salman"
+  },
+  {
+    "subject": "BSTT",
+    "number": 413,
+    "title": "Intro to Data Analysis w/ R",
+    "professor": "Awadalla, Saria Salah"
+  },
+  {
+    "subject": "BSTT",
+    "number": 528,
+    "title": "Machine Learning Instructor",
+    "professor": "Sun, Jiehuan"
+  },
+  {
+    "subject": "CHE",
+    "number": 311,
+    "title": "Transport Phenomena I",
+    "professor": "Torabi, Korosh"
+  },
+  {
+    "subject": "CHE",
+    "number": 312,
+    "title": "Transport Phenomena II",
+    "professor": "Torabi, Korosh"
+  },
+  {
+    "subject": "CHEM",
+    "number": 101,
+    "title": "Preparatory Chemistry",
+    "professor": "Schroeder, Lianne E"
+  },
+  {
+    "subject": "CHEM",
+    "number": 340,
+    "title": "Physical Chem for BioChem I",
+    "professor": "Snee, Preston T."
+  },
+  {
+    "subject": "CHEM",
+    "number": 558,
+    "title": "Biophysical Chemistry",
+    "professor": "Gao, Ruixuan"
+  },
+  {
+    "subject": "CHIN",
+    "number": 102,
+    "title": "Elementary Chinese II",
+    "professor": "Meng, Duosi"
+  },
+  {
+    "subject": "CI",
+    "number": 402,
+    "title": "Reading and Writing: Inter Lit",
+    "professor": "Woodard, Rebecca Lindsay"
+  },
+  {
+    "subject": "CI",
+    "number": 430,
+    "title": "Middle Grades Social Sci",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "CI",
+    "number": 527,
+    "title": "Literacy Leadership",
+    "professor": "Baker-Doyle, Kira J"
+  },
+  {
+    "subject": "CL",
+    "number": 218,
+    "title": "Pompeii",
+    "professor": "Ros, Karen E"
+  },
+  {
+    "subject": "CLER",
+    "number": 617,
+    "title": "Psychiatry",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "BLST",
+    "number": 100,
+    "title": "Introduction to Black Studies",
+    "professor": "Barnes, Natasha B."
+  },
+  {
+    "subject": "BLST",
+    "number": 100,
+    "title": "Introduction to Black Studies",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "BLST",
+    "number": 111,
+    "title": "Intro to Af Am Lit Since 1910",
+    "professor": "Jun, Helen Heran"
+  },
+  {
+    "subject": "BME",
+    "number": 494,
+    "title": "Princ of Photoacoustic Imaging",
+    "professor": "Avanaki, Kamran"
+  },
+  {
+    "subject": "BME",
+    "number": 599,
+    "title": "Ph.D. Thesis Research",
+    "professor": "Khetani, Salman"
+  },
+  {
+    "subject": "CELE",
+    "number": 604,
+    "title": "Core Emerg Medicine Elective",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "CELE",
+    "number": 620,
+    "title": "Clinical Medical Spanish",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "CHE",
+    "number": 205,
+    "title": "Computational Methods in ChE",
+    "professor": "Bilgin, Betul"
+  },
+  {
+    "subject": "CHEM",
+    "number": 122,
+    "title": "Matter and Energy",
+    "professor": "Hatfield, Rita"
+  },
+  {
+    "subject": "CHEM",
+    "number": 124,
+    "title": "Chemical Dynamics",
+    "professor": "Stec, Ewa"
+  },
+  {
+    "subject": "CHEM",
+    "number": 527,
+    "title": "Electrochemistry",
+    "professor": "Cabana-Jimenez, Jordi"
+  },
+  {
+    "subject": "CHEM",
+    "number": 530,
+    "title": "Organic Chem Literature Seminr",
+    "professor": "Ayitou, Anoklase Jean-Luc"
+  },
+  {
+    "subject": "CHEM",
+    "number": 550,
+    "title": "Biochemistry Seminar",
+    "professor": "Adibekian, Alexander"
+  },
+  {
+    "subject": "CI",
+    "number": 405,
+    "title": "Science in Urban Ed",
+    "professor": "Nishimura, Marlynne K"
+  },
+  {
+    "subject": "CLER",
+    "number": 606,
+    "title": "Family Medicine",
+    "professor": "Stringham, Richard V.V."
+  },
+  {
+    "subject": "CLER",
+    "number": 637,
+    "title": "Family Medicine Clerkship",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "CLJ",
+    "number": 114,
+    "title": "Race, Class, Gender, Law",
+    "professor": "Stephens, Ash"
+  },
+  {
+    "subject": "CLJ",
+    "number": 200,
+    "title": "Law and Society",
+    "professor": "Kurwa, Rahim A"
+  },
+  {
+    "subject": "CLJ",
+    "number": 210,
+    "title": "Principles of Criminal Law",
+    "professor": "DeWald, Ronald"
+  },
+  {
+    "subject": "CLJ",
+    "number": 350,
+    "title": "Courts in Society",
+    "professor": "Thompson, Julian G"
+  },
+  {
+    "subject": "CLJ",
+    "number": 374,
+    "title": "Dismantle School Prison Nexus",
+    "professor": "Nguyen, Nicole"
+  },
+  {
+    "subject": "CME",
+    "number": 311,
+    "title": "Water Resources Engineering",
+    "professor": "Schulenberg, Joseph W"
+  },
+  {
+    "subject": "CME",
+    "number": 514,
+    "title": "Sustainable Engineering",
+    "professor": "Reddy, Krishna R"
+  },
+  {
+    "subject": "COMM",
+    "number": 230,
+    "title": "AI and Journalism",
+    "professor": "Reilley, Michael"
+  },
+  {
+    "subject": "COMM",
+    "number": 301,
+    "title": "Communication Research",
+    "professor": "Page, Janis Teruggi"
+  },
+  {
+    "subject": "CS",
+    "number": 151,
+    "title": "Foundations of Computing",
+    "professor": "Katok, Zoa"
+  },
+  {
+    "subject": "CS",
+    "number": 251,
+    "title": "Data Structures",
+    "professor": "Ordentlich, Ethan"
+  },
+  {
+    "subject": "BME",
+    "number": 423,
+    "title": "Biomedical Imaging Laboratory",
+    "professor": "Klatt, Dieter"
+  },
+  {
+    "subject": "BSTT",
+    "number": 401,
+    "title": "Biostatistics II",
+    "professor": "Wang, Meida"
+  },
+  {
+    "subject": "BVIS",
+    "number": 503,
+    "title": "Strategic Inquiry in BVIS",
+    "professor": "Lebowicz, Leah Amanda"
+  },
+  {
+    "subject": "BVIS",
+    "number": 560,
+    "title": "Molecular Pharm for BVIS",
+    "professor": "Lebowicz, Leah Amanda"
+  },
+  {
+    "subject": "CHE",
+    "number": 321,
+    "title": "Chemical Reaction Engr",
+    "professor": "Torabi, Korosh"
+  },
+  {
+    "subject": "CHE",
+    "number": 341,
+    "title": "Chemical Process Control",
+    "professor": "Caracotsios, Michael"
+  },
+  {
+    "subject": "CHE",
+    "number": 595,
+    "title": "Advances In Chem Engr Research",
+    "professor": "Mehraeen, Shafigh"
+  },
+  {
+    "subject": "CHEM",
+    "number": 118,
+    "title": "General and Analytical Chem II",
+    "professor": "Gramsch, Stephen Allen"
+  },
+  {
+    "subject": "CHEM",
+    "number": 123,
+    "title": "Foundations of Chem Inquiry I",
+    "professor": "Stec, Ewa"
+  },
+  {
+    "subject": "CHEM",
+    "number": 314,
+    "title": "Inorganic Chemistry",
+    "professor": "Nguyen, Andy I"
+  },
+  {
+    "subject": "CHIN",
+    "number": 104,
+    "title": "Intermediate Chinese II",
+    "professor": "Wang, Bridget Wenya"
+  },
+  {
+    "subject": "CHSC",
+    "number": 422,
+    "title": "Community Health 2",
+    "professor": "Friend, Daniel Joseph"
+  },
+  {
+    "subject": "CI",
+    "number": 406,
+    "title": "Teaching & Learning Social Sci",
+    "professor": "Ulrich Papczun, Kristy Lynn"
+  },
+  {
+    "subject": "CI",
+    "number": 481,
+    "title": "Foundations Bilingual/ESL Ed",
+    "professor": "Razfar, Aria"
+  },
+  {
+    "subject": "CI",
+    "number": 517,
+    "title": "Sociopolitical Context of Math",
+    "professor": "Gutstein, Eric H"
+  },
+  {
+    "subject": "CLJ",
+    "number": 311,
+    "title": "Criminal Procedure",
+    "professor": "Quinn, Gavin Pollard"
+  },
+  {
+    "subject": "CLJ",
+    "number": 492,
+    "title": "Visual Criminology",
+    "professor": "Frohmann, Lisa G"
+  },
+  {
+    "subject": "CLJ",
+    "number": 594,
+    "title": "Prisons & Jails Education Proj",
+    "professor": "Bird, Jessica Jane"
+  },
+  {
+    "subject": "CME",
+    "number": 201,
+    "title": "Statics",
+    "professor": "Banjavcic, Scott David"
+  },
+  {
+    "subject": "CME",
+    "number": 297,
+    "title": "Civil Env Eng Drawing Design",
+    "professor": "Peiravian, Farideddin"
+  },
+  {
+    "subject": "CME",
+    "number": 310,
+    "title": "Reinforc Concrete Struc Design",
+    "professor": "Iranmanesh, Amirhossein"
+  },
+  {
+    "subject": "CME",
+    "number": 494,
+    "title": "Geomatics Engineering",
+    "professor": "Peiravian, Farideddin"
+  },
+  {
+    "subject": "CME",
+    "number": 594,
+    "title": "Applied Data Science",
+    "professor": "Derrible, Sybil Jean Marie"
+  },
+  {
+    "subject": "COMM",
+    "number": 103,
+    "title": "Intro to Media",
+    "professor": "McDowell, Zachary J"
+  },
+  {
+    "subject": "COMM",
+    "number": 301,
+    "title": "Communication Research",
+    "professor": "Rojecki, Andrew"
+  },
+  {
+    "subject": "CS",
+    "number": 351,
+    "title": "Adv Data Structure Practicum",
+    "professor": "Reckinger, Shanon Marie"
+  },
+  {
+    "subject": "CS",
+    "number": 362,
+    "title": "Computer Design",
+    "professor": "Theys, Mitchell D"
+  },
+  {
+    "subject": "BIOS",
+    "number": 110,
+    "title": "Biol of Cells & Organisms",
+    "professor": "Shingleton, Alexander"
+  },
+  {
+    "subject": "BIOS",
+    "number": 120,
+    "title": "Populations & Communities",
+    "professor": "Ale, Som Bahadur"
+  },
+  {
+    "subject": "BIOS",
+    "number": 320,
+    "title": "Developmental Biology",
+    "professor": "Orenic, Teresa Vales"
+  },
+  {
+    "subject": "BIOS",
+    "number": 351,
+    "title": "Microbiology Laboratory",
+    "professor": "Bassett, Andrea Louise"
+  },
+  {
+    "subject": "BIOS",
+    "number": 452,
+    "title": "Biochemistry I",
+    "professor": "Ondrus, Alison E"
+  },
+  {
+    "subject": "BLST",
+    "number": 125,
+    "title": "Global Black Spirituality",
+    "professor": "Jabir, Johari"
+  },
+  {
+    "subject": "BLST",
+    "number": 261,
+    "title": "Reading Black Women Writing",
+    "professor": "Richie, Beth E"
+  },
+  {
+    "subject": "BME",
+    "number": 102,
+    "title": "Biomed Eng Freshman Seminar",
+    "professor": "Khetani, Salman"
+  },
+  {
+    "subject": "BME",
+    "number": 599,
+    "title": "Ph.D. Thesis Research",
+    "professor": "Yao, Xincheng"
+  },
+  {
+    "subject": "BVIS",
+    "number": 508,
+    "title": "Pathophys Biomed Visualization",
+    "professor": "Huang, Yu-Hui"
+  },
+  {
+    "subject": "CEES",
+    "number": 250,
+    "title": "Eurasian Cinema",
+    "professor": "Kendall, Matthew"
+  },
+  {
+    "subject": "CHEM",
+    "number": 115,
+    "title": "General and Organic Chemistry",
+    "professor": "Hatfield, Rita"
+  },
+  {
+    "subject": "CHSC",
+    "number": 510,
+    "title": "MCH Inequities and Responses I",
+    "professor": "Butler, Margaret Susan"
+  },
+  {
+    "subject": "CI",
+    "number": 406,
+    "title": "Teaching & Learning Social Sci",
+    "professor": "Garcia, Jose"
+  },
+  {
+    "subject": "CLER",
+    "number": 602,
+    "title": "Psychiatry",
+    "professor": "Blitzstein, Sean Matthew"
+  },
+  {
+    "subject": "CLER",
+    "number": 612,
+    "title": "Medicine Sub-Internship",
+    "professor": "Khan, Asra R"
+  },
+  {
+    "subject": "CLJ",
+    "number": 321,
+    "title": "Youth, Crime, Law",
+    "professor": "Adams, Dean Lynn"
+  },
+  {
+    "subject": "CLJ",
+    "number": 361,
+    "title": "Criminal Investigations",
+    "professor": "Buslik, Marc S"
+  },
+  {
+    "subject": "CLJ",
+    "number": 405,
+    "title": "Problem of Justice",
+    "professor": "Bird, Jessica Jane"
+  },
+  {
+    "subject": "CME",
+    "number": 112,
+    "title": "Evolution of Infrastructure",
+    "professor": "Schulenberg, Joseph W"
+  },
+  {
+    "subject": "CME",
+    "number": 260,
+    "title": "Properties Of Materials",
+    "professor": "Daly, Matthew"
+  },
+  {
+    "subject": "CME",
+    "number": 409,
+    "title": "Structural Analysis II",
+    "professor": "Ansari, Farhad"
+  },
+  {
+    "subject": "CME",
+    "number": 410,
+    "title": "Prestress Concret Struct Desgn",
+    "professor": "Ozevin, Didem"
+  },
+  {
+    "subject": "CME",
+    "number": 434,
+    "title": "Finite Element Analysis I",
+    "professor": "Karpov, Eduard"
+  },
+  {
+    "subject": "CME",
+    "number": 497,
+    "title": "Capstone Design",
+    "professor": "Burke, Christopher B."
+  },
+  {
+    "subject": "COMM",
+    "number": 100,
+    "title": "Human Communication",
+    "professor": "Quinn, Kelly Ann"
+  },
+  {
+    "subject": "COMM",
+    "number": 220,
+    "title": "Social Media and Marketing",
+    "professor": "Mukherjee, Ishani"
+  },
+  {
+    "subject": "CS",
+    "number": 251,
+    "title": "Data Structures",
+    "professor": "Ayala Rodriguez, Daniel"
+  },
+  {
+    "subject": "CS",
+    "number": 401,
+    "title": "Computer Algorithms I",
+    "professor": "Sun, Xiaorui"
+  },
+  {
+    "subject": "CS",
+    "number": 418,
+    "title": "Introduction to Data Science",
+    "professor": "Medya, Sourav"
+  },
+  {
+    "subject": "CS",
+    "number": 516,
+    "title": "Data & Algorithmic Fairness",
+    "professor": "Asudeh, Abolfazl"
+  },
+  {
+    "subject": "CS",
+    "number": 553,
+    "title": "Distributed Systems",
+    "professor": "Kshemkalyani, Ajay D"
+  },
+  {
+    "subject": "CS",
+    "number": 594,
+    "title": "Responsible AI Engineering",
+    "professor": "Tizpaz Niari, Saeid"
+  },
+  {
+    "subject": "DES",
+    "number": 140,
+    "title": "Design Drawing",
+    "professor": "Espino, Jerry"
+  },
+  {
+    "subject": "DES",
+    "number": 150,
+    "title": "Digital Media Design I",
+    "professor": "Flemister, Stephen"
+  },
+  {
+    "subject": "DES",
+    "number": 236,
+    "title": "History of Design II",
+    "professor": "Mekinda, Jonathan"
+  },
+  {
+    "subject": "DES",
+    "number": 241,
+    "title": "Visualization II",
+    "professor": "Espino, Jerry"
+  },
+  {
+    "subject": "DES",
+    "number": 481,
+    "title": "Graphic Design Thesis II",
+    "professor": "Neves, Pedro Manuel Santos Jose"
+  },
+  {
+    "subject": "DLG",
+    "number": 120,
+    "title": "Dialogue Seminar",
+    "professor": "France, Brandi P"
+  },
+  {
+    "subject": "DOSI",
+    "number": 343,
+    "title": "Oral/Systemc Issue in Dent III",
+    "professor": "Hofmeister, Jamie Lynn"
+  },
+  {
+    "subject": "EAES",
+    "number": 595,
+    "title": "Departmental Seminar",
+    "professor": "McNicol, Gavin"
+  },
+  {
+    "subject": "ECE",
+    "number": 310,
+    "title": "Discrete &Cont Signal&Systms",
+    "professor": "Caliskan, Vahe"
+  },
+  {
+    "subject": "ECE",
+    "number": 341,
+    "title": "Probabil &Rand Proc for Engr",
+    "professor": "Gunderman, Lane Gabriel"
+  },
+  {
+    "subject": "ECE",
+    "number": 346,
+    "title": "Solid State Device Theory",
+    "professor": "McGinn, Christine"
+  },
+  {
+    "subject": "ECE",
+    "number": 449,
+    "title": "Micromachining & Sensors",
+    "professor": "Paprotny, Igor"
+  },
+  {
+    "subject": "ECE",
+    "number": 491,
+    "title": "Information and Learning",
+    "professor": "Ohannessian, Mesrob Ichkhan"
+  },
+  {
+    "subject": "ECON",
+    "number": 121,
+    "title": "Principles of Macroeconomics",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ECON",
+    "number": 329,
+    "title": "Industrial Organization",
+    "professor": "Ahundjanov, Behzod"
+  },
+  {
+    "subject": "ECON",
+    "number": 344,
+    "title": "Behavioral Economics",
+    "professor": "Tzachrista, Foteini"
+  },
+  {
+    "subject": "ED",
+    "number": 210,
+    "title": "Learning and Instruction",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ED",
+    "number": 445,
+    "title": "Adolescence & Schools",
+    "professor": "Thorkildsen, Theresa A"
+  },
+  {
+    "subject": "ED",
+    "number": 506,
+    "title": "Designs and Analyses",
+    "professor": "Baker-Doyle, Kira J"
+  },
+  {
+    "subject": "EDPS",
+    "number": 518,
+    "title": "Higher Ed Students & Equity",
+    "professor": "Luedke, Courtney L"
+  },
+  {
+    "subject": "ELSI",
+    "number": 13,
+    "title": "Reading/Writing 3, IEP",
+    "professor": "May, Kristine H"
+  },
+  {
+    "subject": "ELSI",
+    "number": 22,
+    "title": "Listening/Speaking 2 IEP",
+    "professor": "Pallier, Sally M"
+  },
+  {
+    "subject": "ENDO",
+    "number": 620,
+    "title": "Endodontics Clinic",
+    "professor": "Johnson, Bradford Ray"
+  },
+  {
+    "subject": "ACTG",
+    "number": 210,
+    "title": "Intro Financial Accounting",
+    "professor": "Lord Pearson, Eva Marie"
+  },
+  {
+    "subject": "ACTG",
+    "number": 456,
+    "title": "Business Law II",
+    "professor": "Leahy, Edward"
+  },
+  {
+    "subject": "AH",
+    "number": 160,
+    "title": "Trends in Contemp Art",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "AH",
+    "number": 236,
+    "title": "History of Design II",
+    "professor": "Mekinda, Jonathan"
+  },
+  {
+    "subject": "ANTH",
+    "number": 216,
+    "title": "Medicine, Culture, & Society",
+    "professor": "Gul, Zeynel"
+  },
+  {
+    "subject": "ANTH",
+    "number": 319,
+    "title": "Environmental Anthropology",
+    "professor": "Campbell, Jacob David"
+  },
+  {
+    "subject": "ARCH",
+    "number": 466,
+    "title": "Advanced Topic Studio 2",
+    "professor": "Wheeler, Daniel H"
+  },
+  {
+    "subject": "ART",
+    "number": 112,
+    "title": "Intro to Drawing(Major Only)",
+    "professor": "Frid, Dianna"
+  },
+  {
+    "subject": "ART",
+    "number": 130,
+    "title": "Intro to Painting + Color",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ART",
+    "number": 250,
+    "title": "New Media:Embodied Soundscape",
+    "professor": "Moreno, Sal"
+  },
+  {
+    "subject": "ART",
+    "number": 330,
+    "title": "Topics/Paint: Through The Body",
+    "professor": "Hobson, Kyrin Ealy"
+  },
+  {
+    "subject": "ART",
+    "number": 402,
+    "title": "Senior Projects: Thesis",
+    "professor": "Peterman, Dan"
+  },
+  {
+    "subject": "ART",
+    "number": 484,
+    "title": "Ed Practicum with Seminar I",
+    "professor": "Estrada, William"
+  },
+  {
+    "subject": "ART",
+    "number": 485,
+    "title": "Ed Practicum with Seminar II",
+    "professor": "Sandlos, Karyn"
+  },
+  {
+    "subject": "BA",
+    "number": 220,
+    "title": "Business Prof Dev II",
+    "professor": "Lord, Morgan"
+  },
+  {
+    "subject": "BA",
+    "number": 220,
+    "title": "Business Prof Dev II",
+    "professor": "Soriano, Diana Ethel"
+  },
+  {
+    "subject": "BA",
+    "number": 320,
+    "title": "Civic Engagement",
+    "professor": "Lewis, Keith D"
+  },
+  {
+    "subject": "BA",
+    "number": 330,
+    "title": "Bus Dec Mkng for BBA Online",
+    "professor": "Adams, Vangeliya Pavlova"
+  },
+  {
+    "subject": "BA",
+    "number": 420,
+    "title": "Professional Presence",
+    "professor": "Anderson, Stephanie Leigh"
+  },
+  {
+    "subject": "BHIS",
+    "number": 405,
+    "title": "Med Sci & Humn Pathophysiology",
+    "professor": "Mills, Laura Lynn"
+  },
+  {
+    "subject": "BHIS",
+    "number": 530,
+    "title": "Topics in Hlth Informatics",
+    "professor": "Staley, Corinn"
+  },
+  {
+    "subject": "BIOS",
+    "number": 196,
+    "title": "Biology Colloquium",
+    "professor": "Nelson, Karin Noel"
+  },
+  {
+    "subject": "BIOS",
+    "number": 286,
+    "title": "Biology of Brain",
+    "professor": "Tchernookova, Boriana Krassimirova"
+  },
+  {
+    "subject": "BME",
+    "number": 240,
+    "title": "Modeling Data and Systems",
+    "professor": "Wu, Ming"
+  },
+  {
+    "subject": "BME",
+    "number": 408,
+    "title": "Medical Product Development",
+    "professor": "Layton, Terry N"
+  },
+  {
+    "subject": "CHEM",
+    "number": 234,
+    "title": "Chemical Synthesis",
+    "professor": "Driver, Tom G"
+  },
+  {
+    "subject": "CHEM",
+    "number": 234,
+    "title": "Chemical Synthesis",
+    "professor": "Yermolina, Maria V"
+  },
+  {
+    "subject": "CHEM",
+    "number": 235,
+    "title": "Advanced Synthesis Techniques",
+    "professor": "Wardrop, Duncan J"
+  },
+  {
+    "subject": "DES",
+    "number": 421,
+    "title": "EXD I",
+    "professor": "Stirling, Susan"
+  },
+  {
+    "subject": "DES",
+    "number": 421,
+    "title": "MAD II",
+    "professor": "Tsoupikova, Daria"
+  },
+  {
+    "subject": "DES",
+    "number": 471,
+    "title": "Industrial Design Thesis II",
+    "professor": "Seskauskas, Michael R"
+  },
+  {
+    "subject": "DES",
+    "number": 520,
+    "title": "What Was Postmodernism?",
+    "professor": "Brown, Jefferson Dakota"
+  },
+  {
+    "subject": "DHD",
+    "number": 202,
+    "title": "Disability, Health, & Society",
+    "professor": "Labbe, Delphine"
+  },
+  {
+    "subject": "DHD",
+    "number": 557,
+    "title": "Manual&Powered Wheelchair Tech",
+    "professor": "McNamara, Nancy Jane Walsh"
+  },
+  {
+    "subject": "DLG",
+    "number": 120,
+    "title": "Dialogue Seminar",
+    "professor": "Macias, Cecilia Ofelia"
+  },
+  {
+    "subject": "EAES",
+    "number": 290,
+    "title": "Current Topics in EAES",
+    "professor": "Dombard, Andrew"
+  },
+  {
+    "subject": "ECE",
+    "number": 265,
+    "title": "Intro to Logic Design",
+    "professor": "Kosmach, James"
+  },
+  {
+    "subject": "ECE",
+    "number": 322,
+    "title": "Intro to Electromag and Appl",
+    "professor": "Erricolo, Danilo"
+  },
+  {
+    "subject": "ECE",
+    "number": 520,
+    "title": "Electromagnetic Field Theory",
+    "professor": "Vital, Dieff"
+  },
+  {
+    "subject": "ECON",
+    "number": 215,
+    "title": "Health Economics",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ED",
+    "number": 100,
+    "title": "Intro to Urban Education",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ED",
+    "number": 194,
+    "title": "Special Topics in Educ",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ED",
+    "number": 502,
+    "title": "Qualitative Inquiry in Ed",
+    "professor": "Thomas, Michael K"
+  },
+  {
+    "subject": "ED",
+    "number": 594,
+    "title": "Special Topics in Educ",
+    "professor": "Germinaro, Kaleb"
+  },
+  {
+    "subject": "EDPS",
+    "number": 548,
+    "title": "Leading Improvement of Lit",
+    "professor": "Salisbury, Jason Deric"
+  },
+  {
+    "subject": "EDPS",
+    "number": 552,
+    "title": "Leading Urban Schools",
+    "professor": "Lac, Van T"
+  },
+  {
+    "subject": "EDPS",
+    "number": 592,
+    "title": "Prof Career Training in EDPS",
+    "professor": "Barron, Cynthia K"
+  },
+  {
+    "subject": "EDPS",
+    "number": 594,
+    "title": "Special Topics in Ed Policy",
+    "professor": "Danns, Dionne A"
+  },
+  {
+    "subject": "ENGL",
+    "number": 153,
+    "title": "Understanding Grammar & Style",
+    "professor": "Kessler, Jeffrey"
+  },
+  {
+    "subject": "ENGL",
+    "number": 160,
+    "title": "Academic Writing I",
+    "professor": "Romero, Katharine Chynna"
+  },
+  {
+    "subject": "ENGL",
+    "number": 161,
+    "title": "Academic Writing II",
+    "professor": "Lapotre, Carly A"
+  },
+  {
+    "subject": "ENGL",
+    "number": 161,
+    "title": "Academic Writing II",
+    "professor": "McGath, Carrie Michele"
+  },
+  {
+    "subject": "ENGL",
+    "number": 161,
+    "title": "Academic Writing II",
+    "professor": "Sherfinski, Todd"
+  },
+  {
+    "subject": "ENGL",
+    "number": 161,
+    "title": "Academic Writing II",
+    "professor": "Zabic, Snezana"
+  },
+  {
+    "subject": "ENGL",
+    "number": 236,
+    "title": "Young Adult Fiction",
+    "professor": "Schaafsma, David W"
+  },
+  {
+    "subject": "ENGL",
+    "number": 280,
+    "title": "Media & Prof Writing",
+    "professor": "Leick, Karen"
+  },
+  {
+    "subject": "CS",
+    "number": 394,
+    "title": "Tech in Residence",
+    "professor": "Hallenbeck, Mark"
+  },
+  {
+    "subject": "CS",
+    "number": 411,
+    "title": "Artificial Intelligence I",
+    "professor": "Ziebart, Brian D"
+  },
+  {
+    "subject": "CS",
+    "number": 412,
+    "title": "Intro to Machine Learning",
+    "professor": "Rooshenas, Amirmohammad"
+  },
+  {
+    "subject": "CS",
+    "number": 474,
+    "title": "Obj-Oriented Langs & Envs",
+    "professor": "Mordahl, Austin"
+  },
+  {
+    "subject": "CS",
+    "number": 499,
+    "title": "Prof. Development Seminar",
+    "professor": "Bell, John T"
+  },
+  {
+    "subject": "CS",
+    "number": 540,
+    "title": "Adv Topics in Softwr Engr",
+    "professor": "Buy, Ugo A"
+  },
+  {
+    "subject": "CS",
+    "number": 568,
+    "title": "Adv Security & Privacy",
+    "professor": "Kanich, Chris"
+  },
+  {
+    "subject": "CS",
+    "number": 569,
+    "title": "High-Performance Process&Systm",
+    "professor": "Kumar, Sidharth"
+  },
+  {
+    "subject": "CST",
+    "number": 120,
+    "title": "Catholic Thought",
+    "professor": "Dingeldein, Laura B"
+  },
+  {
+    "subject": "DBCS",
+    "number": 301,
+    "title": "Biomed & Clinical Sciences",
+    "professor": "Odeh, Luma Adnan Abed"
+  },
+  {
+    "subject": "DES",
+    "number": 140,
+    "title": "Design Drawing",
+    "professor": "Silva, Hector"
+  },
+  {
+    "subject": "DES",
+    "number": 251,
+    "title": "Digital Media Design III",
+    "professor": "Spee, Grace A"
+  },
+  {
+    "subject": "DES",
+    "number": 421,
+    "title": "Independent Design Practice",
+    "professor": "O'Keefe, Thomas Joseph"
+  },
+  {
+    "subject": "DES",
+    "number": 421,
+    "title": "IXD II",
+    "professor": "Wangerin, Noah Martin"
+  },
+  {
+    "subject": "DHD",
+    "number": 102,
+    "title": "Disability in American Film",
+    "professor": "Safaeian, Azadeh"
+  },
+  {
+    "subject": "DHD",
+    "number": 303,
+    "title": "Disability Activism",
+    "professor": "Nishida, Akemi"
+  },
+  {
+    "subject": "EAES",
+    "number": 285,
+    "title": "Earth Systems",
+    "professor": "McNicol, Gavin"
+  },
+  {
+    "subject": "ECE",
+    "number": 115,
+    "title": "Intro to Elec & Cmptr Eng",
+    "professor": "Caliskan, Vahe"
+  },
+  {
+    "subject": "ECE",
+    "number": 415,
+    "title": "Imag Analysis & Compt Visn I",
+    "professor": "Cetin, Ahmet Enis"
+  },
+  {
+    "subject": "ECE",
+    "number": 436,
+    "title": "Computer Comm Networks II",
+    "professor": "Abu Salah, Lo'Ay Mohammad"
+  },
+  {
+    "subject": "ECE",
+    "number": 465,
+    "title": "Digital Systems Design",
+    "professor": "Dutt, Shantanu S"
+  },
+  {
+    "subject": "ECE",
+    "number": 469,
+    "title": "HDL based System Design",
+    "professor": "Rao, Wenjing"
+  },
+  {
+    "subject": "ECE",
+    "number": 567,
+    "title": "Advanced VLSI Design",
+    "professor": "Trivedi, Amit"
+  },
+  {
+    "subject": "ECE",
+    "number": 594,
+    "title": "Quantum",
+    "professor": "Chase, Zizwe"
+  },
+  {
+    "subject": "ECON",
+    "number": 120,
+    "title": "Principles of Microeconomics",
+    "professor": "Ahundjanov, Behzod"
+  },
+  {
+    "subject": "ECON",
+    "number": 300,
+    "title": "Econometrics",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ED",
+    "number": 252,
+    "title": "Controversies in U.S. Schools",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ED",
+    "number": 402,
+    "title": "Phil Ed & Urban School Policy",
+    "professor": "Saltman, Kenneth Jeffrey"
+  },
+  {
+    "subject": "CS",
+    "number": 301,
+    "title": "Languages and Automata",
+    "professor": "Bello Lander, Gonzalo Alejandro"
+  },
+  {
+    "subject": "CS",
+    "number": 377,
+    "title": "Ethical Issues in Computing",
+    "professor": "Harmon, Zaccheus D"
+  },
+  {
+    "subject": "CS",
+    "number": 407,
+    "title": "Economics and Computation",
+    "professor": "Curry, Michael"
+  },
+  {
+    "subject": "CS",
+    "number": 450,
+    "title": "Intro to Networking",
+    "professor": "Vamanan, Balajee"
+  },
+  {
+    "subject": "CS",
+    "number": 511,
+    "title": "Artificial Intelligence II",
+    "professor": "Gmytrasiewicz, Piotr"
+  },
+  {
+    "subject": "CS",
+    "number": 587,
+    "title": "Computer Systems Security",
+    "professor": "Solworth, Jon A"
+  },
+  {
+    "subject": "DES",
+    "number": 427,
+    "title": "Creative Coding",
+    "professor": "Tsoupikova, Daria"
+  },
+  {
+    "subject": "DHD",
+    "number": 201,
+    "title": "Disability, Rights, & Culture",
+    "professor": "Horowitz, Emily A"
+  },
+  {
+    "subject": "DHD",
+    "number": 420,
+    "title": "Mental Hlth & Comm Engagement",
+    "professor": "Hasnain, Rooshey"
+  },
+  {
+    "subject": "DHD",
+    "number": 555,
+    "title": "AT PreK-12 Educational Setting",
+    "professor": "Cochrane, Daniel P"
+  },
+  {
+    "subject": "DHD",
+    "number": 556,
+    "title": "Wheelchair Mobility",
+    "professor": "McNamara, Nancy Jane Walsh"
+  },
+  {
+    "subject": "DLG",
+    "number": 120,
+    "title": "Dialogue Seminar",
+    "professor": "Ellis, Christopher Keith"
+  },
+  {
+    "subject": "DOST",
+    "number": 333,
+    "title": "Oral/Systemc Topcs in Dent III",
+    "professor": "Kawar, Nadia"
+  },
+  {
+    "subject": "EAES",
+    "number": 111,
+    "title": "Earth, Energy, Environment",
+    "professor": "Sit, Stefany"
+  },
+  {
+    "subject": "ECE",
+    "number": 452,
+    "title": "Robotics: Algorithm/Control",
+    "professor": "Zefran, Milos"
+  },
+  {
+    "subject": "ECE",
+    "number": 467,
+    "title": "Introduc to VLSI Design",
+    "professor": "Partin Vaisband, Inna"
+  },
+  {
+    "subject": "ECE",
+    "number": 599,
+    "title": "PhD Thesis Research",
+    "professor": "Partin Vaisband, Inna"
+  },
+  {
+    "subject": "ECON",
+    "number": 220,
+    "title": "Microeconomics",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ECON",
+    "number": 220,
+    "title": "Microeconomics",
+    "professor": "Tauras, John Arvydas"
+  },
+  {
+    "subject": "ECON",
+    "number": 395,
+    "title": "Rsrch and Writing in Econ",
+    "professor": "Persky, Joseph Jacob"
+  },
+  {
+    "subject": "ECON",
+    "number": 537,
+    "title": "Time Series Econometrics",
+    "professor": "Robbins, Jacob A"
+  },
+  {
+    "subject": "ED",
+    "number": 210,
+    "title": "Learning and Instruction",
+    "professor": "Sriplo, Thitirat"
+  },
+  {
+    "subject": "ED",
+    "number": 222,
+    "title": "Gender, Sexuality, & Education",
+    "professor": "Sheth, Manali"
+  },
+  {
+    "subject": "ED",
+    "number": 471,
+    "title": "Educ Pract w/Seminar II",
+    "professor": "Nelson, Rita Sherrod"
+  },
+  {
+    "subject": "EDPS",
+    "number": 506,
+    "title": "Leadership, Instr & Policy Ed",
+    "professor": "Mayrowetz, David S"
+  },
+  {
+    "subject": "EDPS",
+    "number": 559,
+    "title": "Internship in Ed Leadership",
+    "professor": "Allen, Lionel E Jr"
+  },
+  {
+    "subject": "EDPS",
+    "number": 571,
+    "title": "The Education Policy Process",
+    "professor": "Mayrowetz, David S"
+  },
+  {
+    "subject": "EDPS",
+    "number": 587,
+    "title": "Methods Case Study Research",
+    "professor": "Lac, Van T"
+  },
+  {
+    "subject": "CS",
+    "number": 377,
+    "title": "Ethical Issues in Computing",
+    "professor": "Burton, Emanuelle Neuman"
+  },
+  {
+    "subject": "CS",
+    "number": 378,
+    "title": "Framework-based Development",
+    "professor": "Hallenbeck, Mark"
+  },
+  {
+    "subject": "CS",
+    "number": 401,
+    "title": "Computer Algorithms I",
+    "professor": "Kshemkalyani, Ajay D"
+  },
+  {
+    "subject": "CS",
+    "number": 440,
+    "title": "Software Engr I",
+    "professor": "Bell, John T"
+  },
+  {
+    "subject": "CS",
+    "number": 455,
+    "title": "Intro to High Performance Comp",
+    "professor": "Papka, Michael E"
+  },
+  {
+    "subject": "CS",
+    "number": 494,
+    "title": "Mobile Robotics",
+    "professor": "Luo, Wenhao"
+  },
+  {
+    "subject": "CS",
+    "number": 588,
+    "title": "Networked & Dist Syst Security",
+    "professor": "Chakraborti, Anrin"
+  },
+  {
+    "subject": "DES",
+    "number": 120,
+    "title": "2D Form Studio",
+    "professor": "Barontini, Rafael"
+  },
+  {
+    "subject": "DES",
+    "number": 150,
+    "title": "Digital Media Design I",
+    "professor": "Watson, Austin Chase"
+  },
+  {
+    "subject": "DES",
+    "number": 160,
+    "title": "Design Photography",
+    "professor": "Dwyer, Emma Kathleen"
+  },
+  {
+    "subject": "DES",
+    "number": 160,
+    "title": "Design Photography",
+    "professor": "Nichols, Lauren Manning"
+  },
+  {
+    "subject": "DES",
+    "number": 209,
+    "title": "Typography II",
+    "professor": "Ackley, Jason E"
+  },
+  {
+    "subject": "DES",
+    "number": 209,
+    "title": "Typography II",
+    "professor": "Joseph, Dawn M"
+  },
+  {
+    "subject": "DES",
+    "number": 309,
+    "title": "Typography IV",
+    "professor": "Bracamontes-Roeger, Linda"
+  },
+  {
+    "subject": "DHD",
+    "number": 204,
+    "title": "Disability in the Humanities",
+    "professor": "Vaidya, Shruti"
+  },
+  {
+    "subject": "DHD",
+    "number": 205,
+    "title": "Race, Class & Gender",
+    "professor": "Horowitz, Emily A"
+  },
+  {
+    "subject": "DHD",
+    "number": 403,
+    "title": "Disability Latino Communities",
+    "professor": "Garcia Torres, Mariana"
+  },
+  {
+    "subject": "DLG",
+    "number": 120,
+    "title": "Dialogue Seminar",
+    "professor": "Ramos, Norma Elena"
+  },
+  {
+    "subject": "ECE",
+    "number": 311,
+    "title": "Communication Engineering",
+    "professor": "Smida, Besma"
+  },
+  {
+    "subject": "ECE",
+    "number": 317,
+    "title": "DSP I",
+    "professor": "Yardimci Cetin, Yasemin"
+  },
+  {
+    "subject": "ECE",
+    "number": 350,
+    "title": "Principles of Auto Control",
+    "professor": "Jin, Ning"
+  },
+  {
+    "subject": "ECE",
+    "number": 397,
+    "title": "Senior Design II",
+    "professor": "Revelo Alonso, Renata Alejandra"
+  },
+  {
+    "subject": "ECE",
+    "number": 407,
+    "title": "Pattern Recognition I",
+    "professor": "Cetin, Ahmet Enis"
+  },
+  {
+    "subject": "ECON",
+    "number": 120,
+    "title": "Principles of Microeconomics",
+    "professor": "Tauras, John Arvydas"
+  },
+  {
+    "subject": "ECON",
+    "number": 121,
+    "title": "Principles of Macroeconomics",
+    "professor": "Karras, Georgios"
+  },
+  {
+    "subject": "ECON",
+    "number": 221,
+    "title": "Macroeconomics",
+    "professor": "Karras, Georgios"
+  },
+  {
+    "subject": "ECON",
+    "number": 332,
+    "title": "Urban Economics",
+    "professor": "Persky, Joseph Jacob"
+  },
+  {
+    "subject": "ED",
+    "number": 351,
+    "title": "Ed in Urb Classroom: Field II",
+    "professor": "Buenrostro, Patricia Maria"
+  },
+  {
+    "subject": "ELSI",
+    "number": 12,
+    "title": "Reading/Writing 2, IEP",
+    "professor": "Buendia, Jenna Rashel"
+  },
+  {
+    "subject": "ELSI",
+    "number": 49,
+    "title": "Live Learn Grow:Learning Track",
+    "professor": "Bonarek, Rebecca L"
+  },
+  {
+    "subject": "ENDO",
+    "number": 630,
+    "title": "Clinical Conf In Endodontics",
+    "professor": "Milnarik, Ronald Marshall"
+  },
+  {
+    "subject": "ENGL",
+    "number": 105,
+    "title": "Understanding Fiction",
+    "professor": "Brand, Mark Robert"
+  },
+  {
+    "subject": "ENGL",
+    "number": 135,
+    "title": "Understanding Popular Culture",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ENGL",
+    "number": 160,
+    "title": "Academic Writing I",
+    "professor": "Dancey, Angela C"
+  },
+  {
+    "subject": "ENGL",
+    "number": 160,
+    "title": "Academic Writing I",
+    "professor": "McShane, Heather Ann"
+  },
+  {
+    "subject": "ENGL",
+    "number": 161,
+    "title": "Academic Writing II",
+    "professor": "Elturki, Eman"
+  },
+  {
+    "subject": "ENGL",
+    "number": 207,
+    "title": "Interpretation & Crit Analysis",
+    "professor": "Clarke, Ainsworth A."
+  },
+  {
+    "subject": "ENGL",
+    "number": 209,
+    "title": "Engl Stud II: 17thC to Today",
+    "professor": "Brown, Nicholas Mainey"
+  },
+  {
+    "subject": "ENGL",
+    "number": 237,
+    "title": "Graphic Novels",
+    "professor": "Drown, James Remick"
+  },
+  {
+    "subject": "ENGL",
+    "number": 237,
+    "title": "Graphic Novels",
+    "professor": "Lannon, Keegan"
+  },
+  {
+    "subject": "ENGL",
+    "number": 238,
+    "title": "Fiction, Sci-Fi & Fantasy",
+    "professor": "Mohanraj, Mary Anne"
+  },
+  {
+    "subject": "ENGL",
+    "number": 291,
+    "title": "Intro Writing of Fiction",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ENGL",
+    "number": 487,
+    "title": "Teaching of Reading & Lit",
+    "professor": "Kindelsperger, Abigail Parker"
+  },
+  {
+    "subject": "EPID",
+    "number": 404,
+    "title": "Intermediate Epidemiolog Mthds",
+    "professor": "Arguelles, Lester"
+  },
+  {
+    "subject": "EPID",
+    "number": 555,
+    "title": "Outbreak & Field Epidemiology",
+    "professor": "Dworkin, Mark Steven"
+  },
+  {
+    "subject": "EPSY",
+    "number": 363,
+    "title": "Research in HDL",
+    "professor": "Dai, Ting"
+  },
+  {
+    "subject": "EPSY",
+    "number": 471,
+    "title": "Healthy Development Trauma",
+    "professor": "Torres, Stephanie Andrea"
+  },
+  {
+    "subject": "EPSY",
+    "number": 523,
+    "title": "Adv Curriculum & Practice",
+    "professor": "Mulholland, Larissa"
+  },
+  {
+    "subject": "FIN",
+    "number": 300,
+    "title": "Intro to Finance",
+    "professor": "Chen, Jun"
+  },
+  {
+    "subject": "FIN",
+    "number": 300,
+    "title": "Intro to Finance",
+    "professor": "Diaz Bianco, Aaron"
+  },
+  {
+    "subject": "FIN",
+    "number": 340,
+    "title": "International Financial Market",
+    "professor": "Hu, Xiaoqing"
+  },
+  {
+    "subject": "FIN",
+    "number": 421,
+    "title": "Advanced Corporate Finance",
+    "professor": "Akbas, Ferhat"
+  },
+  {
+    "subject": "FIN",
+    "number": 523,
+    "title": "Financial Modeling",
+    "professor": "Healy, Thomas Charles"
+  },
+  {
+    "subject": "FR",
+    "number": 102,
+    "title": "Elementary French II",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "FR",
+    "number": 104,
+    "title": "Intermediate French II",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "GAMD",
+    "number": 200,
+    "title": "Scope of Medicine",
+    "professor": "Swirsky, Eric S"
+  },
+  {
+    "subject": "CLJ",
+    "number": 114,
+    "title": "Race, Class, Gender, Law",
+    "professor": " ,"
+  },
+  {
+    "subject": "CLJ",
+    "number": 493,
+    "title": "Migration, Borders, and Crim",
+    "professor": "Paik, Angela Naomi"
+  },
+  {
+    "subject": "CME",
+    "number": 203,
+    "title": "Strength Of Materials",
+    "professor": "Iranmanesh, Amirhossein"
+  },
+  {
+    "subject": "CME",
+    "number": 408,
+    "title": "Traffic Engineer & Design",
+    "professor": "Mohammadian, Abolfazl"
+  },
+  {
+    "subject": "COMM",
+    "number": 445,
+    "title": "Politics of Platforms",
+    "professor": "Maris, Elena Rosa"
+  },
+  {
+    "subject": "COMM",
+    "number": 491,
+    "title": "Seminar in Media & Comm",
+    "professor": "Puig Abril, Eulalia"
+  },
+  {
+    "subject": "CS",
+    "number": 424,
+    "title": "Visual Analytics",
+    "professor": "Miranda, Fabio"
+  },
+  {
+    "subject": "CS",
+    "number": 426,
+    "title": "Video Game Design",
+    "professor": "Marai, Georgeta-Elisabeta"
+  },
+  {
+    "subject": "CS",
+    "number": 479,
+    "title": "Wearables Technology Lab",
+    "professor": "Esmailbeigi, Hananeh"
+  },
+  {
+    "subject": "CS",
+    "number": 540,
+    "title": "Adv Topics in Softwr Engr",
+    "professor": "Stephens, Jenna Renae"
+  },
+  {
+    "subject": "CS",
+    "number": 594,
+    "title": "Energy-Efficient Deep Learning",
+    "professor": "Yan, Yan"
+  },
+  {
+    "subject": "DAOB",
+    "number": 312,
+    "title": "Applied Oral and Behav Sci II",
+    "professor": "Chang, Priscilla Pauline"
+  },
+  {
+    "subject": "DAOB",
+    "number": 333,
+    "title": "Applied Oral and BehavSci VIII",
+    "professor": "Dunlap, Michael A"
+  },
+  {
+    "subject": "DAOB",
+    "number": 343,
+    "title": "Applied Oral and Behav Sci XI",
+    "professor": "Ward, Stephanie M"
+  },
+  {
+    "subject": "DBCS",
+    "number": 314,
+    "title": "Biomed and Clin Sciences II",
+    "professor": "Doubleday, Alison F"
+  },
+  {
+    "subject": "DES",
+    "number": 170,
+    "title": "Color Theory",
+    "professor": "Fisher, John Henrie"
+  },
+  {
+    "subject": "DES",
+    "number": 170,
+    "title": "Color Theory",
+    "professor": "Flemister, Stephen"
+  },
+  {
+    "subject": "DES",
+    "number": 209,
+    "title": "Typography II",
+    "professor": "Brown, Jefferson Dakota"
+  },
+  {
+    "subject": "DES",
+    "number": 256,
+    "title": "Integrative Design Studio II",
+    "professor": "Haynes, Eric Von"
+  },
+  {
+    "subject": "DES",
+    "number": 450,
+    "title": "Cont. Product Form",
+    "professor": "Seskauskas, Michael R"
+  },
+  {
+    "subject": "DES",
+    "number": 471,
+    "title": "Industrial Design Thesis II",
+    "professor": "Wangerin, Noah Martin"
+  },
+  {
+    "subject": "DHD",
+    "number": 401,
+    "title": "DHD & Community Participation",
+    "professor": "Berg, Kristin Lee"
+  },
+  {
+    "subject": "DHD",
+    "number": 440,
+    "title": "Intro to Assistive Tech",
+    "professor": "Martinez Perez, Angelica Marie"
+  },
+  {
+    "subject": "DLG",
+    "number": 120,
+    "title": "Dialogue Seminar",
+    "professor": "Milan, Deidra"
+  },
+  {
+    "subject": "EAES",
+    "number": 200,
+    "title": "Field Work In Missouri",
+    "professor": "Kenig, Fabien P H"
+  },
+  {
+    "subject": "ECE",
+    "number": 266,
+    "title": "Intro to Embedded Systems",
+    "professor": "Gandhi, Bhavan Raman"
+  },
+  {
+    "subject": "ECE",
+    "number": 412,
+    "title": "Intro to Filter Synthesis",
+    "professor": "Caliskan, Vahe"
+  },
+  {
+    "subject": "ECE",
+    "number": 424,
+    "title": "RF & Microwave Engineering",
+    "professor": "Chen, Pai-Yen"
+  },
+  {
+    "subject": "GLAS",
+    "number": 120,
+    "title": "Intro Asian Amer Studies",
+    "professor": "Lee, Larry"
+  },
+  {
+    "subject": "HIM",
+    "number": 367,
+    "title": "Systems Analysis",
+    "professor": "Aguiar, Joshua"
+  },
+  {
+    "subject": "HIM",
+    "number": 432,
+    "title": "Coding and Classif Systems",
+    "professor": "Ramirez, Gideon"
+  },
+  {
+    "subject": "HIST",
+    "number": 101,
+    "title": "Western Civ Since 1648",
+    "professor": "Abbott, John"
+  },
+  {
+    "subject": "HIST",
+    "number": 117,
+    "title": "Understanding Holocaust",
+    "professor": "Abbott, John"
+  },
+  {
+    "subject": "HIST",
+    "number": 262,
+    "title": "Latin Amer since 1850",
+    "professor": "Chavez, Joaquin M"
+  },
+  {
+    "subject": "HIST",
+    "number": 320,
+    "title": "Teaching History",
+    "professor": "Swope, Monica A"
+  },
+  {
+    "subject": "HIST",
+    "number": 476,
+    "title": "Educ Pract w/Seminar II",
+    "professor": "Peters, Julie L"
+  },
+  {
+    "subject": "HNUR",
+    "number": 102,
+    "title": "Elementary Hindi-Urdu II",
+    "professor": "Rana, Ruchi"
+  },
+  {
+    "subject": "HON",
+    "number": 125,
+    "title": "Hon Core Past / World Cultures",
+    "professor": "Roosevelt, Anna C"
+  },
+  {
+    "subject": "HON",
+    "number": 200,
+    "title": "Honors Lectures",
+    "professor": "Kaczmarczyk, Laura W"
+  },
+  {
+    "subject": "HON",
+    "number": 200,
+    "title": "Honors Lectures",
+    "professor": "McCrillis, Michele"
+  },
+  {
+    "subject": "HON",
+    "number": 201,
+    "title": "Honors Seminar",
+    "professor": "Kaczmarczyk, Laura W"
+  },
+  {
+    "subject": "HON",
+    "number": 301,
+    "title": "Foundations for the Future",
+    "professor": "Marquez, Isabella Rose"
+  },
+  {
+    "subject": "HON",
+    "number": 322,
+    "title": "Honors Capstone",
+    "professor": "Marquez, Isabella Rose"
+  },
+  {
+    "subject": "HPA",
+    "number": 419,
+    "title": "Public Health Foundations",
+    "professor": "Shade McCay, Michele LaVerne"
+  },
+  {
+    "subject": "HPA",
+    "number": 431,
+    "title": "Public Health Law and Ethics",
+    "professor": "Porter, Elizabeth Mary"
+  },
+  {
+    "subject": "HPA",
+    "number": 469,
+    "title": "Health Disparity Policy",
+    "professor": "Tran, Nathaniel M"
+  },
+  {
+    "subject": "HPA",
+    "number": 567,
+    "title": "Public Health Policy Analysis",
+    "professor": "Das, Abhery"
+  },
+  {
+    "subject": "IDS",
+    "number": 200,
+    "title": "Intro MIS for BBA Online",
+    "professor": "Lundquist, Doug E"
+  },
+  {
+    "subject": "IDS",
+    "number": 312,
+    "title": "Business Project Management",
+    "professor": "Gawel, Jeffrey"
+  },
+  {
+    "subject": "IDS",
+    "number": 454,
+    "title": "Intro Supply Chain Mgmt",
+    "professor": "Chen, Boxiao"
+  },
+  {
+    "subject": "IDS",
+    "number": 472,
+    "title": "Business Data Mining",
+    "professor": "Zhou, Wenxin"
+  },
+  {
+    "subject": "IDS",
+    "number": 494,
+    "title": "Data Decisions for Sust Biz",
+    "professor": "Nadarajah, Selvaprabu"
+  },
+  {
+    "subject": "IDS",
+    "number": 509,
+    "title": "Analytics & AI for Ops & SCM",
+    "professor": "Nadarajah, Selvaprabu"
+  },
+  {
+    "subject": "IDS",
+    "number": 571,
+    "title": "Stat Qual Control & Assurance",
+    "professor": "Porfyris, Nikolaos Alexander"
+  },
+  {
+    "subject": "IE",
+    "number": 201,
+    "title": "Financial Engineering",
+    "professor": "Nicolsen, Brynne E"
+  },
+  {
+    "subject": "IE",
+    "number": 446,
+    "title": "Adv Qual Control & Reliability",
+    "professor": "Huang, Jida"
+  },
+  {
+    "subject": "CME",
+    "number": 322,
+    "title": "Environmental Engineering",
+    "professor": "Khodadoust, Amid"
+  },
+  {
+    "subject": "CME",
+    "number": 402,
+    "title": "Highway Design",
+    "professor": "Peiravian, Farideddin"
+  },
+  {
+    "subject": "CME",
+    "number": 405,
+    "title": "Foundation Dsgn& Analysis",
+    "professor": "Schulenberg, Joseph W"
+  },
+  {
+    "subject": "CME",
+    "number": 493,
+    "title": "Seminar",
+    "professor": "Iranmanesh, Amirhossein"
+  },
+  {
+    "subject": "COMM",
+    "number": 335,
+    "title": "Digital Storytelling",
+    "professor": "Menchen Trevino, Ericka"
+  },
+  {
+    "subject": "COMM",
+    "number": 493,
+    "title": "Comm and Social Networks",
+    "professor": "Meraz, Sharon M"
+  },
+  {
+    "subject": "CS",
+    "number": 141,
+    "title": "Program Design II",
+    "professor": "GU, Zhaochen"
+  },
+  {
+    "subject": "CS",
+    "number": 261,
+    "title": "Machine Organization",
+    "professor": "Koehler, Adam Thomas"
+  },
+  {
+    "subject": "CS",
+    "number": 427,
+    "title": "Creative Coding",
+    "professor": "Papka, Michael E"
+  },
+  {
+    "subject": "CS",
+    "number": 521,
+    "title": "Stat Natural Lang Processing",
+    "professor": "Parde, Natalie"
+  },
+  {
+    "subject": "CS",
+    "number": 598,
+    "title": "MS Thesis Research",
+    "professor": "Di Eugenio, Barbara"
+  },
+  {
+    "subject": "DES",
+    "number": 120,
+    "title": "2D Form Studio",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "DES",
+    "number": 481,
+    "title": "Graphic Design Thesis II",
+    "professor": "Bracamontes-Roeger, Linda"
+  },
+  {
+    "subject": "DES",
+    "number": 520,
+    "title": "Objects of Mass Information",
+    "professor": "Hegazy, Amira"
+  },
+  {
+    "subject": "DHD",
+    "number": 203,
+    "title": "Disability in World Cultures",
+    "professor": "Vaidya, Shruti"
+  },
+  {
+    "subject": "DHD",
+    "number": 554,
+    "title": "Augmentative Comm Assessmnt",
+    "professor": "Bay, Stephanie Vallera"
+  },
+  {
+    "subject": "DLG",
+    "number": 120,
+    "title": "Dialogue Seminar",
+    "professor": "Baguilat, Rae Joyce"
+  },
+  {
+    "subject": "ECE",
+    "number": 115,
+    "title": "Intro to Elec & Cmptr Eng",
+    "professor": "Kosmach, James"
+  },
+  {
+    "subject": "ECE",
+    "number": 340,
+    "title": "Electronics I",
+    "professor": "Metlushko, Vitali V"
+  },
+  {
+    "subject": "ECE",
+    "number": 394,
+    "title": "Contextual Mid-Year Design",
+    "professor": "Revelo Alonso, Renata Alejandra"
+  },
+  {
+    "subject": "ECE",
+    "number": 454,
+    "title": "Mech Embed Design",
+    "professor": "Paprotny, Igor"
+  },
+  {
+    "subject": "ECON",
+    "number": 221,
+    "title": "Macroeconomics",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ECON",
+    "number": 395,
+    "title": "Rsrch and Writing in Econ",
+    "professor": "Ahundjanov, Behzod"
+  },
+  {
+    "subject": "ED",
+    "number": 205,
+    "title": "Race, Ethnicity, & Education",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ED",
+    "number": 307,
+    "title": "Nature & Practices of Nat Sci",
+    "professor": "Morales-Doyle, Daniel"
+  },
+  {
+    "subject": "ED",
+    "number": 504,
+    "title": "Urban Contexts and Ed Research",
+    "professor": "Germinaro, Kaleb"
+  },
+  {
+    "subject": "ENGL",
+    "number": 131,
+    "title": "Understand Moving Image Arts",
+    "professor": "Boulay, Katherine"
+  },
+  {
+    "subject": "ENGL",
+    "number": 161,
+    "title": "Academic Writing II",
+    "professor": "Guerrero, Antonio"
+  },
+  {
+    "subject": "ENGL",
+    "number": 104,
+    "title": "Understanding Drama",
+    "professor": "Krall, Aaron Richard"
+  },
+  {
+    "subject": "ENGL",
+    "number": 135,
+    "title": "Understanding Popular Culture",
+    "professor": "Baez, Marc J"
+  },
+  {
+    "subject": "ENGL",
+    "number": 160,
+    "title": "Academic Writing I",
+    "professor": "Bicz, Justyna"
+  },
+  {
+    "subject": "ENGL",
+    "number": 161,
+    "title": "Academic Writing II",
+    "professor": "Brand, Mark Robert"
+  },
+  {
+    "subject": "ENGL",
+    "number": 161,
+    "title": "Academic Writing II",
+    "professor": "Gore, Jeffrey S"
+  },
+  {
+    "subject": "ENGL",
+    "number": 161,
+    "title": "Academic Writing II",
+    "professor": "Jakalski, David Frank"
+  },
+  {
+    "subject": "ENGL",
+    "number": 161,
+    "title": "Academic Writing II",
+    "professor": "Krall, Aaron Richard"
+  },
+  {
+    "subject": "ENGL",
+    "number": 213,
+    "title": "Intro to Shakespeare",
+    "professor": "Buslik, Gary"
+  },
+  {
+    "subject": "ENGL",
+    "number": 282,
+    "title": "Peer Tutoring in Writing Ctr",
+    "professor": "Williams, Charitianne"
+  },
+  {
+    "subject": "ENGL",
+    "number": 493,
+    "title": "Intern in Nonfic Writing",
+    "professor": "Christian, Margena A"
+  },
+  {
+    "subject": "ENGL",
+    "number": 499,
+    "title": "Educ Pract w/Seminar II",
+    "professor": "Destigter, Todd D"
+  },
+  {
+    "subject": "ENTR",
+    "number": 435,
+    "title": "International Entrepreneurship",
+    "professor": "Aranyi, Heather Anne"
+  },
+  {
+    "subject": "EOHS",
+    "number": 502,
+    "title": "Toxicology and Disease",
+    "professor": "Hargis, Kim Michelle"
+  },
+  {
+    "subject": "EOHS",
+    "number": 563,
+    "title": "Management Systems",
+    "professor": "Fiore, Michael Joseph"
+  },
+  {
+    "subject": "EPID",
+    "number": 525,
+    "title": "Social Epidemiology",
+    "professor": "Peterson, Caryn Elizabeth"
+  },
+  {
+    "subject": "EPID",
+    "number": 595,
+    "title": "Epid Research Seminar",
+    "professor": "Bauer, Julia Nicole Anglen"
+  },
+  {
+    "subject": "EPSY",
+    "number": 160,
+    "title": "Games, Learning, & Society",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "EPSY",
+    "number": 210,
+    "title": "Learning and Instruction",
+    "professor": "Sriplo, Thitirat"
+  },
+  {
+    "subject": "EPSY",
+    "number": 256,
+    "title": "Adolescent & Early Adult Dev",
+    "professor": "Katsiaficas, Dalal Chrysoula Hanna"
+  },
+  {
+    "subject": "EPSY",
+    "number": 382,
+    "title": "Child, Family, and Comm",
+    "professor": "Torres, Stephanie Andrea"
+  },
+  {
+    "subject": "EPSY",
+    "number": 522,
+    "title": "Internship in Early Childhood",
+    "professor": "Delgado, Christina"
+  },
+  {
+    "subject": "EPSY",
+    "number": 564,
+    "title": "Eval I: Principles & Methods",
+    "professor": "Teasdale, Rebecca M"
+  },
+  {
+    "subject": "FIN",
+    "number": 300,
+    "title": "Intro to Fin for BBA Online",
+    "professor": "Guo, Re-Jin Jennifer"
+  },
+  {
+    "subject": "FIN",
+    "number": 519,
+    "title": "Behavioral Finance",
+    "professor": "Bodnaruk, Andriy"
+  },
+  {
+    "subject": "FIN",
+    "number": 540,
+    "title": "International Financial Market",
+    "professor": "Arslan Ayaydin, Ozgur"
+  },
+  {
+    "subject": "FR",
+    "number": 103,
+    "title": "Intermediate French I",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "FR",
+    "number": 210,
+    "title": "French Conversation",
+    "professor": "Weber, Elizabeth D"
+  },
+  {
+    "subject": "GAMD",
+    "number": 200,
+    "title": "The Evolution of Medicine",
+    "professor": "Curry, Raymond"
+  },
+  {
+    "subject": "CHEM",
+    "number": 599,
+    "title": "PhD Thesis Research",
+    "professor": "Cabana-Jimenez, Jordi"
+  },
+  {
+    "subject": "CHEM",
+    "number": 599,
+    "title": "PhD Thesis Research",
+    "professor": "Cho, Wonhwa"
+  },
+  {
+    "subject": "CHIN",
+    "number": 102,
+    "title": "Elementary Chinese II",
+    "professor": "Wang, Bridget Wenya"
+  },
+  {
+    "subject": "CHSC",
+    "number": 430,
+    "title": "Public Health Policy and Advoc",
+    "professor": "Cochran, Laura M"
+  },
+  {
+    "subject": "CI",
+    "number": 482,
+    "title": "Testing &Instruct:Bilingualism",
+    "professor": "Morales, Paola Z."
+  },
+  {
+    "subject": "CL",
+    "number": 205,
+    "title": "Roman Art And Archaeology",
+    "professor": "Ros, Karen E"
+  },
+  {
+    "subject": "CLJ",
+    "number": 355,
+    "title": "Punishmt, Prisons, & Correctns",
+    "professor": "Ben-Moshe, Liat"
+  },
+  {
+    "subject": "CLJ",
+    "number": 394,
+    "title": "Sports Criminology",
+    "professor": "Stephens, Ash"
+  },
+  {
+    "subject": "CLJ",
+    "number": 422,
+    "title": "Victimization",
+    "professor": "Erez, Edna"
+  },
+  {
+    "subject": "CLJ",
+    "number": 423,
+    "title": "Violence",
+    "professor": "Frohmann, Lisa G"
+  },
+  {
+    "subject": "CME",
+    "number": 207,
+    "title": "Engineering Prob & Econ",
+    "professor": "Banjavcic, Scott David"
+  },
+  {
+    "subject": "CME",
+    "number": 401,
+    "title": "Adv Design Of Metal Struct",
+    "professor": "Iranmanesh, Amirhossein"
+  },
+  {
+    "subject": "COMM",
+    "number": 101,
+    "title": "Intro to Communication",
+    "professor": "Bui, Diem-My Thi"
+  },
+  {
+    "subject": "COMM",
+    "number": 102,
+    "title": "Intro Interpersonal Comm",
+    "professor": "Page, Janis Teruggi"
+  },
+  {
+    "subject": "COMM",
+    "number": 460,
+    "title": "Visual Communication",
+    "professor": "Page, Janis Teruggi"
+  },
+  {
+    "subject": "CS",
+    "number": 109,
+    "title": "Prog for Engineers w/MatLab",
+    "professor": " ,"
+  },
+  {
+    "subject": "CS",
+    "number": 294,
+    "title": "Tech Interview Prep Course",
+    "professor": "Kanich, Chris"
+  },
+  {
+    "subject": "CS",
+    "number": 301,
+    "title": "Languages and Automata",
+    "professor": "Ibrahim, Omar"
+  },
+  {
+    "subject": "CS",
+    "number": 377,
+    "title": "Ethical Issues in Computing",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "CS",
+    "number": 466,
+    "title": "Computer Architecture",
+    "professor": "Roohi, Arman"
+  },
+  {
+    "subject": "CS",
+    "number": 472,
+    "title": "Provably Correct Programming",
+    "professor": "Mansky, William Ernest"
+  },
+  {
+    "subject": "CS",
+    "number": 478,
+    "title": "Development of Mobile Apps",
+    "professor": "Buy, Ugo A"
+  },
+  {
+    "subject": "CS",
+    "number": 491,
+    "title": "Seminar",
+    "professor": "Di Eugenio, Barbara"
+  },
+  {
+    "subject": "CS",
+    "number": 502,
+    "title": "Computational Biology",
+    "professor": "Chen, Hao"
+  },
+  {
+    "subject": "CS",
+    "number": 515,
+    "title": "Advanced Computer Vision",
+    "professor": "Tang, Wei"
+  },
+  {
+    "subject": "CS",
+    "number": 535,
+    "title": "User Exp Research Methods",
+    "professor": "Chattopadhyay, Debaleena"
+  },
+  {
+    "subject": "CS",
+    "number": 594,
+    "title": "Adv. Linux Kernel Programming",
+    "professor": "Wang, Xiaoguang"
+  },
+  {
+    "subject": "DES",
+    "number": 130,
+    "title": "3D Form Studio",
+    "professor": "Teague, Norman Lorenzo"
+  },
+  {
+    "subject": "ENGL",
+    "number": 435,
+    "title": "Topics in Popular Culture",
+    "professor": "Barnes, Natasha B."
+  },
+  {
+    "subject": "ENGR",
+    "number": 100,
+    "title": "BME Success Seminar",
+    "professor": "Narubin Durbin, Simona Ieva"
+  },
+  {
+    "subject": "ENGR",
+    "number": 100,
+    "title": "CS Success Seminar",
+    "professor": "Narubin Durbin, Simona Ieva"
+  },
+  {
+    "subject": "ENTR",
+    "number": 310,
+    "title": "Intro to Entrepreneurship",
+    "professor": "Ibrahim, Shahnaz"
+  },
+  {
+    "subject": "EPSY",
+    "number": 326,
+    "title": "Child Hlth Safety & Nutrition",
+    "professor": "Edgin, Megan Lynn"
+  },
+  {
+    "subject": "EPSY",
+    "number": 429,
+    "title": "Constructivist Approach to Dev",
+    "professor": "Mulholland, Larissa"
+  },
+  {
+    "subject": "FIN",
+    "number": 310,
+    "title": "Investments",
+    "professor": "Akbas, Ferhat"
+  },
+  {
+    "subject": "FIN",
+    "number": 500,
+    "title": "Intro to Corp Finance",
+    "professor": "Hu, Xiaoqing"
+  },
+  {
+    "subject": "FR",
+    "number": 103,
+    "title": "Intermediate French I",
+    "professor": "Hoselton, Jessica Leigh Thornton"
+  },
+  {
+    "subject": "GAMD",
+    "number": 200,
+    "title": "The Evolution of Medicine",
+    "professor": "Lacy, Timothy N"
+  },
+  {
+    "subject": "GEMS",
+    "number": 522,
+    "title": "Foundations Biomed Sciences II",
+    "professor": "Chen, Zheng Wei"
+  },
+  {
+    "subject": "GEOG",
+    "number": 161,
+    "title": "Intro to Economic Geog",
+    "professor": "Furlong, Matthew Murphy"
+  },
+  {
+    "subject": "GWS",
+    "number": 275,
+    "title": "Gender in Latin America",
+    "professor": "Zubillaga Gabaldon, Maria Veronica"
+  },
+  {
+    "subject": "HIM",
+    "number": 361,
+    "title": "Human Resources Mgmt",
+    "professor": "Glondys, Barbara A"
+  },
+  {
+    "subject": "HIST",
+    "number": 103,
+    "title": "Early America",
+    "professor": "Whisenhunt, William Benton"
+  },
+  {
+    "subject": "HIST",
+    "number": 440,
+    "title": "Research: Nations/Nationalism",
+    "professor": "Mogilner, Marina"
+  },
+  {
+    "subject": "HN",
+    "number": 203,
+    "title": "Culture and Food Lab",
+    "professor": "Lyles, Renea Michelle"
+  },
+  {
+    "subject": "HN",
+    "number": 313,
+    "title": "Intro to Community Nutrition",
+    "professor": "Ambrose, Sherri Ann"
+  },
+  {
+    "subject": "HN",
+    "number": 455,
+    "title": "Supervised Practice II",
+    "professor": "Oshita, Shayna Emily"
+  },
+  {
+    "subject": "HN",
+    "number": 555,
+    "title": "Obesity",
+    "professor": "Oddo, Vanessa"
+  },
+  {
+    "subject": "HON",
+    "number": 124,
+    "title": "Hon Core Past / Creat Arts",
+    "professor": "Dancey, Angela C"
+  },
+  {
+    "subject": "HON",
+    "number": 127,
+    "title": "Hon Core Creat Art / World Cul",
+    "professor": "Gore, Jeffrey S"
+  },
+  {
+    "subject": "HON",
+    "number": 134,
+    "title": "Hon Core Nat World/US Society",
+    "professor": "Theis, Thomas L"
+  },
+  {
+    "subject": "HON",
+    "number": 141,
+    "title": "Honors Core Past",
+    "professor": "Fletcher, Christopher David"
+  },
+  {
+    "subject": "HON",
+    "number": 201,
+    "title": "Honors Seminar",
+    "professor": "Bui, Long B"
+  },
+  {
+    "subject": "HON",
+    "number": 201,
+    "title": "Honors Seminar",
+    "professor": "Plotnick, Roy E"
+  },
+  {
+    "subject": "HON",
+    "number": 222,
+    "title": "Honors Activity",
+    "professor": "Burns-Howard, Kathryn"
+  },
+  {
+    "subject": "IE",
+    "number": 494,
+    "title": "Supply Chain Management",
+    "professor": "Williams, Quintin Levurn"
+  },
+  {
+    "subject": "IPHS",
+    "number": 410,
+    "title": "Global Public Health Success",
+    "professor": "Shade McCay, Michele LaVerne"
+  },
+  {
+    "subject": "IPHS",
+    "number": 526,
+    "title": "Policy Change",
+    "professor": "Peters, Karen E"
+  },
+  {
+    "subject": "IPHS",
+    "number": 594,
+    "title": "Qual Methods for Leadership",
+    "professor": "Asada, Yuka"
+  },
+  {
+    "subject": "IPHS",
+    "number": 698,
+    "title": "Integrative Learning Exp",
+    "professor": "Dyer, Sharyn Kaye"
+  },
+  {
+    "subject": "IPHS",
+    "number": 699,
+    "title": "Research PH Sciences-DrPH",
+    "professor": "Asada, Yuka"
+  },
+  {
+    "subject": "IPHS",
+    "number": 699,
+    "title": "Research PH Sciences-DrPH",
+    "professor": "Flores, Alina Lopez"
+  },
+  {
+    "subject": "JD",
+    "number": 414,
+    "title": "Const Law I",
+    "professor": "Schwinn, Steven D"
+  },
+  {
+    "subject": "JD",
+    "number": 415,
+    "title": "Contracts II",
+    "professor": "Robinson, Randolph A"
+  },
+  {
+    "subject": "JD",
+    "number": 423,
+    "title": "Prof Responsibility",
+    "professor": "Prochaska, Jenna"
+  },
+  {
+    "subject": "JPN",
+    "number": 104,
+    "title": "Intermediate Japanese II",
+    "professor": "Changet, Mika Obana"
+  },
+  {
+    "subject": "KN",
+    "number": 194,
+    "title": "First Aid and CPR",
+    "professor": "Jandek, Amy M"
+  },
+  {
+    "subject": "KN",
+    "number": 230,
+    "title": "Anatomy & Physiology Lecture I",
+    "professor": "Kanan, Tomer"
+  },
+  {
+    "subject": "KN",
+    "number": 231,
+    "title": "Anatomy & Physio Lecture II",
+    "professor": "Kanan, Tomer"
+  },
+  {
+    "subject": "KN",
+    "number": 245,
+    "title": "Exercise Programming & Instruc",
+    "professor": "Schmidt-McNulty, Tina"
+  },
+  {
+    "subject": "KN",
+    "number": 331,
+    "title": "Sport & Exercise Injury Mgmt",
+    "professor": "Jandek, Amy M"
+  },
+  {
+    "subject": "KN",
+    "number": 352,
+    "title": "Physiology of Exercise",
+    "professor": "Miller, Joshua"
+  },
+  {
+    "subject": "KN",
+    "number": 491,
+    "title": "Professional Preparation",
+    "professor": "Coumbe-Lilley, John Edward"
+  },
+  {
+    "subject": "KN",
+    "number": 493,
+    "title": "Practicum in UG Teaching",
+    "professor": "Hamstra-Wright, Karrie Lynn"
+  },
+  {
+    "subject": "KN",
+    "number": 571,
+    "title": "Biomechanics of Movement",
+    "professor": "Sawers, Andrew"
+  },
+  {
+    "subject": "KOR",
+    "number": 230,
+    "title": "Korean Popular Culture",
+    "professor": "Kim, Hanae"
+  },
+  {
+    "subject": "LALS",
+    "number": 295,
+    "title": "Latino Literary Studies",
+    "professor": "Huerta, Joel"
+  },
+  {
+    "subject": "LALS",
+    "number": 491,
+    "title": "Child Migrations",
+    "professor": "Alvarez Velasco, Soledad"
+  },
+  {
+    "subject": "LAW",
+    "number": 412,
+    "title": "LSII",
+    "professor": "McCain, Danielle Thomas"
+  },
+  {
+    "subject": "LAW",
+    "number": 412,
+    "title": "LSII",
+    "professor": "Pissetzky, Sally"
+  },
+  {
+    "subject": "LAW",
+    "number": 412,
+    "title": "LSII",
+    "professor": "Skowronski, Ann"
+  },
+  {
+    "subject": "LAW",
+    "number": 430,
+    "title": "LSIV: Bus Plann and Drafting",
+    "professor": "Rice, Chanda"
+  },
+  {
+    "subject": "LAW",
+    "number": 437,
+    "title": "LSIV: Drafting Gen Prac",
+    "professor": "Reiter, Gregory Michael"
+  },
+  {
+    "subject": "ED",
+    "number": 417,
+    "title": "Practical Inquiry II",
+    "professor": "Rao, Arthi Bhimsen"
+  },
+  {
+    "subject": "EDPS",
+    "number": 553,
+    "title": "Leading Urban Schl Systems",
+    "professor": "Barron, Cynthia K"
+  },
+  {
+    "subject": "EDPS",
+    "number": 556,
+    "title": "Leading Classroom Diagnostics",
+    "professor": "Cole, Carrie Ann"
+  },
+  {
+    "subject": "ELSI",
+    "number": 14,
+    "title": "Reading/Writing 4, IEP",
+    "professor": "Stockman, Matthew William Miller"
+  },
+  {
+    "subject": "ELSI",
+    "number": 43,
+    "title": "Engl for Academic Purposes II",
+    "professor": "Buendia, Jenna Rashel"
+  },
+  {
+    "subject": "ENGL",
+    "number": 151,
+    "title": "Intro to Academic Writing",
+    "professor": "Gayle, Robin Carole Petrovic"
+  },
+  {
+    "subject": "ENGL",
+    "number": 160,
+    "title": "Academic Writing I",
+    "professor": "Baszak, Gregor"
+  },
+  {
+    "subject": "ENGL",
+    "number": 160,
+    "title": "Academic Writing I",
+    "professor": "Benincasa, Erin"
+  },
+  {
+    "subject": "ENGL",
+    "number": 160,
+    "title": "Academic Writing I",
+    "professor": "Bohne, Amanda"
+  },
+  {
+    "subject": "ENGL",
+    "number": 160,
+    "title": "Academic Writing I",
+    "professor": "Rupert, Jennifer"
+  },
+  {
+    "subject": "ENGL",
+    "number": 161,
+    "title": "Academic Writing II",
+    "professor": "Casey, John A"
+  },
+  {
+    "subject": "ENGL",
+    "number": 161,
+    "title": "Academic Writing II",
+    "professor": "Goldbach, John S"
+  },
+  {
+    "subject": "ENGL",
+    "number": 161,
+    "title": "Academic Writing II",
+    "professor": "Lewis, Jennifer V."
+  },
+  {
+    "subject": "ENGL",
+    "number": 161,
+    "title": "Academic Writing II",
+    "professor": "Sheldon, Douglas Harold"
+  },
+  {
+    "subject": "ENGL",
+    "number": 161,
+    "title": "Academic Writing II",
+    "professor": "Steuber, Evan James"
+  },
+  {
+    "subject": "ENGL",
+    "number": 161,
+    "title": "Academic Writing II",
+    "professor": "Vlahos, Catherine"
+  },
+  {
+    "subject": "ENGL",
+    "number": 305,
+    "title": "Studies in Fiction",
+    "professor": "Mufti, Nasser"
+  },
+  {
+    "subject": "ENGL",
+    "number": 486,
+    "title": "Teaching Writing/Mid&Sec Schl",
+    "professor": "Sjostrom, Katharine Sullivan"
+  },
+  {
+    "subject": "ENTR",
+    "number": 200,
+    "title": "Surveyof Entrepreneurship",
+    "professor": "Shrader, Rodney C"
+  },
+  {
+    "subject": "ENTR",
+    "number": 445,
+    "title": "New Venture Planning",
+    "professor": "Hogan, Daniel Mark"
+  },
+  {
+    "subject": "EOHS",
+    "number": 495,
+    "title": "Environmental/Occ Hlth Seminar",
+    "professor": "Buchanan, Susan Nathalie"
+  },
+  {
+    "subject": "EOHS",
+    "number": 571,
+    "title": "Injury Epid & Prevention",
+    "professor": "Almberg, Kirsten Staggs"
+  },
+  {
+    "subject": "EPID",
+    "number": 411,
+    "title": "Epid Non-Infectious Diseases",
+    "professor": "Jakubowski, Deborah McCullough"
+  },
+  {
+    "subject": "EPSY",
+    "number": 100,
+    "title": "Human Development Learning",
+    "professor": "Humphries, Marisha Lynnette"
+  },
+  {
+    "subject": "EPSY",
+    "number": 521,
+    "title": "Student Teaching in ECE",
+    "professor": "Mulholland, Larissa"
+  },
+  {
+    "subject": "EPSY",
+    "number": 562,
+    "title": "Large-Scale Testing",
+    "professor": "Schnabel, Sarah D"
+  },
+  {
+    "subject": "FIN",
+    "number": 250,
+    "title": "Personal Finance",
+    "professor": "Zabotina, Tatiana V"
+  },
+  {
+    "subject": "FIN",
+    "number": 300,
+    "title": "Intro to Finance",
+    "professor": "Shu, Tengjia"
+  },
+  {
+    "subject": "EDPS",
+    "number": 517,
+    "title": "Governance in Urban Higher Ed",
+    "professor": "Palmer, Gordon John Martin"
+  },
+  {
+    "subject": "EDPS",
+    "number": 592,
+    "title": "Prof Career Training in EDPS",
+    "professor": "Allen, Lionel E Jr"
+  },
+  {
+    "subject": "ENGL",
+    "number": 154,
+    "title": "Understanding Rhetoric",
+    "professor": "Lannon, Keegan"
+  },
+  {
+    "subject": "ENGL",
+    "number": 160,
+    "title": "Academic Writing I",
+    "professor": "James, Donald I"
+  },
+  {
+    "subject": "ENGL",
+    "number": 161,
+    "title": "Academic Writing II",
+    "professor": "Barton, Daniel Robert"
+  },
+  {
+    "subject": "ENGL",
+    "number": 161,
+    "title": "Academic Writing II",
+    "professor": "Burton, Sammie Marie"
+  },
+  {
+    "subject": "ENGL",
+    "number": 161,
+    "title": "Academic Writing II",
+    "professor": "Costello, Virginia M"
+  },
+  {
+    "subject": "ENGL",
+    "number": 161,
+    "title": "Academic Writing II",
+    "professor": "Gallus-Price, Sibyl J"
+  },
+  {
+    "subject": "ENGL",
+    "number": 161,
+    "title": "Academic Writing II",
+    "professor": "McGehee, Wesley Kyle"
+  },
+  {
+    "subject": "ENGL",
+    "number": 161,
+    "title": "Academic Writing II",
+    "professor": "Newirth, Michael"
+  },
+  {
+    "subject": "ENGL",
+    "number": 208,
+    "title": "English Studies I: 17th Cent T",
+    "professor": "Magarik, Raphael Solomon Safron"
+  },
+  {
+    "subject": "ENGL",
+    "number": 430,
+    "title": "Topics in Cultural & Media St",
+    "professor": "Leick, Karen"
+  },
+  {
+    "subject": "ENGL",
+    "number": 498,
+    "title": "Educ Pract w/ Seminar I",
+    "professor": "Destigter, Todd D"
+  },
+  {
+    "subject": "ENGR",
+    "number": 100,
+    "title": "ECE Success Seminar",
+    "professor": "Narubin Durbin, Simona Ieva"
+  },
+  {
+    "subject": "EPSY",
+    "number": 453,
+    "title": "Ed Program & Marketing in ECE",
+    "professor": "Kull, Kimberly B."
+  },
+  {
+    "subject": "EPSY",
+    "number": 464,
+    "title": "Psychology of Sport & Wellness",
+    "professor": "Thorkildsen, Theresa A"
+  },
+  {
+    "subject": "EPSY",
+    "number": 520,
+    "title": "Intro Curriculum & Practice",
+    "professor": "Banzer, David A"
+  },
+  {
+    "subject": "EPSY",
+    "number": 522,
+    "title": "Internship in Early Childhood",
+    "professor": "Abel, Barbara"
+  },
+  {
+    "subject": "EPSY",
+    "number": 546,
+    "title": "Educ Measurement",
+    "professor": "Yin, Yue"
+  },
+  {
+    "subject": "EPSY",
+    "number": 575,
+    "title": "Mixed Methods Approaches",
+    "professor": "Hall, Jori N"
+  },
+  {
+    "subject": "FIN",
+    "number": 250,
+    "title": "Personal Finance",
+    "professor": "Bateman, Donald Andrew"
+  },
+  {
+    "subject": "FIN",
+    "number": 411,
+    "title": "Retirement and Estate Planning",
+    "professor": "Arnold, Warren David"
+  },
+  {
+    "subject": "FIN",
+    "number": 456,
+    "title": "Advanced Investment Management",
+    "professor": "Wightkin, John"
+  },
+  {
+    "subject": "FIN",
+    "number": 520,
+    "title": "Corporate Finance",
+    "professor": "Diaz Bianco, Aaron"
+  },
+  {
+    "subject": "FR",
+    "number": 104,
+    "title": "Intermediate French II",
+    "professor": "Lapotre, Carly A"
+  },
+  {
+    "subject": "GC",
+    "number": 511,
+    "title": "English Fluency Development",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "GEMS",
+    "number": 506,
+    "title": "GEMS Research Rotation",
+    "professor": "Sharma, Kamal"
+  },
+  {
+    "subject": "GLAS",
+    "number": 275,
+    "title": "History of South Asia to 1857",
+    "professor": "Mantena, Rama"
+  },
+  {
+    "subject": "FIN",
+    "number": 310,
+    "title": "Investments",
+    "professor": "Genc, Egemen"
+  },
+  {
+    "subject": "FIN",
+    "number": 310,
+    "title": "Investments",
+    "professor": "Lin, Jerchern"
+  },
+  {
+    "subject": "FIN",
+    "number": 320,
+    "title": "Managerial Finance",
+    "professor": "Murphy, Dermot P"
+  },
+  {
+    "subject": "FIN",
+    "number": 330,
+    "title": "Quantitative Methods",
+    "professor": "Sipahi Akbas, Rabia Esma"
+  },
+  {
+    "subject": "FIN",
+    "number": 330,
+    "title": "Quantitative Methods",
+    "professor": "Zhang, Lan"
+  },
+  {
+    "subject": "FR",
+    "number": 101,
+    "title": "Elementary French 1",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "FR",
+    "number": 103,
+    "title": "Intermediate French I",
+    "professor": "Chidlow, Angela"
+  },
+  {
+    "subject": "GC",
+    "number": 592,
+    "title": "Foundations College Instruct",
+    "professor": "Pierson, Katherine"
+  },
+  {
+    "subject": "GEMS",
+    "number": 515,
+    "title": "Receptor Pharmacology",
+    "professor": "Wary, Kishore"
+  },
+  {
+    "subject": "HIM",
+    "number": 384,
+    "title": "Clinical Practicum",
+    "professor": "Kersten, Sandra K"
+  },
+  {
+    "subject": "HIST",
+    "number": 114,
+    "title": "Environmental History",
+    "professor": "Cuyler, Zachary"
+  },
+  {
+    "subject": "HIST",
+    "number": 205,
+    "title": "Roman Art and Archaeology",
+    "professor": "Ros, Karen E"
+  },
+  {
+    "subject": "HIST",
+    "number": 249,
+    "title": "The American Civil War",
+    "professor": "Bui, Long B"
+  },
+  {
+    "subject": "HN",
+    "number": 300,
+    "title": "Science of Foods",
+    "professor": "Wang, Qian"
+  },
+  {
+    "subject": "HN",
+    "number": 423,
+    "title": "Nutrition Counseling",
+    "professor": "Rieck, Allison M"
+  },
+  {
+    "subject": "HN",
+    "number": 594,
+    "title": "Launching Your Nutr Practice",
+    "professor": "Doherty, Margaret Aleene"
+  },
+  {
+    "subject": "HN",
+    "number": 596,
+    "title": "Independent Study in HN",
+    "professor": "Oshita, Shayna Emily"
+  },
+  {
+    "subject": "HON",
+    "number": 121,
+    "title": "Hon Core Ind & Soc / Creat Art",
+    "professor": "Beverly, Phillip Adrian"
+  },
+  {
+    "subject": "HON",
+    "number": 121,
+    "title": "Hon Core Ind & Soc / Creat Art",
+    "professor": "Sherfinski, Todd"
+  },
+  {
+    "subject": "HON",
+    "number": 122,
+    "title": "Hon Core Ind & Soc / World Cul",
+    "professor": "Kares, Faith"
+  },
+  {
+    "subject": "HON",
+    "number": 301,
+    "title": "Foundations for the Future",
+    "professor": "Amiri, Leila"
+  },
+  {
+    "subject": "IDEA",
+    "number": 120,
+    "title": "Digital Practices in  the Arts",
+    "professor": "Funk, Tiffany Ann"
+  },
+  {
+    "subject": "IDEA",
+    "number": 322,
+    "title": "Art Based research Methods",
+    "professor": "Higgins, Hannah B"
+  },
+  {
+    "subject": "IDS",
+    "number": 200,
+    "title": "Intro Mgmt Info Systems",
+    "professor": "Choi, Michael"
+  },
+  {
+    "subject": "IDS",
+    "number": 270,
+    "title": "Business Statistics I",
+    "professor": "Talukdar, Manjuri"
+  },
+  {
+    "subject": "IDS",
+    "number": 312,
+    "title": "Bus Proj Mgmt for BBA online",
+    "professor": "Gawel, Jeffrey"
+  },
+  {
+    "subject": "IDS",
+    "number": 401,
+    "title": "Bus Objects Prog using Java",
+    "professor": "Lu, Yingda"
+  },
+  {
+    "subject": "GWS",
+    "number": 102,
+    "title": "Global Women & Gender",
+    "professor": "Jackson, Lynette A."
+  },
+  {
+    "subject": "HIM",
+    "number": 343,
+    "title": "Quality Eval & Mgmt",
+    "professor": "Glondys, Barbara A"
+  },
+  {
+    "subject": "HIM",
+    "number": 367,
+    "title": "Systems Analysis",
+    "professor": "Williams, Felecia Altevet"
+  },
+  {
+    "subject": "HIM",
+    "number": 377,
+    "title": "Current Issues in HIM",
+    "professor": "Kersten, Sandra K"
+  },
+  {
+    "subject": "HIST",
+    "number": 210,
+    "title": "Asian American Histories",
+    "professor": "Gonzalez, Fredy"
+  },
+  {
+    "subject": "HIST",
+    "number": 255,
+    "title": "History of Chicago",
+    "professor": "Bui, Long B"
+  },
+  {
+    "subject": "HIST",
+    "number": 552,
+    "title": "Seminar in Historical Research",
+    "professor": "Connolly, Jonathan"
+  },
+  {
+    "subject": "HN",
+    "number": 420,
+    "title": "Clinical Nutrition II",
+    "professor": "Oshita, Shayna Emily"
+  },
+  {
+    "subject": "HON",
+    "number": 127,
+    "title": "Hon Core Creat Art / World Cul",
+    "professor": "Giampaoli, Michelangelo"
+  },
+  {
+    "subject": "HON",
+    "number": 128,
+    "title": "Hon Core Creat Arts / US Soc",
+    "professor": "Christian, Margena A"
+  },
+  {
+    "subject": "HON",
+    "number": 142,
+    "title": "Honors Core Creative Arts",
+    "professor": "O'Neil, Kimberly Jean"
+  },
+  {
+    "subject": "HON",
+    "number": 201,
+    "title": "Honors Seminar",
+    "professor": "Maginot, Kelly Birch"
+  },
+  {
+    "subject": "HPA",
+    "number": 420,
+    "title": "US Hlth Care System for PHP",
+    "professor": "Kim, Sage J"
+  },
+  {
+    "subject": "HPA",
+    "number": 490,
+    "title": "Topics in Hlthcare Leadership",
+    "professor": "Rank, Charles Andrew"
+  },
+  {
+    "subject": "IDS",
+    "number": 312,
+    "title": "Business Project Management",
+    "professor": "Falkiewicz, Camelia Angelica"
+  },
+  {
+    "subject": "IDS",
+    "number": 460,
+    "title": "Causal Inference",
+    "professor": "Wang, Zisu"
+  },
+  {
+    "subject": "IDS",
+    "number": 535,
+    "title": "Vendor Management",
+    "professor": "Treleaven, James"
+  },
+  {
+    "subject": "IDS",
+    "number": 552,
+    "title": "Supply Chain Management",
+    "professor": "Chen, Boxiao"
+  },
+  {
+    "subject": "IDS",
+    "number": 555,
+    "title": "Applied SC Strategy & Practice",
+    "professor": "Liotine, Matthew"
+  },
+  {
+    "subject": "IDS",
+    "number": 575,
+    "title": "Machine Learning & Statistics",
+    "professor": "Hu, Yuheng"
+  },
+  {
+    "subject": "IE",
+    "number": 397,
+    "title": "Senior Design Il",
+    "professor": "Brown, Michael A"
+  },
+  {
+    "subject": "IPHS",
+    "number": 405,
+    "title": "PH Analytic & Research II CohC",
+    "professor": "Cambron, Jerrilyn Arlene"
+  },
+  {
+    "subject": "IPHS",
+    "number": 494,
+    "title": "PH Leadership Essentials",
+    "professor": "Taylor, Michele Rodriguez"
+  },
+  {
+    "subject": "IPHS",
+    "number": 524,
+    "title": "Strategic Development",
+    "professor": "Welter, Christina Rose"
+  },
+  {
+    "subject": "JD",
+    "number": 411,
+    "title": "Civil Procedure I",
+    "professor": "Ford, Stuart K"
+  },
+  {
+    "subject": "JD",
+    "number": 415,
+    "title": "Contracts II",
+    "professor": "Wouters, Hub Conley"
+  },
+  {
+    "subject": "JD",
+    "number": 421,
+    "title": "Civil Procedure II",
+    "professor": "Pleasant, Shakira"
+  },
+  {
+    "subject": "ACTG",
+    "number": 210,
+    "title": "Intro Financial Accounting",
+    "professor": "Zufarov, Rustam"
+  },
+  {
+    "subject": "ACTG",
+    "number": 210,
+    "title": "Intro to Fin Actg",
+    "professor": "Chang, Nathan"
+  },
+  {
+    "subject": "ACTG",
+    "number": 210,
+    "title": "Intro to Fin Actg",
+    "professor": "Mikhail, Michael B"
+  },
+  {
+    "subject": "ACTG",
+    "number": 211,
+    "title": "Intro Managerial Accounting",
+    "professor": "Patel, Neel Vasudev"
+  },
+  {
+    "subject": "ACTG",
+    "number": 417,
+    "title": "Adv Financial Accounting",
+    "professor": "Norden, Mark"
+  },
+  {
+    "subject": "ACTG",
+    "number": 495,
+    "title": "Competitive Strategy",
+    "professor": "Martin, Melissa"
+  },
+  {
+    "subject": "ACTG",
+    "number": 500,
+    "title": "Intro Financial Actg",
+    "professor": "Pandit, Shailendra"
+  },
+  {
+    "subject": "AH",
+    "number": 100,
+    "title": "Intro to Art &Art History",
+    "professor": "Simonetti, Marie-Agathe"
+  },
+  {
+    "subject": "AH",
+    "number": 261,
+    "title": "Modern Art 1900 to 1968",
+    "professor": "Archias, S Elise"
+  },
+  {
+    "subject": "AH",
+    "number": 522,
+    "title": "Disaster as Form",
+    "professor": "Kherdeen, Riad"
+  },
+  {
+    "subject": "AHS",
+    "number": 393,
+    "title": "Synthesis in Health &Rehab Sci",
+    "professor": "Akinola, Olayemi"
+  },
+  {
+    "subject": "ANAT",
+    "number": 403,
+    "title": "Human Neuroanatomy",
+    "professor": "Sharma, Kamal"
+  },
+  {
+    "subject": "ANTH",
+    "number": 217,
+    "title": "Death & Dying Across Cultures",
+    "professor": "Giampaoli, Michelangelo"
+  },
+  {
+    "subject": "ANTH",
+    "number": 238,
+    "title": "Biology of Women",
+    "professor": "Starkweather, Kathrine Elizabeth"
+  },
+  {
+    "subject": "ARAB",
+    "number": 102,
+    "title": "Elementary Arabic II",
+    "professor": "Almahamid, Jumana Mohammed"
+  },
+  {
+    "subject": "ARCH",
+    "number": 200,
+    "title": "Architecture and Society",
+    "professor": "Kelley, Jayne E"
+  },
+  {
+    "subject": "ARCH",
+    "number": 210,
+    "title": "Architecture as Archetype",
+    "professor": "Materia, Barbara"
+  },
+  {
+    "subject": "ARCH",
+    "number": 586,
+    "title": "Arch Theory & History IV",
+    "professor": "Hicks, Stewart Roger"
+  },
+  {
+    "subject": "ART",
+    "number": 130,
+    "title": "Intro to Painting(Major Only)",
+    "professor": "Schwindt, Samuel"
+  },
+  {
+    "subject": "ART",
+    "number": 140,
+    "title": "Introduction to Sculpture",
+    "professor": "Banos Arjona, Juan Antonio"
+  },
+  {
+    "subject": "ART",
+    "number": 150,
+    "title": "Intro to New Media Arts",
+    "professor": "Raaf, Sabrina Kay"
+  },
+  {
+    "subject": "ART",
+    "number": 170,
+    "title": "Introduction to  Filmmaking",
+    "professor": "Hutchinson, Zachary Odell"
+  },
+  {
+    "subject": "ART",
+    "number": 260,
+    "title": "Topics in Digital Photography",
+    "professor": "Washington, Zuri Aqeela"
+  },
+  {
+    "subject": "ASP",
+    "number": 81,
+    "title": "Workshop for MATH 181 Students",
+    "professor": "Mankus, Terrance A"
+  },
+  {
+    "subject": "BA",
+    "number": 101,
+    "title": "Business First-Year Seminar",
+    "professor": "Vaughn, Brooke"
+  },
+  {
+    "subject": "BA",
+    "number": 200,
+    "title": "Business Communication",
+    "professor": "Wang, Jie"
+  },
+  {
+    "subject": "BA",
+    "number": 220,
+    "title": "Bus Prof Dev II - Bus Scholars",
+    "professor": "Rodriguez, Paul"
+  },
+  {
+    "subject": "ECE",
+    "number": 466,
+    "title": "Computer Architecture",
+    "professor": "Roohi, Arman"
+  },
+  {
+    "subject": "ECE",
+    "number": 542,
+    "title": "Adv Semiconductor Devices",
+    "professor": "Shi, Junxia"
+  },
+  {
+    "subject": "ECE",
+    "number": 545,
+    "title": "Adv Power-Elect Design",
+    "professor": "Shadmand, Mohammad"
+  },
+  {
+    "subject": "ECON",
+    "number": 311,
+    "title": "Intro Real Estate",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ED",
+    "number": 200,
+    "title": "Educ Policy Foundations",
+    "professor": "Lipman, Pauline J."
+  },
+  {
+    "subject": "ED",
+    "number": 264,
+    "title": "Sport, Education, and Society",
+    "professor": "Wilson, Johner Taylor"
+  },
+  {
+    "subject": "ED",
+    "number": 417,
+    "title": "Practical Inquiry II",
+    "professor": "Trinder, Victoria F."
+  },
+  {
+    "subject": "ED",
+    "number": 451,
+    "title": "Student Teaching",
+    "professor": "Hill, Danielle Lashe"
+  },
+  {
+    "subject": "ELSI",
+    "number": 23,
+    "title": "Listening/Speaking 3 IEP",
+    "professor": "Jacob, Rachel S"
+  },
+  {
+    "subject": "ELSI",
+    "number": 24,
+    "title": "Listening/Speaking 4 IEP",
+    "professor": "Bonarek, Rebecca L"
+  },
+  {
+    "subject": "ELSI",
+    "number": 43,
+    "title": "Engl for Academic Purposes II",
+    "professor": "Stockman, Matthew William Miller"
+  },
+  {
+    "subject": "ENGL",
+    "number": 103,
+    "title": "Understanding Poetry",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ENGL",
+    "number": 160,
+    "title": "Academic Writing I",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ENGL",
+    "number": 160,
+    "title": "Academic Writing I",
+    "professor": "He, Ling"
+  },
+  {
+    "subject": "ENGL",
+    "number": 161,
+    "title": "Academic Writing II",
+    "professor": "Dertinger, Nicholas"
+  },
+  {
+    "subject": "ENGL",
+    "number": 207,
+    "title": "Interpretation & Crit Analysis",
+    "professor": "Jun, Helen Heran"
+  },
+  {
+    "subject": "ENGL",
+    "number": 223,
+    "title": "Intro Colonial and Postcol Lit",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ENGL",
+    "number": 238,
+    "title": "Fiction, Sci-Fi & Fantasy",
+    "professor": "Lewis, Jennifer V."
+  },
+  {
+    "subject": "ENGL",
+    "number": 247,
+    "title": "Women & Lit",
+    "professor": "Arrizon-Palomera, Esmeralda"
+  },
+  {
+    "subject": "ENGL",
+    "number": 280,
+    "title": "Media & Prof Writing",
+    "professor": "Baszak, Gregor"
+  },
+  {
+    "subject": "ENGL",
+    "number": 380,
+    "title": "Adv Professional Writing",
+    "professor": "Hayek, Philip Wesley"
+  },
+  {
+    "subject": "ENGL",
+    "number": 480,
+    "title": "Intro to Teaching Engl",
+    "professor": "Johnson, Lauren Elizabeth Reine"
+  },
+  {
+    "subject": "ENGL",
+    "number": 491,
+    "title": "Adv Writing of Fiction",
+    "professor": "O'Neil, Kimberly Jean"
+  },
+  {
+    "subject": "ENGL",
+    "number": 585,
+    "title": "Theoretical Sites",
+    "professor": "Brown, Nicholas Mainey"
+  },
+  {
+    "subject": "ENGR",
+    "number": 100,
+    "title": "CHE Success Seminar",
+    "professor": "Narubin Durbin, Simona Ieva"
+  },
+  {
+    "subject": "ENGR",
+    "number": 394,
+    "title": "Dusable Scholar II",
+    "professor": "Abiade, Jeremiah T"
+  },
+  {
+    "subject": "ENTR",
+    "number": 454,
+    "title": "Entr New Venture Formation",
+    "professor": "Ibrahim, Shahnaz"
+  },
+  {
+    "subject": "EOHS",
+    "number": 402,
+    "title": "Systems Approach",
+    "professor": "Malecki, Kristen"
+  },
+  {
+    "subject": "DES",
+    "number": 140,
+    "title": "Design Drawing",
+    "professor": "Rynkiewicz, Jacob"
+  },
+  {
+    "subject": "DES",
+    "number": 150,
+    "title": "Digital Media Design I",
+    "professor": "Joseph, Dawn M"
+  },
+  {
+    "subject": "DES",
+    "number": 170,
+    "title": "Color Theory",
+    "professor": "Wandro, Jennifer Marie"
+  },
+  {
+    "subject": "DES",
+    "number": 231,
+    "title": "Industrial Design III",
+    "professor": "Teague, Norman Lorenzo"
+  },
+  {
+    "subject": "DES",
+    "number": 256,
+    "title": "Integrative Design Studio II",
+    "professor": "Armstrong, Lisa G"
+  },
+  {
+    "subject": "DES",
+    "number": 322,
+    "title": "Design Research Methods",
+    "professor": "Wilkens, Kimberlee Marie"
+  },
+  {
+    "subject": "DES",
+    "number": 331,
+    "title": "Industrial Design V",
+    "professor": "Bertran, Bridgette"
+  },
+  {
+    "subject": "DHD",
+    "number": 535,
+    "title": "Advocacy & Empowerment",
+    "professor": "Balcazar, Fabricio E"
+  },
+  {
+    "subject": "ECE",
+    "number": 265,
+    "title": "Intro to Logic Design",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ECE",
+    "number": 333,
+    "title": "Computer Comm Networks I",
+    "professor": "Abu Salah, Lo'Ay Mohammad"
+  },
+  {
+    "subject": "ECE",
+    "number": 366,
+    "title": "Computer Organization",
+    "professor": "Pal, Debjit"
+  },
+  {
+    "subject": "ECE",
+    "number": 418,
+    "title": "Statist Digit Signa Proc",
+    "professor": "Soltanalian, Mojtaba"
+  },
+  {
+    "subject": "ECE",
+    "number": 499,
+    "title": "Prof. Development Seminar",
+    "professor": "Kosmach, James"
+  },
+  {
+    "subject": "ECE",
+    "number": 550,
+    "title": "Linear Systems",
+    "professor": "Zefran, Milos"
+  },
+  {
+    "subject": "ECON",
+    "number": 121,
+    "title": "Principles of Macroeconomics",
+    "professor": "Ahundjanov, Behzod"
+  },
+  {
+    "subject": "ECON",
+    "number": 121,
+    "title": "Principles of Macroeconomics",
+    "professor": "Pieper, Paul J"
+  },
+  {
+    "subject": "ECON",
+    "number": 326,
+    "title": "History of Thought",
+    "professor": "Persky, Joseph Jacob"
+  },
+  {
+    "subject": "ECON",
+    "number": 333,
+    "title": "International Economics",
+    "professor": "Pieper, Paul J"
+  },
+  {
+    "subject": "ECON",
+    "number": 520,
+    "title": "Microecon for Business",
+    "professor": "Adams, Vangeliya Pavlova"
+  },
+  {
+    "subject": "ED",
+    "number": 135,
+    "title": "Chld & Yth Policy Urb Amer",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ED",
+    "number": 200,
+    "title": "Educ Policy Foundations",
+    "professor": "Danns, Dionne A"
+  },
+  {
+    "subject": "ED",
+    "number": 205,
+    "title": "Race, Ethnicity, & Education",
+    "professor": "Martin, Danny Bernard"
+  },
+  {
+    "subject": "ED",
+    "number": 307,
+    "title": "Nature & Practices of Nat Sci",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ED",
+    "number": 351,
+    "title": "Ed in Urb Classroom: Field II",
+    "professor": "Maglaris, Angela"
+  },
+  {
+    "subject": "ED",
+    "number": 394,
+    "title": "Special Topics in Educ",
+    "professor": "Katsiaficas, Dalal Chrysoula Hanna"
+  },
+  {
+    "subject": "ED",
+    "number": 394,
+    "title": "Special Topics in Educ",
+    "professor": "Sheridan, Kathleen M"
+  },
+  {
+    "subject": "EDPS",
+    "number": 530,
+    "title": "Urban Higher Education Seminar",
+    "professor": "Sima, Celina"
+  },
+  {
+    "subject": "ENGL",
+    "number": 160,
+    "title": "Academic Writing I",
+    "professor": "Burson, Harry"
+  },
+  {
+    "subject": "HPA",
+    "number": 470,
+    "title": "Quant Methods Health Managers",
+    "professor": "Markowski, Justin Henry"
+  },
+  {
+    "subject": "IDS",
+    "number": 331,
+    "title": "Spreadsheet Analysis",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "IDS",
+    "number": 355,
+    "title": "Operations Management",
+    "professor": "Dierks, Ludwig"
+  },
+  {
+    "subject": "IDS",
+    "number": 355,
+    "title": "Operations Management",
+    "professor": "Ouksel, Aris M"
+  },
+  {
+    "subject": "IDS",
+    "number": 507,
+    "title": "Syst Analysis Design Proj",
+    "professor": "Treleaven, James"
+  },
+  {
+    "subject": "IDS",
+    "number": 520,
+    "title": "Info Infrastruc & Security",
+    "professor": "Mohammed, Mustafa N"
+  },
+  {
+    "subject": "IDS",
+    "number": 564,
+    "title": "Social Analytics",
+    "professor": "Wang, Zisu"
+  },
+  {
+    "subject": "IDS",
+    "number": 569,
+    "title": "Reinforcement Learning",
+    "professor": "Kamble, Vijay S"
+  },
+  {
+    "subject": "IDS",
+    "number": 576,
+    "title": "Deep Learning and Applications",
+    "professor": "Tulabandhula, Theja"
+  },
+  {
+    "subject": "IDS",
+    "number": 594,
+    "title": "Special Topics in IDS (MLOps)",
+    "professor": "Tulabandhula, Theja"
+  },
+  {
+    "subject": "IE",
+    "number": 342,
+    "title": "Probability & Stat for Engr",
+    "professor": "He, David Weihua"
+  },
+  {
+    "subject": "IE",
+    "number": 342,
+    "title": "Probability & Stat for Engr",
+    "professor": "Kim, Hyungil"
+  },
+  {
+    "subject": "IE",
+    "number": 342,
+    "title": "Probability & Stat for Engr",
+    "professor": "Nicolsen, Brynne E"
+  },
+  {
+    "subject": "IE",
+    "number": 463,
+    "title": "Design & Material Handling",
+    "professor": "Williams, Quintin Levurn"
+  },
+  {
+    "subject": "IE",
+    "number": 472,
+    "title": "Operations Research II",
+    "professor": "He, David Weihua"
+  },
+  {
+    "subject": "IPHS",
+    "number": 505,
+    "title": "DrPH Integrative Methods II",
+    "professor": "Osezua, Victory"
+  },
+  {
+    "subject": "IPHS",
+    "number": 698,
+    "title": "Integrative Learning Exp",
+    "professor": "Porter, Elizabeth Mary"
+  },
+  {
+    "subject": "JD",
+    "number": 421,
+    "title": "Civil Procedure II",
+    "professor": "Green, Sonia B"
+  },
+  {
+    "subject": "JD",
+    "number": 434,
+    "title": "Entertain Law",
+    "professor": "Glover, Jerry"
+  },
+  {
+    "subject": "JD",
+    "number": 525,
+    "title": "Cyberspace Law",
+    "professor": "Sorkin, David E"
+  },
+  {
+    "subject": "KN",
+    "number": 233,
+    "title": "Anatomy & Physiology Lab II",
+    "professor": "Carrillo, Alejandro"
+  },
+  {
+    "subject": "KN",
+    "number": 372,
+    "title": "Motor Control & Learning",
+    "professor": "Goelz, Lisa Gim Chin"
+  },
+  {
+    "subject": "KN",
+    "number": 493,
+    "title": "Practicum in UG Teaching",
+    "professor": "Arbel, Vered"
+  },
+  {
+    "subject": "KN",
+    "number": 493,
+    "title": "Practicum in UG Teaching",
+    "professor": "Kanan, Tomer"
+  },
+  {
+    "subject": "KOR",
+    "number": 102,
+    "title": "Elementary Korean II",
+    "professor": "Kim, Hanae"
+  },
+  {
+    "subject": "LALS",
+    "number": 229,
+    "title": "Sociology of Latinos",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "LAS",
+    "number": 120,
+    "title": "Career Readiness & Major Exp",
+    "professor": "Herrera, Elizabeth"
+  },
+  {
+    "subject": "ENGL",
+    "number": 161,
+    "title": "Academic Writing II",
+    "professor": "Hiday, Corbin R"
+  },
+  {
+    "subject": "ENGL",
+    "number": 161,
+    "title": "Academic Writing II",
+    "professor": "Jones, Janson"
+  },
+  {
+    "subject": "ENGL",
+    "number": 290,
+    "title": "Intro Writ Poetry",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ENGL",
+    "number": 335,
+    "title": "Studies in Lit and Pop Culture",
+    "professor": "Rupert, Jennifer"
+  },
+  {
+    "subject": "ENGL",
+    "number": 571,
+    "title": "Fiction Workshop",
+    "professor": "Grimes, Christopher"
+  },
+  {
+    "subject": "EPID",
+    "number": 526,
+    "title": "Pharmacoepidemiology",
+    "professor": "Lee, Todd A."
+  },
+  {
+    "subject": "EPSY",
+    "number": 414,
+    "title": "Developing Programs For Youth",
+    "professor": "Griffith, Aisha"
+  },
+  {
+    "subject": "FIN",
+    "number": 414,
+    "title": "Financial Plan Development",
+    "professor": "Golubeva, Evgenia"
+  },
+  {
+    "subject": "FIN",
+    "number": 500,
+    "title": "Intro to Corp Finance",
+    "professor": "Diaz Bianco, Aaron"
+  },
+  {
+    "subject": "FR",
+    "number": 214,
+    "title": "Popular Culture and Media",
+    "professor": "McClure, Ellen M"
+  },
+  {
+    "subject": "GC",
+    "number": 500,
+    "title": "Chicago Metropolitan Exchange",
+    "professor": "Calderon, Vianney"
+  },
+  {
+    "subject": "GC",
+    "number": 511,
+    "title": "English Fluency Development",
+    "professor": "Gier, Megan Elizabeth"
+  },
+  {
+    "subject": "GEMS",
+    "number": 505,
+    "title": "Research Methods II",
+    "professor": "Chen, Zheng Wei"
+  },
+  {
+    "subject": "GEOG",
+    "number": 100,
+    "title": "Concepts in Geography",
+    "professor": "Lopez Garcia, David"
+  },
+  {
+    "subject": "GER",
+    "number": 207,
+    "title": "European Cinema",
+    "professor": "Meyer, Imke"
+  },
+  {
+    "subject": "GLAS",
+    "number": 229,
+    "title": "Asian Film",
+    "professor": "Phan, Justin Quang Nguyen"
+  },
+  {
+    "subject": "GLAS",
+    "number": 290,
+    "title": "Asian American Life Stories",
+    "professor": "Su, Karen"
+  },
+  {
+    "subject": "HIM",
+    "number": 329,
+    "title": "Legal Aspects of HIM",
+    "professor": "Glondys, Barbara A"
+  },
+  {
+    "subject": "HIST",
+    "number": 275,
+    "title": "History of South Asia to 1857",
+    "professor": "Mantena, Rama"
+  },
+  {
+    "subject": "HIST",
+    "number": 300,
+    "title": "Methods: What is History?",
+    "professor": "Mantena, Rama"
+  },
+  {
+    "subject": "HIST",
+    "number": 433,
+    "title": "Eastern Europe after Communism",
+    "professor": "Fidelis, Malgorzata"
+  },
+  {
+    "subject": "HN",
+    "number": 100,
+    "title": "Intro to Nutrition",
+    "professor": "Lam, Uyen"
+  },
+  {
+    "subject": "HN",
+    "number": 196,
+    "title": "Nutrition",
+    "professor": "Lam, Uyen"
+  },
+  {
+    "subject": "HN",
+    "number": 330,
+    "title": "Quantity Food Production",
+    "professor": "Lyles, Renea Michelle"
+  },
+  {
+    "subject": "HN",
+    "number": 594,
+    "title": "Diet, Energy Balance & Cancer",
+    "professor": "Tussing-Humphreys, Lisa Marie"
+  },
+  {
+    "subject": "HN",
+    "number": 594,
+    "title": "Healthy Aging",
+    "professor": "Mustafa, Avalon"
+  },
+  {
+    "subject": "HON",
+    "number": 121,
+    "title": "Hon Core Ind & Soc / Creat Art",
+    "professor": "Adiutori, Vincent"
+  },
+  {
+    "subject": "HON",
+    "number": 201,
+    "title": "Honors Seminar",
+    "professor": "Anderson, Christopher W"
+  },
+  {
+    "subject": "GWS",
+    "number": 101,
+    "title": "Gender in Everyday Life",
+    "professor": "Williamson, Terrion Lashon"
+  },
+  {
+    "subject": "GWS",
+    "number": 292,
+    "title": "History & Theory of Feminism",
+    "professor": "Brown, Deziree Aleace"
+  },
+  {
+    "subject": "HIM",
+    "number": 320,
+    "title": "Technical Affiliation",
+    "professor": "Baranggay, Jillian Ashley"
+  },
+  {
+    "subject": "HIST",
+    "number": 219,
+    "title": "Sport in the Ancient World",
+    "professor": "Papakonstantinou, Zinon"
+  },
+  {
+    "subject": "HIST",
+    "number": 300,
+    "title": "Methods: Approaches to History",
+    "professor": "Connolly, Jonathan"
+  },
+  {
+    "subject": "HIST",
+    "number": 596,
+    "title": "Independent Study",
+    "professor": "Fidelis, Malgorzata"
+  },
+  {
+    "subject": "HN",
+    "number": 196,
+    "title": "Nutrition",
+    "professor": "Oshita, Shayna Emily"
+  },
+  {
+    "subject": "HN",
+    "number": 306,
+    "title": "Nutrition Education",
+    "professor": "McNeil, Amy T"
+  },
+  {
+    "subject": "HON",
+    "number": 121,
+    "title": "Hon Core Ind & Soc / Creat Art",
+    "professor": "Lewis, Jennifer V."
+  },
+  {
+    "subject": "HON",
+    "number": 122,
+    "title": "Hon Core Ind & Soc / World Cul",
+    "professor": "Kozlowska-Barrios, Anna"
+  },
+  {
+    "subject": "HON",
+    "number": 123,
+    "title": "Hon Core Indiv & Soc / US Soc",
+    "professor": "Kling, William C"
+  },
+  {
+    "subject": "HON",
+    "number": 201,
+    "title": "Honors Seminar",
+    "professor": "Burns-Howard, Kathryn"
+  },
+  {
+    "subject": "HON",
+    "number": 201,
+    "title": "Honors Seminar",
+    "professor": "Giampaoli, Michelangelo"
+  },
+  {
+    "subject": "HON",
+    "number": 201,
+    "title": "Honors Seminar",
+    "professor": "Gottleib, Nicole"
+  },
+  {
+    "subject": "HPA",
+    "number": 434,
+    "title": "Healthcare Law and Ethics",
+    "professor": "Anderson, Christopher"
+  },
+  {
+    "subject": "HPA",
+    "number": 494,
+    "title": "Hlth Disparities in the US",
+    "professor": "Murray, Linda Rae"
+  },
+  {
+    "subject": "IDS",
+    "number": 410,
+    "title": "Bus Database Technology",
+    "professor": "Mohammed, Mustafa N"
+  },
+  {
+    "subject": "IE",
+    "number": 499,
+    "title": "Prof Development Seminar",
+    "professor": "Nicolsen, Brynne E"
+  },
+  {
+    "subject": "IPHS",
+    "number": 403,
+    "title": "Syst Mgmt Comm Hlth Methd CohA",
+    "professor": "Vomvouras, Stephanie"
+  },
+  {
+    "subject": "ITAL",
+    "number": 101,
+    "title": "Elementary Italian I",
+    "professor": "Masciello, Clelia"
+  },
+  {
+    "subject": "JD",
+    "number": 406,
+    "title": "Property",
+    "professor": "King, Yolanda"
+  },
+  {
+    "subject": "JPN",
+    "number": 102,
+    "title": "Elementary Japanese II",
+    "professor": "Changet, Mika Obana"
+  },
+  {
+    "subject": "KN",
+    "number": 152,
+    "title": "Intro to Exercise Phys & Hlth",
+    "professor": "Adams, Michelle Marie"
+  },
+  {
+    "subject": "KN",
+    "number": 233,
+    "title": "Anatomy & Physiology Lab II",
+    "professor": "Davis, Victoria"
+  },
+  {
+    "subject": "KN",
+    "number": 261,
+    "title": "Applied Musculoskel Anatomy",
+    "professor": "Hamstra-Wright, Karrie Lynn"
+  },
+  {
+    "subject": "KN",
+    "number": 448,
+    "title": "Adapted Exercise Programming",
+    "professor": "Schmidt-McNulty, Tina"
+  },
+  {
+    "subject": "KOR",
+    "number": 104,
+    "title": "Intermediate Korean II",
+    "professor": "Kim, Hanae"
+  },
+  {
+    "subject": "LAW",
+    "number": 503,
+    "title": "Empl Discrim",
+    "professor": "Hodge, Joanne Simboli"
+  },
+  {
+    "subject": "LAW",
+    "number": 530,
+    "title": "3rd yr only Leg Fund Re & Test",
+    "professor": "Crist, Erin Bond"
+  },
+  {
+    "subject": "LAW",
+    "number": 531,
+    "title": "3rd yr only Bar Essay Writing",
+    "professor": "Frothingham, Jessica"
+  },
+  {
+    "subject": "LAW",
+    "number": 532,
+    "title": "3rd yr only Writng for Pra Law",
+    "professor": "Sahota, Ravinder Singh"
+  },
+  {
+    "subject": "LAW",
+    "number": 536,
+    "title": "Criminal Pro: Investigation",
+    "professor": "Perez Ricardo, Kim D"
+  },
+  {
+    "subject": "LAW",
+    "number": 537,
+    "title": "Prod Liability",
+    "professor": "Sullivan, Patrick F"
+  },
+  {
+    "subject": "LING",
+    "number": 150,
+    "title": "Intro to Study of Language",
+    "professor": "Cabrelli, Jennifer Lauren"
+  },
+  {
+    "subject": "LING",
+    "number": 230,
+    "title": "Semantics/Pragmatics/Discourse",
+    "professor": "Miller, David Thomas"
+  },
+  {
+    "subject": "LING",
+    "number": 370,
+    "title": "Intro to Computational Ling",
+    "professor": "Shin, Gyu-Ho"
+  },
+  {
+    "subject": "MATH",
+    "number": 90,
+    "title": "Intermediate Algebra",
+    "professor": "Woldeit, Anthony John"
+  },
+  {
+    "subject": "MATH",
+    "number": 121,
+    "title": "Precalculus Mathematics",
+    "professor": "McNamara, Alycia A"
+  },
+  {
+    "subject": "MATH",
+    "number": 121,
+    "title": "Precalculus Mathematics",
+    "professor": "Simpson, Gilberto"
+  },
+  {
+    "subject": "MATH",
+    "number": 125,
+    "title": "Elementary Linear Algebra",
+    "professor": "Devi, Shavila"
+  },
+  {
+    "subject": "MATH",
+    "number": 165,
+    "title": "Calculus for Business",
+    "professor": "Devi, Shavila"
+  },
+  {
+    "subject": "MATH",
+    "number": 210,
+    "title": "Calculus III",
+    "professor": "Engel, Philip Milton"
+  },
+  {
+    "subject": "MATH",
+    "number": 210,
+    "title": "Calculus III",
+    "professor": "Ingebretson, Daniel Jordan"
+  },
+  {
+    "subject": "MATH",
+    "number": 215,
+    "title": "Intro to Advanced Math",
+    "professor": "Ein, Lawrence Man Hou"
+  },
+  {
+    "subject": "MATH",
+    "number": 220,
+    "title": "Differential Equations I",
+    "professor": "Shulman, Andrew M"
+  },
+  {
+    "subject": "MATH",
+    "number": 547,
+    "title": "Algebraic Topology I",
+    "professor": "Whyte, Kevin M."
+  },
+  {
+    "subject": "MDR",
+    "number": 622,
+    "title": "Synthesis 3-4",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "MDR",
+    "number": 625,
+    "title": "Block 8: Synthesis Capstone",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "ME",
+    "number": 250,
+    "title": "Intro to Engineering Design",
+    "professor": "Siow, Yeow"
+  },
+  {
+    "subject": "ME",
+    "number": 325,
+    "title": "Intermediate Thermodynamics",
+    "professor": "Ghashami, Mohammad"
+  },
+  {
+    "subject": "ME",
+    "number": 397,
+    "title": "Senior Design Il",
+    "professor": "Brown, Michael A"
+  },
+  {
+    "subject": "ME",
+    "number": 594,
+    "title": "Control of Robotic Arms & Legs",
+    "professor": "Bhounsule, Pranav Audhut"
+  },
+  {
+    "subject": "MGMT",
+    "number": 350,
+    "title": "Business and Its Extrern",
+    "professor": "Antwiler, Brandon"
+  },
+  {
+    "subject": "MGMT",
+    "number": 355,
+    "title": "Structured Problem Solving",
+    "professor": "Bullock, Kirsten"
+  },
+  {
+    "subject": "IDS",
+    "number": 470,
+    "title": "Multivariate Analysis",
+    "professor": "Sparks, John"
+  },
+  {
+    "subject": "IDS",
+    "number": 506,
+    "title": "Health Info Mgmt & Analytics",
+    "professor": "Chandrasekaran, Ranganathan"
+  },
+  {
+    "subject": "IE",
+    "number": 201,
+    "title": "Financial Engineering",
+    "professor": "Haghighi, Azadeh"
+  },
+  {
+    "subject": "IE",
+    "number": 595,
+    "title": "Industrial Engineering Seminar",
+    "professor": "Hatami Marbini, Hamed"
+  },
+  {
+    "subject": "IPHS",
+    "number": 525,
+    "title": "Quantitative Methods",
+    "professor": "Seweryn, Steven M"
+  },
+  {
+    "subject": "IPHS",
+    "number": 650,
+    "title": "Applied Practice Experience",
+    "professor": "Peterson, Caryn Elizabeth"
+  },
+  {
+    "subject": "ITAL",
+    "number": 104,
+    "title": "Intermediate Italian II",
+    "professor": "Mazza, Giordano"
+  },
+  {
+    "subject": "JD",
+    "number": 405,
+    "title": "Contracts I",
+    "professor": "Spanbauer, Julie M"
+  },
+  {
+    "subject": "JD",
+    "number": 416,
+    "title": "Crim Law",
+    "professor": "Gutierrez, Richard"
+  },
+  {
+    "subject": "JD",
+    "number": 469,
+    "title": "U.S. Trade Secret Law",
+    "professor": "Halligan, Robert M"
+  },
+  {
+    "subject": "KN",
+    "number": 137,
+    "title": "Personal Fitness",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "KN",
+    "number": 194,
+    "title": "Beginning Yoga",
+    "professor": "King, Vera Love"
+  },
+  {
+    "subject": "KN",
+    "number": 233,
+    "title": "Anatomy & Physiology Lab II",
+    "professor": "Martinez, Jacqueline"
+  },
+  {
+    "subject": "KN",
+    "number": 243,
+    "title": "Exercise Assessment",
+    "professor": "Arbel, Vered"
+  },
+  {
+    "subject": "KN",
+    "number": 433,
+    "title": "Sociocultural Perspectives",
+    "professor": "Ankney, Aspen S"
+  },
+  {
+    "subject": "KN",
+    "number": 445,
+    "title": "Corrective Ex. for Post & Mvmt",
+    "professor": "Arbel, Vered"
+  },
+  {
+    "subject": "LALS",
+    "number": 110,
+    "title": "Intro to Latin Amer Cultures",
+    "professor": "Roa, Cristian"
+  },
+  {
+    "subject": "LAW",
+    "number": 412,
+    "title": "LSII",
+    "professor": "Hodge, Joanne Simboli"
+  },
+  {
+    "subject": "LAW",
+    "number": 412,
+    "title": "LSII",
+    "professor": "Inouye, Jessica"
+  },
+  {
+    "subject": "LAW",
+    "number": 412,
+    "title": "LSII",
+    "professor": "Schiltz, Eugene J"
+  },
+  {
+    "subject": "LAW",
+    "number": 412,
+    "title": "LSII",
+    "professor": "Spears, Angela Corinne"
+  },
+  {
+    "subject": "LAW",
+    "number": 470,
+    "title": "Images of Law in Film",
+    "professor": "Bond, Cynthia Delay"
+  },
+  {
+    "subject": "LAW",
+    "number": 523,
+    "title": "Med Negligence",
+    "professor": "Ginsberg, Marc"
+  },
+  {
+    "subject": "LAW",
+    "number": 534,
+    "title": "Secured Transactions",
+    "professor": "Kilborn, Jason J"
+  },
+  {
+    "subject": "LAW",
+    "number": 534,
+    "title": "Secured Transactions",
+    "professor": "Lewis, Paul B"
+  },
+  {
+    "subject": "LING",
+    "number": 150,
+    "title": "Intro to Study of Language",
+    "professor": "Pichan, Carrie E"
+  },
+  {
+    "subject": "MATH",
+    "number": 105,
+    "title": "Mathematical Reasoning",
+    "professor": "Woldeit, Anthony John"
+  },
+  {
+    "subject": "MATH",
+    "number": 110,
+    "title": "College Algebra",
+    "professor": "McNamara, Alycia A"
+  },
+  {
+    "subject": "JD",
+    "number": 423,
+    "title": "Prof Responsibility",
+    "professor": "Groszek, Jennifer"
+  },
+  {
+    "subject": "JD",
+    "number": 424,
+    "title": "Const Law II",
+    "professor": "Acevedo, Arthur"
+  },
+  {
+    "subject": "JPN",
+    "number": 104,
+    "title": "Intermediate Japanese II",
+    "professor": "Day, Noriko Agatsuma"
+  },
+  {
+    "subject": "KN",
+    "number": 100,
+    "title": "Kinesiology: First Yr Seminar",
+    "professor": "Arbel, Vered"
+  },
+  {
+    "subject": "KN",
+    "number": 237,
+    "title": "Sport and Exercise Psychology",
+    "professor": "Motl, Robert W"
+  },
+  {
+    "subject": "KN",
+    "number": 336,
+    "title": "Health Coaching",
+    "professor": "Bullard, Kendra Leeann"
+  },
+  {
+    "subject": "KN",
+    "number": 362,
+    "title": "Tissue Biomechanics",
+    "professor": "Novak, Margaret Louise"
+  },
+  {
+    "subject": "KN",
+    "number": 447,
+    "title": "Mental Health in Athletics",
+    "professor": "Wekesser, Meredith"
+  },
+  {
+    "subject": "KN",
+    "number": 511,
+    "title": "Intervention Design & Eval",
+    "professor": "Bustamante, Eduardo Esteban"
+  },
+  {
+    "subject": "LALS",
+    "number": 262,
+    "title": "Latin Amer since 1850",
+    "professor": "Chavez, Joaquin M"
+  },
+  {
+    "subject": "LAW",
+    "number": 402,
+    "title": "LSI",
+    "professor": "Pleasant, Shakira"
+  },
+  {
+    "subject": "LAW",
+    "number": 412,
+    "title": "LSII",
+    "professor": "Borman, Deborah Lee"
+  },
+  {
+    "subject": "LAW",
+    "number": 422,
+    "title": "LSIII",
+    "professor": "Bradley, Thomas"
+  },
+  {
+    "subject": "LAW",
+    "number": 422,
+    "title": "LSIII",
+    "professor": "Castaneda, Eric E"
+  },
+  {
+    "subject": "LAW",
+    "number": 486,
+    "title": "Antitrust Law",
+    "professor": "Cross, Jeffery"
+  },
+  {
+    "subject": "LAW",
+    "number": 538,
+    "title": "Adv Torts",
+    "professor": "Hopkins, Kevin"
+  },
+  {
+    "subject": "LING",
+    "number": 210,
+    "title": "Intro Natural Language Syntax",
+    "professor": "Ebert, Shane"
+  },
+  {
+    "subject": "LRSC",
+    "number": 594,
+    "title": "Developing Algebraic Reasoning",
+    "professor": "Pitvorec, Kathleen A"
+  },
+  {
+    "subject": "MATH",
+    "number": 88,
+    "title": "Intermediate Algebra Workshop",
+    "professor": "Woldeit, Anthony John"
+  },
+  {
+    "subject": "MATH",
+    "number": 110,
+    "title": "College Algebra",
+    "professor": "Jackson, Billy Joe"
+  },
+  {
+    "subject": "MATH",
+    "number": 170,
+    "title": "Calculus for Life Sciences",
+    "professor": "Kobotis, Evangelos"
+  },
+  {
+    "subject": "MATH",
+    "number": 179,
+    "title": "Emerg Schol Workshop/Calc I",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "MATH",
+    "number": 182,
+    "title": "Emerg Schol Workshop/Calc II",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "MATH",
+    "number": 211,
+    "title": "Emerg Schol Workshop/Calc III",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "MATH",
+    "number": 220,
+    "title": "Differential Equations I",
+    "professor": "Shvydkoy, Roman"
+  },
+  {
+    "subject": "MATH",
+    "number": 294,
+    "title": "Spec Topics ESP WKSP Math 330",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "MATH",
+    "number": 300,
+    "title": "Writing for Mathematics",
+    "professor": "Mahadeo, Christopher Aaron Rudranauth"
+  },
+  {
+    "subject": "MATH",
+    "number": 320,
+    "title": "Linear Algebra I",
+    "professor": "Kashcheyeva, Olga S."
+  },
+  {
+    "subject": "EOHS",
+    "number": 494,
+    "title": "Environ Justice People & Space",
+    "professor": "Cailas, Michael"
+  },
+  {
+    "subject": "EPSY",
+    "number": 320,
+    "title": "Child Social Dev Socialize Urb",
+    "professor": "Humphries, Marisha Lynnette"
+  },
+  {
+    "subject": "EPSY",
+    "number": 382,
+    "title": "Child, Family, and Comm",
+    "professor": "Coba-Rodriguez, Sarai Estefania"
+  },
+  {
+    "subject": "EPSY",
+    "number": 450,
+    "title": "Assess & Eval of Learn Outcome",
+    "professor": "Riel, Jeremy"
+  },
+  {
+    "subject": "EPSY",
+    "number": 503,
+    "title": "Quantitative Inquiry in Ed",
+    "professor": "Smith, Everett V"
+  },
+  {
+    "subject": "FIN",
+    "number": 415,
+    "title": "Fixed Income Securities",
+    "professor": "Lin, Jerchern"
+  },
+  {
+    "subject": "FIN",
+    "number": 480,
+    "title": "Securities Mkts High Frequency",
+    "professor": "Murphy, Dermot P"
+  },
+  {
+    "subject": "FIN",
+    "number": 550,
+    "title": "Personal Finance",
+    "professor": "Micic, Milka"
+  },
+  {
+    "subject": "FR",
+    "number": 418,
+    "title": "The Dark Side of Enlightenment",
+    "professor": "Robert, Yann F"
+  },
+  {
+    "subject": "GER",
+    "number": 103,
+    "title": "Intermediate German I",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "GER",
+    "number": 219,
+    "title": "Princesses and Storytellers",
+    "professor": "Fortmann, Patrick"
+  },
+  {
+    "subject": "GLAS",
+    "number": 210,
+    "title": "Asian American Histories",
+    "professor": "Gonzalez, Fredy"
+  },
+  {
+    "subject": "HIM",
+    "number": 377,
+    "title": "Current Issues in HIM",
+    "professor": "Ramirez, Gideon"
+  },
+  {
+    "subject": "HIM",
+    "number": 410,
+    "title": "Intro to the Hlthcare Sys",
+    "professor": "Einhorn, George W"
+  },
+  {
+    "subject": "HIM",
+    "number": 453,
+    "title": "Principles of Mgmt and HR",
+    "professor": "Pajak, Malgorzata Anna"
+  },
+  {
+    "subject": "HIST",
+    "number": 104,
+    "title": "Modern America",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "HIST",
+    "number": 106,
+    "title": "World since 1400",
+    "professor": "Doumanis, Nicholas"
+  },
+  {
+    "subject": "HIST",
+    "number": 225,
+    "title": "France:  1715-1848",
+    "professor": "Abbott, John"
+  },
+  {
+    "subject": "HIST",
+    "number": 289,
+    "title": "Latina/o History",
+    "professor": "Fernandez, Lilia"
+  },
+  {
+    "subject": "HIST",
+    "number": 475,
+    "title": "Educ Pract w/Seminar I",
+    "professor": "Peters, Julie L"
+  },
+  {
+    "subject": "HN",
+    "number": 110,
+    "title": "Foods",
+    "professor": "Lyles, Renea Michelle"
+  },
+  {
+    "subject": "HN",
+    "number": 202,
+    "title": "Culture and Food",
+    "professor": "Fantuzzi, Giamila"
+  },
+  {
+    "subject": "HN",
+    "number": 309,
+    "title": "Nutrition Science II",
+    "professor": "Cienfuegos Muzard, Sofia"
+  },
+  {
+    "subject": "HON",
+    "number": 127,
+    "title": "Hon Core Creat Art / World Cul",
+    "professor": "Behling, John"
+  },
+  {
+    "subject": "HON",
+    "number": 134,
+    "title": "Hon Core Nat World/US Society",
+    "professor": "Gonzalez-Meler, Miquel Angel"
+  },
+  {
+    "subject": "HON",
+    "number": 301,
+    "title": "Foundations for the Future",
+    "professor": "Gomez, Kayeromi Donoukounmahou"
+  },
+  {
+    "subject": "HPA",
+    "number": 415,
+    "title": "Intro to Public Health Policy",
+    "professor": "Porter, Elizabeth Mary"
+  },
+  {
+    "subject": "ENGL",
+    "number": 160,
+    "title": "Academic Writing I",
+    "professor": "Croken, Ryan M"
+  },
+  {
+    "subject": "ENGL",
+    "number": 160,
+    "title": "Academic Writing I",
+    "professor": "Lannon, Keegan"
+  },
+  {
+    "subject": "ENGL",
+    "number": 161,
+    "title": "Academic Writing II",
+    "professor": "Asmussen, Ryan Roy"
+  },
+  {
+    "subject": "ENGL",
+    "number": 161,
+    "title": "Academic Writing II",
+    "professor": "Drown, James Remick"
+  },
+  {
+    "subject": "ENGL",
+    "number": 161,
+    "title": "Academic Writing II",
+    "professor": "Glomski, Christopher C"
+  },
+  {
+    "subject": "ENGL",
+    "number": 161,
+    "title": "Academic Writing II",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ENGL",
+    "number": 175,
+    "title": "Bible as Literature",
+    "professor": "Magarik, Raphael Solomon Safron"
+  },
+  {
+    "subject": "ENGL",
+    "number": 207,
+    "title": "Interpretation & Crit Analysis",
+    "professor": "Forcier, Kaitlin Clifton"
+  },
+  {
+    "subject": "ENGL",
+    "number": 382,
+    "title": "Editing and Publishing",
+    "professor": "Burton, Sammie Marie"
+  },
+  {
+    "subject": "ENGL",
+    "number": 383,
+    "title": "Writing Digital and New Media",
+    "professor": "Hayek, Philip Wesley"
+  },
+  {
+    "subject": "ENTR",
+    "number": 310,
+    "title": "Intro to Entrepreneurship",
+    "professor": "Hogan, Daniel Mark"
+  },
+  {
+    "subject": "ENTR",
+    "number": 494,
+    "title": "EXD - Interdisc Res & Dev II",
+    "professor": "Hogan, Daniel Mark"
+  },
+  {
+    "subject": "EPSY",
+    "number": 210,
+    "title": "Learning and Instruction",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "EPSY",
+    "number": 255,
+    "title": "Child Dev Contemp Society",
+    "professor": "Coba-Rodriguez, Sarai Estefania"
+  },
+  {
+    "subject": "EPSY",
+    "number": 383,
+    "title": "Latinx Human Development",
+    "professor": "Sanchez, Bernadette"
+  },
+  {
+    "subject": "EPSY",
+    "number": 494,
+    "title": "Early Math Curriculum,Lang, Pr",
+    "professor": "Sheridan, Kathleen M"
+  },
+  {
+    "subject": "FIN",
+    "number": 300,
+    "title": "Intro to Finance",
+    "professor": "Shea, Justin M"
+  },
+  {
+    "subject": "FIN",
+    "number": 494,
+    "title": "Quantamental Investing",
+    "professor": "Ma, Lingjie"
+  },
+  {
+    "subject": "FR",
+    "number": 102,
+    "title": "Elementary French II",
+    "professor": "Chidlow, Angela"
+  },
+  {
+    "subject": "GC",
+    "number": 593,
+    "title": "Dev Scholarly Approaches",
+    "professor": "Parker-Katz, Michelle Beth"
+  },
+  {
+    "subject": "GER",
+    "number": 102,
+    "title": "Elementary German II",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "GER",
+    "number": 104,
+    "title": "Intermediate German II",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "GWS",
+    "number": 204,
+    "title": "Gender and Popular Culture",
+    "professor": "Celeste, Manoucheka"
+  },
+  {
+    "subject": "HIM",
+    "number": 432,
+    "title": "Coding and Classif Systems",
+    "professor": "Williams, Felecia Altevet"
+  },
+  {
+    "subject": "HIST",
+    "number": 100,
+    "title": "Western Civ To 1648",
+    "professor": "Balserak, Jon"
+  },
+  {
+    "subject": "HIST",
+    "number": 105,
+    "title": "Global Transformations",
+    "professor": "Daly, Jonathan W."
+  },
+  {
+    "subject": "HON",
+    "number": 201,
+    "title": "Honors Seminar",
+    "professor": "Antwiler, Brandon"
+  },
+  {
+    "subject": "HON",
+    "number": 301,
+    "title": "Foundations for the Future",
+    "professor": "DeJulio Bell, Lauren C"
+  },
+  {
+    "subject": "HPA",
+    "number": 407,
+    "title": "Fundamentals Emergency Mgmt",
+    "professor": "Sambanis, Apostolis Stefanos"
+  },
+  {
+    "subject": "HPA",
+    "number": 432,
+    "title": "Public Health Advocacy",
+    "professor": "Vomvouras, Stephanie"
+  },
+  {
+    "subject": "HUM",
+    "number": 111,
+    "title": "Introduction to Humanities II:",
+    "professor": "Amato, Rebecca"
+  },
+  {
+    "subject": "IDS",
+    "number": 410,
+    "title": "Bus Database Technology",
+    "professor": "Lundquist, Doug E"
+  },
+  {
+    "subject": "IDS",
+    "number": 435,
+    "title": "Optimization for Analytics",
+    "professor": "Sturt, Bradley E"
+  },
+  {
+    "subject": "IE",
+    "number": 442,
+    "title": "Design &Analysis of Experiment",
+    "professor": "Tejada Lopez, Carla A"
+  },
+  {
+    "subject": "IPHS",
+    "number": 403,
+    "title": "Syst Mgmt Comm Hlth Methd CohC",
+    "professor": "Chan, Kee"
+  },
+  {
+    "subject": "IPHS",
+    "number": 420,
+    "title": "Interprofessional Education",
+    "professor": "Bonney, Tessa Harris"
+  },
+  {
+    "subject": "JD",
+    "number": 405,
+    "title": "Contracts I",
+    "professor": "Robinson, Randolph A"
+  },
+  {
+    "subject": "JD",
+    "number": 414,
+    "title": "Const Law I",
+    "professor": "Ford, William K"
+  },
+  {
+    "subject": "JD",
+    "number": 415,
+    "title": "Contracts II",
+    "professor": "Cross, Karen Halverson"
+  },
+  {
+    "subject": "JD",
+    "number": 439,
+    "title": "RE: Transactions",
+    "professor": "Keenan, Heidi"
+  },
+  {
+    "subject": "KN",
+    "number": 351,
+    "title": "Cadaver Dissection II",
+    "professor": "Kanan, Tomer"
+  },
+  {
+    "subject": "KN",
+    "number": 361,
+    "title": "Movement Biomechanics",
+    "professor": "Sawers, Andrew"
+  },
+  {
+    "subject": "KN",
+    "number": 495,
+    "title": "Senior Seminar",
+    "professor": "Miller, Joshua"
+  },
+  {
+    "subject": "LALS",
+    "number": 275,
+    "title": "Gender in Latin America",
+    "professor": "Zubillaga Gabaldon, Maria Veronica"
+  },
+  {
+    "subject": "LAS",
+    "number": 200,
+    "title": "LAS Career Success",
+    "professor": "Herrera, Elizabeth"
+  },
+  {
+    "subject": "LAW",
+    "number": 422,
+    "title": "LSIII",
+    "professor": "Best, Susan"
+  },
+  {
+    "subject": "LAW",
+    "number": 437,
+    "title": "LSIV: Drafting Gen Prac",
+    "professor": "Lindberg, Steven"
+  },
+  {
+    "subject": "LAW",
+    "number": 437,
+    "title": "LSIV: Drafting Gen Prac",
+    "professor": "Schmidt, Anne E"
+  },
+  {
+    "subject": "LAW",
+    "number": 530,
+    "title": "3rd yr only Leg Fund Re & Test",
+    "professor": "Mitchell, Ryan P"
+  },
+  {
+    "subject": "LAW",
+    "number": 532,
+    "title": "Writing for Prac Law",
+    "professor": "Messina, Ashley A"
+  },
+  {
+    "subject": "LAW",
+    "number": 583,
+    "title": "RIPL Comment",
+    "professor": "Beschle, Donald L"
+  },
+  {
+    "subject": "LAW",
+    "number": 594,
+    "title": "Special Topics: Dom Violence",
+    "professor": "Stark, Debra P"
+  },
+  {
+    "subject": "LAW",
+    "number": 594,
+    "title": "Special Topics: Mentl Hlth Law",
+    "professor": "Campbell, Amy Tannery"
+  },
+  {
+    "subject": "LCSL",
+    "number": 250,
+    "title": "Comparative Cultural Studies",
+    "professor": "Markowski, Michal Pawel"
+  },
+  {
+    "subject": "LALS",
+    "number": 283,
+    "title": "Latinos and Politics",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "LALS",
+    "number": 502,
+    "title": "On Biopower/Biopolitics: Fouca",
+    "professor": "Inda, Jonathan Xavier"
+  },
+  {
+    "subject": "LAS",
+    "number": 289,
+    "title": "LAS Internship",
+    "professor": "Gallagher, Lauren"
+  },
+  {
+    "subject": "LAT",
+    "number": 104,
+    "title": "Intermediate Latin II",
+    "professor": "Burns, Krishni Schaefgen"
+  },
+  {
+    "subject": "LAW",
+    "number": 512,
+    "title": "Int'l Human Rights Law",
+    "professor": "Davila, Sarah"
+  },
+  {
+    "subject": "LAW",
+    "number": 531,
+    "title": "3rd yr only Bar Essay Writing",
+    "professor": "Sahota, Ravinder Singh"
+  },
+  {
+    "subject": "LAW",
+    "number": 532,
+    "title": "3rd yr only Writng for Pra Law",
+    "professor": "Lasker, Kristina"
+  },
+  {
+    "subject": "LAW",
+    "number": 533,
+    "title": "Bus Assoc",
+    "professor": "Acevedo, Arthur"
+  },
+  {
+    "subject": "LAW",
+    "number": 533,
+    "title": "Bus Assoc",
+    "professor": "Michaels, Kenneth Anthony"
+  },
+  {
+    "subject": "LAW",
+    "number": 541,
+    "title": "Sales Transactions",
+    "professor": "Lousin, Ann M"
+  },
+  {
+    "subject": "LING",
+    "number": 360,
+    "title": "Basic Stats for Lang Research",
+    "professor": "Shin, Gyu-Ho"
+  },
+  {
+    "subject": "LITH",
+    "number": 115,
+    "title": "Lithuanian Culture",
+    "professor": "Subacius, Giedrius"
+  },
+  {
+    "subject": "LRSC",
+    "number": 594,
+    "title": "Special Topics in LRSC",
+    "professor": "Tavormina, Mary Jo"
+  },
+  {
+    "subject": "MATH",
+    "number": 125,
+    "title": "Elementary Linear Algebra",
+    "professor": "McDonald, Peter M"
+  },
+  {
+    "subject": "MATH",
+    "number": 181,
+    "title": "Calculus II",
+    "professor": "Bode, Martina"
+  },
+  {
+    "subject": "MATH",
+    "number": 210,
+    "title": "Calculus III",
+    "professor": "Kobotis, Evangelos"
+  },
+  {
+    "subject": "MCS",
+    "number": 472,
+    "title": "Industrial Mathematics",
+    "professor": "Verschelde, Jan"
+  },
+  {
+    "subject": "MDC",
+    "number": 640,
+    "title": "Transition to Clerkships",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "MDR",
+    "number": 641,
+    "title": "Clinical Connections & Comp 4",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ME",
+    "number": 205,
+    "title": "Intro to Thermodynamics",
+    "professor": "Pourarian, Shokouh"
+  },
+  {
+    "subject": "ME",
+    "number": 210,
+    "title": "Engineering Dynamics",
+    "professor": "Manafzadeh, Saeed"
+  },
+  {
+    "subject": "ME",
+    "number": 308,
+    "title": "Mechanical Vibrations",
+    "professor": "Nicolsen, Brynne E"
+  },
+  {
+    "subject": "ME",
+    "number": 321,
+    "title": "Heat Transfer",
+    "professor": "Anand, Sushant"
+  },
+  {
+    "subject": "ME",
+    "number": 595,
+    "title": "Mechanical Engineering Seminar",
+    "professor": "Hatami Marbini, Hamed"
+  },
+  {
+    "subject": "MGMT",
+    "number": 340,
+    "title": "Intro to Organizations",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "MGMT",
+    "number": 452,
+    "title": "Organizational Behavior",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "MGMT",
+    "number": 463,
+    "title": "Negotiation &Conflict Resolutn",
+    "professor": "Bujas, Dan"
+  },
+  {
+    "subject": "MGMT",
+    "number": 466,
+    "title": "Mgmt Effectiv Thru Diversity",
+    "professor": "Tarasievich, Renata A."
+  },
+  {
+    "subject": "MGMT",
+    "number": 475,
+    "title": "Leadership Theories&Skills Dev",
+    "professor": "Cooper, James Wesley"
+  },
+  {
+    "subject": "MGMT",
+    "number": 495,
+    "title": "Competitive Strategy",
+    "professor": "Calvano da Silva, Felipe"
+  },
+  {
+    "subject": "MGMT",
+    "number": 564,
+    "title": "Negotiations",
+    "professor": "Brickson, Shelley"
+  },
+  {
+    "subject": "MILS",
+    "number": 131,
+    "title": "Military Physical Fitness",
+    "professor": "Heredia, Jarrod"
+  },
+  {
+    "subject": "MKTG",
+    "number": 360,
+    "title": "Introduction to Marketing",
+    "professor": "Crockett, David"
+  },
+  {
+    "subject": "MKTG",
+    "number": 461,
+    "title": "Consumer Behavior",
+    "professor": "Schanbacher, Anja"
+  },
+  {
+    "subject": "MKTG",
+    "number": 469,
+    "title": "Global Marketing",
+    "professor": "Trujillo Torres, Lez Ecima"
+  },
+  {
+    "subject": "MKTG",
+    "number": 474,
+    "title": "Advertising",
+    "professor": "Moon, Kim"
+  },
+  {
+    "subject": "MKTG",
+    "number": 500,
+    "title": "Introduction to Marketing",
+    "professor": "Gal, David"
+  },
+  {
+    "subject": "MKTG",
+    "number": 500,
+    "title": "Introduction to Marketing",
+    "professor": "Karsaklian, Eliane"
+  },
+  {
+    "subject": "MKTG",
+    "number": 570,
+    "title": "Brand Management",
+    "professor": "Wahlgren, Ann Marie"
+  },
+  {
+    "subject": "MTHT",
+    "number": 438,
+    "title": "Educ Pract w/ Seminar I",
+    "professor": "Schubert, Erin Rose"
+  },
+  {
+    "subject": "MUS",
+    "number": 102,
+    "title": "Music Theory II",
+    "professor": "Park, Joon"
+  },
+  {
+    "subject": "MUS",
+    "number": 104,
+    "title": "Ear Training II",
+    "professor": "Park, Joon"
+  },
+  {
+    "subject": "MUS",
+    "number": 114,
+    "title": "Jazz History",
+    "professor": "Garling, Thomas James"
+  },
+  {
+    "subject": "MUS",
+    "number": 127,
+    "title": "Latin American Music",
+    "professor": "Rodriguez-Barilari, Elbio"
+  },
+  {
+    "subject": "MUS",
+    "number": 159,
+    "title": "Jazz Ensemble",
+    "professor": "Lopatka, Daniel R"
+  },
+  {
+    "subject": "NUPR",
+    "number": 514,
+    "title": "School Nursing Internship",
+    "professor": "Moss, Eileen M"
+  },
+  {
+    "subject": "NURS",
+    "number": 316,
+    "title": "Nursing Informatics",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "NURS",
+    "number": 387,
+    "title": "Senior Seminar",
+    "professor": "Krassa, Teresa J"
+  },
+  {
+    "subject": "NURS",
+    "number": 387,
+    "title": "Senior Seminar",
+    "professor": "Tracy, Susan"
+  },
+  {
+    "subject": "NURS",
+    "number": 423,
+    "title": "Adult Health Nursing 1",
+    "professor": "Urish, Haley Lafern"
+  },
+  {
+    "subject": "NURS",
+    "number": 428,
+    "title": "Readiness for Nursing Practice",
+    "professor": "Tracy, Susan"
+  },
+  {
+    "subject": "NURS",
+    "number": 463,
+    "title": "Psychiatric-Mental Health",
+    "professor": "Scoggins, Lorna Jean Bloome"
+  },
+  {
+    "subject": "NURS",
+    "number": 463,
+    "title": "Psychiatric-Mental Health",
+    "professor": "Ypya, Whitney Jordan"
+  },
+  {
+    "subject": "NURS",
+    "number": 515,
+    "title": "EBP 1",
+    "professor": "Schultz, Celeste M"
+  },
+  {
+    "subject": "NURS",
+    "number": 534,
+    "title": "Advanced Physiology",
+    "professor": "Calik, Michael William"
+  },
+  {
+    "subject": "NURS",
+    "number": 541,
+    "title": "Nurs Info Systems & Technology",
+    "professor": "Vortman, Rebecca Kathleen"
+  },
+  {
+    "subject": "MATH",
+    "number": 215,
+    "title": "Intro to Advanced Math",
+    "professor": "Lyu, Shiji"
+  },
+  {
+    "subject": "MATH",
+    "number": 215,
+    "title": "Intro to Advanced Math",
+    "professor": "Shulman, Andrew M"
+  },
+  {
+    "subject": "MBA",
+    "number": 590,
+    "title": "Improv & Leadership II",
+    "professor": "Warner, Kimberly"
+  },
+  {
+    "subject": "MBT",
+    "number": 501,
+    "title": "Cell Biology",
+    "professor": "Sidik, Khalifah B."
+  },
+  {
+    "subject": "MDC",
+    "number": 632,
+    "title": "Medical Colloquia 2",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "MDP",
+    "number": 612,
+    "title": "Doctoring & Clinical Skills 2",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "MDP",
+    "number": 625,
+    "title": "Block 8: Synthesis Capstone",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "ME",
+    "number": 211,
+    "title": "Fluid Mechanics l",
+    "professor": "Anand, Sushant"
+  },
+  {
+    "subject": "ME",
+    "number": 250,
+    "title": "Intro to Engineering Design",
+    "professor": "Abiade, Jeremiah T"
+  },
+  {
+    "subject": "ME",
+    "number": 328,
+    "title": "Numerical Methods in ME",
+    "professor": "Pourarian, Shokouh"
+  },
+  {
+    "subject": "ME",
+    "number": 494,
+    "title": "Data Science &Machine Learning",
+    "professor": "Sankaranarayanan, Subramanian"
+  },
+  {
+    "subject": "MENG",
+    "number": 400,
+    "title": "Engineering Law",
+    "professor": "Neiberg, Maurine Jo"
+  },
+  {
+    "subject": "MGMT",
+    "number": 360,
+    "title": "Strategic Analysis",
+    "professor": "Bullock, Kirsten"
+  },
+  {
+    "subject": "MGMT",
+    "number": 455,
+    "title": "Talent Management & Global HR",
+    "professor": "Martin, David"
+  },
+  {
+    "subject": "MGMT",
+    "number": 495,
+    "title": "Competitive Strategy",
+    "professor": "Markoczy, Livia"
+  },
+  {
+    "subject": "MILS",
+    "number": 402,
+    "title": "Leadership in a Complex World",
+    "professor": "Rutnarak, Araya Scott"
+  },
+  {
+    "subject": "MKTG",
+    "number": 574,
+    "title": "Product Planning",
+    "professor": "Cui, Anna Shaojie"
+  },
+  {
+    "subject": "MUS",
+    "number": 104,
+    "title": "Ear Training II",
+    "professor": "Lau, Wing"
+  },
+  {
+    "subject": "MUS",
+    "number": 107,
+    "title": "Fundamentals Of Music Theory",
+    "professor": "Gillespie, Amos"
+  },
+  {
+    "subject": "MUS",
+    "number": 118,
+    "title": "American Popular Music",
+    "professor": "Kamps, Jordan"
+  },
+  {
+    "subject": "MUS",
+    "number": 155,
+    "title": "Treble Choir",
+    "professor": "Calisesi Maidens, Liza Marie"
+  },
+  {
+    "subject": "MUS",
+    "number": 159,
+    "title": "Jazz Ensemble",
+    "professor": "Baker, Andrew"
+  },
+  {
+    "subject": "MUS",
+    "number": 171,
+    "title": "Keyboard Skills II",
+    "professor": "Gillespie, Amos"
+  },
+  {
+    "subject": "MUS",
+    "number": 396,
+    "title": "Music Publishing",
+    "professor": "Difazio, Robert Scott"
+  },
+  {
+    "subject": "MUS",
+    "number": 397,
+    "title": "Concert Promotion, Venue Mgmt",
+    "professor": "Difazio, Robert Scott"
+  },
+  {
+    "subject": "NEUS",
+    "number": 595,
+    "title": "Neuroscience Journal Club",
+    "professor": "Vlasits, Anna Louise"
+  },
+  {
+    "subject": "NUEL",
+    "number": 250,
+    "title": "Human Development Life Span",
+    "professor": "Robinson, Nadia S"
+  },
+  {
+    "subject": "NUEL",
+    "number": 527,
+    "title": "Rural Fam & Comm Healthcare II",
+    "professor": "Park, Summer Lea"
+  },
+  {
+    "subject": "MDC",
+    "number": 604,
+    "title": "Block4:Circulation&Respiration",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "MDC",
+    "number": 612,
+    "title": "Doctoring & Clinical Skills 2",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "MDC",
+    "number": 615,
+    "title": "Doctoring & Clinical Skills 5",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "MDR",
+    "number": 632,
+    "title": "Medical Colloquia 2",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "MGMT",
+    "number": 350,
+    "title": "External Environment of Bus",
+    "professor": "Leitzinger, Jocelyn"
+  },
+  {
+    "subject": "MGMT",
+    "number": 454,
+    "title": "Labor-Mgmt Relations",
+    "professor": "Kolar, Deanna"
+  },
+  {
+    "subject": "MHPE",
+    "number": 502,
+    "title": "Instruction & Assessment",
+    "professor": "Cheung, Jeffrey"
+  },
+  {
+    "subject": "MIM",
+    "number": 560,
+    "title": "Microbial Pathogenesis",
+    "professor": "Behnsen, Judith"
+  },
+  {
+    "subject": "MKTG",
+    "number": 360,
+    "title": "Introduction to Marketing",
+    "professor": "Barney-McNamara, Barbara"
+  },
+  {
+    "subject": "MKTG",
+    "number": 460,
+    "title": "Marketing Analytics",
+    "professor": "Cui, Anna Shaojie"
+  },
+  {
+    "subject": "MKTG",
+    "number": 468,
+    "title": "Advanced Marketing Research",
+    "professor": "Moore, Alexander"
+  },
+  {
+    "subject": "MKTG",
+    "number": 560,
+    "title": "Marketing Management",
+    "professor": "Malter, Alan Joseph"
+  },
+  {
+    "subject": "MUS",
+    "number": 107,
+    "title": "Fundamentals Of Music Theory",
+    "professor": "Gariazzo, Mariana"
+  },
+  {
+    "subject": "MUS",
+    "number": 154,
+    "title": "Chamber Choir",
+    "professor": "Calisesi Maidens, Liza Marie"
+  },
+  {
+    "subject": "MUS",
+    "number": 227,
+    "title": "Music Cultures Of World",
+    "professor": "McNally, James Edward"
+  },
+  {
+    "subject": "NATS",
+    "number": 106,
+    "title": "Chem and Bio Systems",
+    "professor": "Muller, Michael T"
+  },
+  {
+    "subject": "NUPR",
+    "number": 556,
+    "title": "EBP 4",
+    "professor": "Carlucci, Melissa Ann"
+  },
+  {
+    "subject": "NURS",
+    "number": 354,
+    "title": "Professional Nursing 4",
+    "professor": "Grubbs, Robin"
+  },
+  {
+    "subject": "NURS",
+    "number": 423,
+    "title": "Adult Health Nursing 1",
+    "professor": "Maffucci, Jennifer Lee"
+  },
+  {
+    "subject": "NURS",
+    "number": 423,
+    "title": "Adult Health Nursing 1",
+    "professor": "Moyar, Leslie A"
+  },
+  {
+    "subject": "NURS",
+    "number": 428,
+    "title": "Readiness for Nursing Practice",
+    "professor": "Smith, Pamela Chase"
+  },
+  {
+    "subject": "NURS",
+    "number": 533,
+    "title": "Appld Pharmacotherapeutics APN",
+    "professor": "Gramke, Lexxie S"
+  },
+  {
+    "subject": "NUSP",
+    "number": 529,
+    "title": "Family Behavioral Health",
+    "professor": "Goldstein, Ellen Eileen"
+  },
+  {
+    "subject": "NUSP",
+    "number": 549,
+    "title": "Bio Basis Wmn Hlth/Peri II",
+    "professor": "Bennett, Amanda Davis"
+  },
+  {
+    "subject": "OT",
+    "number": 647,
+    "title": "Fieldwork Level I-C",
+    "professor": "Preissner, Katharine Leigh"
+  },
+  {
+    "subject": "OT",
+    "number": 679,
+    "title": "Capstone Experience",
+    "professor": "Summers, Jennifer Joanne"
+  },
+  {
+    "subject": "PA",
+    "number": 542,
+    "title": "Adv Data Analysis II",
+    "professor": "Siciliano, Michael D"
+  },
+  {
+    "subject": "HPA",
+    "number": 451,
+    "title": "Heath Care Finance I",
+    "professor": "Leger, Pierre Thomas"
+  },
+  {
+    "subject": "HPA",
+    "number": 495,
+    "title": "MHA Preceptorship",
+    "professor": "Andersen, Adam M"
+  },
+  {
+    "subject": "IDS",
+    "number": 200,
+    "title": "Intro Mgmt Info Systems",
+    "professor": "Westland, James Christopher"
+  },
+  {
+    "subject": "IDS",
+    "number": 270,
+    "title": "Business Statistics I",
+    "professor": "Ozdogru, Unsal"
+  },
+  {
+    "subject": "IDS",
+    "number": 331,
+    "title": "Spreadsheet Analysis",
+    "professor": "Ozdogru, Unsal"
+  },
+  {
+    "subject": "IDS",
+    "number": 355,
+    "title": "Operations Management",
+    "professor": "Adelman, Canan"
+  },
+  {
+    "subject": "IDS",
+    "number": 355,
+    "title": "Operations Management Scholars",
+    "professor": "Kamble, Vijay S"
+  },
+  {
+    "subject": "IDS",
+    "number": 532,
+    "title": "Intro to Operations Mgmt",
+    "professor": "Dierks, Ludwig"
+  },
+  {
+    "subject": "IDS",
+    "number": 570,
+    "title": "Statistics for Management",
+    "professor": "Zhou, Wenxin"
+  },
+  {
+    "subject": "IE",
+    "number": 571,
+    "title": "Stat Qual Control & Assurance",
+    "professor": "Porfyris, Nikolaos Alexander"
+  },
+  {
+    "subject": "IPHS",
+    "number": 403,
+    "title": "Syst Mgmt Comm Hlth Methd CohD",
+    "professor": "Erzuah-Amenuvor, Nana Ama Aya"
+  },
+  {
+    "subject": "IPHS",
+    "number": 650,
+    "title": "Applied Practice Experience",
+    "professor": "Erzuah-Amenuvor, Nana Ama Aya"
+  },
+  {
+    "subject": "ITAL",
+    "number": 103,
+    "title": "Intermediate Italian I",
+    "professor": "Iusco, Maria"
+  },
+  {
+    "subject": "JD",
+    "number": 406,
+    "title": "Property",
+    "professor": "Prochaska, Jenna"
+  },
+  {
+    "subject": "JD",
+    "number": 407,
+    "title": "Torts",
+    "professor": "Bernabe, Alberto"
+  },
+  {
+    "subject": "JD",
+    "number": 411,
+    "title": "Civil Procedure I",
+    "professor": "Raba, Anna Claire Johnson"
+  },
+  {
+    "subject": "JD",
+    "number": 423,
+    "title": "Prof Responsibility",
+    "professor": "Coleman, Meriel"
+  },
+  {
+    "subject": "JD",
+    "number": 424,
+    "title": "Const Law II",
+    "professor": "Seng, Michael P"
+  },
+  {
+    "subject": "KN",
+    "number": 136,
+    "title": "Techniques & Principles Exer",
+    "professor": "Schmidt-McNulty, Tina"
+  },
+  {
+    "subject": "KN",
+    "number": 200,
+    "title": "Statistical Methods",
+    "professor": "Hibbing, Paul R"
+  },
+  {
+    "subject": "KN",
+    "number": 494,
+    "title": "Anatomy for OT Students",
+    "professor": "Rodriguez, John M"
+  },
+  {
+    "subject": "LAS",
+    "number": 200,
+    "title": "LAS Career Success",
+    "professor": "Dohse, Brian"
+  },
+  {
+    "subject": "LAS",
+    "number": 200,
+    "title": "LAS Career Success",
+    "professor": "Drink, Shabree Briunna"
+  },
+  {
+    "subject": "LAW",
+    "number": 412,
+    "title": "LSII",
+    "professor": "O'Rourke, Ellen Joan"
+  },
+  {
+    "subject": "LAW",
+    "number": 412,
+    "title": "LSII",
+    "professor": "Yousuf, Samiha Husain"
+  },
+  {
+    "subject": "LAW",
+    "number": 422,
+    "title": "LSIII",
+    "professor": "Finkle, Lester Wolfe"
+  },
+  {
+    "subject": "LAW",
+    "number": 439,
+    "title": "LSIV: Contract Drafting",
+    "professor": "Peto, Theodore Andrew"
+  },
+  {
+    "subject": "LAW",
+    "number": 460,
+    "title": "Family Law",
+    "professor": "Scott, Nicole M"
+  },
+  {
+    "subject": "HIST",
+    "number": 199,
+    "title": "Chicago and the World",
+    "professor": "Davis, Cory A"
+  },
+  {
+    "subject": "HIST",
+    "number": 203,
+    "title": "Ancient Rome",
+    "professor": "Papakonstantinou, Zinon"
+  },
+  {
+    "subject": "HIST",
+    "number": 232,
+    "title": "Rel World of Early Christians",
+    "professor": "Dingeldein, Laura B"
+  },
+  {
+    "subject": "HN",
+    "number": 296,
+    "title": "Nutrition & Physical Activity",
+    "professor": "Straughan, Kirsten Annika"
+  },
+  {
+    "subject": "HN",
+    "number": 425,
+    "title": "Sports Nutrition",
+    "professor": "Straughan, Kirsten Annika"
+  },
+  {
+    "subject": "HON",
+    "number": 131,
+    "title": "Hon Core Natural World / Past",
+    "professor": "Ale, Som Bahadur"
+  },
+  {
+    "subject": "HON",
+    "number": 142,
+    "title": "Honors Core Creative Arts",
+    "professor": "Kessler, Jeffrey"
+  },
+  {
+    "subject": "HON",
+    "number": 201,
+    "title": "Honors Seminar",
+    "professor": "Amiri, Leila"
+  },
+  {
+    "subject": "HON",
+    "number": 201,
+    "title": "Honors Seminar",
+    "professor": "Boda, Phillip A"
+  },
+  {
+    "subject": "HON",
+    "number": 201,
+    "title": "Honors Seminar",
+    "professor": "Burton, Emanuelle Neuman"
+  },
+  {
+    "subject": "HON",
+    "number": 201,
+    "title": "Honors Seminar",
+    "professor": "Ignacio, Julian Rey"
+  },
+  {
+    "subject": "HON",
+    "number": 201,
+    "title": "Honors Seminar",
+    "professor": "Ozdogru, Unsal"
+  },
+  {
+    "subject": "HON",
+    "number": 202,
+    "title": "Ambassadors",
+    "professor": "Arias, Rachel Anne"
+  },
+  {
+    "subject": "HON",
+    "number": 202,
+    "title": "Honors Tutoring",
+    "professor": "Kaczmarczyk, Laura W"
+  },
+  {
+    "subject": "HPA",
+    "number": 436,
+    "title": "GIS for E&PH Professionals",
+    "professor": "Cailas, Michael"
+  },
+  {
+    "subject": "HPA",
+    "number": 460,
+    "title": "Intro to Health Economics",
+    "professor": "Kwok, Jennifer Helen"
+  },
+  {
+    "subject": "HPA",
+    "number": 505,
+    "title": "Strategic Plan and Market Hlth",
+    "professor": "Stiehl, Emily"
+  },
+  {
+    "subject": "HPA",
+    "number": 509,
+    "title": "Physician Relations",
+    "professor": "Rank, Charles Andrew"
+  },
+  {
+    "subject": "IDS",
+    "number": 200,
+    "title": "Intro Mgmt Info Systems",
+    "professor": "Khan, Asfia F"
+  },
+  {
+    "subject": "IDS",
+    "number": 200,
+    "title": "Intro Mgmt Info Systems",
+    "professor": "Lundquist, Doug E"
+  },
+  {
+    "subject": "IDS",
+    "number": 371,
+    "title": "Business Statistics II",
+    "professor": "Adelman, Canan"
+  },
+  {
+    "subject": "IDS",
+    "number": 453,
+    "title": "Sourcing and Procurement",
+    "professor": "Nievas Jimenez, Aitor"
+  },
+  {
+    "subject": "IDS",
+    "number": 517,
+    "title": "Enterprise Application Develop",
+    "professor": "Choi, Michael"
+  },
+  {
+    "subject": "IDS",
+    "number": 521,
+    "title": "Adv Database Management",
+    "professor": "Choi, Michael"
+  },
+  {
+    "subject": "IDS",
+    "number": 534,
+    "title": "Project Management",
+    "professor": "Treleaven, James"
+  },
+  {
+    "subject": "IDS",
+    "number": 567,
+    "title": "Business Data Visualization",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "IDS",
+    "number": 572,
+    "title": "Data Mining for Business",
+    "professor": "Bhattacharyya, Siddhartha"
+  },
+  {
+    "subject": "IE",
+    "number": 594,
+    "title": "Data Science II",
+    "professor": "Anahideh, Hadis"
+  },
+  {
+    "subject": "MATH",
+    "number": 100,
+    "title": "Exploring Math, Stats & Comp",
+    "professor": "Fletcher, Joshua"
+  },
+  {
+    "subject": "MATH",
+    "number": 110,
+    "title": "College Algebra",
+    "professor": "Ingebretson, Daniel Jordan"
+  },
+  {
+    "subject": "MATH",
+    "number": 141,
+    "title": "Algebraic & Geom Structures",
+    "professor": "Martinez, Mara Vanina"
+  },
+  {
+    "subject": "MATH",
+    "number": 141,
+    "title": "Algebraic & Geom Structures",
+    "professor": "Nguyen, Phi Khanh"
+  },
+  {
+    "subject": "MATH",
+    "number": 181,
+    "title": "Calculus II",
+    "professor": "McDonald, Peter M"
+  },
+  {
+    "subject": "MATH",
+    "number": 210,
+    "title": "Calculus III",
+    "professor": "Abramov, Rafail"
+  },
+  {
+    "subject": "MATH",
+    "number": 210,
+    "title": "Calculus III",
+    "professor": "Greenblatt, Michael"
+  },
+  {
+    "subject": "MATH",
+    "number": 210,
+    "title": "Calculus III",
+    "professor": "Whyte, Kevin M."
+  },
+  {
+    "subject": "MATH",
+    "number": 220,
+    "title": "Differential Equations I",
+    "professor": "Protsak, Victor"
+  },
+  {
+    "subject": "MATH",
+    "number": 310,
+    "title": "Applied Linear Algebra",
+    "professor": "Taylor, Gregory Kyle"
+  },
+  {
+    "subject": "MATH",
+    "number": 571,
+    "title": "Adv Topics In Algebraic Geom",
+    "professor": "Bakker, Benjamin"
+  },
+  {
+    "subject": "MBT",
+    "number": 504,
+    "title": "Prin & Tech in Protein Biochem",
+    "professor": "Zheng, Guoxing"
+  },
+  {
+    "subject": "MCS",
+    "number": 320,
+    "title": "Intro to Symbolic Computation",
+    "professor": "Bridges, Mercer Truett"
+  },
+  {
+    "subject": "MCS",
+    "number": 471,
+    "title": "Numerical Analysis",
+    "professor": "Yoffe, Genady Gregory"
+  },
+  {
+    "subject": "MDC",
+    "number": 641,
+    "title": "Clinical Connections & Comp 4",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "MDP",
+    "number": 615,
+    "title": "Doctoring & Clinical Skills 5",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "MDR",
+    "number": 615,
+    "title": "Doctoring & Clinical Skills 5",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "ME",
+    "number": 261,
+    "title": "Materials for Manufacturing",
+    "professor": "Karpov, Eduard"
+  },
+  {
+    "subject": "ME",
+    "number": 341,
+    "title": "Exp Methods in Mech Engr",
+    "professor": "Szwalek, Jamison"
+  },
+  {
+    "subject": "ME",
+    "number": 380,
+    "title": "Manufacturing Process Princ",
+    "professor": "Shahbazian-Yassar, Reza"
+  },
+  {
+    "subject": "ME",
+    "number": 415,
+    "title": "Propulsion Theory",
+    "professor": "Brezinsky, Kenneth"
+  },
+  {
+    "subject": "ME",
+    "number": 521,
+    "title": "Heat Conduction",
+    "professor": "Manafzadeh, Saeed"
+  },
+  {
+    "subject": "MGMT",
+    "number": 486,
+    "title": "Managerial Consulting",
+    "professor": "Bullock, Kirsten"
+  },
+  {
+    "subject": "MGMT",
+    "number": 590,
+    "title": "Strategic Management",
+    "professor": "Shanley, Mark"
+  },
+  {
+    "subject": "MILS",
+    "number": 102,
+    "title": "Introduction to Leadership",
+    "professor": "Sommers, Nicholas"
+  },
+  {
+    "subject": "MILS",
+    "number": 202,
+    "title": "Foundations of Tactical LDRSHP",
+    "professor": "Bush, Jay William"
+  },
+  {
+    "subject": "MKTG",
+    "number": 465,
+    "title": "Strategic Marketing",
+    "professor": "Moon, Kim"
+  },
+  {
+    "subject": "MGMT",
+    "number": 470,
+    "title": "Training and Development",
+    "professor": "Cooper, James Wesley"
+  },
+  {
+    "subject": "MGMT",
+    "number": 480,
+    "title": "Transportation Systems Mgmt",
+    "professor": "Pagano, Anthony M"
+  },
+  {
+    "subject": "MGMT",
+    "number": 594,
+    "title": "Mergers& Acquisitions Strategy",
+    "professor": "Shanley, Mark"
+  },
+  {
+    "subject": "MKTG",
+    "number": 461,
+    "title": "Consumer Behavior",
+    "professor": "Hagen, Anna Linda"
+  },
+  {
+    "subject": "MKTG",
+    "number": 465,
+    "title": "Strategic Marketing",
+    "professor": "Weidemanis Magi, Anne"
+  },
+  {
+    "subject": "MKTG",
+    "number": 479,
+    "title": "Digital & Social Media Mktg",
+    "professor": "Barney-McNamara, Barbara"
+  },
+  {
+    "subject": "MKTG",
+    "number": 565,
+    "title": "Integrated Marketing Comm",
+    "professor": "Moon, Kim"
+  },
+  {
+    "subject": "MUS",
+    "number": 127,
+    "title": "Latin American Music",
+    "professor": "McNally, James Edward"
+  },
+  {
+    "subject": "NUPR",
+    "number": 523,
+    "title": "Clin Prac Prim Care III",
+    "professor": "Chu, Minseung"
+  },
+  {
+    "subject": "NURS",
+    "number": 212,
+    "title": "Hlth Assessment /Communication",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "NURS",
+    "number": 331,
+    "title": "Childbearing Women & Families",
+    "professor": "Leung, Mary"
+  },
+  {
+    "subject": "NURS",
+    "number": 332,
+    "title": "Caring Theory Prof Nrsg Prac",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "NURS",
+    "number": 361,
+    "title": "Nursing Care of Populations",
+    "professor": "Sperry, Amanda Susanne"
+  },
+  {
+    "subject": "NURS",
+    "number": 420,
+    "title": "Patho-Pharm 2",
+    "professor": "Schwind, Julie Ann"
+  },
+  {
+    "subject": "NURS",
+    "number": 422,
+    "title": "Pharmacology",
+    "professor": "Leipold, Catherine"
+  },
+  {
+    "subject": "NURS",
+    "number": 443,
+    "title": "Women & Childbearing Families",
+    "professor": "Smith, Pamela Chase"
+  },
+  {
+    "subject": "NURS",
+    "number": 518,
+    "title": "Quality & Safety",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "NURS",
+    "number": 532,
+    "title": "Comp Hlth Asmnt Adv Nrsng Prac",
+    "professor": "Salievska, Afrodita"
+  },
+  {
+    "subject": "NURS",
+    "number": 534,
+    "title": "Advanced Physiology",
+    "professor": "Quinn, Lauretta T"
+  },
+  {
+    "subject": "ORTD",
+    "number": 620,
+    "title": "Orthodontic Clinic II",
+    "professor": "Kusnoto, Budi"
+  },
+  {
+    "subject": "OSCI",
+    "number": 544,
+    "title": "Adv Craniofacial Anatomy",
+    "professor": "Reed, David Andrew"
+  },
+  {
+    "subject": "OT",
+    "number": 646,
+    "title": "Evidence-Based Practice 5",
+    "professor": "Magasi, Susan"
+  },
+  {
+    "subject": "PA",
+    "number": 422,
+    "title": "Project Management",
+    "professor": "Devereux, Erik August"
+  },
+  {
+    "subject": "PHAR",
+    "number": 423,
+    "title": "Fundamentals of Drug Action II",
+    "professor": "Nitiss, John L"
+  },
+  {
+    "subject": "PHAR",
+    "number": 501,
+    "title": "PDAT 1: Self-Care",
+    "professor": "Ali, Asima N"
+  },
+  {
+    "subject": "PHAR",
+    "number": 506,
+    "title": "PDAT 6: Infectious Diseases",
+    "professor": "Burgos, Rodrigo Mauricio"
+  },
+  {
+    "subject": "PHAR",
+    "number": 566,
+    "title": "Management and Informatics",
+    "professor": "Grider, Linda Marie"
+  },
+  {
+    "subject": "PHIL",
+    "number": 100,
+    "title": "Intro to Philosophy",
+    "professor": "Sinkler, Georgette"
+  },
+  {
+    "subject": "LAT",
+    "number": 102,
+    "title": "Elementary Latin II",
+    "professor": "Burns, Krishni Schaefgen"
+  },
+  {
+    "subject": "LAW",
+    "number": 400,
+    "title": "Fair Housing Legal Internship",
+    "professor": "Seng, Michael P"
+  },
+  {
+    "subject": "LAW",
+    "number": 412,
+    "title": "LSII",
+    "professor": "Raypole, Lynnette"
+  },
+  {
+    "subject": "LAW",
+    "number": 422,
+    "title": "LSIII",
+    "professor": "Stevenson, Tracy E"
+  },
+  {
+    "subject": "LCSL",
+    "number": 504,
+    "title": "Prof Development II",
+    "professor": "Loentz, Elizabeth A"
+  },
+  {
+    "subject": "MATH",
+    "number": 140,
+    "title": "Arith & Algebraic Structures",
+    "professor": "Superfine, Alison May"
+  },
+  {
+    "subject": "MATH",
+    "number": 141,
+    "title": "Algebraic & Geom Structures",
+    "professor": "Lee-Hassan, Alexa"
+  },
+  {
+    "subject": "MATH",
+    "number": 165,
+    "title": "Calculus for Business",
+    "professor": "Taylor, Gregory Kyle"
+  },
+  {
+    "subject": "MATH",
+    "number": 180,
+    "title": "Calculus I",
+    "professor": "Meyer, McKinley"
+  },
+  {
+    "subject": "MATH",
+    "number": 181,
+    "title": "Calculus II",
+    "professor": "Protsak, Victor"
+  },
+  {
+    "subject": "MATH",
+    "number": 210,
+    "title": "Calculus III",
+    "professor": "Bridges, Mercer Truett"
+  },
+  {
+    "subject": "MATH",
+    "number": 210,
+    "title": "Calculus III",
+    "professor": "Dumas, Emily Claire"
+  },
+  {
+    "subject": "MATH",
+    "number": 215,
+    "title": "Intro to Advanced Math",
+    "professor": "Groves, Daniel Peter"
+  },
+  {
+    "subject": "MATH",
+    "number": 215,
+    "title": "Intro to Advanced Math",
+    "professor": "Nagloo, Joel Chris Ronnie"
+  },
+  {
+    "subject": "MATH",
+    "number": 215,
+    "title": "Intro to Advanced Math",
+    "professor": "Zhang, Wenliang"
+  },
+  {
+    "subject": "MATH",
+    "number": 294,
+    "title": "Sp Topics: ESP WKSP Math 215",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "MATH",
+    "number": 313,
+    "title": "Analysis I",
+    "professor": "Ross, Julius"
+  },
+  {
+    "subject": "MATH",
+    "number": 535,
+    "title": "Complex Analysis I",
+    "professor": "Coskun, Izzet"
+  },
+  {
+    "subject": "MBT",
+    "number": 521,
+    "title": "Techniques in Biotechnology",
+    "professor": "Puri, Neelu"
+  },
+  {
+    "subject": "MCS",
+    "number": 275,
+    "title": "Programming Tools",
+    "professor": "Steenbergen, John"
+  },
+  {
+    "subject": "MCS",
+    "number": 421,
+    "title": "Combinatorics",
+    "professor": "Mubayi, Dhruv"
+  },
+  {
+    "subject": "MDC",
+    "number": 622,
+    "title": "Synthesis 3-4",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "MDP",
+    "number": 640,
+    "title": "Transition to Clerkships",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "ME",
+    "number": 308,
+    "title": "Mechanical Vibrations",
+    "professor": "Siow, Yeow"
+  },
+  {
+    "subject": "ME",
+    "number": 320,
+    "title": "Mechanisms&Dynamics/Machinery",
+    "professor": "Brown, Michael A"
+  },
+  {
+    "subject": "ME",
+    "number": 347,
+    "title": "Computer-Aided Design",
+    "professor": "Hatami Marbini, Hamed"
+  },
+  {
+    "subject": "ME",
+    "number": 347,
+    "title": "Computer-Aided Design",
+    "professor": "Siow, Yeow"
+  },
+  {
+    "subject": "NURS",
+    "number": 542,
+    "title": "Health Promotion Theories",
+    "professor": "Rivera, Stephanie Eleanor"
+  },
+  {
+    "subject": "NUSP",
+    "number": 556,
+    "title": "Health Care of Women II",
+    "professor": "Adlam, Kirby Jordana"
+  },
+  {
+    "subject": "OT",
+    "number": 610,
+    "title": "Conceptual Practice Models",
+    "professor": "Arias, Dalmina Lisette"
+  },
+  {
+    "subject": "OT",
+    "number": 615,
+    "title": "Prof Develop & Leadership 2",
+    "professor": "Van Denend, Toni Lynn"
+  },
+  {
+    "subject": "PA",
+    "number": 431,
+    "title": "Civic Technology",
+    "professor": "Gawel, Jeffrey"
+  },
+  {
+    "subject": "PA",
+    "number": 550,
+    "title": "Financial Analysis and Mgmt",
+    "professor": "Ke, Laiyang"
+  },
+  {
+    "subject": "PELE",
+    "number": 606,
+    "title": "Equity Innovation Medicine",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "PHAR",
+    "number": 432,
+    "title": "Pharmaceutics II",
+    "professor": "Chaiyaperm, Varanya"
+  },
+  {
+    "subject": "PHAR",
+    "number": 434,
+    "title": "Pharmaceutics IV",
+    "professor": "Bartels, Bradley David"
+  },
+  {
+    "subject": "PHAR",
+    "number": 440,
+    "title": "Evidence-Based Medicine",
+    "professor": "Ipema, Heather Joy"
+  },
+  {
+    "subject": "PHAR",
+    "number": 470,
+    "title": "PhLAMES 6",
+    "professor": "Wilcox, Lauren Lovett"
+  },
+  {
+    "subject": "PHAR",
+    "number": 505,
+    "title": "PDAT 5: Cardiovascular",
+    "professor": "Barbolina, Maria"
+  },
+  {
+    "subject": "PHAR",
+    "number": 601,
+    "title": "APPE: Ambulatory Patient Care",
+    "professor": "Allen, Sheila Mary"
+  },
+  {
+    "subject": "PHAR",
+    "number": 603,
+    "title": "APPE: Hospital/Health-System",
+    "professor": "Allen, Sheila Mary"
+  },
+  {
+    "subject": "PMPR",
+    "number": 615,
+    "title": "Academic Elective",
+    "professor": "Allen, Sheila Mary"
+  },
+  {
+    "subject": "POL",
+    "number": 242,
+    "title": "Polish Poetry for Beginners",
+    "professor": "Underhill, Karen"
+  },
+  {
+    "subject": "POLS",
+    "number": 101,
+    "title": "Intro to American Government",
+    "professor": "Bruhl, Robert H"
+  },
+  {
+    "subject": "POLS",
+    "number": 200,
+    "title": "Methods of Political Science",
+    "professor": "Watson, John S"
+  },
+  {
+    "subject": "POLS",
+    "number": 202,
+    "title": "Topics in Internatnl Relations",
+    "professor": "Choi, Seung Whan"
+  },
+  {
+    "subject": "PPOL",
+    "number": 101,
+    "title": "Contemporary Policy Issues",
+    "professor": "Healy, Shawn Paul"
+  },
+  {
+    "subject": "PPOL",
+    "number": 309,
+    "title": "Public Budget & Financial Mgmt",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "PSCH",
+    "number": 100,
+    "title": "Introductory Psychology",
+    "professor": "Flynn, Andrea Marie"
+  },
+  {
+    "subject": "PSCH",
+    "number": 333,
+    "title": "Lab in Clinical Psychology",
+    "professor": "Herbener, Ellen S"
+  },
+  {
+    "subject": "PSCH",
+    "number": 343,
+    "title": "Stat Methods in Behav Sci",
+    "professor": "Prims, Julia"
+  },
+  {
+    "subject": "PSCH",
+    "number": 351,
+    "title": "Laboratory in Perception",
+    "professor": "Zak, Joseph Donald"
+  },
+  {
+    "subject": "PSCH",
+    "number": 352,
+    "title": "Cognition and Memory",
+    "professor": "Coughlin, Christine Ann"
+  },
+  {
+    "subject": "PSCH",
+    "number": 363,
+    "title": "Lab in Behavioral Neurosci",
+    "professor": "Ragozzino, Michael E"
+  },
+  {
+    "subject": "PA",
+    "number": 544,
+    "title": "Qual Resrch Methods in PA",
+    "professor": "Albrecht, Kate Rose"
+  },
+  {
+    "subject": "PCOL",
+    "number": 595,
+    "title": "Pharmacology Seminar",
+    "professor": "Karginov, Andrei"
+  },
+  {
+    "subject": "PHAR",
+    "number": 466,
+    "title": "PhLAMES 2",
+    "professor": "Munir, Faria"
+  },
+  {
+    "subject": "PHAR",
+    "number": 509,
+    "title": "PDAT 9: Hematology/Oncology",
+    "professor": "Sweiss, Karen I"
+  },
+  {
+    "subject": "PHAR",
+    "number": 510,
+    "title": "PDAT 10: Advanced Disease Mgmt",
+    "professor": "Tesoro, Eljim P"
+  },
+  {
+    "subject": "PHIL",
+    "number": 202,
+    "title": "Philosophy of Psychology",
+    "professor": "Goodman, Rachel"
+  },
+  {
+    "subject": "PHYS",
+    "number": 241,
+    "title": "Experiments in Modern Physics",
+    "professor": "Gerber, Cecilia Elena"
+  },
+  {
+    "subject": "PMPR",
+    "number": 620,
+    "title": "Advanced Specialty Elective",
+    "professor": "Allen, Sheila Mary"
+  },
+  {
+    "subject": "POLS",
+    "number": 184,
+    "title": "Intro International Relations",
+    "professor": "Floros, Katharine"
+  },
+  {
+    "subject": "POLS",
+    "number": 211,
+    "title": "Chicago's Future",
+    "professor": "Ramanathan, Kumar"
+  },
+  {
+    "subject": "PROS",
+    "number": 612,
+    "title": "Dx and Treatment Planning",
+    "professor": "Campbell, Stephen D"
+  },
+  {
+    "subject": "PROS",
+    "number": 623,
+    "title": "Pros Lit Review: Removable",
+    "professor": "Ghunaim, Dima"
+  },
+  {
+    "subject": "PSCH",
+    "number": 231,
+    "title": "Community Psychology",
+    "professor": "Flynn, Andrea Marie"
+  },
+  {
+    "subject": "PSCH",
+    "number": 270,
+    "title": "Psychological Disorders",
+    "professor": "Passarotti, Alessandra"
+  },
+  {
+    "subject": "PSCH",
+    "number": 313,
+    "title": "Social Psychology Lab",
+    "professor": "Goh, Jin Xun"
+  },
+  {
+    "subject": "PSCH",
+    "number": 320,
+    "title": "Developmental Psychology",
+    "professor": "Spizzirri, Rebecca M"
+  },
+  {
+    "subject": "PSCH",
+    "number": 343,
+    "title": "Stat Methods in Behav Sci",
+    "professor": "Sargis, Edward George"
+  },
+  {
+    "subject": "PSCH",
+    "number": 394,
+    "title": "Special Topics in Psch",
+    "professor": "Coughlin, Christine Ann"
+  },
+  {
+    "subject": "PSCH",
+    "number": 569,
+    "title": "Current Topics Brain & Cog Sci",
+    "professor": "Coughlin, Christine Ann"
+  },
+  {
+    "subject": "PSCI",
+    "number": 504,
+    "title": "Science Writing",
+    "professor": "Murphy, Brian Thatcher"
+  },
+  {
+    "subject": "PSOP",
+    "number": 535,
+    "title": "Pharmaceutical Policy",
+    "professor": "Jalundhwala, Yash Janak"
+  },
+  {
+    "subject": "PT",
+    "number": 563,
+    "title": "Research Methods in Rehab Sci",
+    "professor": "Hannigan, Lindsay Slater"
+  },
+  {
+    "subject": "PUBH",
+    "number": 320,
+    "title": "Ecologies of Health",
+    "professor": "Castillo, Amparo Del Socorro"
+  },
+  {
+    "subject": "PUBH",
+    "number": 340,
+    "title": "Health Literacy",
+    "professor": "Suggs, Gia Desvernal"
+  },
+  {
+    "subject": "RELE",
+    "number": 604,
+    "title": "Emergency Medicine",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "RELS",
+    "number": 232,
+    "title": "Rel World of Early Christians",
+    "professor": "Dingeldein, Laura B"
+  },
+  {
+    "subject": "RES",
+    "number": 472,
+    "title": "Real Estate Finance",
+    "professor": "Lopez, Luis"
+  },
+  {
+    "subject": "IPHS",
+    "number": 403,
+    "title": "Syst Mgmt Comm Hlth Methd CohB",
+    "professor": "Erzuah-Amenuvor, Nana Ama Aya"
+  },
+  {
+    "subject": "IPHS",
+    "number": 405,
+    "title": "PH Analytic & Research II B",
+    "professor": "Arguelles, Lester"
+  },
+  {
+    "subject": "IPHS",
+    "number": 699,
+    "title": "Research PH Sciences-DrPH",
+    "professor": "Waterman, Fanta Aminata"
+  },
+  {
+    "subject": "JD",
+    "number": 401,
+    "title": "Exp Learning",
+    "professor": "Pruitt, Alexandra S"
+  },
+  {
+    "subject": "JD",
+    "number": 498,
+    "title": "Admin Law",
+    "professor": "Beschle, Donald L"
+  },
+  {
+    "subject": "JD",
+    "number": 541,
+    "title": "Clinic: Fair Housing Clinic",
+    "professor": "Bethel, Allison Kaye"
+  },
+  {
+    "subject": "KN",
+    "number": 110,
+    "title": "Life Skills for Stdnt Athletes",
+    "professor": "Marmon, David"
+  },
+  {
+    "subject": "KN",
+    "number": 130,
+    "title": "Stress Management",
+    "professor": "Firkins, Rachel Catherine"
+  },
+  {
+    "subject": "KN",
+    "number": 233,
+    "title": "Anatomy & Physiology Lab II",
+    "professor": "Rodriguez, John M"
+  },
+  {
+    "subject": "LALS",
+    "number": 102,
+    "title": "Intro Latino Studies",
+    "professor": "Macias, Patrisia"
+  },
+  {
+    "subject": "LAW",
+    "number": 412,
+    "title": "LSII",
+    "professor": "Meintanis, Elise Lillian"
+  },
+  {
+    "subject": "LAW",
+    "number": 412,
+    "title": "LSII",
+    "professor": "Sowerby, James B"
+  },
+  {
+    "subject": "LAW",
+    "number": 440,
+    "title": "Animal Law",
+    "professor": "Wouters, Hub Conley"
+  },
+  {
+    "subject": "LAW",
+    "number": 532,
+    "title": "3rd yr only Writng for Pra Law",
+    "professor": "Lambertson, Andrew"
+  },
+  {
+    "subject": "LAW",
+    "number": 538,
+    "title": "Adv Torts",
+    "professor": "Keating, Patrick"
+  },
+  {
+    "subject": "LAW",
+    "number": 551,
+    "title": "Est Plann and Drafting",
+    "professor": "Spada, Gina Marie"
+  },
+  {
+    "subject": "LING",
+    "number": 160,
+    "title": "Language and Society",
+    "professor": "Hallett, Jill Maureen"
+  },
+  {
+    "subject": "LING",
+    "number": 220,
+    "title": "Intro: Phonetics & Phonology",
+    "professor": "Pichan, Carrie E"
+  },
+  {
+    "subject": "MATH",
+    "number": 140,
+    "title": "Arith & Algebraic Structures",
+    "professor": "Martin, Danny Bernard"
+  },
+  {
+    "subject": "MATH",
+    "number": 165,
+    "title": "Calculus for Business",
+    "professor": "Simpson, Gilberto"
+  },
+  {
+    "subject": "MATH",
+    "number": 180,
+    "title": "Calculus I",
+    "professor": "Ash, William Ray"
+  },
+  {
+    "subject": "MATH",
+    "number": 181,
+    "title": "Calculus II",
+    "professor": "Diep, Vi B"
+  },
+  {
+    "subject": "MATH",
+    "number": 330,
+    "title": "Abstract Algebra I",
+    "professor": "Bakker, Benjamin"
+  },
+  {
+    "subject": "MATH",
+    "number": 414,
+    "title": "Analysis II",
+    "professor": "Greenblatt, Michael"
+  },
+  {
+    "subject": "MATH",
+    "number": 430,
+    "title": "Formal Logic I",
+    "professor": "Nagloo, Joel Chris Ronnie"
+  },
+  {
+    "subject": "MATH",
+    "number": 512,
+    "title": "Advanced Topics in Logic",
+    "professor": "Harrison-Trainor, Matthew A"
+  },
+  {
+    "subject": "MATH",
+    "number": 517,
+    "title": "Second Abstract Algebra II",
+    "professor": "Ein, Lawrence Man Hou"
+  },
+  {
+    "subject": "MBA",
+    "number": 570,
+    "title": "Enterprise Strategy",
+    "professor": "Ibrahim, Shahnaz"
+  },
+  {
+    "subject": "LAW",
+    "number": 500,
+    "title": "Remedies",
+    "professor": "Bernabe, Alberto"
+  },
+  {
+    "subject": "LAW",
+    "number": 520,
+    "title": "Health Law: Quality & Safety",
+    "professor": "Campbell, Amy Tannery"
+  },
+  {
+    "subject": "LAW",
+    "number": 532,
+    "title": "3rd yr only Writng for Pra Law",
+    "professor": "Mitchell, Ryan P"
+  },
+  {
+    "subject": "MATH",
+    "number": 210,
+    "title": "Calculus III",
+    "professor": "Lequen, Felix Maxime Louis Alfred"
+  },
+  {
+    "subject": "MATH",
+    "number": 210,
+    "title": "Calculus III",
+    "professor": "Saia, Frederick Vincent"
+  },
+  {
+    "subject": "MATH",
+    "number": 210,
+    "title": "Calculus III",
+    "professor": "Steenbergen, John"
+  },
+  {
+    "subject": "MATH",
+    "number": 215,
+    "title": "Intro to Advanced Math",
+    "professor": "Jones, Nathan"
+  },
+  {
+    "subject": "MATH",
+    "number": 310,
+    "title": "Applied Linear Algebra",
+    "professor": "Switala, Nicholas"
+  },
+  {
+    "subject": "MCS",
+    "number": 360,
+    "title": "Intro To Data Structure",
+    "professor": "Adrovic, Danko"
+  },
+  {
+    "subject": "MDC",
+    "number": 625,
+    "title": "Block 8: Synthesis Capstone",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "MDP",
+    "number": 604,
+    "title": "Block4:Circulation&Respiration",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "MDP",
+    "number": 632,
+    "title": "Medical Colloquia 2",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "ME",
+    "number": 499,
+    "title": "Prof Development Seminar",
+    "professor": "Nicolsen, Brynne E"
+  },
+  {
+    "subject": "MENG",
+    "number": 404,
+    "title": "Math Fundamentals AI Engineers",
+    "professor": "Shulman, Andrew M"
+  },
+  {
+    "subject": "MGMT",
+    "number": 460,
+    "title": "Bus, Soc & Glbl Econ for BBA",
+    "professor": "Adams, Vangeliya Pavlova"
+  },
+  {
+    "subject": "MGMT",
+    "number": 495,
+    "title": "Competitive Strategy",
+    "professor": "Kolar, Deanna"
+  },
+  {
+    "subject": "MGMT",
+    "number": 541,
+    "title": "Organizational Behavior",
+    "professor": "Lynch, John Wiley"
+  },
+  {
+    "subject": "MGMT",
+    "number": 553,
+    "title": "Human Resource Management",
+    "professor": "Martin, David"
+  },
+  {
+    "subject": "MGMT",
+    "number": 590,
+    "title": "Strategic Management",
+    "professor": "Callahan, Conor"
+  },
+  {
+    "subject": "MILS",
+    "number": 302,
+    "title": "Applied Team Leadership",
+    "professor": "Heredia, Jarrod"
+  },
+  {
+    "subject": "MKTG",
+    "number": 463,
+    "title": "Mktg and Sales Channels",
+    "professor": "Karsaklian, Eliane"
+  },
+  {
+    "subject": "MKTG",
+    "number": 469,
+    "title": "Global Marketing",
+    "professor": "Karsaklian, Eliane"
+  },
+  {
+    "subject": "MKTG",
+    "number": 473,
+    "title": "Introduction to Sales",
+    "professor": "Calzavara, Carolyn"
+  },
+  {
+    "subject": "MKTG",
+    "number": 494,
+    "title": "Social Selling & Sales Tech",
+    "professor": "Barney-McNamara, Barbara"
+  },
+  {
+    "subject": "MKTG",
+    "number": 518,
+    "title": "Electronic Marketing",
+    "professor": "Westland, James Christopher"
+  },
+  {
+    "subject": "MKTG",
+    "number": 567,
+    "title": "Digital & Social Media Mktg",
+    "professor": "Razi, Sajna"
+  },
+  {
+    "subject": "MTHT",
+    "number": 591,
+    "title": "Topics in Tching Elem/JHS Math",
+    "professor": "Superfine, Alison May"
+  },
+  {
+    "subject": "MKTG",
+    "number": 479,
+    "title": "Digital & Social Media Mktg",
+    "professor": "Brand, Axelle"
+  },
+  {
+    "subject": "MKTG",
+    "number": 563,
+    "title": "Marketing Research I",
+    "professor": "Duhachek, Adam"
+  },
+  {
+    "subject": "MOVI",
+    "number": 225,
+    "title": "Span and Latin Culture/Film",
+    "professor": "Marsh, Walter S."
+  },
+  {
+    "subject": "MTHT",
+    "number": 439,
+    "title": "Educ Pract w/ Seminar II",
+    "professor": "Schubert, Erin Rose"
+  },
+  {
+    "subject": "MUS",
+    "number": 118,
+    "title": "American Popular Music",
+    "professor": "Rosenberg, Ruth Emily"
+  },
+  {
+    "subject": "MUS",
+    "number": 152,
+    "title": "Instrumental Ensembles",
+    "professor": "Espinosa, Michael A"
+  },
+  {
+    "subject": "NATS",
+    "number": 200,
+    "title": "Tutoring in Sci Learning Ctr",
+    "professor": "Liubicich, Danielle"
+  },
+  {
+    "subject": "NUPR",
+    "number": 405,
+    "title": "Integrated Practicum I",
+    "professor": "Betka, Alisha Annette"
+  },
+  {
+    "subject": "NURS",
+    "number": 352,
+    "title": "Population Focused Nursing",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "NURS",
+    "number": 371,
+    "title": "Acute Care Nursing & Care Mgmt",
+    "professor": "Chapman, Lori Ann"
+  },
+  {
+    "subject": "NURS",
+    "number": 371,
+    "title": "Acute Care Nursing & Care Mgmt",
+    "professor": "Trotter, Heather"
+  },
+  {
+    "subject": "NURS",
+    "number": 404,
+    "title": "IHC: Concepts/Skills",
+    "professor": "Salievska, Afrodita"
+  },
+  {
+    "subject": "NURS",
+    "number": 428,
+    "title": "Readiness for Nursing Practice",
+    "professor": "Johnson, Amy Jo"
+  },
+  {
+    "subject": "NURS",
+    "number": 428,
+    "title": "Readiness for Nursing Practice",
+    "professor": "Ricca, Paige Quigley"
+  },
+  {
+    "subject": "NURS",
+    "number": 443,
+    "title": "Women & Childbearing Families",
+    "professor": "Sutter, Jill Susan"
+  },
+  {
+    "subject": "NUSP",
+    "number": 559,
+    "title": "Dimens Midwifery&Wmn Hlth Prac",
+    "professor": "Hinthorne, Summer Alyssa"
+  },
+  {
+    "subject": "OSCI",
+    "number": 598,
+    "title": "Master's Thesis Research",
+    "professor": "Ghunaim, Dima"
+  },
+  {
+    "subject": "PA",
+    "number": 403,
+    "title": "Economics for Mgmt and Policy",
+    "professor": "Merriman, David F"
+  },
+  {
+    "subject": "PELE",
+    "number": 607,
+    "title": "M3 Neurology Clerkship",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "PHAR",
+    "number": 412,
+    "title": "Pharmacy Practice: Community",
+    "professor": "Eades, Amanda Lynn"
+  },
+  {
+    "subject": "PHIL",
+    "number": 100,
+    "title": "Intro to Philosophy",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "PHYS",
+    "number": 112,
+    "title": "Astronomy and Universe",
+    "professor": "Ugalde, Claudio"
+  },
+  {
+    "subject": "PHYS",
+    "number": 142,
+    "title": "General Physics II",
+    "professor": "Barkan, Adrian"
+  },
+  {
+    "subject": "PHYS",
+    "number": 260,
+    "title": "Intro Thermal Physics",
+    "professor": "Evdokimov, Olga"
+  },
+  {
+    "subject": "PHYS",
+    "number": 441,
+    "title": "Theoretical Mechanics",
+    "professor": "Cavanaugh, Richard"
+  },
+  {
+    "subject": "PHYS",
+    "number": 595,
+    "title": "Graduate Seminar",
+    "professor": "Hemley, Russell J"
+  },
+  {
+    "subject": "PMPR",
+    "number": 334,
+    "title": "Mindfulness Practice",
+    "professor": "Hudak, Brianna McQuade"
+  },
+  {
+    "subject": "PMPR",
+    "number": 339,
+    "title": "Exploration of Telemedicine",
+    "professor": "Rebolledo, Julio Alberto"
+  },
+  {
+    "subject": "ME",
+    "number": 370,
+    "title": "Mechanical Engineering Design",
+    "professor": "Bhounsule, Pranav Audhut"
+  },
+  {
+    "subject": "ME",
+    "number": 401,
+    "title": "Applied Stress Analysis I",
+    "professor": "Shahbazian-Yassar, Reza"
+  },
+  {
+    "subject": "MGMT",
+    "number": 350,
+    "title": "External Environment of Bus",
+    "professor": "Antwiler, Brandon"
+  },
+  {
+    "subject": "MGMT",
+    "number": 495,
+    "title": "Competitive Strategy",
+    "professor": "Cooper, James Wesley"
+  },
+  {
+    "subject": "MGMT",
+    "number": 550,
+    "title": "Leading for Impact",
+    "professor": "Brickson, Shelley"
+  },
+  {
+    "subject": "MHPE",
+    "number": 598,
+    "title": "Thesis Research",
+    "professor": "Polansky, Maura"
+  },
+  {
+    "subject": "MKTG",
+    "number": 360,
+    "title": "Introduction to Marketing",
+    "professor": "Schanbacher, Anja"
+  },
+  {
+    "subject": "MKTG",
+    "number": 462,
+    "title": "Marketing Research",
+    "professor": "Parker, Jeffrey"
+  },
+  {
+    "subject": "MKTG",
+    "number": 469,
+    "title": "Global Marketing",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "MKTG",
+    "number": 485,
+    "title": "Customer Experience Management",
+    "professor": "Trujillo Torres, Lez Ecima"
+  },
+  {
+    "subject": "MUS",
+    "number": 102,
+    "title": "Music Theory II",
+    "professor": "Lau, Wing"
+  },
+  {
+    "subject": "MUS",
+    "number": 118,
+    "title": "American Popular Music",
+    "professor": "Lopatka, Daniel R"
+  },
+  {
+    "subject": "MUS",
+    "number": 150,
+    "title": "Vocal Jazz Ensemble",
+    "professor": "Allgood, Alyssa"
+  },
+  {
+    "subject": "NATS",
+    "number": 105,
+    "title": "Phys Syst Earth and Space Sci",
+    "professor": "Sit, Stefany"
+  },
+  {
+    "subject": "NEUS",
+    "number": 502,
+    "title": "Foundations Neuroscience II",
+    "professor": "Tseng, Kuei Yuan"
+  },
+  {
+    "subject": "NUEL",
+    "number": 244,
+    "title": "History Prof Nursing in U.S.",
+    "professor": "Franck, Gwyneth Rhiannon"
+  },
+  {
+    "subject": "NURS",
+    "number": 354,
+    "title": "Professional Nursing 4",
+    "professor": "Arriola, Stacy"
+  },
+  {
+    "subject": "NURS",
+    "number": 371,
+    "title": "Acute Care Nursing & Care Mgmt",
+    "professor": "Castro, Helen Johanna"
+  },
+  {
+    "subject": "NURS",
+    "number": 420,
+    "title": "Patho-Pharm 2",
+    "professor": "Trotter, Heather"
+  },
+  {
+    "subject": "NURS",
+    "number": 423,
+    "title": "Adult Health Nursing 1",
+    "professor": "Trotter, Heather"
+  },
+  {
+    "subject": "NURS",
+    "number": 516,
+    "title": "EBP 2",
+    "professor": "Lamb, Karen V"
+  },
+  {
+    "subject": "NURS",
+    "number": 553,
+    "title": "Strategic & Financial Planning",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "NURS",
+    "number": 555,
+    "title": "EBP 3",
+    "professor": "Shannon, Robin Adair"
+  },
+  {
+    "subject": "NUSP",
+    "number": 517,
+    "title": "Hlth Mgmt Primry Care III",
+    "professor": "Kozlowski, Marjorie Ann"
+  },
+  {
+    "subject": "ORTD",
+    "number": 667,
+    "title": "Ortho-Perio Relationships",
+    "professor": "Atsawasuwan, Phimon"
+  },
+  {
+    "subject": "OSCI",
+    "number": 504,
+    "title": "Advanced Dental Materials",
+    "professor": "Campbell, Stephen D"
+  },
+  {
+    "subject": "OT",
+    "number": 350,
+    "title": "Introduction to OT",
+    "professor": "Van Denend, Toni Lynn"
+  },
+  {
+    "subject": "OT",
+    "number": 611,
+    "title": "Occupational Performance",
+    "professor": "Lee, Jenica"
+  },
+  {
+    "subject": "MUS",
+    "number": 151,
+    "title": "Concert Band",
+    "professor": "Weren, Serena"
+  },
+  {
+    "subject": "MUS",
+    "number": 153,
+    "title": "University Choir",
+    "professor": "Lewis, Andrew"
+  },
+  {
+    "subject": "MUS",
+    "number": 156,
+    "title": "Pep Band",
+    "professor": "Carlson, Nicholas"
+  },
+  {
+    "subject": "MUS",
+    "number": 157,
+    "title": "University Orchestras",
+    "professor": "Fawkes, Timothy"
+  },
+  {
+    "subject": "MUS",
+    "number": 204,
+    "title": "Ear Training IV",
+    "professor": "Lau, Wing"
+  },
+  {
+    "subject": "NUPR",
+    "number": 416,
+    "title": "Integrated Practicum IV",
+    "professor": "Robinson, Nadia S"
+  },
+  {
+    "subject": "NURS",
+    "number": 312,
+    "title": "Research and Statistics",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "NURS",
+    "number": 404,
+    "title": "IHC: Concepts/Skills",
+    "professor": "Betka, Alisha Annette"
+  },
+  {
+    "subject": "NURS",
+    "number": 412,
+    "title": "IHC: Wmn/Chldrn/Family",
+    "professor": "Ricca, Paige Quigley"
+  },
+  {
+    "subject": "OSCI",
+    "number": 563,
+    "title": "Wound Healing and Regenerative",
+    "professor": "Ravindran, Sriram"
+  },
+  {
+    "subject": "OSCI",
+    "number": 564,
+    "title": "Interdisciplinary Research Sem",
+    "professor": "Miller, Steven"
+  },
+  {
+    "subject": "OT",
+    "number": 648,
+    "title": "Fieldwork Level I-D",
+    "professor": "Preissner, Katharine Leigh"
+  },
+  {
+    "subject": "PA",
+    "number": 403,
+    "title": "Economics for Mgmt and Policy",
+    "professor": "Ke, Laiyang"
+  },
+  {
+    "subject": "PHAR",
+    "number": 468,
+    "title": "PhLAMES 4",
+    "professor": "Carson, Erin Lee"
+  },
+  {
+    "subject": "PHAR",
+    "number": 604,
+    "title": "APPE: Medicine Patient Care",
+    "professor": "Allen, Sheila Mary"
+  },
+  {
+    "subject": "PHIL",
+    "number": 110,
+    "title": "Phil of Love and Sex",
+    "professor": "Harmon, Zaccheus D"
+  },
+  {
+    "subject": "PHIL",
+    "number": 131,
+    "title": "Educational Ethics",
+    "professor": "Laden, Anthony S"
+  },
+  {
+    "subject": "PHIL",
+    "number": 224,
+    "title": "Hist of Mod Phil II: Kant",
+    "professor": "Fleischacker, Samuel"
+  },
+  {
+    "subject": "PHIL",
+    "number": 230,
+    "title": "Ethics and Literature",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "PHYS",
+    "number": 132,
+    "title": "Physics for Life Sciences II",
+    "professor": "Spille, Jan-Hendrik"
+  },
+  {
+    "subject": "PHYS",
+    "number": 402,
+    "title": "Electromagnetism II",
+    "professor": "Barkan, Adrian"
+  },
+  {
+    "subject": "PHYS",
+    "number": 512,
+    "title": "Quantum Mechanics II",
+    "professor": "Imbo, Tom David"
+  },
+  {
+    "subject": "PMPR",
+    "number": 359,
+    "title": "Topics Post-Grad Training",
+    "professor": "Ohler, Kirsten H"
+  },
+  {
+    "subject": "PMPR",
+    "number": 617,
+    "title": "Adv Ambulatory Patient Care",
+    "professor": "Allen, Sheila Mary"
+  },
+  {
+    "subject": "PMPR",
+    "number": 619,
+    "title": "Advanced Inpatient Medicine",
+    "professor": "Allen, Sheila Mary"
+  },
+  {
+    "subject": "POLS",
+    "number": 184,
+    "title": "Intro International Relations",
+    "professor": "Choi, Seung Whan"
+  },
+  {
+    "subject": "POLS",
+    "number": 204,
+    "title": "Democracy and Its Discontents",
+    "professor": "Albarracin Dierolf, Juan Guillermo"
+  },
+  {
+    "subject": "POLS",
+    "number": 228,
+    "title": "US Congress",
+    "professor": "Kaplan, Noah"
+  },
+  {
+    "subject": "SJ",
+    "number": 101,
+    "title": "Intro to Social Justice",
+    "professor": "Ransby, Barbara"
+  },
+  {
+    "subject": "SOC",
+    "number": 105,
+    "title": "Social Problems",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "SOC",
+    "number": 224,
+    "title": "Gender & Society",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "SOC",
+    "number": 300,
+    "title": "Sociological Research Methods",
+    "professor": "Somashekhar, Mahesh"
+  },
+  {
+    "subject": "SOC",
+    "number": 385,
+    "title": "Sociological Theory",
+    "professor": "Decoteau, Claire Laurier"
+  },
+  {
+    "subject": "SOC",
+    "number": 426,
+    "title": "Race and Immigration Law",
+    "professor": "Macias, Patrisia"
+  },
+  {
+    "subject": "SOCW",
+    "number": 565,
+    "title": "Research Seminars: School",
+    "professor": "Owens, Chastity Lashauna"
+  },
+  {
+    "subject": "SOCW",
+    "number": 573,
+    "title": "Field Instruction IV: OCP",
+    "professor": "Brown, Pamela Renee"
+  },
+  {
+    "subject": "SOCW",
+    "number": 583,
+    "title": "Pract IV: Child & Family",
+    "professor": "Tanniehill, LaToya D"
+  },
+  {
+    "subject": "SPAN",
+    "number": 202,
+    "title": "Spanish Grammar in Practice",
+    "professor": "Betancourt, Angela C"
+  },
+  {
+    "subject": "SPAN",
+    "number": 210,
+    "title": "Introduction to Hispanic Texts",
+    "professor": "Marsh, Walter S."
+  },
+  {
+    "subject": "STAT",
+    "number": 362,
+    "title": "Elements Statistical Computing",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "TADR",
+    "number": 400,
+    "title": "Trial Ad",
+    "professor": "Solock, Mark Warren"
+  },
+  {
+    "subject": "TADR",
+    "number": 412,
+    "title": "Moot Ct Comp",
+    "professor": "Hodge, Joanne Simboli"
+  },
+  {
+    "subject": "TADR",
+    "number": 464,
+    "title": "Clinic: Pro Bono Lit Clinic",
+    "professor": "Ortiz, Jose D"
+  },
+  {
+    "subject": "THTR",
+    "number": 230,
+    "title": "Script Analysis",
+    "professor": "Henderson, Jerrell L"
+  },
+  {
+    "subject": "THTR",
+    "number": 264,
+    "title": "Voice III: Adv Voice & Speech",
+    "professor": "Martin, Jason"
+  },
+  {
+    "subject": "THTR",
+    "number": 322,
+    "title": "Adv Actg-Brecht/Beckett/Pinter",
+    "professor": "Torres, Edward"
+  },
+  {
+    "subject": "UPP",
+    "number": 462,
+    "title": "Inter GIS for Planning/Policy",
+    "professor": "Craft, Andrea"
+  },
+  {
+    "subject": "UPP",
+    "number": 506,
+    "title": "Plan-Making Studio",
+    "professor": "Egan, Sara Rosaleen"
+  },
+  {
+    "subject": "UPP",
+    "number": 506,
+    "title": "Plan-Making Studio",
+    "professor": "Lopez Garcia, David"
+  },
+  {
+    "subject": "US",
+    "number": 230,
+    "title": "Practices Sustainable Cities",
+    "professor": "Rundquist, Matthew Spencer"
+  },
+  {
+    "subject": "US",
+    "number": 361,
+    "title": "Intro to GIS I",
+    "professor": "Craft, Andrea"
+  },
+  {
+    "subject": "PMPR",
+    "number": 358,
+    "title": "Pharmacotherapeutic Issue",
+    "professor": "Carson, Erin Lee"
+  },
+  {
+    "subject": "PMPR",
+    "number": 390,
+    "title": "Spec Project in Pharm Pract",
+    "professor": "Younge, Jewel S"
+  },
+  {
+    "subject": "POLS",
+    "number": 101,
+    "title": "Intro to American Government",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "POLS",
+    "number": 207,
+    "title": "Mass Media and Politics",
+    "professor": "Podrazik, Walter J"
+  },
+  {
+    "subject": "POLS",
+    "number": 259,
+    "title": "Constitutional Conversations",
+    "professor": "McKenzie, Evan C"
+  },
+  {
+    "subject": "POLS",
+    "number": 356,
+    "title": "Women, Gender and Law",
+    "professor": "Lyles, Kevin L"
+  },
+  {
+    "subject": "PPOL",
+    "number": 405,
+    "title": "Evaluating Public Policies",
+    "professor": "Laurito, Maria Agustina"
+  },
+  {
+    "subject": "PROS",
+    "number": 618,
+    "title": "Reconstructive Implantology",
+    "professor": "Ghunaim, Dima"
+  },
+  {
+    "subject": "PSCH",
+    "number": 100,
+    "title": "Introductory Psychology",
+    "professor": "Cervone, Daniel P"
+  },
+  {
+    "subject": "PSCH",
+    "number": 313,
+    "title": "Social Psychology Lab",
+    "professor": "Sargis, Edward George"
+  },
+  {
+    "subject": "PSCH",
+    "number": 384,
+    "title": "Psychology of Groups",
+    "professor": "Ochoa-Galindo, Carmen"
+  },
+  {
+    "subject": "PSCH",
+    "number": 579,
+    "title": "Curr Topics in Clinical Psch",
+    "professor": "Hsueh, Loretta Yao Pei"
+  },
+  {
+    "subject": "PSCI",
+    "number": 390,
+    "title": "Special Proj Pharm Sci",
+    "professor": "Bartels, Bradley David"
+  },
+  {
+    "subject": "PSCI",
+    "number": 521,
+    "title": "Structure Elucidation Nat Prod",
+    "professor": "Orjala, Jimmy"
+  },
+  {
+    "subject": "PSOP",
+    "number": 387,
+    "title": "Critical Dialogue (CD) Prof",
+    "professor": "Okorie-Awe, Clara Uche"
+  },
+  {
+    "subject": "PSOP",
+    "number": 392,
+    "title": "Foundations in Urban Health 2",
+    "professor": "Okorie-Awe, Clara Uche"
+  },
+  {
+    "subject": "PSOP",
+    "number": 394,
+    "title": "Foundations in Urban Health 4",
+    "professor": "Okorie-Awe, Clara Uche"
+  },
+  {
+    "subject": "PT",
+    "number": 620,
+    "title": "Clinical Applications",
+    "professor": "Arguelles, Leonard Dion"
+  },
+  {
+    "subject": "PT",
+    "number": 634,
+    "title": "Neuromuscular Dysfunction II",
+    "professor": "Jones, Alyssa Ann"
+  },
+  {
+    "subject": "PT",
+    "number": 635,
+    "title": "Cardiopulmunary Dysfunction",
+    "professor": "Severin, Richard Steven"
+  },
+  {
+    "subject": "SOC",
+    "number": 225,
+    "title": "Racial and Ethnic Groups",
+    "professor": "Washington, Patrick C"
+  },
+  {
+    "subject": "SOC",
+    "number": 424,
+    "title": "Sociology of Gender",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "SOCW",
+    "number": 431,
+    "title": "Practice II:Families, Grp&Comm",
+    "professor": "Huffman-Gottschling, Kristen Suzanne"
+  },
+  {
+    "subject": "SOCW",
+    "number": 460,
+    "title": "Research I: Social Work Resrch",
+    "professor": "Cheng, Shih-Ying"
+  },
+  {
+    "subject": "SOCW",
+    "number": 502,
+    "title": "Psychological Trauma",
+    "professor": "Eads, Ray"
+  },
+  {
+    "subject": "SOCW",
+    "number": 517,
+    "title": "Pract: Fam Violence,Abuse,Neg",
+    "professor": "Ansari-Lahiri, Naomi Anurag"
+  },
+  {
+    "subject": "SOCW",
+    "number": 573,
+    "title": "Field Instruction IV: MH",
+    "professor": "Brown, Pamela Renee"
+  },
+  {
+    "subject": "PSCH",
+    "number": 366,
+    "title": "Cognitive Neuroscience",
+    "professor": "Passarotti, Alessandra"
+  },
+  {
+    "subject": "PSCH",
+    "number": 485,
+    "title": "Neuroscience II",
+    "professor": "Donahey Roitman, Jamie Colleen Kristen"
+  },
+  {
+    "subject": "PSCH",
+    "number": 507,
+    "title": "Emerging Research Issues",
+    "professor": "Keinath, Alexandra"
+  },
+  {
+    "subject": "PSCH",
+    "number": 547,
+    "title": "Data Science",
+    "professor": "Demos, Alexander"
+  },
+  {
+    "subject": "PT",
+    "number": 617,
+    "title": "Applied Kinesiology",
+    "professor": "Gauthier, Matthew Lovell"
+  },
+  {
+    "subject": "PT",
+    "number": 630,
+    "title": "Science Practice Seminar II",
+    "professor": "Madhavan, Sangeetha"
+  },
+  {
+    "subject": "PUBH",
+    "number": 310,
+    "title": "Global Citizenship",
+    "professor": "Berman, Laurel Amy"
+  },
+  {
+    "subject": "PUBH",
+    "number": 360,
+    "title": "Community Health Initiatives",
+    "professor": "Erdal, Serap"
+  },
+  {
+    "subject": "PUBH",
+    "number": 395,
+    "title": "Professional Topics",
+    "professor": "Chriqui, Jamie F."
+  },
+  {
+    "subject": "RELS",
+    "number": 130,
+    "title": "Introduction to Islam",
+    "professor": "Saleem, Ariz"
+  },
+  {
+    "subject": "SOC",
+    "number": 215,
+    "title": "Sociology Childhood and Youth",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "SOC",
+    "number": 251,
+    "title": "Health and Medicine",
+    "professor": "Hansen, Christopher R"
+  },
+  {
+    "subject": "SOC",
+    "number": 405,
+    "title": "Social Science Writing",
+    "professor": "Rudrappa, Sharmila B."
+  },
+  {
+    "subject": "SOC",
+    "number": 496,
+    "title": "Independent Research",
+    "professor": "Decoteau, Claire Laurier"
+  },
+  {
+    "subject": "SOCW",
+    "number": 460,
+    "title": "Research I: Social Work Resrch",
+    "professor": "Gomez, Walter"
+  },
+  {
+    "subject": "SOCW",
+    "number": 460,
+    "title": "Research I: Social Work Resrch",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "SOCW",
+    "number": 460,
+    "title": "Research I: Social Work Resrch",
+    "professor": "Washington, Durrell Malik"
+  },
+  {
+    "subject": "SOCW",
+    "number": 520,
+    "title": "Practice IV: Org and Comm Prac",
+    "professor": "Foell, Andrew Scott"
+  },
+  {
+    "subject": "SOCW",
+    "number": 523,
+    "title": "Drug& Alcohol Social Work",
+    "professor": "Salvadore, Lisa M"
+  },
+  {
+    "subject": "SOCW",
+    "number": 527,
+    "title": "Rethinking the Criminal Legal",
+    "professor": "Harper, Toyan Omar"
+  },
+  {
+    "subject": "SOCW",
+    "number": 539,
+    "title": "Mental Hlth w/Child&Adolescent",
+    "professor": "Schmitz, Jaime Michelle"
+  },
+  {
+    "subject": "SOCW",
+    "number": 565,
+    "title": "Research Seminars II: CHF",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "SOCW",
+    "number": 573,
+    "title": "Field Instruction IV: SCH",
+    "professor": "Brown, Pamela Renee"
+  },
+  {
+    "subject": "SPAN",
+    "number": 101,
+    "title": "Elementary Spanish I",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "SPAN",
+    "number": 101,
+    "title": "Elementary Spanish I",
+    "professor": "Munoz-Navarro, Stephanie Rae"
+  },
+  {
+    "subject": "SPAN",
+    "number": 104,
+    "title": "Intermediate Spanish II",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "SPAN",
+    "number": 203,
+    "title": "Composition Non-Native Speakrs",
+    "professor": "Gajic, Tatjana"
+  },
+  {
+    "subject": "SPAN",
+    "number": 210,
+    "title": "Introduction to Hispanic Texts",
+    "professor": "Riera, Gabriel"
+  },
+  {
+    "subject": "PHYB",
+    "number": 552,
+    "title": "Human Physiology II",
+    "professor": "Brodie, Mark S"
+  },
+  {
+    "subject": "PHYB",
+    "number": 586,
+    "title": "Cell Physiology",
+    "professor": "Shaye, Daniel David"
+  },
+  {
+    "subject": "PHYS",
+    "number": 131,
+    "title": "Physics for Life Sciences I",
+    "professor": "Ugalde, Claudio"
+  },
+  {
+    "subject": "PMPR",
+    "number": 328,
+    "title": "Evidence Based Phytotherapy",
+    "professor": "Mahady, Gail B."
+  },
+  {
+    "subject": "POL",
+    "number": 102,
+    "title": "Elementary Polish II",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "POL",
+    "number": 234,
+    "title": "The Making of Modern Poland",
+    "professor": "Stauter-Halsted, Keely"
+  },
+  {
+    "subject": "POLS",
+    "number": 130,
+    "title": "Intro to Comparative Politics",
+    "professor": "Albarracin Dierolf, Juan Guillermo"
+  },
+  {
+    "subject": "POLS",
+    "number": 210,
+    "title": "Intro to Urban Politics",
+    "professor": "Zhang, Yue"
+  },
+  {
+    "subject": "PSCH",
+    "number": 381,
+    "title": "Psch of Interviewing",
+    "professor": "Kim-Cohen, Julia Yun Soo"
+  },
+  {
+    "subject": "PSCH",
+    "number": 382,
+    "title": "Psychological Interventions",
+    "professor": "Smith, Lauren Tiffany"
+  },
+  {
+    "subject": "PSCH",
+    "number": 385,
+    "title": "Field Work in Applied Psch",
+    "professor": "Smith, Lauren Tiffany"
+  },
+  {
+    "subject": "PSCH",
+    "number": 545,
+    "title": "Research Design & Analysis II",
+    "professor": "Estabrook, Christopher Ryne"
+  },
+  {
+    "subject": "PSCH",
+    "number": 584,
+    "title": "Pract: Clinical Trainees",
+    "professor": "Szerszen, Jenna Rowen"
+  },
+  {
+    "subject": "PT",
+    "number": 604,
+    "title": "Neuroanatomy",
+    "professor": "Thorp, Laura"
+  },
+  {
+    "subject": "PUBH",
+    "number": 110,
+    "title": "Global Societies",
+    "professor": "Baumann, Sasha Glass"
+  },
+  {
+    "subject": "SOC",
+    "number": 244,
+    "title": "Sociology of Work",
+    "professor": "Popielarz, Pamela A"
+  },
+  {
+    "subject": "SOCW",
+    "number": 411,
+    "title": "Social Work in Multicult Soc",
+    "professor": "Pitman, Imani A"
+  },
+  {
+    "subject": "SOCW",
+    "number": 431,
+    "title": "Practice II:Families, Grp&Comm",
+    "professor": "Doyle, Otima"
+  },
+  {
+    "subject": "SOCW",
+    "number": 431,
+    "title": "Practice II:Families, Grp&Comm",
+    "professor": "Gould, Phyllis S"
+  },
+  {
+    "subject": "SOCW",
+    "number": 539,
+    "title": "Mental Hlth w/Child&Adolescent",
+    "professor": "Borowski, Megan E"
+  },
+  {
+    "subject": "SOCW",
+    "number": 563,
+    "title": "Program Evaluation",
+    "professor": "Darkwa, Asantewaa A"
+  },
+  {
+    "subject": "SOCW",
+    "number": 587,
+    "title": "Pract IV: Mental Health",
+    "professor": "Mitchell, Christopher G"
+  },
+  {
+    "subject": "SPAN",
+    "number": 113,
+    "title": "Spanish - Heritage Speakers I",
+    "professor": "Rodriguez, Mariela"
+  },
+  {
+    "subject": "SPAN",
+    "number": 204,
+    "title": "Composition Heritage Speakers",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "SPAN",
+    "number": 207,
+    "title": "European Cinema",
+    "professor": "Meyer, Imke"
+  },
+  {
+    "subject": "SPAN",
+    "number": 321,
+    "title": "Spanish Health Personnel II",
+    "professor": "Gonzalez-Cameron, Diana"
+  },
+  {
+    "subject": "STAT",
+    "number": 101,
+    "title": "Introduction to Statistics",
+    "professor": "Kursell, Anita"
+  },
+  {
+    "subject": "MBT",
+    "number": 529,
+    "title": "Introduction to Flow Cytometry",
+    "professor": "Sidik, Khalifah B."
+  },
+  {
+    "subject": "MCS",
+    "number": 401,
+    "title": "Computer Algorithms I",
+    "professor": "Reyzin, Lev"
+  },
+  {
+    "subject": "MDC",
+    "number": 603,
+    "title": "Block 3: Skin,Muscle&Movement",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "MDP",
+    "number": 641,
+    "title": "Clinical Connections & Comp 4",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "MDR",
+    "number": 604,
+    "title": "Block4:Circulation&Respiration",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "ME",
+    "number": 312,
+    "title": "Dynamic Syst & Control",
+    "professor": "Cetin, Sabri"
+  },
+  {
+    "subject": "ME",
+    "number": 312,
+    "title": "Dynamic Syst & Control",
+    "professor": "Shabana, Ahmed"
+  },
+  {
+    "subject": "ME",
+    "number": 325,
+    "title": "Intermediate Thermodynamics",
+    "professor": "Lynch, Patrick T"
+  },
+  {
+    "subject": "MGMT",
+    "number": 452,
+    "title": "Organizational Behavior",
+    "professor": "Bujas, Dan"
+  },
+  {
+    "subject": "MIM",
+    "number": 595,
+    "title": "Microbiology Seminars",
+    "professor": "Alonzo, Francis"
+  },
+  {
+    "subject": "MUS",
+    "number": 100,
+    "title": "Introduction To Music I",
+    "professor": "Gariazzo, Mariana"
+  },
+  {
+    "subject": "MUS",
+    "number": 114,
+    "title": "Jazz History",
+    "professor": "Irabagon, Jonathan"
+  },
+  {
+    "subject": "MUS",
+    "number": 151,
+    "title": "Concert Band",
+    "professor": "Carlson, Nicholas"
+  },
+  {
+    "subject": "MUS",
+    "number": 171,
+    "title": "Keyboard Skills II",
+    "professor": "Bukvich, Ivana"
+  },
+  {
+    "subject": "MUS",
+    "number": 183,
+    "title": "Vocal Lessons-30 Min",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "NS",
+    "number": 294,
+    "title": "Topics in Naval Science",
+    "professor": "McGady, Andrew M"
+  },
+  {
+    "subject": "NURS",
+    "number": 341,
+    "title": "Care of Children & Families",
+    "professor": "Yardley, Taylor Marie"
+  },
+  {
+    "subject": "NURS",
+    "number": 362,
+    "title": "Nursing Health Promotion",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "NURS",
+    "number": 372,
+    "title": "Leadership & Mgmnt in Nrsg",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "NURS",
+    "number": 422,
+    "title": "Pharmacology",
+    "professor": "Fritschi, Cynthia"
+  },
+  {
+    "subject": "NURS",
+    "number": 535,
+    "title": "Adv Pathophys Lifespan",
+    "professor": "Hinthorne, Summer Alyssa"
+  },
+  {
+    "subject": "NUSP",
+    "number": 590,
+    "title": "Fam-Foc Hlth Mgmt Prim Care",
+    "professor": "Clarke, Mara Michele"
+  },
+  {
+    "subject": "OT",
+    "number": 645,
+    "title": "Prof Develop & Leadership 4",
+    "professor": "Van Denend, Toni Lynn"
+  },
+  {
+    "subject": "PERI",
+    "number": 630,
+    "title": "Treatment Planning in Perio",
+    "professor": "Rosenfeld, Alan L"
+  },
+  {
+    "subject": "PHAR",
+    "number": 200,
+    "title": "Intro to Pharmaceutic Sciences",
+    "professor": "Jaki, Birgit Ursula"
+  },
+  {
+    "subject": "PHAR",
+    "number": 438,
+    "title": "Intro to Drug Information",
+    "professor": "Denton, Christie"
+  },
+  {
+    "subject": "PHAR",
+    "number": 439,
+    "title": "Epidemiology/Biostatistics",
+    "professor": "Lee, Todd A."
+  },
+  {
+    "subject": "PMPR",
+    "number": 327,
+    "title": "Lifestyle Mods in Disease Mgmt",
+    "professor": "Kachlic, Marlowe Djuric"
+  },
+  {
+    "subject": "NURS",
+    "number": 232,
+    "title": "Professional Nursing",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "NURS",
+    "number": 341,
+    "title": "Care of Children & Families",
+    "professor": "Lebedoff, Karla Li-Ren"
+  },
+  {
+    "subject": "NURS",
+    "number": 341,
+    "title": "Care of Children & Families",
+    "professor": "Woods, Rachel Ann"
+  },
+  {
+    "subject": "NURS",
+    "number": 354,
+    "title": "Professional Nursing 4",
+    "professor": "Hovey, Susan L"
+  },
+  {
+    "subject": "NURS",
+    "number": 406,
+    "title": "IHC: Community",
+    "professor": "Singer, Rebecca M"
+  },
+  {
+    "subject": "NURS",
+    "number": 511,
+    "title": "Epidemiology & Statistics",
+    "professor": "Eldeirawi, Kamal"
+  },
+  {
+    "subject": "NURS",
+    "number": 519,
+    "title": "Hlth Equity & Soc Determinants",
+    "professor": "Bostwick, Wendy Beth"
+  },
+  {
+    "subject": "NUSP",
+    "number": 513,
+    "title": "School Nsg Theory/Trends",
+    "professor": "Moss, Eileen M"
+  },
+  {
+    "subject": "NUSP",
+    "number": 525,
+    "title": "Group Dynamcs, Behav&Intervent",
+    "professor": "Kordzikowski, Mitchell Lee"
+  },
+  {
+    "subject": "NUSP",
+    "number": 536,
+    "title": "Hlth & Illness II:Gero Care",
+    "professor": "Amusina, Olga"
+  },
+  {
+    "subject": "OSCI",
+    "number": 562,
+    "title": "Craniofacial Biology",
+    "professor": "Nicholas, Christina Lynne"
+  },
+  {
+    "subject": "OT",
+    "number": 617,
+    "title": "Research Foundations 2",
+    "professor": "Magasi, Susan"
+  },
+  {
+    "subject": "OT",
+    "number": 640,
+    "title": "Occupational Therapy Process 2",
+    "professor": "Summers, Jennifer Joanne"
+  },
+  {
+    "subject": "PA",
+    "number": 553,
+    "title": "State &Local Public Finance",
+    "professor": "Farmer, Thomas"
+  },
+  {
+    "subject": "PA",
+    "number": 590,
+    "title": "Capstone & Portfolio in Policy",
+    "professor": "Devereux, Erik August"
+  },
+  {
+    "subject": "PELE",
+    "number": 600,
+    "title": "Elective Clerkship",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "PERI",
+    "number": 611,
+    "title": "Classic Perio Lit Review",
+    "professor": "Schmerman, Michael L"
+  },
+  {
+    "subject": "PERI",
+    "number": 613,
+    "title": "Current Perio Lit Seminar",
+    "professor": "Narvekar, Aniruddh Nitin"
+  },
+  {
+    "subject": "PHAR",
+    "number": 201,
+    "title": "Pharmaceutical Care in the US",
+    "professor": "Hanakahi, Leslyn"
+  },
+  {
+    "subject": "PHAR",
+    "number": 515,
+    "title": "Patient Care:Inst/Hospital",
+    "professor": "Schriever, Allison E"
+  },
+  {
+    "subject": "PHIL",
+    "number": 102,
+    "title": "Introductory Logic",
+    "professor": "Harmon, Zaccheus D"
+  },
+  {
+    "subject": "PHIL",
+    "number": 116,
+    "title": "Biomedical Ethics",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "PHIL",
+    "number": 403,
+    "title": "Metaphysics: Identity & Change",
+    "professor": "Schechtman, Marya S"
+  },
+  {
+    "subject": "PHYS",
+    "number": 131,
+    "title": "Physics for Life Sciences I",
+    "professor": "Iordanova, Aneta Ivanova"
+  },
+  {
+    "subject": "PHYS",
+    "number": 142,
+    "title": "General Physics II",
+    "professor": "Hazelton, Ryan Lowell Crites"
+  },
+  {
+    "subject": "PHYS",
+    "number": 245,
+    "title": "Vibrations/Waves/Thermal Phys",
+    "professor": "Schlossman, Mark L"
+  },
+  {
+    "subject": "PHYS",
+    "number": 412,
+    "title": "Quantum Mechanics II",
+    "professor": "Grein, Christoph Hermann"
+  },
+  {
+    "subject": "PMPR",
+    "number": 390,
+    "title": "Spec Project in Pharm Pract",
+    "professor": "Drambarean, Beatrice"
+  },
+  {
+    "subject": "POLS",
+    "number": 229,
+    "title": "Exec Powers & US Presidency",
+    "professor": "Bassett, Samuel Tyler"
+  },
+  {
+    "subject": "POLS",
+    "number": 505,
+    "title": "Research Design & Methods",
+    "professor": "Fagan, Edward James"
+  },
+  {
+    "subject": "PPOL",
+    "number": 305,
+    "title": "Policy Analysis",
+    "professor": "Laurito, Maria Agustina"
+  },
+  {
+    "subject": "PROS",
+    "number": 617,
+    "title": "Advanced Occlusion/TMJ",
+    "professor": "Ghunaim, Dima"
+  },
+  {
+    "subject": "PSCH",
+    "number": 271,
+    "title": "Resilience",
+    "professor": "Kim-Cohen, Julia Yun Soo"
+  },
+  {
+    "subject": "PSCH",
+    "number": 313,
+    "title": "Social Psychology Lab",
+    "professor": "Pasek, Michael Harrison Hirsh"
+  },
+  {
+    "subject": "PSCH",
+    "number": 324,
+    "title": "Cultural Psychology",
+    "professor": "Chen, Jing"
+  },
+  {
+    "subject": "PT",
+    "number": 632,
+    "title": "Musculoskeletal Dysfunction II",
+    "professor": "McDevitt, Thomas C"
+  },
+  {
+    "subject": "PT",
+    "number": 643,
+    "title": "Clinical Internship IV",
+    "professor": "Arguelles, Leonard Dion"
+  },
+  {
+    "subject": "PUBH",
+    "number": 110,
+    "title": "Global Societies",
+    "professor": "Caldwell, Jennifer"
+  },
+  {
+    "subject": "PUBH",
+    "number": 340,
+    "title": "Health Literacy",
+    "professor": "Prudowsky, Joshua Micheal"
+  },
+  {
+    "subject": "RELE",
+    "number": 600,
+    "title": "EMRG INFECT DISEASE PANDEM PLN",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "RES",
+    "number": 250,
+    "title": "Real Estate Principles",
+    "professor": "Krueger, Robert Hugh"
+  },
+  {
+    "subject": "RUSS",
+    "number": 116,
+    "title": "Russ Culture: Soviet Period",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "SOC",
+    "number": 229,
+    "title": "Sociology of Latinos",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "SOCW",
+    "number": 411,
+    "title": "Social Work in Multicult Soc",
+    "professor": "Horn, Kelly N"
+  },
+  {
+    "subject": "SOCW",
+    "number": 411,
+    "title": "Social Work in Multicult Soc",
+    "professor": "Stewart, Helen Rose"
+  },
+  {
+    "subject": "SOCW",
+    "number": 431,
+    "title": "Pract II: Fam., Grps. & Comm",
+    "professor": "Beeler, Sara E"
+  },
+  {
+    "subject": "SOCW",
+    "number": 573,
+    "title": "Field Instruction IV: CF",
+    "professor": "Brown, Pamela Renee"
+  },
+  {
+    "subject": "SOCW",
+    "number": 599,
+    "title": "PhD Thesis Research",
+    "professor": "Hsieh, Chang-Ming"
+  },
+  {
+    "subject": "SPAN",
+    "number": 101,
+    "title": "Elementary Spanish I",
+    "professor": "Gismondi, Michael Anthony"
+  },
+  {
+    "subject": "SPAN",
+    "number": 102,
+    "title": "Elementary Spanish II",
+    "professor": "Rodriguez, David Diego"
+  },
+  {
+    "subject": "SPAN",
+    "number": 114,
+    "title": "Spanish - Heritage Speakers II",
+    "professor": "Navia, Bernardo"
+  },
+  {
+    "subject": "SPAN",
+    "number": 221,
+    "title": "Spanish: Health Personnel I",
+    "professor": "Gonzalez-Cameron, Diana"
+  },
+  {
+    "subject": "SPAN",
+    "number": 226,
+    "title": "Erly Mod Span/Colon Lat Am Lit",
+    "professor": "Budner, Keith"
+  },
+  {
+    "subject": "SPED",
+    "number": 410,
+    "title": "Exceptional Learners",
+    "professor": "Boda, Phillip A"
+  },
+  {
+    "subject": "SPED",
+    "number": 463,
+    "title": "Lit Instruction Div Learners",
+    "professor": "Hughes, Marie Tejero"
+  },
+  {
+    "subject": "OT",
+    "number": 649,
+    "title": "Level II-A: Part 1",
+    "professor": "Preissner, Katharine Leigh"
+  },
+  {
+    "subject": "PA",
+    "number": 467,
+    "title": "Civic Engagement",
+    "professor": "Hoereth, Joseph Kwame"
+  },
+  {
+    "subject": "PHAR",
+    "number": 567,
+    "title": "Pharmacy Law and Ethics",
+    "professor": "Reynolds, Garth Kyle"
+  },
+  {
+    "subject": "PHIL",
+    "number": 101,
+    "title": "Critical and Analytical Reason",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "PHIL",
+    "number": 115,
+    "title": "Death",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "PHIL",
+    "number": 201,
+    "title": "Theory of Knowledge",
+    "professor": "Sinkler, Georgette"
+  },
+  {
+    "subject": "PHIL",
+    "number": 203,
+    "title": "Metaphysics",
+    "professor": "Small, Charles W"
+  },
+  {
+    "subject": "PHIL",
+    "number": 220,
+    "title": "Anc Phil I:Plato & Predecessor",
+    "professor": "Vlasits, Justin Joseph"
+  },
+  {
+    "subject": "PHIL",
+    "number": 429,
+    "title": "Skeptics in China Greece India",
+    "professor": "Vlasits, Justin Joseph"
+  },
+  {
+    "subject": "PHYB",
+    "number": 591,
+    "title": "Departmental Seminar",
+    "professor": "Brodie, Mark S"
+  },
+  {
+    "subject": "PHYS",
+    "number": 594,
+    "title": "TransmissionElectronMicroscopy",
+    "professor": "Klie, Robert Friedrich"
+  },
+  {
+    "subject": "PMPR",
+    "number": 621,
+    "title": "Critical Care Elective",
+    "professor": "Allen, Sheila Mary"
+  },
+  {
+    "subject": "POLS",
+    "number": 221,
+    "title": "Mock Trial II",
+    "professor": "Nolte, Ryan"
+  },
+  {
+    "subject": "POLS",
+    "number": 234,
+    "title": "Politics & Govt Western Europe",
+    "professor": "Kostadinova, Petia A"
+  },
+  {
+    "subject": "POLS",
+    "number": 281,
+    "title": "US Foreign Policy",
+    "professor": "Floros, Katharine"
+  },
+  {
+    "subject": "POLS",
+    "number": 349,
+    "title": "Topics in Comparative Politics",
+    "professor": "Kostadinova, Petia A"
+  },
+  {
+    "subject": "PPOL",
+    "number": 491,
+    "title": "Internship Experience",
+    "professor": "Hayes, Sharon Ann"
+  },
+  {
+    "subject": "PSCH",
+    "number": 270,
+    "title": "Psychological Disorders",
+    "professor": "Meinzer, Michael"
+  },
+  {
+    "subject": "PSCH",
+    "number": 340,
+    "title": "Psychological Testing",
+    "professor": "Yuodsnukis, Briahna"
+  },
+  {
+    "subject": "PSCH",
+    "number": 343,
+    "title": "Stat Methods in Behav Sci",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "PSCH",
+    "number": 367,
+    "title": "Lab in Cognitive Neurosci",
+    "professor": "Passarotti, Alessandra"
+  },
+  {
+    "subject": "PSCH",
+    "number": 558,
+    "title": "Seminar Brain & Cognitive Sci",
+    "professor": "Keinath, Alexandra"
+  },
+  {
+    "subject": "PSCI",
+    "number": 421,
+    "title": "Advanced Dosage Form Design",
+    "professor": "Pond, Alexander Nicholas"
+  },
+  {
+    "subject": "PT",
+    "number": 622,
+    "title": "Psychosocial Theory I",
+    "professor": "Little, Aubrey"
+  },
+  {
+    "subject": "PT",
+    "number": 628,
+    "title": "Case Management in Phys Ther",
+    "professor": "Bhatt, Tanvi S"
+  },
+  {
+    "subject": "PUBH",
+    "number": 100,
+    "title": "Health and the Public",
+    "professor": "Castillo, Amparo Del Socorro"
+  },
+  {
+    "subject": "PUBH",
+    "number": 100,
+    "title": "Health and the Public",
+    "professor": "MacBeth, Monimia Yvonne"
+  },
+  {
+    "subject": "PUBH",
+    "number": 301,
+    "title": "Critical Thinking in PH II",
+    "professor": "Johnson-Walker, Yvette Joyce"
+  },
+  {
+    "subject": "SPAN",
+    "number": 103,
+    "title": "Intermediate Spanish I",
+    "professor": "Maldonado, Elizabeth"
+  },
+  {
+    "subject": "SPAN",
+    "number": 113,
+    "title": "Spanish - Heritage Speakers I",
+    "professor": "Arana-Rochel, Guadalupe"
+  },
+  {
+    "subject": "SPAN",
+    "number": 113,
+    "title": "Spanish - Heritage Speakers I",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "SPAN",
+    "number": 206,
+    "title": "Intro to Hispanic Linguistics",
+    "professor": "Sanchez, Liliana Elizabeth"
+  },
+  {
+    "subject": "SPAN",
+    "number": 302,
+    "title": "Exploring Spanish Grammar",
+    "professor": "Ebert, Shane"
+  },
+  {
+    "subject": "SPED",
+    "number": 508,
+    "title": "Meth&Assess Young Child w/Dis",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "SPED",
+    "number": 514,
+    "title": "Comprehensive Programming",
+    "professor": "Miller, Melinda"
+  },
+  {
+    "subject": "STAT",
+    "number": 385,
+    "title": "Stat Learning and Big Data I",
+    "professor": "Embers, Dale Gene"
+  },
+  {
+    "subject": "STAT",
+    "number": 481,
+    "title": "Appl Statist Methods II",
+    "professor": "Wang, Jing"
+  },
+  {
+    "subject": "STAT",
+    "number": 591,
+    "title": "Adv Topics in Statistics",
+    "professor": "Zhong, Pingshou"
+  },
+  {
+    "subject": "TADR",
+    "number": 410,
+    "title": "Trial Advocacy ADR Comp",
+    "professor": "Navarro, Kelly A."
+  },
+  {
+    "subject": "TADR",
+    "number": 413,
+    "title": "Moot Ct Exec Bd",
+    "professor": "Hodge, Joanne Simboli"
+  },
+  {
+    "subject": "TADR",
+    "number": 462,
+    "title": "Clinic: Pro Bono Lit G/F Class",
+    "professor": "Ortiz, Jose D"
+  },
+  {
+    "subject": "TADR",
+    "number": 477,
+    "title": "Extern: Rest Justice",
+    "professor": "Schlegel, Stephen"
+  },
+  {
+    "subject": "TADR",
+    "number": 481,
+    "title": "Clinic: Int'l Human Rts Class",
+    "professor": "Davila, Sarah"
+  },
+  {
+    "subject": "THTR",
+    "number": 105,
+    "title": "American Musical Theatre",
+    "professor": "Wilson, Seth N"
+  },
+  {
+    "subject": "THTR",
+    "number": 155,
+    "title": "Fundamentals of Theatre Design",
+    "professor": "Witteveen, Collette"
+  },
+  {
+    "subject": "THTR",
+    "number": 212,
+    "title": "Movement III: Somatics",
+    "professor": "Tsachor, Rachelle"
+  },
+  {
+    "subject": "UPP",
+    "number": 500,
+    "title": "Hist &Theory of Urban Planning",
+    "professor": "Betancur, John-Jairo"
+  },
+  {
+    "subject": "UPP",
+    "number": 590,
+    "title": "Professional Practice Exp",
+    "professor": "Tilahun, Nebiyou Y"
+  },
+  {
+    "subject": "US",
+    "number": 101,
+    "title": "Intro to Urban Studies",
+    "professor": "Cordova, Teresa L"
+  },
+  {
+    "subject": "SPAN",
+    "number": 363,
+    "title": "Spanish in Society",
+    "professor": "Potowski, Kimberly J"
+  },
+  {
+    "subject": "SPAN",
+    "number": 380,
+    "title": "Professional Development",
+    "professor": "Taboada, Inmaculada"
+  },
+  {
+    "subject": "SPAN",
+    "number": 512,
+    "title": "Synt theory and Span syntax",
+    "professor": "Camacho, Jose"
+  },
+  {
+    "subject": "SPED",
+    "number": 410,
+    "title": "Exceptional Learners",
+    "professor": "Cushing, Lisa Sharon"
+  },
+  {
+    "subject": "SPED",
+    "number": 471,
+    "title": "Curricular Adaptations",
+    "professor": "Cushing, Lisa Sharon"
+  },
+  {
+    "subject": "STAT",
+    "number": 130,
+    "title": "Intro Stat for Life Sciences",
+    "professor": "Embers, Dale Gene"
+  },
+  {
+    "subject": "STAT",
+    "number": 381,
+    "title": "Applied Statistical Methods I",
+    "professor": "Hamed, Duha Hamdallah"
+  },
+  {
+    "subject": "STAT",
+    "number": 385,
+    "title": "Stat Learning and Big Data I",
+    "professor": "Zhong, Pingshou"
+  },
+  {
+    "subject": "TADR",
+    "number": 461,
+    "title": "LSIV: Drafting Civ Litig",
+    "professor": "Baum, Charles Michael"
+  },
+  {
+    "subject": "TADR",
+    "number": 487,
+    "title": "Clinic: Vet Class",
+    "professor": "Duterte, Yelena C"
+  },
+  {
+    "subject": "TADR",
+    "number": 488,
+    "title": "Clinic: Vet Clinic",
+    "professor": "Duterte, Yelena C"
+  },
+  {
+    "subject": "UPP",
+    "number": 540,
+    "title": "Community Dev I:Theory",
+    "professor": "Betancur, John-Jairo"
+  },
+  {
+    "subject": "UPP",
+    "number": 570,
+    "title": "Environ. Planning & Policy",
+    "professor": "Ai, Ning"
+  },
+  {
+    "subject": "US",
+    "number": 100,
+    "title": "Concepts in Geography",
+    "professor": "Lopez Garcia, David"
+  },
+  {
+    "subject": "US",
+    "number": 495,
+    "title": "Senior Capstone in US",
+    "professor": "Farmer-Smith, Keisha J"
+  },
+  {
+    "subject": "PMPR",
+    "number": 349,
+    "title": "Case Based Infectious Diseases",
+    "professor": "Drwiega, Emily"
+  },
+  {
+    "subject": "PMPR",
+    "number": 376,
+    "title": "Applied Research Methods",
+    "professor": "Rosas, Paola Cecilia"
+  },
+  {
+    "subject": "PMPR",
+    "number": 390,
+    "title": "Spec Project in Pharm Pract",
+    "professor": "Chan, Juliana"
+  },
+  {
+    "subject": "PMPR",
+    "number": 390,
+    "title": "Spec Project in Pharm Pract",
+    "professor": "Gimbar, Matthew George"
+  },
+  {
+    "subject": "PMPR",
+    "number": 618,
+    "title": "Advanced Community Pharmacy",
+    "professor": "Allen, Sheila Mary"
+  },
+  {
+    "subject": "POLS",
+    "number": 201,
+    "title": "Political Data Analysis",
+    "professor": "Bruhl, Robert H"
+  },
+  {
+    "subject": "POLS",
+    "number": 300,
+    "title": "The Politics of Police Reform",
+    "professor": "Beverly, Phillip Adrian"
+  },
+  {
+    "subject": "PPOL",
+    "number": 205,
+    "title": "Data Analysis for Policy II",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "PPOL",
+    "number": 210,
+    "title": "Introduction to Public Policy",
+    "professor": "Devereux, Erik August"
+  },
+  {
+    "subject": "PSCH",
+    "number": 210,
+    "title": "Theories of Personality",
+    "professor": "Chen, Jing"
+  },
+  {
+    "subject": "PSCH",
+    "number": 242,
+    "title": "Intro to Research in Psch",
+    "professor": "Staahl, Tomas Kenth"
+  },
+  {
+    "subject": "PSCH",
+    "number": 262,
+    "title": "Behavioral Neuroscience",
+    "professor": "Ragozzino, Michael E"
+  },
+  {
+    "subject": "PSCH",
+    "number": 262,
+    "title": "Behavioral Neuroscience",
+    "professor": "Roitman, Mitchell Franklin"
+  },
+  {
+    "subject": "PSCH",
+    "number": 312,
+    "title": "Social Psychology",
+    "professor": "Littman, Rebecca"
+  },
+  {
+    "subject": "PSCH",
+    "number": 331,
+    "title": "Community&Prevention Research",
+    "professor": "Flynn, Andrea Marie"
+  },
+  {
+    "subject": "PSCH",
+    "number": 382,
+    "title": "Psychological Interventions",
+    "professor": "Searcy, Jasmin Shenelle"
+  },
+  {
+    "subject": "PSCH",
+    "number": 519,
+    "title": "Current Topics in Social Psch",
+    "professor": "Goh, Jin Xun"
+  },
+  {
+    "subject": "PT",
+    "number": 496,
+    "title": "Health and Wellness Academy",
+    "professor": "Strieter, Lindsey B"
+  },
+  {
+    "subject": "PT",
+    "number": 623,
+    "title": "Psychosocial Theory II",
+    "professor": "Schuster, Vanessa"
+  },
+  {
+    "subject": "PT",
+    "number": 639,
+    "title": "Integration & Assessment II",
+    "professor": "Jones, Alyssa Ann"
+  },
+  {
+    "subject": "PT",
+    "number": 670,
+    "title": "Sport Physical Therapy",
+    "professor": "Gauthier, Matthew Lovell"
+  },
+  {
+    "subject": "PUBH",
+    "number": 100,
+    "title": "Health and the Public",
+    "professor": "Dyer, Sharyn Kaye"
+  },
+  {
+    "subject": "PUBH",
+    "number": 120,
+    "title": "Study of Disease and Epidemics",
+    "professor": "Arguelles, Lester"
+  },
+  {
+    "subject": "PUBH",
+    "number": 411,
+    "title": "Public Health Challenges II",
+    "professor": "Berman, Laurel Amy"
+  },
+  {
+    "subject": "RELE",
+    "number": 600,
+    "title": "Elective Clerkship",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "RELS",
+    "number": 175,
+    "title": "Bible as Literature",
+    "professor": "Magarik, Raphael Solomon Safron"
+  },
+  {
+    "subject": "RES",
+    "number": 425,
+    "title": "Real Estate Valuation",
+    "professor": "Terzic, Mildred"
+  },
+  {
+    "subject": "TADR",
+    "number": 426,
+    "title": "Counsel and Neg",
+    "professor": "Marrinson, Thomas"
+  },
+  {
+    "subject": "TADR",
+    "number": 478,
+    "title": "Extern: Rest Justice Adv",
+    "professor": "Schlegel, Stephen"
+  },
+  {
+    "subject": "THTR",
+    "number": 222,
+    "title": "Advanced Acting: Chekhov",
+    "professor": "Peyankov, Yasen M"
+  },
+  {
+    "subject": "THTR",
+    "number": 258,
+    "title": "Costume Design II",
+    "professor": "Cluggish, Stephanie"
+  },
+  {
+    "subject": "UPA",
+    "number": 121,
+    "title": "Urban & Pub Affairs Seminar II",
+    "professor": "Campbell, Mirtza"
+  },
+  {
+    "subject": "UPP",
+    "number": 461,
+    "title": "GIS for Planning and Policy",
+    "professor": "Craft, Andrea"
+  },
+  {
+    "subject": "US",
+    "number": 296,
+    "title": "Leading for Change",
+    "professor": "Idemudia, Nina"
+  },
+  {
+    "subject": "US",
+    "number": 306,
+    "title": "Urban Policy Analysis Methods",
+    "professor": "Wilson, Matthew D"
+  },
+  {
+    "subject": "BA",
+    "number": 290,
+    "title": "Business Ethics",
+    "professor": "Leahy, Edward"
+  },
+  {
+    "subject": "BA",
+    "number": 420,
+    "title": "Professional Presence",
+    "professor": "Soriano, Diana Ethel"
+  },
+  {
+    "subject": "BHIS",
+    "number": 509,
+    "title": "Infrmtcs for Clin Investigator",
+    "professor": "Boyd, Andrew"
+  },
+  {
+    "subject": "BIOS",
+    "number": 102,
+    "title": "Bio Sci First-Year Seminar",
+    "professor": "Gerena, Jennifer"
+  },
+  {
+    "subject": "BIOS",
+    "number": 305,
+    "title": "Plant Evolutionary Ecology",
+    "professor": "Warpeha, Katherine Mary"
+  },
+  {
+    "subject": "BIOS",
+    "number": 325,
+    "title": "Human Embryology",
+    "professor": "Bassett, Andrea Louise"
+  },
+  {
+    "subject": "BIOS",
+    "number": 350,
+    "title": "General Microbiology",
+    "professor": "Mills, Michael"
+  },
+  {
+    "subject": "BME",
+    "number": 205,
+    "title": "Biomed Eng Thermodynamics",
+    "professor": "Lee, James Chakman"
+  },
+  {
+    "subject": "BME",
+    "number": 460,
+    "title": "Materials in Biomed Eng",
+    "professor": "Shokuhfar, Tolou"
+  },
+  {
+    "subject": "BME",
+    "number": 564,
+    "title": "Adv Biomaterials for Implants",
+    "professor": "Shokuhfar, Tolou"
+  },
+  {
+    "subject": "BME",
+    "number": 595,
+    "title": "Seminar Biomedical Engineering",
+    "professor": "Takoudis, Christos G"
+  },
+  {
+    "subject": "CELE",
+    "number": 620,
+    "title": "Urban Medicine (UMed)",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "CHE",
+    "number": 210,
+    "title": "Material & Energy Balances",
+    "professor": "Wedgewood, Lewis E"
+  },
+  {
+    "subject": "CHEM",
+    "number": 100,
+    "title": "Chemistry and Life",
+    "professor": "Rosenhouse-Dantsker, Avia"
+  },
+  {
+    "subject": "CHEM",
+    "number": 122,
+    "title": "Matter and Energy",
+    "professor": "Clark, Ginevra"
+  },
+  {
+    "subject": "CHEM",
+    "number": 124,
+    "title": "Chemical Dynamics",
+    "professor": "Clark, Ginevra"
+  },
+  {
+    "subject": "CHEM",
+    "number": 124,
+    "title": "Chemical Dynamics",
+    "professor": "Tripa, Cornel Emil"
+  },
+  {
+    "subject": "CHEM",
+    "number": 232,
+    "title": "Structure and Function",
+    "professor": "Yermolina, Maria V"
+  },
+  {
+    "subject": "CHIN",
+    "number": 200,
+    "title": "Adv Communication in Chinese",
+    "professor": "Meng, Duosi"
+  },
+  {
+    "subject": "CHSC",
+    "number": 593,
+    "title": "Doc Lab in CHS Research Dev",
+    "professor": "Mitchell, Uchechi"
+  },
+  {
+    "subject": "CI",
+    "number": 472,
+    "title": "Testing/ESL Instruction",
+    "professor": "Razfar, Aria"
+  },
+  {
+    "subject": "CI",
+    "number": 482,
+    "title": "Testing &Instruct:Bilingualism",
+    "professor": "Garcia, Jose"
+  },
+  {
+    "subject": "CI",
+    "number": 551,
+    "title": "Practitioner Research Sci Ed",
+    "professor": "Morales-Doyle, Daniel"
+  },
+  {
+    "subject": "CLER",
+    "number": 603,
+    "title": "Pediatrics",
+    "professor": "Hupert, Jordan"
+  },
+  {
+    "subject": "CLER",
+    "number": 621,
+    "title": "Family Practice",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "CLJ",
+    "number": 121,
+    "title": "Violence in Society",
+    "professor": "Stovall, David O"
+  },
+  {
+    "subject": "CLJ",
+    "number": 262,
+    "title": "Research Methods II",
+    "professor": "Henricks, Kasey John Patrick"
+  },
+  {
+    "subject": "SPED",
+    "number": 518,
+    "title": "Research Practicum",
+    "professor": "Catrone, Rocco"
+  },
+  {
+    "subject": "STAT",
+    "number": 361,
+    "title": "Elements Statistical Methods",
+    "professor": "Dodds, Samuel Robert"
+  },
+  {
+    "subject": "STAT",
+    "number": 401,
+    "title": "Intro to Probability",
+    "professor": "Yang, Min"
+  },
+  {
+    "subject": "TADR",
+    "number": 400,
+    "title": "Trial Ad",
+    "professor": "McDevitt, Daniel"
+  },
+  {
+    "subject": "TADR",
+    "number": 424,
+    "title": "Jury Selection",
+    "professor": "McKoski, Raymond John"
+  },
+  {
+    "subject": "TADR",
+    "number": 475,
+    "title": "Extern: JD Adv",
+    "professor": "Bradtke, Michael James"
+  },
+  {
+    "subject": "THTR",
+    "number": 150,
+    "title": "Fundamentals of Theatre Tech",
+    "professor": "Bishop, William"
+  },
+  {
+    "subject": "THTR",
+    "number": 331,
+    "title": "Page to Stage",
+    "professor": "Dunford, Christine Mary"
+  },
+  {
+    "subject": "THTR",
+    "number": 341,
+    "title": "Acting III: Classics",
+    "professor": "Corley, Richard"
+  },
+  {
+    "subject": "UPP",
+    "number": 508,
+    "title": "Global Urbanization & Planning",
+    "professor": "Theodore, Nikolas"
+  },
+  {
+    "subject": "UPP",
+    "number": 550,
+    "title": "Spatial Planning:Theoret Fndtn",
+    "professor": "Bharne, Vinayak"
+  },
+  {
+    "subject": "US",
+    "number": 250,
+    "title": "Analyzing the City",
+    "professor": "Lowe, Catherine"
+  },
+  {
+    "subject": "RELE",
+    "number": 607,
+    "title": "M3 Neurology Clerkship",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "RELS",
+    "number": 120,
+    "title": "Catholic Thought",
+    "professor": "Dingeldein, Laura B"
+  },
+  {
+    "subject": "SOC",
+    "number": 120,
+    "title": "Intro Asian Amer Studies",
+    "professor": "Lee, Larry"
+  },
+  {
+    "subject": "SOC",
+    "number": 290,
+    "title": "Soc Orientation & Success",
+    "professor": "Popielarz, Pamela A"
+  },
+  {
+    "subject": "SOCW",
+    "number": 411,
+    "title": "Social Work in Multicult Soc",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "SOCW",
+    "number": 411,
+    "title": "Social Work in Multicult Soc",
+    "professor": "Wahlskog, Carolyn J"
+  },
+  {
+    "subject": "SOCW",
+    "number": 522,
+    "title": "Crisis Intervention",
+    "professor": "Johnson, Vania Janine"
+  },
+  {
+    "subject": "SOCW",
+    "number": 527,
+    "title": "Undocumented Communities",
+    "professor": "Diaz-Strong, Daysi Ximena"
+  },
+  {
+    "subject": "SOCW",
+    "number": 583,
+    "title": "Pract IV: Child & Family",
+    "professor": "Martin, Rebekah"
+  },
+  {
+    "subject": "SPAN",
+    "number": 202,
+    "title": "Spanish Grammar in Practice",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "SPAN",
+    "number": 449,
+    "title": "Second Lang Literacy",
+    "professor": "Taboada, Inmaculada"
+  },
+  {
+    "subject": "SPED",
+    "number": 448,
+    "title": "Topic in Special Ed",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "SPED",
+    "number": 462,
+    "title": "Assessment of Individuals",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "SPED",
+    "number": 576,
+    "title": "Internship in Assessment",
+    "professor": "Brown, Christerralyn Alyce Jeon"
+  },
+  {
+    "subject": "TADR",
+    "number": 400,
+    "title": "Trial Ad",
+    "professor": "Patton, Nichole"
+  },
+  {
+    "subject": "TADR",
+    "number": 469,
+    "title": "Extern: Local Gov & NP Sem",
+    "professor": "Gunderson, Joanna Belle"
+  },
+  {
+    "subject": "TADR",
+    "number": 472,
+    "title": "Extern: Local Gov & NP Field",
+    "professor": "Bess, Megan"
+  },
+  {
+    "subject": "THTR",
+    "number": 102,
+    "title": "Introduction to Theatre",
+    "professor": "Corley, Richard"
+  },
+  {
+    "subject": "THTR",
+    "number": 159,
+    "title": "Fashion and Furniture: History",
+    "professor": "Elliott, Myron Walter"
+  },
+  {
+    "subject": "THTR",
+    "number": 183,
+    "title": "Practicum: Build Crew",
+    "professor": "Holmes Robbins, Hannah Rebecca"
+  },
+  {
+    "subject": "UPP",
+    "number": 461,
+    "title": "GIS for Planning and Policy",
+    "professor": "Gomez, Sigfrido"
+  },
+  {
+    "subject": "UPP",
+    "number": 560,
+    "title": "Urb Transp I: Intro & Policy",
+    "professor": "Lowe, Catherine"
+  },
+  {
+    "subject": "US",
+    "number": 130,
+    "title": "Principls Urb Sustainability",
+    "professor": "Kocs, Elizabeth A."
+  },
+  {
+    "subject": "RES",
+    "number": 460,
+    "title": "Commercial Real Estate",
+    "professor": "Lopez, Luis"
+  },
+  {
+    "subject": "RUSS",
+    "number": 102,
+    "title": "Elementary Russian II",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "RUSS",
+    "number": 104,
+    "title": "Intermediate Russian II",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "RUSS",
+    "number": 241,
+    "title": "Dostoyevsky",
+    "professor": "Kendall, Matthew"
+  },
+  {
+    "subject": "SOC",
+    "number": 258,
+    "title": "Race and Urban Life",
+    "professor": "Johnson, Cedric"
+  },
+  {
+    "subject": "SOC",
+    "number": 520,
+    "title": "Racial Captialism",
+    "professor": "Clarno, Andrew J"
+  },
+  {
+    "subject": "SOCW",
+    "number": 431,
+    "title": "Practice II:Families, Grp&Comm",
+    "professor": "Oliver, Tyra Deanine"
+  },
+  {
+    "subject": "SOCW",
+    "number": 563,
+    "title": "Program Evaluation",
+    "professor": "Cua, Grace E"
+  },
+  {
+    "subject": "SOCW",
+    "number": 563,
+    "title": "Program Evaluation",
+    "professor": "Tarbhai, Umair A"
+  },
+  {
+    "subject": "SOCW",
+    "number": 565,
+    "title": "Research II:  Action Research",
+    "professor": "Butterfield, Alice K."
+  },
+  {
+    "subject": "SPAN",
+    "number": 103,
+    "title": "Intermediate Spanish I",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "SPAN",
+    "number": 204,
+    "title": "Composition Heritage Speakers",
+    "professor": "Gajic, Tatjana"
+  },
+  {
+    "subject": "SPAN",
+    "number": 328,
+    "title": "Translation II",
+    "professor": "Niebylski, Dianna"
+  },
+  {
+    "subject": "SPAN",
+    "number": 406,
+    "title": "Spanish Sociolinguistics",
+    "professor": "Potowski, Kimberly J"
+  },
+  {
+    "subject": "STAT",
+    "number": 382,
+    "title": "Statistical Methods and Comput",
+    "professor": "Embers, Dale Gene"
+  },
+  {
+    "subject": "TADR",
+    "number": 461,
+    "title": "LSIV: Drafting Civ Litig",
+    "professor": "Davison, Matthew"
+  },
+  {
+    "subject": "TADR",
+    "number": 469,
+    "title": "Extern: Local Gov & NP Sem",
+    "professor": "Bess, Megan"
+  },
+  {
+    "subject": "TADR",
+    "number": 472,
+    "title": "Extern: Local Gov & NP Field",
+    "professor": "Gunderson, Joanna Belle"
+  },
+  {
+    "subject": "THTR",
+    "number": 145,
+    "title": "Acting Fundamentals Non-majors",
+    "professor": "Felton, Monet Lai-Lani"
+  },
+  {
+    "subject": "THTR",
+    "number": 280,
+    "title": "Practicum in Performance",
+    "professor": "Peyankov, Yasen M"
+  },
+  {
+    "subject": "THTR",
+    "number": 299,
+    "title": "Individual Topics",
+    "professor": "Dado, Debra"
+  },
+  {
+    "subject": "UPP",
+    "number": 465,
+    "title": "Spatial Statistics",
+    "professor": "Tilahun, Nebiyou Y"
+  },
+  {
+    "subject": "UPP",
+    "number": 502,
+    "title": "Planning Skills",
+    "professor": "Kawamura, Kazuya"
+  },
+  {
+    "subject": "UPP",
+    "number": 506,
+    "title": "Plan-Making Studio",
+    "professor": "Sutton, Stacey A"
+  },
+  {
+    "subject": "UPP",
+    "number": 558,
+    "title": "Land Use Regulation & Planning",
+    "professor": "Larsen, Angela Leigh"
+  },
+  {
+    "subject": "UPP",
+    "number": 565,
+    "title": "Complete Streets",
+    "professor": "Gustafson, Timothy M"
+  },
+  {
+    "subject": "UPP",
+    "number": 565,
+    "title": "Pub Transit Planng & Methods",
+    "professor": "Sriraj, P.S."
+  },
+  {
+    "subject": "PMPR",
+    "number": 616,
+    "title": "Administrative Elective",
+    "professor": "Allen, Sheila Mary"
+  },
+  {
+    "subject": "POLS",
+    "number": 202,
+    "title": "Environmental Politics",
+    "professor": "Watson, John S"
+  },
+  {
+    "subject": "PSCH",
+    "number": 443,
+    "title": "Advanced Statistics",
+    "professor": "Sargis, Edward George"
+  },
+  {
+    "subject": "PSOP",
+    "number": 396,
+    "title": "Foundations in Urban Health 6",
+    "professor": "Okorie-Awe, Clara Uche"
+  },
+  {
+    "subject": "PT",
+    "number": 618,
+    "title": "Motor Control",
+    "professor": "Cleland, Brice T"
+  },
+  {
+    "subject": "RELS",
+    "number": 230,
+    "title": "The Spirit and the Law",
+    "professor": "Doolin, Scott Robert"
+  },
+  {
+    "subject": "SOC",
+    "number": 100,
+    "title": "Introduction to Sociology",
+    "professor": "Luhr, Sigrid Willa"
+  },
+  {
+    "subject": "SOC",
+    "number": 490,
+    "title": "Senior Capstone",
+    "professor": "Garcia, Lorena"
+  },
+  {
+    "subject": "SOCW",
+    "number": 411,
+    "title": "Social Work in Multicult Soc",
+    "professor": "Ross, Ellen Victoria"
+  },
+  {
+    "subject": "SOCW",
+    "number": 431,
+    "title": "Pract II: Fam. Grps. & Comm",
+    "professor": "Purkis, Elisabeth Anne"
+  },
+  {
+    "subject": "SOCW",
+    "number": 565,
+    "title": "Research Seminars II :School",
+    "professor": "Owens, Chastity Lashauna"
+  },
+  {
+    "subject": "SOCW",
+    "number": 570,
+    "title": "Field Instruction I",
+    "professor": "Brown, Pamela Renee"
+  },
+  {
+    "subject": "SPAN",
+    "number": 102,
+    "title": "Elementary Spanish II",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "SPAN",
+    "number": 104,
+    "title": "Intermediate Spanish II",
+    "professor": "Maldonado, Elizabeth"
+  },
+  {
+    "subject": "SPAN",
+    "number": 114,
+    "title": "Spanish - Heritage Speakers II",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "SPAN",
+    "number": 225,
+    "title": "Span and Latin Culture/Film",
+    "professor": "Marsh, Walter S."
+  },
+  {
+    "subject": "SPED",
+    "number": 523,
+    "title": "Single-Case Research Methods",
+    "professor": "Ramakrishnan, Arvind"
+  },
+  {
+    "subject": "STAT",
+    "number": 381,
+    "title": "Applied Statistical Methods I",
+    "professor": "Pajda-De La O, Jennifer Marie"
+  },
+  {
+    "subject": "STAT",
+    "number": 481,
+    "title": "Appl Statist Methods II",
+    "professor": "Han, Kyunghee"
+  },
+  {
+    "subject": "TADR",
+    "number": 421,
+    "title": "Arbitration",
+    "professor": "Rafael, Ashley"
+  },
+  {
+    "subject": "TADR",
+    "number": 430,
+    "title": "White Collar Crime",
+    "professor": "Vogel, Mark J"
+  },
+  {
+    "subject": "TADR",
+    "number": 475,
+    "title": "Extern: JD Adv",
+    "professor": "Auguste, Darryl V"
+  },
+  {
+    "subject": "THTR",
+    "number": 162,
+    "title": "Voice I: Voice",
+    "professor": "Marshall, Tanera P"
+  },
+  {
+    "subject": "THTR",
+    "number": 201,
+    "title": "Theatre History II",
+    "professor": "Wilson, Seth N"
+  },
+  {
+    "subject": "THTR",
+    "number": 280,
+    "title": "Practicum in Performance",
+    "professor": "Metzgar, Bonnie"
+  },
+  {
+    "subject": "THTR",
+    "number": 283,
+    "title": "Practicum Technical Theatre",
+    "professor": "Bachman, Donna"
+  },
+  {
+    "subject": "UPP",
+    "number": 459,
+    "title": "Intro Geo Analysis & Vis II",
+    "professor": "Jasek, Thomas A"
+  },
+  {
+    "subject": "UPP",
+    "number": 506,
+    "title": "Plan-Making Studio",
+    "professor": "Raby, Katanya Elayne"
+  },
+  {
+    "subject": "UPP",
+    "number": 530,
+    "title": "Econ Dev I: Analysis",
+    "professor": "Drucker, Joshua M"
+  },
+  {
+    "subject": "CS",
+    "number": 361,
+    "title": "Systems Programming",
+    "professor": "Maratos, George P"
+  },
+  {
+    "subject": "CS",
+    "number": 377,
+    "title": "Ethical Issues in Computing",
+    "professor": "Kerne, Andrew"
+  },
+  {
+    "subject": "CS",
+    "number": 401,
+    "title": "Computer Algorithms I",
+    "professor": "Reyzin, Lev"
+  },
+  {
+    "subject": "CS",
+    "number": 532,
+    "title": "Adv. Top. in NLP",
+    "professor": "Petrov, Plamen Petrov"
+  },
+  {
+    "subject": "CS",
+    "number": 569,
+    "title": "High-Performance Process&Systm",
+    "professor": "Stephens, Jenna Renae"
+  },
+  {
+    "subject": "CS",
+    "number": 587,
+    "title": "Computer Systems Security",
+    "professor": "Stephens, Jenna Renae"
+  },
+  {
+    "subject": "CS",
+    "number": 599,
+    "title": "PhD Thesis Research",
+    "professor": "Caragea, Cornelia Alexandra"
+  },
+  {
+    "subject": "CS",
+    "number": 599,
+    "title": "PhD Thesis Research",
+    "professor": "Yu, Philip S"
+  },
+  {
+    "subject": "DAOB",
+    "number": 323,
+    "title": "Applied Oral and Behav Sci V",
+    "professor": "Tan, Swee"
+  },
+  {
+    "subject": "DES",
+    "number": 120,
+    "title": "2D Form Studio",
+    "professor": "Dwyer, Emma Kathleen"
+  },
+  {
+    "subject": "DES",
+    "number": 309,
+    "title": "Typography IV",
+    "professor": "Fisher, John Henrie"
+  },
+  {
+    "subject": "DES",
+    "number": 331,
+    "title": "Industrial Design V",
+    "professor": "Jang, Sung B"
+  },
+  {
+    "subject": "DES",
+    "number": 502,
+    "title": "Research Seminar II",
+    "professor": "Mekinda, Jonathan"
+  },
+  {
+    "subject": "DHD",
+    "number": 101,
+    "title": "Disability in U.S. Society",
+    "professor": "van Heumen, Lieke"
+  },
+  {
+    "subject": "DLG",
+    "number": 120,
+    "title": "Dialogue Seminar",
+    "professor": "Pleasant, Aisha-Kia Chawnelle"
+  },
+  {
+    "subject": "DLG",
+    "number": 120,
+    "title": "Dialogue Seminar",
+    "professor": "Price, Kevin"
+  },
+  {
+    "subject": "EAES",
+    "number": 101,
+    "title": "Global Environmental Change",
+    "professor": "Malone, Andrew"
+  },
+  {
+    "subject": "ECE",
+    "number": 210,
+    "title": "Electric Circuit Analysis",
+    "professor": "Jin, Ning"
+  },
+  {
+    "subject": "ECE",
+    "number": 225,
+    "title": "Circuit Analysis",
+    "professor": "Shadmand, Mohammad"
+  },
+  {
+    "subject": "ECE",
+    "number": 342,
+    "title": "Electronics II",
+    "professor": "Banerjee, Aritra"
+  },
+  {
+    "subject": "ECON",
+    "number": 334,
+    "title": "Economic Development",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ECON",
+    "number": 400,
+    "title": "Honors Econometrics",
+    "professor": "Tarduno, Matthew A"
+  },
+  {
+    "subject": "ECON",
+    "number": 520,
+    "title": "Microecon for Business",
+    "professor": "Ma, Lingjie"
+  },
+  {
+    "subject": "ED",
+    "number": 152,
+    "title": "College Connection II",
+    "professor": "Redding, Lori Ann"
+  },
+  {
+    "subject": "ED",
+    "number": 351,
+    "title": "Ed in Urb Classroom: Field II",
+    "professor": "Redding, Lori Ann"
+  },
+  {
+    "subject": "ELSI",
+    "number": 48,
+    "title": "Live, Learn, Grow: Bridge",
+    "professor": "May, Kristine H"
+  },
+  {
+    "subject": "ENGL",
+    "number": 159,
+    "title": "Academic Writing Workshop",
+    "professor": "Bohne, Amanda"
+  },
+  {
+    "subject": "ENGL",
+    "number": 161,
+    "title": "Academic Writing II",
+    "professor": "Bennett, Mark S"
+  },
+  {
+    "subject": "ENGL",
+    "number": 161,
+    "title": "Academic Writing II",
+    "professor": "Shearer, Jay B"
+  },
+  {
+    "subject": "ENGL",
+    "number": 207,
+    "title": "Interpretation & Crit Analysis",
+    "professor": "Bohne, Amanda"
+  },
+  {
+    "subject": "ENGL",
+    "number": 230,
+    "title": "Intro to Film and Culture",
+    "professor": "Dancey, Angela C"
+  },
+  {
+    "subject": "ENGL",
+    "number": 264,
+    "title": "Intro Nat Amer Lit",
+    "professor": "Casey, John A"
+  },
+  {
+    "subject": "ENGL",
+    "number": 282,
+    "title": "Peer Tutoring in Writing Ctr",
+    "professor": "Guerrero, Antonio"
+  },
+  {
+    "subject": "ENGL",
+    "number": 453,
+    "title": "Freshwater Lab in Practice",
+    "professor": "Havrelock, Rachel"
+  },
+  {
+    "subject": "ENGL",
+    "number": 480,
+    "title": "Intro to Teaching Engl",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ENGL",
+    "number": 491,
+    "title": "Adv Writing of Fiction",
+    "professor": "Mohanraj, Mary Anne"
+  },
+  {
+    "subject": "ENGL",
+    "number": 496,
+    "title": "Portfolio Practicum",
+    "professor": "Christian, Margena A"
+  },
+  {
+    "subject": "ENGL",
+    "number": 555,
+    "title": "Teaching College Writing",
+    "professor": "Primeau, Sarah J"
+  },
+  {
+    "subject": "ENGL",
+    "number": 572,
+    "title": "Novel Workshop",
+    "professor": "Urrea, Luis A"
+  },
+  {
+    "subject": "ENGR",
+    "number": 100,
+    "title": "CME Success Seminar",
+    "professor": "Narubin Durbin, Simona Ieva"
+  },
+  {
+    "subject": "ENGR",
+    "number": 100,
+    "title": "MIE Success Seminar",
+    "professor": "Narubin Durbin, Simona Ieva"
+  },
+  {
+    "subject": "EOHS",
+    "number": 425,
+    "title": "Eval & Control of Phy Agents",
+    "professor": "Pagone, Frank J"
+  },
+  {
+    "subject": "EPSY",
+    "number": 440,
+    "title": "Engaging Mutimedia Instruction",
+    "professor": "Riel, Jeremy"
+  },
+  {
+    "subject": "FIN",
+    "number": 320,
+    "title": "Managerial Finance",
+    "professor": "Erturk, Bilal"
+  },
+  {
+    "subject": "FIN",
+    "number": 412,
+    "title": "Portfolio Management",
+    "professor": "Gambera, Michele"
+  },
+  {
+    "subject": "FIN",
+    "number": 416,
+    "title": "Options and Futures",
+    "professor": "Golubeva, Evgenia"
+  },
+  {
+    "subject": "FIN",
+    "number": 472,
+    "title": "Real Estate Finance",
+    "professor": "Lopez, Luis"
+  },
+  {
+    "subject": "FIN",
+    "number": 570,
+    "title": "Quant Methods in Finance",
+    "professor": "Zhang, Lan"
+  },
+  {
+    "subject": "FR",
+    "number": 300,
+    "title": "Crime & Gangsters in Movies",
+    "professor": "Ireland, Charles John"
+  },
+  {
+    "subject": "GER",
+    "number": 101,
+    "title": "Elementary German I",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "GKM",
+    "number": 102,
+    "title": "Elem Modern Greek II",
+    "professor": "Tzirides, Anastasia Olga"
+  },
+  {
+    "subject": "GWS",
+    "number": 205,
+    "title": "Race, Class & Gender",
+    "professor": "Horowitz, Emily A"
+  },
+  {
+    "subject": "GWS",
+    "number": 262,
+    "title": "Gen, Race, Sexualty, & Hum Rts",
+    "professor": "Sen Firestone, Neslihan"
+  },
+  {
+    "subject": "HIM",
+    "number": 410,
+    "title": "Intro to the Hlthcare Sys",
+    "professor": "Nedbal, Joseph Anthony"
+  },
+  {
+    "subject": "HIM",
+    "number": 486,
+    "title": "Foundations of HIM",
+    "professor": "Kierys, Elizabeth Aletha"
+  },
+  {
+    "subject": "HIST",
+    "number": 234,
+    "title": "The Making of Modern Poland",
+    "professor": "Stauter-Halsted, Keely"
+  },
+  {
+    "subject": "CLJ",
+    "number": 356,
+    "title": "Comm Corrections & Reentry",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "CLJ",
+    "number": 363,
+    "title": "Drugs and Addiction in Society",
+    "professor": "Gunn, Alana Janell"
+  },
+  {
+    "subject": "CLJ",
+    "number": 492,
+    "title": "Sexual Assault: Legal Reforms,",
+    "professor": "Matoesian, Greg"
+  },
+  {
+    "subject": "CME",
+    "number": 119,
+    "title": "Intro Environment Eng & Sci",
+    "professor": "Stabryla, Lisa"
+  },
+  {
+    "subject": "CME",
+    "number": 211,
+    "title": "Fluid Mechanics and Hydraulics",
+    "professor": "Abokifa, Ahmed"
+  },
+  {
+    "subject": "CME",
+    "number": 300,
+    "title": "Concrete Properties&Compositn",
+    "professor": "Issa, Mohsen"
+  },
+  {
+    "subject": "CME",
+    "number": 301,
+    "title": "Behav & Dsgn Metal Struct",
+    "professor": "Ozevin, Didem"
+  },
+  {
+    "subject": "CME",
+    "number": 302,
+    "title": "Transportation Engr",
+    "professor": "Zou, Bo"
+  },
+  {
+    "subject": "CME",
+    "number": 403,
+    "title": "Hydraulic Design",
+    "professor": "Burke, Christopher B."
+  },
+  {
+    "subject": "CME",
+    "number": 411,
+    "title": "Chem For Environ Professionals",
+    "professor": "Bentel, Michael J"
+  },
+  {
+    "subject": "CME",
+    "number": 486,
+    "title": "Construction Equipment",
+    "professor": "Ataei, Hossein"
+  },
+  {
+    "subject": "CME",
+    "number": 519,
+    "title": "Structural Steel Systems",
+    "professor": "Mahamid, Mustafa"
+  },
+  {
+    "subject": "COMM",
+    "number": 207,
+    "title": "Media and Politics",
+    "professor": "Podrazik, Walter J"
+  },
+  {
+    "subject": "COMM",
+    "number": 216,
+    "title": "Digital Journalism",
+    "professor": "Reilley, Michael"
+  },
+  {
+    "subject": "COMM",
+    "number": 294,
+    "title": "Multiplatform News Editing",
+    "professor": "Reilley, Michael"
+  },
+  {
+    "subject": "COMM",
+    "number": 470,
+    "title": "Communication and Music",
+    "professor": "Podrazik, Walter J"
+  },
+  {
+    "subject": "CS",
+    "number": 151,
+    "title": "Foundations of Computing",
+    "professor": "Dey, Drishika"
+  },
+  {
+    "subject": "CS",
+    "number": 211,
+    "title": "Programming Practicum",
+    "professor": "Reckinger, Scott J"
+  },
+  {
+    "subject": "CS",
+    "number": 261,
+    "title": "Machine Organization",
+    "professor": "Theys, Mitchell D"
+  },
+  {
+    "subject": "CS",
+    "number": 277,
+    "title": "Technical Comm in Comp Sci",
+    "professor": "Carson, Jordan Marie"
+  },
+  {
+    "subject": "CS",
+    "number": 377,
+    "title": "Ethical Issues in Computing",
+    "professor": "Clayville, Kristel"
+  },
+  {
+    "subject": "CS",
+    "number": 394,
+    "title": "Tech in Residence",
+    "professor": "McCarty, Evan"
+  },
+  {
+    "subject": "CS",
+    "number": 412,
+    "title": "Intro to Machine Learning",
+    "professor": "Saha, Aadirupa"
+  },
+  {
+    "subject": "CS",
+    "number": 418,
+    "title": "Introduction to Data Science",
+    "professor": "Zheleva, Elena"
+  },
+  {
+    "subject": "CS",
+    "number": 421,
+    "title": "Language Processing",
+    "professor": "Shweta, FNU"
+  },
+  {
+    "subject": "CS",
+    "number": 422,
+    "title": "User Interface Design",
+    "professor": "Soni, Nikita Nandish"
+  },
+  {
+    "subject": "CS",
+    "number": 442,
+    "title": "Software Engineering II",
+    "professor": "Bell, John T"
+  },
+  {
+    "subject": "CS",
+    "number": 480,
+    "title": "Database Systems",
+    "professor": "Glavic, Boris"
+  },
+  {
+    "subject": "CS",
+    "number": 480,
+    "title": "Database Systems",
+    "professor": "Sintos, Stavros"
+  },
+  {
+    "subject": "CS",
+    "number": 517,
+    "title": "Socially Responsible AI",
+    "professor": "Cheng, Lu"
+  },
+  {
+    "subject": "CS",
+    "number": 594,
+    "title": "Emerg. Trends in L-S Comp. Sys",
+    "professor": "Lan, Zhiling"
+  },
+  {
+    "subject": "DAOB",
+    "number": 301,
+    "title": "Applied Oral & Behav Sciences",
+    "professor": "Semprum-Clavier, Adriana"
+  },
+  {
+    "subject": "DCLE",
+    "number": 343,
+    "title": "Community Learning Exper III",
+    "professor": "Noorullah, Khatija"
+  },
+  {
+    "subject": "DES",
+    "number": 130,
+    "title": "3D Form Studio",
+    "professor": "Twaddle, Alexander Giuseppe"
+  },
+  {
+    "subject": "DES",
+    "number": 231,
+    "title": "Industrial Design III",
+    "professor": "Muller, Peter P"
+  },
+  {
+    "subject": "DES",
+    "number": 241,
+    "title": "Visualization II",
+    "professor": "Rynkiewicz, Jacob"
+  },
+  {
+    "subject": "DES",
+    "number": 450,
+    "title": "Media Made into Moving Images",
+    "professor": "Flemister, Stephen"
+  },
+  {
+    "subject": "DHD",
+    "number": 400,
+    "title": "DHD Capstone",
+    "professor": "Camacho, David"
+  },
+  {
+    "subject": "EAES",
+    "number": 470,
+    "title": "Environ Geomorphology",
+    "professor": "Malone, Andrew"
+  },
+  {
+    "subject": "EAES",
+    "number": 473,
+    "title": "Soils and the Environment",
+    "professor": "Meyer-Dombard, D'Arcy"
+  },
+  {
+    "subject": "EAES",
+    "number": 490,
+    "title": "Climate Change & Ext Weather",
+    "professor": "Akinsanola, Akintomide"
+  },
+  {
+    "subject": "ECE",
+    "number": 595,
+    "title": "Departmental Seminar",
+    "professor": "Gunderman, Lane Gabriel"
+  },
+  {
+    "subject": "ECE",
+    "number": 599,
+    "title": "PhD Thesis Research",
+    "professor": "Shadmand, Mohammad"
+  },
+  {
+    "subject": "ECON",
+    "number": 111,
+    "title": "Freakonomics",
+    "professor": "Tzachrista, Foteini"
+  },
+  {
+    "subject": "ECON",
+    "number": 120,
+    "title": "Principles of Microeconomics",
+    "professor": "Yektansani, Kiana"
+  },
+  {
+    "subject": "ECON",
+    "number": 270,
+    "title": "Statistics for Economics",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ECON",
+    "number": 599,
+    "title": "PhD Thesis Research",
+    "professor": "Lubotsky, Darren Howard"
+  },
+  {
+    "subject": "ED",
+    "number": 100,
+    "title": "Intro to Urban Education",
+    "professor": "Larnell, Gregory Vincent"
+  },
+  {
+    "subject": "ED",
+    "number": 131,
+    "title": "Educational Ethics",
+    "professor": "Laden, Anthony S"
+  },
+  {
+    "subject": "ED",
+    "number": 200,
+    "title": "Educ Policy Foundations",
+    "professor": "Sheth, Manali"
+  },
+  {
+    "subject": "ED",
+    "number": 417,
+    "title": "Practical Inquiry II",
+    "professor": "Podsiadlik, Edward"
+  },
+  {
+    "subject": "EDPS",
+    "number": 550,
+    "title": "Improving Ed Orgs",
+    "professor": "Allen, Lionel E Jr"
+  },
+  {
+    "subject": "ELSI",
+    "number": 49,
+    "title": "Live Learn Grow:Learning Track",
+    "professor": "Buendia, Jenna Rashel"
+  },
+  {
+    "subject": "ENGL",
+    "number": 103,
+    "title": "Understanding Poetry",
+    "professor": "Magoon, Mark"
+  },
+  {
+    "subject": "ENGL",
+    "number": 161,
+    "title": "Academic Writing II",
+    "professor": "Baez, Marc J"
+  },
+  {
+    "subject": "HIST",
+    "number": 277,
+    "title": "Middle East to 1258",
+    "professor": "Quadri, Syed Junaid Ahmed"
+  },
+  {
+    "subject": "HIST",
+    "number": 477,
+    "title": "Topics Mid East History",
+    "professor": "Cuyler, Zachary"
+  },
+  {
+    "subject": "HIST",
+    "number": 591,
+    "title": "Prelim Prospectus Prep",
+    "professor": "Fidelis, Malgorzata"
+  },
+  {
+    "subject": "HN",
+    "number": 307,
+    "title": "Nutrition and Metabolism",
+    "professor": "Cienfuegos Muzard, Sofia"
+  },
+  {
+    "subject": "HON",
+    "number": 124,
+    "title": "Hon Core Past / Creat Arts",
+    "professor": "McCrillis, Michele"
+  },
+  {
+    "subject": "HPA",
+    "number": 425,
+    "title": "Healthcare H.R. Management",
+    "professor": "Read, April"
+  },
+  {
+    "subject": "HPA",
+    "number": 498,
+    "title": "MHA Capstone II",
+    "professor": "Andersen, Adam M"
+  },
+  {
+    "subject": "IDS",
+    "number": 201,
+    "title": "Intro to Business Programming",
+    "professor": "Lundquist, Doug E"
+  },
+  {
+    "subject": "IDS",
+    "number": 270,
+    "title": "Business Statistics I",
+    "professor": "Sparks, John"
+  },
+  {
+    "subject": "IDS",
+    "number": 355,
+    "title": "Operations Management",
+    "professor": "Chen, Boxiao"
+  },
+  {
+    "subject": "IDS",
+    "number": 355,
+    "title": "Operations Management",
+    "professor": "Ozdogru, Unsal"
+  },
+  {
+    "subject": "IDS",
+    "number": 495,
+    "title": "Competitive Strategy",
+    "professor": "Treleaven, James"
+  },
+  {
+    "subject": "IE",
+    "number": 342,
+    "title": "Probability & Stat for Engr",
+    "professor": "Huang, Jida"
+  },
+  {
+    "subject": "IE",
+    "number": 466,
+    "title": "Analytics & Inventory Control",
+    "professor": "Williams, Quintin Levurn"
+  },
+  {
+    "subject": "INST",
+    "number": 106,
+    "title": "World since 1400",
+    "professor": "Doumanis, Nicholas"
+  },
+  {
+    "subject": "IPHS",
+    "number": 405,
+    "title": "PH Analytic & Research II",
+    "professor": "Reda, Domenic J"
+  },
+  {
+    "subject": "JD",
+    "number": 400,
+    "title": "U.S. Trademark Law",
+    "professor": "Brezina, David C"
+  },
+  {
+    "subject": "JD",
+    "number": 425,
+    "title": "Evidence",
+    "professor": "Ginsberg, Marc"
+  },
+  {
+    "subject": "JD",
+    "number": 439,
+    "title": "RE: Transactions",
+    "professor": "O'Donnell, Sarah L"
+  },
+  {
+    "subject": "JD",
+    "number": 464,
+    "title": "Sports Law",
+    "professor": "Price, Dominique"
+  },
+  {
+    "subject": "KN",
+    "number": 150,
+    "title": "The Healthy Human",
+    "professor": "Hamstra-Wright, Karrie Lynn"
+  },
+  {
+    "subject": "KN",
+    "number": 253,
+    "title": "Human Anatomy & Phys I",
+    "professor": "Corbo, Gillian"
+  },
+  {
+    "subject": "KN",
+    "number": 337,
+    "title": "Psych of Injury & Recovery",
+    "professor": "Bullard, Kendra Leeann"
+  },
+  {
+    "subject": "KN",
+    "number": 396,
+    "title": "Applied Anatomy in Action",
+    "professor": "Hamstra-Wright, Karrie Lynn"
+  },
+  {
+    "subject": "KN",
+    "number": 450,
+    "title": "Ex Pgrmng Athletic Performance",
+    "professor": "Jandek, Amy M"
+  },
+  {
+    "subject": "LALS",
+    "number": 286,
+    "title": "US Latino/a Religions",
+    "professor": "Sostaita, Barbara Andrea"
+  },
+  {
+    "subject": "LALS",
+    "number": 395,
+    "title": "Chicanas and Latinas",
+    "professor": "Dowling, Julie"
+  },
+  {
+    "subject": "LAW",
+    "number": 412,
+    "title": "LSII",
+    "professor": "Gooden, Tenyse"
+  },
+  {
+    "subject": "ENGL",
+    "number": 161,
+    "title": "Academic Writing II",
+    "professor": "Brici, Ovidiu"
+  },
+  {
+    "subject": "ENGL",
+    "number": 161,
+    "title": "Academic Writing II",
+    "professor": "Brown, Deziree Aleace"
+  },
+  {
+    "subject": "ENGL",
+    "number": 161,
+    "title": "Academic Writing II",
+    "professor": "English, Bridget"
+  },
+  {
+    "subject": "ENGL",
+    "number": 161,
+    "title": "Academic Writing II",
+    "professor": "Grunow, Scott Alexander"
+  },
+  {
+    "subject": "ENGL",
+    "number": 161,
+    "title": "Academic Writing II",
+    "professor": "Jones, Adam"
+  },
+  {
+    "subject": "ENGL",
+    "number": 161,
+    "title": "Academic Writing II",
+    "professor": "Magoon, Mark"
+  },
+  {
+    "subject": "ENGL",
+    "number": 161,
+    "title": "Academic Writing II",
+    "professor": "Stolley, Lisa Anne"
+  },
+  {
+    "subject": "ENGL",
+    "number": 161,
+    "title": "Academic Writing II",
+    "professor": "Williams, Charitianne"
+  },
+  {
+    "subject": "ENGL",
+    "number": 245,
+    "title": "Gender, Sexuality and Lit",
+    "professor": "Costello, Virginia M"
+  },
+  {
+    "subject": "ENGL",
+    "number": 247,
+    "title": "Women & Lit",
+    "professor": "Gayle, Robin Carole Petrovic"
+  },
+  {
+    "subject": "ENGL",
+    "number": 280,
+    "title": "Media & Prof Writing",
+    "professor": "Kessler, Jeffrey"
+  },
+  {
+    "subject": "ENGL",
+    "number": 280,
+    "title": "Media & Prof Writing",
+    "professor": "Shearer, Jay B"
+  },
+  {
+    "subject": "ENGL",
+    "number": 282,
+    "title": "Peer Tutoring in Writing Ctr",
+    "professor": "Aleksa, Vainis"
+  },
+  {
+    "subject": "ENGL",
+    "number": 382,
+    "title": "Editing and Publishing",
+    "professor": "Christian, Margena A"
+  },
+  {
+    "subject": "ENGL",
+    "number": 488,
+    "title": "Methods of Teaching English",
+    "professor": "Destigter, Todd D"
+  },
+  {
+    "subject": "ENGL",
+    "number": 490,
+    "title": "Adv Writing of Poetry",
+    "professor": "Glomski, Christopher C"
+  },
+  {
+    "subject": "ENGL",
+    "number": 547,
+    "title": "Media, Film, Perfrmce Studies",
+    "professor": "Forcier, Kaitlin Clifton"
+  },
+  {
+    "subject": "ENGR",
+    "number": 100,
+    "title": "Engineering Success Seminar",
+    "professor": "Narubin Durbin, Simona Ieva"
+  },
+  {
+    "subject": "EPSY",
+    "number": 242,
+    "title": "Sexuality Development",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "EPSY",
+    "number": 326,
+    "title": "Child Hlth Safety & Nutrition",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "EPSY",
+    "number": 340,
+    "title": "Self and Identity Development",
+    "professor": "Weststrate, Nicholas"
+  },
+  {
+    "subject": "EPSY",
+    "number": 494,
+    "title": "Topics in Ed Psychology",
+    "professor": "Skourletos, Joanne C"
+  },
+  {
+    "subject": "FIN",
+    "number": 424,
+    "title": "Financial Communication",
+    "professor": "Badger, Terrance"
+  },
+  {
+    "subject": "FIN",
+    "number": 449,
+    "title": "Applied Equity Investment Mgmt",
+    "professor": "Wightkin, John"
+  },
+  {
+    "subject": "FIN",
+    "number": 494,
+    "title": "Case Studies in Corp Finance",
+    "professor": "Adamski, Howard"
+  },
+  {
+    "subject": "FR",
+    "number": 295,
+    "title": "Sci Fi/French-Speaking World",
+    "professor": "Lapotre, Carly A"
+  },
+  {
+    "subject": "GC",
+    "number": 594,
+    "title": "College Course Design",
+    "professor": "Siow, Yeow"
+  },
+  {
+    "subject": "GER",
+    "number": 217,
+    "title": "Intro German Cinema",
+    "professor": "Schlipphacke, Heidi"
+  },
+  {
+    "subject": "LAW",
+    "number": 412,
+    "title": "LSII",
+    "professor": "Lakhani, Mohammed J"
+  },
+  {
+    "subject": "LAW",
+    "number": 422,
+    "title": "LSIII",
+    "professor": "Evans, Aryn"
+  },
+  {
+    "subject": "LAW",
+    "number": 460,
+    "title": "Family Law",
+    "professor": "Bond, Cynthia Delay"
+  },
+  {
+    "subject": "LAW",
+    "number": 485,
+    "title": "Immigration Law and Procedure",
+    "professor": "Syeda, Samera Firasath"
+  },
+  {
+    "subject": "LAW",
+    "number": 524,
+    "title": "Assisted Reproductive Tech Law",
+    "professor": "Green, Sonia B"
+  },
+  {
+    "subject": "LAW",
+    "number": 531,
+    "title": "3rd yr only Bar Essay Writing",
+    "professor": "Messina, Ashley A"
+  },
+  {
+    "subject": "LAW",
+    "number": 535,
+    "title": "Est and Trusts",
+    "professor": "Kordesh, Maureen Straub"
+  },
+  {
+    "subject": "LAW",
+    "number": 585,
+    "title": "RIPL Bd",
+    "professor": "Beschle, Donald L"
+  },
+  {
+    "subject": "LAW",
+    "number": 594,
+    "title": "Special Topics: Access to Just",
+    "professor": "Raba, Anna Claire Johnson"
+  },
+  {
+    "subject": "LING",
+    "number": 300,
+    "title": "Urban Linguistic Field Methods",
+    "professor": "Hallett, Jill Maureen"
+  },
+  {
+    "subject": "MATH",
+    "number": 121,
+    "title": "Precalculus Mathematics",
+    "professor": "Jackson, Billy Joe"
+  },
+  {
+    "subject": "MATH",
+    "number": 180,
+    "title": "Calculus I",
+    "professor": "Hamed, Duha Hamdallah"
+  },
+  {
+    "subject": "MATH",
+    "number": 310,
+    "title": "Applied Linear Algebra",
+    "professor": "Yoffe, Genady Gregory"
+  },
+  {
+    "subject": "MATH",
+    "number": 481,
+    "title": "Appl Part Diff Equations",
+    "professor": "Nicholls, David Peter"
+  },
+  {
+    "subject": "MBT",
+    "number": 513,
+    "title": "Research Planning and Design",
+    "professor": "Kalyanasundaram, Ramaswamy"
+  },
+  {
+    "subject": "MDR",
+    "number": 603,
+    "title": "Block3:Skin, Muscle & Movement",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "MDR",
+    "number": 612,
+    "title": "Doctoring & Clinical Skills 2",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "ME",
+    "number": 205,
+    "title": "Intro to Thermodynamics",
+    "professor": "Manafzadeh, Saeed"
+  },
+  {
+    "subject": "ME",
+    "number": 211,
+    "title": "Fluid Mechanics l",
+    "professor": "Jung, Eunjung"
+  },
+  {
+    "subject": "ME",
+    "number": 321,
+    "title": "Heat Transfer",
+    "professor": "Jung, Eunjung"
+  },
+  {
+    "subject": "ME",
+    "number": 370,
+    "title": "Mechanical Engineering Design",
+    "professor": "Finan, John Desmond"
+  },
+  {
+    "subject": "ME",
+    "number": 380,
+    "title": "Manufacturing Process Princ",
+    "professor": "Abiade, Jeremiah T"
+  },
+  {
+    "subject": "ME",
+    "number": 547,
+    "title": "Adv Concepts/Comptr-Aided Engr",
+    "professor": "Hatami Marbini, Hamed"
+  },
+  {
+    "subject": "ME",
+    "number": 599,
+    "title": "PhD Thesis Research",
+    "professor": "Sankaranarayanan, Subramanian"
+  },
+  {
+    "subject": "MGMT",
+    "number": 340,
+    "title": "Intro to Organizations",
+    "professor": "LaForte, Denise Diane"
+  },
+  {
+    "subject": "MGMT",
+    "number": 340,
+    "title": "Intro to Organizations",
+    "professor": "Tarasievich, Renata A."
+  },
+  {
+    "subject": "MGMT",
+    "number": 453,
+    "title": "Human Resource Management",
+    "professor": "Kolar, Deanna"
+  },
+  {
+    "subject": "MGMT",
+    "number": 460,
+    "title": "Managing Globally",
+    "professor": "Pagano, Anthony M"
+  },
+  {
+    "subject": "GLAS",
+    "number": 100,
+    "title": "Intro to Global Asian Studies",
+    "professor": "Chiang, Mark"
+  },
+  {
+    "subject": "HIM",
+    "number": 317,
+    "title": "Princ of Hlth Info Mgmt",
+    "professor": "Kenworthy, Magdalena"
+  },
+  {
+    "subject": "HIST",
+    "number": 170,
+    "title": "The Ottoman Empire",
+    "professor": "Kaya, Mustafa Ismail"
+  },
+  {
+    "subject": "HIST",
+    "number": 454,
+    "title": "Topics: Made in America",
+    "professor": "Goodman, Adam S I"
+  },
+  {
+    "subject": "HN",
+    "number": 440,
+    "title": "The Research Process",
+    "professor": "Cienfuegos Muzard, Sofia"
+  },
+  {
+    "subject": "HN",
+    "number": 503,
+    "title": "Advanced Pathophysiology",
+    "professor": "Fantuzzi, Giamila"
+  },
+  {
+    "subject": "HON",
+    "number": 123,
+    "title": "Hon Core Indiv & Soc / US Soc",
+    "professor": "Rupert, Jennifer"
+  },
+  {
+    "subject": "HON",
+    "number": 201,
+    "title": "Honors Seminar",
+    "professor": "DeBoer, Celia Annette"
+  },
+  {
+    "subject": "HON",
+    "number": 201,
+    "title": "Honors Seminar",
+    "professor": "Lymberopoulos, Georgia"
+  },
+  {
+    "subject": "HON",
+    "number": 201,
+    "title": "Honors Seminar",
+    "professor": "Reddy, Krishna R"
+  },
+  {
+    "subject": "HON",
+    "number": 225,
+    "title": "Honors Research",
+    "professor": "Burns-Howard, Kathryn"
+  },
+  {
+    "subject": "HPA",
+    "number": 525,
+    "title": "Healthcare Services Planning",
+    "professor": "Bhansali, Henish Ashish"
+  },
+  {
+    "subject": "IDS",
+    "number": 400,
+    "title": "Programming for Data Science",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "IDS",
+    "number": 403,
+    "title": "Information Security",
+    "professor": "Foster, LeRoy"
+  },
+  {
+    "subject": "IDS",
+    "number": 406,
+    "title": "IDS Consulting Practicum",
+    "professor": "Chandrasekaran, Ranganathan"
+  },
+  {
+    "subject": "IDS",
+    "number": 532,
+    "title": "Intro to Operations Mgmt",
+    "professor": "Sturt, Bradley E"
+  },
+  {
+    "subject": "IDS",
+    "number": 560,
+    "title": "Analytics Strategy & Practice",
+    "professor": "Sarayloo, Fatemeh"
+  },
+  {
+    "subject": "IDS",
+    "number": 594,
+    "title": "Actionable Analytcs Bus Mangrs",
+    "professor": "Berk, Jeffrey"
+  },
+  {
+    "subject": "IE",
+    "number": 380,
+    "title": "Manufacturing Process Princ",
+    "professor": "Shahbazian-Yassar, Reza"
+  },
+  {
+    "subject": "IE",
+    "number": 594,
+    "title": "VR & AR for Industry",
+    "professor": "Kim, Hyungil"
+  },
+  {
+    "subject": "IPHS",
+    "number": 430,
+    "title": "Epidemics of Injustice",
+    "professor": "Ford, Tiffany Nicole"
+  },
+  {
+    "subject": "IPHS",
+    "number": 503,
+    "title": "DrPH Integ. Methods Seminar I",
+    "professor": "Waterman, Fanta Aminata"
+  },
+  {
+    "subject": "IPHS",
+    "number": 595,
+    "title": "Seminar In IPHS",
+    "professor": "Shade McCay, Michele LaVerne"
+  },
+  {
+    "subject": "IPHS",
+    "number": 650,
+    "title": "Applied Practice Experience",
+    "professor": "Shade McCay, Michele LaVerne"
+  },
+  {
+    "subject": "ITAL",
+    "number": 102,
+    "title": "Elementary Italian II",
+    "professor": "Iusco, Maria"
+  },
+  {
+    "subject": "ITAL",
+    "number": 280,
+    "title": "Italian & Italian Amer Cinema",
+    "professor": "Fabbian, Maria Chiara"
+  },
+  {
+    "subject": "JD",
+    "number": 411,
+    "title": "Civil Procedure I",
+    "professor": "Kilborn, Jason J"
+  },
+  {
+    "subject": "JD",
+    "number": 416,
+    "title": "Crim Law",
+    "professor": "Rips, Eve"
+  },
+  {
+    "subject": "JD",
+    "number": 423,
+    "title": "Prof Responsibility",
+    "professor": "Bess, Megan"
+  },
+  {
+    "subject": "JD",
+    "number": 539,
+    "title": "Clinic: Fair Housing Class",
+    "professor": "Bethel, Allison Kaye"
+  },
+  {
+    "subject": "KN",
+    "number": 254,
+    "title": "Human Anatomy & Phys II",
+    "professor": "Corbo, Gillian"
+  },
+  {
+    "subject": "KN",
+    "number": 299,
+    "title": "Study Abroad in Kines & Nutr",
+    "professor": "Adams, Michelle Marie"
+  },
+  {
+    "subject": "KN",
+    "number": 432,
+    "title": "Foundations of Positive Psych",
+    "professor": "Wekesser, Meredith"
+  },
+  {
+    "subject": "LALS",
+    "number": 101,
+    "title": "Intro Latin American Studies",
+    "professor": "Roa, Cristian"
+  },
+  {
+    "subject": "LALS",
+    "number": 395,
+    "title": "Latinx Sound Culture Studies",
+    "professor": "Diaz Martin, Esther"
+  },
+  {
+    "subject": "LAS",
+    "number": 299,
+    "title": "LAS Study Abroad",
+    "professor": "Rausch, Kyle Curtis"
+  },
+  {
+    "subject": "LAW",
+    "number": 460,
+    "title": "Family Law",
+    "professor": "Hernandez, Daniel R"
+  },
+  {
+    "subject": "LAW",
+    "number": 474,
+    "title": "Hum Rights, Race, Mass Incarc",
+    "professor": "Hunt, Cecil J"
+  },
+  {
+    "subject": "LAW",
+    "number": 531,
+    "title": "3rd yr only Bar Essay Writing",
+    "professor": "Whelan, David Peter"
+  },
+  {
+    "subject": "LAW",
+    "number": 536,
+    "title": "Criminal Pro: Investigation",
+    "professor": "Mundy, Hugh M"
+  },
+  {
+    "subject": "LAW",
+    "number": 542,
+    "title": "Bankruptcy Law",
+    "professor": "Lewis, Paul B"
+  },
+  {
+    "subject": "LAW",
+    "number": 557,
+    "title": "Social Justice Lawyering",
+    "professor": "McMurtry-Chubb, Teri Ann"
+  },
+  {
+    "subject": "LAW",
+    "number": 586,
+    "title": "Law Review Comment",
+    "professor": "Beschle, Donald L"
+  },
+  {
+    "subject": "LAW",
+    "number": 588,
+    "title": "Law Review Bd",
+    "professor": "Beschle, Donald L"
+  },
+  {
+    "subject": "LAW",
+    "number": 594,
+    "title": "Special Topics: AI Governance",
+    "professor": "Vargas-Barlow, Sean"
+  },
+  {
+    "subject": "LAW",
+    "number": 594,
+    "title": "Special Topics: Crim Sentenc",
+    "professor": "Mundy, Hugh M"
+  },
+  {
+    "subject": "LING",
+    "number": 260,
+    "title": "Acquisition & Billingualism",
+    "professor": "Sanchez, Liliana Elizabeth"
+  },
+  {
+    "subject": "MATH",
+    "number": 109,
+    "title": " College Algebra Workshop",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "MATH",
+    "number": 160,
+    "title": "Finite Math for Business",
+    "professor": "Meyer, McKinley"
+  },
+  {
+    "subject": "MATH",
+    "number": 210,
+    "title": "Calculus III",
+    "professor": "Dodds, Samuel Robert"
+  },
+  {
+    "subject": "MATH",
+    "number": 215,
+    "title": "Intro to Advanced Math",
+    "professor": "Kashcheyeva, Olga S."
+  },
+  {
+    "subject": "MATH",
+    "number": 294,
+    "title": "Spec Topics ESP WKSP Math 313",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "MATH",
+    "number": 496,
+    "title": "Independent Study",
+    "professor": "Shipley, Brooke E."
+  },
+  {
+    "subject": "MBT",
+    "number": 595,
+    "title": "Student Seminar Med Biotechnol",
+    "professor": "Kalyanasundaram, Ramaswamy"
+  },
+  {
+    "subject": "MBT",
+    "number": 597,
+    "title": "Master's Project Research",
+    "professor": "Sidik, Khalifah B."
+  },
+  {
+    "subject": "MCS",
+    "number": 160,
+    "title": "Intro to Computer Science",
+    "professor": "Adrovic, Danko"
+  },
+  {
+    "subject": "MCS",
+    "number": 541,
+    "title": "Computational Complexity",
+    "professor": "Turan, Gyorgy"
+  },
+  {
+    "subject": "MDP",
+    "number": 603,
+    "title": "Block3:Skin, Muscle & Movement",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "MDP",
+    "number": 622,
+    "title": "Synthesis 3-4",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "MDR",
+    "number": 640,
+    "title": "Transition to Clerkships",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "ME",
+    "number": 250,
+    "title": "Intro to Engineering Design",
+    "professor": "Szwalek, Jamison"
+  },
+  {
+    "subject": "ME",
+    "number": 397,
+    "title": "Senior Design Il",
+    "professor": "Komperda, Jonathan"
+  },
+  {
+    "subject": "MENG",
+    "number": 401,
+    "title": "Engineering Management",
+    "professor": "Ataei, Hossein"
+  },
+  {
+    "subject": "MGMT",
+    "number": 340,
+    "title": "Intro to Organizations",
+    "professor": "Bae, Katherine"
+  },
+  {
+    "subject": "MGMT",
+    "number": 445,
+    "title": "Organizational Theory",
+    "professor": "Puranik, Harshad Girish"
+  },
+  {
+    "subject": "MGMT",
+    "number": 453,
+    "title": "Human Resource Management",
+    "professor": "Valdez-Mansilla, Rosa"
+  },
+  {
+    "subject": "MGMT",
+    "number": 460,
+    "title": "Managing Globally",
+    "professor": "Khan, Muhammad Amir Hamza"
+  },
+  {
+    "subject": "MGMT",
+    "number": 495,
+    "title": "Competitive Strategy",
+    "professor": "Bullock, Kirsten"
+  },
+  {
+    "subject": "MHPE",
+    "number": 532,
+    "title": "Qualitative Methods",
+    "professor": "Perez, Nicole Anne"
+  },
+  {
+    "subject": "MKTG",
+    "number": 458,
+    "title": "Digital Marketing Research",
+    "professor": "Bane, Bradley Lewis"
+  },
+  {
+    "subject": "MKTG",
+    "number": 467,
+    "title": "Business Intelligence in Mktg",
+    "professor": "Razi, Sajna"
+  },
+  {
+    "subject": "MKTG",
+    "number": 470,
+    "title": "Branding",
+    "professor": "Wahlgren, Ann Marie"
+  },
+  {
+    "subject": "MKTG",
+    "number": 475,
+    "title": "Product Management",
+    "professor": "Cui, Anna Shaojie"
+  },
+  {
+    "subject": "MKTG",
+    "number": 561,
+    "title": "Consumer Behavior",
+    "professor": "Duhachek, Adam"
+  },
+  {
+    "subject": "MUS",
+    "number": 110,
+    "title": "Convocation/Recital",
+    "professor": "Stryker, Michael"
+  },
+  {
+    "subject": "MUS",
+    "number": 111,
+    "title": "Master Class Performance",
+    "professor": "Stryker, Michael"
+  },
+  {
+    "subject": "MUS",
+    "number": 116,
+    "title": "Science and History of Sound",
+    "professor": "Difazio, Robert Scott"
+  },
+  {
+    "subject": "MUS",
+    "number": 152,
+    "title": "Instrumental Ensembles",
+    "professor": "Kamps, Jordan"
+  },
+  {
+    "subject": "MUS",
+    "number": 230,
+    "title": "History of Western Music I",
+    "professor": "Feller Gumucio, Paul"
+  },
+  {
+    "subject": "NUEL",
+    "number": 511,
+    "title": "Curric Process Nsg Hlth Sci",
+    "professor": "Krassa, Teresa J"
+  },
+  {
+    "subject": "NUPR",
+    "number": 415,
+    "title": "Integrated Practicum III",
+    "professor": "Osborne, Mary K"
+  },
+  {
+    "subject": "NURS",
+    "number": 361,
+    "title": "Nursing Care of Populations",
+    "professor": "Arriola, Stacy"
+  },
+  {
+    "subject": "MGMT",
+    "number": 464,
+    "title": "Recruitment and Selection",
+    "professor": "Kolar, Deanna"
+  },
+  {
+    "subject": "MGMT",
+    "number": 541,
+    "title": "Organizational Behavior",
+    "professor": "McEnery, John Joseph"
+  },
+  {
+    "subject": "MGMT",
+    "number": 555,
+    "title": "Talent Management",
+    "professor": "McEnery, John Joseph"
+  },
+  {
+    "subject": "MKTG",
+    "number": 370,
+    "title": "Quantitative Marketing Skills",
+    "professor": "Weidemanis Magi, Anne"
+  },
+  {
+    "subject": "MKTG",
+    "number": 464,
+    "title": "Content Marketing",
+    "professor": "Wahlgren, Ann Marie"
+  },
+  {
+    "subject": "MKTG",
+    "number": 469,
+    "title": "Global Marketing",
+    "professor": "Grubisich, Vernon"
+  },
+  {
+    "subject": "MKTG",
+    "number": 469,
+    "title": "Global Mktg for BBA Online",
+    "professor": "Wahlgren, Ann Marie"
+  },
+  {
+    "subject": "MOVI",
+    "number": 280,
+    "title": "Italian & Italian Amer Cinema",
+    "professor": "Fabbian, Maria Chiara"
+  },
+  {
+    "subject": "MTHT",
+    "number": 467,
+    "title": "Intr Number Theory w/Applic",
+    "professor": "Lee-Hassan, Alexa"
+  },
+  {
+    "subject": "MUS",
+    "number": 100,
+    "title": "Introduction To Music I",
+    "professor": "Lewis, Andrew"
+  },
+  {
+    "subject": "MUS",
+    "number": 202,
+    "title": "Theory Of Music IV",
+    "professor": "Lau, Wing"
+  },
+  {
+    "subject": "NUEL",
+    "number": 250,
+    "title": "Human Development Life Span",
+    "professor": "Smith, Ariel Uniqua"
+  },
+  {
+    "subject": "NUPR",
+    "number": 405,
+    "title": "Integrated Practicum I",
+    "professor": "Schwind, Julie Ann"
+  },
+  {
+    "subject": "NUPR",
+    "number": 506,
+    "title": "Data-driven Health Care Improv",
+    "professor": "Durham, Marianne Lawler"
+  },
+  {
+    "subject": "NUPR",
+    "number": 540,
+    "title": "NP Pract II:Mgt Hlth/Ill Adult",
+    "professor": "Stephens, Katie M"
+  },
+  {
+    "subject": "NUPR",
+    "number": 557,
+    "title": "EBP 5",
+    "professor": "Carlucci, Melissa Ann"
+  },
+  {
+    "subject": "NUPR",
+    "number": 572,
+    "title": "Practicum: Hlth Care of Women",
+    "professor": "Pearson, Pamela"
+  },
+  {
+    "subject": "NUPR",
+    "number": 573,
+    "title": "Practicum: Birth & the Newborn",
+    "professor": "Leung, Mary"
+  },
+  {
+    "subject": "NURS",
+    "number": 331,
+    "title": "Childbearing Women & Families",
+    "professor": "Smith, Pamela Chase"
+  },
+  {
+    "subject": "NURS",
+    "number": 387,
+    "title": "Senior Seminar",
+    "professor": "Lockwood, Mark B"
+  },
+  {
+    "subject": "NURS",
+    "number": 397,
+    "title": "Issues in Nursing Practice",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "NURS",
+    "number": 517,
+    "title": "Leadership & Policy",
+    "professor": "Gampetro, Pamela J"
+  },
+  {
+    "subject": "NURS",
+    "number": 531,
+    "title": "Pharmacotherapeutics",
+    "professor": "Vuckovic, Karen Mary"
+  },
+  {
+    "subject": "NUSP",
+    "number": 515,
+    "title": "Hlth Mgmnt Primary Care I",
+    "professor": "Vaez, Kelly Ann"
+  },
+  {
+    "subject": "ORTD",
+    "number": 595,
+    "title": "Seminar in Orthodontics",
+    "professor": "Oubaidin, Maysaa"
+  },
+  {
+    "subject": "PA",
+    "number": 561,
+    "title": "Intergovernmental Mgmt",
+    "professor": "Carr, Jered"
+  },
+  {
+    "subject": "PATH",
+    "number": 595,
+    "title": "Pathology Sem & Journal Club",
+    "professor": "Veiga-Lopez, Almudena"
+  },
+  {
+    "subject": "PELE",
+    "number": 620,
+    "title": "Biomed&Ther Sci Elect - Online",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "NURS",
+    "number": 420,
+    "title": "Patho-Pharm 2",
+    "professor": "Sarginson, Dawn R"
+  },
+  {
+    "subject": "NURS",
+    "number": 463,
+    "title": "Psychiatric-Mental Health",
+    "professor": "Robinson, Nadia S"
+  },
+  {
+    "subject": "NUSP",
+    "number": 512,
+    "title": "Ed Perspectives/School Ns",
+    "professor": "Noga, Mary Elizabeth"
+  },
+  {
+    "subject": "OT",
+    "number": 612,
+    "title": "Occupational Performance",
+    "professor": "Stoffel, Ashley"
+  },
+  {
+    "subject": "OT",
+    "number": 641,
+    "title": "Outcomes and Interventions 4",
+    "professor": "Arias, Dalmina Lisette"
+  },
+  {
+    "subject": "PA",
+    "number": 505,
+    "title": "Public Management Practices",
+    "professor": "Liang, Jiaqi"
+  },
+  {
+    "subject": "PA",
+    "number": 506,
+    "title": "Public Policy Dev and Process",
+    "professor": "Devereux, Erik August"
+  },
+  {
+    "subject": "PELE",
+    "number": 604,
+    "title": "Intro to Emergency Medicine",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "PHAR",
+    "number": 516,
+    "title": "Patient Care:AmbCare/Community",
+    "professor": "Driscoll, Tara P"
+  },
+  {
+    "subject": "PHAR",
+    "number": 602,
+    "title": "APPE: Community Pharmacy",
+    "professor": "Allen, Sheila Mary"
+  },
+  {
+    "subject": "PHIL",
+    "number": 101,
+    "title": "Critical and Analytical Reason",
+    "professor": "Whipple, John"
+  },
+  {
+    "subject": "PHIL",
+    "number": 432,
+    "title": "Kant's Moral Philosophy",
+    "professor": "Fleischacker, Samuel"
+  },
+  {
+    "subject": "PHYS",
+    "number": 131,
+    "title": "Physics for Life Sciences I",
+    "professor": "DeJonghe, Richard Jerome"
+  },
+  {
+    "subject": "PHYS",
+    "number": 141,
+    "title": "General Physics I",
+    "professor": "Baty, Austin A"
+  },
+  {
+    "subject": "PHYS",
+    "number": 240,
+    "title": "Fund of Modern Quantum Theory",
+    "professor": "DeJonghe, Richard Jerome"
+  },
+  {
+    "subject": "PHYS",
+    "number": 425,
+    "title": "Modern Optics",
+    "professor": "Schroeder, Walter Andreas"
+  },
+  {
+    "subject": "PHYS",
+    "number": 450,
+    "title": "Molecular Biophysics of Cell",
+    "professor": "Ansari, Anjum"
+  },
+  {
+    "subject": "PMPR",
+    "number": 370,
+    "title": "Pharmacy Grand Rounds",
+    "professor": "Gross, Alan Edward"
+  },
+  {
+    "subject": "PMPR",
+    "number": 380,
+    "title": "Undergrad Resrch Pharm Pract",
+    "professor": "Byun, Margaret Hae Young"
+  },
+  {
+    "subject": "PMPR",
+    "number": 383,
+    "title": "Managed Care Pharmacy",
+    "professor": "Shilka, John Steven"
+  },
+  {
+    "subject": "PMPR",
+    "number": 487,
+    "title": "Clinical Research Design",
+    "professor": "Didomenico, Robert James"
+  },
+  {
+    "subject": "POLS",
+    "number": 399,
+    "title": "Seminar Political Theory",
+    "professor": "Engelmann, Stephen G"
+  },
+  {
+    "subject": "PORT",
+    "number": 201,
+    "title": "Portuguese Blended I",
+    "professor": "Costa Neves, Felipe"
+  },
+  {
+    "subject": "PPOL",
+    "number": 230,
+    "title": "Nonprofit Orgs & Civil Society",
+    "professor": "Albrecht, Kate Rose"
+  },
+  {
+    "subject": "PPOL",
+    "number": 240,
+    "title": "Environmental Policy",
+    "professor": "Watson, John S"
+  },
+  {
+    "subject": "PSCH",
+    "number": 242,
+    "title": "Intro to Research in Psch",
+    "professor": "Prims, Julia"
+  },
+  {
+    "subject": "PSCH",
+    "number": 544,
+    "title": "Structural Equation Modeling",
+    "professor": "Estabrook, Christopher Ryne"
+  },
+  {
+    "subject": "PERI",
+    "number": 620,
+    "title": "Periodontics Clinic",
+    "professor": "Schmerman, Michael L"
+  },
+  {
+    "subject": "PHAR",
+    "number": 413,
+    "title": "Pharmacy Practice: Hospital",
+    "professor": "Sawyer, Kathryn Mae"
+  },
+  {
+    "subject": "PHAR",
+    "number": 414,
+    "title": "Pharmacy Practice:Patient Care",
+    "professor": "Sawyer, Kathryn Mae"
+  },
+  {
+    "subject": "PHAR",
+    "number": 461,
+    "title": "Pharmacy&US Healthcare System",
+    "professor": "Nutescu, Edith"
+  },
+  {
+    "subject": "PHAR",
+    "number": 472,
+    "title": "PhLAMES 8",
+    "professor": "Rosella, Anthony William"
+  },
+  {
+    "subject": "PHAR",
+    "number": 502,
+    "title": "PDAT 2: GI/Endocrine",
+    "professor": "Byun, Margaret Hae Young"
+  },
+  {
+    "subject": "PHIL",
+    "number": 204,
+    "title": "Intro to Phil of Science",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "PHYS",
+    "number": 100,
+    "title": "Preparatory Physics",
+    "professor": "Abu Naser, Enas"
+  },
+  {
+    "subject": "PHYS",
+    "number": 132,
+    "title": "Physics for Life Sciences II",
+    "professor": "Espinoza, Randall"
+  },
+  {
+    "subject": "PHYS",
+    "number": 141,
+    "title": "General Physics I",
+    "professor": "Hazelton, Ryan Lowell Crites"
+  },
+  {
+    "subject": "PHYS",
+    "number": 552,
+    "title": "Nuclear/Particle Physics II",
+    "professor": "Yee, Ho-Ung"
+  },
+  {
+    "subject": "PMPR",
+    "number": 348,
+    "title": "Adv Topics in Ambulatory Care",
+    "professor": "Van Dril, Elizabeth"
+  },
+  {
+    "subject": "PMPR",
+    "number": 390,
+    "title": "Spec Project in Pharm Pract",
+    "professor": "McPherson, Charles E"
+  },
+  {
+    "subject": "PMPR",
+    "number": 430,
+    "title": "Critical Care I",
+    "professor": "Tesoro, Eljim P"
+  },
+  {
+    "subject": "POL",
+    "number": 150,
+    "title": "Intro to Polish Cinema",
+    "professor": "Underhill, Karen"
+  },
+  {
+    "subject": "POLS",
+    "number": 209,
+    "title": "Latinos and Politics",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "POLS",
+    "number": 358,
+    "title": "African-Americans and the Law",
+    "professor": "Lyles, Kevin L"
+  },
+  {
+    "subject": "PPOL",
+    "number": 430,
+    "title": "Fundraising & Dev Nonprofit",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "PPOL",
+    "number": 496,
+    "title": "Special Topics Public Policy",
+    "professor": "Strautmanis, Michael A"
+  },
+  {
+    "subject": "PROS",
+    "number": 613,
+    "title": "Perio-Prosthetic Seminars",
+    "professor": "Ghunaim, Dima"
+  },
+  {
+    "subject": "PSCH",
+    "number": 333,
+    "title": "Lab in Clinical Psychology",
+    "professor": "Flynn, Andrea Marie"
+  },
+  {
+    "subject": "PSCH",
+    "number": 385,
+    "title": "Field Work in Applied Psch",
+    "professor": "Kim-Cohen, Julia Yun Soo"
+  },
+  {
+    "subject": "PSCH",
+    "number": 385,
+    "title": "Field Work in Applied Psch",
+    "professor": "Ochoa-Galindo, Carmen"
+  },
+  {
+    "subject": "PSCI",
+    "number": 592,
+    "title": "Pharm Sciences Rotation",
+    "professor": "Tonetti, Debra"
+  },
+  {
+    "subject": "PSOP",
+    "number": 595,
+    "title": "Seminar Pharm Syst Outcome Pol",
+    "professor": "Lee, Todd A."
+  },
+  {
+    "subject": "PT",
+    "number": 627,
+    "title": "Professional Development III",
+    "professor": "Rausch, Richard W"
+  },
+  {
+    "subject": "PT",
+    "number": 629,
+    "title": "Science Practice Seminar I",
+    "professor": "Cleland, Brice T"
+  },
+  {
+    "subject": "PUBH",
+    "number": 397,
+    "title": "Baccalaureate Project in PH",
+    "professor": "Zanoni, Joseph P"
+  },
+  {
+    "subject": "PSOP",
+    "number": 526,
+    "title": "Pharmacoepidemiology",
+    "professor": "Lee, Todd A."
+  },
+  {
+    "subject": "PT",
+    "number": 350,
+    "title": "Introduction to PT",
+    "professor": "Baranyi, Brian Thomas"
+  },
+  {
+    "subject": "PT",
+    "number": 625,
+    "title": "Professional Development I",
+    "professor": "Little, Aubrey"
+  },
+  {
+    "subject": "PT",
+    "number": 672,
+    "title": "Pelvic Health Physical Therapy",
+    "professor": "Moky, Heather"
+  },
+  {
+    "subject": "RELE",
+    "number": 606,
+    "title": "Nephrology (Adult)",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "RES",
+    "number": 250,
+    "title": "Real Estate Principles",
+    "professor": "Demyanyk, Yuliya"
+  },
+  {
+    "subject": "SOC",
+    "number": 433,
+    "title": "Latin American Migration",
+    "professor": "Bada Garcia, Yolanda Xochitl"
+  },
+  {
+    "subject": "SOC",
+    "number": 547,
+    "title": "Social Organization",
+    "professor": "McInerney, Paul-Brian"
+  },
+  {
+    "subject": "SOCW",
+    "number": 431,
+    "title": "Pract II: Fam., Grps & Comm",
+    "professor": "Lopez, Jade Miko"
+  },
+  {
+    "subject": "SOCW",
+    "number": 431,
+    "title": "Pract II: Fam., Grps & Comm",
+    "professor": "Tumiel, Elizabeth Ann"
+  },
+  {
+    "subject": "SOCW",
+    "number": 589,
+    "title": "Pract IV: School Social Work",
+    "professor": "Johnson, Annette H"
+  },
+  {
+    "subject": "SPAN",
+    "number": 104,
+    "title": "Intermediate Spanish II",
+    "professor": "Rodriguez, Mariela"
+  },
+  {
+    "subject": "SPAN",
+    "number": 202,
+    "title": "Spanish Grammar in Practice",
+    "professor": "Short, Kara Morgan"
+  },
+  {
+    "subject": "SPAN",
+    "number": 377,
+    "title": "Human Body in Hispanic Culture",
+    "professor": "Saona, Maria Margarita"
+  },
+  {
+    "subject": "SPED",
+    "number": 462,
+    "title": "Assessment of Individuals",
+    "professor": "Lindstrom, Esther"
+  },
+  {
+    "subject": "SPED",
+    "number": 472,
+    "title": "Academ & Prosoc Intervention",
+    "professor": "Kumm, Skip Allen"
+  },
+  {
+    "subject": "STAT",
+    "number": 522,
+    "title": "Multivariate Statist Analysis",
+    "professor": "Yang, Jie"
+  },
+  {
+    "subject": "TADR",
+    "number": 400,
+    "title": "Trial Ad",
+    "professor": "Peters, Victoria J"
+  },
+  {
+    "subject": "TADR",
+    "number": 403,
+    "title": "Trial Advocacy: Adv",
+    "professor": "Coleman, Jennifer"
+  },
+  {
+    "subject": "TADR",
+    "number": 421,
+    "title": "Arbitration",
+    "professor": "Gauza, Thomas Albert"
+  },
+  {
+    "subject": "TADR",
+    "number": 476,
+    "title": "Extern: Rest Justice Class",
+    "professor": "Schlegel, Stephen"
+  },
+  {
+    "subject": "TADR",
+    "number": 482,
+    "title": "Clinic: Int'l Human Rts Clinic",
+    "professor": "Davila, Sarah"
+  },
+  {
+    "subject": "THTR",
+    "number": 122,
+    "title": "Acting II: Adaptations",
+    "professor": "Rodriguez, Alex B"
+  },
+  {
+    "subject": "THTR",
+    "number": 182,
+    "title": "Practicum: Run Crew",
+    "professor": "Bachman, Donna"
+  },
+  {
+    "subject": "UPP",
+    "number": 505,
+    "title": "Plan Making",
+    "professor": "Kawamura, Kazuya"
+  },
+  {
+    "subject": "UPP",
+    "number": 595,
+    "title": "Professional Portfolio",
+    "professor": "Argov, Merav"
+  },
+  {
+    "subject": "US",
+    "number": 202,
+    "title": "Social Justice & the City",
+    "professor": "Parker, Brenda"
+  },
+  {
+    "subject": "RELE",
+    "number": 606,
+    "title": "Pulmonary Medicine",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "SJ",
+    "number": 201,
+    "title": "Theories and Practices of SJ",
+    "professor": "Gutierrez, Elena Rebeca"
+  },
+  {
+    "subject": "SOC",
+    "number": 201,
+    "title": "Intro Sociological Statistics",
+    "professor": "Kennedy, Ian"
+  },
+  {
+    "subject": "SOC",
+    "number": 245,
+    "title": "Marriage and Family",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "SOC",
+    "number": 425,
+    "title": "Race and Ethnicity",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "SOC",
+    "number": 455,
+    "title": "Health Inequalities",
+    "professor": "Hansen, Christopher R"
+  },
+  {
+    "subject": "SOCW",
+    "number": 431,
+    "title": "Pract II: Fam., Grps & Comm",
+    "professor": "Doyle, Otima"
+  },
+  {
+    "subject": "SOCW",
+    "number": 460,
+    "title": "Research I: Social Work Resrch",
+    "professor": "Hounmenou, Enagnon Charles"
+  },
+  {
+    "subject": "SOCW",
+    "number": 460,
+    "title": "Research I: Social Work Resrch",
+    "professor": "Mangum, Laurenia Chaunte"
+  },
+  {
+    "subject": "SOCW",
+    "number": 548,
+    "title": "Social Entrepreneurship",
+    "professor": "Butterfield, Alice K."
+  },
+  {
+    "subject": "SOCW",
+    "number": 563,
+    "title": "Program Evaluation",
+    "professor": "Hsieh, Chang-Ming"
+  },
+  {
+    "subject": "SOCW",
+    "number": 565,
+    "title": "Research Seminars: Single Sys",
+    "professor": "Sinkule, Maria Delcarmen"
+  },
+  {
+    "subject": "SOCW",
+    "number": 571,
+    "title": "Field Instruction II",
+    "professor": "Brown, Pamela Renee"
+  },
+  {
+    "subject": "SOCW",
+    "number": 587,
+    "title": "Pract IV: Mental Health",
+    "professor": "Holzhauser, Heather Renee"
+  },
+  {
+    "subject": "SOCW",
+    "number": 587,
+    "title": "Pract IV: Mental Health",
+    "professor": "Salvadore, Lisa M"
+  },
+  {
+    "subject": "SOCW",
+    "number": 589,
+    "title": "Pract IV: School Social Work",
+    "professor": "Nelson, Tiffany"
+  },
+  {
+    "subject": "SPAN",
+    "number": 104,
+    "title": "Intermediate Spanish II",
+    "professor": "Costa Neves, Felipe"
+  },
+  {
+    "subject": "SPAN",
+    "number": 202,
+    "title": "Spanish Grammar in Practice",
+    "professor": "Miller, David Thomas"
+  },
+  {
+    "subject": "SPAN",
+    "number": 206,
+    "title": "Intro to Hispanic Linguistics",
+    "professor": "Taboada, Inmaculada"
+  },
+  {
+    "subject": "SPAN",
+    "number": 320,
+    "title": "Legal/Business Spanish II",
+    "professor": "Munoz-Navarro, Stephanie Rae"
+  },
+  {
+    "subject": "SPED",
+    "number": 466,
+    "title": "Lang Develop,Diversity&Disabil",
+    "professor": "Kummerer, Sharon Elizabeth"
+  },
+  {
+    "subject": "SPED",
+    "number": 563,
+    "title": "Adoles Lit Diverse Learners",
+    "professor": "Hughes, Marie Tejero"
+  },
+  {
+    "subject": "STAT",
+    "number": 382,
+    "title": "Statistical Methods and Comput",
+    "professor": "Pajda-De La O, Jennifer Marie"
+  },
+  {
+    "subject": "TADR",
+    "number": 420,
+    "title": "Deposition Practicum",
+    "professor": "Teplinsky, Howard Lee"
+  },
+  {
+    "subject": "THTR",
+    "number": 154,
+    "title": "Drawing & Digital Design",
+    "professor": "Elliott, Myron Walter"
+  },
+  {
+    "subject": "THTR",
+    "number": 156,
+    "title": "Lighting Design I",
+    "professor": "Borges, Andrei"
+  },
+  {
+    "subject": "UPP",
+    "number": 458,
+    "title": "Intro Geo Analysis & Vis I",
+    "professor": "Jasek, Thomas A"
+  },
+  {
+    "subject": "UPP",
+    "number": 506,
+    "title": "Plan-Making Studio",
+    "professor": "Al-Kodmany, Kheir M."
+  },
+  {
+    "subject": "UPP",
+    "number": 542,
+    "title": "Metro Housng Plannig",
+    "professor": "Gunn, Jasmine Renee"
+  },
+  {
+    "subject": "ACTG",
+    "number": 315,
+    "title": "Intermediate Financial Actg I",
+    "professor": "Raval, Vivek"
+  },
+  {
+    "subject": "ACTG",
+    "number": 326,
+    "title": "Cost Accounting",
+    "professor": "Hart, Daphne"
+  },
+  {
+    "subject": "ACTG",
+    "number": 474,
+    "title": "Actg Information Systems",
+    "professor": "Gelsomin, Eric"
+  },
+  {
+    "subject": "AH",
+    "number": 110,
+    "title": "World Hist Art & Built Env I",
+    "professor": "Harmansah, Omur"
+  },
+  {
+    "subject": "ANTH",
+    "number": 237,
+    "title": "Human Skeleton",
+    "professor": "Williams, Sloan R"
+  },
+  {
+    "subject": "ARAB",
+    "number": 201,
+    "title": "Adv Arabic through Literature",
+    "professor": "Aburqayeq, Ghassan"
+  },
+  {
+    "subject": "ARAB",
+    "number": 270,
+    "title": "The Reel Arab",
+    "professor": "Aburqayeq, Ghassan"
+  },
+  {
+    "subject": "ARCH",
+    "number": 553,
+    "title": "Architectural Design III",
+    "professor": "Kelley, Thomas"
+  },
+  {
+    "subject": "ART",
+    "number": 150,
+    "title": "Intro to New Media(Major Only)",
+    "professor": "Flores, Juan Eduardo"
+  },
+  {
+    "subject": "ART",
+    "number": 160,
+    "title": "Intro:Digital Photo",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ART",
+    "number": 250,
+    "title": "Between Worlds: Video Games",
+    "professor": "Kelley-Hudgins, Jared Christopher"
+  },
+  {
+    "subject": "ART",
+    "number": 260,
+    "title": "Digital Photo: Self-Portraits",
+    "professor": "MacKenzie-Margulies, Caleb William"
+  },
+  {
+    "subject": "BA",
+    "number": 100,
+    "title": "Intro to Prof Dev",
+    "professor": "Brunlieb, Michael"
+  },
+  {
+    "subject": "BA",
+    "number": 190,
+    "title": "UIC Business Seminar Program",
+    "professor": "Sanchez, Mayra"
+  },
+  {
+    "subject": "BA",
+    "number": 289,
+    "title": "Business Internship Prog I",
+    "professor": "Lacy, Virginia"
+  },
+  {
+    "subject": "BA",
+    "number": 290,
+    "title": "Business Ethics",
+    "professor": "Leahy, Edward"
+  },
+  {
+    "subject": "BHIS",
+    "number": 437,
+    "title": "Health Care Data",
+    "professor": "Czart, Margaret B"
+  },
+  {
+    "subject": "BHIS",
+    "number": 593,
+    "title": "HI Capstone",
+    "professor": "Isola, Miriam L."
+  },
+  {
+    "subject": "BIOS",
+    "number": 120,
+    "title": "Populations & Communities",
+    "professor": "Molumby, Alan J"
+  },
+  {
+    "subject": "BIOS",
+    "number": 184,
+    "title": "The Basics of Neuroscience",
+    "professor": "Park, Thomas J"
+  },
+  {
+    "subject": "BIOS",
+    "number": 272,
+    "title": "Comparative Vertebrate Anatomy",
+    "professor": "Nelson, Karin Noel"
+  },
+  {
+    "subject": "BIOS",
+    "number": 365,
+    "title": "Human Ecological Systems",
+    "professor": "Minor, Emily"
+  },
+  {
+    "subject": "BIOS",
+    "number": 489,
+    "title": "Cell Neurobiology Lab",
+    "professor": "Tchernookova, Boriana Krassimirova"
+  },
+  {
+    "subject": "BIOS",
+    "number": 592,
+    "title": "Research Seminar",
+    "professor": "Stone, David E"
+  },
+  {
+    "subject": "BIOS",
+    "number": 594,
+    "title": "Intro to Graduate School",
+    "professor": "Salles, Angeles"
+  },
+  {
+    "subject": "BIOS",
+    "number": 594,
+    "title": "Practical Biocomputing",
+    "professor": "Walker, Joseph"
+  },
+  {
+    "subject": "BME",
+    "number": 410,
+    "title": "Medical Device Requirements",
+    "professor": "Browne, Michael Gordon"
+  },
+  {
+    "subject": "AH",
+    "number": 160,
+    "title": "Trends in Contemp Art",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "AHS",
+    "number": 200,
+    "title": "Intro Integrated Health",
+    "professor": "Kieso, Tiana Al-Aswad"
+  },
+  {
+    "subject": "AHS",
+    "number": 393,
+    "title": "Synthesis in Health &Rehab Sci",
+    "professor": "Rodriguez, Vanessa"
+  },
+  {
+    "subject": "ANAT",
+    "number": 441,
+    "title": "Gross Human Anatomy",
+    "professor": "Savakova, Denitsa"
+  },
+  {
+    "subject": "ANTH",
+    "number": 229,
+    "title": "Ancient Egypt",
+    "professor": "Roosevelt, Anna C"
+  },
+  {
+    "subject": "ANTH",
+    "number": 309,
+    "title": "Writing Culture",
+    "professor": "LaMothe, Mario Jacques"
+  },
+  {
+    "subject": "ARAB",
+    "number": 103,
+    "title": "Intermediate Arabic I",
+    "professor": "Babiker, Mariam"
+  },
+  {
+    "subject": "ARCH",
+    "number": 371,
+    "title": "Architectural Theory 1",
+    "professor": "De Jong, Judith"
+  },
+  {
+    "subject": "ARCH",
+    "number": 414,
+    "title": "Contemporary Practices",
+    "professor": "Blankenbaker, Sarah Elizabeth"
+  },
+  {
+    "subject": "ARCH",
+    "number": 465,
+    "title": "Advanced Topic Studio 1",
+    "professor": "Lally, Sean"
+  },
+  {
+    "subject": "ARCH",
+    "number": 565,
+    "title": "Topic Studio",
+    "professor": "Hicks, Stewart Roger"
+  },
+  {
+    "subject": "ARCH",
+    "number": 585,
+    "title": "Arch Theory & History III",
+    "professor": "Eisenschmidt, Alexander"
+  },
+  {
+    "subject": "ART",
+    "number": 201,
+    "title": "Practices of Art Education",
+    "professor": "Estrada, William"
+  },
+  {
+    "subject": "BA",
+    "number": 200,
+    "title": "Business Communication",
+    "professor": "Wang, Jie"
+  },
+  {
+    "subject": "BA",
+    "number": 220,
+    "title": "Business Prof Dev II",
+    "professor": "Lord, Morgan"
+  },
+  {
+    "subject": "BA",
+    "number": 320,
+    "title": "Civic Engagement",
+    "professor": "Lewis, Keith D"
+  },
+  {
+    "subject": "BA",
+    "number": 420,
+    "title": "Professional Presence",
+    "professor": "Anderson, Stephanie Leigh"
+  },
+  {
+    "subject": "BHIS",
+    "number": 530,
+    "title": "Topics in Hlth Informatics",
+    "professor": "Staley, Corinn"
+  },
+  {
+    "subject": "BIOS",
+    "number": 294,
+    "title": "Special Topics in BIOS",
+    "professor": "Alfonso, Aixa"
+  },
+  {
+    "subject": "BIOS",
+    "number": 443,
+    "title": "Animal Physiology Systems Lab",
+    "professor": "Park, Thomas J"
+  },
+  {
+    "subject": "BIOS",
+    "number": 594,
+    "title": "Advanced Stats & Data Analysis",
+    "professor": "Nunez Mir, Gabriela"
+  },
+  {
+    "subject": "BLST",
+    "number": 246,
+    "title": "Black Lives in Hist Context",
+    "professor": "Washington, Patrick C"
+  },
+  {
+    "subject": "BLST",
+    "number": 271,
+    "title": "Race & Incarceration",
+    "professor": "Stovall, David O"
+  },
+  {
+    "subject": "BLST",
+    "number": 272,
+    "title": "Race, Gender, Sexuality",
+    "professor": "LaMothe, Mario Jacques"
+  },
+  {
+    "subject": "BME",
+    "number": 504,
+    "title": "Emerging Medical Tech",
+    "professor": "Layton, Terry N"
+  },
+  {
+    "subject": "BME",
+    "number": 548,
+    "title": "Nanoscale Biomedical Eng",
+    "professor": "Papautsky, Ian"
+  },
+  {
+    "subject": "CELE",
+    "number": 600,
+    "title": "Elective Clerkship",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "AH",
+    "number": 100,
+    "title": "Intro to Art &Art History",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "AH",
+    "number": 259,
+    "title": "Eighteenth-Century Art",
+    "professor": "Dubin, Nina"
+  },
+  {
+    "subject": "AHS",
+    "number": 200,
+    "title": "Intro Integrated Health",
+    "professor": "Alve, Mohammad Yeasir Arafat"
+  },
+  {
+    "subject": "AHS",
+    "number": 304,
+    "title": "Sexuality and Health",
+    "professor": "Bengtsson, Helene Strange"
+  },
+  {
+    "subject": "ANTH",
+    "number": 102,
+    "title": "Intro to Archaeology",
+    "professor": "LaMotta, Vincent"
+  },
+  {
+    "subject": "ANTH",
+    "number": 233,
+    "title": "Forensic Anthropology",
+    "professor": "Sacks, Lita"
+  },
+  {
+    "subject": "ANTH",
+    "number": 594,
+    "title": "Data Collection Mixed Methods",
+    "professor": "Starkweather, Kathrine Elizabeth"
+  },
+  {
+    "subject": "ARCH",
+    "number": 440,
+    "title": "Digital Design and Fabrication",
+    "professor": "Bair, Kelly"
+  },
+  {
+    "subject": "ARCH",
+    "number": 563,
+    "title": "Architectural Technology III",
+    "professor": "Frye, Christopher Allen"
+  },
+  {
+    "subject": "ART",
+    "number": 212,
+    "title": "Topics in Drawing I",
+    "professor": "Sanders, Luke Anthony"
+  },
+  {
+    "subject": "ART",
+    "number": 340,
+    "title": "Sculpture:Public Intervention",
+    "professor": "Majeed, Faheem"
+  },
+  {
+    "subject": "ASP",
+    "number": 85,
+    "title": "Boosting Academic Success",
+    "professor": "Mann, Jon"
+  },
+  {
+    "subject": "ASP",
+    "number": 96,
+    "title": "Independent Study",
+    "professor": "Ramirez, Elizabeth"
+  },
+  {
+    "subject": "BA",
+    "number": 100,
+    "title": "Intro to Prof Dev",
+    "professor": "Anderson, Stephanie Leigh"
+  },
+  {
+    "subject": "BA",
+    "number": 100,
+    "title": "Intro to Prof Dev",
+    "professor": "Soriano, Diana Ethel"
+  },
+  {
+    "subject": "BA",
+    "number": 101,
+    "title": "Business First-Year Seminar",
+    "professor": "Alford, James Gearld"
+  },
+  {
+    "subject": "BA",
+    "number": 101,
+    "title": "Business First-Year Seminar",
+    "professor": "Whittington, James"
+  },
+  {
+    "subject": "BA",
+    "number": 200,
+    "title": "Business Communication",
+    "professor": "Bailey, Lisa"
+  },
+  {
+    "subject": "BA",
+    "number": 200,
+    "title": "Business Communication",
+    "professor": "Schraufnagel, William"
+  },
+  {
+    "subject": "BA",
+    "number": 200,
+    "title": "Managerial Comm BBA Online",
+    "professor": "Hardy, Florence"
+  },
+  {
+    "subject": "BA",
+    "number": 520,
+    "title": "Improvisation and Leadership",
+    "professor": "Rodriguez, Paul"
+  },
+  {
+    "subject": "BCMG",
+    "number": 595,
+    "title": "Student Research Seminars",
+    "professor": "Segev, Nava"
+  },
+  {
+    "subject": "BHIS",
+    "number": 499,
+    "title": "Info Sources in BHIS",
+    "professor": "Mills, Laura Lynn"
+  },
+  {
+    "subject": "BIOS",
+    "number": 484,
+    "title": "Neuroscience I",
+    "professor": "Richmond, Janet Elizabeth"
+  },
+  {
+    "subject": "BIOS",
+    "number": 524,
+    "title": "Mol Bio Principles & Methods",
+    "professor": "Polikanov, Yury S"
+  },
+  {
+    "subject": "BIOS",
+    "number": 531,
+    "title": "Ecology and Evolution I",
+    "professor": "Hampton-Marcell, Jarrad Timothy"
+  },
+  {
+    "subject": "BIOS",
+    "number": 539,
+    "title": "Ecology  & Evolution Seminar",
+    "professor": "Poretsky, Rachel S"
+  },
+  {
+    "subject": "ACTG",
+    "number": 210,
+    "title": "Intro Financial Accounting",
+    "professor": "Das, Somnath"
+  },
+  {
+    "subject": "ACTG",
+    "number": 210,
+    "title": "Intro Financial Accounting",
+    "professor": "Lord Pearson, Eva Marie"
+  },
+  {
+    "subject": "ACTG",
+    "number": 211,
+    "title": "Intro Managerial Accounting",
+    "professor": "Patel, Neel Vasudev"
+  },
+  {
+    "subject": "ACTG",
+    "number": 355,
+    "title": "Business Law I",
+    "professor": "Scully, George"
+  },
+  {
+    "subject": "AH",
+    "number": 201,
+    "title": "Reading&Writing Art Criticism",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "AH",
+    "number": 232,
+    "title": "Film History I: 1890-WWII",
+    "professor": "Rubin, Martin L."
+  },
+  {
+    "subject": "AHS",
+    "number": 102,
+    "title": "Intro Clinical Research",
+    "professor": "Akinola, Olayemi"
+  },
+  {
+    "subject": "AHS",
+    "number": 375,
+    "title": "Ethics, Law in Health",
+    "professor": "Jackson, Ann W"
+  },
+  {
+    "subject": "ANTH",
+    "number": 238,
+    "title": "Biology of Women",
+    "professor": "Starkweather, Kathrine Elizabeth"
+  },
+  {
+    "subject": "ANTH",
+    "number": 243,
+    "title": "Archaeology of Buddhism",
+    "professor": "Hendrickson, Mitchel J"
+  },
+  {
+    "subject": "ARAB",
+    "number": 101,
+    "title": "Elementary Arabic I",
+    "professor": "Alyassir, Lina"
+  },
+  {
+    "subject": "ARAB",
+    "number": 104,
+    "title": "Intermediate Arabic II",
+    "professor": "Aburqayeq, Ghassan"
+  },
+  {
+    "subject": "ARCH",
+    "number": 151,
+    "title": "Architecture at Chicago",
+    "professor": "Becker, Robert D"
+  },
+  {
+    "subject": "ART",
+    "number": 140,
+    "title": "Introduction to Sculpture",
+    "professor": "Mancini, Matthew Henry"
+  },
+  {
+    "subject": "ART",
+    "number": 151,
+    "title": "Intro to Creative Coding",
+    "professor": "Kelley-Hudgins, Jared Christopher"
+  },
+  {
+    "subject": "ART",
+    "number": 160,
+    "title": "Intro:Digital Photo-Major Only",
+    "professor": "Mueller, Eileen"
+  },
+  {
+    "subject": "ART",
+    "number": 190,
+    "title": "#LoveChicagoArtFollowMe",
+    "professor": "Majeed, Faheem"
+  },
+  {
+    "subject": "ART",
+    "number": 260,
+    "title": "Topic in Photo",
+    "professor": "Washington, Zuri Aqeela"
+  },
+  {
+    "subject": "ART",
+    "number": 275,
+    "title": "Topics in Screenwriting",
+    "professor": "Reeder, Jennifer K"
+  },
+  {
+    "subject": "ART",
+    "number": 400,
+    "title": "Advanced Critique",
+    "professor": "Metzger, Matthew John"
+  },
+  {
+    "subject": "ART",
+    "number": 530,
+    "title": "Advanced Graduate Critique",
+    "professor": "Higgins, Hannah B"
+  },
+  {
+    "subject": "BA",
+    "number": 320,
+    "title": "Civic Engagement",
+    "professor": "Lloyd, Anna K"
+  },
+  {
+    "subject": "BA",
+    "number": 320,
+    "title": "Civic Engagement",
+    "professor": "Ramos, Norma Elena"
+  },
+  {
+    "subject": "BA",
+    "number": 420,
+    "title": "Professional Presence",
+    "professor": "Lord, Morgan"
+  },
+  {
+    "subject": "BA",
+    "number": 494,
+    "title": "Global Career Accelerator",
+    "professor": "Rausch, Kyle Curtis"
+  },
+  {
+    "subject": "BCMG",
+    "number": 411,
+    "title": "Intro to Biochemistry",
+    "professor": "Caffrey, Michael S"
+  },
+  {
+    "subject": "BIOS",
+    "number": 220,
+    "title": "Genetics",
+    "professor": "Mc Cutcheon, Suzanne M"
+  },
+  {
+    "subject": "BIOS",
+    "number": 326,
+    "title": "Embryology Laboratory",
+    "professor": "Bassett, Andrea Louise"
+  },
+  {
+    "subject": "ACTG",
+    "number": 417,
+    "title": "Adv Financial Accounting",
+    "professor": "Norden, Mark"
+  },
+  {
+    "subject": "ACTG",
+    "number": 500,
+    "title": "Intro Financial Actg",
+    "professor": "Balachandran, Sudhakar V"
+  },
+  {
+    "subject": "ACTG",
+    "number": 516,
+    "title": "Financial Statement Analysis",
+    "professor": "Balachandran, Sudhakar V"
+  },
+  {
+    "subject": "AHS",
+    "number": 101,
+    "title": "Rehab Sci Student Success",
+    "professor": "Akinola, Olayemi"
+  },
+  {
+    "subject": "AHS",
+    "number": 393,
+    "title": "Synthesis in Health &Rehab Sci",
+    "professor": "Wescott, Jennifer J"
+  },
+  {
+    "subject": "ANTH",
+    "number": 100,
+    "title": "Human Adventure",
+    "professor": "Roosevelt, Anna C"
+  },
+  {
+    "subject": "ARCH",
+    "number": 251,
+    "title": "Arch Analysis",
+    "professor": "Marullo, Francesco"
+  },
+  {
+    "subject": "ARCH",
+    "number": 365,
+    "title": "Architectural Studio 5",
+    "professor": "Lyster, Clare"
+  },
+  {
+    "subject": "ARCH",
+    "number": 414,
+    "title": "Contemporary Practices",
+    "professor": "Gerson, Pablo"
+  },
+  {
+    "subject": "ARCH",
+    "number": 465,
+    "title": "Advanced Topic Studio 1",
+    "professor": "Dunn, Sarah E"
+  },
+  {
+    "subject": "ARCH",
+    "number": 465,
+    "title": "Advanced Topic Studio 1",
+    "professor": "McNeil, Spencer G"
+  },
+  {
+    "subject": "ARCH",
+    "number": 465,
+    "title": "Advanced Topic Studio 1",
+    "professor": "Zago, Andrew"
+  },
+  {
+    "subject": "ART",
+    "number": 312,
+    "title": "Mix it up: Conceptual Collage",
+    "professor": "Frid, Dianna"
+  },
+  {
+    "subject": "ART",
+    "number": 401,
+    "title": "Senior Projects: Critique",
+    "professor": "Reynolds, Laurie Jo"
+  },
+  {
+    "subject": "ASP",
+    "number": 85,
+    "title": "Boosting Academic Success",
+    "professor": "Baniasad, Bahar"
+  },
+  {
+    "subject": "BA",
+    "number": 100,
+    "title": "Intro to Prof Dev",
+    "professor": "Warner, Kimberly"
+  },
+  {
+    "subject": "BA",
+    "number": 101,
+    "title": "Business First-Year Seminar",
+    "professor": "Souri, Ranjit J"
+  },
+  {
+    "subject": "BA",
+    "number": 101,
+    "title": "Business Scholars 1st-Year Sem",
+    "professor": "Sanchez, Mayra"
+  },
+  {
+    "subject": "BA",
+    "number": 290,
+    "title": "Business Ethics for BBA Online",
+    "professor": "Hardy, Florence"
+  },
+  {
+    "subject": "BHIS",
+    "number": 540,
+    "title": "Essentials Hlth Data Science",
+    "professor": "Krive, Jacob"
+  },
+  {
+    "subject": "BHIS",
+    "number": 567,
+    "title": "Healthcare Data Visualization",
+    "professor": "Syed, Asif Amir"
+  },
+  {
+    "subject": "BIOS",
+    "number": 104,
+    "title": "Biology for Non-majors",
+    "professor": "Muller, Michael T"
+  },
+  {
+    "subject": "BIOS",
+    "number": 222,
+    "title": "Cell Biology",
+    "professor": "Warpeha, Katherine Mary"
+  },
+  {
+    "subject": "BIOS",
+    "number": 230,
+    "title": "Evolution and Ecology",
+    "professor": "Ale, Som Bahadur"
+  },
+  {
+    "subject": "BIOS",
+    "number": 340,
+    "title": "Environmental Physiology",
+    "professor": "Molumby, Alan J"
+  },
+  {
+    "subject": "BIOS",
+    "number": 350,
+    "title": "General Microbiology",
+    "professor": "Mills, Michael"
+  },
+  {
+    "subject": "BIOS",
+    "number": 399,
+    "title": "Independent Research",
+    "professor": "Jeffery, Constance J"
+  },
+  {
+    "subject": "ACTG",
+    "number": 211,
+    "title": "Intro Managerial Accounting",
+    "professor": "Bonham, Jonathan"
+  },
+  {
+    "subject": "ACTG",
+    "number": 211,
+    "title": "Intro Mngrl Actg Bus Scholar",
+    "professor": "Bonham, Jonathan"
+  },
+  {
+    "subject": "ACTG",
+    "number": 435,
+    "title": "Auditing",
+    "professor": "Judd, Joshua Scott"
+  },
+  {
+    "subject": "ACTG",
+    "number": 484,
+    "title": "International Accounting",
+    "professor": "Patel, Neel Vasudev"
+  },
+  {
+    "subject": "ACTG",
+    "number": 500,
+    "title": "Intro Financial Actg",
+    "professor": "Magena, Nicholas Karl"
+  },
+  {
+    "subject": "AH",
+    "number": 204,
+    "title": "Greek Art & Archaeology",
+    "professor": "Ros, Karen E"
+  },
+  {
+    "subject": "AHS",
+    "number": 100,
+    "title": "Applied Hlth Science Seminar I",
+    "professor": "Gorman, Keith"
+  },
+  {
+    "subject": "AHS",
+    "number": 100,
+    "title": "Applied Hlth Science Seminar I",
+    "professor": "Stankevicius, Simona"
+  },
+  {
+    "subject": "AHS",
+    "number": 365,
+    "title": "Measurement in Rehab",
+    "professor": "Akinola, Olayemi"
+  },
+  {
+    "subject": "ANTH",
+    "number": 229,
+    "title": "Archaeo Frauds,Myths,Pseudosci",
+    "professor": "Goodman, Elizabeth M"
+  },
+  {
+    "subject": "ART",
+    "number": 170,
+    "title": "Introduction to Filmmaking",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ART",
+    "number": 261,
+    "title": "Film Photography/Darkroom",
+    "professor": "Keihm, Colleen"
+  },
+  {
+    "subject": "ART",
+    "number": 330,
+    "title": "Topics/Paint: Face and Mask",
+    "professor": "Bernblum, Iris R"
+  },
+  {
+    "subject": "ART",
+    "number": 410,
+    "title": "Art Education Practicum",
+    "professor": "Estrada, William"
+  },
+  {
+    "subject": "ASP",
+    "number": 84,
+    "title": "LARES Research Poster",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "BA",
+    "number": 200,
+    "title": "Business Communication",
+    "professor": "Andrews, Dean"
+  },
+  {
+    "subject": "BA",
+    "number": 220,
+    "title": "Business Prof Dev II",
+    "professor": "Brunlieb, Michael"
+  },
+  {
+    "subject": "BA",
+    "number": 299,
+    "title": "CBA Study Abroad",
+    "professor": "Sady, Elizabeth Virginia"
+  },
+  {
+    "subject": "BA",
+    "number": 320,
+    "title": "Civic Engagement",
+    "professor": "Walthall, Mary"
+  },
+  {
+    "subject": "BA",
+    "number": 420,
+    "title": "Professional Presence",
+    "professor": "Warner, Kimberly"
+  },
+  {
+    "subject": "BHIS",
+    "number": 505,
+    "title": "Ethics&Legal Issues/Hlth Info",
+    "professor": "Swirsky, Eric S"
+  },
+  {
+    "subject": "BHIS",
+    "number": 515,
+    "title": "Mgmt Hlth Care Comm Syst",
+    "professor": "Garcia, Justina Renee"
+  },
+  {
+    "subject": "BHIS",
+    "number": 520,
+    "title": "Hlth Info Syst Analysis & Dsgn",
+    "professor": "Foster, LeRoy"
+  },
+  {
+    "subject": "BHIS",
+    "number": 525,
+    "title": "Social&Org Issues in Hlth Info",
+    "professor": "Lui, Dick Ray"
+  },
+  {
+    "subject": "BHIS",
+    "number": 535,
+    "title": "Organizational Dynamics and HI",
+    "professor": "Isola, Miriam L."
+  },
+  {
+    "subject": "BIOS",
+    "number": 296,
+    "title": "Directed Instruction",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "BIOS",
+    "number": 323,
+    "title": "Molecular Biology Laboratory",
+    "professor": "Mc Cutcheon, Suzanne M"
+  },
+  {
+    "subject": "ACTG",
+    "number": 211,
+    "title": "Intro Managerial Accounting",
+    "professor": "Jastrzebski, Ronald J"
+  },
+  {
+    "subject": "ACTG",
+    "number": 316,
+    "title": "Intermediate Financial Actg II",
+    "professor": "McLaughlin, Michael Patrick"
+  },
+  {
+    "subject": "ACTG",
+    "number": 445,
+    "title": "Federal Income Tax I",
+    "professor": "Savor, Stephanie Sikes"
+  },
+  {
+    "subject": "ACTG",
+    "number": 470,
+    "title": "Ethical Environment Business",
+    "professor": "Scully, George"
+  },
+  {
+    "subject": "ACTG",
+    "number": 475,
+    "title": "Database Accounting Systems",
+    "professor": "Kupchek, Michael J"
+  },
+  {
+    "subject": "ACTG",
+    "number": 485,
+    "title": "Valuation",
+    "professor": "McLaughlin, Michael Patrick"
+  },
+  {
+    "subject": "ACTG",
+    "number": 493,
+    "title": "Actg Cases Research & Analysis",
+    "professor": "Engel, Ellen"
+  },
+  {
+    "subject": "AH",
+    "number": 125,
+    "title": "Asian Art and Architecture",
+    "professor": "Becker, Catherine"
+  },
+  {
+    "subject": "AH",
+    "number": 301,
+    "title": "Theory&Method/Art History",
+    "professor": "Stimson, Blake"
+  },
+  {
+    "subject": "AH",
+    "number": 470,
+    "title": "Ephemeral art: Latin America",
+    "professor": "Deij Prado, Macarena"
+  },
+  {
+    "subject": "AHS",
+    "number": 210,
+    "title": "Intro to Rehab Science",
+    "professor": "Hasnain, Rooshey"
+  },
+  {
+    "subject": "AHS",
+    "number": 511,
+    "title": "Biostatistics I",
+    "professor": "Zejnullahi, Rrita"
+  },
+  {
+    "subject": "ANTH",
+    "number": 101,
+    "title": "World Cultures",
+    "professor": "Mouftah, Nermeen"
+  },
+  {
+    "subject": "ANTH",
+    "number": 216,
+    "title": "Medicine, Culture, & Society",
+    "professor": "Reddy, Gayatri"
+  },
+  {
+    "subject": "ANTH",
+    "number": 500,
+    "title": "Soc and Cult Theory I",
+    "professor": "Doane, Molly"
+  },
+  {
+    "subject": "ARCH",
+    "number": 470,
+    "title": "Structures I: Statics",
+    "professor": "Magruder, Robert"
+  },
+  {
+    "subject": "ARCH",
+    "number": 574,
+    "title": "Architectural Structures II",
+    "professor": "Mojekwu, Eugene Chukwunonso"
+  },
+  {
+    "subject": "ART",
+    "number": 130,
+    "title": "Intro to Paint(Major Only)",
+    "professor": "Schwindt, Samuel"
+  },
+  {
+    "subject": "ART",
+    "number": 151,
+    "title": "Intro to Creative Coding",
+    "professor": "Johnson, Garrett Laroy"
+  },
+  {
+    "subject": "ART",
+    "number": 240,
+    "title": "Topics in Sculpture I",
+    "professor": "Peterman, Dan"
+  },
+  {
+    "subject": "ART",
+    "number": 310,
+    "title": "Visual & Verbal Literacy",
+    "professor": "Ulrich Papczun, Kristy Lynn"
+  },
+  {
+    "subject": "ART",
+    "number": 410,
+    "title": "Art Education Practicum",
+    "professor": "Bhalla, Shivani"
+  },
+  {
+    "subject": "BA",
+    "number": 101,
+    "title": "Business First-Year Seminar",
+    "professor": "Nemec, Timothy Ryan"
+  },
+  {
+    "subject": "BA",
+    "number": 101,
+    "title": "Business First-Year Seminar",
+    "professor": "Valdez-Mansilla, Rosa"
+  },
+  {
+    "subject": "BA",
+    "number": 420,
+    "title": "Professional Presence",
+    "professor": "Souri, Ranjit J"
+  },
+  {
+    "subject": "BHIS",
+    "number": 460,
+    "title": "Intro to Hlth Informatics",
+    "professor": "Williams, Felecia Altevet"
+  },
+  {
+    "subject": "BHIS",
+    "number": 575,
+    "title": "App Stats Hlth Data Science",
+    "professor": "Bozinovich, Lu"
+  },
+  {
+    "subject": "ACTG",
+    "number": 446,
+    "title": "Federal Income Tax II",
+    "professor": "Savoy, Steven J"
+  },
+  {
+    "subject": "ACTG",
+    "number": 465,
+    "title": "Govt & Non-Profit Actg",
+    "professor": "Chang, Nathan"
+  },
+  {
+    "subject": "AH",
+    "number": 100,
+    "title": "Intro to Art &Art History",
+    "professor": "Archias, S Elise"
+  },
+  {
+    "subject": "AH",
+    "number": 180,
+    "title": "Intro to Museum & Exhibition",
+    "professor": "Deij Prado, Macarena"
+  },
+  {
+    "subject": "AH",
+    "number": 511,
+    "title": "Toward New Hist/Art,1960-Prsnt",
+    "professor": "Dubin, Nina"
+  },
+  {
+    "subject": "AHS",
+    "number": 375,
+    "title": "Ethics, Law in Health",
+    "professor": "Swirsky, Eric S"
+  },
+  {
+    "subject": "ANTH",
+    "number": 100,
+    "title": "Human Adventure",
+    "professor": "Bauer, Brian S"
+  },
+  {
+    "subject": "ANTH",
+    "number": 105,
+    "title": "Human Evolution",
+    "professor": "Sacks, Lita"
+  },
+  {
+    "subject": "ANTH",
+    "number": 502,
+    "title": "Theory&Method/Archaeology",
+    "professor": "Solinis Casparius, Rodrigo"
+  },
+  {
+    "subject": "ARAB",
+    "number": 101,
+    "title": "Elementary Arabic I",
+    "professor": "Almahamid, Jumana Mohammed"
+  },
+  {
+    "subject": "ARCH",
+    "number": 359,
+    "title": "Architectural Technology 1",
+    "professor": "Torres, Antonio"
+  },
+  {
+    "subject": "ARCH",
+    "number": 414,
+    "title": "Contemporary Practices",
+    "professor": "Somol, Robert E"
+  },
+  {
+    "subject": "ART",
+    "number": 190,
+    "title": "Workshops in Social Practice",
+    "professor": "Reynolds, Laurie Jo"
+  },
+  {
+    "subject": "BA",
+    "number": 101,
+    "title": "Business First-Year Seminar",
+    "professor": "Soriano, Diana Ethel"
+  },
+  {
+    "subject": "BA",
+    "number": 220,
+    "title": "Business Prof Dev II",
+    "professor": "Rodriguez, Paul"
+  },
+  {
+    "subject": "BA",
+    "number": 220,
+    "title": "Business Prof Dev II",
+    "professor": "Souri, Ranjit J"
+  },
+  {
+    "subject": "BA",
+    "number": 420,
+    "title": "Professional Presence",
+    "professor": "Rodriguez, Paul"
+  },
+  {
+    "subject": "BA",
+    "number": 494,
+    "title": "Career Exploration for BBA",
+    "professor": "Galeher, Janmarie"
+  },
+  {
+    "subject": "BA",
+    "number": 494,
+    "title": "Leadership: BBA Online",
+    "professor": "Atchley, Cindy J"
+  },
+  {
+    "subject": "BCMG",
+    "number": 594,
+    "title": "SpTpc BCMG: Grant Prop Writing",
+    "professor": "Segev, Nava"
+  },
+  {
+    "subject": "BIOS",
+    "number": 222,
+    "title": "Cell Biology",
+    "professor": "Dubreuil, Ronald R."
+  },
+  {
+    "subject": "BIOS",
+    "number": 230,
+    "title": "Evolution and Ecology",
+    "professor": "Nelson, Karin Noel"
+  },
+  {
+    "subject": "BIOS",
+    "number": 294,
+    "title": "Insect Evolution and Diversity",
+    "professor": "Molumby, Alan J"
+  },
+  {
+    "subject": "BIOS",
+    "number": 312,
+    "title": "Cell Biology Laboratory",
+    "professor": "Santus, William"
+  },
+  {
+    "subject": "BIOS",
+    "number": 331,
+    "title": "Ecology Laboratory",
+    "professor": "Ale, Som Bahadur"
+  },
+  {
+    "subject": "BIOS",
+    "number": 351,
+    "title": "Microbiology Laboratory",
+    "professor": "Bassett, Andrea Louise"
+  },
+  {
+    "subject": "BIOS",
+    "number": 592,
+    "title": "Research Seminar",
+    "professor": "Salles, Angeles"
+  },
+  {
+    "subject": "BME",
+    "number": 460,
+    "title": "Materials in Biomed Eng",
+    "professor": "Shokuhfar, Tolou"
+  },
+  {
+    "subject": "BME",
+    "number": 525,
+    "title": "Phys & Cellular Biomech Forces",
+    "professor": "Lee, James Chakman"
+  },
+  {
+    "subject": "BME",
+    "number": 595,
+    "title": "Seminar Biomedical Engineering",
+    "professor": "Takoudis, Christos G"
+  },
+  {
+    "subject": "CEES",
+    "number": 247,
+    "title": "CEES Sci-fi and Fantasy",
+    "professor": "Vaingurt, Julia"
+  },
+  {
+    "subject": "CHE",
+    "number": 210,
+    "title": "Material & Energy Balances",
+    "professor": "Wedgewood, Lewis E"
+  },
+  {
+    "subject": "CHE",
+    "number": 301,
+    "title": "Chem Engr Thermodynamics",
+    "professor": "Caracotsios, Michael"
+  },
+  {
+    "subject": "CHEM",
+    "number": 125,
+    "title": "Foundations of Chem Inquiry II",
+    "professor": "Stec, Ewa"
+  },
+  {
+    "subject": "CHEM",
+    "number": 340,
+    "title": "Physical Chem for BioChem I",
+    "professor": "Lorieau, Justin L"
+  },
+  {
+    "subject": "CHEM",
+    "number": 532,
+    "title": "Adv Organic Chemistry I",
+    "professor": "Driver, Tom G"
+  },
+  {
+    "subject": "CHIN",
+    "number": 101,
+    "title": "Elementary Chinese I",
+    "professor": "Wang, Bridget Wenya"
+  },
+  {
+    "subject": "CI",
+    "number": 414,
+    "title": "Middle and High School Lit",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "CLER",
+    "number": 612,
+    "title": "Medicine Sub-Internship",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "CLJ",
+    "number": 355,
+    "title": "Punishmt, Prisons, & Correctns",
+    "professor": "Ben-Moshe, Liat"
+  },
+  {
+    "subject": "CLJ",
+    "number": 422,
+    "title": "Victimization",
+    "professor": "Erez, Edna"
+  },
+  {
+    "subject": "CLJ",
+    "number": 493,
+    "title": "Contested Concepts Criminology",
+    "professor": "Gurusami, Susila"
+  },
+  {
+    "subject": "CME",
+    "number": 211,
+    "title": "Fluid Mechanics and Hydraulics",
+    "professor": "Abokifa, Ahmed"
+  },
+  {
+    "subject": "CME",
+    "number": 301,
+    "title": "Behav & Dsgn Metal Struct",
+    "professor": "Iranmanesh, Amirhossein"
+  },
+  {
+    "subject": "CME",
+    "number": 481,
+    "title": "Risk Mgmt in Construction",
+    "professor": "Karatas, Aslihan"
+  },
+  {
+    "subject": "CME",
+    "number": 516,
+    "title": "Landfills And Impoundment",
+    "professor": "Reddy, Krishna R"
+  },
+  {
+    "subject": "COMM",
+    "number": 101,
+    "title": "Intro to Communication",
+    "professor": "Bui, Diem-My Thi"
+  },
+  {
+    "subject": "COMM",
+    "number": 200,
+    "title": "Communication Technologies",
+    "professor": "McDowell, Zachary J"
+  },
+  {
+    "subject": "COMM",
+    "number": 216,
+    "title": "Digital Journalism",
+    "professor": "Reilley, Michael"
+  },
+  {
+    "subject": "COMM",
+    "number": 240,
+    "title": "Data Journalism",
+    "professor": "Reilley, Michael"
+  },
+  {
+    "subject": "COMM",
+    "number": 465,
+    "title": "Video Games and Society",
+    "professor": "Kim, Do Own"
+  },
+  {
+    "subject": "CS",
+    "number": 107,
+    "title": "Intro Comp & Programming",
+    "professor": "Kidane, Ellen G"
+  },
+  {
+    "subject": "CS",
+    "number": 294,
+    "title": "Undergraduate TA Seminar",
+    "professor": "Cranch, Cody Ingersoll"
+  },
+  {
+    "subject": "CS",
+    "number": 301,
+    "title": "Languages and Automata",
+    "professor": "Ibrahim, Omar"
+  },
+  {
+    "subject": "CS",
+    "number": 341,
+    "title": "Programming Language Concepts",
+    "professor": "Solworth, Jon A"
+  },
+  {
+    "subject": "CELE",
+    "number": 606,
+    "title": "Research-Medicine",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "CELE",
+    "number": 620,
+    "title": "Sleep Medicine",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "CHE",
+    "number": 205,
+    "title": "Computational Methods in ChE",
+    "professor": "Mehraeen, Shafigh"
+  },
+  {
+    "subject": "CHE",
+    "number": 453,
+    "title": "Fundamentals Electrochemistry",
+    "professor": "Chaplin, Brian P"
+  },
+  {
+    "subject": "CHEM",
+    "number": 101,
+    "title": "Preparatory Chemistry",
+    "professor": "Tripa, Cornel Emil"
+  },
+  {
+    "subject": "CHEM",
+    "number": 124,
+    "title": "Chemical Dynamics",
+    "professor": "Tripa, Cornel Emil"
+  },
+  {
+    "subject": "CHEM",
+    "number": 230,
+    "title": "Org Chem Bio Systems",
+    "professor": "Clark, Ginevra"
+  },
+  {
+    "subject": "CI",
+    "number": 403,
+    "title": "Literacy in the Disciplines",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "CI",
+    "number": 464,
+    "title": "Bilingualism and Literacy",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "CI",
+    "number": 484,
+    "title": "Curri & Instruct Middle School",
+    "professor": "Podsiadlik, Edward"
+  },
+  {
+    "subject": "CLER",
+    "number": 601,
+    "title": "Obstetrics and Gynecology",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "CLER",
+    "number": 619,
+    "title": "Surgery",
+    "professor": "Whittaker, Lorin Dixon"
+  },
+  {
+    "subject": "CLJ",
+    "number": 101,
+    "title": "Intro to Crim, Law, & Justice",
+    "professor": "McCarty, William Patrick"
+  },
+  {
+    "subject": "CLJ",
+    "number": 110,
+    "title": "Rights, Justice & the Law",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "CLJ",
+    "number": 220,
+    "title": "Criminology",
+    "professor": "Schuck, Amie"
+  },
+  {
+    "subject": "CLJ",
+    "number": 261,
+    "title": "Research Methods I",
+    "professor": "Maggio, Christopher"
+  },
+  {
+    "subject": "CLJ",
+    "number": 271,
+    "title": "Race & Incarceration",
+    "professor": "Stovall, David O"
+  },
+  {
+    "subject": "CLJ",
+    "number": 311,
+    "title": "Criminal Procedure",
+    "professor": "Lippman, Matthew Ross"
+  },
+  {
+    "subject": "CLJ",
+    "number": 423,
+    "title": "Violence",
+    "professor": "Frohmann, Lisa G"
+  },
+  {
+    "subject": "CLJ",
+    "number": 424,
+    "title": "Gender, Crime, & Justice",
+    "professor": "Erez, Edna"
+  },
+  {
+    "subject": "CLJ",
+    "number": 547,
+    "title": "Race, Class, Gender/Crime",
+    "professor": "Thompson, Julian G"
+  },
+  {
+    "subject": "CME",
+    "number": 197,
+    "title": "Intro to Civil Environment Eng",
+    "professor": "Ataei, Hossein"
+  },
+  {
+    "subject": "CME",
+    "number": 261,
+    "title": "Materials For Manufacturing",
+    "professor": "Karpov, Eduard"
+  },
+  {
+    "subject": "CME",
+    "number": 300,
+    "title": "Concrete Properties&Compositn",
+    "professor": "Issa, Mohsen"
+  },
+  {
+    "subject": "CME",
+    "number": 322,
+    "title": "Environmental Engineering",
+    "professor": "Khodadoust, Amid"
+  },
+  {
+    "subject": "CME",
+    "number": 402,
+    "title": "Highway Design",
+    "professor": "Peiravian, Farideddin"
+  },
+  {
+    "subject": "COMM",
+    "number": 140,
+    "title": "Fundamentals of Media Comm",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "COMM",
+    "number": 467,
+    "title": "Public Opinion & Pol Comm",
+    "professor": "Podrazik, Walter J"
+  },
+  {
+    "subject": "ACTG",
+    "number": 210,
+    "title": "Intro Fin Actg BBA Online",
+    "professor": "Foutty, Kenton Alan"
+  },
+  {
+    "subject": "ACTG",
+    "number": 211,
+    "title": "Intro Managerial Accounting",
+    "professor": "Chang, Nathan"
+  },
+  {
+    "subject": "AH",
+    "number": 235,
+    "title": "History of Design I",
+    "professor": "Mekinda, Jonathan"
+  },
+  {
+    "subject": "AH",
+    "number": 263,
+    "title": "Latin Amer Colonial Art",
+    "professor": "Deij Prado, Macarena"
+  },
+  {
+    "subject": "AHS",
+    "number": 100,
+    "title": "Applied Hlth Science Seminar I",
+    "professor": "Najdzin, Rachel Leigh"
+  },
+  {
+    "subject": "AHS",
+    "number": 330,
+    "title": "Phys and Mental Hlth in Rehab",
+    "professor": "Schwartz, Orit"
+  },
+  {
+    "subject": "AHS",
+    "number": 393,
+    "title": "Synthesis in Health &Rehab Sci",
+    "professor": "Kieso, Tiana Al-Aswad"
+  },
+  {
+    "subject": "AHS",
+    "number": 402,
+    "title": "Inter-professional Seminar",
+    "professor": "Wescott, Jennifer J"
+  },
+  {
+    "subject": "ANTH",
+    "number": 227,
+    "title": "Anc Civ Mex and Cent Amer",
+    "professor": "Solinis Casparius, Rodrigo"
+  },
+  {
+    "subject": "ARCH",
+    "number": 200,
+    "title": "Architecture and Society",
+    "professor": "Rovner, Melissa"
+  },
+  {
+    "subject": "ARCH",
+    "number": 205,
+    "title": "Architectural Studio 3",
+    "professor": "Gibson, Grant"
+  },
+  {
+    "subject": "ARCH",
+    "number": 414,
+    "title": "Contemporary Practices",
+    "professor": "Lally, Sean"
+  },
+  {
+    "subject": "ARCH",
+    "number": 522,
+    "title": "Topics in Arch Technology",
+    "professor": "Bair, Kelly"
+  },
+  {
+    "subject": "ART",
+    "number": 101,
+    "title": "Signifying Practices",
+    "professor": "Reeves, Christopher Matthew"
+  },
+  {
+    "subject": "ART",
+    "number": 112,
+    "title": "Intro to Drawing(Major Only)",
+    "professor": "Peterman, Dan"
+  },
+  {
+    "subject": "ART",
+    "number": 112,
+    "title": "Introduction to Drawing",
+    "professor": "Aguilar, Sarah"
+  },
+  {
+    "subject": "ART",
+    "number": 150,
+    "title": "Intro to New Media Arts",
+    "professor": "Moreno, Sal"
+  },
+  {
+    "subject": "ART",
+    "number": 170,
+    "title": "Intro to Filmmaking-Major Only",
+    "professor": "Wanitwat, Parinda"
+  },
+  {
+    "subject": "ART",
+    "number": 274,
+    "title": "Sound in Animation",
+    "professor": "Lopez, Michael"
+  },
+  {
+    "subject": "ART",
+    "number": 470,
+    "title": "Adv Projects: Moving Image",
+    "professor": "Reeder, Jennifer K"
+  },
+  {
+    "subject": "BA",
+    "number": 101,
+    "title": "Business First-Year Seminar",
+    "professor": "Bieliauskas, Rita Maria"
+  },
+  {
+    "subject": "BA",
+    "number": 200,
+    "title": "Business Communication",
+    "professor": "Banks, Jacinta"
+  },
+  {
+    "subject": "BA",
+    "number": 420,
+    "title": "Professional Presence",
+    "professor": "Brunlieb, Michael"
+  },
+  {
+    "subject": "BA",
+    "number": 494,
+    "title": "Org Change for BBA Online",
+    "professor": "Atchley, Cindy J"
+  },
+  {
+    "subject": "BHIS",
+    "number": 406,
+    "title": "Medical Terminology for HIM",
+    "professor": "Mills, Laura Lynn"
+  },
+  {
+    "subject": "BHIS",
+    "number": 410,
+    "title": "Hlth Data Struct & Mgmt",
+    "professor": "Cotton, Steven J"
+  },
+  {
+    "subject": "BHIS",
+    "number": 503,
+    "title": "Comm Skills in HI",
+    "professor": "Lui, Dick Ray"
+  },
+  {
+    "subject": "BIOS",
+    "number": 420,
+    "title": "Genomics",
+    "professor": "Lynch, Jeremy A"
+  },
+  {
+    "subject": "BIOS",
+    "number": 452,
+    "title": "Biochemistry I",
+    "professor": "Miller, Lawrence"
+  },
+  {
+    "subject": "BLST",
+    "number": 206,
+    "title": "BLST & Production of Knowledge",
+    "professor": "Jewell, Joseph Oscar"
+  },
+  {
+    "subject": "BME",
+    "number": 250,
+    "title": "Clinical Problems Biomed Eng",
+    "professor": "Hetling, John R"
+  },
+  {
+    "subject": "BME",
+    "number": 421,
+    "title": "Biomedical Imaging",
+    "professor": "Klatt, Dieter"
+  },
+  {
+    "subject": "BVIS",
+    "number": 510,
+    "title": "Anat Visualization",
+    "professor": "Wellman, Christa A"
+  },
+  {
+    "subject": "CHEM",
+    "number": 421,
+    "title": "Instrumental Analysis",
+    "professor": "Hu, Ying Samuel"
+  },
+  {
+    "subject": "CHEM",
+    "number": 550,
+    "title": "Biochemistry Seminar",
+    "professor": "Hu, Ying Samuel"
+  },
+  {
+    "subject": "CHEM",
+    "number": 592,
+    "title": "Chemical Research",
+    "professor": "Lee, Daesung"
+  },
+  {
+    "subject": "CHEM",
+    "number": 599,
+    "title": "PhD Thesis Research",
+    "professor": "Cabana-Jimenez, Jordi"
+  },
+  {
+    "subject": "CHSC",
+    "number": 586,
+    "title": "Health Behavior Intervent",
+    "professor": "Williams, Leslie"
+  },
+  {
+    "subject": "CI",
+    "number": 401,
+    "title": "Methods of Reading",
+    "professor": "Ulrich Papczun, Kristy Lynn"
+  },
+  {
+    "subject": "CL",
+    "number": 100,
+    "title": "Greek Civilization",
+    "professor": "Ros, Karen E"
+  },
+  {
+    "subject": "CLER",
+    "number": 603,
+    "title": "Pediatrics",
+    "professor": "Hupert, Jordan"
+  },
+  {
+    "subject": "CLER",
+    "number": 620,
+    "title": "Medicine",
+    "professor": "Aiyer, Meenakshy"
+  },
+  {
+    "subject": "CLJ",
+    "number": 345,
+    "title": "Police in Society",
+    "professor": "Beaujon, Danielle Jessup"
+  },
+  {
+    "subject": "CLJ",
+    "number": 374,
+    "title": "Dismantle School Prison Nexus",
+    "professor": "Stovall, David O"
+  },
+  {
+    "subject": "CLJ",
+    "number": 402,
+    "title": "Trial Interaction",
+    "professor": "Matoesian, Greg"
+  },
+  {
+    "subject": "CLJ",
+    "number": 442,
+    "title": "Comparative Crim Justc Inst",
+    "professor": "Beaujon, Danielle Jessup"
+  },
+  {
+    "subject": "CME",
+    "number": 290,
+    "title": "Engineering Surveying",
+    "professor": "Peiravian, Farideddin"
+  },
+  {
+    "subject": "CME",
+    "number": 405,
+    "title": "Foundation Dsgn& Analysis",
+    "professor": "Schulenberg, Joseph W"
+  },
+  {
+    "subject": "CME",
+    "number": 440,
+    "title": "Cities and Sustainability",
+    "professor": "Derrible, Sybil Jean Marie"
+  },
+  {
+    "subject": "CME",
+    "number": 502,
+    "title": "Bridge Design II",
+    "professor": "Issa, Mohsen"
+  },
+  {
+    "subject": "CME",
+    "number": 573,
+    "title": "Nanostructured Materials",
+    "professor": "Daly, Matthew"
+  },
+  {
+    "subject": "COMM",
+    "number": 203,
+    "title": "GRID in Communication",
+    "professor": "Mukherjee, Ishani"
+  },
+  {
+    "subject": "COMM",
+    "number": 234,
+    "title": "History of Television",
+    "professor": "Podrazik, Walter J"
+  },
+  {
+    "subject": "COMM",
+    "number": 294,
+    "title": "AI Journalism",
+    "professor": "Reilley, Michael"
+  },
+  {
+    "subject": "COMM",
+    "number": 301,
+    "title": "Communication Research",
+    "professor": "Bui, Diem-My Thi"
+  },
+  {
+    "subject": "BIOS",
+    "number": 446,
+    "title": "Evolution & Human Disease",
+    "professor": "Mason-Gamer, Roberta J"
+  },
+  {
+    "subject": "BME",
+    "number": 562,
+    "title": "Biomedical Implants",
+    "professor": "Mathew Thoppil, Mathew"
+  },
+  {
+    "subject": "BSTT",
+    "number": 562,
+    "title": "Linear Models",
+    "professor": "Bhaumik, Dulal"
+  },
+  {
+    "subject": "BVIS",
+    "number": 519,
+    "title": "Modeling I",
+    "professor": "Cloninger, Kelly Lee"
+  },
+  {
+    "subject": "CELE",
+    "number": 602,
+    "title": "Fundamental of Anesthesiology",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "CELE",
+    "number": 618,
+    "title": "Wound Care",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "CELE",
+    "number": 620,
+    "title": "ECM 3-4: M-4 TEACHING ELECTIVE",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "CHE",
+    "number": 201,
+    "title": "Intro to Thermodynamics",
+    "professor": "Bilgin, Betul"
+  },
+  {
+    "subject": "CHE",
+    "number": 396,
+    "title": "Senior Design I",
+    "professor": "Bilgin, Betul"
+  },
+  {
+    "subject": "CHEM",
+    "number": 100,
+    "title": "Chemistry and Life",
+    "professor": "Rosenhouse-Dantsker, Avia"
+  },
+  {
+    "subject": "CHEM",
+    "number": 116,
+    "title": "General and Analytical Chem I",
+    "professor": "Gramsch, Stephen Allen"
+  },
+  {
+    "subject": "CHEM",
+    "number": 402,
+    "title": "Chemical Information Systems",
+    "professor": "Papadantonakis, George A"
+  },
+  {
+    "subject": "CHEM",
+    "number": 528,
+    "title": "Chemical Separations",
+    "professor": "Cologna, Stephanie"
+  },
+  {
+    "subject": "CHSC",
+    "number": 423,
+    "title": "Community Health 3",
+    "professor": "Floyd, Brenikki R"
+  },
+  {
+    "subject": "CHSC",
+    "number": 593,
+    "title": "Doc Lab in CHS Research Dev",
+    "professor": "Mitchell, Uchechi"
+  },
+  {
+    "subject": "CI",
+    "number": 404,
+    "title": "Math in Urban Ed",
+    "professor": "Buenrostro, Patricia Maria"
+  },
+  {
+    "subject": "CI",
+    "number": 404,
+    "title": "Math in Urban Ed",
+    "professor": "Gutstein, Eric H"
+  },
+  {
+    "subject": "CL",
+    "number": 202,
+    "title": "Ancient Greece",
+    "professor": "Papakonstantinou, Zinon"
+  },
+  {
+    "subject": "CLER",
+    "number": 604,
+    "title": "Surgery",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "CLER",
+    "number": 621,
+    "title": "Family Practice",
+    "professor": "Batek, Linda S"
+  },
+  {
+    "subject": "CLER",
+    "number": 632,
+    "title": "Psychiatry",
+    "professor": "Garcia, Raymond C"
+  },
+  {
+    "subject": "CLJ",
+    "number": 261,
+    "title": "Research Methods I",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "CLJ",
+    "number": 450,
+    "title": "Surveillance & Society",
+    "professor": "Ibarra, Peter R"
+  },
+  {
+    "subject": "CME",
+    "number": 111,
+    "title": "The Art of Structural Form",
+    "professor": "Foster, Craig"
+  },
+  {
+    "subject": "CME",
+    "number": 112,
+    "title": "Evolution of Infrastructure",
+    "professor": "Banjavcic, Scott David"
+  },
+  {
+    "subject": "CME",
+    "number": 315,
+    "title": "Soil Mechanics & Lab",
+    "professor": "Reddy, Krishna R"
+  },
+  {
+    "subject": "COMM",
+    "number": 103,
+    "title": "Intro to Media",
+    "professor": "Taylor, Samuel H"
+  },
+  {
+    "subject": "COMM",
+    "number": 315,
+    "title": "Group Communication",
+    "professor": "Jones, John A"
+  },
+  {
+    "subject": "BIOS",
+    "number": 343,
+    "title": "Animal Physiological Systems",
+    "professor": "Daemicke Hansen, Alexandra Kristin"
+  },
+  {
+    "subject": "BIOS",
+    "number": 352,
+    "title": "Introductory Biochemistry",
+    "professor": "Polikanov, Yury S"
+  },
+  {
+    "subject": "BIOS",
+    "number": 482,
+    "title": "Mol and Dev Neurobiology Lab",
+    "professor": "Chang, Chieh"
+  },
+  {
+    "subject": "BIOS",
+    "number": 482,
+    "title": "Mol and Dev Neurobiology Lab",
+    "professor": "Chuang, Chiou-Fen"
+  },
+  {
+    "subject": "BME",
+    "number": 396,
+    "title": "Senior Design I",
+    "professor": "Browne, Michael Gordon"
+  },
+  {
+    "subject": "BME",
+    "number": 568,
+    "title": "Emerging Optical Imaging Tech",
+    "professor": "Yao, Xincheng"
+  },
+  {
+    "subject": "BME",
+    "number": 576,
+    "title": "Sensory Prostheses",
+    "professor": "Esmailbeigi, Hananeh"
+  },
+  {
+    "subject": "BSTT",
+    "number": 527,
+    "title": "Statistical Learning",
+    "professor": "Wang, Meida"
+  },
+  {
+    "subject": "BSTT",
+    "number": 537,
+    "title": "Longitudinal Data Analysis",
+    "professor": "Liu, Li C"
+  },
+  {
+    "subject": "CELE",
+    "number": 607,
+    "title": "M3 Neurology Clerkship",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "CHE",
+    "number": 321,
+    "title": "Chemical Reaction Engr",
+    "professor": "Singh, Meenesh Rajpal"
+  },
+  {
+    "subject": "CHE",
+    "number": 381,
+    "title": "Chem Engr Lab I",
+    "professor": "Zdunek, Alan"
+  },
+  {
+    "subject": "CHEM",
+    "number": 344,
+    "title": "Physical Chem/Biochemists II",
+    "professor": "Papadantonakis, George A"
+  },
+  {
+    "subject": "CHEM",
+    "number": 452,
+    "title": "Biochemistry I",
+    "professor": "Miller, Lawrence"
+  },
+  {
+    "subject": "CHIN",
+    "number": 103,
+    "title": "Intermediate Chinese I",
+    "professor": "Wang, Bridget Wenya"
+  },
+  {
+    "subject": "CHSC",
+    "number": 545,
+    "title": "Reproductive & Perinatal Hlth",
+    "professor": "Bergo, Cara Jane"
+  },
+  {
+    "subject": "CLER",
+    "number": 617,
+    "title": "Psychiatry",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "CLJ",
+    "number": 114,
+    "title": "Race, Class, Gender, Law",
+    "professor": "Stephens, Ash"
+  },
+  {
+    "subject": "CLJ",
+    "number": 120,
+    "title": "Crime and Society",
+    "professor": "Maggio, Christopher"
+  },
+  {
+    "subject": "CLJ",
+    "number": 492,
+    "title": "Sexual Assault: Legal Reforms",
+    "professor": "Matoesian, Greg"
+  },
+  {
+    "subject": "CME",
+    "number": 310,
+    "title": "Reinforc Concrete Struc Design",
+    "professor": "Iranmanesh, Amirhossein"
+  },
+  {
+    "subject": "CME",
+    "number": 396,
+    "title": "Civil Engr Systems Design",
+    "professor": "Ataei, Hossein"
+  },
+  {
+    "subject": "CME",
+    "number": 409,
+    "title": "Structural Analysis II",
+    "professor": "Ansari, Farhad"
+  },
+  {
+    "subject": "CME",
+    "number": 508,
+    "title": "Urban Travel Forecasting",
+    "professor": "Mohammadian, Abolfazl"
+  },
+  {
+    "subject": "COMM",
+    "number": 430,
+    "title": "Media, Info & Society",
+    "professor": "Quinn, Kelly Ann"
+  },
+  {
+    "subject": "CS",
+    "number": 251,
+    "title": "Data Structures",
+    "professor": "Ordentlich, Ethan"
+  },
+  {
+    "subject": "CS",
+    "number": 362,
+    "title": "Computer Design",
+    "professor": "Theys, Mitchell D"
+  },
+  {
+    "subject": "CS",
+    "number": 377,
+    "title": "Ethical Issues in Computing",
+    "professor": "Harmon, Zaccheus D"
+  },
+  {
+    "subject": "BLST",
+    "number": 100,
+    "title": "Introduction to Black Studies",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "BME",
+    "number": 101,
+    "title": "Intro Biomedical Engineering",
+    "professor": "Wang, Zhinan"
+  },
+  {
+    "subject": "BME",
+    "number": 240,
+    "title": "Modeling Data and Systems",
+    "professor": "Avanaki, Kamran"
+  },
+  {
+    "subject": "BME",
+    "number": 310,
+    "title": "Biosystems Analysis",
+    "professor": "Linninger, Andreas A"
+  },
+  {
+    "subject": "BME",
+    "number": 472,
+    "title": "Models of the Nervous System",
+    "professor": "Patton, James"
+  },
+  {
+    "subject": "BPS",
+    "number": 421,
+    "title": "Advanced Dosage Form Design",
+    "professor": "Pond, Alexander Nicholas"
+  },
+  {
+    "subject": "BSTT",
+    "number": 505,
+    "title": "Logist Regr & Survivl Analysis",
+    "professor": "Chen, Zhengjia"
+  },
+  {
+    "subject": "CELE",
+    "number": 606,
+    "title": "Critical Care Medicine",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "CELE",
+    "number": 615,
+    "title": "Psychiatry - Online",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "CHE",
+    "number": 330,
+    "title": "Polymer Science",
+    "professor": "Ibagere, Ezinne Chidiebere"
+  },
+  {
+    "subject": "CHE",
+    "number": 520,
+    "title": "Transport Phenomena",
+    "professor": "Wedgewood, Lewis E"
+  },
+  {
+    "subject": "CHEM",
+    "number": 101,
+    "title": "Preparatory Chemistry",
+    "professor": "Schroeder, Lianne E"
+  },
+  {
+    "subject": "CHEM",
+    "number": 122,
+    "title": "Matter and Energy",
+    "professor": "Hatfield, Rita"
+  },
+  {
+    "subject": "CHEM",
+    "number": 233,
+    "title": "Synthesis Techniques Lab",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "CHEM",
+    "number": 343,
+    "title": "Physical Chemistry Lab",
+    "professor": "Lorieau, Justin L"
+  },
+  {
+    "subject": "CHEM",
+    "number": 530,
+    "title": "Organic Chem Literature Seminr",
+    "professor": "Mohr, Justin T"
+  },
+  {
+    "subject": "CHIN",
+    "number": 101,
+    "title": "Elementary Chinese I",
+    "professor": "Meng, Duosi"
+  },
+  {
+    "subject": "CHSC",
+    "number": 421,
+    "title": "Community Health 1",
+    "professor": "Ibe-Lamberts, Kelechi D"
+  },
+  {
+    "subject": "CI",
+    "number": 401,
+    "title": "Methods of Reading",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "CI",
+    "number": 470,
+    "title": "Lang, Culture, and Learning",
+    "professor": "Morales, Paola Z."
+  },
+  {
+    "subject": "CI",
+    "number": 531,
+    "title": "Curr &Assmnt Equity Sec Sci Ed",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "CLER",
+    "number": 637,
+    "title": "Family Medicine Clerkship",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "CLJ",
+    "number": 210,
+    "title": "Principles of Criminal Law",
+    "professor": "DeWald, Ronald"
+  },
+  {
+    "subject": "CLJ",
+    "number": 356,
+    "title": "Comm Corrections & Reentry",
+    "professor": "Washington, Durrell Malik"
+  },
+  {
+    "subject": "CME",
+    "number": 201,
+    "title": "Statics",
+    "professor": "Banjavcic, Scott David"
+  },
+  {
+    "subject": "CME",
+    "number": 260,
+    "title": "Properties Of Materials",
+    "professor": "Kadkhodaei, Sara"
+  },
+  {
+    "subject": "CME",
+    "number": 419,
+    "title": "Structural Loads Determination",
+    "professor": "Mahamid, Mustafa"
+  },
+  {
+    "subject": "CME",
+    "number": 518,
+    "title": "Pollution Prevention",
+    "professor": "Khodadoust, Amid"
+  },
+  {
+    "subject": "BIOS",
+    "number": 110,
+    "title": "Biol of Cells & Organisms",
+    "professor": "Muller, Michael T"
+  },
+  {
+    "subject": "BIOS",
+    "number": 196,
+    "title": "Biology Colloquium",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "BIOS",
+    "number": 310,
+    "title": "Genetics Laboratory",
+    "professor": "Chong, Jer Pin"
+  },
+  {
+    "subject": "BIOS",
+    "number": 593,
+    "title": "Intro to Lab Research",
+    "professor": "Orenic, Teresa Vales"
+  },
+  {
+    "subject": "BIOS",
+    "number": 595,
+    "title": "Departmental Seminar",
+    "professor": "Richmond, Janet Elizabeth"
+  },
+  {
+    "subject": "BME",
+    "number": 333,
+    "title": "Bioinstrumentation Lab I",
+    "professor": "Wang, Zhinan"
+  },
+  {
+    "subject": "BME",
+    "number": 534,
+    "title": "Advanced Machine Learning",
+    "professor": "Liao, Wei-Hsun"
+  },
+  {
+    "subject": "BVIS",
+    "number": 543,
+    "title": "Animation III",
+    "professor": "Antia-Obong, Amami Elizabeth"
+  },
+  {
+    "subject": "CELE",
+    "number": 604,
+    "title": "Core Emerg Medicine Elective",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "CELE",
+    "number": 618,
+    "title": "CRITICAL CARE-SICU",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "CELE",
+    "number": 620,
+    "title": "Clinical Medical Spanish",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "CHE",
+    "number": 311,
+    "title": "Transport Phenomena I",
+    "professor": "Torabi, Korosh"
+  },
+  {
+    "subject": "CHE",
+    "number": 595,
+    "title": "Seminar In Chem Engr Research",
+    "professor": "Mehraeen, Shafigh"
+  },
+  {
+    "subject": "CHEM",
+    "number": 101,
+    "title": "Preparatory Chemistry",
+    "professor": "Stec, Ewa"
+  },
+  {
+    "subject": "CHEM",
+    "number": 115,
+    "title": "General and Organic Chemistry",
+    "professor": "Hatfield, Rita"
+  },
+  {
+    "subject": "CHEM",
+    "number": 122,
+    "title": "Matter and Energy",
+    "professor": "Clark, Ginevra"
+  },
+  {
+    "subject": "CHEM",
+    "number": 123,
+    "title": "Foundations of Chem Inquiry I",
+    "professor": "Wink, Donald J"
+  },
+  {
+    "subject": "CHEM",
+    "number": 314,
+    "title": "Inorganic Chemistry",
+    "professor": "Mankad, Neal"
+  },
+  {
+    "subject": "CHEM",
+    "number": 432,
+    "title": "Advanced Organic Chemistry",
+    "professor": "Wardrop, Duncan J"
+  },
+  {
+    "subject": "CHEM",
+    "number": 500,
+    "title": "Faculty Research",
+    "professor": "Lee, Daesung"
+  },
+  {
+    "subject": "CHIN",
+    "number": 209,
+    "title": "Adv Chinese Language & Culture",
+    "professor": "Meng, Duosi"
+  },
+  {
+    "subject": "CHSC",
+    "number": 434,
+    "title": "Qualitative Methods In PH",
+    "professor": "Ford, Tiffany Nicole"
+  },
+  {
+    "subject": "CHSC",
+    "number": 511,
+    "title": "MCH Inequities & Responses II",
+    "professor": "Rothstein, Jessica"
+  },
+  {
+    "subject": "CI",
+    "number": 403,
+    "title": "Literacy in the Disciplines",
+    "professor": "Woodard, Rebecca Lindsay"
+  },
+  {
+    "subject": "CI",
+    "number": 481,
+    "title": "Foundations Bilingual/ESL Ed",
+    "professor": "Razfar, Aria"
+  },
+  {
+    "subject": "CI",
+    "number": 540,
+    "title": "Linguistics for Teachers",
+    "professor": "Razfar, Aria"
+  },
+  {
+    "subject": "CLER",
+    "number": 602,
+    "title": "Psychiatry",
+    "professor": "Blitzstein, Sean Matthew"
+  },
+  {
+    "subject": "CLER",
+    "number": 616,
+    "title": "Obstetrics and Gynecology",
+    "professor": "Ali, Maqbool Begum"
+  },
+  {
+    "subject": "BME",
+    "number": 102,
+    "title": "Biomed Eng Freshman Seminar",
+    "professor": "Shokuhfar, Tolou"
+  },
+  {
+    "subject": "BME",
+    "number": 480,
+    "title": "Intro to Bioinformatics",
+    "professor": "Lin, Meishan"
+  },
+  {
+    "subject": "BVIS",
+    "number": 548,
+    "title": "Adv Illustration Techniques",
+    "professor": "Root-Thompson, Amanda S"
+  },
+  {
+    "subject": "CELE",
+    "number": 620,
+    "title": "Doctoring in Clinical Skills",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "CHE",
+    "number": 150,
+    "title": "Climate Eng for Global Warming",
+    "professor": "Singh, Meenesh Rajpal"
+  },
+  {
+    "subject": "CHEM",
+    "number": 222,
+    "title": "Analytical Chemistry",
+    "professor": "Clark, Ginevra"
+  },
+  {
+    "subject": "CI",
+    "number": 403,
+    "title": "Literacy in the Disciplines",
+    "professor": "Phillips, Nathan C"
+  },
+  {
+    "subject": "CI",
+    "number": 464,
+    "title": "Bilingualism and Literacy",
+    "professor": "Tanabe, Margaret Ann"
+  },
+  {
+    "subject": "CI",
+    "number": 470,
+    "title": "Lang, Culture, and Learning",
+    "professor": "Garcia, Jose"
+  },
+  {
+    "subject": "CI",
+    "number": 475,
+    "title": "Teach & Learn of Natural Sci",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "CI",
+    "number": 509,
+    "title": "Literacy Language Young Child",
+    "professor": "Woodard, Rebecca Lindsay"
+  },
+  {
+    "subject": "CL",
+    "number": 208,
+    "title": "Classical Mythology",
+    "professor": "Jones, Kyle Timothy"
+  },
+  {
+    "subject": "CLER",
+    "number": 606,
+    "title": "Family Medicine",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "CLER",
+    "number": 631,
+    "title": "Obstetrics and Gynecology",
+    "professor": "Durkee, Timothy James"
+  },
+  {
+    "subject": "CLER",
+    "number": 633,
+    "title": "Pediatrics",
+    "professor": "Phelan, Karen W"
+  },
+  {
+    "subject": "CLER",
+    "number": 635,
+    "title": "Medicine",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "CLJ",
+    "number": 394,
+    "title": "Prison, Race & Terror",
+    "professor": "Paik, Angela Naomi"
+  },
+  {
+    "subject": "CLJ",
+    "number": 394,
+    "title": "QUEERING CRIMINOLOGY",
+    "professor": "Stephens, Ash"
+  },
+  {
+    "subject": "CLJ",
+    "number": 394,
+    "title": "THE CARCERAL CAMPUS",
+    "professor": "Gurusami, Susila"
+  },
+  {
+    "subject": "CME",
+    "number": 494,
+    "title": "Intro to AI for Civil Engineer",
+    "professor": "Abokifa, Ahmed"
+  },
+  {
+    "subject": "COMM",
+    "number": 301,
+    "title": "Communication Research",
+    "professor": "Page, Janis Teruggi"
+  },
+  {
+    "subject": "COMM",
+    "number": 491,
+    "title": "Seminar in Media & Comm",
+    "professor": "Puig Abril, Eulalia"
+  },
+  {
+    "subject": "CS",
+    "number": 211,
+    "title": "Programming Practicum",
+    "professor": "Hayes, David P"
+  },
+  {
+    "subject": "CS",
+    "number": 377,
+    "title": "Ethical Issues in Computing",
+    "professor": "Burton, Emanuelle Neuman"
+  },
+  {
+    "subject": "CS",
+    "number": 401,
+    "title": "Computer Algorithms I",
+    "professor": "Asudeh, Abolfazl"
+  },
+  {
+    "subject": "CS",
+    "number": 401,
+    "title": "Computer Algorithms I",
+    "professor": "Kshemkalyani, Ajay D"
+  },
+  {
+    "subject": "CS",
+    "number": 401,
+    "title": "Computer Algorithms I",
+    "professor": "Turan, Gyorgy"
+  },
+  {
+    "subject": "CS",
+    "number": 441,
+    "title": "Cloud Computing Objects",
+    "professor": "Grechanik, Mark"
+  },
+  {
+    "subject": "CS",
+    "number": 442,
+    "title": "Software Engineering II",
+    "professor": "Bell, John T"
+  },
+  {
+    "subject": "DES",
+    "number": 222,
+    "title": "Human Experience in Design",
+    "professor": "Solis, Oscar Vernon"
+  },
+  {
+    "subject": "DES",
+    "number": 357,
+    "title": "Integrative Design Studio III",
+    "professor": "Haynes, Eric Von"
+  },
+  {
+    "subject": "DLG",
+    "number": 120,
+    "title": "Dialogue Seminar",
+    "professor": "Ford, Lunaire D."
+  },
+  {
+    "subject": "DLG",
+    "number": 120,
+    "title": "Dialogue Seminar",
+    "professor": "France, Brandi P"
+  },
+  {
+    "subject": "DOST",
+    "number": 332,
+    "title": "Oral/Systemc Topcs in Dent II",
+    "professor": "Kawar, Nadia"
+  },
+  {
+    "subject": "EAES",
+    "number": 418,
+    "title": "Biogeochemistry",
+    "professor": "Meyer-Dombard, D'Arcy"
+  },
+  {
+    "subject": "ECE",
+    "number": 115,
+    "title": "Intro to Elec & Cmptr Eng",
+    "professor": "Kosmach, James"
+  },
+  {
+    "subject": "ECE",
+    "number": 347,
+    "title": "Integrated Circuit Engr",
+    "professor": "Paprotny, Igor"
+  },
+  {
+    "subject": "ECE",
+    "number": 434,
+    "title": "Multimedia Systems",
+    "professor": "Yardimci Cetin, Yasemin"
+  },
+  {
+    "subject": "ECE",
+    "number": 491,
+    "title": "Intro QuantumMaterials&Devices",
+    "professor": "Chase, Zizwe"
+  },
+  {
+    "subject": "ECON",
+    "number": 111,
+    "title": "Freakonomics",
+    "professor": "Tzachrista, Foteini"
+  },
+  {
+    "subject": "ECON",
+    "number": 215,
+    "title": "Health Economics",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ECON",
+    "number": 333,
+    "title": "International Economics",
+    "professor": "Pieper, Paul J"
+  },
+  {
+    "subject": "ECON",
+    "number": 539,
+    "title": "Microeconometrics",
+    "professor": "Ost, Ben"
+  },
+  {
+    "subject": "ECON",
+    "number": 599,
+    "title": "PhD Thesis Research",
+    "professor": "Lubotsky, Darren Howard"
+  },
+  {
+    "subject": "ED",
+    "number": 100,
+    "title": "Intro to Urban Education",
+    "professor": "Larnell, Gregory Vincent"
+  },
+  {
+    "subject": "ED",
+    "number": 202,
+    "title": "Int Perspectives: Inclusive Ed",
+    "professor": "Waitoller, Federico R"
+  },
+  {
+    "subject": "ED",
+    "number": 264,
+    "title": "Sport, Education, and Society",
+    "professor": "Thorkildsen, Theresa A"
+  },
+  {
+    "subject": "ED",
+    "number": 350,
+    "title": "Intro to Urban Ed: Fieldwork I",
+    "professor": "Trinder, Victoria F."
+  },
+  {
+    "subject": "ED",
+    "number": 416,
+    "title": "Practical Inquiry I",
+    "professor": "Podsiadlik, Edward"
+  },
+  {
+    "subject": "EDPS",
+    "number": 589,
+    "title": "Admin & Leadership Theory",
+    "professor": "Simon, Victor"
+  },
+  {
+    "subject": "ENGL",
+    "number": 101,
+    "title": "Understanding Lit and Culture",
+    "professor": "Magoon, Mark"
+  },
+  {
+    "subject": "ENGL",
+    "number": 104,
+    "title": "Understanding Drama",
+    "professor": "Krall, Aaron Richard"
+  },
+  {
+    "subject": "ENGL",
+    "number": 131,
+    "title": "Understand Moving Image Arts",
+    "professor": "Burson, Harry"
+  },
+  {
+    "subject": "ENGL",
+    "number": 160,
+    "title": "Academic Writing I",
+    "professor": "Drown, James Remick"
+  },
+  {
+    "subject": "ENGL",
+    "number": 160,
+    "title": "Academic Writing I",
+    "professor": "Romero, Katharine Chynna"
+  },
+  {
+    "subject": "ENGL",
+    "number": 161,
+    "title": "Academic Writing II",
+    "professor": "Brand, Mark Robert"
+  },
+  {
+    "subject": "COMM",
+    "number": 491,
+    "title": "Seminar in Media & Comm",
+    "professor": "Rojecki, Andrew"
+  },
+  {
+    "subject": "CS",
+    "number": 109,
+    "title": "Prog for Engineers w/MatLab",
+    "professor": "Riazi, Zeinab"
+  },
+  {
+    "subject": "CS",
+    "number": 141,
+    "title": "Program Design II",
+    "professor": "Hodges, Mark Richard"
+  },
+  {
+    "subject": "CS",
+    "number": 151,
+    "title": "Foundations of Computing",
+    "professor": "Katok, Zoa"
+  },
+  {
+    "subject": "CS",
+    "number": 261,
+    "title": "Machine Organization",
+    "professor": "Theys, Mitchell D"
+  },
+  {
+    "subject": "CS",
+    "number": 277,
+    "title": "Technical Comm in Comp Sci",
+    "professor": "Carson, Jordan Marie"
+  },
+  {
+    "subject": "CS",
+    "number": 294,
+    "title": "Technical Interview Prep",
+    "professor": "Kanich, Chris"
+  },
+  {
+    "subject": "CS",
+    "number": 362,
+    "title": "Computer Design",
+    "professor": "McCarty, Evan"
+  },
+  {
+    "subject": "CS",
+    "number": 377,
+    "title": "Ethical Issues in Computing",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "CS",
+    "number": 378,
+    "title": "Framework-based Development",
+    "professor": "Buy, Ugo A"
+  },
+  {
+    "subject": "CS",
+    "number": 422,
+    "title": "User Interface Design",
+    "professor": "Kerne, Andrew"
+  },
+  {
+    "subject": "CS",
+    "number": 461,
+    "title": "Operating Systems",
+    "professor": "Eriksson, Jakob L"
+  },
+  {
+    "subject": "CS",
+    "number": 476,
+    "title": "Programming Language Dsgn",
+    "professor": "Grechanik, Mark"
+  },
+  {
+    "subject": "CS",
+    "number": 484,
+    "title": "Secure Web App Development",
+    "professor": "Kanich, Chris"
+  },
+  {
+    "subject": "CS",
+    "number": 491,
+    "title": "Seminar",
+    "professor": "Di Eugenio, Barbara"
+  },
+  {
+    "subject": "DAOB",
+    "number": 322,
+    "title": "Applied Oral and Behav Sci IV",
+    "professor": "Ashrafi, Seema Shahid"
+  },
+  {
+    "subject": "DES",
+    "number": 130,
+    "title": "3D Form Studio",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "DES",
+    "number": 130,
+    "title": "3D Form Studio",
+    "professor": "Twaddle, Alexander Giuseppe"
+  },
+  {
+    "subject": "DES",
+    "number": 150,
+    "title": "Digital Media Design I",
+    "professor": "Flemister, Stephen"
+  },
+  {
+    "subject": "DES",
+    "number": 150,
+    "title": "Digital Media Design I",
+    "professor": "Moriguchi, Jarin"
+  },
+  {
+    "subject": "DES",
+    "number": 208,
+    "title": "Typography I: Form",
+    "professor": "Brown, Jefferson Dakota"
+  },
+  {
+    "subject": "DES",
+    "number": 208,
+    "title": "Typography I: Form",
+    "professor": "Joseph, Dawn M"
+  },
+  {
+    "subject": "DES",
+    "number": 220,
+    "title": "Form and Image Studio",
+    "professor": "Wandro, Jennifer Marie"
+  },
+  {
+    "subject": "DES",
+    "number": 222,
+    "title": "Human Experience in Design",
+    "professor": "Pacheco, Xavier J"
+  },
+  {
+    "subject": "DES",
+    "number": 420,
+    "title": " IXD I",
+    "professor": "Wangerin, Noah Martin"
+  },
+  {
+    "subject": "DES",
+    "number": 420,
+    "title": "Mobile App Design I",
+    "professor": "Tsoupikova, Daria"
+  },
+  {
+    "subject": "DES",
+    "number": 480,
+    "title": "Graphic Design Thesis I",
+    "professor": "Neves, Pedro Manuel Santos Jose"
+  },
+  {
+    "subject": "DES",
+    "number": 520,
+    "title": "Design Seminar",
+    "professor": "Bertran, Bridgette"
+  },
+  {
+    "subject": "BHIS",
+    "number": 529,
+    "title": "Business Intel & Analytics",
+    "professor": "Isola, Miriam L."
+  },
+  {
+    "subject": "BIOS",
+    "number": 110,
+    "title": "Biol of Cells & Organisms",
+    "professor": "Daemicke Hansen, Alexandra Kristin"
+  },
+  {
+    "subject": "BIOS",
+    "number": 595,
+    "title": "Departmental Seminar",
+    "professor": "Orenic, Teresa Vales"
+  },
+  {
+    "subject": "BLST",
+    "number": 110,
+    "title": "Intro Af Am Lit, 1760-1910",
+    "professor": "Jun, Helen Heran"
+  },
+  {
+    "subject": "BME",
+    "number": 205,
+    "title": "Biomed Eng Thermodynamics",
+    "professor": "Penalver Bernabe, Beatriz"
+  },
+  {
+    "subject": "BME",
+    "number": 325,
+    "title": "Biotransport",
+    "professor": "Peng, Zhangli"
+  },
+  {
+    "subject": "BME",
+    "number": 339,
+    "title": "Biostatistics I",
+    "professor": "Dai, Yang"
+  },
+  {
+    "subject": "BME",
+    "number": 481,
+    "title": "Bioinformatics Laboratory",
+    "professor": "Lin, Meishan"
+  },
+  {
+    "subject": "BME",
+    "number": 599,
+    "title": "Ph.D. Thesis Research",
+    "professor": "Khetani, Salman"
+  },
+  {
+    "subject": "BME",
+    "number": 599,
+    "title": "Ph.D. Thesis Research",
+    "professor": "Yao, Xincheng"
+  },
+  {
+    "subject": "BVIS",
+    "number": 502,
+    "title": "Clin Sciences for BVIS",
+    "professor": "Orwick, Karen"
+  },
+  {
+    "subject": "BVIS",
+    "number": 505,
+    "title": "Vis Learning & Thinking I",
+    "professor": "Lebowicz, Leah Amanda"
+  },
+  {
+    "subject": "BVIS",
+    "number": 595,
+    "title": "Seminar in Biomed Visual",
+    "professor": "Lebowicz, Leah Amanda"
+  },
+  {
+    "subject": "CELE",
+    "number": 606,
+    "title": "Advanced Immunology",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "CELE",
+    "number": 606,
+    "title": "Infectious Diseases",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "CHE",
+    "number": 312,
+    "title": "Transport Phenomena II",
+    "professor": "Takoudis, Christos G"
+  },
+  {
+    "subject": "CHE",
+    "number": 433,
+    "title": "Aspen Plus Process Simulation",
+    "professor": "Caracotsios, Michael"
+  },
+  {
+    "subject": "CHE",
+    "number": 499,
+    "title": "Professional Develpmnt Seminar",
+    "professor": "Zdunek, Alan"
+  },
+  {
+    "subject": "CHEM",
+    "number": 124,
+    "title": "Chemical Dynamics",
+    "professor": "Stec, Ewa"
+  },
+  {
+    "subject": "CHEM",
+    "number": 130,
+    "title": "Survey of Organic & Biochem",
+    "professor": "Schroeder, Lianne E"
+  },
+  {
+    "subject": "CHEM",
+    "number": 234,
+    "title": "Chemical Synthesis",
+    "professor": "Anderson, Laura L."
+  },
+  {
+    "subject": "CHEM",
+    "number": 342,
+    "title": "Physical Chemistry I",
+    "professor": "Kral, Petr"
+  },
+  {
+    "subject": "CHEM",
+    "number": 599,
+    "title": "PhD Thesis Research",
+    "professor": "Lee, Daesung"
+  },
+  {
+    "subject": "CI",
+    "number": 404,
+    "title": "Math in Urban Ed",
+    "professor": "Nishimura, Marlynne K"
+  },
+  {
+    "subject": "CI",
+    "number": 450,
+    "title": "Societal Bases of Languages",
+    "professor": "Baker-Doyle, Kira J"
+  },
+  {
+    "subject": "CI",
+    "number": 552,
+    "title": "Curriculum & Cultural Context",
+    "professor": "Webb, Torica L"
+  },
+  {
+    "subject": "CL",
+    "number": 102,
+    "title": "Classical Literature",
+    "professor": "Ros, Karen E"
+  },
+  {
+    "subject": "CLER",
+    "number": 605,
+    "title": "Medicine",
+    "professor": "Khan, Asra R"
+  },
+  {
+    "subject": "CS",
+    "number": 412,
+    "title": "Intro to Machine Learning",
+    "professor": "GU, Zhaochen"
+  },
+  {
+    "subject": "CS",
+    "number": 421,
+    "title": "Language Processing",
+    "professor": "Zhang, Xinhua"
+  },
+  {
+    "subject": "CS",
+    "number": 450,
+    "title": "Intro to Networking",
+    "professor": "Kshemkalyani, Ajay D"
+  },
+  {
+    "subject": "CS",
+    "number": 468,
+    "title": "Network Security",
+    "professor": "Polakis, Jason"
+  },
+  {
+    "subject": "CS",
+    "number": 480,
+    "title": "Database Systems",
+    "professor": "Hayes, David P"
+  },
+  {
+    "subject": "CS",
+    "number": 599,
+    "title": "PhD Thesis Research",
+    "professor": "Yu, Philip S"
+  },
+  {
+    "subject": "DES",
+    "number": 120,
+    "title": "2D Form Studio",
+    "professor": "Van Zee, Raeann Elizabeth"
+  },
+  {
+    "subject": "DES",
+    "number": 130,
+    "title": "3D Form Studio",
+    "professor": "Seskauskas, Michael R"
+  },
+  {
+    "subject": "DES",
+    "number": 140,
+    "title": "Design Drawing",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "DES",
+    "number": 140,
+    "title": "Design Drawing",
+    "professor": "Rynkiewicz, Jacob"
+  },
+  {
+    "subject": "DES",
+    "number": 150,
+    "title": "Digital Media Design I",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "DES",
+    "number": 208,
+    "title": "Typography I: Form",
+    "professor": "Ackley, Jason E"
+  },
+  {
+    "subject": "DES",
+    "number": 230,
+    "title": "Industrial Design II",
+    "professor": "Muller, Peter P"
+  },
+  {
+    "subject": "DES",
+    "number": 501,
+    "title": "Research Seminar I",
+    "professor": "Brown, Jefferson Dakota"
+  },
+  {
+    "subject": "DHD",
+    "number": 303,
+    "title": "Disability Activism",
+    "professor": "Nishida, Akemi"
+  },
+  {
+    "subject": "DHD",
+    "number": 590,
+    "title": "Field Experience in DHD",
+    "professor": "Miller, Rebecca Anne"
+  },
+  {
+    "subject": "DHD",
+    "number": 594,
+    "title": "Adv Special Topics in DHD",
+    "professor": "Hooyenga, Kathy A"
+  },
+  {
+    "subject": "EAES",
+    "number": 290,
+    "title": "Current Topics in EAES",
+    "professor": "Hernandez Uribe, David"
+  },
+  {
+    "subject": "ECE",
+    "number": 317,
+    "title": "DSP I",
+    "professor": "Soltanalian, Mojtaba"
+  },
+  {
+    "subject": "ECE",
+    "number": 340,
+    "title": "Electronics I",
+    "professor": "Caliskan, Vahe"
+  },
+  {
+    "subject": "ECE",
+    "number": 417,
+    "title": "Digital Signal Processing II",
+    "professor": "Cetin, Ahmet Enis"
+  },
+  {
+    "subject": "ECE",
+    "number": 559,
+    "title": "Neural Networks",
+    "professor": "Ohannessian, Mesrob Ichkhan"
+  },
+  {
+    "subject": "ECE",
+    "number": 595,
+    "title": "Departmental Seminar",
+    "professor": "Banerjee, Aritra"
+  },
+  {
+    "subject": "ECE",
+    "number": 599,
+    "title": "PhD Thesis Research",
+    "professor": "Partin Vaisband, Inna"
+  },
+  {
+    "subject": "ECON",
+    "number": 475,
+    "title": "Urban Econ and Public Policy",
+    "professor": "Casey, Marcus D"
+  },
+  {
+    "subject": "ED",
+    "number": 101,
+    "title": "Critical Literacies in a Digit",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ED",
+    "number": 200,
+    "title": "Educ Policy Foundations",
+    "professor": "Lipman, Pauline J."
+  },
+  {
+    "subject": "ED",
+    "number": 205,
+    "title": "Race, Ethnicity, & Education",
+    "professor": "Webb, Torica L"
+  },
+  {
+    "subject": "COMM",
+    "number": 326,
+    "title": "PR and Social Responsibility",
+    "professor": "Page, Janis Teruggi"
+  },
+  {
+    "subject": "CS",
+    "number": 100,
+    "title": "Discovering Computer Science",
+    "professor": "Bell, John T"
+  },
+  {
+    "subject": "CS",
+    "number": 377,
+    "title": "Ethical Issues in Computing",
+    "professor": "Clayville, Kristel"
+  },
+  {
+    "subject": "CS",
+    "number": 401,
+    "title": "Computer Algorithms I",
+    "professor": "Ibrahim, Omar"
+  },
+  {
+    "subject": "CS",
+    "number": 411,
+    "title": "Artificial Intelligence I",
+    "professor": "Gmytrasiewicz, Piotr"
+  },
+  {
+    "subject": "CS",
+    "number": 483,
+    "title": "Big Data Mining",
+    "professor": "Cheng, Lu"
+  },
+  {
+    "subject": "CS",
+    "number": 522,
+    "title": "Human-Computer Interaction",
+    "professor": "Chattopadhyay, Debaleena"
+  },
+  {
+    "subject": "CS",
+    "number": 559,
+    "title": "Neural Networks",
+    "professor": "Ohannessian, Mesrob Ichkhan"
+  },
+  {
+    "subject": "CS",
+    "number": 584,
+    "title": "Advanced Data Mining",
+    "professor": "Yu, Philip S"
+  },
+  {
+    "subject": "CS",
+    "number": 590,
+    "title": "Research Methods in CS",
+    "professor": "Di Eugenio, Barbara"
+  },
+  {
+    "subject": "CS",
+    "number": 594,
+    "title": "Found. of Permissionless Sys.",
+    "professor": "Sidiropoulos, Anastasios"
+  },
+  {
+    "subject": "CS",
+    "number": 598,
+    "title": "MS Thesis Research",
+    "professor": "Di Eugenio, Barbara"
+  },
+  {
+    "subject": "DAOB",
+    "number": 342,
+    "title": "Applied Oral and Behav Sci X",
+    "professor": "Ward, Stephanie M"
+  },
+  {
+    "subject": "DES",
+    "number": 240,
+    "title": "Visualization I",
+    "professor": "Rynkiewicz, Jacob"
+  },
+  {
+    "subject": "DES",
+    "number": 350,
+    "title": "Digital Media Design IV",
+    "professor": "Watson, Austin Chase"
+  },
+  {
+    "subject": "DES",
+    "number": 411,
+    "title": "Senior Design Colloquium II",
+    "professor": "Wandro, Jennifer Marie"
+  },
+  {
+    "subject": "DES",
+    "number": 420,
+    "title": "IXD I",
+    "professor": "Jang, Sung B"
+  },
+  {
+    "subject": "DES",
+    "number": 480,
+    "title": "Graphic Design Thesis I",
+    "professor": "Bracamontes-Roeger, Linda"
+  },
+  {
+    "subject": "DES",
+    "number": 520,
+    "title": "Design Seminar",
+    "professor": "Mekinda, Jonathan"
+  },
+  {
+    "subject": "DHD",
+    "number": 102,
+    "title": "Disability in American Film",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "DHD",
+    "number": 548,
+    "title": "Assistive Tech Tools in Ed",
+    "professor": "Cochrane, Daniel P"
+  },
+  {
+    "subject": "EAES",
+    "number": 579,
+    "title": "Climate and Ecosystem Science",
+    "professor": "McNicol, Gavin"
+  },
+  {
+    "subject": "ECE",
+    "number": 225,
+    "title": "Circuit Analysis",
+    "professor": "Caliskan, Vahe"
+  },
+  {
+    "subject": "ECE",
+    "number": 265,
+    "title": "Intro to Logic Design",
+    "professor": "Goncharoff, Vladimir"
+  },
+  {
+    "subject": "ECE",
+    "number": 322,
+    "title": "Intro to Electromag and Appl",
+    "professor": "Erricolo, Danilo"
+  },
+  {
+    "subject": "ECE",
+    "number": 333,
+    "title": "Computer Comm Networks I",
+    "professor": "Abu Salah, Lo'Ay Mohammad"
+  },
+  {
+    "subject": "ECE",
+    "number": 341,
+    "title": "Probabil &Rand Proc for Engr",
+    "professor": "Gunderman, Lane Gabriel"
+  },
+  {
+    "subject": "ECE",
+    "number": 410,
+    "title": "Advanced Circuit Analysis",
+    "professor": "Goncharoff, Vladimir"
+  },
+  {
+    "subject": "ED",
+    "number": 210,
+    "title": "Learning and Instruction",
+    "professor": "Morton, Terrell R"
+  },
+  {
+    "subject": "ED",
+    "number": 416,
+    "title": "Practical Inquiry I",
+    "professor": "Trinder, Victoria F."
+  },
+  {
+    "subject": "ED",
+    "number": 445,
+    "title": "Adolescence & Schools",
+    "professor": "Katsiaficas, Dalal Chrysoula Hanna"
+  },
+  {
+    "subject": "EDPS",
+    "number": 563,
+    "title": "Politics of Gender, Sex & Ed",
+    "professor": "Sheth, Manali"
+  },
+  {
+    "subject": "EDPS",
+    "number": 591,
+    "title": "Professional Capstone Inquiry",
+    "professor": "Barron, Cynthia K"
+  },
+  {
+    "subject": "ELSI",
+    "number": 41,
+    "title": "Engl for Academic Purposes I",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ENGL",
+    "number": 150,
+    "title": "Intro Acad Writing Nonnat",
+    "professor": "Romero, Katharine Chynna"
+  },
+  {
+    "subject": "ENGL",
+    "number": 151,
+    "title": "Intro to Academic Writing",
+    "professor": "Gayle, Robin Carole Petrovic"
+  },
+  {
+    "subject": "ENGL",
+    "number": 154,
+    "title": "Understanding Rhetoric",
+    "professor": "Shearer, Jay B"
+  },
+  {
+    "subject": "ENGL",
+    "number": 160,
+    "title": "Academic Writing I",
+    "professor": "Glomski, Christopher C"
+  },
+  {
+    "subject": "ENGL",
+    "number": 160,
+    "title": "Academic Writing I",
+    "professor": "He, Ling"
+  },
+  {
+    "subject": "ENGL",
+    "number": 160,
+    "title": "Academic Writing I",
+    "professor": "Stolley, Lisa Anne"
+  },
+  {
+    "subject": "ENGL",
+    "number": 161,
+    "title": "Academic Writing II",
+    "professor": "Dertinger, Nicholas"
+  },
+  {
+    "subject": "ENGL",
+    "number": 161,
+    "title": "Academic Writing II",
+    "professor": "Magoon, Mark"
+  },
+  {
+    "subject": "ENGL",
+    "number": 208,
+    "title": "English Studies I: Beg to 17C",
+    "professor": "Gore, Jeffrey S"
+  },
+  {
+    "subject": "ENGL",
+    "number": 245,
+    "title": "Gender, Sexuality and Lit",
+    "professor": "Rupert, Jennifer"
+  },
+  {
+    "subject": "ENGL",
+    "number": 282,
+    "title": "Peer Tutoring in Writing Ctr",
+    "professor": "Romero, Katharine Chynna"
+  },
+  {
+    "subject": "ENGL",
+    "number": 290,
+    "title": "Intro Writ Poetry",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ENGL",
+    "number": 291,
+    "title": "Intro Writing of Fiction",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ENGL",
+    "number": 380,
+    "title": "Adv Professional Writing",
+    "professor": "Hayek, Philip Wesley"
+  },
+  {
+    "subject": "ENGL",
+    "number": 389,
+    "title": "Writing for Community Advocacy",
+    "professor": "Leick, Karen"
+  },
+  {
+    "subject": "ENGL",
+    "number": 482,
+    "title": "Writing Center Leadership",
+    "professor": "Guerrero, Antonio"
+  },
+  {
+    "subject": "ENGR",
+    "number": 100,
+    "title": "ECE Success Seminar - FYF",
+    "professor": "Narubin Durbin, Simona Ieva"
+  },
+  {
+    "subject": "ENGR",
+    "number": 100,
+    "title": "MIE Success Seminar - FYF",
+    "professor": "Narubin Durbin, Simona Ieva"
+  },
+  {
+    "subject": "ENGR",
+    "number": 111,
+    "title": "Pract Additive Manufacturing",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ENGR",
+    "number": 494,
+    "title": "DuSable Trailblazing Scholar",
+    "professor": "Abiade, Jeremiah T"
+  },
+  {
+    "subject": "EOHS",
+    "number": 421,
+    "title": "Occupational Hlth &Safety Prac",
+    "professor": "Sietsema, Margaret M"
+  },
+  {
+    "subject": "EPID",
+    "number": 520,
+    "title": "Genetics in Epidemiology",
+    "professor": "Kelly, Tanika N"
+  },
+  {
+    "subject": "CME",
+    "number": 585,
+    "title": "Construction Engrg Project",
+    "professor": "Ataei, Hossein"
+  },
+  {
+    "subject": "COMM",
+    "number": 204,
+    "title": "Gender and Popular Culture",
+    "professor": "Celeste, Manoucheka"
+  },
+  {
+    "subject": "COMM",
+    "number": 303,
+    "title": "Communication and Culture",
+    "professor": "Maris, Elena Rosa"
+  },
+  {
+    "subject": "COMM",
+    "number": 330,
+    "title": "Mass Media and Pop Cultur",
+    "professor": "Mukherjee, Ishani"
+  },
+  {
+    "subject": "COMM",
+    "number": 445,
+    "title": "Politics of Platforms",
+    "professor": "Maris, Elena Rosa"
+  },
+  {
+    "subject": "COMM",
+    "number": 490,
+    "title": "Sem in Culture and Comm",
+    "professor": "Taylor, Samuel H"
+  },
+  {
+    "subject": "CS",
+    "number": 361,
+    "title": "Systems Programming",
+    "professor": "Maratos, George P"
+  },
+  {
+    "subject": "CS",
+    "number": 501,
+    "title": "Computer Algorithms II",
+    "professor": "Sun, Xiaorui"
+  },
+  {
+    "subject": "CS",
+    "number": 520,
+    "title": "Causal Inference and Learning",
+    "professor": "Zheleva, Elena"
+  },
+  {
+    "subject": "CS",
+    "number": 594,
+    "title": "Geo. Data Struc. for Data Que.",
+    "professor": "Sintos, Stavros"
+  },
+  {
+    "subject": "DAOB",
+    "number": 303,
+    "title": "Applied Oral and Behav Sci",
+    "professor": "Hill, Brittaney J"
+  },
+  {
+    "subject": "DES",
+    "number": 110,
+    "title": "Design Colloquium",
+    "professor": "Ferrone, Felicia"
+  },
+  {
+    "subject": "DES",
+    "number": 230,
+    "title": "Industrial Design II",
+    "professor": "Ferrone, Felicia"
+  },
+  {
+    "subject": "DES",
+    "number": 308,
+    "title": "Typography III: Expression",
+    "professor": "Fisher, John Henrie"
+  },
+  {
+    "subject": "DES",
+    "number": 410,
+    "title": "Senior Design Colloquium I",
+    "professor": "Wandro, Jennifer Marie"
+  },
+  {
+    "subject": "DHD",
+    "number": 568,
+    "title": "AAC in Educational Settings",
+    "professor": "Mojica-Castro, Julie"
+  },
+  {
+    "subject": "ECE",
+    "number": 342,
+    "title": "Electronics II",
+    "professor": "Metlushko, Vitali V"
+  },
+  {
+    "subject": "ECE",
+    "number": 491,
+    "title": "Intro to Deep Neural Networks",
+    "professor": "Cetin, Ahmet Enis"
+  },
+  {
+    "subject": "ECON",
+    "number": 300,
+    "title": "Econometrics",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ED",
+    "number": 151,
+    "title": "College Connection I",
+    "professor": "Redding, Lori Ann"
+  },
+  {
+    "subject": "ED",
+    "number": 252,
+    "title": "Controversies in U.S. Schools",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ED",
+    "number": 394,
+    "title": "Special Topics in Educ",
+    "professor": "Morrison, Jeniece Marie"
+  },
+  {
+    "subject": "ED",
+    "number": 425,
+    "title": "CIA Urban Sec Classroom",
+    "professor": "Morrison, Corey M"
+  },
+  {
+    "subject": "EDPS",
+    "number": 555,
+    "title": "Political Econ of Urban Ed",
+    "professor": "Lipman, Pauline J."
+  },
+  {
+    "subject": "EDPS",
+    "number": 558,
+    "title": "Leading Improvement Math Lrng",
+    "professor": "Mayrowetz, David S"
+  },
+  {
+    "subject": "EDPS",
+    "number": 586,
+    "title": "Practitioner Inquiry Schl Ldrs",
+    "professor": "Brekke, Patricia Barrera"
+  },
+  {
+    "subject": "ELSI",
+    "number": 12,
+    "title": "Reading/Writing 2, IEP",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ELSI",
+    "number": 43,
+    "title": "Engl for Academic Purposes II",
+    "professor": "Buendia, Jenna Rashel"
+  },
+  {
+    "subject": "CS",
+    "number": 421,
+    "title": "Language Processing",
+    "professor": "Parde, Natalie"
+  },
+  {
+    "subject": "CS",
+    "number": 423,
+    "title": "Natural User Interactions",
+    "professor": "Soni, Nikita Nandish"
+  },
+  {
+    "subject": "CS",
+    "number": 479,
+    "title": "Wearables Technology Lab",
+    "professor": "Esmailbeigi, Hananeh"
+  },
+  {
+    "subject": "CS",
+    "number": 519,
+    "title": "Machine Learning on Graphs",
+    "professor": "Medya, Sourav"
+  },
+  {
+    "subject": "CST",
+    "number": 293,
+    "title": "Dante's Divine Comedy",
+    "professor": "Fabbian, Maria Chiara"
+  },
+  {
+    "subject": "DBCS",
+    "number": 324,
+    "title": "Biomed and Clin Sciences IV",
+    "professor": "Miloro, Mary Beth"
+  },
+  {
+    "subject": "DES",
+    "number": 160,
+    "title": "Design Photography",
+    "professor": "Nichols, Lauren Manning"
+  },
+  {
+    "subject": "DES",
+    "number": 220,
+    "title": "Form and Image Studio",
+    "professor": "Bracamontes-Roeger, Linda"
+  },
+  {
+    "subject": "DES",
+    "number": 330,
+    "title": "Industrial Design IV",
+    "professor": "Wangerin, Noah Martin"
+  },
+  {
+    "subject": "DES",
+    "number": 500,
+    "title": "Combined Studio",
+    "professor": "Fisher, John Henrie"
+  },
+  {
+    "subject": "DES",
+    "number": 502,
+    "title": "Research Seminar II",
+    "professor": "Strickland, Kevin Arnold"
+  },
+  {
+    "subject": "DHD",
+    "number": 201,
+    "title": "Disability, Rights, & Culture",
+    "professor": "Horowitz, Emily A"
+  },
+  {
+    "subject": "DHD",
+    "number": 301,
+    "title": "Disability Research Methods",
+    "professor": "Murthy, Sumithra"
+  },
+  {
+    "subject": "DHD",
+    "number": 401,
+    "title": "DHD & Community Participation",
+    "professor": "Berg, Kristin Lee"
+  },
+  {
+    "subject": "DLG",
+    "number": 120,
+    "title": "Dialogue Seminar",
+    "professor": "Ellis, Christopher Keith"
+  },
+  {
+    "subject": "DLG",
+    "number": 120,
+    "title": "Dialogue Seminar",
+    "professor": "Pleasant, Aisha-Kia Chawnelle"
+  },
+  {
+    "subject": "DLG",
+    "number": 120,
+    "title": "Dialogue Seminar",
+    "professor": "Soriano, Diana Ethel"
+  },
+  {
+    "subject": "DLG",
+    "number": 120,
+    "title": "Dialogue Seminar",
+    "professor": "Womble, Allen"
+  },
+  {
+    "subject": "EAES",
+    "number": 484,
+    "title": "Planetary Science",
+    "professor": "Dombard, Andrew"
+  },
+  {
+    "subject": "ECE",
+    "number": 266,
+    "title": "Intro to Embedded Systems",
+    "professor": "Zhang, Zhao"
+  },
+  {
+    "subject": "ECE",
+    "number": 421,
+    "title": "Intro to Antenna Propagation",
+    "professor": "Chen, Pai-Yen"
+  },
+  {
+    "subject": "ECE",
+    "number": 451,
+    "title": "Priniciples of Modern Control",
+    "professor": "Jin, Ning"
+  },
+  {
+    "subject": "ECE",
+    "number": 534,
+    "title": "Elements of Info Theory",
+    "professor": "Devroye, Natasha"
+  },
+  {
+    "subject": "ECE",
+    "number": 594,
+    "title": "High Performance ICs/Systems",
+    "professor": "Partin Vaisband, Inna"
+  },
+  {
+    "subject": "ECON",
+    "number": 120,
+    "title": "Principles of Microeconomics",
+    "professor": "Tauras, John Arvydas"
+  },
+  {
+    "subject": "ECON",
+    "number": 331,
+    "title": "Labor Economics",
+    "professor": "Ost, Ben"
+  },
+  {
+    "subject": "ECON",
+    "number": 334,
+    "title": "Economic Development",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ECON",
+    "number": 509,
+    "title": "Microeconomic Theory I",
+    "professor": "Feigenberg, Benjamin"
+  },
+  {
+    "subject": "EPID",
+    "number": 550,
+    "title": "Public Health Surveillance",
+    "professor": "Dworkin, Mark Steven"
+  },
+  {
+    "subject": "EPSY",
+    "number": 416,
+    "title": "Program Quality",
+    "professor": "Schachter, Rachel Erin"
+  },
+  {
+    "subject": "EPSY",
+    "number": 471,
+    "title": "Healthy Development Trauma",
+    "professor": "Torres, Stephanie Andrea"
+  },
+  {
+    "subject": "EPSY",
+    "number": 522,
+    "title": "Internship in Early Childhood",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "FIN",
+    "number": 250,
+    "title": "Personal Finance",
+    "professor": "Bateman, Donald Andrew"
+  },
+  {
+    "subject": "FR",
+    "number": 101,
+    "title": "Elementary French 1",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "FR",
+    "number": 103,
+    "title": "Intermediate French I",
+    "professor": "Chidlow, Angela"
+  },
+  {
+    "subject": "FR",
+    "number": 104,
+    "title": "Intermediate French II",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "FR",
+    "number": 214,
+    "title": "Popular Culture and Media",
+    "professor": "Weber, Elizabeth D"
+  },
+  {
+    "subject": "GEOG",
+    "number": 161,
+    "title": "Intro to Economic Geog",
+    "professor": "Furlong, Matthew Murphy"
+  },
+  {
+    "subject": "HIM",
+    "number": 101,
+    "title": "Hlth Info Mgmt 1st Yr Seminar",
+    "professor": "Hitchcock, Lois Marie"
+  },
+  {
+    "subject": "HIM",
+    "number": 374,
+    "title": "Health Info Research",
+    "professor": "Glondys, Barbara A"
+  },
+  {
+    "subject": "HIM",
+    "number": 481,
+    "title": "Healthcare Financial Mgmt",
+    "professor": "Ramirez, Gideon"
+  },
+  {
+    "subject": "HIST",
+    "number": 210,
+    "title": "Asian American Histories",
+    "professor": "Jin, Michael"
+  },
+  {
+    "subject": "HIST",
+    "number": 259,
+    "title": "Women and Gender in America",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "HON",
+    "number": 133,
+    "title": "Hon Core Nat Wrld/Wrld Cultr",
+    "professor": "Ale, Som Bahadur"
+  },
+  {
+    "subject": "HON",
+    "number": 201,
+    "title": "Honors Seminar",
+    "professor": "Elkington, Bethany G"
+  },
+  {
+    "subject": "HON",
+    "number": 201,
+    "title": "Honors Seminar",
+    "professor": "Moreno, Teresa Helena"
+  },
+  {
+    "subject": "HON",
+    "number": 201,
+    "title": "Honors Seminar",
+    "professor": "Swirsky, Eric S"
+  },
+  {
+    "subject": "HPA",
+    "number": 444,
+    "title": "Strategic Plan Budget/Finance",
+    "professor": "Govia, Carlo M"
+  },
+  {
+    "subject": "HPA",
+    "number": 494,
+    "title": "Emergency Prep and Response",
+    "professor": "McKinney, Suzet Meylieu"
+  },
+  {
+    "subject": "IDS",
+    "number": 200,
+    "title": "Intro Mgmt Info System",
+    "professor": "Khan, Asfia F"
+  },
+  {
+    "subject": "IDS",
+    "number": 270,
+    "title": "Business Statistics I",
+    "professor": "Sclove, Stanley L"
+  },
+  {
+    "subject": "IDS",
+    "number": 270,
+    "title": "Business Statistics I",
+    "professor": "Talukdar, Manjuri"
+  },
+  {
+    "subject": "IDS",
+    "number": 355,
+    "title": "Operations Management",
+    "professor": "Adelman, Canan"
+  },
+  {
+    "subject": "IDS",
+    "number": 405,
+    "title": "Bus Syst Analysis & Design",
+    "professor": "Lu, Yingda"
+  },
+  {
+    "subject": "IDS",
+    "number": 516,
+    "title": "Data Analytics Business",
+    "professor": "Bhattacharyya, Siddhartha"
+  },
+  {
+    "subject": "CLER",
+    "number": 618,
+    "title": "Pediatrics",
+    "professor": "McLauchlan, Heather M."
+  },
+  {
+    "subject": "CLJ",
+    "number": 491,
+    "title": "Explore Alts to Incarceration",
+    "professor": "Nguyen, Nicole"
+  },
+  {
+    "subject": "CME",
+    "number": 203,
+    "title": "Strength Of Materials",
+    "professor": "Karpov, Eduard"
+  },
+  {
+    "subject": "CME",
+    "number": 411,
+    "title": "Chem For Environ Professionals",
+    "professor": "Bentel, Michael J"
+  },
+  {
+    "subject": "CME",
+    "number": 422,
+    "title": "Wastewater Treatment",
+    "professor": "Stabryla, Lisa"
+  },
+  {
+    "subject": "CME",
+    "number": 441,
+    "title": "City Logistics",
+    "professor": "Lin, Jie"
+  },
+  {
+    "subject": "CME",
+    "number": 587,
+    "title": "Construction Estimating & Sch",
+    "professor": "Karatas, Aslihan"
+  },
+  {
+    "subject": "CME",
+    "number": 591,
+    "title": "Civil &Material Eng Internship",
+    "professor": "Ataei, Hossein"
+  },
+  {
+    "subject": "CS",
+    "number": 111,
+    "title": "Program Design I",
+    "professor": "Franke, Baker E"
+  },
+  {
+    "subject": "CS",
+    "number": 301,
+    "title": "Languages and Automata",
+    "professor": "DasGupta, Bhaskar"
+  },
+  {
+    "subject": "CS",
+    "number": 415,
+    "title": "Computer Vision I",
+    "professor": "Tang, Wei"
+  },
+  {
+    "subject": "CS",
+    "number": 418,
+    "title": "Introduction to Data Science",
+    "professor": "Ravi, Sathya"
+  },
+  {
+    "subject": "CS",
+    "number": 418,
+    "title": "Introduction to Data Science",
+    "professor": "Ziebart, Brian D"
+  },
+  {
+    "subject": "CS",
+    "number": 487,
+    "title": "Secure Computer Systems",
+    "professor": "Wang, Xiaoguang"
+  },
+  {
+    "subject": "CS",
+    "number": 488,
+    "title": "Intro to Cryptography",
+    "professor": "Chakraborti, Anrin"
+  },
+  {
+    "subject": "CS",
+    "number": 514,
+    "title": "App Artificial Intelligence",
+    "professor": "Gmytrasiewicz, Piotr"
+  },
+  {
+    "subject": "CS",
+    "number": 550,
+    "title": "Advanced Computer Networks",
+    "professor": "Vamanan, Balajee"
+  },
+  {
+    "subject": "CS",
+    "number": 583,
+    "title": "Data Mining & Text Mining",
+    "professor": "Liu, Bing"
+  },
+  {
+    "subject": "DES",
+    "number": 160,
+    "title": "Design Photography",
+    "professor": "Flemister, Stephen"
+  },
+  {
+    "subject": "DES",
+    "number": 170,
+    "title": "Color Theory",
+    "professor": "Flemister, Stephen"
+  },
+  {
+    "subject": "DES",
+    "number": 208,
+    "title": "Typography I: Form",
+    "professor": "Barontini, Rafael"
+  },
+  {
+    "subject": "DES",
+    "number": 255,
+    "title": "Integrative Design Studio I",
+    "professor": "Hegazy, Amira"
+  },
+  {
+    "subject": "DES",
+    "number": 308,
+    "title": "Typography III: Expression",
+    "professor": "Spee, Grace A"
+  },
+  {
+    "subject": "DES",
+    "number": 350,
+    "title": "Digital Media Design IV",
+    "professor": "Armstrong, Lisa G"
+  },
+  {
+    "subject": "DES",
+    "number": 355,
+    "title": "Design Seminar",
+    "professor": "Ferrone, Felicia"
+  },
+  {
+    "subject": "DHD",
+    "number": 101,
+    "title": "Disability in U.S. Society",
+    "professor": "van Heumen, Lieke"
+  },
+  {
+    "subject": "DHD",
+    "number": 204,
+    "title": "Disability in the Humanities",
+    "professor": "Vaidya, Shruti"
+  },
+  {
+    "subject": "DHD",
+    "number": 440,
+    "title": "Intro to Assistive Tech",
+    "professor": "Hedman, Glenn"
+  },
+  {
+    "subject": "ECON",
+    "number": 520,
+    "title": "Microecon for Business",
+    "professor": "Ma, Lingjie"
+  },
+  {
+    "subject": "ED",
+    "number": 425,
+    "title": "CIA Urban Sec Classroom",
+    "professor": "Pitcher, Mary Ann"
+  },
+  {
+    "subject": "ED",
+    "number": 450,
+    "title": "Pre-Student Teaching",
+    "professor": "Hill, Danielle Lashe"
+  },
+  {
+    "subject": "EDPS",
+    "number": 557,
+    "title": "Developing Org and Leadership",
+    "professor": "Giles, Mark S"
+  },
+  {
+    "subject": "ENGL",
+    "number": 105,
+    "title": "Understanding Fiction",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ENGL",
+    "number": 160,
+    "title": "Academic Writing I",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ENGL",
+    "number": 160,
+    "title": "Academic Writing I",
+    "professor": "Rupert, Jennifer"
+  },
+  {
+    "subject": "ENGL",
+    "number": 161,
+    "title": "Academic Writing II",
+    "professor": "Drown, James Remick"
+  },
+  {
+    "subject": "ENGL",
+    "number": 161,
+    "title": "Academic Writing II",
+    "professor": "Hayek, Philip Wesley"
+  },
+  {
+    "subject": "ENGL",
+    "number": 207,
+    "title": "Interpretation & Crit Analysis",
+    "professor": "Schaafsma, David W"
+  },
+  {
+    "subject": "ENGL",
+    "number": 207,
+    "title": "Interpretation & Crit Analysis",
+    "professor": "Whalen, Terence James"
+  },
+  {
+    "subject": "ENGL",
+    "number": 238,
+    "title": "Fiction, Sci-Fi & Fantasy",
+    "professor": "Mohanraj, Mary Anne"
+  },
+  {
+    "subject": "ENGL",
+    "number": 292,
+    "title": "Intro Writ Nonfiction Prose",
+    "professor": "O'Neil, Kimberly Jean"
+  },
+  {
+    "subject": "ENGL",
+    "number": 500,
+    "title": "Master's Proseminar",
+    "professor": "Davis, Lennard J"
+  },
+  {
+    "subject": "ENGR",
+    "number": 100,
+    "title": "CME Success Seminar - Transfer",
+    "professor": "Narubin Durbin, Simona Ieva"
+  },
+  {
+    "subject": "ENGR",
+    "number": 100,
+    "title": "Engineering Success Seminar",
+    "professor": "Sanders, Elizabeth Anne"
+  },
+  {
+    "subject": "EPID",
+    "number": 591,
+    "title": "Current Epid Literature",
+    "professor": "Olshansky, Stuart Jay"
+  },
+  {
+    "subject": "EPID",
+    "number": 594,
+    "title": "Concepts in Causal EPI",
+    "professor": "Rauscher, Garth H"
+  },
+  {
+    "subject": "EPSY",
+    "number": 100,
+    "title": "Human Development Learning",
+    "professor": "Sanchez, Bernadette"
+  },
+  {
+    "subject": "EPSY",
+    "number": 150,
+    "title": "Human Dev & Learn Acad Success",
+    "professor": "Sanchez, Bernadette"
+  },
+  {
+    "subject": "EPSY",
+    "number": 257,
+    "title": "Adult Dev and Aging",
+    "professor": "Weststrate, Nicholas"
+  },
+  {
+    "subject": "EPSY",
+    "number": 426,
+    "title": "Dev, Health, Wellness",
+    "professor": "Sheridan, Kathleen M"
+  },
+  {
+    "subject": "EPSY",
+    "number": 522,
+    "title": "Internship in Early Childhood",
+    "professor": "Abel, Barbara"
+  },
+  {
+    "subject": "EPSY",
+    "number": 551,
+    "title": "Item Response Theory",
+    "professor": "Karabatsos, George"
+  },
+  {
+    "subject": "EPSY",
+    "number": 594,
+    "title": "Spcl Topics in Ed Psych",
+    "professor": "Hall, Jori N"
+  },
+  {
+    "subject": "FIN",
+    "number": 300,
+    "title": "Intro to Finance",
+    "professor": "Diaz Bianco, Aaron"
+  },
+  {
+    "subject": "FIN",
+    "number": 412,
+    "title": "Portfolio Management",
+    "professor": "Chen, Hsiu-Lang"
+  },
+  {
+    "subject": "FIN",
+    "number": 423,
+    "title": "Financial Modeling",
+    "professor": "Healy, Thomas Charles"
+  },
+  {
+    "subject": "ECE",
+    "number": 464,
+    "title": "Testing and Reliability",
+    "professor": "Rao, Wenjing"
+  },
+  {
+    "subject": "ECE",
+    "number": 599,
+    "title": "PhD Thesis Research",
+    "professor": "Chen, Pai-Yen"
+  },
+  {
+    "subject": "ECON",
+    "number": 121,
+    "title": "Principles of Macroeconomics",
+    "professor": "Ahundjanov, Behzod"
+  },
+  {
+    "subject": "ECON",
+    "number": 121,
+    "title": "Principles of Macroeconomics",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ECON",
+    "number": 221,
+    "title": "Macroeconomics",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ECON",
+    "number": 342,
+    "title": "Regional Economics",
+    "professor": "Persky, Joseph Jacob"
+  },
+  {
+    "subject": "ED",
+    "number": 200,
+    "title": "Educ Policy Foundations",
+    "professor": "Danns, Dionne A"
+  },
+  {
+    "subject": "ED",
+    "number": 307,
+    "title": "Nature & Practices of Nat Sci",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ED",
+    "number": 403,
+    "title": "Hist of Amer Ed Policy",
+    "professor": "Danns, Dionne A"
+  },
+  {
+    "subject": "ED",
+    "number": 470,
+    "title": "Educ Pract w/Seminar I",
+    "professor": "Nelson, Rita Sherrod"
+  },
+  {
+    "subject": "ENDO",
+    "number": 620,
+    "title": "Endodontics Clinic",
+    "professor": "Johnson, Bradford Ray"
+  },
+  {
+    "subject": "ENGL",
+    "number": 160,
+    "title": "Academic Writing I",
+    "professor": "Brown, Deziree Aleace"
+  },
+  {
+    "subject": "ENGL",
+    "number": 161,
+    "title": "Academic Writing II",
+    "professor": "Hiday, Corbin R"
+  },
+  {
+    "subject": "ENGL",
+    "number": 161,
+    "title": "Academic Writing II",
+    "professor": "Sherfinski, Todd"
+  },
+  {
+    "subject": "ENGL",
+    "number": 237,
+    "title": "Graphic Novels",
+    "professor": "Lannon, Keegan"
+  },
+  {
+    "subject": "ENGL",
+    "number": 382,
+    "title": "Editing and Publishing",
+    "professor": "Christian, Margena A"
+  },
+  {
+    "subject": "ENGL",
+    "number": 384,
+    "title": "Technical Writing",
+    "professor": "Hayek, Philip Wesley"
+  },
+  {
+    "subject": "ENGL",
+    "number": 571,
+    "title": "Fiction Workshop",
+    "professor": "Grimes, Christopher"
+  },
+  {
+    "subject": "ENGR",
+    "number": 100,
+    "title": "Engr Success Seminar - online",
+    "professor": "Narubin Durbin, Simona Ieva"
+  },
+  {
+    "subject": "ENTR",
+    "number": 310,
+    "title": "Intro to Entrepreneurship",
+    "professor": "Ibrahim, Shahnaz"
+  },
+  {
+    "subject": "EPID",
+    "number": 402,
+    "title": "Hlth Policy for Epi & Biostat",
+    "professor": "Chan, Kee"
+  },
+  {
+    "subject": "EPID",
+    "number": 595,
+    "title": "Epid Research Seminar",
+    "professor": "Persky, Victoria Weyler"
+  },
+  {
+    "subject": "EPSY",
+    "number": 255,
+    "title": "Child Dev Contemp Society",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "EPSY",
+    "number": 256,
+    "title": "Adolescent & Early Adult Dev",
+    "professor": "Katsiaficas, Dalal Chrysoula Hanna"
+  },
+  {
+    "subject": "EPSY",
+    "number": 326,
+    "title": "Child Hlth Safety & Nutrition",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "EPSY",
+    "number": 380,
+    "title": "Instruct Design and Training",
+    "professor": "Riel, Jeremy"
+  },
+  {
+    "subject": "EPSY",
+    "number": 446,
+    "title": "Character Early Adolescence",
+    "professor": "Griffith, Aisha"
+  },
+  {
+    "subject": "EPSY",
+    "number": 522,
+    "title": "Internship in Early Childhood",
+    "professor": "Delgado, Christina"
+  },
+  {
+    "subject": "EPSY",
+    "number": 543,
+    "title": "Adv Analysis Variance/Ed Res",
+    "professor": "Yin, Yue"
+  },
+  {
+    "subject": "ENGL",
+    "number": 161,
+    "title": "Academic Writing II",
+    "professor": "Brici, Ovidiu"
+  },
+  {
+    "subject": "ENGL",
+    "number": 161,
+    "title": "Academic Writing II",
+    "professor": "Guerrero, Antonio"
+  },
+  {
+    "subject": "ENGL",
+    "number": 237,
+    "title": "Graphic Novels",
+    "professor": "Drown, James Remick"
+  },
+  {
+    "subject": "ENGL",
+    "number": 253,
+    "title": "Environmental Rhetoric",
+    "professor": "Boulay, Katherine"
+  },
+  {
+    "subject": "ENGL",
+    "number": 282,
+    "title": "Peer Tutoring in Writing Ctr",
+    "professor": "Aleksa, Vainis"
+  },
+  {
+    "subject": "ENGL",
+    "number": 305,
+    "title": "Studies in Fiction",
+    "professor": "Schaafsma, David W"
+  },
+  {
+    "subject": "ENGL",
+    "number": 585,
+    "title": "Theoretical Sites",
+    "professor": "Coviello, Peter M"
+  },
+  {
+    "subject": "ENGR",
+    "number": 100,
+    "title": "BME Success Seminar - Transfer",
+    "professor": "Narubin Durbin, Simona Ieva"
+  },
+  {
+    "subject": "ENGR",
+    "number": 100,
+    "title": "CME Success Seminar - FYF",
+    "professor": "Narubin Durbin, Simona Ieva"
+  },
+  {
+    "subject": "ENTR",
+    "number": 200,
+    "title": "Survey of Entrepreneurship",
+    "professor": "Shrader, Rodney C"
+  },
+  {
+    "subject": "EPID",
+    "number": 406,
+    "title": "Epidemiologic Computing",
+    "professor": "Rauscher, Garth H"
+  },
+  {
+    "subject": "EPSY",
+    "number": 382,
+    "title": "Child, Family, and Comm",
+    "professor": "Torres, Stephanie Andrea"
+  },
+  {
+    "subject": "EPSY",
+    "number": 500,
+    "title": "Proseminar Educ Psychology I",
+    "professor": "Humphries, Marisha Lynnette"
+  },
+  {
+    "subject": "EPSY",
+    "number": 540,
+    "title": "Applied Qualitative Methods",
+    "professor": "Teasdale, Rebecca M"
+  },
+  {
+    "subject": "FIN",
+    "number": 300,
+    "title": "Intro to Finance",
+    "professor": "Shea, Justin M"
+  },
+  {
+    "subject": "FIN",
+    "number": 340,
+    "title": "International Financial Market",
+    "professor": "Arslan Ayaydin, Ozgur"
+  },
+  {
+    "subject": "FIN",
+    "number": 422,
+    "title": "Alternative Investments",
+    "professor": "Farre-Mensa, Joan"
+  },
+  {
+    "subject": "FR",
+    "number": 103,
+    "title": "Intermediate French I",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "GAMD",
+    "number": 200,
+    "title": "Art & Science of Medicine",
+    "professor": "Swirsky, Eric S"
+  },
+  {
+    "subject": "GEMS",
+    "number": 521,
+    "title": "Foundations Biomed Sciences I",
+    "professor": "Sharma, Kamal"
+  },
+  {
+    "subject": "GLAS",
+    "number": 105,
+    "title": "Asian Am Iden, Culture & Comm",
+    "professor": "Patel, Viraj S"
+  },
+  {
+    "subject": "GLAS",
+    "number": 231,
+    "title": "Intro to Chinese Politics",
+    "professor": "Zhang, Yue"
+  },
+  {
+    "subject": "HIM",
+    "number": 319,
+    "title": "Alternative Hlth Records",
+    "professor": "Williams, Felecia Altevet"
+  },
+  {
+    "subject": "HIST",
+    "number": 199,
+    "title": "Chicago and the World",
+    "professor": "Davis, Cory A"
+  },
+  {
+    "subject": "HIST",
+    "number": 213,
+    "title": "Europe: 1815 -1914",
+    "professor": "Abbott, John"
+  },
+  {
+    "subject": "HN",
+    "number": 100,
+    "title": "Intro to Nutrition",
+    "professor": "Lam, Uyen"
+  },
+  {
+    "subject": "HN",
+    "number": 201,
+    "title": "Nutr, Phys Activ, &Hlth Assess",
+    "professor": "Straughan, Kirsten Annika"
+  },
+  {
+    "subject": "HN",
+    "number": 202,
+    "title": "Culture and Food",
+    "professor": "Fantuzzi, Giamila"
+  },
+  {
+    "subject": "FR",
+    "number": 104,
+    "title": "Intermediate French II",
+    "professor": "Chidlow, Angela"
+  },
+  {
+    "subject": "GC",
+    "number": 470,
+    "title": "Essentials for Animal Research",
+    "professor": "Fortman, Jeffrey D"
+  },
+  {
+    "subject": "GC",
+    "number": 510,
+    "title": "Oral Communication for ITA's",
+    "professor": "Gier, Megan Elizabeth"
+  },
+  {
+    "subject": "GEMS",
+    "number": 506,
+    "title": "GEMS Research Rotation",
+    "professor": "Merrill, Bradley J"
+  },
+  {
+    "subject": "GLAS",
+    "number": 105,
+    "title": "Asian Am Iden Cultures & Comm",
+    "professor": "Ignacio, Julian Rey"
+  },
+  {
+    "subject": "GLAS",
+    "number": 123,
+    "title": "Intro Asian American Lit",
+    "professor": "Chiang, Mark"
+  },
+  {
+    "subject": "HIM",
+    "number": 410,
+    "title": "Intro to the Hlthcare Sys",
+    "professor": "Einhorn, George W"
+  },
+  {
+    "subject": "HIST",
+    "number": 204,
+    "title": "Greek Art & Archaeology",
+    "professor": "Ros, Karen E"
+  },
+  {
+    "subject": "HIST",
+    "number": 236,
+    "title": "Premodern Russia and Eurasia",
+    "professor": "Mogilner, Marina"
+  },
+  {
+    "subject": "HN",
+    "number": 405,
+    "title": "Food as Medicine",
+    "professor": "Wadhwa, Meenakshi"
+  },
+  {
+    "subject": "HN",
+    "number": 455,
+    "title": "Supervised Practice II",
+    "professor": "Oshita, Shayna Emily"
+  },
+  {
+    "subject": "HON",
+    "number": 101,
+    "title": "Freshman Orientation Sem",
+    "professor": "Baeza, Cristian Eduardo"
+  },
+  {
+    "subject": "HON",
+    "number": 101,
+    "title": "Freshman Orientation Sem",
+    "professor": "Burns-Howard, Kathryn"
+  },
+  {
+    "subject": "HON",
+    "number": 121,
+    "title": "Hon Core Ind & Soc / Creat Art",
+    "professor": "Saona, Maria Margarita"
+  },
+  {
+    "subject": "HON",
+    "number": 140,
+    "title": "Honors Core Indiv & Society",
+    "professor": "Spencer, Taylor Marie"
+  },
+  {
+    "subject": "HON",
+    "number": 201,
+    "title": "Honors Seminar",
+    "professor": "Armstrong, Anne Rebecca"
+  },
+  {
+    "subject": "HON",
+    "number": 201,
+    "title": "Honors Seminar",
+    "professor": "Dubreuil, Ronald R."
+  },
+  {
+    "subject": "HON",
+    "number": 201,
+    "title": "Honors Seminar",
+    "professor": "Rathod, Chirag Sharadchandra"
+  },
+  {
+    "subject": "HON",
+    "number": 201,
+    "title": "Honors Seminar",
+    "professor": "Zaatari, Zeina"
+  },
+  {
+    "subject": "HON",
+    "number": 301,
+    "title": "Foundations for the Future",
+    "professor": "Karaskiewicz, Rachel Holtz"
+  },
+  {
+    "subject": "HPA",
+    "number": 430,
+    "title": "Intro Public Policy",
+    "professor": "Kelly, Annemarie"
+  },
+  {
+    "subject": "HPA",
+    "number": 465,
+    "title": "Hlth Info & Dec Supp Syst",
+    "professor": "Markowski, Justin Henry"
+  },
+  {
+    "subject": "IDEA",
+    "number": 110,
+    "title": "Creativity and Innovation",
+    "professor": "Higgins, Hannah B"
+  },
+  {
+    "subject": "IDS",
+    "number": 371,
+    "title": "Business Statistics II",
+    "professor": "Sparks, John"
+  },
+  {
+    "subject": "IDS",
+    "number": 406,
+    "title": "IDS Consulting Practicum",
+    "professor": "Chandrasekaran, Ranganathan"
+  },
+  {
+    "subject": "IDS",
+    "number": 520,
+    "title": "Info Infrastruc & Security",
+    "professor": "Mohammed, Mustafa N"
+  },
+  {
+    "subject": "IDS",
+    "number": 567,
+    "title": "Business Data Visualization",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "IDS",
+    "number": 558,
+    "title": "Revenue Management",
+    "professor": "Kamble, Vijay S"
+  },
+  {
+    "subject": "IE",
+    "number": 342,
+    "title": "Probability & Stat for Engr",
+    "professor": "Li, Lin"
+  },
+  {
+    "subject": "IE",
+    "number": 594,
+    "title": "Data Science 1",
+    "professor": "Anahideh, Hadis"
+  },
+  {
+    "subject": "IPHS",
+    "number": 402,
+    "title": "Analytic Res Meth 1 Cohort A",
+    "professor": "Arguelles, Lester"
+  },
+  {
+    "subject": "IPHS",
+    "number": 520,
+    "title": "Foundations of Public Health",
+    "professor": "Almberg, Kirsten Staggs"
+  },
+  {
+    "subject": "IPHS",
+    "number": 650,
+    "title": "Applied Practice Experience",
+    "professor": "Peterson, Caryn Elizabeth"
+  },
+  {
+    "subject": "IPHS",
+    "number": 650,
+    "title": "Applied Practice Experience",
+    "professor": "Shade McCay, Michele LaVerne"
+  },
+  {
+    "subject": "ITAL",
+    "number": 101,
+    "title": "Elementary Italian I",
+    "professor": "Mazza, Giordano"
+  },
+  {
+    "subject": "JD",
+    "number": 411,
+    "title": "Civil Procedure I",
+    "professor": "Green, Sonia B"
+  },
+  {
+    "subject": "JPN",
+    "number": 103,
+    "title": "Intermediate Japanese I",
+    "professor": "Day, Noriko Agatsuma"
+  },
+  {
+    "subject": "JST",
+    "number": 102,
+    "title": "Intro to Jewish History",
+    "professor": "Derdall, Patrick S"
+  },
+  {
+    "subject": "KN",
+    "number": 232,
+    "title": "Anatomy & Physiology Lab I",
+    "professor": "Carrillo, Alejandro"
+  },
+  {
+    "subject": "KN",
+    "number": 254,
+    "title": "Human Anatomy & Phys II",
+    "professor": "Corbo, Gillian"
+  },
+  {
+    "subject": "KN",
+    "number": 345,
+    "title": "Exercise Assmt & Programming",
+    "professor": "Adams, Michelle Marie"
+  },
+  {
+    "subject": "LALS",
+    "number": 107,
+    "title": "Intro to Nahua Studies",
+    "professor": "Roa, Cristian"
+  },
+  {
+    "subject": "LALS",
+    "number": 109,
+    "title": "Intro to Latino Cultures",
+    "professor": "Huerta, Joel"
+  },
+  {
+    "subject": "LAS",
+    "number": 110,
+    "title": "Experience UIC",
+    "professor": "Kravitz, Beth"
+  },
+  {
+    "subject": "LAS",
+    "number": 110,
+    "title": "Experience UIC",
+    "professor": "Lopez, Sandra"
+  },
+  {
+    "subject": "LAW",
+    "number": 422,
+    "title": "LSIII",
+    "professor": "Castaneda, Eric E"
+  },
+  {
+    "subject": "LAW",
+    "number": 422,
+    "title": "LSIII",
+    "professor": "Finkle, Lester Wolfe"
+  },
+  {
+    "subject": "LAW",
+    "number": 422,
+    "title": "LSIII",
+    "professor": "Holtkamp, David"
+  },
+  {
+    "subject": "LAW",
+    "number": 532,
+    "title": "3rd yr only Writng for Pra Law",
+    "professor": "Sahota, Ravinder Singh"
+  },
+  {
+    "subject": "LAW",
+    "number": 533,
+    "title": "Bus Assoc",
+    "professor": "Gieseke, Ronald"
+  },
+  {
+    "subject": "LAW",
+    "number": 533,
+    "title": "Bus Assoc",
+    "professor": "Mock, William"
+  },
+  {
+    "subject": "LAW",
+    "number": 585,
+    "title": "RIPL Bd",
+    "professor": "Beschle, Donald L"
+  },
+  {
+    "subject": "LING",
+    "number": 230,
+    "title": "Semantics/Pragmatics/Discourse",
+    "professor": "Xiang, Xuehua"
+  },
+  {
+    "subject": "MATH",
+    "number": 110,
+    "title": "College Algebra",
+    "professor": "McNamara, Alycia A"
+  },
+  {
+    "subject": "MATH",
+    "number": 180,
+    "title": "Calculus I",
+    "professor": "Mahadeo, Christopher Aaron Rudranauth"
+  },
+  {
+    "subject": "HN",
+    "number": 510,
+    "title": "Nutrition-Physiol Aspect",
+    "professor": "Song, Zhenyuan"
+  },
+  {
+    "subject": "HON",
+    "number": 121,
+    "title": "Hon Core Ind & Soc / Creat Art",
+    "professor": "Geissler, Beate"
+  },
+  {
+    "subject": "HON",
+    "number": 124,
+    "title": "Hon Core Past / Creat Arts",
+    "professor": "Berger, Jessica Nicole"
+  },
+  {
+    "subject": "HON",
+    "number": 128,
+    "title": "Hon Core Creat Arts / US Soc",
+    "professor": "Behling, John"
+  },
+  {
+    "subject": "HPA",
+    "number": 407,
+    "title": "Fundamentals Emergency Mgmt",
+    "professor": "Sambanis, Apostolis Stefanos"
+  },
+  {
+    "subject": "HPA",
+    "number": 567,
+    "title": "Public Health Policy Analysis",
+    "professor": "Hamilton, Kristina Ashley"
+  },
+  {
+    "subject": "IDS",
+    "number": 371,
+    "title": "Business Statistics II",
+    "professor": "Adelman, Canan"
+  },
+  {
+    "subject": "IE",
+    "number": 365,
+    "title": "Work Productivity Analysis",
+    "professor": "Williams, Quintin Levurn"
+  },
+  {
+    "subject": "IPHS",
+    "number": 401,
+    "title": "Determinants Pop Hlth Cohort B",
+    "professor": "Malecki, Kristen"
+  },
+  {
+    "subject": "IPHS",
+    "number": 401,
+    "title": "Determinants Pop Hlth Cohort D",
+    "professor": "Matzke, Hannah Jo"
+  },
+  {
+    "subject": "IPHS",
+    "number": 512,
+    "title": "Public Health Leadership",
+    "professor": "Seweryn, Steven M"
+  },
+  {
+    "subject": "IPHS",
+    "number": 521,
+    "title": "Personal Leadership",
+    "professor": "Flores, Alina Lopez"
+  },
+  {
+    "subject": "ITAL",
+    "number": 101,
+    "title": "Elementary Italian I",
+    "professor": "Iusco, Maria"
+  },
+  {
+    "subject": "JD",
+    "number": 405,
+    "title": "Contracts I",
+    "professor": "Jones, Samuel V"
+  },
+  {
+    "subject": "JD",
+    "number": 407,
+    "title": "Torts",
+    "professor": "Green, Sonia B"
+  },
+  {
+    "subject": "JD",
+    "number": 414,
+    "title": "Const Law I",
+    "professor": "Ford, William K"
+  },
+  {
+    "subject": "JD",
+    "number": 421,
+    "title": "Civil Procedure II",
+    "professor": "Raba, Anna Claire Johnson"
+  },
+  {
+    "subject": "KN",
+    "number": 372,
+    "title": "Motor Control & Learning",
+    "professor": "Goelz, Lisa Gim Chin"
+  },
+  {
+    "subject": "KN",
+    "number": 491,
+    "title": "Professional Preparation",
+    "professor": "Bullard, Kendra Leeann"
+  },
+  {
+    "subject": "KN",
+    "number": 495,
+    "title": "Senior Seminar",
+    "professor": "Miller, Joshua"
+  },
+  {
+    "subject": "KN",
+    "number": 534,
+    "title": "Ethics Sport & Exercise Psych",
+    "professor": "Ankney, Aspen S"
+  },
+  {
+    "subject": "LAS",
+    "number": 110,
+    "title": "Experience UIC",
+    "professor": "Garcia, Trisha"
+  },
+  {
+    "subject": "LAS",
+    "number": 110,
+    "title": "Experience UIC",
+    "professor": "Quinn, Tasha"
+  },
+  {
+    "subject": "LAS",
+    "number": 110,
+    "title": "Experience UIC",
+    "professor": "Silva, Sophia N"
+  },
+  {
+    "subject": "LAS",
+    "number": 110,
+    "title": "Experience UIC",
+    "professor": "Wier, Justin Robert"
+  },
+  {
+    "subject": "LAW",
+    "number": 422,
+    "title": "LSIII",
+    "professor": "Joshi, Ronak"
+  },
+  {
+    "subject": "LAW",
+    "number": 422,
+    "title": "LSIII",
+    "professor": "Schiltz, Eugene J"
+  },
+  {
+    "subject": "LAW",
+    "number": 422,
+    "title": "LSIII",
+    "professor": "Stevenson, Tracy E"
+  },
+  {
+    "subject": "ELSI",
+    "number": 48,
+    "title": "Live, Learn, Grow: Bridge",
+    "professor": "Bonarek, Rebecca L"
+  },
+  {
+    "subject": "ENGL",
+    "number": 135,
+    "title": "Understanding Popular Culture",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ENGL",
+    "number": 150,
+    "title": "Intro Acad Writing Nonnat",
+    "professor": "Williams, Charitianne"
+  },
+  {
+    "subject": "ENGL",
+    "number": 154,
+    "title": "Understanding Rhetoric",
+    "professor": "Lannon, Keegan"
+  },
+  {
+    "subject": "ENGL",
+    "number": 159,
+    "title": "Academic Writing Workshop",
+    "professor": "Bohne, Amanda"
+  },
+  {
+    "subject": "ENGL",
+    "number": 159,
+    "title": "Academic Writing Workshop",
+    "professor": "Thompson, Deanna Marie"
+  },
+  {
+    "subject": "ENGL",
+    "number": 160,
+    "title": "Academic Writing I",
+    "professor": "Burton, Sammie Marie"
+  },
+  {
+    "subject": "ENGL",
+    "number": 160,
+    "title": "Academic Writing I",
+    "professor": "Grunow, Scott Alexander"
+  },
+  {
+    "subject": "ENGL",
+    "number": 160,
+    "title": "Academic Writing I",
+    "professor": "Khan, Hanna M"
+  },
+  {
+    "subject": "ENGL",
+    "number": 160,
+    "title": "Academic Writing I",
+    "professor": "McShane, Heather Ann"
+  },
+  {
+    "subject": "ENGL",
+    "number": 160,
+    "title": "Academic Writing I",
+    "professor": "Primeau, Sarah J"
+  },
+  {
+    "subject": "ENGL",
+    "number": 160,
+    "title": "Academic Writing I",
+    "professor": "Sheldon, Douglas Harold"
+  },
+  {
+    "subject": "ENGL",
+    "number": 161,
+    "title": "Academic Writing II",
+    "professor": "Lewis, Jennifer V."
+  },
+  {
+    "subject": "ENGL",
+    "number": 247,
+    "title": "Women & Lit",
+    "professor": "Arrizon-Palomera, Esmeralda"
+  },
+  {
+    "subject": "ENGL",
+    "number": 480,
+    "title": "Intro to Teaching Engl",
+    "professor": "Johnson, Lauren Elizabeth Reine"
+  },
+  {
+    "subject": "ENGL",
+    "number": 487,
+    "title": "Teaching of Reading & Lit",
+    "professor": "Kindelsperger, Abigail Parker"
+  },
+  {
+    "subject": "ENGL",
+    "number": 490,
+    "title": "Adv Writing of Poetry",
+    "professor": "Pugh, Christina A"
+  },
+  {
+    "subject": "ENGR",
+    "number": 100,
+    "title": "CHE Success Seminar - FYF",
+    "professor": "Narubin Durbin, Simona Ieva"
+  },
+  {
+    "subject": "ENTR",
+    "number": 445,
+    "title": "New Venture Planning",
+    "professor": "Hogan, Daniel Mark"
+  },
+  {
+    "subject": "EPSY",
+    "number": 210,
+    "title": "Learning and Instruction",
+    "professor": "Morton, Terrell R"
+  },
+  {
+    "subject": "EPSY",
+    "number": 430,
+    "title": "Online Instruct Design and Dev",
+    "professor": "Riel, Jeremy"
+  },
+  {
+    "subject": "EPSY",
+    "number": 451,
+    "title": "Mgmt & HR for Leaders in ECE",
+    "professor": "Kull, Kimberly B."
+  },
+  {
+    "subject": "EPSY",
+    "number": 494,
+    "title": "Topics in Ed Psychology",
+    "professor": "Sheridan, Kathleen M"
+  },
+  {
+    "subject": "EPSY",
+    "number": 503,
+    "title": "Quantitative Inquiry in Ed",
+    "professor": "Smith, Everett V"
+  },
+  {
+    "subject": "EPSY",
+    "number": 547,
+    "title": "Multiple Regress in Educ",
+    "professor": "Yin, Yue"
+  },
+  {
+    "subject": "FIN",
+    "number": 300,
+    "title": "Intro to Finance",
+    "professor": "Healy, Thomas Charles"
+  },
+  {
+    "subject": "FIN",
+    "number": 300,
+    "title": "Intro to Finance",
+    "professor": "Hu, Xiaoqing"
+  },
+  {
+    "subject": "FIN",
+    "number": 320,
+    "title": "Managerial Finance",
+    "professor": "Erturk, Bilal"
+  },
+  {
+    "subject": "DHD",
+    "number": 562,
+    "title": "Built-In Accessibility Options",
+    "professor": "Hooyenga, Kathy A"
+  },
+  {
+    "subject": "DLG",
+    "number": 120,
+    "title": "Dialogue Seminar",
+    "professor": "Baguilat, Rae Joyce"
+  },
+  {
+    "subject": "ECE",
+    "number": 415,
+    "title": "Imag Analysis & Compt Visn I",
+    "professor": "Cetin, Ahmet Enis"
+  },
+  {
+    "subject": "ECE",
+    "number": 458,
+    "title": "Electromech Energy Conversn",
+    "professor": "Caliskan, Vahe"
+  },
+  {
+    "subject": "ECE",
+    "number": 499,
+    "title": "Prof. Development Seminar",
+    "professor": "Kosmach, James"
+  },
+  {
+    "subject": "ECE",
+    "number": 508,
+    "title": "Convex Optimization",
+    "professor": "Han, Shuo"
+  },
+  {
+    "subject": "ECE",
+    "number": 540,
+    "title": "Physics Semicond Devices",
+    "professor": "Shi, Junxia"
+  },
+  {
+    "subject": "ECE",
+    "number": 568,
+    "title": "Advanced Micro Arch",
+    "professor": "Zhang, Zhao"
+  },
+  {
+    "subject": "ECON",
+    "number": 120,
+    "title": "Principles of Microeconomics",
+    "professor": "Rivkin, Steven G"
+  },
+  {
+    "subject": "ED",
+    "number": 200,
+    "title": "Educ Policy Foundations",
+    "professor": "Saltman, Kenneth Jeffrey"
+  },
+  {
+    "subject": "ED",
+    "number": 502,
+    "title": "Qualitative Inquiry in Ed",
+    "professor": "Thomas, Michael K"
+  },
+  {
+    "subject": "ED",
+    "number": 504,
+    "title": "Urban Contexts and Ed Research",
+    "professor": "Lac, Van T"
+  },
+  {
+    "subject": "EDPS",
+    "number": 520,
+    "title": "City as Campus",
+    "professor": "Palmer, Gordon John Martin"
+  },
+  {
+    "subject": "EDPS",
+    "number": 592,
+    "title": "Prof Career Training in EDPS",
+    "professor": "Barron, Cynthia K"
+  },
+  {
+    "subject": "ELSI",
+    "number": 13,
+    "title": "Reading/Writing 3, IEP",
+    "professor": "May, Kristine H"
+  },
+  {
+    "subject": "ELSI",
+    "number": 43,
+    "title": "Engl for Academic Purposes II",
+    "professor": "May, Kristine H"
+  },
+  {
+    "subject": "ELSI",
+    "number": 47,
+    "title": "Live, Learn, Grow: Foundation",
+    "professor": "May, Kristine H"
+  },
+  {
+    "subject": "ELSI",
+    "number": 48,
+    "title": "Live, Learn, Grow: Bridge",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ENGL",
+    "number": 135,
+    "title": "Understanding Popular Culture",
+    "professor": "Whalen, Terence James"
+  },
+  {
+    "subject": "ENGL",
+    "number": 150,
+    "title": "Intro Acad Writing Nonnat",
+    "professor": "Elturki, Eman"
+  },
+  {
+    "subject": "ENGL",
+    "number": 159,
+    "title": "Academic Writing Workshop",
+    "professor": "McShane, Heather Ann"
+  },
+  {
+    "subject": "ENGL",
+    "number": 160,
+    "title": "Academic Writing I",
+    "professor": "Croken, Ryan M"
+  },
+  {
+    "subject": "ENGL",
+    "number": 160,
+    "title": "Academic Writing I",
+    "professor": "Goldbach, John S"
+  },
+  {
+    "subject": "ENGL",
+    "number": 160,
+    "title": "Academic Writing I",
+    "professor": "Vlahos, Catherine"
+  },
+  {
+    "subject": "ENGL",
+    "number": 161,
+    "title": "Academic Writing II",
+    "professor": "Costello, Virginia M"
+  },
+  {
+    "subject": "ENGL",
+    "number": 161,
+    "title": "Academic Writing II",
+    "professor": "Jones, Adam"
+  },
+  {
+    "subject": "ENGL",
+    "number": 223,
+    "title": "Intro Colonial and Postcol Lit",
+    "professor": "Agnani, Sunil M"
+  },
+  {
+    "subject": "ENGL",
+    "number": 230,
+    "title": "Intro to Film and Culture",
+    "professor": "Dancey, Angela C"
+  },
+  {
+    "subject": "FIN",
+    "number": 411,
+    "title": "Retirement and Estate Planning",
+    "professor": "Arnold, Warren David"
+  },
+  {
+    "subject": "FIN",
+    "number": 415,
+    "title": "Fixed Income Securities",
+    "professor": "Lin, Jerchern"
+  },
+  {
+    "subject": "FIN",
+    "number": 456,
+    "title": "Advanced Investment Management",
+    "professor": "Wightkin, John"
+  },
+  {
+    "subject": "GAMD",
+    "number": 200,
+    "title": "Medicine Health Policy&Society",
+    "professor": "Swirsky, Eric S"
+  },
+  {
+    "subject": "GC",
+    "number": 510,
+    "title": "Oral Communication for ITA's",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "GC",
+    "number": 592,
+    "title": "Foundations College Instruct",
+    "professor": "Woods, Lauren M"
+  },
+  {
+    "subject": "GEMS",
+    "number": 504,
+    "title": "Research Methods I",
+    "professor": "Sharma, Kamal"
+  },
+  {
+    "subject": "GWS",
+    "number": 203,
+    "title": "Introduction to LGBTQ Studies",
+    "professor": "Fair, Alfretter Latasha"
+  },
+  {
+    "subject": "GWS",
+    "number": 205,
+    "title": "Race, Class & Gender",
+    "professor": "Horowitz, Emily A"
+  },
+  {
+    "subject": "HIST",
+    "number": 101,
+    "title": "Western Civ Since 1648",
+    "professor": "Connolly, Jonathan"
+  },
+  {
+    "subject": "HIST",
+    "number": 208,
+    "title": "Hist of Science Global Context",
+    "professor": "Kim, Clare"
+  },
+  {
+    "subject": "HIST",
+    "number": 296,
+    "title": "Fascism Europe & Mediterr",
+    "professor": "Doumanis, Nicholas"
+  },
+  {
+    "subject": "HN",
+    "number": 110,
+    "title": "Foods",
+    "professor": "Lyles, Renea Michelle"
+  },
+  {
+    "subject": "HN",
+    "number": 311,
+    "title": "Nut During Life Cycle",
+    "professor": "Mustafa, Avalon"
+  },
+  {
+    "subject": "HN",
+    "number": 320,
+    "title": "Clinical Nutrition I",
+    "professor": "Niewinski, Mary"
+  },
+  {
+    "subject": "HN",
+    "number": 332,
+    "title": "Food Service Management",
+    "professor": "Lyles, Renea Michelle"
+  },
+  {
+    "subject": "HNUR",
+    "number": 101,
+    "title": "Elementary Hindi-Urdu I",
+    "professor": "Rana, Ruchi"
+  },
+  {
+    "subject": "HON",
+    "number": 101,
+    "title": "Freshman Orientation Sem",
+    "professor": "Arias, Rachel Anne"
+  },
+  {
+    "subject": "HON",
+    "number": 101,
+    "title": "Freshman Orientation Sem",
+    "professor": "Regalbuto, Andrea R"
+  },
+  {
+    "subject": "HON",
+    "number": 121,
+    "title": "Hon Core Ind & Soc / Creat Art",
+    "professor": "Beverly, Phillip Adrian"
+  },
+  {
+    "subject": "HON",
+    "number": 121,
+    "title": "Hon Core Ind & Soc / Creat Art",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "HON",
+    "number": 202,
+    "title": "Honors Student Assistant",
+    "professor": "Kaczmarczyk, Laura W"
+  },
+  {
+    "subject": "HON",
+    "number": 222,
+    "title": "Honors Activity",
+    "professor": "Burns-Howard, Kathryn"
+  },
+  {
+    "subject": "HPA",
+    "number": 417,
+    "title": "Quality Mgmt in Hlth Svces",
+    "professor": "Andersen, Adam M"
+  },
+  {
+    "subject": "HPA",
+    "number": 463,
+    "title": "Managerial Hlth Economics",
+    "professor": "Lin, Zhuoer"
+  },
+  {
+    "subject": "HPA",
+    "number": 464,
+    "title": "Sociocult Dimens Hlth Dispar",
+    "professor": "Lewis, Imani Rasheeda"
+  },
+  {
+    "subject": "HPA",
+    "number": 499,
+    "title": "Intro Research Design PH Pract",
+    "professor": "Jarpe-Ratner, Elizabeth"
+  },
+  {
+    "subject": "IDS",
+    "number": 270,
+    "title": "Business Statistics I",
+    "professor": "Sparks, John"
+  },
+  {
+    "subject": "ENGL",
+    "number": 236,
+    "title": "Young Adult Fiction",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ENGL",
+    "number": 238,
+    "title": "Fiction, Sci-Fi & Fantasy",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ENGL",
+    "number": 245,
+    "title": "Gender, Sexuality and Lit",
+    "professor": "Arrizon-Palomera, Esmeralda"
+  },
+  {
+    "subject": "ENGL",
+    "number": 280,
+    "title": "Media & Prof Writing",
+    "professor": "Shearer, Jay B"
+  },
+  {
+    "subject": "ENGL",
+    "number": 282,
+    "title": "Peer Tutoring in Writing Ctr",
+    "professor": "Thompson, Deanna Marie"
+  },
+  {
+    "subject": "ENGL",
+    "number": 537,
+    "title": "Global/Multiethnic Lit & Cult",
+    "professor": "Mufti, Nasser"
+  },
+  {
+    "subject": "ENGR",
+    "number": 100,
+    "title": "CS Success Seminar - FYF",
+    "professor": "Narubin Durbin, Simona Ieva"
+  },
+  {
+    "subject": "EOHS",
+    "number": 494,
+    "title": "Quant Mthds in EOHS",
+    "professor": "Kim, Honghyok"
+  },
+  {
+    "subject": "EPID",
+    "number": 410,
+    "title": "Epid Infectious Diseases",
+    "professor": "Hershow, Ronald C"
+  },
+  {
+    "subject": "EPSY",
+    "number": 371,
+    "title": "HDL institutional contexts",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "FIN",
+    "number": 250,
+    "title": "Personal Finance",
+    "professor": "Micic, Milka"
+  },
+  {
+    "subject": "FIN",
+    "number": 300,
+    "title": "Intro to Finance",
+    "professor": "Azarmsa, Seyedehsan"
+  },
+  {
+    "subject": "FIN",
+    "number": 449,
+    "title": "Applied Equity Investment Mgmt",
+    "professor": "Wightkin, John"
+  },
+  {
+    "subject": "FIN",
+    "number": 570,
+    "title": "Quant Methods in Finance",
+    "professor": "Ma, Lingjie"
+  },
+  {
+    "subject": "FR",
+    "number": 301,
+    "title": "Topics in Literature",
+    "professor": "Ireland, Charles John"
+  },
+  {
+    "subject": "GER",
+    "number": 102,
+    "title": "Elementary German II",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "GER",
+    "number": 104,
+    "title": "Intermediate German II",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "GLAS",
+    "number": 100,
+    "title": "Intro to Global Asian Studies",
+    "professor": "Jin, Michael"
+  },
+  {
+    "subject": "GLAS",
+    "number": 229,
+    "title": "Intro to Asian Film",
+    "professor": "Phan, Justin Quang Nguyen"
+  },
+  {
+    "subject": "HIM",
+    "number": 317,
+    "title": "Princ of Hlth Info Mgmt",
+    "professor": "Williams, Felecia Altevet"
+  },
+  {
+    "subject": "HIM",
+    "number": 374,
+    "title": "Health Info Research",
+    "professor": "Hitchcock, Lois Marie"
+  },
+  {
+    "subject": "HIM",
+    "number": 433,
+    "title": "Coding and Reimburs Systems",
+    "professor": "Ramirez, Gideon"
+  },
+  {
+    "subject": "HIST",
+    "number": 461,
+    "title": "Topics in Lat Amer Hist",
+    "professor": "Chavez, Joaquin M"
+  },
+  {
+    "subject": "HN",
+    "number": 196,
+    "title": "Nutrition",
+    "professor": "Lam, Uyen"
+  },
+  {
+    "subject": "HN",
+    "number": 308,
+    "title": "Nutrition Science I",
+    "professor": "Song, Zhenyuan"
+  },
+  {
+    "subject": "HN",
+    "number": 407,
+    "title": "Writing Process in Nutrition",
+    "professor": "McNeil, Amy T"
+  },
+  {
+    "subject": "HN",
+    "number": 440,
+    "title": "The Research Process",
+    "professor": "Gabel, Kelsey Nicole Dipman"
+  },
+  {
+    "subject": "HON",
+    "number": 120,
+    "title": "Hon Core Indiv & Soc / Past",
+    "professor": "Whisenhunt, William Benton"
+  },
+  {
+    "subject": "DHD",
+    "number": 570,
+    "title": "Disability and Culture",
+    "professor": "Sandahl, Carrie"
+  },
+  {
+    "subject": "DLG",
+    "number": 120,
+    "title": "Dialogue Seminar",
+    "professor": "Ramos, Norma Elena"
+  },
+  {
+    "subject": "EAES",
+    "number": 101,
+    "title": "Global Environmental Change",
+    "professor": "Malone, Andrew"
+  },
+  {
+    "subject": "EAES",
+    "number": 111,
+    "title": "Earth, Energy, Environment",
+    "professor": "Sit, Stefany"
+  },
+  {
+    "subject": "EAES",
+    "number": 230,
+    "title": "Earth Materials",
+    "professor": "Nagy, Kathryn"
+  },
+  {
+    "subject": "EAES",
+    "number": 475,
+    "title": "Hydrology/Hydrogeology",
+    "professor": "Naude, Kerry Lee"
+  },
+  {
+    "subject": "ECE",
+    "number": 210,
+    "title": "Electric Circuit Analysis",
+    "professor": "Jin, Ning"
+  },
+  {
+    "subject": "ECE",
+    "number": 465,
+    "title": "Digital Systems Design",
+    "professor": "Pal, Debjit"
+  },
+  {
+    "subject": "ECE",
+    "number": 516,
+    "title": "Adaptive Digital Filters",
+    "professor": "Corey, Ryan Michael"
+  },
+  {
+    "subject": "ECON",
+    "number": 120,
+    "title": "Principles of Microeconomics",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ECON",
+    "number": 121,
+    "title": "Principles of Macroeconomics",
+    "professor": "Yektansani, Kiana"
+  },
+  {
+    "subject": "ECON",
+    "number": 220,
+    "title": "Microeconomics",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ECON",
+    "number": 220,
+    "title": "Microeconomics",
+    "professor": "Tauras, John Arvydas"
+  },
+  {
+    "subject": "ECON",
+    "number": 339,
+    "title": "Monetary Theory",
+    "professor": "Robbins, Jacob A"
+  },
+  {
+    "subject": "ECON",
+    "number": 395,
+    "title": "Rsrch and Writing in Econ",
+    "professor": "Tarduno, Matthew A"
+  },
+  {
+    "subject": "ED",
+    "number": 416,
+    "title": "Practical Inquiry I",
+    "professor": "Rao, Arthi Bhimsen"
+  },
+  {
+    "subject": "ED",
+    "number": 425,
+    "title": "CIA Urban Sec Classroom",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "EDPS",
+    "number": 579,
+    "title": "Organizatn Theory in Education",
+    "professor": "Giles, Mark S"
+  },
+  {
+    "subject": "ELSI",
+    "number": 22,
+    "title": "Listening/Speaking 2 IEP",
+    "professor": "Stockman, Matthew William Miller"
+  },
+  {
+    "subject": "ELSI",
+    "number": 48,
+    "title": "Live, Learn, Grow: Bridge",
+    "professor": "Pallier, Sally M"
+  },
+  {
+    "subject": "ENDO",
+    "number": 630,
+    "title": "Clinical Conf In Endodontics",
+    "professor": "Johnson, Bradford Ray"
+  },
+  {
+    "subject": "ENGL",
+    "number": 103,
+    "title": "Understanding Poetry",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ENGL",
+    "number": 151,
+    "title": "Intro to Academic Writing",
+    "professor": "Bohne, Amanda"
+  },
+  {
+    "subject": "ENGL",
+    "number": 159,
+    "title": "Academic Writing Workshop",
+    "professor": "Brown, Deziree Aleace"
+  },
+  {
+    "subject": "ENGL",
+    "number": 159,
+    "title": "Academic Writing Workshop",
+    "professor": "Krall, Aaron Richard"
+  },
+  {
+    "subject": "ENGL",
+    "number": 161,
+    "title": "Academic Writing II",
+    "professor": "Elturki, Eman"
+  },
+  {
+    "subject": "ENGL",
+    "number": 161,
+    "title": "Academic Writing II",
+    "professor": "Sheldon, Douglas Harold"
+  },
+  {
+    "subject": "ENGL",
+    "number": 207,
+    "title": "Interpretation & Crit Analysis",
+    "professor": "Casey, John A"
+  },
+  {
+    "subject": "FIN",
+    "number": 473,
+    "title": "Risk Management and Insurance",
+    "professor": "Lee, Yew-Sing Thomas"
+  },
+  {
+    "subject": "FIN",
+    "number": 510,
+    "title": "Investments",
+    "professor": "Lin, Jerchern"
+  },
+  {
+    "subject": "FR",
+    "number": 102,
+    "title": "Elementary French II",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "FR",
+    "number": 297,
+    "title": "Paris in Lit, Film and Culture",
+    "professor": "Hoselton, Jessica Leigh Thornton"
+  },
+  {
+    "subject": "GER",
+    "number": 103,
+    "title": "Intermediate German I",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "GLAS",
+    "number": 125,
+    "title": "Asian Art and Architecture",
+    "professor": "Becker, Catherine"
+  },
+  {
+    "subject": "GWS",
+    "number": 102,
+    "title": "Global Women & Gender",
+    "professor": "Celeste, Manoucheka"
+  },
+  {
+    "subject": "GWS",
+    "number": 224,
+    "title": "Gender & Society",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "HIM",
+    "number": 433,
+    "title": "Coding and Reimburs Systems",
+    "professor": "Kravtsova, Marina"
+  },
+  {
+    "subject": "HIST",
+    "number": 300,
+    "title": "Topics in Rsch and Writng",
+    "professor": "Abbott, John"
+  },
+  {
+    "subject": "HIST",
+    "number": 420,
+    "title": "Teaching the Social Sciences",
+    "professor": "Peters, Julie L"
+  },
+  {
+    "subject": "HIST",
+    "number": 440,
+    "title": "History Research Seminar",
+    "professor": "Bui, Long B"
+  },
+  {
+    "subject": "HIST",
+    "number": 492,
+    "title": "History of AI",
+    "professor": "Halsted, David"
+  },
+  {
+    "subject": "HN",
+    "number": 203,
+    "title": "Culture and Food Lab",
+    "professor": "Lyles, Renea Michelle"
+  },
+  {
+    "subject": "HN",
+    "number": 300,
+    "title": "Science of Foods",
+    "professor": "Wang, Qian"
+  },
+  {
+    "subject": "HN",
+    "number": 594,
+    "title": "Intermittent Fasting",
+    "professor": "Varady, Kristina A"
+  },
+  {
+    "subject": "HON",
+    "number": 121,
+    "title": "Hon Core Ind & Soc / Creat Art",
+    "professor": "Martell, Mark R"
+  },
+  {
+    "subject": "HON",
+    "number": 201,
+    "title": "Honors Seminar",
+    "professor": "Martell, Mark R"
+  },
+  {
+    "subject": "HON",
+    "number": 201,
+    "title": "Honors Seminar",
+    "professor": "Mukherjee, Ishani"
+  },
+  {
+    "subject": "HON",
+    "number": 201,
+    "title": "Honors Seminar",
+    "professor": "Nikolic, Dejan S"
+  },
+  {
+    "subject": "HON",
+    "number": 201,
+    "title": "Honors Seminar",
+    "professor": "Royston, Thomas J."
+  },
+  {
+    "subject": "HON",
+    "number": 301,
+    "title": "Foundations for the Future",
+    "professor": "Amiri, Leila"
+  },
+  {
+    "subject": "HON",
+    "number": 301,
+    "title": "Foundations for the Future",
+    "professor": "Gomez, Kayeromi Donoukounmahou"
+  },
+  {
+    "subject": "HON",
+    "number": 322,
+    "title": "Honors Capstone",
+    "professor": "Burns-Howard, Kathryn"
+  },
+  {
+    "subject": "HPA",
+    "number": 440,
+    "title": "Healthcare Data Analytics",
+    "professor": "Leger, Pierre Thomas"
+  },
+  {
+    "subject": "HPA",
+    "number": 491,
+    "title": "Professional Development",
+    "professor": "Rank, Charles Andrew"
+  },
+  {
+    "subject": "IDS",
+    "number": 270,
+    "title": "Business Stats I BBA Online",
+    "professor": "Sclove, Stanley L"
+  },
+  {
+    "subject": "IDS",
+    "number": 401,
+    "title": "Bus Objects Prog using Java",
+    "professor": "Lu, Yingda"
+  },
+  {
+    "subject": "IDS",
+    "number": 570,
+    "title": "Statistics for Management",
+    "professor": "Sparks, John"
+  },
+  {
+    "subject": "IDS",
+    "number": 572,
+    "title": "Data Mining for Business",
+    "professor": "Bhattacharyya, Siddhartha"
+  },
+  {
+    "subject": "IDS",
+    "number": 576,
+    "title": "Deep Learning and Applications",
+    "professor": "Tulabandhula, Theja"
+  },
+  {
+    "subject": "IDS",
+    "number": 594,
+    "title": "Fndtns for Sustainable Bus",
+    "professor": "Bonnett, Lisa Kay"
+  },
+  {
+    "subject": "IE",
+    "number": 201,
+    "title": "Financial Engineering",
+    "professor": "Darabi, Houshang"
+  },
+  {
+    "subject": "JD",
+    "number": 401,
+    "title": "Exp Learning",
+    "professor": "Lasker, Kristina"
+  },
+  {
+    "subject": "JD",
+    "number": 401,
+    "title": "Exp Learning",
+    "professor": "Pica, Jason Anthony"
+  },
+  {
+    "subject": "KN",
+    "number": 110,
+    "title": "Life Skills for Stdnt Athletes",
+    "professor": "Marmon, David"
+  },
+  {
+    "subject": "KN",
+    "number": 150,
+    "title": "The Healthy Human",
+    "professor": "Hamstra-Wright, Karrie Lynn"
+  },
+  {
+    "subject": "KN",
+    "number": 152,
+    "title": "Intro to Exercise Phys & Hlth",
+    "professor": "Hibbing, Paul R"
+  },
+  {
+    "subject": "KN",
+    "number": 442,
+    "title": "Principles ECG Interpretation",
+    "professor": "Schmidt-McNulty, Tina"
+  },
+  {
+    "subject": "LALS",
+    "number": 105,
+    "title": "Intro to Mex Studies",
+    "professor": "Roa, Cristian"
+  },
+  {
+    "subject": "LALS",
+    "number": 229,
+    "title": "Sociology of Latinos",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "LAS",
+    "number": 110,
+    "title": "Experience UIC",
+    "professor": "Gerena, Jennifer"
+  },
+  {
+    "subject": "LAS",
+    "number": 110,
+    "title": "Experience UIC",
+    "professor": "Mendoza, Eduardo"
+  },
+  {
+    "subject": "LAS",
+    "number": 110,
+    "title": "Experience UIC",
+    "professor": "Ramirez, Elizabeth"
+  },
+  {
+    "subject": "LAW",
+    "number": 402,
+    "title": "LSI",
+    "professor": "Wojcik, Mark E"
+  },
+  {
+    "subject": "LAW",
+    "number": 430,
+    "title": "LSIV: Bus Plann and Drafting",
+    "professor": "Booden, Michael R"
+  },
+  {
+    "subject": "LAW",
+    "number": 439,
+    "title": "LSIV: Contract Drafting",
+    "professor": "Hatseras Schwartz, Ekaterini"
+  },
+  {
+    "subject": "LAW",
+    "number": 536,
+    "title": "Criminal Pro: Investigation",
+    "professor": "Mundy, Hugh M"
+  },
+  {
+    "subject": "LAW",
+    "number": 541,
+    "title": "Sales Transactions",
+    "professor": "Lousin, Ann M"
+  },
+  {
+    "subject": "LAW",
+    "number": 588,
+    "title": "Law Review Bd",
+    "professor": "Beschle, Donald L"
+  },
+  {
+    "subject": "LITH",
+    "number": 115,
+    "title": "Lithuanian Culture",
+    "professor": "Subacius, Giedrius"
+  },
+  {
+    "subject": "MATH",
+    "number": 90,
+    "title": "Intermediate Algebra",
+    "professor": "Schubert, Erin Rose"
+  },
+  {
+    "subject": "MATH",
+    "number": 90,
+    "title": "Intermediate Algebra",
+    "professor": "Steenbergen, John"
+  },
+  {
+    "subject": "MATH",
+    "number": 110,
+    "title": "College Algebra",
+    "professor": "Lee-Hassan, Alexa"
+  },
+  {
+    "subject": "MATH",
+    "number": 180,
+    "title": "Calculus I",
+    "professor": "Protsak, Victor"
+  },
+  {
+    "subject": "MATH",
+    "number": 181,
+    "title": "Calculus II",
+    "professor": "Bode, Martina"
+  },
+  {
+    "subject": "CLER",
+    "number": 634,
+    "title": "Surgery",
+    "professor": "Haley, Theodore"
+  },
+  {
+    "subject": "CLJ",
+    "number": 200,
+    "title": "Law and Society",
+    "professor": "Kurwa, Rahim A"
+  },
+  {
+    "subject": "CLJ",
+    "number": 210,
+    "title": "Principles of Criminal Law",
+    "professor": "Lippman, Matthew Ross"
+  },
+  {
+    "subject": "CLJ",
+    "number": 262,
+    "title": "Research Methods II",
+    "professor": "Schuck, Amie"
+  },
+  {
+    "subject": "CLJ",
+    "number": 321,
+    "title": "Youth, Crime, Law",
+    "professor": "Adams, Dean Lynn"
+  },
+  {
+    "subject": "CME",
+    "number": 297,
+    "title": "Civil Env Eng Drawing Design",
+    "professor": "Peiravian, Farideddin"
+  },
+  {
+    "subject": "CME",
+    "number": 311,
+    "title": "Water Resources Engineering",
+    "professor": "Schulenberg, Joseph W"
+  },
+  {
+    "subject": "CME",
+    "number": 485,
+    "title": "Construction Engrg Management",
+    "professor": "Ataei, Hossein"
+  },
+  {
+    "subject": "COMM",
+    "number": 100,
+    "title": "Human Communication",
+    "professor": "Quinn, Kelly Ann"
+  },
+  {
+    "subject": "COMM",
+    "number": 103,
+    "title": "Intro to Media",
+    "professor": "Lind, Rebecca Ann"
+  },
+  {
+    "subject": "COMM",
+    "number": 220,
+    "title": "Social Media and Marketing",
+    "professor": "Mukherjee, Ishani"
+  },
+  {
+    "subject": "CS",
+    "number": 111,
+    "title": "Program Design I",
+    "professor": "Bello Lander, Gonzalo Alejandro"
+  },
+  {
+    "subject": "CS",
+    "number": 112,
+    "title": "Program Design I Bio Problems",
+    "professor": "Troy, Patrick A"
+  },
+  {
+    "subject": "CS",
+    "number": 151,
+    "title": "Foundations of Computing",
+    "professor": "Reckinger, Shanon Marie"
+  },
+  {
+    "subject": "CS",
+    "number": 251,
+    "title": "Data Structures",
+    "professor": "Ayala Rodriguez, Daniel"
+  },
+  {
+    "subject": "CS",
+    "number": 485,
+    "title": "Net Operat Syst Progr",
+    "professor": "Lan, Zhiling"
+  },
+  {
+    "subject": "CS",
+    "number": 499,
+    "title": "Prof. Development Seminar",
+    "professor": "Bell, John T"
+  },
+  {
+    "subject": "CS",
+    "number": 524,
+    "title": "Data Visualization & Analytics",
+    "professor": "Miranda, Fabio"
+  },
+  {
+    "subject": "DES",
+    "number": 120,
+    "title": "2D Form Studio",
+    "professor": "Dwyer, Emma Kathleen"
+  },
+  {
+    "subject": "DES",
+    "number": 150,
+    "title": "Digital Media Design I",
+    "professor": "Favela, Viviana"
+  },
+  {
+    "subject": "DES",
+    "number": 150,
+    "title": "Digital Media Design I",
+    "professor": "Norman, Isabel Clare"
+  },
+  {
+    "subject": "DES",
+    "number": 250,
+    "title": "Digital Media Design II",
+    "professor": "Roeger, Oliver L."
+  },
+  {
+    "subject": "DES",
+    "number": 255,
+    "title": "Integrative Design Studio I",
+    "professor": "Armstrong, Lisa G"
+  },
+  {
+    "subject": "DES",
+    "number": 255,
+    "title": "Integrative Design Studio I",
+    "professor": "Zolna, Robert"
+  },
+  {
+    "subject": "DES",
+    "number": 326,
+    "title": "Materials and Methods",
+    "professor": "Teague, Norman Lorenzo"
+  },
+  {
+    "subject": "DES",
+    "number": 450,
+    "title": "Form + Code",
+    "professor": "Neves, Pedro Manuel Santos Jose"
+  },
+  {
+    "subject": "DES",
+    "number": 450,
+    "title": "UI/UX & Figma",
+    "professor": "Guffey, George"
+  },
+  {
+    "subject": "DES",
+    "number": 470,
+    "title": "Industrial Design Thesis I",
+    "professor": "Wilkens, Kimberlee Marie"
+  },
+  {
+    "subject": "MATH",
+    "number": 210,
+    "title": "Calculus III",
+    "professor": "Freitag, James"
+  },
+  {
+    "subject": "MATH",
+    "number": 210,
+    "title": "Calculus III",
+    "professor": "Nenciu, Irina"
+  },
+  {
+    "subject": "MATH",
+    "number": 215,
+    "title": "Intro to Advanced Math",
+    "professor": "Jain, Vishesh"
+  },
+  {
+    "subject": "MATH",
+    "number": 220,
+    "title": "Differential Equations I",
+    "professor": "Shulman, Andrew M"
+  },
+  {
+    "subject": "MATH",
+    "number": 294,
+    "title": "Spec Topics: ESP WKSP Math 313",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "MATH",
+    "number": 310,
+    "title": "Applied Linear Algebra",
+    "professor": "Switala, Nicholas"
+  },
+  {
+    "subject": "MATH",
+    "number": 435,
+    "title": "Found of Number Theory",
+    "professor": "Cojocaru, Alina Carmen"
+  },
+  {
+    "subject": "MBT",
+    "number": 537,
+    "title": "Stem Cells & Regen Engineering",
+    "professor": "Sidik, Khalifah B."
+  },
+  {
+    "subject": "MDP",
+    "number": 621,
+    "title": "Synthesis 1-2",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "MDP",
+    "number": 634,
+    "title": "Medical Colloquia 4",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "MDR",
+    "number": 607,
+    "title": "Block 7: Regulation & Repro",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "ME",
+    "number": 321,
+    "title": "Heat Transfer",
+    "professor": "Jung, Eunjung"
+  },
+  {
+    "subject": "ME",
+    "number": 325,
+    "title": "Intermediate Thermodynamics",
+    "professor": "Ghashami, Mohammad"
+  },
+  {
+    "subject": "ME",
+    "number": 370,
+    "title": "Mechanical Engineering Design",
+    "professor": "Finan, John Desmond"
+  },
+  {
+    "subject": "ME",
+    "number": 380,
+    "title": "Manufacturing Process Princ",
+    "professor": "Abiade, Jeremiah T"
+  },
+  {
+    "subject": "MGMT",
+    "number": 454,
+    "title": "Labor-Mgmt Relations",
+    "professor": "Kolar, Deanna"
+  },
+  {
+    "subject": "MGMT",
+    "number": 460,
+    "title": "Managing Globally",
+    "professor": "Lloyd, Anna K"
+  },
+  {
+    "subject": "MGMT",
+    "number": 475,
+    "title": "Leadership Theories&Skills Dev",
+    "professor": "Liden, Robert C"
+  },
+  {
+    "subject": "MGMT",
+    "number": 541,
+    "title": "Organizational Behavior",
+    "professor": "Antwiler, Brandon"
+  },
+  {
+    "subject": "MGMT",
+    "number": 568,
+    "title": "Compensation Administration",
+    "professor": "Antwiler, Brandon"
+  },
+  {
+    "subject": "MKTG",
+    "number": 464,
+    "title": "Content Marketing",
+    "professor": "Wahlgren, Ann Marie"
+  },
+  {
+    "subject": "MKTG",
+    "number": 469,
+    "title": "Global Marketing",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "MKTG",
+    "number": 562,
+    "title": "Marketing Analytics",
+    "professor": "Hermosilla, Manuel"
+  },
+  {
+    "subject": "MKTG",
+    "number": 563,
+    "title": "Marketing Research I",
+    "professor": "Jackson, Jeffrey"
+  },
+  {
+    "subject": "MUS",
+    "number": 107,
+    "title": "Fundamentals Of Music Theory",
+    "professor": "Carlson, Nicholas"
+  },
+  {
+    "subject": "MUS",
+    "number": 151,
+    "title": "Concert Band",
+    "professor": "Weren, Serena"
+  },
+  {
+    "subject": "MUS",
+    "number": 155,
+    "title": "Treble Choir",
+    "professor": "Calisesi Maidens, Liza Marie"
+  },
+  {
+    "subject": "LAW",
+    "number": 436,
+    "title": "LSIV: Drafting RE",
+    "professor": "Cali, Christopher Anthony"
+  },
+  {
+    "subject": "LAW",
+    "number": 474,
+    "title": "Hum Rights, Race, Mass Incarc",
+    "professor": "Perez Ricardo, Kim D"
+  },
+  {
+    "subject": "LAW",
+    "number": 502,
+    "title": "Labor Law",
+    "professor": "Brown, Matthew Markou"
+  },
+  {
+    "subject": "LAW",
+    "number": 570,
+    "title": "Fed Crim Law",
+    "professor": "Grohman, Christopher"
+  },
+  {
+    "subject": "LING",
+    "number": 150,
+    "title": "Intro Study of Lang Gen Ed",
+    "professor": "Ebert, Shane"
+  },
+  {
+    "subject": "LING",
+    "number": 150,
+    "title": "Intro Study of Lang Gen Ed",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "LING",
+    "number": 210,
+    "title": "Intro Natural Language Syntax",
+    "professor": "Sanchez, Liliana Elizabeth"
+  },
+  {
+    "subject": "LING",
+    "number": 220,
+    "title": "Intro: Phonetics & Phonology",
+    "professor": "Pichan, Carrie E"
+  },
+  {
+    "subject": "MATH",
+    "number": 109,
+    "title": " College Algebra Workshop",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "MATH",
+    "number": 121,
+    "title": "Precalculus Mathematics",
+    "professor": "Kursell, Anita"
+  },
+  {
+    "subject": "MATH",
+    "number": 165,
+    "title": "Calculus for Business",
+    "professor": "Simpson, Gilberto"
+  },
+  {
+    "subject": "MATH",
+    "number": 181,
+    "title": "Calculus II",
+    "professor": "McDonald, Peter M"
+  },
+  {
+    "subject": "MATH",
+    "number": 220,
+    "title": "Differential Equations I",
+    "professor": "Jackson, Billy Joe"
+  },
+  {
+    "subject": "MBT",
+    "number": 594,
+    "title": "Cell  Based Assay",
+    "professor": "Sidik, Khalifah B."
+  },
+  {
+    "subject": "MBT",
+    "number": 597,
+    "title": "Master's Project Research",
+    "professor": "Sidik, Khalifah B."
+  },
+  {
+    "subject": "MDP",
+    "number": 607,
+    "title": "Block 7: Regulation & Repro",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "MDR",
+    "number": 614,
+    "title": "Doctoring & Clinical Skills 4",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "MDR",
+    "number": 624,
+    "title": "Synthesis 7-8",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "MDR",
+    "number": 631,
+    "title": "Medical Colloquia 1",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "MDR",
+    "number": 641,
+    "title": "Clinical Connections & Comp 4",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ME",
+    "number": 211,
+    "title": "Fluid Mechanics l",
+    "professor": "Jung, Eunjung"
+  },
+  {
+    "subject": "ME",
+    "number": 211,
+    "title": "Fluid Mechanics l",
+    "professor": "Xu, Jie"
+  },
+  {
+    "subject": "ME",
+    "number": 328,
+    "title": "Numerical Methods in ME",
+    "professor": "Bhounsule, Pranav Audhut"
+  },
+  {
+    "subject": "ME",
+    "number": 347,
+    "title": "Computer-Aided Design",
+    "professor": "Hatami Marbini, Hamed"
+  },
+  {
+    "subject": "ME",
+    "number": 396,
+    "title": "Senior Design I",
+    "professor": "Brown, Michael A"
+  },
+  {
+    "subject": "ME",
+    "number": 396,
+    "title": "Senior Design I",
+    "professor": "Scott, Michael J"
+  },
+  {
+    "subject": "ME",
+    "number": 562,
+    "title": "Biomedical Implants",
+    "professor": "Mathew Thoppil, Mathew"
+  },
+  {
+    "subject": "ME",
+    "number": 595,
+    "title": "Mechanical Engineering Seminar",
+    "professor": "Hatami Marbini, Hamed"
+  },
+  {
+    "subject": "IDS",
+    "number": 420,
+    "title": "Business Model Simulation",
+    "professor": "Ozdogru, Unsal"
+  },
+  {
+    "subject": "IDS",
+    "number": 472,
+    "title": "Business Data Mining",
+    "professor": "Nadarajah, Negar Soheili"
+  },
+  {
+    "subject": "IE",
+    "number": 345,
+    "title": "Regr Analysis & Forecast",
+    "professor": "Huang, Jida"
+  },
+  {
+    "subject": "IE",
+    "number": 396,
+    "title": "Senior Design Project",
+    "professor": "Brown, Michael A"
+  },
+  {
+    "subject": "IPHS",
+    "number": 404,
+    "title": "Analytic Res Meth 1 Cohort C",
+    "professor": "Cambron, Jerrilyn Arlene"
+  },
+  {
+    "subject": "ITAL",
+    "number": 103,
+    "title": "Intermediate Italian I",
+    "professor": "Masciello, Clelia"
+  },
+  {
+    "subject": "ITAL",
+    "number": 104,
+    "title": "Intermediate Italian II",
+    "professor": "Masciello, Clelia"
+  },
+  {
+    "subject": "JD",
+    "number": 401,
+    "title": "Exp Learning",
+    "professor": "Kreminski, Megan R"
+  },
+  {
+    "subject": "JD",
+    "number": 416,
+    "title": "Crim Law",
+    "professor": "Beschle, Donald L"
+  },
+  {
+    "subject": "JD",
+    "number": 423,
+    "title": "Prof Responsibility",
+    "professor": "Alvarez, Alicia"
+  },
+  {
+    "subject": "JD",
+    "number": 425,
+    "title": "Evidence",
+    "professor": "Ginsberg, Marc"
+  },
+  {
+    "subject": "JD",
+    "number": 509,
+    "title": "RE: Energy Law",
+    "professor": "Rudolphi, Matthew Richard"
+  },
+  {
+    "subject": "JD",
+    "number": 522,
+    "title": "Tech and the Law",
+    "professor": "Kostopoulos, Mary"
+  },
+  {
+    "subject": "KN",
+    "number": 137,
+    "title": "Personal Fitness",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "KN",
+    "number": 194,
+    "title": "Beginning Yoga",
+    "professor": "King, Vera Love"
+  },
+  {
+    "subject": "KN",
+    "number": 194,
+    "title": "First Aid and CPR",
+    "professor": "Jandek, Amy M"
+  },
+  {
+    "subject": "KN",
+    "number": 243,
+    "title": "Exercise Assessment",
+    "professor": "Arbel, Vered"
+  },
+  {
+    "subject": "KN",
+    "number": 396,
+    "title": "Special Project",
+    "professor": "Wekesser, Meredith"
+  },
+  {
+    "subject": "LALS",
+    "number": 101,
+    "title": "Intro Latin American Studies",
+    "professor": "Feldmann, Andreas"
+  },
+  {
+    "subject": "LALS",
+    "number": 288,
+    "title": "History of Puerto Rico",
+    "professor": "Lopez, Jose Elias"
+  },
+  {
+    "subject": "LAS",
+    "number": 110,
+    "title": "Experience UIC",
+    "professor": "Miranda, Iliana Jennette"
+  },
+  {
+    "subject": "LAS",
+    "number": 200,
+    "title": "LAS Career Success",
+    "professor": "Dohse, Brian"
+  },
+  {
+    "subject": "LAT",
+    "number": 103,
+    "title": "Intermediate Latin I",
+    "professor": "Burns, Krishni Schaefgen"
+  },
+  {
+    "subject": "LAW",
+    "number": 402,
+    "title": "LSI",
+    "professor": "Gutierrez, Richard"
+  },
+  {
+    "subject": "LAW",
+    "number": 402,
+    "title": "LSI",
+    "professor": "Pleasant, Shakira"
+  },
+  {
+    "subject": "LAW",
+    "number": 422,
+    "title": "LSIII",
+    "professor": "Bradley, Thomas"
+  },
+  {
+    "subject": "LAW",
+    "number": 437,
+    "title": "LSIV: Drafting Gen Prac",
+    "professor": "Reiter, Gregory Michael"
+  },
+  {
+    "subject": "LAW",
+    "number": 500,
+    "title": "Remedies",
+    "professor": "Bernabe, Alberto"
+  },
+  {
+    "subject": "HON",
+    "number": 123,
+    "title": "Hon Core Indiv & Soc / US Soc",
+    "professor": "Kling, William C"
+  },
+  {
+    "subject": "HON",
+    "number": 201,
+    "title": "Honors Seminar",
+    "professor": "DeJulio Bell, Lauren C"
+  },
+  {
+    "subject": "HON",
+    "number": 201,
+    "title": "Honors Seminar",
+    "professor": "Mitchell, Andrew M"
+  },
+  {
+    "subject": "HPA",
+    "number": 415,
+    "title": "Intro to Public Health Policy",
+    "professor": "Tran, Nathaniel M"
+  },
+  {
+    "subject": "IDS",
+    "number": 313,
+    "title": "Business Web Applications",
+    "professor": "Lundquist, Doug E"
+  },
+  {
+    "subject": "IDS",
+    "number": 435,
+    "title": "Optimization for Analytics",
+    "professor": "Nadarajah, Negar Soheili"
+  },
+  {
+    "subject": "IDS",
+    "number": 473,
+    "title": "Risk Management and Insurance",
+    "professor": "Lee, Yew-Sing Thomas"
+  },
+  {
+    "subject": "IDS",
+    "number": 507,
+    "title": "Syst Analysis Design Proj",
+    "professor": "Liotine, Matthew"
+  },
+  {
+    "subject": "IDS",
+    "number": 521,
+    "title": "Adv Database Management",
+    "professor": "Choi, Michael"
+  },
+  {
+    "subject": "IDS",
+    "number": 561,
+    "title": "Analytics for Big Data",
+    "professor": "Hu, Yuheng"
+  },
+  {
+    "subject": "IDS",
+    "number": 572,
+    "title": "Data Mining for Business",
+    "professor": "Nadarajah, Negar Soheili"
+  },
+  {
+    "subject": "IE",
+    "number": 594,
+    "title": "AI in Advanced Manufacturing",
+    "professor": "Haghighi, Azadeh"
+  },
+  {
+    "subject": "INST",
+    "number": 184,
+    "title": "Intro International Relations",
+    "professor": "Floros, Katharine"
+  },
+  {
+    "subject": "IPHS",
+    "number": 404,
+    "title": "Analytic Res Meth 1 Cohort D",
+    "professor": "Reda, Domenic J"
+  },
+  {
+    "subject": "IPHS",
+    "number": 594,
+    "title": "Applied Research Design",
+    "professor": "Jarpe-Ratner, Elizabeth"
+  },
+  {
+    "subject": "JD",
+    "number": 401,
+    "title": "Exp Learning",
+    "professor": "Mand, Michael Rodgers"
+  },
+  {
+    "subject": "JD",
+    "number": 401,
+    "title": "Exp Learning",
+    "professor": "Pruitt, Alexandra S"
+  },
+  {
+    "subject": "JD",
+    "number": 406,
+    "title": "Property",
+    "professor": "Hamann, Ardath Ann"
+  },
+  {
+    "subject": "JD",
+    "number": 406,
+    "title": "Property",
+    "professor": "Lewis, Paul B"
+  },
+  {
+    "subject": "JD",
+    "number": 470,
+    "title": "Inc Tax",
+    "professor": "Jain, Rishi Kumar"
+  },
+  {
+    "subject": "JD",
+    "number": 472,
+    "title": "Cyber Crime, Info and Econ Esp",
+    "professor": "Long, Doris Estelle"
+  },
+  {
+    "subject": "JPN",
+    "number": 102,
+    "title": "Elementary Japanese II",
+    "professor": "Changet, Mika Obana"
+  },
+  {
+    "subject": "KN",
+    "number": 130,
+    "title": "Stress Management",
+    "professor": "Firkins, Rachel Catherine"
+  },
+  {
+    "subject": "KN",
+    "number": 232,
+    "title": "Anatomy & Physiology Lab I",
+    "professor": "Martinez, Jacqueline"
+  },
+  {
+    "subject": "KN",
+    "number": 396,
+    "title": "Special Project",
+    "professor": "Hamstra-Wright, Karrie Lynn"
+  },
+  {
+    "subject": "KN",
+    "number": 493,
+    "title": "Practicum in UG Teaching",
+    "professor": "Arbel, Vered"
+  },
+  {
+    "subject": "KN",
+    "number": 493,
+    "title": "Practicum in UG Teaching",
+    "professor": "Kanan, Tomer"
+  },
+  {
+    "subject": "LALS",
+    "number": 102,
+    "title": "Intro Latino Studies",
+    "professor": "Diaz Martin, Esther"
+  },
+  {
+    "subject": "MUS",
+    "number": 159,
+    "title": "Jazz Ensemble",
+    "professor": "Baker, Andrew"
+  },
+  {
+    "subject": "MUS",
+    "number": 203,
+    "title": "Ear Training III",
+    "professor": "Gillespie, Amos"
+  },
+  {
+    "subject": "NUPR",
+    "number": 522,
+    "title": "Clinical Prac Primry Care II",
+    "professor": "Vaez, Kelly Ann"
+  },
+  {
+    "subject": "NUPR",
+    "number": 557,
+    "title": "EBP 5",
+    "professor": "Carlucci, Melissa Ann"
+  },
+  {
+    "subject": "NURS",
+    "number": 331,
+    "title": "Childbearing Women & Families",
+    "professor": "Smith, Pamela Chase"
+  },
+  {
+    "subject": "NURS",
+    "number": 412,
+    "title": "IHC: Wmn/Chldrn/Family",
+    "professor": "Ricca, Paige Quigley"
+  },
+  {
+    "subject": "NURS",
+    "number": 419,
+    "title": "Patho-Pharm 1",
+    "professor": "Leipold, Catherine"
+  },
+  {
+    "subject": "NURS",
+    "number": 535,
+    "title": "Advanced Pathophysiology",
+    "professor": "Hinthorne, Summer Alyssa"
+  },
+  {
+    "subject": "NURS",
+    "number": 540,
+    "title": "APN Issues and Policy",
+    "professor": "Clarke, Mara Michele"
+  },
+  {
+    "subject": "PATH",
+    "number": 595,
+    "title": "Pathology Sem & Journal Club",
+    "professor": "Veiga-Lopez, Almudena"
+  },
+  {
+    "subject": "PERI",
+    "number": 611,
+    "title": "Classic Perio Lit Review",
+    "professor": "Schmerman, Michael L"
+  },
+  {
+    "subject": "PERI",
+    "number": 630,
+    "title": "Treatment Planning in Perio",
+    "professor": "Schmerman, Michael L"
+  },
+  {
+    "subject": "PHAR",
+    "number": 413,
+    "title": "Pharmacy Practice: Hospital",
+    "professor": "Sawyer, Kathryn Mae"
+  },
+  {
+    "subject": "PHAR",
+    "number": 603,
+    "title": "APPE: Hospital/Health-System",
+    "professor": "Allen, Sheila Mary"
+  },
+  {
+    "subject": "PHIL",
+    "number": 100,
+    "title": "Environmental Philosophy",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "PHIL",
+    "number": 300,
+    "title": "Philosophical Discourse",
+    "professor": "Laden, Anthony S"
+  },
+  {
+    "subject": "PHYS",
+    "number": 401,
+    "title": "Electromagnetism I",
+    "professor": "Barkan, Adrian"
+  },
+  {
+    "subject": "PHYS",
+    "number": 499,
+    "title": "Physics Problems",
+    "professor": "Mills, Corrinne"
+  },
+  {
+    "subject": "PMPR",
+    "number": 356,
+    "title": "The Role of the Pharmacist",
+    "professor": "Uppuluri, Ellen Maria"
+  },
+  {
+    "subject": "PMPR",
+    "number": 488,
+    "title": "Pharmacy Practice Leadership",
+    "professor": "Yamamoto, Kay"
+  },
+  {
+    "subject": "POL",
+    "number": 130,
+    "title": "Polish Lit in Translation",
+    "professor": "Underhill, Karen"
+  },
+  {
+    "subject": "POLS",
+    "number": 120,
+    "title": "Intro to Political Theory",
+    "professor": "Moruzzi, Norma Claire"
+  },
+  {
+    "subject": "POLS",
+    "number": 184,
+    "title": "Intro International Relations",
+    "professor": "Floros, Katharine"
+  },
+  {
+    "subject": "POLS",
+    "number": 200,
+    "title": "Methods of Political Science",
+    "professor": "Watson, John S"
+  },
+  {
+    "subject": "POLS",
+    "number": 210,
+    "title": "Intro to Urban Politics",
+    "professor": "Alexander, S Alba"
+  },
+  {
+    "subject": "POLS",
+    "number": 243,
+    "title": "Polit & Govt of Middle East",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "PPOL",
+    "number": 309,
+    "title": "Public Budget & Financial Mgmt",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "PROS",
+    "number": 613,
+    "title": "Perio-Prosthetic Seminars",
+    "professor": "Ghunaim, Dima"
+  },
+  {
+    "subject": "ENGL",
+    "number": 229,
+    "title": "Asian Film",
+    "professor": "Phan, Justin Quang Nguyen"
+  },
+  {
+    "subject": "ENGL",
+    "number": 325,
+    "title": "20th & 21st C American Lit",
+    "professor": "Jun, Helen Heran"
+  },
+  {
+    "subject": "ENGL",
+    "number": 345,
+    "title": "Queer Theory",
+    "professor": "Brown, Deziree Aleace"
+  },
+  {
+    "subject": "ENGL",
+    "number": 491,
+    "title": "Adv Writing of Fiction",
+    "professor": "Stolley, Lisa Anne"
+  },
+  {
+    "subject": "ENGL",
+    "number": 496,
+    "title": "Portfolio Practicum",
+    "professor": "Christian, Margena A"
+  },
+  {
+    "subject": "ENGR",
+    "number": 100,
+    "title": "BME Success Seminar - FYF",
+    "professor": "Narubin Durbin, Simona Ieva"
+  },
+  {
+    "subject": "ENGR",
+    "number": 100,
+    "title": "MIE Success Seminar - Transfer",
+    "professor": "Narubin Durbin, Simona Ieva"
+  },
+  {
+    "subject": "EOHS",
+    "number": 401,
+    "title": "Ethics & Justice Env &Occ Hlth",
+    "professor": "Malecki, Kristen"
+  },
+  {
+    "subject": "EPSY",
+    "number": 242,
+    "title": "Sexuality Development",
+    "professor": "Weststrate, Nicholas"
+  },
+  {
+    "subject": "EPSY",
+    "number": 494,
+    "title": "Topics in Ed Psychology",
+    "professor": "Vesga, Natalie"
+  },
+  {
+    "subject": "EPSY",
+    "number": 520,
+    "title": "Intro Curriculum & Practice",
+    "professor": "Mulholland, Larissa"
+  },
+  {
+    "subject": "FIN",
+    "number": 250,
+    "title": "Personal Finance",
+    "professor": "Diaz Bianco, Aaron"
+  },
+  {
+    "subject": "FIN",
+    "number": 250,
+    "title": "Personal Finance",
+    "professor": "Zabotina, Tatiana V"
+  },
+  {
+    "subject": "FIN",
+    "number": 416,
+    "title": "Options and Futures",
+    "professor": "Golubeva, Evgenia"
+  },
+  {
+    "subject": "FIN",
+    "number": 442,
+    "title": "Int'l Corp Financial Mgmt",
+    "professor": "Bakke, Tor-Erik"
+  },
+  {
+    "subject": "FR",
+    "number": 101,
+    "title": "Elementary French 1",
+    "professor": "Hoselton, Jessica Leigh Thornton"
+  },
+  {
+    "subject": "GER",
+    "number": 217,
+    "title": "Intro German Cinema",
+    "professor": "Hall, Sara Frances"
+  },
+  {
+    "subject": "GKM",
+    "number": 101,
+    "title": "Elem Modern Greek I",
+    "professor": "Tzirides, Anastasia Olga"
+  },
+  {
+    "subject": "GKM",
+    "number": 105,
+    "title": "Modern Greek Culture",
+    "professor": "Tzirides, Anastasia Olga"
+  },
+  {
+    "subject": "GLAS",
+    "number": 252,
+    "title": "U.S. Racism & Imperialism",
+    "professor": "Paik, Angela Naomi"
+  },
+  {
+    "subject": "GWS",
+    "number": 292,
+    "title": "History & Theory of Feminism",
+    "professor": "Moruzzi, Norma Claire"
+  },
+  {
+    "subject": "GWS",
+    "number": 390,
+    "title": "Feminism & Social Change",
+    "professor": "Tekobbe, Cindy"
+  },
+  {
+    "subject": "HIM",
+    "number": 410,
+    "title": "Intro to the Hlthcare Sys",
+    "professor": "Glondys, Barbara A"
+  },
+  {
+    "subject": "HIM",
+    "number": 410,
+    "title": "Intro to the Hlthcare Sys",
+    "professor": "Nedbal, Joseph Anthony"
+  },
+  {
+    "subject": "HIST",
+    "number": 100,
+    "title": "Western Civ To 1648",
+    "professor": "Abbott, John"
+  },
+  {
+    "subject": "HIST",
+    "number": 177,
+    "title": "Middle Eastern Civ",
+    "professor": "Quadri, Syed Junaid Ahmed"
+  },
+  {
+    "subject": "HIST",
+    "number": 246,
+    "title": "Hist of American Capitalism",
+    "professor": "Sklansky, Jeffrey"
+  },
+  {
+    "subject": "MATH",
+    "number": 210,
+    "title": "Calculus III",
+    "professor": "Kobotis, Evangelos"
+  },
+  {
+    "subject": "MATH",
+    "number": 210,
+    "title": "Calculus III",
+    "professor": "Moreland, Gwyneth Sakarin"
+  },
+  {
+    "subject": "MATH",
+    "number": 210,
+    "title": "Calculus III",
+    "professor": "Whyte, Kevin M."
+  },
+  {
+    "subject": "MATH",
+    "number": 215,
+    "title": "Intro to Advanced Math",
+    "professor": "Groves, Daniel Peter"
+  },
+  {
+    "subject": "MATH",
+    "number": 294,
+    "title": "Spec Topics: ESP WKSP Math 215",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "MATH",
+    "number": 310,
+    "title": "Applied Linear Algebra",
+    "professor": "McDonald, Peter M"
+  },
+  {
+    "subject": "MBA",
+    "number": 570,
+    "title": "Enterprise Strategy",
+    "professor": "Shanley, Mark"
+  },
+  {
+    "subject": "MBT",
+    "number": 520,
+    "title": "Biotech Product Development",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "MDC",
+    "number": 602,
+    "title": "Block 2: Pathogenesis",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "MDP",
+    "number": 606,
+    "title": "Block 6: Brain & Behavior",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "MDR",
+    "number": 606,
+    "title": "Block 6: Brain & Behavior",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "ME",
+    "number": 261,
+    "title": "Materials for Manufacturing",
+    "professor": "Karpov, Eduard"
+  },
+  {
+    "subject": "ME",
+    "number": 429,
+    "title": "Internal Combustion Engines",
+    "professor": "Manafzadeh, Saeed"
+  },
+  {
+    "subject": "MGMT",
+    "number": 453,
+    "title": "Human Resource Management",
+    "professor": "Yuan, Zhenyu"
+  },
+  {
+    "subject": "MGMT",
+    "number": 564,
+    "title": "Negotiations",
+    "professor": "Antwiler, Brandon"
+  },
+  {
+    "subject": "MHPE",
+    "number": 598,
+    "title": "Thesis Research",
+    "professor": "Polansky, Maura"
+  },
+  {
+    "subject": "MKTG",
+    "number": 360,
+    "title": "Intro to Marketing-BBA Online",
+    "professor": "Atchley, Cindy J"
+  },
+  {
+    "subject": "MKTG",
+    "number": 455,
+    "title": "Multichannel Retailing",
+    "professor": "Forbes, Glen B"
+  },
+  {
+    "subject": "MKTG",
+    "number": 461,
+    "title": "Consumer Behavior",
+    "professor": "Duhachek, Adam"
+  },
+  {
+    "subject": "MKTG",
+    "number": 470,
+    "title": "Branding",
+    "professor": "Wahlgren, Ann Marie"
+  },
+  {
+    "subject": "MKTG",
+    "number": 471,
+    "title": "Services Marketing",
+    "professor": "Forbes, Glen B"
+  },
+  {
+    "subject": "MKTG",
+    "number": 479,
+    "title": "Digital & Social Media Mktg",
+    "professor": "Razi, Sajna"
+  },
+  {
+    "subject": "MOVI",
+    "number": 131,
+    "title": "Understand Moving Image Arts",
+    "professor": "Burson, Harry"
+  },
+  {
+    "subject": "MUS",
+    "number": 103,
+    "title": "Ear Training I",
+    "professor": "Lau, Wing"
+  },
+  {
+    "subject": "MUS",
+    "number": 103,
+    "title": "Ear Training I",
+    "professor": "Park, Joon"
+  },
+  {
+    "subject": "MUS",
+    "number": 107,
+    "title": "Fundamentals Of Music Theory",
+    "professor": "Gariazzo, Mariana"
+  },
+  {
+    "subject": "MUS",
+    "number": 183,
+    "title": "Vocal Lessons-30 Min",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "NURS",
+    "number": 304,
+    "title": "Professional Nursing 3",
+    "professor": "Cajita, Maan Isabella"
+  },
+  {
+    "subject": "MENG",
+    "number": 404,
+    "title": "Math Fundamentals AI Engineers",
+    "professor": "Shulman, Andrew M"
+  },
+  {
+    "subject": "MGMT",
+    "number": 350,
+    "title": "External Environment of Bus",
+    "professor": "Antwiler, Brandon"
+  },
+  {
+    "subject": "MGMT",
+    "number": 350,
+    "title": "External Environment of Bus",
+    "professor": "Bullock, Kirsten"
+  },
+  {
+    "subject": "MGMT",
+    "number": 350,
+    "title": "External Environment of Bus",
+    "professor": "Lloyd, Anna K"
+  },
+  {
+    "subject": "MGMT",
+    "number": 453,
+    "title": "Human Resource Management",
+    "professor": "Valdez-Mansilla, Rosa"
+  },
+  {
+    "subject": "MGMT",
+    "number": 495,
+    "title": "Competitive Strategy",
+    "professor": "Callahan, Conor"
+  },
+  {
+    "subject": "MGMT",
+    "number": 590,
+    "title": "Strategic Management",
+    "professor": "Shanley, Mark"
+  },
+  {
+    "subject": "MHPE",
+    "number": 503,
+    "title": "Curriculum & Evaluation",
+    "professor": "Polansky, Maura"
+  },
+  {
+    "subject": "MHPE",
+    "number": 533,
+    "title": "Survey Research Methods",
+    "professor": "Schwartz, Alan J"
+  },
+  {
+    "subject": "MKTG",
+    "number": 467,
+    "title": "Business Intelligence in Mktg",
+    "professor": "Razi, Sajna"
+  },
+  {
+    "subject": "MKTG",
+    "number": 476,
+    "title": "B2B Marketing",
+    "professor": "Calzavara, Carolyn"
+  },
+  {
+    "subject": "MKTG",
+    "number": 479,
+    "title": "Digital & Social Media Mktg",
+    "professor": "Barney-McNamara, Barbara"
+  },
+  {
+    "subject": "MKTG",
+    "number": 482,
+    "title": "Innovation Management",
+    "professor": "Moon, Kim"
+  },
+  {
+    "subject": "MTHT",
+    "number": 400,
+    "title": "Methods Tchg Secnd Math I",
+    "professor": "Schubert, Erin Rose"
+  },
+  {
+    "subject": "MUS",
+    "number": 127,
+    "title": "Latin American Music",
+    "professor": "McNally, James Edward"
+  },
+  {
+    "subject": "MUS",
+    "number": 390,
+    "title": "Record Company Marketing",
+    "professor": "Difazio, Robert Scott"
+  },
+  {
+    "subject": "MUSE",
+    "number": 543,
+    "title": "Writing for Exhibitions",
+    "professor": "Mensah, Lucy Kwabah"
+  },
+  {
+    "subject": "NUEL",
+    "number": 524,
+    "title": "Soc-cul/Eth Palliative Care",
+    "professor": "Obrecht, Jennifer"
+  },
+  {
+    "subject": "NUPR",
+    "number": 539,
+    "title": "NP Pract I:Mgmt Hlth/Ill Adult",
+    "professor": "Stephens, Katie M"
+  },
+  {
+    "subject": "NURS",
+    "number": 304,
+    "title": "Professional Nursing 3",
+    "professor": "Hovey, Susan L"
+  },
+  {
+    "subject": "NURS",
+    "number": 332,
+    "title": "Caring Theory Prof Nrsg Prac",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "NURS",
+    "number": 409,
+    "title": "Hlth Assessment/Communication",
+    "professor": "Krassa, Teresa J"
+  },
+  {
+    "subject": "NURS",
+    "number": 419,
+    "title": "Patho-Pharm 1",
+    "professor": "Schwind, Julie Ann"
+  },
+  {
+    "subject": "NURS",
+    "number": 532,
+    "title": "Comp Hlth Asmnt Adv Nrsng Prac",
+    "professor": "Clarke, Mara Michele"
+  },
+  {
+    "subject": "NURS",
+    "number": 553,
+    "title": "Strategic & Financial Planning",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "NUSP",
+    "number": 512,
+    "title": "Ed Perspectives/School Ns",
+    "professor": "Noga, Mary Elizabeth"
+  },
+  {
+    "subject": "NUSP",
+    "number": 555,
+    "title": "Health Care of Women I",
+    "professor": "Caldwell, Stefani Alexander"
+  },
+  {
+    "subject": "OT",
+    "number": 630,
+    "title": "Occupational Therapy Process 1",
+    "professor": "Fischer, Heidi Christine"
+  },
+  {
+    "subject": "HIST",
+    "number": 255,
+    "title": "History of Chicago",
+    "professor": "Bui, Long B"
+  },
+  {
+    "subject": "HIST",
+    "number": 262,
+    "title": "Latin Amer since 1850",
+    "professor": "Chavez, Joaquin M"
+  },
+  {
+    "subject": "HIST",
+    "number": 278,
+    "title": "Middle East Modern Period",
+    "professor": "Cuyler, Zachary"
+  },
+  {
+    "subject": "HIST",
+    "number": 591,
+    "title": "Prelim Prospectus Prep",
+    "professor": "Fidelis, Malgorzata"
+  },
+  {
+    "subject": "HN",
+    "number": 307,
+    "title": "Nutrition and Metabolism",
+    "professor": "Cienfuegos Muzard, Sofia"
+  },
+  {
+    "subject": "HN",
+    "number": 318,
+    "title": "Mechanisms of Chronic Disease",
+    "professor": "Fantuzzi, Giamila"
+  },
+  {
+    "subject": "HN",
+    "number": 560,
+    "title": "Adv Public Health Nutrition",
+    "professor": "Ambrose, Sherri Ann"
+  },
+  {
+    "subject": "HN",
+    "number": 594,
+    "title": "Applied Nutrigenics",
+    "professor": "Shuflin, Samantha"
+  },
+  {
+    "subject": "HN",
+    "number": 594,
+    "title": "Bioactive Food Components",
+    "professor": "Mohamed, Abeer"
+  },
+  {
+    "subject": "HON",
+    "number": 101,
+    "title": "Freshman Orientation Sem",
+    "professor": "Kaczmarczyk, Laura W"
+  },
+  {
+    "subject": "HON",
+    "number": 127,
+    "title": "Hon Core Creat Art / World Cul",
+    "professor": "Giampaoli, Michelangelo"
+  },
+  {
+    "subject": "HON",
+    "number": 201,
+    "title": "Honors Seminar",
+    "professor": "Hayek, Philip Wesley"
+  },
+  {
+    "subject": "HON",
+    "number": 201,
+    "title": "Honors Seminar",
+    "professor": "Kostadinova, Petia A"
+  },
+  {
+    "subject": "HPA",
+    "number": 495,
+    "title": "MHA Preceptorship",
+    "professor": "Andersen, Adam M"
+  },
+  {
+    "subject": "HPA",
+    "number": 496,
+    "title": "MHA Capstone I",
+    "professor": "Andersen, Adam M"
+  },
+  {
+    "subject": "IDS",
+    "number": 312,
+    "title": "Business Project Management",
+    "professor": "Gawel, Jeffrey"
+  },
+  {
+    "subject": "IDS",
+    "number": 331,
+    "title": "Spreadsheet Analysis",
+    "professor": "Ozdogru, Unsal"
+  },
+  {
+    "subject": "IDS",
+    "number": 450,
+    "title": "Supply Chain Plan & Logistics",
+    "professor": "Liotine, Matthew"
+  },
+  {
+    "subject": "IDS",
+    "number": 532,
+    "title": "Intro to Operations Mgmt",
+    "professor": "Dierks, Ludwig"
+  },
+  {
+    "subject": "IDS",
+    "number": 535,
+    "title": "Vendor Management",
+    "professor": "Treleaven, James"
+  },
+  {
+    "subject": "IE",
+    "number": 461,
+    "title": "Safety Engineering",
+    "professor": "Williams, Quintin Levurn"
+  },
+  {
+    "subject": "IPHS",
+    "number": 401,
+    "title": "Determin of Hlth Online Cohort",
+    "professor": "Shapiro-Berkson, Stephanie B"
+  },
+  {
+    "subject": "IPHS",
+    "number": 522,
+    "title": "Epidemiology for Leadership",
+    "professor": "Seweryn, Steven M"
+  },
+  {
+    "subject": "JD",
+    "number": 405,
+    "title": "Contracts I",
+    "professor": "Lousin, Ann M"
+  },
+  {
+    "subject": "JD",
+    "number": 407,
+    "title": "Torts",
+    "professor": "Hopkins, Kevin"
+  },
+  {
+    "subject": "JD",
+    "number": 423,
+    "title": "Prof Responsibility",
+    "professor": "Frossard, Margaret Omara"
+  },
+  {
+    "subject": "JD",
+    "number": 438,
+    "title": "IP Licensing",
+    "professor": "Paniaguas, John S"
+  },
+  {
+    "subject": "LAW",
+    "number": 536,
+    "title": "Criminal Pro: Investigation",
+    "professor": "Perez Ricardo, Kim D"
+  },
+  {
+    "subject": "LING",
+    "number": 170,
+    "title": "Languages of the World",
+    "professor": "Hallett, Jill Maureen"
+  },
+  {
+    "subject": "MATH",
+    "number": 90,
+    "title": "Intermediate Algebra",
+    "professor": "Woldeit, Anthony John"
+  },
+  {
+    "subject": "MATH",
+    "number": 104,
+    "title": "Math Reasoning Workshop",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "MATH",
+    "number": 121,
+    "title": "Precalculus Mathematics",
+    "professor": "Jackson, Billy Joe"
+  },
+  {
+    "subject": "MATH",
+    "number": 121,
+    "title": "Precalculus Mathematics",
+    "professor": "Simpson, Gilberto"
+  },
+  {
+    "subject": "MATH",
+    "number": 140,
+    "title": "Arith & Algebraic Structures",
+    "professor": "Lee-Hassan, Alexa"
+  },
+  {
+    "subject": "MATH",
+    "number": 140,
+    "title": "Arith & Algebraic Structures",
+    "professor": "Martinez, Mara Vanina"
+  },
+  {
+    "subject": "MATH",
+    "number": 181,
+    "title": "Calculus II",
+    "professor": "Ash, William Ray"
+  },
+  {
+    "subject": "MATH",
+    "number": 210,
+    "title": "Calculus III",
+    "professor": "Banks, Maya D"
+  },
+  {
+    "subject": "MATH",
+    "number": 215,
+    "title": "Intro to Advanced Math",
+    "professor": "Ingebretson, Daniel Jordan"
+  },
+  {
+    "subject": "MATH",
+    "number": 417,
+    "title": "Complex Analysis",
+    "professor": "Coskun, Izzet"
+  },
+  {
+    "subject": "MATH",
+    "number": 533,
+    "title": "Real Analysis I",
+    "professor": "Dai, Mimi"
+  },
+  {
+    "subject": "MCS",
+    "number": 360,
+    "title": "Intro To Data Structure",
+    "professor": "Adrovic, Danko"
+  },
+  {
+    "subject": "ME",
+    "number": 118,
+    "title": "Energy for Sustainable Society",
+    "professor": "Alonso, Matthew Paul"
+  },
+  {
+    "subject": "ME",
+    "number": 205,
+    "title": "Intro to Thermodynamics",
+    "professor": "Manafzadeh, Saeed"
+  },
+  {
+    "subject": "ME",
+    "number": 599,
+    "title": "PhD Thesis Research",
+    "professor": "Sankaranarayanan, Subramanian"
+  },
+  {
+    "subject": "MGMT",
+    "number": 360,
+    "title": "Strategic Analysis",
+    "professor": "Bullock, Kirsten"
+  },
+  {
+    "subject": "MGMT",
+    "number": 463,
+    "title": "Neg &Conflict Res for BBA",
+    "professor": "Tarasievich, Renata A."
+  },
+  {
+    "subject": "MGMT",
+    "number": 553,
+    "title": "Human Resource Management",
+    "professor": "Martin, David"
+  },
+  {
+    "subject": "MILS",
+    "number": 101,
+    "title": "Leadership and Personal Devel",
+    "professor": "Sommers, Nicholas"
+  },
+  {
+    "subject": "MILS",
+    "number": 201,
+    "title": "Foundations of Leadership",
+    "professor": "Bush, Jay William"
+  },
+  {
+    "subject": "MKTG",
+    "number": 360,
+    "title": "Introduction to Marketing",
+    "professor": "Weidemanis Magi, Anne"
+  },
+  {
+    "subject": "MKTG",
+    "number": 469,
+    "title": "Global Marketing",
+    "professor": "Grubisich, Vernon"
+  },
+  {
+    "subject": "MKTG",
+    "number": 473,
+    "title": "Introduction to Sales",
+    "professor": "Calzavara, Carolyn"
+  },
+  {
+    "subject": "MOVI",
+    "number": 130,
+    "title": "Korean Culture through Films",
+    "professor": "Kim, Hanae"
+  },
+  {
+    "subject": "MOVI",
+    "number": 232,
+    "title": "Film History I: 1890-WWII",
+    "professor": "Rubin, Martin L."
+  },
+  {
+    "subject": "IDS",
+    "number": 400,
+    "title": "Programming for Data Science",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "IDS",
+    "number": 460,
+    "title": "Causal Inference",
+    "professor": "Wang, Zisu"
+  },
+  {
+    "subject": "IDS",
+    "number": 495,
+    "title": "Competitive Strategy",
+    "professor": "Treleaven, James"
+  },
+  {
+    "subject": "IDS",
+    "number": 532,
+    "title": "Intro to Operations Mgmt",
+    "professor": "Sarayloo, Fatemeh"
+  },
+  {
+    "subject": "IDS",
+    "number": 540,
+    "title": "Marketing Analytics",
+    "professor": "Malter, Alan Joseph"
+  },
+  {
+    "subject": "IDS",
+    "number": 575,
+    "title": "Machine Learning & Statistics",
+    "professor": "Lee, Moontae"
+  },
+  {
+    "subject": "IE",
+    "number": 473,
+    "title": "Stochastic Processes & Queuing",
+    "professor": "He, David Weihua"
+  },
+  {
+    "subject": "IE",
+    "number": 595,
+    "title": "Industrial Engineering Seminar",
+    "professor": "Hatami Marbini, Hamed"
+  },
+  {
+    "subject": "IPHS",
+    "number": 404,
+    "title": "Analytic Res Meth 1 Cohort B",
+    "professor": "Arguelles, Lester"
+  },
+  {
+    "subject": "IPHS",
+    "number": 510,
+    "title": "Leadership in PH Policy Devel",
+    "professor": "Peters, Karen E"
+  },
+  {
+    "subject": "IPHS",
+    "number": 699,
+    "title": "Research PH Sciences-DrPH",
+    "professor": "Welter, Christina Rose"
+  },
+  {
+    "subject": "JD",
+    "number": 401,
+    "title": "Exp Learning",
+    "professor": "Messina, Ashley A"
+  },
+  {
+    "subject": "JD",
+    "number": 407,
+    "title": "Torts",
+    "professor": "Bernabe, Alberto"
+  },
+  {
+    "subject": "JD",
+    "number": 409,
+    "title": "U.S. Copyright Law",
+    "professor": "King, Yolanda"
+  },
+  {
+    "subject": "JD",
+    "number": 411,
+    "title": "Civil Procedure I",
+    "professor": "Ford, Stuart K"
+  },
+  {
+    "subject": "JD",
+    "number": 414,
+    "title": "Const Law I",
+    "professor": "Schwinn, Steven D"
+  },
+  {
+    "subject": "JD",
+    "number": 415,
+    "title": "Contracts II",
+    "professor": "Wouters, Hub Conley"
+  },
+  {
+    "subject": "JD",
+    "number": 424,
+    "title": "Const Law II",
+    "professor": "Seng, Michael P"
+  },
+  {
+    "subject": "JD",
+    "number": 425,
+    "title": "Evidence",
+    "professor": "Mundy, Hugh M"
+  },
+  {
+    "subject": "JPN",
+    "number": 101,
+    "title": "Elementary Japanese I",
+    "professor": "Changet, Mika Obana"
+  },
+  {
+    "subject": "KN",
+    "number": 200,
+    "title": "Statistical Methods",
+    "professor": "Hibbing, Paul R"
+  },
+  {
+    "subject": "KN",
+    "number": 232,
+    "title": "Anatomy & Physiology Lab I",
+    "professor": "Davis, Victoria"
+  },
+  {
+    "subject": "KN",
+    "number": 232,
+    "title": "Anatomy & Physiology Lab I",
+    "professor": "Rodriguez, John M"
+  },
+  {
+    "subject": "KN",
+    "number": 493,
+    "title": "Practicum in UG Teaching",
+    "professor": "Hamstra-Wright, Karrie Lynn"
+  },
+  {
+    "subject": "KN",
+    "number": 500,
+    "title": "Evidenced-Based Practice",
+    "professor": "Blackburn, Brian Keith"
+  },
+  {
+    "subject": "KOR",
+    "number": 101,
+    "title": "Elementary Korean I",
+    "professor": "Kim, Hanae"
+  },
+  {
+    "subject": "LALS",
+    "number": 262,
+    "title": "Latin Amer since 1850",
+    "professor": "Chavez, Joaquin M"
+  },
+  {
+    "subject": "LALS",
+    "number": 276,
+    "title": "Latinas in US",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "PROS",
+    "number": 623,
+    "title": "Pros Lit Review",
+    "professor": "Ghunaim, Dima"
+  },
+  {
+    "subject": "PSCH",
+    "number": 100,
+    "title": "Introductory Psychology",
+    "professor": "Flynn, Andrea Marie"
+  },
+  {
+    "subject": "PSCH",
+    "number": 352,
+    "title": "Cognition and Memory",
+    "professor": "Coughlin, Christine Ann"
+  },
+  {
+    "subject": "PSCH",
+    "number": 363,
+    "title": "Lab in Behavioral Neurosci",
+    "professor": "Ragozzino, Michael E"
+  },
+  {
+    "subject": "PSCH",
+    "number": 367,
+    "title": "Lab in Cognitive Neurosci",
+    "professor": "Passarotti, Alessandra"
+  },
+  {
+    "subject": "PSCH",
+    "number": 484,
+    "title": "Neuroscience I",
+    "professor": "Richmond, Janet Elizabeth"
+  },
+  {
+    "subject": "PSCH",
+    "number": 543,
+    "title": "Research Design & Analysis I",
+    "professor": "Demos, Alexander"
+  },
+  {
+    "subject": "PSCH",
+    "number": 594,
+    "title": "Adv Special Topics in Psch",
+    "professor": "Banales, Josefina"
+  },
+  {
+    "subject": "PT",
+    "number": 633,
+    "title": "Neuromuscular Dysfunction I",
+    "professor": "Girolami, Gay Lina"
+  },
+  {
+    "subject": "PUBH",
+    "number": 110,
+    "title": "Global Societies",
+    "professor": "Caldwell, Jennifer"
+  },
+  {
+    "subject": "PUBH",
+    "number": 350,
+    "title": "Health Systems, Health Policy",
+    "professor": "Gelder, Michael"
+  },
+  {
+    "subject": "RELE",
+    "number": 600,
+    "title": "Doctoring & Clinical Skills",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "RES",
+    "number": 250,
+    "title": "Real Estate Principles",
+    "professor": "Hanson, Andrew"
+  },
+  {
+    "subject": "SOC",
+    "number": 105,
+    "title": "Social Problems",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "SOC",
+    "number": 215,
+    "title": "Sociology Childhood and Youth",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "SOC",
+    "number": 300,
+    "title": "Sociological Research Methods",
+    "professor": "Somashekhar, Mahesh"
+  },
+  {
+    "subject": "SOCW",
+    "number": 420,
+    "title": "Policy I: Soc Welfare Pol&Svcs",
+    "professor": "Mangum, Laurenia Chaunte"
+  },
+  {
+    "subject": "SOCW",
+    "number": 430,
+    "title": "Practice I: Individuals & Orgs",
+    "professor": "Gould, Phyllis S"
+  },
+  {
+    "subject": "SOCW",
+    "number": 430,
+    "title": "Practice I: Individuals & Orgs",
+    "professor": "Tumiel, Elizabeth Ann"
+  },
+  {
+    "subject": "SOCW",
+    "number": 502,
+    "title": "Psychological Trauma",
+    "professor": "Tarbhai, Umair A"
+  },
+  {
+    "subject": "SOCW",
+    "number": 512,
+    "title": "International Social Work",
+    "professor": "Butterfield, Alice K."
+  },
+  {
+    "subject": "SOCW",
+    "number": 539,
+    "title": "Mental Hlth w/Child&Adolescent",
+    "professor": "Eads, Ray"
+  },
+  {
+    "subject": "SOCW",
+    "number": 599,
+    "title": "PhD Thesis Research",
+    "professor": "Hsieh, Chang-Ming"
+  },
+  {
+    "subject": "SPAN",
+    "number": 101,
+    "title": "Elementary Spanish I",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "SPAN",
+    "number": 101,
+    "title": "Elementary Spanish I",
+    "professor": "Maldonado, Elizabeth"
+  },
+  {
+    "subject": "SPAN",
+    "number": 114,
+    "title": "Spanish - Heritage Speakers II",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "SPAN",
+    "number": 202,
+    "title": "Spanish Grammar in Practice",
+    "professor": "Betancourt, Angela C"
+  },
+  {
+    "subject": "SPAN",
+    "number": 203,
+    "title": "Composition Non-Native Speakrs",
+    "professor": "Niebylski, Dianna"
+  },
+  {
+    "subject": "LALS",
+    "number": 263,
+    "title": "Latin Amer Colonial Art",
+    "professor": "Deij Prado, Macarena"
+  },
+  {
+    "subject": "LAS",
+    "number": 110,
+    "title": "Experience UIC",
+    "professor": "Becker, Kaylena"
+  },
+  {
+    "subject": "LAS",
+    "number": 110,
+    "title": "Experience UIC",
+    "professor": "LaLonde, Margaret"
+  },
+  {
+    "subject": "LAS",
+    "number": 289,
+    "title": "LAS Internship",
+    "professor": "Gallagher, Lauren"
+  },
+  {
+    "subject": "LAT",
+    "number": 101,
+    "title": "Elementary Latin I",
+    "professor": "Burns, Krishni Schaefgen"
+  },
+  {
+    "subject": "LAW",
+    "number": 400,
+    "title": "Fair Housing Legal Internship",
+    "professor": "Seng, Michael P"
+  },
+  {
+    "subject": "LAW",
+    "number": 402,
+    "title": "LSI",
+    "professor": "Sorkin, David E"
+  },
+  {
+    "subject": "LAW",
+    "number": 412,
+    "title": "LSII",
+    "professor": "Meintanis, Elise Lillian"
+  },
+  {
+    "subject": "LAW",
+    "number": 422,
+    "title": "LSIII",
+    "professor": "Line, Julie Ann"
+  },
+  {
+    "subject": "LAW",
+    "number": 437,
+    "title": "LSIV: Drafting Gen Prac",
+    "professor": "Yeaton, Shannon R"
+  },
+  {
+    "subject": "LAW",
+    "number": 531,
+    "title": "3rd yr only Bar Essay Writing",
+    "professor": "Kreminski, Megan R"
+  },
+  {
+    "subject": "LAW",
+    "number": 532,
+    "title": "3rd yr only Writng for Pra Law",
+    "professor": "Frothingham, Jessica"
+  },
+  {
+    "subject": "LAW",
+    "number": 594,
+    "title": "Special Topics: Dom Violence",
+    "professor": "Stark, Debra P"
+  },
+  {
+    "subject": "LING",
+    "number": 150,
+    "title": "Intro Study of Lang Gen Ed",
+    "professor": "Miller, David Thomas"
+  },
+  {
+    "subject": "MATH",
+    "number": 125,
+    "title": "Elementary Linear Algebra",
+    "professor": "Kashcheyeva, Olga S."
+  },
+  {
+    "subject": "MATH",
+    "number": 210,
+    "title": "Calculus III",
+    "professor": "Awanou, Gerard"
+  },
+  {
+    "subject": "MATH",
+    "number": 210,
+    "title": "Calculus III",
+    "professor": "Sparber, Christof"
+  },
+  {
+    "subject": "MATH",
+    "number": 215,
+    "title": "Intro to Advanced Math",
+    "professor": "Kashcheyeva, Olga S."
+  },
+  {
+    "subject": "MATH",
+    "number": 313,
+    "title": "Analysis I",
+    "professor": "Greenblatt, Michael"
+  },
+  {
+    "subject": "MATH",
+    "number": 480,
+    "title": "Appl Differential Equations",
+    "professor": "Nicholls, David Peter"
+  },
+  {
+    "subject": "MBA",
+    "number": 570,
+    "title": "Enterprise Strategy",
+    "professor": "Ibrahim, Shahnaz"
+  },
+  {
+    "subject": "MBT",
+    "number": 505,
+    "title": "Prin & Tech in Mol Biology",
+    "professor": "Munirathinam, Gnanasekar"
+  },
+  {
+    "subject": "MCS",
+    "number": 260,
+    "title": "Intro To Computer Science",
+    "professor": "Adrovic, Danko"
+  },
+  {
+    "subject": "MDC",
+    "number": 601,
+    "title": "Block 1:Body Systems & Homeo 1",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "MDC",
+    "number": 606,
+    "title": "Block 6: Brain & Behavior",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "MDP",
+    "number": 624,
+    "title": "Synthesis 7-8",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "ME",
+    "number": 205,
+    "title": "Intro to Thermodynamics",
+    "professor": "Megaridis, Constantine M"
+  },
+  {
+    "subject": "ME",
+    "number": 308,
+    "title": "Mechanical Vibrations",
+    "professor": "Siow, Yeow"
+  },
+  {
+    "subject": "NURS",
+    "number": 361,
+    "title": "Nursing Care of Populations",
+    "professor": "Arriola, Stacy"
+  },
+  {
+    "subject": "NURS",
+    "number": 403,
+    "title": "Cultr Fluency, Comm, & Ethics",
+    "professor": "Gorman, Geraldine"
+  },
+  {
+    "subject": "NURS",
+    "number": 409,
+    "title": "Hlth Assessment/Communication",
+    "professor": "Maffucci, Jennifer Lee"
+  },
+  {
+    "subject": "NURS",
+    "number": 515,
+    "title": "EBP 1",
+    "professor": "Abboud, Sarah"
+  },
+  {
+    "subject": "OMDS",
+    "number": 615,
+    "title": "Anesthesia & Pain Control",
+    "professor": "Bosack, Robert C"
+  },
+  {
+    "subject": "OT",
+    "number": 602,
+    "title": "Client-Centered Practice",
+    "professor": "Khetani, Mary A"
+  },
+  {
+    "subject": "OT",
+    "number": 632,
+    "title": "Outcomes and Interventions 3",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "OT",
+    "number": 636,
+    "title": "Research Foundations 3",
+    "professor": "Mirza, Mansha Parven"
+  },
+  {
+    "subject": "PELE",
+    "number": 604,
+    "title": "Intro to Emergency Medicine",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "PELE",
+    "number": 620,
+    "title": "CREATE - Online",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "PHAR",
+    "number": 469,
+    "title": "PhLAMES 5",
+    "professor": "Grider, Linda Marie"
+  },
+  {
+    "subject": "PHAR",
+    "number": 602,
+    "title": "APPE: Community Pharmacy",
+    "professor": "Allen, Sheila Mary"
+  },
+  {
+    "subject": "PHIL",
+    "number": 100,
+    "title": "Intro to Philosophy",
+    "professor": "Sinkler, Georgette"
+  },
+  {
+    "subject": "PHYB",
+    "number": 531,
+    "title": "Metabolism",
+    "professor": "Liew, Chong Wee"
+  },
+  {
+    "subject": "PHYB",
+    "number": 591,
+    "title": "Departmental Seminar",
+    "professor": "Brodie, Mark S"
+  },
+  {
+    "subject": "PHYS",
+    "number": 131,
+    "title": "Physics for Life Sciences I",
+    "professor": "Ugalde, Claudio"
+  },
+  {
+    "subject": "PHYS",
+    "number": 142,
+    "title": "General Physics II",
+    "professor": "Barkan, Adrian"
+  },
+  {
+    "subject": "PHYS",
+    "number": 260,
+    "title": "Intro Thermal Physics",
+    "professor": "Schlossman, Mark L"
+  },
+  {
+    "subject": "PHYS",
+    "number": 532,
+    "title": "Solid State Physics II",
+    "professor": "Morr, Dirk K"
+  },
+  {
+    "subject": "PHYS",
+    "number": 551,
+    "title": "Nuclear/Particle Physics I",
+    "professor": "Yee, Ho-Ung"
+  },
+  {
+    "subject": "PMPR",
+    "number": 378,
+    "title": "Pediatric Therapeutics",
+    "professor": "Pham, Jennifer Hanh Tran"
+  },
+  {
+    "subject": "PPOL",
+    "number": 230,
+    "title": "Nonprofit Orgs & Civil Society",
+    "professor": "Albrecht, Kate Rose"
+  },
+  {
+    "subject": "PPOL",
+    "number": 300,
+    "title": "Urban Policy & Metro Governanc",
+    "professor": "Carr, Jered"
+  },
+  {
+    "subject": "PSCH",
+    "number": 242,
+    "title": "Intro to Research in Psch",
+    "professor": "Staahl, Tomas Kenth"
+  },
+  {
+    "subject": "PSCH",
+    "number": 381,
+    "title": "Psch of Interviewing",
+    "professor": "Kim-Cohen, Julia Yun Soo"
+  },
+  {
+    "subject": "PSCH",
+    "number": 577,
+    "title": "Ethics & Prof Development",
+    "professor": "Hsueh, Loretta Yao Pei"
+  },
+  {
+    "subject": "PSCI",
+    "number": 425,
+    "title": "Colloquium Lecture Series",
+    "professor": "Nitiss, John L"
+  },
+  {
+    "subject": "PT",
+    "number": 642,
+    "title": "Clinical Internship III",
+    "professor": "Arguelles, Leonard Dion"
+  },
+  {
+    "subject": "DHD",
+    "number": 205,
+    "title": "Race, Class & Gender",
+    "professor": "Horowitz, Emily A"
+  },
+  {
+    "subject": "DHD",
+    "number": 409,
+    "title": "Disability Legal Studies",
+    "professor": "McCloskey, Megan E"
+  },
+  {
+    "subject": "DOSI",
+    "number": 342,
+    "title": "Oral/Systemc Issue in Dent II",
+    "professor": "Hofmeister, Jamie Lynn"
+  },
+  {
+    "subject": "ECE",
+    "number": 440,
+    "title": "Nanoelectronics",
+    "professor": "Metlushko, Vitali V"
+  },
+  {
+    "subject": "ECE",
+    "number": 466,
+    "title": "Computer Architecture",
+    "professor": "Roohi, Arman"
+  },
+  {
+    "subject": "ECE",
+    "number": 467,
+    "title": "Introduc to VLSI Design",
+    "professor": "Trivedi, Amit"
+  },
+  {
+    "subject": "ECON",
+    "number": 120,
+    "title": "Principles of Microeconomics",
+    "professor": "Ahundjanov, Behzod"
+  },
+  {
+    "subject": "ECON",
+    "number": 213,
+    "title": "U.S. Economic History",
+    "professor": "Persky, Joseph Jacob"
+  },
+  {
+    "subject": "ECON",
+    "number": 328,
+    "title": "Public Finance",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ED",
+    "number": 135,
+    "title": "Chld & Yth Policy Urb Amer",
+    "professor": "Mayrowetz, David S"
+  },
+  {
+    "subject": "ED",
+    "number": 194,
+    "title": "Special Topics in Educ",
+    "professor": "Martin, Danny Bernard"
+  },
+  {
+    "subject": "ED",
+    "number": 201,
+    "title": "Child Lit Disabilities",
+    "professor": "Hughes, Marie Tejero"
+  },
+  {
+    "subject": "ED",
+    "number": 222,
+    "title": "Gender, Sexuality, & Education",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ED",
+    "number": 425,
+    "title": "CIA Urban Sec Classroom",
+    "professor": "Lesus, Melina"
+  },
+  {
+    "subject": "ED",
+    "number": 505,
+    "title": "Paradigms and Processes",
+    "professor": "Salisbury, Jason Deric"
+  },
+  {
+    "subject": "EDPS",
+    "number": 586,
+    "title": "Practitioner Inquiry Schl Ldrs",
+    "professor": "Shoffner, Joseph A"
+  },
+  {
+    "subject": "ELSI",
+    "number": 23,
+    "title": "Listening/Speaking 3 IEP",
+    "professor": "Jacob, Rachel S"
+  },
+  {
+    "subject": "ELSI",
+    "number": 91,
+    "title": "English for Specific Fields",
+    "professor": "Vanicek, Vit"
+  },
+  {
+    "subject": "ENGL",
+    "number": 103,
+    "title": "Understanding Poetry",
+    "professor": "Glomski, Christopher C"
+  },
+  {
+    "subject": "ENGL",
+    "number": 132,
+    "title": "Understanding Film",
+    "professor": "Forcier, Kaitlin Clifton"
+  },
+  {
+    "subject": "ENGL",
+    "number": 154,
+    "title": "Understanding Rhetoric",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ENGL",
+    "number": 160,
+    "title": "Academic Writing I",
+    "professor": "Dancey, Angela C"
+  },
+  {
+    "subject": "ENGL",
+    "number": 160,
+    "title": "Academic Writing I",
+    "professor": "Jones, Janson"
+  },
+  {
+    "subject": "ENGL",
+    "number": 161,
+    "title": "Academic Writing II",
+    "professor": "Barton, Daniel Robert"
+  },
+  {
+    "subject": "ENGL",
+    "number": 161,
+    "title": "Academic Writing II",
+    "professor": "Casey, John A"
+  },
+  {
+    "subject": "ENGL",
+    "number": 161,
+    "title": "Academic Writing II",
+    "professor": "Kessler, Jeffrey"
+  },
+  {
+    "subject": "ENGL",
+    "number": 161,
+    "title": "Academic Writing II",
+    "professor": "Newirth, Michael"
+  },
+  {
+    "subject": "ENGL",
+    "number": 161,
+    "title": "Academic Writing II",
+    "professor": "Shearer, Jay B"
+  },
+  {
+    "subject": "ENGL",
+    "number": 209,
+    "title": "Engl Stud II: 17thC to Today",
+    "professor": "Mufti, Nasser"
+  },
+  {
+    "subject": "OT",
+    "number": 635,
+    "title": "Prof Develop & Leadership 3",
+    "professor": "Van Denend, Toni Lynn"
+  },
+  {
+    "subject": "PA",
+    "number": 401,
+    "title": "Public Admin Theory",
+    "professor": "Devereux, Erik August"
+  },
+  {
+    "subject": "PA",
+    "number": 434,
+    "title": "Data Analytics",
+    "professor": "Shafiq, Saman"
+  },
+  {
+    "subject": "PERI",
+    "number": 613,
+    "title": "Current Perio Lit Seminar",
+    "professor": "Schmerman, Michael L"
+  },
+  {
+    "subject": "PERI",
+    "number": 620,
+    "title": "Periodontics Clinic",
+    "professor": "Rosenfeld, Alan L"
+  },
+  {
+    "subject": "PHAR",
+    "number": 465,
+    "title": "PhLAMES 1",
+    "professor": "Munir, Faria"
+  },
+  {
+    "subject": "PHAR",
+    "number": 467,
+    "title": "PhLAMES 3",
+    "professor": "Carson, Erin Lee"
+  },
+  {
+    "subject": "PHAR",
+    "number": 503,
+    "title": "PDAT 3:Renal, Electro, Nutrtn",
+    "professor": "Byun, Margaret Hae Young"
+  },
+  {
+    "subject": "PHIL",
+    "number": 203,
+    "title": "Metaphysics",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "PHYS",
+    "number": 561,
+    "title": "Statistical Mechanics I",
+    "professor": "Zhou, Huan-Xiang"
+  },
+  {
+    "subject": "PMPR",
+    "number": 337,
+    "title": "Spanish for Pharmacists",
+    "professor": "Cortez, Christina Maria Carrizales"
+  },
+  {
+    "subject": "PMPR",
+    "number": 618,
+    "title": "Advanced Community Pharmacy",
+    "professor": "Allen, Sheila Mary"
+  },
+  {
+    "subject": "POLS",
+    "number": 284,
+    "title": "International Security",
+    "professor": "Choi, Seung Whan"
+  },
+  {
+    "subject": "POLS",
+    "number": 296,
+    "title": "Fascism Europe & Mediterr",
+    "professor": "Doumanis, Nicholas"
+  },
+  {
+    "subject": "PPOL",
+    "number": 303,
+    "title": "Policy Implementation and Mgmt",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "PROS",
+    "number": 618,
+    "title": "Reconstructive Implantology",
+    "professor": "Ghunaim, Dima"
+  },
+  {
+    "subject": "PSCH",
+    "number": 100,
+    "title": "Introductory Psychology",
+    "professor": "Cervone, Daniel P"
+  },
+  {
+    "subject": "PSCH",
+    "number": 231,
+    "title": "Community Psychology",
+    "professor": "Roy, Amanda Leigh"
+  },
+  {
+    "subject": "PSCH",
+    "number": 262,
+    "title": "Behavioral Neuroscience",
+    "professor": "Roitman, Mitchell Franklin"
+  },
+  {
+    "subject": "PSCH",
+    "number": 270,
+    "title": "Psychological Disorders",
+    "professor": "Quinn, Tasha"
+  },
+  {
+    "subject": "PSCH",
+    "number": 333,
+    "title": "Lab in Clinical Psychology",
+    "professor": "Wardle, Margaret C"
+  },
+  {
+    "subject": "PSCH",
+    "number": 381,
+    "title": "Psch of Interviewing",
+    "professor": "Ochoa-Galindo, Carmen"
+  },
+  {
+    "subject": "PSCH",
+    "number": 541,
+    "title": "Statistical Programming Psych",
+    "professor": "Estabrook, Christopher Ryne"
+  },
+  {
+    "subject": "PSOP",
+    "number": 391,
+    "title": "Foundations in Urban Health 1",
+    "professor": "Okorie-Awe, Clara Uche"
+  },
+  {
+    "subject": "PSOP",
+    "number": 393,
+    "title": "Foundations in Urban Health 3",
+    "professor": "Okorie-Awe, Clara Uche"
+  },
+  {
+    "subject": "PT",
+    "number": 626,
+    "title": "Professional Development II",
+    "professor": "Rausch, Richard W"
+  },
+  {
+    "subject": "PUBH",
+    "number": 100,
+    "title": "Health and the Public",
+    "professor": "Castillo, Amparo Del Socorro"
+  },
+  {
+    "subject": "PUBH",
+    "number": 100,
+    "title": "Health and the Public",
+    "professor": "Dyer, Sharyn Kaye"
+  },
+  {
+    "subject": "JD",
+    "number": 439,
+    "title": "RE: Transactions",
+    "professor": "Hammond, Celeste M"
+  },
+  {
+    "subject": "JD",
+    "number": 475,
+    "title": "Empl Ben Law",
+    "professor": "Blomquist, Teresa"
+  },
+  {
+    "subject": "JD",
+    "number": 518,
+    "title": "Info Law, Policy and Privacy",
+    "professor": "Robinson, Randolph A"
+  },
+  {
+    "subject": "KN",
+    "number": 230,
+    "title": "Anatomy & Physiology Lecture I",
+    "professor": "Kanan, Tomer"
+  },
+  {
+    "subject": "KN",
+    "number": 245,
+    "title": "Exercise Programming & Instruc",
+    "professor": "Schmidt-McNulty, Tina"
+  },
+  {
+    "subject": "KN",
+    "number": 253,
+    "title": "Human Anatomy & Phys I",
+    "professor": "Corbo, Gillian"
+  },
+  {
+    "subject": "KN",
+    "number": 336,
+    "title": "Health Coaching",
+    "professor": "Bullard, Kendra Leeann"
+  },
+  {
+    "subject": "KN",
+    "number": 350,
+    "title": "Cadaver Dissection I",
+    "professor": "Kanan, Tomer"
+  },
+  {
+    "subject": "KN",
+    "number": 472,
+    "title": "Movement Neuroscience",
+    "professor": "Goelz, Lisa Gim Chin"
+  },
+  {
+    "subject": "KOR",
+    "number": 130,
+    "title": "Korean Culture through Films",
+    "professor": "Kim, Hanae"
+  },
+  {
+    "subject": "LALS",
+    "number": 103,
+    "title": "Intro to Latino Urban Studies",
+    "professor": "Bada Garcia, Yolanda Xochitl"
+  },
+  {
+    "subject": "LAS",
+    "number": 110,
+    "title": "Experience UIC",
+    "professor": "Bambenek, Nathanael"
+  },
+  {
+    "subject": "LAS",
+    "number": 110,
+    "title": "Experience UIC",
+    "professor": "Castillo, Felix Antonio"
+  },
+  {
+    "subject": "LAS",
+    "number": 110,
+    "title": "Experience UIC",
+    "professor": "Coenic, Jarvis Bernard"
+  },
+  {
+    "subject": "LAS",
+    "number": 110,
+    "title": "Experience UIC",
+    "professor": "Falk, Patrick Joseph"
+  },
+  {
+    "subject": "LAS",
+    "number": 110,
+    "title": "Experience UIC",
+    "professor": "Lyons, Lisa"
+  },
+  {
+    "subject": "LAS",
+    "number": 200,
+    "title": "LAS Career Success",
+    "professor": "Drink, Shabree Briunna"
+  },
+  {
+    "subject": "LAW",
+    "number": 402,
+    "title": "LSI",
+    "professor": "Hodge, Joanne Simboli"
+  },
+  {
+    "subject": "LAW",
+    "number": 404,
+    "title": "LSI: CR",
+    "professor": "Schwinn, Steven D"
+  },
+  {
+    "subject": "LAW",
+    "number": 412,
+    "title": "LSII",
+    "professor": "Gooden, Tenyse"
+  },
+  {
+    "subject": "LAW",
+    "number": 432,
+    "title": "LSIV: Drafting Legis",
+    "professor": "Hull, Kevin Michael"
+  },
+  {
+    "subject": "LAW",
+    "number": 457,
+    "title": "Video Game Law",
+    "professor": "Ford, William K"
+  },
+  {
+    "subject": "LAW",
+    "number": 532,
+    "title": "3rd yr only Writng for Pra Law",
+    "professor": "Mitchell, Ryan P"
+  },
+  {
+    "subject": "LAW",
+    "number": 534,
+    "title": "Secured Transactions",
+    "professor": "Kilborn, Jason J"
+  },
+  {
+    "subject": "LAW",
+    "number": 537,
+    "title": "Prod Liability",
+    "professor": "Lasso, Rogelio A"
+  },
+  {
+    "subject": "LAW",
+    "number": 538,
+    "title": "Adv Torts",
+    "professor": "Hopkins, Kevin"
+  },
+  {
+    "subject": "LAW",
+    "number": 590,
+    "title": "Religion and Law",
+    "professor": "Beschle, Donald L"
+  },
+  {
+    "subject": "LCSL",
+    "number": 503,
+    "title": "Prof Development I",
+    "professor": "Loentz, Elizabeth A"
+  },
+  {
+    "subject": "LING",
+    "number": 150,
+    "title": "Intro Study of Lang:PreCS&LING",
+    "professor": "Pichan, Carrie E"
+  },
+  {
+    "subject": "LAS",
+    "number": 110,
+    "title": "Experience UIC",
+    "professor": "Thayer, Casey"
+  },
+  {
+    "subject": "LAS",
+    "number": 110,
+    "title": "Experience UIC",
+    "professor": "Wessel, McKenzie"
+  },
+  {
+    "subject": "LAS",
+    "number": 200,
+    "title": "LAS Career Success",
+    "professor": "Herrera, Elizabeth"
+  },
+  {
+    "subject": "LAW",
+    "number": 402,
+    "title": "LSI",
+    "professor": "Bond, Cynthia Delay"
+  },
+  {
+    "subject": "LAW",
+    "number": 402,
+    "title": "LSI",
+    "professor": "Kordesh, Maureen Straub"
+  },
+  {
+    "subject": "LAW",
+    "number": 404,
+    "title": "LSI: CR",
+    "professor": "McMurtry-Chubb, Teri Ann"
+  },
+  {
+    "subject": "LAW",
+    "number": 535,
+    "title": "Est and Trusts",
+    "professor": "Duterte, Yelena C"
+  },
+  {
+    "subject": "LAW",
+    "number": 547,
+    "title": "Securities Reg",
+    "professor": "Mock, William"
+  },
+  {
+    "subject": "LAW",
+    "number": 556,
+    "title": "Critical Race Feminism",
+    "professor": "McMurtry-Chubb, Teri Ann"
+  },
+  {
+    "subject": "LAW",
+    "number": 594,
+    "title": "Special Topics: Stdnts in Jail",
+    "professor": "Ballard-Thrower, Rhea"
+  },
+  {
+    "subject": "LCSL",
+    "number": 502,
+    "title": "Communicative Lang Teach",
+    "professor": "Rott, Susanne"
+  },
+  {
+    "subject": "LING",
+    "number": 300,
+    "title": "AI and Language Research",
+    "professor": "Shin, Gyu-Ho"
+  },
+  {
+    "subject": "LRSC",
+    "number": 594,
+    "title": "Leadership in Math Education",
+    "professor": "Pitvorec, Kathleen A"
+  },
+  {
+    "subject": "MATH",
+    "number": 141,
+    "title": "Algebraic & Geom Structures",
+    "professor": "Lee-Hassan, Alexa"
+  },
+  {
+    "subject": "MATH",
+    "number": 180,
+    "title": "Calculus I",
+    "professor": "Bridges, Mercer Truett"
+  },
+  {
+    "subject": "MATH",
+    "number": 180,
+    "title": "Calculus I",
+    "professor": "Saia, Frederick Vincent"
+  },
+  {
+    "subject": "MATH",
+    "number": 181,
+    "title": "Calculus II",
+    "professor": "Protsak, Victor"
+  },
+  {
+    "subject": "MATH",
+    "number": 210,
+    "title": "Calculus III",
+    "professor": "Conant, Gabriel J"
+  },
+  {
+    "subject": "MATH",
+    "number": 310,
+    "title": "Applied Linear Algebra",
+    "professor": "Devi, Shavila"
+  },
+  {
+    "subject": "MATH",
+    "number": 310,
+    "title": "Applied Linear Algebra",
+    "professor": "Khalil, Osama Ayad Ghaly"
+  },
+  {
+    "subject": "MATH",
+    "number": 496,
+    "title": "Independent Study",
+    "professor": "Kobotis, Evangelos"
+  },
+  {
+    "subject": "MATH",
+    "number": 549,
+    "title": "Differentiable Manifolds I",
+    "professor": "Groves, Daniel Peter"
+  },
+  {
+    "subject": "MATH",
+    "number": 589,
+    "title": "Teaching Mathematics",
+    "professor": "Shipley, Brooke E."
+  },
+  {
+    "subject": "MBT",
+    "number": 506,
+    "title": "Prin & Tech in Immunology",
+    "professor": "Chen, Aoshuang"
+  },
+  {
+    "subject": "MBT",
+    "number": 510,
+    "title": "Ethics in Medical Biotechnol",
+    "professor": "Sidik, Khalifah B."
+  },
+  {
+    "subject": "MCS",
+    "number": 320,
+    "title": "Intro to Symbolic Computation",
+    "professor": "Steenbergen, John"
+  },
+  {
+    "subject": "MDC",
+    "number": 614,
+    "title": "Doctoring & Clinical Skills 4",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "MDC",
+    "number": 624,
+    "title": "Synthesis 7-8",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "SPED",
+    "number": 506,
+    "title": "Char & Assess Disabled Child",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "STAT",
+    "number": 382,
+    "title": "Statistical Methods and Comput",
+    "professor": "Pajda-De La O, Jennifer Marie"
+  },
+  {
+    "subject": "STAT",
+    "number": 501,
+    "title": "Probability Theory I",
+    "professor": "Ouyang, Cheng"
+  },
+  {
+    "subject": "TADR",
+    "number": 400,
+    "title": "Trial Ad",
+    "professor": "Solock, Mark Warren"
+  },
+  {
+    "subject": "TADR",
+    "number": 414,
+    "title": "ADR",
+    "professor": "Van Dyke, Justin"
+  },
+  {
+    "subject": "TADR",
+    "number": 420,
+    "title": "Deposition Practicum",
+    "professor": "Teplinsky, Howard Lee"
+  },
+  {
+    "subject": "TADR",
+    "number": 460,
+    "title": "LSIV: Drafting Criminal",
+    "professor": "Patterson, Caitlin Kelly"
+  },
+  {
+    "subject": "THTR",
+    "number": 261,
+    "title": "Voice II: Speech",
+    "professor": "Martin, Jason"
+  },
+  {
+    "subject": "THTR",
+    "number": 299,
+    "title": "Individual Topics",
+    "professor": "Dado, Debra"
+  },
+  {
+    "subject": "UPP",
+    "number": 493,
+    "title": "Transport Equity Workshop",
+    "professor": "Lowe, Catherine"
+  },
+  {
+    "subject": "UPP",
+    "number": 531,
+    "title": "Econ Dev II: Planning",
+    "professor": "Drucker, Joshua M"
+  },
+  {
+    "subject": "UPP",
+    "number": 557,
+    "title": "Spatial Planning: Methods",
+    "professor": "Al-Kodmany, Kheir M."
+  },
+  {
+    "subject": "ME",
+    "number": 320,
+    "title": "Mechanisms&Dynamics/Machinery",
+    "professor": "Brown, Michael A"
+  },
+  {
+    "subject": "ME",
+    "number": 380,
+    "title": "Manufacturing Process Princ",
+    "professor": "Subramanian, Arunkumar"
+  },
+  {
+    "subject": "ME",
+    "number": 396,
+    "title": "Senior Design Project",
+    "professor": "Brown, Michael A"
+  },
+  {
+    "subject": "ME",
+    "number": 411,
+    "title": "Mechatronics I",
+    "professor": "Kim, Myunghee"
+  },
+  {
+    "subject": "MENG",
+    "number": 407,
+    "title": "Innovation Tools and Methods",
+    "professor": "Hallenbeck, Mark"
+  },
+  {
+    "subject": "MGMT",
+    "number": 350,
+    "title": "Extl Envt of Bus for Bus Schlr",
+    "professor": "Leitzinger, Jocelyn"
+  },
+  {
+    "subject": "MGMT",
+    "number": 452,
+    "title": "Organizational Behavior",
+    "professor": "Kim, Joseph Kichul"
+  },
+  {
+    "subject": "MGMT",
+    "number": 465,
+    "title": "Compensation & Reward Systems",
+    "professor": "Kolar, Deanna"
+  },
+  {
+    "subject": "MGMT",
+    "number": 485,
+    "title": "Corp Sustainability & Resp",
+    "professor": "Cooper, James Wesley"
+  },
+  {
+    "subject": "MGMT",
+    "number": 495,
+    "title": "Competitive Strategy",
+    "professor": "Miller, Michael T."
+  },
+  {
+    "subject": "MGMT",
+    "number": 541,
+    "title": "Organizational Behavior",
+    "professor": "Cooper, James Wesley"
+  },
+  {
+    "subject": "MILS",
+    "number": 217,
+    "title": "US Military History",
+    "professor": "Bush, Jay William"
+  },
+  {
+    "subject": "MKTG",
+    "number": 360,
+    "title": "Introduction to Marketing",
+    "professor": "Schanbacher, Anja"
+  },
+  {
+    "subject": "MUS",
+    "number": 111,
+    "title": "Master Class Performance",
+    "professor": "Stryker, Michael"
+  },
+  {
+    "subject": "MUS",
+    "number": 152,
+    "title": "Instrumental Ensembles",
+    "professor": "Kamps, Jordan"
+  },
+  {
+    "subject": "NUPR",
+    "number": 520,
+    "title": "Clinical Synthesis Practi",
+    "professor": "Johnson, Robin A"
+  },
+  {
+    "subject": "NURS",
+    "number": 362,
+    "title": "Nursing Health Promotion",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "NURS",
+    "number": 406,
+    "title": "IHC: Community",
+    "professor": "Singer, Rebecca M"
+  },
+  {
+    "subject": "NURS",
+    "number": 421,
+    "title": "Pathophysiology",
+    "professor": "Leipold, Catherine"
+  },
+  {
+    "subject": "NURS",
+    "number": 533,
+    "title": "Appld Pharmacotherapeutics APN",
+    "professor": "Repking, Sarah Cotler"
+  },
+  {
+    "subject": "NURS",
+    "number": 534,
+    "title": "Advanced Physiology",
+    "professor": "Quinn, Lauretta T"
+  },
+  {
+    "subject": "NUSP",
+    "number": 526,
+    "title": "C/A Mental Hlth Assess & Inter",
+    "professor": "Juliano, Gina M"
+  },
+  {
+    "subject": "NUSP",
+    "number": 542,
+    "title": "Finan Mgmt & Budget Planning",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ORTD",
+    "number": 620,
+    "title": "Orthodontic Clinic II",
+    "professor": "Kusnoto, Budi"
+  },
+  {
+    "subject": "OSCI",
+    "number": 560,
+    "title": "Regulation Dental Healthcare",
+    "professor": "Bilal, Sobia"
+  },
+  {
+    "subject": "PA",
+    "number": 401,
+    "title": "Foundations of Public Service",
+    "professor": "Devereux, Erik August"
+  },
+  {
+    "subject": "PA",
+    "number": 504,
+    "title": "Financial Mgmt and Budgeting",
+    "professor": "Merriman, David F"
+  },
+  {
+    "subject": "PA",
+    "number": 541,
+    "title": "Adv Data Analysis I",
+    "professor": "Albrecht, Kate Rose"
+  },
+  {
+    "subject": "RUSS",
+    "number": 103,
+    "title": "Intermediate Russian I",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "SOC",
+    "number": 224,
+    "title": "Gender & Society",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "SOC",
+    "number": 226,
+    "title": "Latinas in US",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "SOCW",
+    "number": 420,
+    "title": "Policy I: Soc Welfare Pol&Svcs",
+    "professor": "Hsieh, Chang-Ming"
+  },
+  {
+    "subject": "SOCW",
+    "number": 572,
+    "title": "Field Instruction III: C&F",
+    "professor": "Brown, Pamela Renee"
+  },
+  {
+    "subject": "SOCW",
+    "number": 572,
+    "title": "Field Instruction III: M. Hlth",
+    "professor": "Brown, Pamela Renee"
+  },
+  {
+    "subject": "SOCW",
+    "number": 576,
+    "title": "Clinical Interventions",
+    "professor": "Salvadore, Lisa M"
+  },
+  {
+    "subject": "SPAN",
+    "number": 202,
+    "title": "Spanish Grammar in Practice",
+    "professor": "Cabrelli, Jennifer Lauren"
+  },
+  {
+    "subject": "SPAN",
+    "number": 202,
+    "title": "Spanish Grammar in Practice",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "SPAN",
+    "number": 206,
+    "title": "Intro to Hispanic Linguistics",
+    "professor": "Miller, David Thomas"
+  },
+  {
+    "subject": "SPAN",
+    "number": 366,
+    "title": "Language and Discrimination",
+    "professor": "Taboada, Inmaculada"
+  },
+  {
+    "subject": "SPAN",
+    "number": 440,
+    "title": "Teaching Heritage Speakers",
+    "professor": "Potowski, Kimberly J"
+  },
+  {
+    "subject": "SPAN",
+    "number": 448,
+    "title": "Second Lang Teaching",
+    "professor": "Taboada, Inmaculada"
+  },
+  {
+    "subject": "SPED",
+    "number": 462,
+    "title": "Assessment of Individuals",
+    "professor": "Lindstrom, Esther"
+  },
+  {
+    "subject": "TADR",
+    "number": 429,
+    "title": "Exp Witnesses",
+    "professor": "Maliza, Johanes Christian"
+  },
+  {
+    "subject": "THTR",
+    "number": 159,
+    "title": "Fashion and Furniture: History",
+    "professor": "Elliott, Myron Walter"
+  },
+  {
+    "subject": "THTR",
+    "number": 211,
+    "title": "Movement II: Body/Space",
+    "professor": "Tsachor, Rachelle"
+  },
+  {
+    "subject": "UPP",
+    "number": 501,
+    "title": "Urban Space Place & Inst",
+    "professor": "Winkle, Curtis Richard"
+  },
+  {
+    "subject": "UPP",
+    "number": 541,
+    "title": "Community Dev II: Practice",
+    "professor": "Born, Andrew P"
+  },
+  {
+    "subject": "UPP",
+    "number": 566,
+    "title": "Transportation Project Funding",
+    "professor": "Sriraj, P.S."
+  },
+  {
+    "subject": "US",
+    "number": 304,
+    "title": "Visualizing the City",
+    "professor": "Jasek, Thomas A"
+  },
+  {
+    "subject": "PUBH",
+    "number": 100,
+    "title": "Health and the Public",
+    "professor": "MacBeth, Monimia Yvonne"
+  },
+  {
+    "subject": "PUBH",
+    "number": 105,
+    "title": "Foundations for Public Health",
+    "professor": "Suggs, Gia Desvernal"
+  },
+  {
+    "subject": "RELE",
+    "number": 600,
+    "title": "R-Med Cmmnty-Prmry Care Rsrch",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "RES",
+    "number": 470,
+    "title": "Real Estate Investments",
+    "professor": "Demyanyk, Yuliya"
+  },
+  {
+    "subject": "SOC",
+    "number": 120,
+    "title": "Intro Asian Amer Studies",
+    "professor": "Su, Karen"
+  },
+  {
+    "subject": "SOC",
+    "number": 207,
+    "title": "Racism: Global Perspectives",
+    "professor": "Clarno, Andrew J"
+  },
+  {
+    "subject": "SOC",
+    "number": 245,
+    "title": "Marriage and Family",
+    "professor": "Risman, Barbara J"
+  },
+  {
+    "subject": "SOC",
+    "number": 425,
+    "title": "Race and Ethnicity",
+    "professor": "Forman, Tyrone A"
+  },
+  {
+    "subject": "SOC",
+    "number": 433,
+    "title": "Latin American Migration",
+    "professor": "Sostaita, Barbara Andrea"
+  },
+  {
+    "subject": "SOC",
+    "number": 565,
+    "title": "Seminar:Political Sociology",
+    "professor": "Said, Atef"
+  },
+  {
+    "subject": "SOCW",
+    "number": 410,
+    "title": "Human Behavior & Social Envt",
+    "professor": "Cua, Grace E"
+  },
+  {
+    "subject": "SOCW",
+    "number": 410,
+    "title": "Human Behavior & Social Envt",
+    "professor": "Pitman, Imani A"
+  },
+  {
+    "subject": "SOCW",
+    "number": 420,
+    "title": "Policy I: Soc Welfare Pol&Svcs",
+    "professor": "Hounmenou, Enagnon Charles"
+  },
+  {
+    "subject": "SOCW",
+    "number": 420,
+    "title": "Policy I: Soc Welfare Pol&Svcs",
+    "professor": "Scott, Stefani Opal"
+  },
+  {
+    "subject": "SOCW",
+    "number": 430,
+    "title": "Practice I: Individuals & Orgs",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "SOCW",
+    "number": 531,
+    "title": "Policy II: OCP",
+    "professor": "McLeod, Branden"
+  },
+  {
+    "subject": "SOCW",
+    "number": 547,
+    "title": "Ch & Fam involved in CW Sys",
+    "professor": "Geiger, Jennifer"
+  },
+  {
+    "subject": "SOCW",
+    "number": 552,
+    "title": "Policy II: Chld &Family Policy",
+    "professor": "Butterfield, Alice K."
+  },
+  {
+    "subject": "SOCW",
+    "number": 572,
+    "title": "Field Instruction III: School",
+    "professor": "Brown, Pamela Renee"
+  },
+  {
+    "subject": "SPAN",
+    "number": 101,
+    "title": "Elementary Spanish I",
+    "professor": "Costa Neves, Felipe"
+  },
+  {
+    "subject": "SPAN",
+    "number": 104,
+    "title": "Intermediate Spanish II",
+    "professor": "Rodriguez, Mariela"
+  },
+  {
+    "subject": "SPAN",
+    "number": 362,
+    "title": "Sounds of Spanish",
+    "professor": "Cabrelli, Jennifer Lauren"
+  },
+  {
+    "subject": "SPED",
+    "number": 433,
+    "title": "Ethics in Behavior Analysis",
+    "professor": "Ramakrishnan, Arvind"
+  },
+  {
+    "subject": "STAT",
+    "number": 591,
+    "title": "Adv Topics in Statistics",
+    "professor": "Wu, Yichao"
+  },
+  {
+    "subject": "TADR",
+    "number": 413,
+    "title": "Moot Ct Exec Bd",
+    "professor": "Hodge, Joanne Simboli"
+  },
+  {
+    "subject": "TADR",
+    "number": 463,
+    "title": "Clinic: Pro Bono Lit S/C Class",
+    "professor": "Ortiz, Jose D"
+  },
+  {
+    "subject": "TADR",
+    "number": 472,
+    "title": "Extern: Local Gov & NP Field",
+    "professor": "Gunderson, Joanna Belle"
+  },
+  {
+    "subject": "THTR",
+    "number": 155,
+    "title": "Fundamentals of Theatre Design",
+    "professor": "Witteveen, Collette"
+  },
+  {
+    "subject": "ENTR",
+    "number": 444,
+    "title": "Entrepreneurial Finance",
+    "professor": "Hogan, Daniel Mark"
+  },
+  {
+    "subject": "EOHS",
+    "number": 427,
+    "title": "Psychosocial Work Environment",
+    "professor": "Bonney, Tessa Harris"
+  },
+  {
+    "subject": "EOHS",
+    "number": 495,
+    "title": "Environmental/Occ Hlth Seminar",
+    "professor": "Pratap, Preethi Lakshmi Rao"
+  },
+  {
+    "subject": "EPSY",
+    "number": 405,
+    "title": "Ed Assessment and Evaluation",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "FIN",
+    "number": 300,
+    "title": "Intro to Fin - Bus Scholar",
+    "professor": "O'Brien, William John"
+  },
+  {
+    "subject": "FIN",
+    "number": 320,
+    "title": "Managerial Finance",
+    "professor": "Badoer, Dominique"
+  },
+  {
+    "subject": "FIN",
+    "number": 472,
+    "title": "Real Estate Finance",
+    "professor": "Lopez, Luis"
+  },
+  {
+    "subject": "FIN",
+    "number": 494,
+    "title": "Intro to Blockchain and Crypto",
+    "professor": "Oza, Mabel"
+  },
+  {
+    "subject": "GC",
+    "number": 510,
+    "title": "Oral Communication for ITA's",
+    "professor": "Loebel, Vandana Loomba"
+  },
+  {
+    "subject": "GER",
+    "number": 101,
+    "title": "Elementary German I",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "GLAS",
+    "number": 210,
+    "title": "Asian American Histories",
+    "professor": "Jin, Michael"
+  },
+  {
+    "subject": "GWS",
+    "number": 245,
+    "title": "Gender, Sexuality and Lit",
+    "professor": "Costello, Virginia M"
+  },
+  {
+    "subject": "GWS",
+    "number": 259,
+    "title": "Women and Gender in America",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "HIM",
+    "number": 486,
+    "title": "Foundations of HIM",
+    "professor": "Kierys, Elizabeth Aletha"
+  },
+  {
+    "subject": "HIST",
+    "number": 117,
+    "title": "Understanding Holocaust",
+    "professor": "Loentz, Elizabeth A"
+  },
+  {
+    "subject": "HIST",
+    "number": 199,
+    "title": "Chicago and the World",
+    "professor": "Kaya, Mustafa Ismail"
+  },
+  {
+    "subject": "HIST",
+    "number": 475,
+    "title": "Educ Pract w/Seminar I",
+    "professor": "Peters, Julie L"
+  },
+  {
+    "subject": "HIST",
+    "number": 476,
+    "title": "Educ Pract w/Seminar II",
+    "professor": "Peters, Julie L"
+  },
+  {
+    "subject": "HN",
+    "number": 594,
+    "title": "Microbiome in Health & Disease",
+    "professor": "Tussing-Humphreys, Lisa Marie"
+  },
+  {
+    "subject": "HON",
+    "number": 121,
+    "title": "Hon Core Ind & Soc / Creat Art",
+    "professor": "O'Neil, Kimberly Jean"
+  },
+  {
+    "subject": "HON",
+    "number": 131,
+    "title": "Hon Core Natural World / Past",
+    "professor": "Kobotis, Evangelos"
+  },
+  {
+    "subject": "HON",
+    "number": 142,
+    "title": "Honors Core Creative Arts",
+    "professor": "Adiutori, Vincent"
+  },
+  {
+    "subject": "HON",
+    "number": 201,
+    "title": "Honors Seminar",
+    "professor": "Amiri, Leila"
+  },
+  {
+    "subject": "HON",
+    "number": 201,
+    "title": "Honors Seminar",
+    "professor": "Brown, Blase P."
+  },
+  {
+    "subject": "HON",
+    "number": 201,
+    "title": "Honors Seminar",
+    "professor": "Rodriguez, David Diego"
+  },
+  {
+    "subject": "HON",
+    "number": 301,
+    "title": "Foundations for the Future",
+    "professor": "Guerrero, Tricia Ann"
+  },
+  {
+    "subject": "HPA",
+    "number": 403,
+    "title": "US Health Care System",
+    "professor": "Walton, John"
+  },
+  {
+    "subject": "HPA",
+    "number": 410,
+    "title": "Hlth Organizational Leadership",
+    "professor": "Stiehl, Emily"
+  },
+  {
+    "subject": "PA",
+    "number": 590,
+    "title": "Public Admin Capstone",
+    "professor": "Khalaf, Chrystelle"
+  },
+  {
+    "subject": "PHAR",
+    "number": 565,
+    "title": "Pharmacoeconomics and Payment",
+    "professor": "Byun, Margaret Hae Young"
+  },
+  {
+    "subject": "PHAR",
+    "number": 601,
+    "title": "APPE: Ambulatory Patient Care",
+    "professor": "Allen, Sheila Mary"
+  },
+  {
+    "subject": "PHIL",
+    "number": 102,
+    "title": "Introductory Logic",
+    "professor": "Vlasits, Justin Joseph"
+  },
+  {
+    "subject": "PHIL",
+    "number": 402,
+    "title": "Mind, Reason, and Conscious",
+    "professor": "Goodman, Rachel"
+  },
+  {
+    "subject": "PHYS",
+    "number": 131,
+    "title": "Physics for Life Sciences I",
+    "professor": "Unwin, James"
+  },
+  {
+    "subject": "PHYS",
+    "number": 141,
+    "title": "General Physics I",
+    "professor": "Espinoza, Randall"
+  },
+  {
+    "subject": "PHYS",
+    "number": 411,
+    "title": "Quantum Mechanics I",
+    "professor": "Grein, Christoph Hermann"
+  },
+  {
+    "subject": "PHYS",
+    "number": 501,
+    "title": "Electrodynamics",
+    "professor": "Stephanov, Mikhail A"
+  },
+  {
+    "subject": "PHYS",
+    "number": 511,
+    "title": "Quantum Mechanics I",
+    "professor": "Imbo, Tom David"
+  },
+  {
+    "subject": "PMPR",
+    "number": 450,
+    "title": "Medical writing",
+    "professor": "Brunner, Rachel"
+  },
+  {
+    "subject": "POLS",
+    "number": 101,
+    "title": "Intro to American Government",
+    "professor": "Alexander, S Alba"
+  },
+  {
+    "subject": "POLS",
+    "number": 101,
+    "title": "Intro to American Government",
+    "professor": "McKenzie, Evan C"
+  },
+  {
+    "subject": "POLS",
+    "number": 311,
+    "title": "Black Politics in US",
+    "professor": "Johnson, Cedric"
+  },
+  {
+    "subject": "PPOL",
+    "number": 210,
+    "title": "Introduction to Public Policy",
+    "professor": "Devereux, Erik August"
+  },
+  {
+    "subject": "PPOL",
+    "number": 231,
+    "title": "Introduction to Social Policy",
+    "professor": "Laurito, Maria Agustina"
+  },
+  {
+    "subject": "PSCH",
+    "number": 242,
+    "title": "Intro to Research in Psch",
+    "professor": "Prims, Julia"
+  },
+  {
+    "subject": "PSCH",
+    "number": 313,
+    "title": "Social Psychology Lab",
+    "professor": "Goh, Jin Xun"
+  },
+  {
+    "subject": "PSCH",
+    "number": 313,
+    "title": "Social Psychology Lab",
+    "professor": "Murrar, Sohad"
+  },
+  {
+    "subject": "PSCH",
+    "number": 363,
+    "title": "Lab in Behavioral Neurosci",
+    "professor": "Keinath, Alexandra"
+  },
+  {
+    "subject": "PSCH",
+    "number": 382,
+    "title": "Psychological Interventions",
+    "professor": "Smith, Lauren Tiffany"
+  },
+  {
+    "subject": "PSCI",
+    "number": 447,
+    "title": "Career Paths in Pharm Industry",
+    "professor": "Bartels, Bradley David"
+  },
+  {
+    "subject": "PSOP",
+    "number": 489,
+    "title": "Hlth Econ & Outcomes Research",
+    "professor": "Pickard, Alan Simon"
+  },
+  {
+    "subject": "PT",
+    "number": 600,
+    "title": "Intro to Physical Therapy",
+    "professor": "Little, Aubrey"
+  },
+  {
+    "subject": "PT",
+    "number": 638,
+    "title": "Integration Assessment I",
+    "professor": "Jones, Alyssa Ann"
+  },
+  {
+    "subject": "PUBH",
+    "number": 110,
+    "title": "Global Societies",
+    "professor": "Prudowsky, Joshua Micheal"
+  },
+  {
+    "subject": "PUBH",
+    "number": 410,
+    "title": "Public Health Challenges I",
+    "professor": "Berman, Laurel Amy"
+  },
+  {
+    "subject": "HPA",
+    "number": 494,
+    "title": "Project Mgmt for Health Prof",
+    "professor": "Scalise, Jennifer"
+  },
+  {
+    "subject": "IDS",
+    "number": 201,
+    "title": "Intro to Business Programming",
+    "professor": "Lundquist, Doug E"
+  },
+  {
+    "subject": "IE",
+    "number": 471,
+    "title": "Operations Research I",
+    "professor": "Williams, Quintin Levurn"
+  },
+  {
+    "subject": "IPHS",
+    "number": 401,
+    "title": "Determinants of Hlth Cohort A",
+    "professor": "Carnahan, Leslie Renee"
+  },
+  {
+    "subject": "IPHS",
+    "number": 523,
+    "title": "Transformational Leadership",
+    "professor": "Welter, Christina Rose"
+  },
+  {
+    "subject": "IPHS",
+    "number": 650,
+    "title": "Applied Practice Experience",
+    "professor": "Erzuah-Amenuvor, Nana Ama Aya"
+  },
+  {
+    "subject": "JD",
+    "number": 401,
+    "title": "Exp Learning",
+    "professor": "Sahota, Ravinder Singh"
+  },
+  {
+    "subject": "JD",
+    "number": 405,
+    "title": "Contracts I",
+    "professor": "Robinson, Randolph A"
+  },
+  {
+    "subject": "JD",
+    "number": 407,
+    "title": "Torts",
+    "professor": "Lasso, Rogelio A"
+  },
+  {
+    "subject": "JD",
+    "number": 423,
+    "title": "Prof Responsibility",
+    "professor": "Keenan, Heidi"
+  },
+  {
+    "subject": "JD",
+    "number": 424,
+    "title": "Const Law II",
+    "professor": "Acevedo, Arthur"
+  },
+  {
+    "subject": "KN",
+    "number": 100,
+    "title": "Kinesiology: First Yr Seminar",
+    "professor": "Arbel, Vered"
+  },
+  {
+    "subject": "KN",
+    "number": 136,
+    "title": "Techniques & Principles Exer",
+    "professor": "Schmidt-McNulty, Tina"
+  },
+  {
+    "subject": "KN",
+    "number": 352,
+    "title": "Physiology of Exercise",
+    "professor": "Miller, Joshua"
+  },
+  {
+    "subject": "KN",
+    "number": 435,
+    "title": "Sport Psychology Indv & Team",
+    "professor": "Wekesser, Meredith"
+  },
+  {
+    "subject": "KN",
+    "number": 441,
+    "title": "Muscle Physiology",
+    "professor": "Blackburn, Brian Keith"
+  },
+  {
+    "subject": "KN",
+    "number": 532,
+    "title": "Cultural Humility",
+    "professor": "Ankney, Aspen S"
+  },
+  {
+    "subject": "KOR",
+    "number": 103,
+    "title": "Intermediate Korean I",
+    "professor": "Kim, Hanae"
+  },
+  {
+    "subject": "LALS",
+    "number": 260,
+    "title": "Indigenous Storytelling",
+    "professor": "Roa, Cristian"
+  },
+  {
+    "subject": "LALS",
+    "number": 385,
+    "title": "Undocumented Social Movements",
+    "professor": "Sostaita, Barbara Andrea"
+  },
+  {
+    "subject": "LAS",
+    "number": 110,
+    "title": "Experience UIC",
+    "professor": "Cordero, Mark Steven"
+  },
+  {
+    "subject": "LAS",
+    "number": 110,
+    "title": "Experience UIC",
+    "professor": "Diaz, Mario"
+  },
+  {
+    "subject": "LAS",
+    "number": 110,
+    "title": "Experience UIC",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "LAS",
+    "number": 110,
+    "title": "Experience UIC",
+    "professor": "Jarrell, Ashley L"
+  },
+  {
+    "subject": "LAS",
+    "number": 299,
+    "title": "LAS Study Abroad",
+    "professor": "Roessler, Brian A"
+  },
+  {
+    "subject": "LAW",
+    "number": 484,
+    "title": "Int'l Law",
+    "professor": "Cohen, Benjamin C"
+  },
+  {
+    "subject": "LAW",
+    "number": 531,
+    "title": "3rd yr only Bar Essay Writing",
+    "professor": "Hodal, Joseph A"
+  },
+  {
+    "subject": "LAW",
+    "number": 532,
+    "title": "3rd yr only Writng for Pra Law",
+    "professor": "Lambertson, Andrew"
+  },
+  {
+    "subject": "RELE",
+    "number": 600,
+    "title": "Elective Clerkship",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "RES",
+    "number": 420,
+    "title": "Real Estate Market Analysis",
+    "professor": "Hanson, Andrew"
+  },
+  {
+    "subject": "RUSS",
+    "number": 101,
+    "title": "Elementary Russian I",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "SOC",
+    "number": 385,
+    "title": "Sociological Theory",
+    "professor": "Decoteau, Claire Laurier"
+  },
+  {
+    "subject": "SOCW",
+    "number": 430,
+    "title": "Practice I: Individuals & Orgs",
+    "professor": "Lopez, Jade Miko"
+  },
+  {
+    "subject": "SOCW",
+    "number": 582,
+    "title": "Pract III: Child & Family",
+    "professor": "Tanniehill, LaToya D"
+  },
+  {
+    "subject": "SOCW",
+    "number": 586,
+    "title": "Pract III: Mental Health",
+    "professor": "Holzhauser, Heather Renee"
+  },
+  {
+    "subject": "SOCW",
+    "number": 586,
+    "title": "Pract III: Mental Health",
+    "professor": "Mitchell, Christopher G"
+  },
+  {
+    "subject": "SOCW",
+    "number": 588,
+    "title": "Pract III: School Social Work",
+    "professor": "Owens, Chastity Lashauna"
+  },
+  {
+    "subject": "SPAN",
+    "number": 113,
+    "title": "Spanish - Heritage Speakers I",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "SPAN",
+    "number": 113,
+    "title": "Spanish - Heritage Speakers I",
+    "professor": "Navia, Bernardo"
+  },
+  {
+    "subject": "SPAN",
+    "number": 204,
+    "title": "Composition Heritage Speakers",
+    "professor": "Arana-Rochel, Guadalupe"
+  },
+  {
+    "subject": "SPED",
+    "number": 432,
+    "title": "Foundations Behav Analysis",
+    "professor": "Gregori, Emily Victoria"
+  },
+  {
+    "subject": "TADR",
+    "number": 445,
+    "title": "Crim Pro: Adj",
+    "professor": "Maldonado, Alfredo"
+  },
+  {
+    "subject": "THTR",
+    "number": 101,
+    "title": "Theatre History I",
+    "professor": "Wilson, Seth N"
+  },
+  {
+    "subject": "THTR",
+    "number": 105,
+    "title": "American Musical Theatre",
+    "professor": "Wilson, Seth N"
+  },
+  {
+    "subject": "UPP",
+    "number": 502,
+    "title": "Planning Skills",
+    "professor": "Kawamura, Kazuya"
+  },
+  {
+    "subject": "LING",
+    "number": 160,
+    "title": "Language and Society",
+    "professor": "Hallett, Jill Maureen"
+  },
+  {
+    "subject": "MATH",
+    "number": 90,
+    "title": "Intermediate Algebra",
+    "professor": "Ingebretson, Daniel Jordan"
+  },
+  {
+    "subject": "MATH",
+    "number": 105,
+    "title": "Mathematical Reasoning",
+    "professor": "Woldeit, Anthony John"
+  },
+  {
+    "subject": "MATH",
+    "number": 110,
+    "title": "College Algebra",
+    "professor": "Dodds, Samuel Robert"
+  },
+  {
+    "subject": "MATH",
+    "number": 121,
+    "title": "Precalculus Mathematics",
+    "professor": "Carter, Andrea C"
+  },
+  {
+    "subject": "MATH",
+    "number": 125,
+    "title": "Elementary Linear Algebra",
+    "professor": "Devi, Shavila"
+  },
+  {
+    "subject": "MATH",
+    "number": 125,
+    "title": "Elementary Linear Algebra",
+    "professor": "Switala, Nicholas"
+  },
+  {
+    "subject": "MATH",
+    "number": 170,
+    "title": "Calculus for Life Sciences",
+    "professor": "Kobotis, Evangelos"
+  },
+  {
+    "subject": "MATH",
+    "number": 179,
+    "title": "Emerg Schol Workshop/Calc I",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "MATH",
+    "number": 210,
+    "title": "Calculus III",
+    "professor": "Birkett, Richard Alan Pope"
+  },
+  {
+    "subject": "MATH",
+    "number": 210,
+    "title": "Calculus III",
+    "professor": "Lequen, Felix Maxime Louis Alfred"
+  },
+  {
+    "subject": "MATH",
+    "number": 210,
+    "title": "Calculus III",
+    "professor": "Michelen, Marcus"
+  },
+  {
+    "subject": "MATH",
+    "number": 211,
+    "title": "Emerg Schol Workshop/Calc III",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "MATH",
+    "number": 215,
+    "title": "Intro to Advanced Math",
+    "professor": "Shipley, Brooke E."
+  },
+  {
+    "subject": "MATH",
+    "number": 330,
+    "title": "Abstract Algebra I",
+    "professor": "Tucker, Kevin"
+  },
+  {
+    "subject": "MATH",
+    "number": 445,
+    "title": "Intro to Topology I",
+    "professor": "Looper, Nicole R"
+  },
+  {
+    "subject": "MATH",
+    "number": 494,
+    "title": "Exploring Social Networks",
+    "professor": "Schaposnik Massolo, Laura Patricia"
+  },
+  {
+    "subject": "MBA",
+    "number": 500,
+    "title": "Corporate Strategy",
+    "professor": "Shanley, Mark"
+  },
+  {
+    "subject": "MDC",
+    "number": 611,
+    "title": "Doctoring & Clinical Skills 1",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "MDC",
+    "number": 621,
+    "title": "Synthesis 1-2",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "MDC",
+    "number": 634,
+    "title": "Medical Colloquia 4",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "ME",
+    "number": 481,
+    "title": "Additive Manufacturing Process",
+    "professor": "Pan, Yayue"
+  },
+  {
+    "subject": "ME",
+    "number": 499,
+    "title": "Prof Development Seminar",
+    "professor": "Nicolsen, Brynne E"
+  },
+  {
+    "subject": "MGMT",
+    "number": 340,
+    "title": "Intro to Orgs for BBA Online",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "MGMT",
+    "number": 463,
+    "title": "Negotiation &Conflict Resolutn",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "MGMT",
+    "number": 475,
+    "title": "Leadership Theories&Skills Dev",
+    "professor": "Cooper, James Wesley"
+  },
+  {
+    "subject": "MIM",
+    "number": 595,
+    "title": "Microbiology Seminars",
+    "professor": "Alonzo, Francis"
+  },
+  {
+    "subject": "MDP",
+    "number": 614,
+    "title": "Doctoring & Clinical Skills 4",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "MDP",
+    "number": 631,
+    "title": "Medical Colloquia 1",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "MDR",
+    "number": 602,
+    "title": "Block 2: Pathogenesis",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "MDR",
+    "number": 634,
+    "title": "Medical Colloquia 4",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "ME",
+    "number": 250,
+    "title": "Intro to Engineering Design",
+    "professor": "Siow, Yeow"
+  },
+  {
+    "subject": "ME",
+    "number": 308,
+    "title": "Mechanical Vibrations",
+    "professor": "Shabana, Ahmed"
+  },
+  {
+    "subject": "ME",
+    "number": 494,
+    "title": "ME Math",
+    "professor": "Yarin, Alexander"
+  },
+  {
+    "subject": "MGMT",
+    "number": 350,
+    "title": "External Environment of Bus",
+    "professor": "Ibrahim, Shahnaz"
+  },
+  {
+    "subject": "MGMT",
+    "number": 350,
+    "title": "External Environment of Bus",
+    "professor": "Leitzinger, Jocelyn"
+  },
+  {
+    "subject": "MGMT",
+    "number": 452,
+    "title": "Organizational Behavior",
+    "professor": "Subhani, Misha"
+  },
+  {
+    "subject": "MGMT",
+    "number": 460,
+    "title": "Managing Globally",
+    "professor": "Pagano, Anthony M"
+  },
+  {
+    "subject": "MGMT",
+    "number": 481,
+    "title": "Managerial Logistics",
+    "professor": "Pagano, Anthony M"
+  },
+  {
+    "subject": "MGMT",
+    "number": 495,
+    "title": "Competitive Strategy",
+    "professor": "Kolar, Deanna"
+  },
+  {
+    "subject": "MKTG",
+    "number": 360,
+    "title": "Introduction to Marketing",
+    "professor": "Barney-McNamara, Barbara"
+  },
+  {
+    "subject": "MKTG",
+    "number": 461,
+    "title": "Consumer Behavior",
+    "professor": "Moon, Kim"
+  },
+  {
+    "subject": "MKTG",
+    "number": 462,
+    "title": "Marketing Research",
+    "professor": "Hermosilla, Manuel"
+  },
+  {
+    "subject": "MKTG",
+    "number": 474,
+    "title": "Advertising",
+    "professor": "Moon, Kim"
+  },
+  {
+    "subject": "MKTG",
+    "number": 500,
+    "title": "Introduction to Marketing",
+    "professor": "Karsaklian, Eliane"
+  },
+  {
+    "subject": "MKTG",
+    "number": 560,
+    "title": "Marketing Management",
+    "professor": "Malter, Alan Joseph"
+  },
+  {
+    "subject": "MKTG",
+    "number": 561,
+    "title": "Consumer Behavior",
+    "professor": "Barakshina, Tatiana"
+  },
+  {
+    "subject": "MUS",
+    "number": 101,
+    "title": "Music Theory I",
+    "professor": "Lau, Wing"
+  },
+  {
+    "subject": "MUS",
+    "number": 114,
+    "title": "Jazz History",
+    "professor": "Garling, Thomas James"
+  },
+  {
+    "subject": "MUS",
+    "number": 127,
+    "title": "Latin American Music",
+    "professor": "Rodriguez-Barilari, Elbio"
+  },
+  {
+    "subject": "MUS",
+    "number": 154,
+    "title": "Chamber Choir",
+    "professor": "Calisesi Maidens, Liza Marie"
+  },
+  {
+    "subject": "MUS",
+    "number": 201,
+    "title": "Theory Of Music III",
+    "professor": "Gillespie, Amos"
+  },
+  {
+    "subject": "NATS",
+    "number": 106,
+    "title": "Chem and Bio Systems",
+    "professor": "Muller, Michael T"
+  },
+  {
+    "subject": "NUEL",
+    "number": 250,
+    "title": "Human Development Life Span",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "NUPR",
+    "number": 415,
+    "title": "Integrated Practicum III",
+    "professor": "Ricca, Paige Quigley"
+  },
+  {
+    "subject": "MUS",
+    "number": 100,
+    "title": "Introduction To Music I",
+    "professor": "Lewis, Andrew"
+  },
+  {
+    "subject": "MUS",
+    "number": 157,
+    "title": "University Orchestras",
+    "professor": "Fawkes, Timothy"
+  },
+  {
+    "subject": "NEUS",
+    "number": 501,
+    "title": "Foundations of Neuroscience I",
+    "professor": "Gowrishankar, Swetha"
+  },
+  {
+    "subject": "NEUS",
+    "number": 595,
+    "title": "Neuroscience Journal Club",
+    "professor": "Vlasits, Anna Louise"
+  },
+  {
+    "subject": "NS",
+    "number": 294,
+    "title": "Topics in Naval Science",
+    "professor": "Braun, Kasie"
+  },
+  {
+    "subject": "NUEL",
+    "number": 510,
+    "title": "Instr Desgn/Deliv Nsg Hlth Sci",
+    "professor": "Krassa, Teresa J"
+  },
+  {
+    "subject": "NURS",
+    "number": 341,
+    "title": "Care of Children & Families",
+    "professor": "Lebedoff, Karla Li-Ren"
+  },
+  {
+    "subject": "NURS",
+    "number": 377,
+    "title": "Integrative Practice Exp",
+    "professor": "Chapman, Lori Ann"
+  },
+  {
+    "subject": "NURS",
+    "number": 377,
+    "title": "Integrative Practice Exp",
+    "professor": "Moyar, Leslie A"
+  },
+  {
+    "subject": "NURS",
+    "number": 397,
+    "title": "Issues in Nursing Practice",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "NURS",
+    "number": 542,
+    "title": "Health Promotion Theories",
+    "professor": "Rivera, Stephanie Eleanor"
+  },
+  {
+    "subject": "NUSP",
+    "number": 527,
+    "title": "Ment Hlth Assess Acute & Chron",
+    "professor": "Kordzikowski, Mitchell Lee"
+  },
+  {
+    "subject": "NUSP",
+    "number": 543,
+    "title": "HR & Org Behavior",
+    "professor": "Durham, Marianne Lawler"
+  },
+  {
+    "subject": "NUSP",
+    "number": 548,
+    "title": "Bio Basis Wmn Hlth/Perinatl I",
+    "professor": "Koenig, Mary Dawn"
+  },
+  {
+    "subject": "OT",
+    "number": 600,
+    "title": "Intro Therapy Knowledge&Skills",
+    "professor": "Arias, Dalmina Lisette"
+  },
+  {
+    "subject": "OT",
+    "number": 604,
+    "title": "Fieldwork Level I-A",
+    "professor": "Thomure, Anderson R"
+  },
+  {
+    "subject": "OT",
+    "number": 637,
+    "title": "Evidence-Based Practice 4",
+    "professor": "Suarez-Balcazar, Yolanda"
+  },
+  {
+    "subject": "OT",
+    "number": 669,
+    "title": "Fieldwork Level II-B",
+    "professor": "Preissner, Katharine Leigh"
+  },
+  {
+    "subject": "PA",
+    "number": 402,
+    "title": "Principles of Data Analysis",
+    "professor": "Holbrook, Allyson L."
+  },
+  {
+    "subject": "PA",
+    "number": 422,
+    "title": "Project Management",
+    "professor": "Holmes, Wachelle"
+  },
+  {
+    "subject": "PELE",
+    "number": 616,
+    "title": "Diagnostic Radiology",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "PHAR",
+    "number": 200,
+    "title": "Intro to Pharmaceutic Sciences",
+    "professor": "Jaki, Birgit Ursula"
+  },
+  {
+    "subject": "PHAR",
+    "number": 411,
+    "title": "Introduction Pharmacy Practice",
+    "professor": "Eades, Amanda Lynn"
+  },
+  {
+    "subject": "PHAR",
+    "number": 433,
+    "title": "Pharmaceutics III",
+    "professor": "Bartels, Bradley David"
+  },
+  {
+    "subject": "PHAR",
+    "number": 462,
+    "title": "Social and Behavioral Pharmacy",
+    "professor": "Kong, Angela"
+  },
+  {
+    "subject": "PHIL",
+    "number": 104,
+    "title": "What is Democracy?",
+    "professor": "Laden, Anthony S"
+  },
+  {
+    "subject": "PHIL",
+    "number": 201,
+    "title": "Theory of Knowledge",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "PHIL",
+    "number": 202,
+    "title": "Philosophy of Psychology",
+    "professor": "Hilbert, David R"
+  },
+  {
+    "subject": "ACTG",
+    "number": 211,
+    "title": "Intro Managerial Accounting",
+    "professor": "Savoy, Steven J"
+  },
+  {
+    "subject": "ACTG",
+    "number": 392,
+    "title": "Data Analytics for Accountants",
+    "professor": "Chen, Jason Victor"
+  },
+  {
+    "subject": "ACTG",
+    "number": 494,
+    "title": "Anti-Money Laundering",
+    "professor": "Mills, Christopher"
+  },
+  {
+    "subject": "AH",
+    "number": 302,
+    "title": "Museum & Exhibition Workshop",
+    "professor": "Reeves, Christopher Matthew"
+  },
+  {
+    "subject": "AH",
+    "number": 303,
+    "title": "Writing in Art History",
+    "professor": "Stimson, Blake"
+  },
+  {
+    "subject": "ANTH",
+    "number": 217,
+    "title": "Intro to Museum Anthropology",
+    "professor": "Johnson, Peri"
+  },
+  {
+    "subject": "ANTH",
+    "number": 394,
+    "title": "Race, Coloniality, Climate",
+    "professor": "Doane, Molly"
+  },
+  {
+    "subject": "ARCH",
+    "number": 105,
+    "title": "Architectural Studio 1",
+    "professor": "Preissner, Paul"
+  },
+  {
+    "subject": "ARCH",
+    "number": 414,
+    "title": "Contemporary Practices",
+    "professor": "Brown, David P"
+  },
+  {
+    "subject": "ARCH",
+    "number": 414,
+    "title": "Contemporary Practices",
+    "professor": "Dunn, Sarah E"
+  },
+  {
+    "subject": "ARCH",
+    "number": 520,
+    "title": "Topics in Arch Theory",
+    "professor": "Ahmed, Zehra Syed"
+  },
+  {
+    "subject": "ART",
+    "number": 112,
+    "title": "Introduction to Drawing",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ART",
+    "number": 130,
+    "title": "Intro to Painting + Color",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ART",
+    "number": 140,
+    "title": "Intro to Sculpture(Major Only)",
+    "professor": "Le, Minh Hien"
+  },
+  {
+    "subject": "ART",
+    "number": 151,
+    "title": "Intro to Creative Coding",
+    "professor": "Beiersdorfer, Crystal Lynn"
+  },
+  {
+    "subject": "ART",
+    "number": 160,
+    "title": "Intro:Digital Photo(GEN ED)",
+    "professor": "Washington, Zuri Aqeela"
+  },
+  {
+    "subject": "ART",
+    "number": 170,
+    "title": "Introduction to Filmmaking",
+    "professor": "Hutchinson, Zachary Odell"
+  },
+  {
+    "subject": "ART",
+    "number": 230,
+    "title": "Topics in Painting I",
+    "professor": "Patton, Katelyn"
+  },
+  {
+    "subject": "ART",
+    "number": 270,
+    "title": "Experimental Analog Film",
+    "professor": "Jorge Baralt, Edgar Daniel"
+  },
+  {
+    "subject": "ASP",
+    "number": 81,
+    "title": "Workshop for MATH 181 Students",
+    "professor": "Mankus, Terrance A"
+  },
+  {
+    "subject": "BA",
+    "number": 101,
+    "title": "Business1st-Year Seminar",
+    "professor": "Soriano, Diana Ethel"
+  },
+  {
+    "subject": "BA",
+    "number": 420,
+    "title": "Professional Presence",
+    "professor": "Soriano, Diana Ethel"
+  },
+  {
+    "subject": "BCMG",
+    "number": 599,
+    "title": "PhD Thesis Research",
+    "professor": "Caffrey, Michael S"
+  },
+  {
+    "subject": "BHIS",
+    "number": 405,
+    "title": "Med Sci & Humn Pathophysiology",
+    "professor": "Mills, Laura Lynn"
+  },
+  {
+    "subject": "BHIS",
+    "number": 410,
+    "title": "Hlth Data Struct & Mgmt",
+    "professor": "Rhodes, Harry"
+  },
+  {
+    "subject": "BHIS",
+    "number": 510,
+    "title": "Health Care Info Systems",
+    "professor": "Czart, Margaret B"
+  },
+  {
+    "subject": "BIOS",
+    "number": 286,
+    "title": "Biology of Brain",
+    "professor": "Tchernookova, Boriana Krassimirova"
+  },
+  {
+    "subject": "THTR",
+    "number": 183,
+    "title": "Practicum: Build Crew",
+    "professor": "Holmes Robbins, Hannah Rebecca"
+  },
+  {
+    "subject": "THTR",
+    "number": 230,
+    "title": "Script Analysis",
+    "professor": "Metzgar, Bonnie"
+  },
+  {
+    "subject": "THTR",
+    "number": 280,
+    "title": "Practicum in Performance",
+    "professor": "Felton, Monet Lai-Lani"
+  },
+  {
+    "subject": "THTR",
+    "number": 317,
+    "title": "Movement & Voice II",
+    "professor": "Graham, Julie Ann"
+  },
+  {
+    "subject": "UPP",
+    "number": 461,
+    "title": "GIS for Planning and Policy",
+    "professor": "Gomez, Sigfrido"
+  },
+  {
+    "subject": "UPP",
+    "number": 502,
+    "title": "Planning Skills",
+    "professor": "Drucker, Joshua M"
+  },
+  {
+    "subject": "UPP",
+    "number": 562,
+    "title": "Urb Transportation II: Lab",
+    "professor": "Tilahun, Nebiyou Y"
+  },
+  {
+    "subject": "UPP",
+    "number": 575,
+    "title": "Energy Planning & Policy",
+    "professor": "McKibbin, Anne Dudley"
+  },
+  {
+    "subject": "US",
+    "number": 240,
+    "title": "Urban & Community Economics",
+    "professor": "Ai, Ning"
+  },
+  {
+    "subject": "MKTG",
+    "number": 465,
+    "title": "Strategic Marketing",
+    "professor": "Moore, Alexander"
+  },
+  {
+    "subject": "MTHT",
+    "number": 465,
+    "title": "Tchng Algebra for Understndg",
+    "professor": "Superfine, Alison May"
+  },
+  {
+    "subject": "MUS",
+    "number": 118,
+    "title": "American Popular Music",
+    "professor": "Kamps, Jordan"
+  },
+  {
+    "subject": "MUS",
+    "number": 153,
+    "title": "University Choir",
+    "professor": "Lewis, Andrew"
+  },
+  {
+    "subject": "MUS",
+    "number": 170,
+    "title": "Keyboard Skills I",
+    "professor": "Lau, Wing"
+  },
+  {
+    "subject": "MUS",
+    "number": 223,
+    "title": "Music Technology",
+    "professor": "Lopatka, Daniel R"
+  },
+  {
+    "subject": "MUS",
+    "number": 227,
+    "title": "Music Cultures Of World",
+    "professor": "McNally, James Edward"
+  },
+  {
+    "subject": "MUS",
+    "number": 231,
+    "title": "History of Western Music II",
+    "professor": "Feller Gumucio, Paul"
+  },
+  {
+    "subject": "MUS",
+    "number": 232,
+    "title": "History of Western Music III",
+    "professor": "Feller Gumucio, Paul"
+  },
+  {
+    "subject": "NUPR",
+    "number": 514,
+    "title": "School Nursing Internship",
+    "professor": "Moss, Eileen M"
+  },
+  {
+    "subject": "NURS",
+    "number": 232,
+    "title": "Professional Nursing",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "NURS",
+    "number": 312,
+    "title": "Research and Statistics",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "NURS",
+    "number": 361,
+    "title": "Nursing Care of Populations",
+    "professor": "Tracy, Susan"
+  },
+  {
+    "subject": "NURS",
+    "number": 371,
+    "title": "Acute Care Nursing & Care Mgmt",
+    "professor": "Castro, Helen Johanna"
+  },
+  {
+    "subject": "NURS",
+    "number": 519,
+    "title": "Hlth Equity & Soc Determinants",
+    "professor": "Bostwick, Wendy Beth"
+  },
+  {
+    "subject": "NURS",
+    "number": 531,
+    "title": "Pharmacotherapeutics",
+    "professor": "Vuckovic, Karen Mary"
+  },
+  {
+    "subject": "NURS",
+    "number": 532,
+    "title": "Comp Hlth Asmnt Adv Nrsng Prac",
+    "professor": "Chu, Minseung"
+  },
+  {
+    "subject": "NUSP",
+    "number": 513,
+    "title": "School Nsg Theory/Trends",
+    "professor": "Moss, Eileen M"
+  },
+  {
+    "subject": "NUSP",
+    "number": 516,
+    "title": "Hlth Mgmt Primary Care II",
+    "professor": "Kozlowski, Marjorie Ann"
+  },
+  {
+    "subject": "NUSP",
+    "number": 528,
+    "title": "Ment Hlth Promo & Dx Prevent",
+    "professor": "Solomon, Michael Dowd"
+  },
+  {
+    "subject": "OSCI",
+    "number": 561,
+    "title": "Molecular Basis Oral Diseases",
+    "professor": "Wu, Christine Da-Ruh"
+  },
+  {
+    "subject": "OSCI",
+    "number": 595,
+    "title": "Oral Science Research Seminar",
+    "professor": "Crowe, David Lee"
+  },
+  {
+    "subject": "PA",
+    "number": 433,
+    "title": "Data Management",
+    "professor": "Gawel, Jeffrey"
+  },
+  {
+    "subject": "PA",
+    "number": 528,
+    "title": "Public Program Evaluation",
+    "professor": "Siciliano, Michael D"
+  },
+  {
+    "subject": "PA",
+    "number": 591,
+    "title": "Managing Your Career",
+    "professor": "Holbrook, Allyson L."
+  },
+  {
+    "subject": "PA",
+    "number": 594,
+    "title": "Social Network Analysis",
+    "professor": "Siciliano, Michael D"
+  },
+  {
+    "subject": "PHAR",
+    "number": 410,
+    "title": "Integrated Physiology",
+    "professor": "Carmichael, Annette Alice"
+  },
+  {
+    "subject": "NURS",
+    "number": 371,
+    "title": "Acute Care Nursing & Care Mgmt",
+    "professor": "Foertsch, Emily Marie"
+  },
+  {
+    "subject": "NURS",
+    "number": 382,
+    "title": "Quality and Safety",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "NUSP",
+    "number": 550,
+    "title": "Issues:Rsrch&Pract Wmn's Hlth",
+    "professor": "Liese, Kylea Laina"
+  },
+  {
+    "subject": "NUSP",
+    "number": 557,
+    "title": "Health Care of Women III",
+    "professor": "Pearson, Pamela"
+  },
+  {
+    "subject": "OSCI",
+    "number": 564,
+    "title": "Interdisciplinary Research Sem",
+    "professor": "Miller, Steven"
+  },
+  {
+    "subject": "OT",
+    "number": 603,
+    "title": "Occupational Development",
+    "professor": "Stoffel, Ashley"
+  },
+  {
+    "subject": "PHAR",
+    "number": 431,
+    "title": "Pharmaceutics I",
+    "professor": "Chaiyaperm, Varanya"
+  },
+  {
+    "subject": "PHAR",
+    "number": 463,
+    "title": "Personal&Professional Develop",
+    "professor": "Biju, Asish"
+  },
+  {
+    "subject": "PHIL",
+    "number": 115,
+    "title": "Death",
+    "professor": "Harmon, Zaccheus D"
+  },
+  {
+    "subject": "PHIL",
+    "number": 116,
+    "title": "Biomedical Ethics",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "PHIL",
+    "number": 206,
+    "title": "Intro to Phil of Language",
+    "professor": "Goodman, Rachel"
+  },
+  {
+    "subject": "PHYS",
+    "number": 132,
+    "title": "Physics for Life Sciences II",
+    "professor": "Espinoza, Randall"
+  },
+  {
+    "subject": "PHYS",
+    "number": 142,
+    "title": "General Physics II",
+    "professor": "Hazelton, Ryan Lowell Crites"
+  },
+  {
+    "subject": "PHYS",
+    "number": 461,
+    "title": "Thermal & Statistical Physics",
+    "professor": "Evdokimov, Olga"
+  },
+  {
+    "subject": "PMPR",
+    "number": 329,
+    "title": "Dean's Leadership Forum",
+    "professor": "Schumock, Glen Thomas"
+  },
+  {
+    "subject": "PMPR",
+    "number": 359,
+    "title": "Topics Post-Grad Training",
+    "professor": "Ohler, Kirsten H"
+  },
+  {
+    "subject": "PMPR",
+    "number": 385,
+    "title": "Spec Topics in Pharm Pract",
+    "professor": "Benken, Scott T"
+  },
+  {
+    "subject": "POL",
+    "number": 103,
+    "title": "Intermediate Polish I",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "POLS",
+    "number": 329,
+    "title": "Sem on Amer Govt&Politics",
+    "professor": "Filindra, Alexandra"
+  },
+  {
+    "subject": "PPOL",
+    "number": 105,
+    "title": "Programming & Data Analysis I",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "PPOL",
+    "number": 330,
+    "title": "Intro Public & Nonprofit Mgmt",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "PSCH",
+    "number": 320,
+    "title": "Developmental Psychology",
+    "professor": "Zinsser, Katherine Marie"
+  },
+  {
+    "subject": "PSCH",
+    "number": 381,
+    "title": "Psch of Interviewing",
+    "professor": "Yuodsnukis, Briahna"
+  },
+  {
+    "subject": "PSCH",
+    "number": 394,
+    "title": "Special Topics in Psch",
+    "professor": "Coughlin, Christine Ann"
+  },
+  {
+    "subject": "PSCI",
+    "number": 592,
+    "title": "Pharm Sciences Rotation",
+    "professor": "Tonetti, Debra"
+  },
+  {
+    "subject": "PSOP",
+    "number": 573,
+    "title": "Econmc Eval of Hlthcr Interven",
+    "professor": "Kim, Kibum"
+  },
+  {
+    "subject": "PSOP",
+    "number": 595,
+    "title": "Seminar Pharm Syst Outcome Pol",
+    "professor": "Lee, Todd A."
+  },
+  {
+    "subject": "PT",
+    "number": 506,
+    "title": "Advances in Rehabilitation II",
+    "professor": "Phillips, Shane"
+  },
+  {
+    "subject": "PHAR",
+    "number": 422,
+    "title": "Fundamentals of Drug Action",
+    "professor": "Bruzik, Karol S"
+  },
+  {
+    "subject": "PHAR",
+    "number": 464,
+    "title": "Patient Safety",
+    "professor": "Bursua, Adam"
+  },
+  {
+    "subject": "PHAR",
+    "number": 471,
+    "title": "PhLAMES 7",
+    "professor": "Uppuluri, Ellen Maria"
+  },
+  {
+    "subject": "PHAR",
+    "number": 508,
+    "title": "PDAT 8: Special Topics",
+    "professor": "Kaczmarski, Katie B"
+  },
+  {
+    "subject": "PHAR",
+    "number": 515,
+    "title": "Patient Care:Inst/Hospital",
+    "professor": "Schriever, Allison E"
+  },
+  {
+    "subject": "PHAR",
+    "number": 520,
+    "title": "Clinical Applications",
+    "professor": "Carmichael, Annette Alice"
+  },
+  {
+    "subject": "PHAR",
+    "number": 604,
+    "title": "APPE: Medicine Patient Care",
+    "professor": "Allen, Sheila Mary"
+  },
+  {
+    "subject": "PHIL",
+    "number": 101,
+    "title": "Critical Analytical Reasoning",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "PHIL",
+    "number": 101,
+    "title": "Critical Analytical Reasoning",
+    "professor": "Whipple, John"
+  },
+  {
+    "subject": "PHIL",
+    "number": 107,
+    "title": "What is Art?",
+    "professor": "Fleischacker, Samuel"
+  },
+  {
+    "subject": "PHIL",
+    "number": 227,
+    "title": "Cont Phil I:Phenomen&Existent",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "PHIL",
+    "number": 432,
+    "title": "Consequentialism & its Critics",
+    "professor": "Small, Charles W"
+  },
+  {
+    "subject": "PHYS",
+    "number": 112,
+    "title": "Astronomy and Universe",
+    "professor": "Unwin, James"
+  },
+  {
+    "subject": "PHYS",
+    "number": 131,
+    "title": "Physics for Life Sciences I",
+    "professor": "DeJonghe, Richard Jerome"
+  },
+  {
+    "subject": "PMPR",
+    "number": 615,
+    "title": "Academic Elective",
+    "professor": "Allen, Sheila Mary"
+  },
+  {
+    "subject": "PMPR",
+    "number": 616,
+    "title": "Administrative Elective",
+    "professor": "Allen, Sheila Mary"
+  },
+  {
+    "subject": "POL",
+    "number": 101,
+    "title": "Elementary Polish I",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "POLS",
+    "number": 101,
+    "title": "Intro to American Government",
+    "professor": "Filindra, Alexandra"
+  },
+  {
+    "subject": "POLS",
+    "number": 231,
+    "title": "Intro to Chinese Politics",
+    "professor": "Zhang, Yue"
+  },
+  {
+    "subject": "POLS",
+    "number": 353,
+    "title": "Constitutional Law",
+    "professor": "Lyles, Kevin L"
+  },
+  {
+    "subject": "PPOL",
+    "number": 307,
+    "title": "Policy Analysis III",
+    "professor": "Lang, Louis"
+  },
+  {
+    "subject": "PROS",
+    "number": 618,
+    "title": "Reconstructive Implantology",
+    "professor": "Harlow, Rand F"
+  },
+  {
+    "subject": "PSCH",
+    "number": 270,
+    "title": "Psychological Disorders",
+    "professor": "Flynn, Andrea Marie"
+  },
+  {
+    "subject": "PSCH",
+    "number": 353,
+    "title": "Lab in Cognition & Memory",
+    "professor": "Passarotti, Alessandra"
+  },
+  {
+    "subject": "PSCH",
+    "number": 569,
+    "title": "Current Topics Brain & Cog Sci",
+    "professor": "Coughlin, Christine Ann"
+  },
+  {
+    "subject": "PT",
+    "number": 605,
+    "title": "Systems Plasticity",
+    "professor": "Sabbahi, Ahmad Samir"
+  },
+  {
+    "subject": "RELE",
+    "number": 600,
+    "title": "R-Med Prcptrshp Fam Med - A",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "RELE",
+    "number": 604,
+    "title": "Emergency Medicine",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "LAW",
+    "number": 533,
+    "title": "Bus Assoc",
+    "professor": "Schulman, Rachel Reagler"
+  },
+  {
+    "subject": "LAW",
+    "number": 535,
+    "title": "Est and Trusts",
+    "professor": "Carmona, Tiffany"
+  },
+  {
+    "subject": "MATH",
+    "number": 90,
+    "title": "Intermediate Algebra",
+    "professor": "Taylor, Gregory Kyle"
+  },
+  {
+    "subject": "MATH",
+    "number": 180,
+    "title": "Calculus I",
+    "professor": "Hamed, Duha Hamdallah"
+  },
+  {
+    "subject": "MATH",
+    "number": 182,
+    "title": "Emerg Schol Workshop/Calc II",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "MATH",
+    "number": 210,
+    "title": "Calculus III",
+    "professor": "Call, Benjamin"
+  },
+  {
+    "subject": "MATH",
+    "number": 210,
+    "title": "Calculus III",
+    "professor": "Dai, Mimi"
+  },
+  {
+    "subject": "MATH",
+    "number": 313,
+    "title": "Analysis I",
+    "professor": "Nenciu, Irina"
+  },
+  {
+    "subject": "MATH",
+    "number": 320,
+    "title": "Linear Algebra I",
+    "professor": "Van Limbeek, Wouter"
+  },
+  {
+    "subject": "MATH",
+    "number": 555,
+    "title": "Complex Manifolds II",
+    "professor": "Bakker, Benjamin"
+  },
+  {
+    "subject": "MBT",
+    "number": 511,
+    "title": "Statistics Biotech Research",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "MCS",
+    "number": 260,
+    "title": "Intro To Computer Science",
+    "professor": "Shulman, Andrew M"
+  },
+  {
+    "subject": "MCS",
+    "number": 423,
+    "title": "Graph Theory",
+    "professor": "Mubayi, Dhruv"
+  },
+  {
+    "subject": "MDC",
+    "number": 631,
+    "title": "Medical Colloquia 1",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "MDP",
+    "number": 611,
+    "title": "Doctoring & Clinical Skills 1",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "ME",
+    "number": 419,
+    "title": "Compressible Flow Theory",
+    "professor": "Brezinsky, Kenneth"
+  },
+  {
+    "subject": "MGMT",
+    "number": 340,
+    "title": "Intro to Organizations",
+    "professor": "Miller, Michael T."
+  },
+  {
+    "subject": "MGMT",
+    "number": 340,
+    "title": "Intro to Organizations",
+    "professor": "Tarasievich, Renata A."
+  },
+  {
+    "subject": "MGMT",
+    "number": 445,
+    "title": "Organizational Theory",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "MGMT",
+    "number": 564,
+    "title": "Negotiations",
+    "professor": "Brickson, Shelley"
+  },
+  {
+    "subject": "MGMT",
+    "number": 570,
+    "title": "Business & External Env",
+    "professor": "Miller, Michael T."
+  },
+  {
+    "subject": "MILS",
+    "number": 131,
+    "title": "Military Physical Fitness",
+    "professor": "Heredia, Jarrod"
+  },
+  {
+    "subject": "MILS",
+    "number": 301,
+    "title": "Adaptive Team Leadership",
+    "professor": "Heredia, Jarrod"
+  },
+  {
+    "subject": "MKTG",
+    "number": 360,
+    "title": "Introduction to Marketing",
+    "professor": "Crockett, David"
+  },
+  {
+    "subject": "MKTG",
+    "number": 360,
+    "title": "Introduction to Marketing",
+    "professor": "Dienstag, Jesse"
+  },
+  {
+    "subject": "MKTG",
+    "number": 370,
+    "title": "Quantitative Marketing Skills",
+    "professor": "Weidemanis Magi, Anne"
+  },
+  {
+    "subject": "MKTG",
+    "number": 461,
+    "title": "Consumer Behavior",
+    "professor": "Schanbacher, Anja"
+  },
+  {
+    "subject": "MKTG",
+    "number": 473,
+    "title": "Introduction to Sales",
+    "professor": "Diaz, Melvin Alcazar"
+  },
+  {
+    "subject": "PT",
+    "number": 631,
+    "title": "Musculoskeletal Dysfunction I",
+    "professor": "McDevitt, Thomas C"
+  },
+  {
+    "subject": "PUBH",
+    "number": 300,
+    "title": "Critical Thinking in Pub Hlth",
+    "professor": "Bouchee-Cureton, Yolanda"
+  },
+  {
+    "subject": "RELS",
+    "number": 101,
+    "title": "Introduction to World Religion",
+    "professor": "Dingeldein, Laura B"
+  },
+  {
+    "subject": "RES",
+    "number": 250,
+    "title": "Real Estate Principles",
+    "professor": "Krueger, Robert Hugh"
+  },
+  {
+    "subject": "RUSS",
+    "number": 115,
+    "title": "Russ Culture Before Revolution",
+    "professor": "Kendall, Matthew"
+  },
+  {
+    "subject": "SOCW",
+    "number": 410,
+    "title": "Human Behavior & Social Envt",
+    "professor": "Hounmenou, Enagnon Charles"
+  },
+  {
+    "subject": "SOCW",
+    "number": 420,
+    "title": "Policy I: Soc Welfare Pol&Svcs",
+    "professor": "McLeod, Branden"
+  },
+  {
+    "subject": "SOCW",
+    "number": 430,
+    "title": "Practice I: Individuals & Orgs",
+    "professor": "Huffman-Gottschling, Kristen Suzanne"
+  },
+  {
+    "subject": "SOCW",
+    "number": 539,
+    "title": "Mental Hlth w/Child&Adolescent",
+    "professor": "Schmitz, Jaime Michelle"
+  },
+  {
+    "subject": "SOCW",
+    "number": 554,
+    "title": "Policy II: Mental Health",
+    "professor": "Horn, Kelly N"
+  },
+  {
+    "subject": "SOCW",
+    "number": 586,
+    "title": "Pract III: Mental Health",
+    "professor": "Salvadore, Lisa M"
+  },
+  {
+    "subject": "SOCW",
+    "number": 586,
+    "title": "Pract III: Mental Health",
+    "professor": "Stewart, Helen Rose"
+  },
+  {
+    "subject": "SPAN",
+    "number": 104,
+    "title": "Intermediate Spanish II",
+    "professor": "Aguilar, Elizabeth"
+  },
+  {
+    "subject": "SPAN",
+    "number": 220,
+    "title": "Legal & Business Spanish I",
+    "professor": "Munoz-Navarro, Stephanie Rae"
+  },
+  {
+    "subject": "SPAN",
+    "number": 511,
+    "title": "Spanish Syntax",
+    "professor": "Lopez-Carretero, Luis F"
+  },
+  {
+    "subject": "SPED",
+    "number": 410,
+    "title": "Exceptional Learners",
+    "professor": "Cushing, Lisa Sharon"
+  },
+  {
+    "subject": "SPED",
+    "number": 416,
+    "title": "Methods Except Learners",
+    "professor": "Boda, Phillip A"
+  },
+  {
+    "subject": "STAT",
+    "number": 381,
+    "title": "Applied Statistical Methods I",
+    "professor": "Hamed, Duha Hamdallah"
+  },
+  {
+    "subject": "STAT",
+    "number": 381,
+    "title": "Applied Statistical Methods I",
+    "professor": "Pajda-De La O, Jennifer Marie"
+  },
+  {
+    "subject": "STAT",
+    "number": 401,
+    "title": "Intro to Probability",
+    "professor": "Ouyang, Cheng"
+  },
+  {
+    "subject": "TADR",
+    "number": 423,
+    "title": "Mediation and Med Advocacy",
+    "professor": "Marrinson, Thomas"
+  },
+  {
+    "subject": "TADR",
+    "number": 461,
+    "title": "LSIV: Drafting Civ Litig",
+    "professor": "Klockenga, Amy Kathleen"
+  },
+  {
+    "subject": "TADR",
+    "number": 475,
+    "title": "Extern: JD Adv",
+    "professor": "Snow, Stephanie Annette"
+  },
+  {
+    "subject": "TADR",
+    "number": 492,
+    "title": "Clinic: Community Enter Clinic",
+    "professor": "Hatcher, Renee C"
+  },
+  {
+    "subject": "THTR",
+    "number": 141,
+    "title": "Acting I: Fundamentals",
+    "professor": "Rodriguez, Alex B"
+  },
+  {
+    "subject": "THTR",
+    "number": 321,
+    "title": "Adv Acting: Shakespeare",
+    "professor": "Corley, Richard"
+  },
+  {
+    "subject": "UPP",
+    "number": 459,
+    "title": "Intro Geo Analysis & Vis II",
+    "professor": "Jasek, Thomas A"
+  },
+  {
+    "subject": "RELE",
+    "number": 616,
+    "title": "Radiology",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "SOC",
+    "number": 212,
+    "title": "Human Sexuality",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "SOC",
+    "number": 251,
+    "title": "Health and Medicine",
+    "professor": "Hansen, Christopher R"
+  },
+  {
+    "subject": "SOC",
+    "number": 445,
+    "title": "Sociology of the Family",
+    "professor": "Hansen, Christopher R"
+  },
+  {
+    "subject": "SOCW",
+    "number": 410,
+    "title": "Human Behavior & Social Envt",
+    "professor": "Diaz-Strong, Daysi Ximena"
+  },
+  {
+    "subject": "SOCW",
+    "number": 410,
+    "title": "Human Behavior & Social Envt",
+    "professor": "Gomez, Walter"
+  },
+  {
+    "subject": "SOCW",
+    "number": 430,
+    "title": "Practice I: Individuals & Orgs",
+    "professor": "Doyle, Otima"
+  },
+  {
+    "subject": "SOCW",
+    "number": 551,
+    "title": "Policy II:School Soc Wk Policy",
+    "professor": "Johnson, Annette H"
+  },
+  {
+    "subject": "SOCW",
+    "number": 570,
+    "title": "Field Instruction I",
+    "professor": "Brown, Pamela Renee"
+  },
+  {
+    "subject": "SPAN",
+    "number": 101,
+    "title": "Elementary Spanish I",
+    "professor": "Munoz-Navarro, Stephanie Rae"
+  },
+  {
+    "subject": "SPAN",
+    "number": 102,
+    "title": "Elementary Spanish II",
+    "professor": "Ebert, Shane"
+  },
+  {
+    "subject": "SPAN",
+    "number": 103,
+    "title": "Intermediate Spanish I",
+    "professor": "Fernandez, Claudia"
+  },
+  {
+    "subject": "SPAN",
+    "number": 206,
+    "title": "Intro to Hispanic Linguistics",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "SPAN",
+    "number": 221,
+    "title": "Spanish: Health Personnel I",
+    "professor": "Gonzalez-Cameron, Diana"
+  },
+  {
+    "subject": "SPAN",
+    "number": 302,
+    "title": "Exploring Spanish Grammar",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "SPAN",
+    "number": 375,
+    "title": "Topics Hispanic Studies",
+    "professor": "Budner, Keith"
+  },
+  {
+    "subject": "SPAN",
+    "number": 409,
+    "title": "Semantics/Pragmatics in Span",
+    "professor": "Lopez-Carretero, Luis F"
+  },
+  {
+    "subject": "SPED",
+    "number": 202,
+    "title": "Int Perspectives: Inclusive Ed",
+    "professor": "Waitoller, Federico R"
+  },
+  {
+    "subject": "SPED",
+    "number": 461,
+    "title": "Polit/Soc-Cultural Perspect",
+    "professor": "Waitoller, Federico R"
+  },
+  {
+    "subject": "TADR",
+    "number": 464,
+    "title": "Clinic: Pro Bono Lit Clinic",
+    "professor": "Ortiz, Jose D"
+  },
+  {
+    "subject": "THTR",
+    "number": 361,
+    "title": "Voice IV: Text Styles",
+    "professor": "Martin, Jason"
+  },
+  {
+    "subject": "UPP",
+    "number": 405,
+    "title": "Researching the City",
+    "professor": "Sutton, Stacey A"
+  },
+  {
+    "subject": "UPP",
+    "number": 458,
+    "title": "Intro Geo Analysis & Vis I",
+    "professor": "Jasek, Thomas A"
+  },
+  {
+    "subject": "UPP",
+    "number": 461,
+    "title": "GIS for Planning and Policy",
+    "professor": "Wilson, Matthew D"
+  },
+  {
+    "subject": "US",
+    "number": 130,
+    "title": "Principls Urb Sustainability",
+    "professor": "Kocs, Elizabeth A."
+  },
+  {
+    "subject": "US",
+    "number": 261,
+    "title": "Mapping, Data, and GIS",
+    "professor": "Craft, Andrea"
+  },
+  {
+    "subject": "US",
+    "number": 301,
+    "title": "Political Economy of Urban Dev",
+    "professor": "Betancur, John-Jairo"
+  },
+  {
+    "subject": "PHIL",
+    "number": 204,
+    "title": "Intro to Phil of Science",
+    "professor": "Huggett, Nicholas"
+  },
+  {
+    "subject": "PHYS",
+    "number": 141,
+    "title": "General Physics I",
+    "professor": "Hazelton, Ryan Lowell Crites"
+  },
+  {
+    "subject": "PHYS",
+    "number": 215,
+    "title": "Computational Math/Physics",
+    "professor": "Khalili Araghi, Fatemeh"
+  },
+  {
+    "subject": "PHYS",
+    "number": 595,
+    "title": "Graduate Seminar",
+    "professor": "Ansari, Anjum"
+  },
+  {
+    "subject": "PMPR",
+    "number": 338,
+    "title": "Management of the HIV Patient",
+    "professor": "Drwiega, Emily"
+  },
+  {
+    "subject": "PMPR",
+    "number": 390,
+    "title": "Spec Project in Pharm Pract",
+    "professor": "Drambarean, Beatrice"
+  },
+  {
+    "subject": "PMPR",
+    "number": 390,
+    "title": "Spec Project in Pharm Pract",
+    "professor": "McPherson, Charles E"
+  },
+  {
+    "subject": "PMPR",
+    "number": 442,
+    "title": "Intro to Specialty Pharmacy",
+    "professor": "Kumor, Lisa Marie"
+  },
+  {
+    "subject": "PMPR",
+    "number": 617,
+    "title": "Adv Ambulatory Patient Care",
+    "professor": "Allen, Sheila Mary"
+  },
+  {
+    "subject": "POLS",
+    "number": 246,
+    "title": "Hist of American Capitalism",
+    "professor": "Sklansky, Jeffrey"
+  },
+  {
+    "subject": "PORT",
+    "number": 240,
+    "title": "Rapid Portuguese",
+    "professor": "Costa Neves, Felipe"
+  },
+  {
+    "subject": "PROS",
+    "number": 612,
+    "title": "Dx and Treatment Planning",
+    "professor": "Campbell, Stephen D"
+  },
+  {
+    "subject": "PSCH",
+    "number": 100,
+    "title": "Introductory Psychology",
+    "professor": "Chen, Jing"
+  },
+  {
+    "subject": "PSCH",
+    "number": 312,
+    "title": "Social Psychology",
+    "professor": "Prims, Julia"
+  },
+  {
+    "subject": "PSCH",
+    "number": 313,
+    "title": "Social Psychology Lab",
+    "professor": "Pasek, Michael Harrison Hirsh"
+  },
+  {
+    "subject": "PSCH",
+    "number": 313,
+    "title": "Social Psychology Lab",
+    "professor": "Prims, Julia"
+  },
+  {
+    "subject": "PSCH",
+    "number": 324,
+    "title": "Cultural Psychology",
+    "professor": "Smith, Lauren Tiffany"
+  },
+  {
+    "subject": "PSCH",
+    "number": 331,
+    "title": "Community&Prevention Research",
+    "professor": "Flynn, Andrea Marie"
+  },
+  {
+    "subject": "PSCH",
+    "number": 333,
+    "title": "Lab in Clinical Psychology",
+    "professor": "Guerrero, Mayra"
+  },
+  {
+    "subject": "PSCH",
+    "number": 333,
+    "title": "Lab in Clinical Psychology",
+    "professor": "Herbener, Ellen S"
+  },
+  {
+    "subject": "PSCH",
+    "number": 340,
+    "title": "Psychological Testing",
+    "professor": "Baker, Christopher Albert"
+  },
+  {
+    "subject": "PSCH",
+    "number": 343,
+    "title": "Stat Methods in Behav Sci",
+    "professor": "Prims, Julia"
+  },
+  {
+    "subject": "PSCH",
+    "number": 385,
+    "title": "Field Work in Applied Psch",
+    "professor": "Kim-Cohen, Julia Yun Soo"
+  },
+  {
+    "subject": "PSCH",
+    "number": 519,
+    "title": "Current Topics in Social Psch",
+    "professor": "Staahl, Tomas Kenth"
+  },
+  {
+    "subject": "PT",
+    "number": 636,
+    "title": "Applied Pathophysiology",
+    "professor": "Corcoran, Gretchen"
+  },
+  {
+    "subject": "PUBH",
+    "number": 370,
+    "title": "Public Health Toolbox",
+    "professor": "Zanoni, Joseph P"
+  },
+  {
+    "subject": "PUBH",
+    "number": 395,
+    "title": "Professional Topics",
+    "professor": "Chriqui, Jamie F."
+  },
+  {
+    "subject": "RES",
+    "number": 450,
+    "title": "Real Estate Data Analysis",
+    "professor": "McMillen, Daniel P"
+  },
+  {
+    "subject": "MKTG",
+    "number": 500,
+    "title": "Introduction to Marketing",
+    "professor": "DeBerry-Spence, Benet"
+  },
+  {
+    "subject": "MKTG",
+    "number": 572,
+    "title": "International Marketing",
+    "professor": "Karsaklian, Eliane"
+  },
+  {
+    "subject": "MUS",
+    "number": 110,
+    "title": "Convocation/Recital",
+    "professor": "McNally, James Edward"
+  },
+  {
+    "subject": "MUS",
+    "number": 114,
+    "title": "Jazz History",
+    "professor": "Irabagon, Jonathan"
+  },
+  {
+    "subject": "MUS",
+    "number": 156,
+    "title": "Pep Band",
+    "professor": "Carlson, Nicholas"
+  },
+  {
+    "subject": "NUEL",
+    "number": 244,
+    "title": "History Prof Nursing in U.S.",
+    "professor": "Flynn, Karen"
+  },
+  {
+    "subject": "NUEL",
+    "number": 250,
+    "title": "Human Development Life Span",
+    "professor": "Breitmayer, Bonnie J"
+  },
+  {
+    "subject": "NUPR",
+    "number": 416,
+    "title": "Integrated Practicum IV",
+    "professor": "Robinson, Nadia S"
+  },
+  {
+    "subject": "NUPR",
+    "number": 556,
+    "title": "EBP 4",
+    "professor": "Carlucci, Melissa Ann"
+  },
+  {
+    "subject": "NURS",
+    "number": 212,
+    "title": "Hlth Assessment /Communication",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "NURS",
+    "number": 304,
+    "title": "Professional Nursing 3",
+    "professor": "Grubbs, Robin"
+  },
+  {
+    "subject": "NURS",
+    "number": 341,
+    "title": "Care of Children & Families",
+    "professor": "Sperry, Amanda Susanne"
+  },
+  {
+    "subject": "NURS",
+    "number": 403,
+    "title": "Cultr Fluency, Comm, & Ethics",
+    "professor": "Grubbs, Robin"
+  },
+  {
+    "subject": "NURS",
+    "number": 411,
+    "title": "Foundations-Nursing Practice",
+    "professor": "Leipold, Catherine"
+  },
+  {
+    "subject": "NURS",
+    "number": 511,
+    "title": "Epidemiology & Statistics",
+    "professor": "Eldeirawi, Kamal"
+  },
+  {
+    "subject": "NURS",
+    "number": 517,
+    "title": "Leadership & Policy",
+    "professor": "Gampetro, Pamela J"
+  },
+  {
+    "subject": "NURS",
+    "number": 534,
+    "title": "Advanced Physiology",
+    "professor": "Calik, Michael William"
+  },
+  {
+    "subject": "NURS",
+    "number": 588,
+    "title": "Nrsg Ldrshp in Global Health",
+    "professor": "Culbert, Gabriel John"
+  },
+  {
+    "subject": "NUSP",
+    "number": 534,
+    "title": "Mgt I: Adult-Gero NP AC & PC",
+    "professor": "Burt, Leah Susanne"
+  },
+  {
+    "subject": "OMDS",
+    "number": 623,
+    "title": "Temporomandibular Disorders",
+    "professor": "Dalbah, Lana"
+  },
+  {
+    "subject": "ORTD",
+    "number": 524,
+    "title": "Craniofacial Anomalies I",
+    "professor": "Nicholas, Christina Lynne"
+  },
+  {
+    "subject": "ORTD",
+    "number": 595,
+    "title": "Seminar in Orthodontics",
+    "professor": "Oubaidin, Maysaa"
+  },
+  {
+    "subject": "OT",
+    "number": 605,
+    "title": "Prof Development& Leadership I",
+    "professor": "Van Denend, Toni Lynn"
+  },
+  {
+    "subject": "OT",
+    "number": 607,
+    "title": "Research Foundations I",
+    "professor": "Mirza, Mansha Parven"
+  },
+  {
+    "subject": "OT",
+    "number": 690,
+    "title": "Capstone Seminar",
+    "professor": "Summers, Jennifer Joanne"
+  },
+  {
+    "subject": "PA",
+    "number": 571,
+    "title": "Nonprofit Management",
+    "professor": "Taylor, Michele Rodriguez"
+  },
+  {
+    "subject": "PCOL",
+    "number": 595,
+    "title": "Pharmacology Seminar",
+    "professor": "Karginov, Andrei"
+  },
+  {
+    "subject": "PELE",
+    "number": 600,
+    "title": "Elective Clerkship",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "SJ",
+    "number": 101,
+    "title": "Intro to Social Justice",
+    "professor": "Nishida, Akemi"
+  },
+  {
+    "subject": "SOC",
+    "number": 490,
+    "title": "Senior Capstone",
+    "professor": "Garcia, Lorena"
+  },
+  {
+    "subject": "SOCW",
+    "number": 410,
+    "title": "Human Behavior & Social Envt",
+    "professor": "Cheng, Shih-Ying"
+  },
+  {
+    "subject": "SOCW",
+    "number": 582,
+    "title": "Pract III: Child & Family",
+    "professor": "Martin, Rebekah"
+  },
+  {
+    "subject": "SPAN",
+    "number": 102,
+    "title": "Elementary Spanish II",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "SPAN",
+    "number": 202,
+    "title": "Spanish Grammar in Practice",
+    "professor": "Potowski, Kimberly J"
+  },
+  {
+    "subject": "SPAN",
+    "number": 380,
+    "title": "Professional Development",
+    "professor": "Taboada, Inmaculada"
+  },
+  {
+    "subject": "SPED",
+    "number": 465,
+    "title": "Students High Incidence Disab",
+    "professor": "Kumm, Skip Allen"
+  },
+  {
+    "subject": "STAT",
+    "number": 361,
+    "title": "Elements Statistical Methods",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "STAT",
+    "number": 385,
+    "title": "Stat Learning and Big Data I",
+    "professor": "Zhong, Pingshou"
+  },
+  {
+    "subject": "STAT",
+    "number": 481,
+    "title": "Appl Statist Methods II",
+    "professor": "Han, Kyunghee"
+  },
+  {
+    "subject": "STAT",
+    "number": 481,
+    "title": "Appl Statist Methods II",
+    "professor": "Pajda-De La O, Jennifer Marie"
+  },
+  {
+    "subject": "TADR",
+    "number": 461,
+    "title": "LSIV: Drafting Civ Litig",
+    "professor": "Baum, Charles Michael"
+  },
+  {
+    "subject": "TADR",
+    "number": 487,
+    "title": "Clinic: Vet Class",
+    "professor": "Duterte, Yelena C"
+  },
+  {
+    "subject": "THTR",
+    "number": 111,
+    "title": "Movement I: Body/Self",
+    "professor": "Tsachor, Rachelle"
+  },
+  {
+    "subject": "UPA",
+    "number": 120,
+    "title": "Urban & Pub Affairs Seminar I",
+    "professor": "Campbell, Mirtza"
+  },
+  {
+    "subject": "UPP",
+    "number": 500,
+    "title": "Hist &Theory of Urban Planning",
+    "professor": "Betancur, John-Jairo"
+  },
+  {
+    "subject": "UPP",
+    "number": 500,
+    "title": "Hist &Theory of Urban Planning",
+    "professor": "Lowe, Catherine"
+  },
+  {
+    "subject": "UPP",
+    "number": 508,
+    "title": "Global Urbanization & Planning",
+    "professor": "Yildiz, Sevin"
+  },
+  {
+    "subject": "PHAR",
+    "number": 504,
+    "title": "PDAT 4: Immunology/Respiratory",
+    "professor": "Pierce, Dana Rae"
+  },
+  {
+    "subject": "PHAR",
+    "number": 507,
+    "title": "PDAT 7: Neurology, Psych, Pain",
+    "professor": "Jaki, Birgit Ursula"
+  },
+  {
+    "subject": "PMPR",
+    "number": 619,
+    "title": "Advanced Inpatient Medicine",
+    "professor": "Allen, Sheila Mary"
+  },
+  {
+    "subject": "PMPR",
+    "number": 620,
+    "title": "Advanced Specialty Elective",
+    "professor": "Allen, Sheila Mary"
+  },
+  {
+    "subject": "POLS",
+    "number": 130,
+    "title": "Intro to Comparative Politics",
+    "professor": "Kostadinova, Petia A"
+  },
+  {
+    "subject": "POLS",
+    "number": 201,
+    "title": "Political Data Analysis",
+    "professor": "Watson, John S"
+  },
+  {
+    "subject": "POLS",
+    "number": 389,
+    "title": "Topics in Internatnl Relations",
+    "professor": "Floros, Katharine"
+  },
+  {
+    "subject": "POLS",
+    "number": 401,
+    "title": "Data Analysis I",
+    "professor": "Bruhl, Robert H"
+  },
+  {
+    "subject": "PPOL",
+    "number": 100,
+    "title": "Indiv Action & Citizenship",
+    "professor": "Healy, Shawn Paul"
+  },
+  {
+    "subject": "PSCH",
+    "number": 242,
+    "title": "Intro to Research in Psch",
+    "professor": "Chen, Jing"
+  },
+  {
+    "subject": "PSCH",
+    "number": 343,
+    "title": "Stat Methods in Behav Sci",
+    "professor": "Sargis, Edward George"
+  },
+  {
+    "subject": "PSCH",
+    "number": 366,
+    "title": "Cognitive Neuroscience",
+    "professor": "Passarotti, Alessandra"
+  },
+  {
+    "subject": "PSCH",
+    "number": 394,
+    "title": "Special Topics in Psch",
+    "professor": "Kim-Cohen, Julia Yun Soo"
+  },
+  {
+    "subject": "PSCH",
+    "number": 507,
+    "title": "Emerging Research Issues",
+    "professor": "Keinath, Alexandra"
+  },
+  {
+    "subject": "PSCH",
+    "number": 508,
+    "title": "Colloquium on Teaching Psch",
+    "professor": "Leshikar, Eric Duane"
+  },
+  {
+    "subject": "PSCI",
+    "number": 501,
+    "title": "Drug Discovery",
+    "professor": "Moore, Terry"
+  },
+  {
+    "subject": "PSCI",
+    "number": 531,
+    "title": "Spectroscopy in Pharm Sci",
+    "professor": "Nikolic, Dejan S"
+  },
+  {
+    "subject": "PT",
+    "number": 603,
+    "title": "Gross Anatomy",
+    "professor": "Thorp, Laura"
+  },
+  {
+    "subject": "PUBH",
+    "number": 330,
+    "title": "Health Equity and Disparities",
+    "professor": "Castillo, Amparo Del Socorro"
+  },
+  {
+    "subject": "RELS",
+    "number": 177,
+    "title": "Middle Eastern Civ",
+    "professor": "Quadri, Syed Junaid Ahmed"
+  },
+  {
+    "subject": "RELS",
+    "number": 230,
+    "title": "Islam: Spirit and the Law",
+    "professor": "Doolin, Scott Robert"
+  },
+  {
+    "subject": "SOC",
+    "number": 100,
+    "title": "Introduction to Sociology",
+    "professor": "Luhr, Sigrid Willa"
+  },
+  {
+    "subject": "SOC",
+    "number": 229,
+    "title": "Sociology of Latinos",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "SOCW",
+    "number": 519,
+    "title": "Practice III: OCP",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "SOCW",
+    "number": 554,
+    "title": "Policy II: Mental Health",
+    "professor": "Harper, Toyan Omar"
+  },
+  {
+    "subject": "SOCW",
+    "number": 576,
+    "title": "Clinical Interventions",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "SPAN",
+    "number": 101,
+    "title": "Elementary Spanish I",
+    "professor": "Gismondi, Michael Anthony"
+  },
+  {
+    "subject": "SPAN",
+    "number": 104,
+    "title": "Intermediate Spanish II",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "COMM",
+    "number": 323,
+    "title": "Argument and Persuasion",
+    "professor": "Jones, John A"
+  },
+  {
+    "subject": "CS",
+    "number": 111,
+    "title": "Program Design I",
+    "professor": "Dey, Drishika"
+  },
+  {
+    "subject": "CS",
+    "number": 466,
+    "title": "Computer Architecture",
+    "professor": "Roohi, Arman"
+  },
+  {
+    "subject": "CS",
+    "number": 473,
+    "title": "Compiler Design",
+    "professor": "Ganchinho de Pina, Luis Gabriel"
+  },
+  {
+    "subject": "DES",
+    "number": 170,
+    "title": "Color Theory",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "DES",
+    "number": 240,
+    "title": "Visualization I",
+    "professor": "Espino, Jerry"
+  },
+  {
+    "subject": "DES",
+    "number": 250,
+    "title": "Digital Media Design II",
+    "professor": "Krohn, Jonathan Austin"
+  },
+  {
+    "subject": "DES",
+    "number": 330,
+    "title": "Industrial Design IV",
+    "professor": "O'Keefe, Thomas Joseph"
+  },
+  {
+    "subject": "DHD",
+    "number": 203,
+    "title": "Disability in World Cultures",
+    "professor": "Vaidya, Shruti"
+  },
+  {
+    "subject": "DHD",
+    "number": 206,
+    "title": "Disability & Inclusive Cities",
+    "professor": "Eisenberg, Yochai"
+  },
+  {
+    "subject": "DLG",
+    "number": 120,
+    "title": "Dialogue Seminar",
+    "professor": "Montgomery, Monica Kay"
+  },
+  {
+    "subject": "ECE",
+    "number": 311,
+    "title": "Communication Engineering",
+    "professor": "Devroye, Natasha"
+  },
+  {
+    "subject": "ECE",
+    "number": 350,
+    "title": "Principles of Auto Control",
+    "professor": "Zefran, Milos"
+  },
+  {
+    "subject": "ECE",
+    "number": 541,
+    "title": "Microelectron Fabricatn Tech",
+    "professor": "Paprotny, Igor"
+  },
+  {
+    "subject": "ECON",
+    "number": 370,
+    "title": "Environmental Economics",
+    "professor": "Tarduno, Matthew A"
+  },
+  {
+    "subject": "ED",
+    "number": 100,
+    "title": "Intro to Urban Education",
+    "professor": "Martin, Danny Bernard"
+  },
+  {
+    "subject": "ED",
+    "number": 199,
+    "title": "Study Abroad: Leadership",
+    "professor": "Olson, Jennifer D"
+  },
+  {
+    "subject": "ED",
+    "number": 210,
+    "title": "Learning and Instruction",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ED",
+    "number": 217,
+    "title": "STEM, Education, and Society",
+    "professor": "Morton, Terrell R"
+  },
+  {
+    "subject": "EDPS",
+    "number": 515,
+    "title": "Urban Higher Ed Org & Context",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "EDPS",
+    "number": 592,
+    "title": "Prof Career Training in EDPS",
+    "professor": "Allen, Lionel E Jr"
+  },
+  {
+    "subject": "ELSI",
+    "number": 11,
+    "title": "Reading/Writing 1, IEP",
+    "professor": "Jacob, Rachel S"
+  },
+  {
+    "subject": "ELSI",
+    "number": 21,
+    "title": "Listening/Speaking 1 IEP",
+    "professor": "Tatina, Nora"
+  },
+  {
+    "subject": "ELSI",
+    "number": 44,
+    "title": "EAP II Lab",
+    "professor": "May, Kristine H"
+  },
+  {
+    "subject": "ENGL",
+    "number": 101,
+    "title": "Understanding Lit and Culture",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ENGL",
+    "number": 160,
+    "title": "Academic Writing I",
+    "professor": "English, Bridget"
+  },
+  {
+    "subject": "ENGL",
+    "number": 160,
+    "title": "Academic Writing I",
+    "professor": "Lannon, Keegan"
+  },
+  {
+    "subject": "ENGL",
+    "number": 161,
+    "title": "Academic Writing II",
+    "professor": "Baez, Marc J"
+  },
+  {
+    "subject": "SPAN",
+    "number": 114,
+    "title": "Spanish - Heritage Speakers II",
+    "professor": "Navia, Bernardo"
+  },
+  {
+    "subject": "SPAN",
+    "number": 210,
+    "title": "Introduction to Hispanic Texts",
+    "professor": "Budner, Keith"
+  },
+  {
+    "subject": "SPED",
+    "number": 511,
+    "title": "Intro Practice Based Research",
+    "professor": "Gregori, Emily Victoria"
+  },
+  {
+    "subject": "STAT",
+    "number": 130,
+    "title": "Intro Stat for Life Sciences",
+    "professor": "Embers, Dale Gene"
+  },
+  {
+    "subject": "TADR",
+    "number": 412,
+    "title": "Moot Ct Comp",
+    "professor": "Hodge, Joanne Simboli"
+  },
+  {
+    "subject": "TADR",
+    "number": 421,
+    "title": "Arbitration",
+    "professor": "Rafael, Ashley"
+  },
+  {
+    "subject": "TADR",
+    "number": 426,
+    "title": "Counsel and Neg",
+    "professor": "David, Brian"
+  },
+  {
+    "subject": "TADR",
+    "number": 488,
+    "title": "Clinic: Vet Clinic",
+    "professor": "Duterte, Yelena C"
+  },
+  {
+    "subject": "TADR",
+    "number": 491,
+    "title": "Clinic: Community Enter Class",
+    "professor": "Hatcher, Renee C"
+  },
+  {
+    "subject": "THTR",
+    "number": 150,
+    "title": "Fundamentals of Theatre Tech",
+    "professor": "Bishop, William"
+  },
+  {
+    "subject": "THTR",
+    "number": 182,
+    "title": "Practicum: Run Crew",
+    "professor": "Bachman, Donna"
+  },
+  {
+    "subject": "THTR",
+    "number": 280,
+    "title": "Practicum in Performance",
+    "professor": "Peyankov, Yasen M"
+  },
+  {
+    "subject": "UPP",
+    "number": 462,
+    "title": "Inter GIS for Planning/Policy",
+    "professor": "Craft, Andrea"
+  },
+  {
+    "subject": "US",
+    "number": 101,
+    "title": "Intro to Urban Studies",
+    "professor": "Farmer-Smith, Keisha J"
+  },
+  {
+    "subject": "ENGL",
+    "number": 161,
+    "title": "Academic Writing II",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ENGL",
+    "number": 280,
+    "title": "Media & Prof Writing",
+    "professor": "Leick, Karen"
+  },
+  {
+    "subject": "ENGL",
+    "number": 488,
+    "title": "Methods of Teaching English",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ENGR",
+    "number": 100,
+    "title": "ECE Success Seminar - Transfer",
+    "professor": "Narubin Durbin, Simona Ieva"
+  },
+  {
+    "subject": "ENTR",
+    "number": 310,
+    "title": "Intro to Entrepreneurship",
+    "professor": "Hogan, Daniel Mark"
+  },
+  {
+    "subject": "EOHS",
+    "number": 411,
+    "title": "Water Quality Mgmt",
+    "professor": "Cailas, Michael"
+  },
+  {
+    "subject": "EOHS",
+    "number": 501,
+    "title": "Exposure Assessment Strategies",
+    "professor": "Malecki, Kristen"
+  },
+  {
+    "subject": "EPID",
+    "number": 403,
+    "title": "Intro to Epid: Princpl & Mthds",
+    "professor": "Roberts, Daniel Kent"
+  },
+  {
+    "subject": "EPSY",
+    "number": 160,
+    "title": "Games, Learning, & Society",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "EPSY",
+    "number": 370,
+    "title": "ECE and Curriculum",
+    "professor": "Mulholland, Larissa"
+  },
+  {
+    "subject": "EPSY",
+    "number": 503,
+    "title": "Quantitative Inquiry in Ed",
+    "professor": "Karabatsos, George"
+  },
+  {
+    "subject": "EPSY",
+    "number": 509,
+    "title": "Research Design in Education",
+    "professor": "Dai, Ting"
+  },
+  {
+    "subject": "FIN",
+    "number": 300,
+    "title": "Intro to Finance",
+    "professor": "O'Brien, William John"
+  },
+  {
+    "subject": "FIN",
+    "number": 330,
+    "title": "Quantitative Methods",
+    "professor": "Sipahi Akbas, Rabia Esma"
+  },
+  {
+    "subject": "FIN",
+    "number": 414,
+    "title": "Financial Plan Development",
+    "professor": "Golubeva, Evgenia"
+  },
+  {
+    "subject": "FIN",
+    "number": 500,
+    "title": "Intro to Corp Finance",
+    "professor": "Hu, Xiaoqing"
+  },
+  {
+    "subject": "GC",
+    "number": 501,
+    "title": "Scientific Integrity",
+    "professor": "Art, Jonathan J"
+  },
+  {
+    "subject": "GC",
+    "number": 594,
+    "title": "College Course Design",
+    "professor": "Parker-Katz, Michelle Beth"
+  },
+  {
+    "subject": "GKM",
+    "number": 296,
+    "title": "Fascism Europe & Mediterr",
+    "professor": "Doumanis, Nicholas"
+  },
+  {
+    "subject": "GLAS",
+    "number": 276,
+    "title": "Modern South Asia",
+    "professor": "Mantena, Rama"
+  },
+  {
+    "subject": "GWS",
+    "number": 101,
+    "title": "Gender in Everyday Life",
+    "professor": "Ash, Jennifer Scism"
+  },
+  {
+    "subject": "HIM",
+    "number": 337,
+    "title": "Analysis of Healthcare Data",
+    "professor": "Hitchcock, Lois Marie"
+  },
+  {
+    "subject": "HIM",
+    "number": 581,
+    "title": "Executive Healthcare Finance",
+    "professor": "Ramirez, Gideon"
+  },
+  {
+    "subject": "HIST",
+    "number": 103,
+    "title": "Early America",
+    "professor": "Whisenhunt, William Benton"
+  },
+  {
+    "subject": "HIST",
+    "number": 199,
+    "title": "Chicago and the World",
+    "professor": "Halsted, David"
+  },
+  {
+    "subject": "HIST",
+    "number": 202,
+    "title": "Ancient Greece",
+    "professor": "Papakonstantinou, Zinon"
+  },
+  {
+    "subject": "HIST",
+    "number": 211,
+    "title": "The Dawn of European Modernity",
+    "professor": "Balserak, Jon"
+  },
+  {
+    "subject": "HIST",
+    "number": 272,
+    "title": "China Since 1911",
+    "professor": "Gonzalez, Fredy"
+  },
+  {
+    "subject": "HIST",
+    "number": 596,
+    "title": "Independent Study",
+    "professor": "Fidelis, Malgorzata"
+  },
+  {
+    "subject": "HN",
+    "number": 196,
+    "title": "Nutrition",
+    "professor": "Oshita, Shayna Emily"
+  },
+  {
+    "subject": "HN",
+    "number": 302,
+    "title": "Nutritional Assessment",
+    "professor": "Cienfuegos Muzard, Sofia"
+  },
+  {
+    "subject": "HN",
+    "number": 594,
+    "title": "Critical Care Nutrition",
+    "professor": "Jarvis, Brittney Ellen"
+  },
+  {
+    "subject": "HON",
+    "number": 101,
+    "title": "Freshman Orientation Sem",
+    "professor": "Blechschmidt, Sally M"
+  },
+  {
+    "subject": "HON",
+    "number": 101,
+    "title": "Freshman Orientation Sem",
+    "professor": "DeBoer, Celia Annette"
+  },
+  {
+    "subject": "HON",
+    "number": 121,
+    "title": "Hon Core Ind & Soc / Creat Art",
+    "professor": "Gore, Jeffrey S"
+  },
+  {
+    "subject": "HON",
+    "number": 142,
+    "title": "Honors Core Creative Arts",
+    "professor": "Christian, Margena A"
+  },
+  {
+    "subject": "HON",
+    "number": 142,
+    "title": "Honors Core Creative Arts",
+    "professor": "Lewis, Jennifer V."
+  },
+  {
+    "subject": "HON",
+    "number": 201,
+    "title": "Honors Seminar",
+    "professor": "Bui, Long B"
+  },
+  {
+    "subject": "HON",
+    "number": 201,
+    "title": "Honors Seminar",
+    "professor": "Fink, Margaret Louise"
+  },
+  {
+    "subject": "HON",
+    "number": 201,
+    "title": "Honors Seminar",
+    "professor": "Lymberopoulos, Georgia"
+  },
+  {
+    "subject": "HON",
+    "number": 201,
+    "title": "Honors Seminar",
+    "professor": "Ozdogru, Unsal"
+  },
+  {
+    "subject": "HON",
+    "number": 201,
+    "title": "Honors Seminar",
+    "professor": "Pegues, Eric"
+  },
+  {
+    "subject": "HON",
+    "number": 202,
+    "title": "Honors Tutoring",
+    "professor": "Kaczmarczyk, Laura W"
+  },
+  {
+    "subject": "HPA",
+    "number": 552,
+    "title": "Healthcare Finance II",
+    "professor": "Kanzler, David Joseph"
+  },
+  {
+    "subject": "HUM",
+    "number": 110,
+    "title": "Introduction to Humanities I",
+    "professor": "Amato, Rebecca"
+  },
+  {
+    "subject": "IDS",
+    "number": 200,
+    "title": "Intro Mgmt Info Systems",
+    "professor": "Khan, Asfia F"
+  },
+  {
+    "subject": "IDS",
+    "number": 355,
+    "title": "Operations Mgmt for BBA Online",
+    "professor": "Lee, Yew-Sing Thomas"
+  },
+  {
+    "subject": "IDS",
+    "number": 410,
+    "title": "Bus Database Technology",
+    "professor": "Choi, Michael"
+  },
+  {
+    "subject": "IDS",
+    "number": 476,
+    "title": "Business Forecasting",
+    "professor": "Sclove, Stanley L"
+  },
+  {
+    "subject": "IDS",
+    "number": 532,
+    "title": "Intro to Operations Mgmt",
+    "professor": "Sturt, Bradley E"
+  },
+  {
+    "subject": "IDS",
+    "number": 552,
+    "title": "Supply Chain Management",
+    "professor": "Liotine, Matthew"
+  },
+  {
+    "subject": "IDS",
+    "number": 560,
+    "title": "Analytics Strategy & Practice",
+    "professor": "Sarayloo, Fatemeh"
+  },
+  {
+    "subject": "IDS",
+    "number": 566,
+    "title": "Adv Text Analytics Business",
+    "professor": "Lee, Moontae"
+  },
+  {
+    "subject": "IDS",
+    "number": 568,
+    "title": "Machine Learning Lifecycle",
+    "professor": "Tulabandhula, Theja"
+  },
+  {
+    "subject": "IDS",
+    "number": 584,
+    "title": "Cybersecurity Fundamentals",
+    "professor": "Foster, LeRoy"
+  },
+  {
+    "subject": "IE",
+    "number": 467,
+    "title": "Discrete Event Simulation",
+    "professor": "Li, Lin"
+  },
+  {
+    "subject": "IPHS",
+    "number": 699,
+    "title": "Research PH Sciences-DrPH",
+    "professor": "Petros, Michael Peter"
+  },
+  {
+    "subject": "ITAL",
+    "number": 293,
+    "title": "Dante's Divine Comedy",
+    "professor": "Fabbian, Maria Chiara"
+  },
+  {
+    "subject": "JD",
+    "number": 400,
+    "title": "U.S. Trademark Law",
+    "professor": "Aparicio, Jose Javier"
+  },
+  {
+    "subject": "JD",
+    "number": 421,
+    "title": "Civil Procedure II",
+    "professor": "Green, Sonia B"
+  },
+  {
+    "subject": "KN",
+    "number": 194,
+    "title": "Intro to Athletic Training",
+    "professor": "Jandek, Amy M"
+  },
+  {
+    "subject": "KN",
+    "number": 261,
+    "title": "Applied Musculoskel Anatomy",
+    "professor": "Hamstra-Wright, Karrie Lynn"
+  },
+  {
+    "subject": "KN",
+    "number": 362,
+    "title": "Tissue Biomechanics",
+    "professor": "Liu, Chang"
+  },
+  {
+    "subject": "LALS",
+    "number": 127,
+    "title": "Latin American Music",
+    "professor": "McNally, James Edward"
+  },
+  {
+    "subject": "LALS",
+    "number": 220,
+    "title": "Lat Amer Cities Global Context",
+    "professor": "Lopez Garcia, David"
+  },
+  {
+    "subject": "LAS",
+    "number": 110,
+    "title": "Experience UIC",
+    "professor": "Bowers, Melissa"
+  },
+  {
+    "subject": "LAW",
+    "number": 437,
+    "title": "LSIV: Drafting Gen Prac",
+    "professor": "Schmidt, Anne E"
+  },
+  {
+    "subject": "LAW",
+    "number": 445,
+    "title": "Environ Law",
+    "professor": "Burke, Jennifer Anne"
+  },
+  {
+    "subject": "LAW",
+    "number": 460,
+    "title": "Family Law",
+    "professor": "Kalbfleisch, Raleigh"
+  },
+  {
+    "subject": "LAW",
+    "number": 534,
+    "title": "Secured Transactions",
+    "professor": "Lewis, Paul B"
+  },
+  {
+    "subject": "LRSC",
+    "number": 594,
+    "title": "Number&Oper W/Whole Numbers",
+    "professor": "Tavormina, Mary Jo"
+  },
+  {
+    "subject": "MATH",
+    "number": 90,
+    "title": "Intermediate Algebra",
+    "professor": "Dodds, Samuel Robert"
+  },
+  {
+    "subject": "MATH",
+    "number": 160,
+    "title": "Finite Math for Business",
+    "professor": "Meyer, McKinley"
+  },
+  {
+    "subject": "MATH",
+    "number": 165,
+    "title": "Calculus for Business",
+    "professor": "Taylor, Gregory Kyle"
+  },
+  {
+    "subject": "MATH",
+    "number": 180,
+    "title": "Calculus I",
+    "professor": "Ash, William Ray"
+  },
+  {
+    "subject": "MATH",
+    "number": 215,
+    "title": "Intro to Advanced Math",
+    "professor": "Cojocaru, Alina Carmen"
+  },
+  {
+    "subject": "MATH",
+    "number": 300,
+    "title": "Writing for Mathematics",
+    "professor": "Schaposnik Massolo, Laura Patricia"
+  },
+  {
+    "subject": "MATH",
+    "number": 310,
+    "title": "Applied Linear Algebra",
+    "professor": "Lyu, Shiji"
+  },
+  {
+    "subject": "MATH",
+    "number": 569,
+    "title": "Adv Top In Geom&Diff Topology",
+    "professor": "Dumas, Emily Claire"
+  },
+  {
+    "subject": "MCS",
+    "number": 275,
+    "title": "Programming Tools",
+    "professor": "Adrovic, Danko"
+  },
+  {
+    "subject": "MCS",
+    "number": 401,
+    "title": "Computer Algorithms I",
+    "professor": "Turan, Gyorgy"
+  },
+  {
+    "subject": "MCS",
+    "number": 471,
+    "title": "Numerical Analysis",
+    "professor": "Awanou, Gerard"
+  },
+  {
+    "subject": "MDC",
+    "number": 607,
+    "title": "Block 7: Regulation & Repro",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "MDP",
+    "number": 602,
+    "title": "Block 2: Pathogenesis",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "MDR",
+    "number": 601,
+    "title": "Block 1:Body Systems & Homeo 1",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "ME",
+    "number": 321,
+    "title": "Heat Transfer",
+    "professor": "Xu, Jie"
+  },
+  {
+    "subject": "ME",
+    "number": 502,
+    "title": "Applied Stress Analysis II",
+    "professor": "Shahbazian-Yassar, Reza"
+  },
+  {
+    "subject": "MGMT",
+    "number": 340,
+    "title": "Intro to Organizations",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "MGMT",
+    "number": 466,
+    "title": "Mgmt Effectiv Thru Diversity",
+    "professor": "Tarasievich, Renata A."
+  },
+  {
+    "subject": "MHPE",
+    "number": 501,
+    "title": "Scholarship in HPE",
+    "professor": "Schwartz, Alan J"
+  },
+  {
+    "subject": "MHPE",
+    "number": 505,
+    "title": "Intro to Health Prof Education",
+    "professor": "Tekian, Ara S"
+  },
+  {
+    "subject": "MILS",
+    "number": 401,
+    "title": "Adaptive Leadership",
+    "professor": "Rutnarak, Araya Scott"
+  },
+  {
+    "subject": "MKTG",
+    "number": 360,
+    "title": "Intro to Mktg for Bus Schlr",
+    "professor": "Gal, David"
+  },
+  {
+    "subject": "MUS",
+    "number": 100,
+    "title": "Introduction To Music I",
+    "professor": "Gariazzo, Mariana"
+  },
+  {
+    "subject": "MUS",
+    "number": 150,
+    "title": "Vocal Jazz Ensemble",
+    "professor": "Allgood, Alyssa"
+  },
+  {
+    "subject": "MUS",
+    "number": 151,
+    "title": "Concert Band",
+    "professor": "Carlson, Nicholas"
+  },
+  {
+    "subject": "MUS",
+    "number": 152,
+    "title": "Instrumental Ensembles",
+    "professor": "Espinosa, Michael A"
+  },
+  {
+    "subject": "MUS",
+    "number": 240,
+    "title": "Music, Gender and Culture",
+    "professor": "Rosenberg, Ruth Emily"
+  },
+  {
+    "subject": "NATS",
+    "number": 105,
+    "title": "Phys Syst Earth and Space Sci",
+    "professor": "Sit, Stefany"
+  },
+  {
+    "subject": "NATS",
+    "number": 200,
+    "title": "Tutoring in Sci Learning Ctr",
+    "professor": "Liubicich, Danielle"
+  },
+  {
+    "subject": "NUPR",
+    "number": 573,
+    "title": "Practicum: Birth & the Newborn",
+    "professor": "Thornton, Patrick Douglas"
+  },
+  {
+    "subject": "NURS",
+    "number": 331,
+    "title": "Childbearing Women & Families",
+    "professor": "Sutter, Jill Susan"
+  },
+  {
+    "subject": "NURS",
+    "number": 372,
+    "title": "Leadership & Mgmnt in Nrsg",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "NURS",
+    "number": 377,
+    "title": "Integrative Practice Exp",
+    "professor": "Betka, Alisha Annette"
+  },
+  {
+    "subject": "NURS",
+    "number": 411,
+    "title": "Foundations-Nursing Practice",
+    "professor": "Urish, Haley Lafern"
+  },
+  {
+    "subject": "PELE",
+    "number": 607,
+    "title": "M3 Neurology Clerkship",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "PHAR",
+    "number": 412,
+    "title": "Pharmacy Practice: Community",
+    "professor": "Eades, Amanda Lynn"
+  },
+  {
+    "subject": "PHAR",
+    "number": 435,
+    "title": "Pharmacokinetics",
+    "professor": "Chaiyaperm, Varanya"
+  },
+  {
+    "subject": "PHAR",
+    "number": 516,
+    "title": "Patient Care:AmbCare/Community",
+    "professor": "Driscoll, Tara P"
+  },
+  {
+    "subject": "PHYS",
+    "number": 118,
+    "title": "Physics in Modern Medicine",
+    "professor": "Boergens, Kevin"
+  },
+  {
+    "subject": "PHYS",
+    "number": 132,
+    "title": "Physics for Life Sciences II",
+    "professor": "Abu Naser, Enas"
+  },
+  {
+    "subject": "PHYS",
+    "number": 230,
+    "title": "Fundamentals of Relativity",
+    "professor": "DeJonghe, Richard Jerome"
+  },
+  {
+    "subject": "POLS",
+    "number": 200,
+    "title": "Methods of Political Science",
+    "professor": "Bruhl, Robert H"
+  },
+  {
+    "subject": "POLS",
+    "number": 232,
+    "title": "Politics in Korea",
+    "professor": "Choi, Seung Whan"
+  },
+  {
+    "subject": "POLS",
+    "number": 354,
+    "title": "Constitution & Civil Liberties",
+    "professor": "Lyles, Kevin L"
+  },
+  {
+    "subject": "PPOL",
+    "number": 490,
+    "title": "Field Exp in Pub Policy/Admin",
+    "professor": "Hayes, Sharon Ann"
+  },
+  {
+    "subject": "PSCH",
+    "number": 210,
+    "title": "Theories of Personality",
+    "professor": "Chen, Jing"
+  },
+  {
+    "subject": "PSCH",
+    "number": 385,
+    "title": "Field Work in Applied Psch",
+    "professor": "Ochoa-Galindo, Carmen"
+  },
+  {
+    "subject": "PSCH",
+    "number": 542,
+    "title": "Mixed-Effects Models",
+    "professor": "Demos, Alexander"
+  },
+  {
+    "subject": "PSCH",
+    "number": 584,
+    "title": "Pract: Clinical Trainees",
+    "professor": "Szerszen, Jenna Rowen"
+  },
+  {
+    "subject": "PSCI",
+    "number": 390,
+    "title": "Special Proj Pharm Sci",
+    "professor": "Bartels, Bradley David"
+  },
+  {
+    "subject": "PSOP",
+    "number": 395,
+    "title": "Foundations in Urban Health 5",
+    "professor": "Okorie-Awe, Clara Uche"
+  },
+  {
+    "subject": "PUBH",
+    "number": 120,
+    "title": "Study of Disease and Epidemics",
+    "professor": "Arguelles, Lester"
+  },
+  {
+    "subject": "RELE",
+    "number": 607,
+    "title": "M3 Neurology Clerkship",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "RELS",
+    "number": 128,
+    "title": "Jesus & the New Testament",
+    "professor": "Dingeldein, Laura B"
+  },
+  {
+    "subject": "RUSS",
+    "number": 120,
+    "title": "Russ Short Story in Trans",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "SJ",
+    "number": 201,
+    "title": "Theories and Practices of SJ",
+    "professor": "Rumpf, Cesraea Leonore"
+  },
+  {
+    "subject": "SOC",
+    "number": 201,
+    "title": "Intro Sociological Statistics",
+    "professor": "Kennedy, Ian P"
+  },
+  {
+    "subject": "SOCW",
+    "number": 430,
+    "title": "Practice I: Individuals & Orgs",
+    "professor": "Purkis, Elisabeth Anne"
+  },
+  {
+    "subject": "SOCW",
+    "number": 551,
+    "title": "Policy II:School Soc Wk Policy",
+    "professor": "Nelson, Tiffany"
+  },
+  {
+    "subject": "SOCW",
+    "number": 552,
+    "title": "Policy II: Chld &Family Policy",
+    "professor": "Thomas, Krista A"
+  },
+  {
+    "subject": "SOCW",
+    "number": 554,
+    "title": "Policy II: Mental Health",
+    "professor": "Tarbhai, Umair A"
+  },
+  {
+    "subject": "SOCW",
+    "number": 554,
+    "title": "Policy II: Mental Health",
+    "professor": "Wahlskog, Carolyn J"
+  },
+  {
+    "subject": "SOCW",
+    "number": 572,
+    "title": "Field III OCP",
+    "professor": "Brown, Pamela Renee"
+  },
+  {
+    "subject": "SPAN",
+    "number": 103,
+    "title": "Intermediate Spanish I",
+    "professor": "Rodriguez, David Diego"
+  },
+  {
+    "subject": "SPAN",
+    "number": 204,
+    "title": "Composition Heritage Speakers",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "SPED",
+    "number": 201,
+    "title": "Child Lit Disabilities",
+    "professor": "Hughes, Marie Tejero"
+  },
+  {
+    "subject": "SPED",
+    "number": 416,
+    "title": "Methods Except Learners",
+    "professor": "Parker-Katz, Michelle Beth"
+  },
+  {
+    "subject": "STAT",
+    "number": 385,
+    "title": "Stat Learning and Big Data I",
+    "professor": "Yang, Min"
+  },
+  {
+    "subject": "STAT",
+    "number": 475,
+    "title": "Actuarial Sciences I",
+    "professor": "Embers, Dale Gene"
+  },
+  {
+    "subject": "STAT",
+    "number": 595,
+    "title": "Research Seminar",
+    "professor": "Han, Kyunghee"
+  },
+  {
+    "subject": "TADR",
+    "number": 410,
+    "title": "Trial Advocacy ADR Comp",
+    "professor": "Navarro, Kelly A."
+  },
+  {
+    "subject": "TADR",
+    "number": 421,
+    "title": "Arbitration",
+    "professor": "Gauza, Thomas Albert"
+  },
+  {
+    "subject": "TADR",
+    "number": 460,
+    "title": "LSIV: Drafting Criminal",
+    "professor": "Arriaga, Arturo"
+  },
+  {
+    "subject": "TADR",
+    "number": 475,
+    "title": "Extern: JD Adv",
+    "professor": "Johnson, Carly S"
+  },
+  {
+    "subject": "TADR",
+    "number": 477,
+    "title": "Extern: Rest Justice",
+    "professor": "Seng, Michael P"
+  },
+  {
+    "subject": "TADR",
+    "number": 478,
+    "title": "Extern: Rest Justice Adv",
+    "professor": "Seng, Michael P"
+  },
+  {
+    "subject": "TADR",
+    "number": 481,
+    "title": "Clinic: Int'l Human Rts Class",
+    "professor": "Davila, Sarah"
+  },
+  {
+    "subject": "THTR",
+    "number": 158,
+    "title": "Costume Design I",
+    "professor": "Elliott, Myron Walter"
+  },
+  {
+    "subject": "THTR",
+    "number": 311,
+    "title": "Movement IV: Style",
+    "professor": "Tsachor, Rachelle"
+  },
+  {
+    "subject": "UPP",
+    "number": 403,
+    "title": "Planning Pract Great Cities",
+    "professor": "Winkle, Curtis Richard"
+  },
+  {
+    "subject": "UPP",
+    "number": 501,
+    "title": "Urban Space Place & Inst",
+    "professor": "Farmer-Smith, Keisha J"
+  },
+  {
+    "subject": "UPP",
+    "number": 533,
+    "title": "Development Finance Analysis",
+    "professor": "Koenig, Richard Francis"
+  },
+  {
+    "subject": "UPP",
+    "number": 590,
+    "title": "Professional Practice Exp",
+    "professor": "Tilahun, Nebiyou Y"
+  },
+  {
+    "subject": "US",
+    "number": 202,
+    "title": "Social Justice & the City",
+    "professor": "Parker, Brenda"
+  },
+  {
+    "subject": "US",
+    "number": 220,
+    "title": "Lat Amer Cities Global Context",
+    "professor": "Lopez Garcia, David"
+  },
+  {
+    "subject": "BIOS",
+    "number": 325,
+    "title": "Human Embryology",
+    "professor": "Bassett, Andrea Louise"
+  },
+  {
+    "subject": "BIOS",
+    "number": 437,
+    "title": "Tropical Ecology",
+    "professor": "Escalante Meza, Ignacio"
+  },
+  {
+    "subject": "BLST",
+    "number": 100,
+    "title": "Introduction to Black Studies",
+    "professor": "Johnson, Cedric"
+  },
+  {
+    "subject": "BME",
+    "number": 332,
+    "title": "Bioinstrumentation I",
+    "professor": "Wang, Zhinan"
+  },
+  {
+    "subject": "BSTT",
+    "number": 400,
+    "title": "Biostatistics I",
+    "professor": "Wang, Meida"
+  },
+  {
+    "subject": "CHEM",
+    "number": 122,
+    "title": "Matter and Energy",
+    "professor": "Carmel, Justin"
+  },
+  {
+    "subject": "CHEM",
+    "number": 232,
+    "title": "Structure and Function",
+    "professor": "Mohr, Justin T"
+  },
+  {
+    "subject": "CHEM",
+    "number": 510,
+    "title": "Inorganic Seminar",
+    "professor": "Nguyen, Andy I"
+  },
+  {
+    "subject": "CHEM",
+    "number": 514,
+    "title": "Advanced Inorganic Chem I",
+    "professor": "Nguyen, Andy I"
+  },
+  {
+    "subject": "CHEM",
+    "number": 540,
+    "title": "Problems in Physical Chemistry",
+    "professor": "Glusac, Ksenija D"
+  },
+  {
+    "subject": "CHEM",
+    "number": 559,
+    "title": "Topics in Biochemistry",
+    "professor": "Ondrus, Alison E"
+  },
+  {
+    "subject": "CHSC",
+    "number": 524,
+    "title": "Health and Aging",
+    "professor": "Muramatsu, Naoko"
+  },
+  {
+    "subject": "CHSC",
+    "number": 543,
+    "title": "MCH Policy and Advocacy",
+    "professor": "Hill, Janine Nicole"
+  },
+  {
+    "subject": "CI",
+    "number": 482,
+    "title": "Testing &Instruct:Bilingualism",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "CL",
+    "number": 201,
+    "title": "Medical Terminologies",
+    "professor": "Burns, Krishni Schaefgen"
+  },
+  {
+    "subject": "CLJ",
+    "number": 262,
+    "title": "Research Methods II",
+    "professor": "Henricks, Kasey John Patrick"
+  },
+  {
+    "subject": "CLJ",
+    "number": 350,
+    "title": "Courts in Society",
+    "professor": "Thompson, Julian G"
+  },
+  {
+    "subject": "CME",
+    "number": 205,
+    "title": "Structural Analysis I",
+    "professor": "Chi, Sheng-Wei"
+  },
+  {
+    "subject": "CME",
+    "number": 302,
+    "title": "Transportation Engr",
+    "professor": "Zou, Bo"
+  },
+  {
+    "subject": "CME",
+    "number": 427,
+    "title": "Engineering Hydrology",
+    "professor": "Burke, Christopher B."
+  },
+  {
+    "subject": "CME",
+    "number": 434,
+    "title": "Finite Element Analysis I",
+    "professor": "Foster, Craig"
+  },
+  {
+    "subject": "CME",
+    "number": 493,
+    "title": "Seminar",
+    "professor": "Iranmanesh, Amirhossein"
+  },
+  {
+    "subject": "COMM",
+    "number": 102,
+    "title": "Intro Interpersonal Comm",
+    "professor": "Page, Janis Teruggi"
+  },
+  {
+    "subject": "CS",
+    "number": 211,
+    "title": "Programming Practicum",
+    "professor": "Reckinger, Scott J"
+  },
+  {
+    "subject": "CS",
+    "number": 261,
+    "title": "Machine Organization",
+    "professor": "Koehler, Adam Thomas"
+  },
+  {
+    "subject": "CS",
+    "number": 277,
+    "title": "Technical Comm in Comp Sci",
+    "professor": "Cranch, Cody Ingersoll"
+  },
+  {
+    "subject": "CS",
+    "number": 342,
+    "title": "Software Design",
+    "professor": "Hallenbeck, Mark"
+  },
+  {
+    "subject": "CS",
+    "number": 440,
+    "title": "Software Engr I",
+    "professor": "Bell, John T"
+  },
+  {
+    "subject": "CS",
+    "number": 463,
+    "title": "Systems Performance",
+    "professor": "Eriksson, Jakob L"
+  },
+  {
+    "subject": "CS",
+    "number": 474,
+    "title": "Obj-Oriented Langs & Envs",
+    "professor": "Buy, Ugo A"
+  },
+  {
+    "subject": "CS",
+    "number": 480,
+    "title": "Database Systems",
+    "professor": "Kumar, Sidharth"
+  },
+  {
+    "subject": "CS",
+    "number": 512,
+    "title": "Advanced Machine Learning",
+    "professor": "Rooshenas, Amirmohammad"
+  },
+  {
+    "subject": "DAOB",
+    "number": 311,
+    "title": "Applied Oral and Behav Sci I",
+    "professor": "Chang, Priscilla Pauline"
+  },
+  {
+    "subject": "DAOB",
+    "number": 332,
+    "title": "Applied Oral and Behav Sci VII",
+    "professor": "Dunlap, Michael A"
+  },
+  {
+    "subject": "DBCS",
+    "number": 311,
+    "title": "Biomed and Clin Sciences I",
+    "professor": "Eapen, Asha Sarah"
+  },
+  {
+    "subject": "DCLE",
+    "number": 342,
+    "title": "Community Learning Exper II",
+    "professor": "Noorullah, Khatija"
+  },
+  {
+    "subject": "DES",
+    "number": 140,
+    "title": "Design Drawing",
+    "professor": "Pawlyk, Victoria A"
+  },
+  {
+    "subject": "DES",
+    "number": 150,
+    "title": "Digital Media Design I",
+    "professor": "Joseph, Dawn M"
+  },
+  {
+    "subject": "DES",
+    "number": 170,
+    "title": "Color Theory",
+    "professor": "Wandro, Jennifer Marie"
+  },
+  {
+    "subject": "DES",
+    "number": 222,
+    "title": "Human Experience in Design",
+    "professor": "Lee, Latrina Eleanor"
+  },
+  {
+    "subject": "DES",
+    "number": 235,
+    "title": "History of Design I",
+    "professor": "Mekinda, Jonathan"
+  },
+  {
+    "subject": "DES",
+    "number": 255,
+    "title": "Integrative Design Studio I",
+    "professor": "Brown, Jefferson Dakota"
+  },
+  {
+    "subject": "DES",
+    "number": 326,
+    "title": "Materials and Methods",
+    "professor": "Seskauskas, Michael R"
+  },
+  {
+    "subject": "DES",
+    "number": 420,
+    "title": "CSD I",
+    "professor": "Reiser, Katherine A"
+  },
+  {
+    "subject": "EAES",
+    "number": 595,
+    "title": "Departmental Seminar",
+    "professor": "McNicol, Gavin"
+  },
+  {
+    "subject": "ECE",
+    "number": 310,
+    "title": "Discrete &Cont Signal&Systms",
+    "professor": "Gandhi, Bhavan Raman"
+  },
+  {
+    "subject": "ECE",
+    "number": 346,
+    "title": "Solid State Device Theory",
+    "professor": "Shi, Junxia"
+  },
+  {
+    "subject": "ECE",
+    "number": 366,
+    "title": "Computer Organization",
+    "professor": "Rao, Wenjing"
+  },
+  {
+    "subject": "ECE",
+    "number": 396,
+    "title": "Senior Design I",
+    "professor": "Alonso, Matthew Paul"
+  },
+  {
+    "subject": "ECE",
+    "number": 523,
+    "title": "Antenna Theory and Design",
+    "professor": "Chen, Pai-Yen"
+  },
+  {
+    "subject": "ECE",
+    "number": 599,
+    "title": "PhD Thesis Research",
+    "professor": "Shadmand, Mohammad"
+  },
+  {
+    "subject": "ECON",
+    "number": 270,
+    "title": "Statistics for Economics",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ECON",
+    "number": 300,
+    "title": "Econometrics",
+    "professor": "Chen, Yiqun"
+  },
+  {
+    "subject": "ECON",
+    "number": 395,
+    "title": "Rsrch and Writing in Econ",
+    "professor": "Ost, Ben"
+  },
+  {
+    "subject": "ED",
+    "number": 100,
+    "title": "Intro to Urban Education",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ED",
+    "number": 205,
+    "title": "Race, Ethnicity, & Education",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "ED",
+    "number": 307,
+    "title": "Nature & Practices of Nat Sci",
+    "professor": "Nishimura, Marlynne K"
+  },
+  {
+    "subject": "ED",
+    "number": 504,
+    "title": "Urban Contexts and Ed Research",
+    "professor": "Germinaro, Kaleb"
+  },
+  {
+    "subject": "EDPS",
+    "number": 559,
+    "title": "Internship in Ed Leadership",
+    "professor": "Barron, Cynthia K"
+  },
+  {
+    "subject": "ELSI",
+    "number": 24,
+    "title": "Listening/Speaking 4 IEP",
+    "professor": "Buendia, Jenna Rashel"
+  },
+  {
+    "subject": "ENGL",
+    "number": 153,
+    "title": "Understanding Grammar & Style",
+    "professor": "Kessler, Jeffrey"
+  },
+  {
+    "subject": "ENGL",
+    "number": 160,
+    "title": "Academic Writing I",
+    "professor": "Baez, Marc J"
+  },
+  {
+    "subject": "ENGL",
+    "number": 160,
+    "title": "Academic Writing I",
+    "professor": "Bergstrom, Kian"
+  },
+  {
+    "subject": "ENGL",
+    "number": 160,
+    "title": "Academic Writing I",
+    "professor": "Burson, Harry"
+  },
+  {
+    "subject": "ENGL",
+    "number": 160,
+    "title": "Academic Writing I",
+    "professor": "Gallus-Price, Sibyl J"
+  },
+  {
+    "subject": "ENGL",
+    "number": 161,
+    "title": "Academic Writing II",
+    "professor": "Lapotre, Carly A"
+  },
+  {
+    "subject": "ENGL",
+    "number": 161,
+    "title": "Academic Writing II",
+    "professor": "McGath, Carrie Michele"
+  },
+  {
+    "subject": "ENGL",
+    "number": 207,
+    "title": "Interpretation & Crit Analysis",
+    "professor": "Barnes, Natasha B."
+  },
+  {
+    "subject": "ENGL",
+    "number": 207,
+    "title": "Interpretation & Crit Analysis",
+    "professor": "Destigter, Todd D"
+  },
+  {
+    "subject": "ENGL",
+    "number": 213,
+    "title": "Intro to Shakespeare",
+    "professor": "Buslik, Gary"
+  },
+  {
+    "subject": "ENGL",
+    "number": 383,
+    "title": "Writing Digital and New Media",
+    "professor": "Kessler, Jeffrey"
+  },
+  {
+    "subject": "ENGL",
+    "number": 486,
+    "title": "Teaching Writing/Mid&Sec Schl",
+    "professor": "Sjostrom, Katharine Sullivan"
+  },
+  {
+    "subject": "ENGL",
+    "number": 493,
+    "title": "Intern in Nonfic Writing",
+    "professor": "Christian, Margena A"
+  },
+  {
+    "subject": "ENGL",
+    "number": 570,
+    "title": "Poetry Workshop",
+    "professor": "Borzutzky, Daniel Joseph"
+  },
+  {
+    "subject": "ENGL",
+    "number": 590,
+    "title": "Environmental Humanities",
+    "professor": "Havrelock, Rachel"
+  },
+  {
+    "subject": "ENGR",
+    "number": 100,
+    "title": "CS Success Seminar - Transfer",
+    "professor": "Narubin Durbin, Simona Ieva"
+  },
+  {
+    "subject": "EOHS",
+    "number": 556,
+    "title": "Risk Assessmnt in Env Hlth",
+    "professor": "Erdal, Serap"
+  },
+  {
+    "subject": "EPSY",
+    "number": 210,
+    "title": "Learning and Instruction",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "EPSY",
+    "number": 516,
+    "title": "Higher Ed Institut. Research",
+    "professor": "Noel-Elkins, Amelia"
+  },
+  {
+    "subject": "FIN",
+    "number": 310,
+    "title": "Investments",
+    "professor": "Bondarenko, Oleg P"
+  },
+  {
+    "subject": "FIN",
+    "number": 419,
+    "title": "Behavioral Finance",
+    "professor": "Bodnaruk, Andriy"
+  },
+  {
+    "subject": "FIN",
+    "number": 423,
+    "title": "Financial Modeling",
+    "professor": "Demyanyk, Yuliya"
+  },
+  {
+    "subject": "FIN",
+    "number": 424,
+    "title": "Financial Communication",
+    "professor": "Badger, Terrance"
+  },
+  {
+    "subject": "FIN",
+    "number": 520,
+    "title": "Corporate Finance",
+    "professor": "Diaz Bianco, Aaron"
+  },
+  {
+    "subject": "FR",
+    "number": 102,
+    "title": "Elementary French II",
+    "professor": "Chidlow, Angela"
+  },
+  {
+    "subject": "GC",
+    "number": 509,
+    "title": "Advanced Pronunciation",
+    "professor": "Gier, Megan Elizabeth"
+  },
+  {
+    "subject": "GLAS",
+    "number": 120,
+    "title": "Intro Asian Amer Studies",
+    "professor": "Su, Karen"
+  },
+  {
+    "subject": "GWS",
+    "number": 204,
+    "title": "Gender and Popular Culture",
+    "professor": "Celeste, Manoucheka"
+  },
+  {
+    "subject": "HIST",
+    "number": 104,
+    "title": "Modern America",
+    "professor": "Fernandez, Lilia"
+  },
+  {
+    "subject": "HIST",
+    "number": 276,
+    "title": "Modern South Asia",
+    "professor": "Mantena, Rama"
+  },
+  {
+    "subject": "HIST",
+    "number": 288,
+    "title": "History of Puerto Rico",
+    "professor": "Lopez, Jose Elias"
+  },
+  {
+    "subject": "HIST",
+    "number": 300,
+    "title": "Topics in Rsch and Writng",
+    "professor": "Cuyler, Zachary"
+  },
+  {
+    "subject": "HIST",
+    "number": 440,
+    "title": "History Research Seminar",
+    "professor": "Fidelis, Malgorzata"
+  },
+  {
+    "subject": "HON",
+    "number": 122,
+    "title": "Hon Core Ind & Soc / World Cul",
+    "professor": "Abboud, Sarah"
+  },
+  {
+    "subject": "HON",
+    "number": 122,
+    "title": "Hon Core Ind & Soc / World Cul",
+    "professor": "Kares, Faith"
+  },
+  {
+    "subject": "HON",
+    "number": 124,
+    "title": "Hon Core Past / Creat Arts",
+    "professor": "Bui, Long B"
+  },
+  {
+    "subject": "HON",
+    "number": 140,
+    "title": "Honors Core Indiv & Society",
+    "professor": "Murphy, Timothy F"
+  },
+  {
+    "subject": "HON",
+    "number": 142,
+    "title": "Honors Core Creative Arts",
+    "professor": "Messenger, Christian K"
+  },
+  {
+    "subject": "HON",
+    "number": 201,
+    "title": "Honors Seminar",
+    "professor": "Gottleib, Nicole"
+  },
+  {
+    "subject": "HON",
+    "number": 201,
+    "title": "Honors Seminar",
+    "professor": "Williams, Quintin Levurn"
+  },
+  {
+    "subject": "HON",
+    "number": 202,
+    "title": "Ambassadors",
+    "professor": "Arias, Rachel Anne"
+  },
+  {
+    "subject": "HON",
+    "number": 225,
+    "title": "Honors Research",
+    "professor": "DeBoer, Celia Annette"
+  },
+  {
+    "subject": "HPA",
+    "number": 436,
+    "title": "GIS for E&PH Professionals",
+    "professor": "Cailas, Michael"
+  },
+  {
+    "subject": "HPA",
+    "number": 460,
+    "title": "Intro to Health Economics",
+    "professor": "Kwok, Jennifer Helen"
+  },
+  {
+    "subject": "IDEA",
+    "number": 130,
+    "title": "Introduction to Game Studies",
+    "professor": "Funk, Tiffany Ann"
+  },
+  {
+    "subject": "IDS",
+    "number": 200,
+    "title": "Intro Mgmt Info Systems",
+    "professor": "Lundquist, Doug E"
+  },
+  {
+    "subject": "IDS",
+    "number": 270,
+    "title": "Business Stats I - Bus Schlr",
+    "professor": "Talukdar, Manjuri"
+  },
+  {
+    "subject": "IDS",
+    "number": 355,
+    "title": "Operations Management",
+    "professor": "Ouksel, Aris M"
+  },
+  {
+    "subject": "IDS",
+    "number": 410,
+    "title": "Bus Database Technology",
+    "professor": "Mohammed, Mustafa N"
+  },
+  {
+    "subject": "IDS",
+    "number": 422,
+    "title": "Text Mining for Business",
+    "professor": "Zhou, Wenxin"
+  },
+  {
+    "subject": "IDS",
+    "number": 462,
+    "title": "Stat Software in Business",
+    "professor": "Sparks, John"
+  },
+  {
+    "subject": "IDS",
+    "number": 516,
+    "title": "DataAnalytics for Business Pro",
+    "professor": "Bhattacharyya, Siddhartha"
+  },
+  {
+    "subject": "IDS",
+    "number": 517,
+    "title": "Enterprise Application Develop",
+    "professor": "Choi, Michael"
+  },
+  {
+    "subject": "IDS",
+    "number": 534,
+    "title": "Project Management",
+    "professor": "Treleaven, James"
+  },
+  {
+    "subject": "IE",
+    "number": 118,
+    "title": "Energy for Sustainable Society",
+    "professor": "Alonso, Matthew Paul"
+  },
+  {
+    "subject": "IE",
+    "number": 342,
+    "title": "Probability & Stat for Engr",
+    "professor": "Nicolsen, Brynne E"
+  },
+  {
+    "subject": "IE",
+    "number": 441,
+    "title": "Ergonomics & Human Factors",
+    "professor": "Kim, Hyungil"
+  },
+  {
+    "subject": "IPHS",
+    "number": 409,
+    "title": "Global Public Hlth Challenges",
+    "professor": "Lofthouse, Alyson Lynn"
+  },
+  {
+    "subject": "IPHS",
+    "number": 420,
+    "title": "Interprofessional Education",
+    "professor": "Bonney, Tessa Harris"
+  },
+  {
+    "subject": "ISA",
+    "number": 100,
+    "title": "Freshman Seminar",
+    "professor": "Jordan, Olivia Tyler"
+  },
+  {
+    "subject": "ITAL",
+    "number": 102,
+    "title": "Elementary Italian II",
+    "professor": "Iusco, Maria"
+  },
+  {
+    "subject": "JD",
+    "number": 401,
+    "title": "Exp Learning",
+    "professor": "Mitchell, Ryan P"
+  },
+  {
+    "subject": "JD",
+    "number": 415,
+    "title": "Contracts II",
+    "professor": "Cross, Karen Halverson"
+  },
+  {
+    "subject": "JD",
+    "number": 421,
+    "title": "Civil Procedure II",
+    "professor": "Kilborn, Jason J"
+  },
+  {
+    "subject": "JD",
+    "number": 425,
+    "title": "Evidence",
+    "professor": "Ford, Stuart K"
+  },
+  {
+    "subject": "KN",
+    "number": 237,
+    "title": "Sport and Exercise Psychology",
+    "professor": "Bustamante, Eduardo Esteban"
+  },
+  {
+    "subject": "KN",
+    "number": 438,
+    "title": "Adv Sport & Exercise Psych",
+    "professor": "Bustamante, Eduardo Esteban"
+  },
+  {
+    "subject": "KN",
+    "number": 531,
+    "title": "Applied Perf, Sport & Ex Psych",
+    "professor": "Wekesser, Meredith"
+  },
+  {
+    "subject": "KN",
+    "number": 533,
+    "title": "Consulting Theories and Skills",
+    "professor": "Ankney, Aspen S"
+  },
+  {
+    "subject": "LAS",
+    "number": 110,
+    "title": "Experience UIC",
+    "professor": "Allen, Phyllis"
+  },
+  {
+    "subject": "LAS",
+    "number": 110,
+    "title": "Experience UIC",
+    "professor": "Baird, Allison F"
+  },
+  {
+    "subject": "LAW",
+    "number": 402,
+    "title": "LSI",
+    "professor": "Rips, Eve"
+  },
+  {
+    "subject": "LAW",
+    "number": 402,
+    "title": "LSI",
+    "professor": "Wouters, Hub Conley"
+  },
+  {
+    "subject": "LAW",
+    "number": 501,
+    "title": "Employment Law",
+    "professor": "Paxton, Tirrell"
+  },
+  {
+    "subject": "LAW",
+    "number": 517,
+    "title": "Int'l Crim Law",
+    "professor": "Levine-Spound, Daniel"
+  },
+  {
+    "subject": "LAW",
+    "number": 521,
+    "title": "Hlth Law:Structure & Financing",
+    "professor": "Campbell, Amy Tannery"
+  },
+  {
+    "subject": "LAW",
+    "number": 530,
+    "title": "3rd yr only Leg Fund Re & Test",
+    "professor": "Mitchell, Ryan P"
+  },
+  {
+    "subject": "LAW",
+    "number": 533,
+    "title": "Bus Assoc",
+    "professor": "Acevedo, Arthur"
+  },
+  {
+    "subject": "LAW",
+    "number": 538,
+    "title": "Adv Torts",
+    "professor": "Kream, Lawrence"
+  },
+  {
+    "subject": "LAW",
+    "number": 587,
+    "title": "Law Review Editor",
+    "professor": "Beschle, Donald L"
+  },
+  {
+    "subject": "LIB",
+    "number": 573,
+    "title": "Intro Managing Research Data",
+    "professor": "Goben, Abigail H"
+  },
+  {
+    "subject": "MATH",
+    "number": 88,
+    "title": "Intermediate Algebra Workshop",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "MATH",
+    "number": 110,
+    "title": "College Algebra",
+    "professor": "Meyer, McKinley"
+  },
+  {
+    "subject": "MATH",
+    "number": 210,
+    "title": "Calculus III",
+    "professor": "Abramov, Rafail"
+  },
+  {
+    "subject": "MATH",
+    "number": 210,
+    "title": "Calculus III",
+    "professor": "Bridges, Mercer Truett"
+  },
+  {
+    "subject": "MATH",
+    "number": 210,
+    "title": "Calculus III",
+    "professor": "Shvydkoy, Roman"
+  },
+  {
+    "subject": "MATH",
+    "number": 215,
+    "title": "Intro to Advanced Math",
+    "professor": "Van Limbeek, Wouter"
+  },
+  {
+    "subject": "MDP",
+    "number": 601,
+    "title": "Block 1:Body Systems & Homeo 1",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "MDR",
+    "number": 611,
+    "title": "Doctoring & Clinical Skills 1",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "MDR",
+    "number": 621,
+    "title": "Synthesis 1-2",
+    "professor": "Thomas, Dorian E"
+  },
+  {
+    "subject": "ME",
+    "number": 210,
+    "title": "Engineering Dynamics",
+    "professor": "Lilley, Carmen M"
+  },
+  {
+    "subject": "ME",
+    "number": 250,
+    "title": "Intro to Engineering Design",
+    "professor": "Szwalek, Jamison"
+  },
+  {
+    "subject": "ME",
+    "number": 312,
+    "title": "Dynamic Syst & Control",
+    "professor": "Cetin, Sabri"
+  },
+  {
+    "subject": "ME",
+    "number": 312,
+    "title": "Dynamic Syst & Control",
+    "professor": "Kim, Myunghee"
+  },
+  {
+    "subject": "ME",
+    "number": 341,
+    "title": "Exp Methods in Mech Engr",
+    "professor": "Szwalek, Jamison"
+  },
+  {
+    "subject": "ME",
+    "number": 410,
+    "title": "Automation & Robotics Applic",
+    "professor": "Bhounsule, Pranav Audhut"
+  },
+  {
+    "subject": "MGMT",
+    "number": 486,
+    "title": "Managerial Consulting",
+    "professor": "Bullock, Kirsten"
+  },
+  {
+    "subject": "MGMT",
+    "number": 495,
+    "title": "Competitive Strategy",
+    "professor": "Cooper, James Wesley"
+  },
+  {
+    "subject": "MKTG",
+    "number": 460,
+    "title": "Marketing Analytics",
+    "professor": "Barney-McNamara, Barbara"
+  },
+  {
+    "subject": "MKTG",
+    "number": 462,
+    "title": "Marketing Research",
+    "professor": "Bane, Bradley Lewis"
+  },
+  {
+    "subject": "MKTG",
+    "number": 469,
+    "title": "Global Marketing",
+    "professor": "DeBerry-Spence, Benet"
+  },
+  {
+    "subject": "MKTG",
+    "number": 562,
+    "title": "Marketing Analytics",
+    "professor": "Malter, Alan Joseph"
+  },
+  {
+    "subject": "MTHT",
+    "number": 450,
+    "title": "Concepts Elem/Mid Schl Math I",
+    "professor": "Schubert, Erin Rose"
+  },
+  {
+    "subject": "MUS",
+    "number": 170,
+    "title": "Keyboard Skills I",
+    "professor": "Bukvich, Ivana"
+  },
+  {
+    "subject": "MUS",
+    "number": 191,
+    "title": "Foundations of Music Industry",
+    "professor": "Difazio, Robert Scott"
+  },
+  {
+    "subject": "NUEL",
+    "number": 574,
+    "title": "Dev Global Hlth Nrsg Practice",
+    "professor": "Jeremiah, Rohan Dexter"
+  },
+  {
+    "subject": "NUPR",
+    "number": 572,
+    "title": "Practicum: Hlth Care of Women",
+    "professor": "Thornton, Patrick Douglas"
+  },
+  {
+    "subject": "NURS",
+    "number": 331,
+    "title": "Childbearing Women & Families",
+    "professor": "Woods, Rachel Ann"
+  },
+  {
+    "subject": "NURS",
+    "number": 352,
+    "title": "Population Focused Nursing",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "NURS",
+    "number": 361,
+    "title": "Nursing Care of Populations",
+    "professor": "Afolabi, Ibukunoluwa Yemisi"
+  },
+  {
+    "subject": "NURS",
+    "number": 409,
+    "title": "Hlth Assessment/Communication",
+    "professor": "Scoggins, Lorna Jean Bloome"
+  },
+  {
+    "subject": "NURS",
+    "number": 411,
+    "title": "Foundations-Nursing Practice",
+    "professor": "Schwind, Julie Ann"
+  },
+  {
+    "subject": "NURS",
+    "number": 419,
+    "title": "Patho-Pharm 1",
+    "professor": "Sarginson, Dawn R"
+  },
+  {
+    "subject": "NURS",
+    "number": 421,
+    "title": "Pathophysiology",
+    "professor": "Fritschi, Cynthia"
+  },
+  {
+    "subject": "NURS",
+    "number": 516,
+    "title": "EBP 2",
+    "professor": "Lamb, Karen V"
+  },
+  {
+    "subject": "NURS",
+    "number": 518,
+    "title": "Quality & Safety",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "NURS",
+    "number": 555,
+    "title": "EBP 3",
+    "professor": "Chu, Minseung"
+  },
+  {
+    "subject": "OSCI",
+    "number": 598,
+    "title": "Master's Thesis Research",
+    "professor": "Hill, Brittaney J"
+  },
+  {
+    "subject": "OT",
+    "number": 601,
+    "title": "Communication & Relationships",
+    "professor": "Lee, Jenica"
+  },
+  {
+    "subject": "OT",
+    "number": 631,
+    "title": "Outcomes and Interventions 2",
+    "professor": "Stoffel, Ashley"
+  },
+  {
+    "subject": "PA",
+    "number": 513,
+    "title": "Collaborative Management",
+    "professor": "Siciliano, Michael D"
+  },
+  {
+    "subject": "PA",
+    "number": 592,
+    "title": "Professional Portfolio",
+    "professor": "Holbrook, Allyson L."
+  },
+  {
+    "subject": "PHAR",
+    "number": 201,
+    "title": "Pharmaceutical Care in the US",
+    "professor": "Hanakahi, Leslyn"
+  },
+  {
+    "subject": "PHIL",
+    "number": 210,
+    "title": "Symbolic Logic",
+    "professor": "Huggett, Nicholas"
+  },
+  {
+    "subject": "PHYB",
+    "number": 551,
+    "title": "Human Physiology I",
+    "professor": "O'Donnell, Justin Michael"
+  },
+  {
+    "subject": "PHYS",
+    "number": 100,
+    "title": "Preparatory Physics",
+    "professor": "Iordanova, Aneta Ivanova"
+  },
+  {
+    "subject": "PHYS",
+    "number": 481,
+    "title": "Modern Exp Physics I",
+    "professor": "Baty, Austin A"
+  },
+  {
+    "subject": "PMPR",
+    "number": 390,
+    "title": "Spec Project in Pharm Pract",
+    "professor": "Gimbar, Matthew George"
+  },
+  {
+    "subject": "PMPR",
+    "number": 536,
+    "title": "Concepts in Drug Development",
+    "professor": "Drwiega, Emily"
+  },
+  {
+    "subject": "POLS",
+    "number": 202,
+    "title": "Civil War: Comparative Perspec",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "PSCH",
+    "number": 312,
+    "title": "Social Psychology",
+    "professor": "Littman, Rebecca"
+  },
+  {
+    "subject": "PSCH",
+    "number": 385,
+    "title": "Field Work in Applied Psch",
+    "professor": "Smith, Lauren Tiffany"
+  },
+  {
+    "subject": "PSCH",
+    "number": 579,
+    "title": "Curr Topics in Clinical Psch",
+    "professor": "Hsueh, Loretta Yao Pei"
+  },
+  {
+    "subject": "PSCI",
+    "number": 502,
+    "title": "Research Presentation",
+    "professor": "Burdette, Joanna E"
+  },
+  {
+    "subject": "PT",
+    "number": 496,
+    "title": "Independent Study",
+    "professor": "Strieter, Lindsey B"
+  },
+  {
+    "subject": "PUBH",
+    "number": 300,
+    "title": "Critical Thinking in Pub Hlth",
+    "professor": "Driscoll, Mary"
+  },
+  {
+    "subject": "PUBH",
+    "number": 420,
+    "title": "Epidemiology in Action",
+    "professor": "Johnson-Walker, Yvette Joyce"
+  },
+  {
+    "subject": "RELS",
+    "number": 130,
+    "title": "Introduction to Islam",
+    "professor": "Doolin, Scott Robert"
+  },
+  {
+    "subject": "SOC",
+    "number": 225,
+    "title": "Racial and Ethnic Groups",
+    "professor": "Clarno, Andrew J"
+  },
+  {
+    "subject": "SOC",
+    "number": 241,
+    "title": "Social Inequalities",
+    "professor": "Dowling, Julie"
+  },
+  {
+    "subject": "SOCW",
+    "number": 420,
+    "title": "Policy I: Soc Welfare Pol&Svcs",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "SOCW",
+    "number": 430,
+    "title": "Practice I: Individuals & Orgs",
+    "professor": "Oliver, Tyra Deanine"
+  },
+  {
+    "subject": "SOCW",
+    "number": 522,
+    "title": "Crisis Intervention",
+    "professor": "Johnson, Vania Janine"
+  },
+  {
+    "subject": "SOCW",
+    "number": 554,
+    "title": "Policy II: Mental Health",
+    "professor": "Martin, Sarah Heather"
+  },
+  {
+    "subject": "SOCW",
+    "number": 572,
+    "title": "Field Instruction III: SWJS",
+    "professor": "Brown, Pamela Renee"
+  },
+  {
+    "subject": "SPAN",
+    "number": 103,
+    "title": "Intermediate Spanish I",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "SPAN",
+    "number": 113,
+    "title": "Spanish - Heritage Speakers I",
+    "professor": "Arana-Rochel, Guadalupe"
+  },
+  {
+    "subject": "SPAN",
+    "number": 228,
+    "title": "Translation I",
+    "professor": "Niebylski, Dianna"
+  },
+  {
+    "subject": "SPAN",
+    "number": 303,
+    "title": "Adv Oral Pres, Writg, &Anlysis",
+    "professor": "Riera, Gabriel"
+  },
+  {
+    "subject": "SPED",
+    "number": 471,
+    "title": "Curricular Adaptations",
+    "professor": "Brown, Christerralyn Alyce Jeon"
+  },
+  {
+    "subject": "STAT",
+    "number": 101,
+    "title": "Introduction to Statistics",
+    "professor": "Grad Asst"
+  },
+  {
+    "subject": "STAT",
+    "number": 101,
+    "title": "Introduction to Statistics",
+    "professor": "Kursell, Anita"
+  },
+  {
+    "subject": "STAT",
+    "number": 382,
+    "title": "Statistical Methods and Comput",
+    "professor": "Embers, Dale Gene"
+  },
+  {
+    "subject": "TADR",
+    "number": 469,
+    "title": "Extern: Local Gov & NP Sem",
+    "professor": "Gunderson, Joanna Belle"
+  },
+  {
+    "subject": "TADR",
+    "number": 476,
+    "title": "Extern: Rest Justice Class",
+    "professor": "Seng, Michael P"
+  },
+  {
+    "subject": "TADR",
+    "number": 482,
+    "title": "Clinic: Int'l Human Rts Clinic",
+    "professor": "Davila, Sarah"
+  },
+  {
+    "subject": "THTR",
+    "number": 102,
+    "title": "Introduction to Theatre",
+    "professor": "Corley, Richard"
+  },
+  {
+    "subject": "THTR",
+    "number": 121,
+    "title": "Introduction to Acting I",
+    "professor": "Torres, Edward"
+  },
+  {
+    "subject": "THTR",
+    "number": 145,
+    "title": "Acting Fundamentals Non-majors",
+    "professor": "Felton, Monet Lai-Lani"
+  },
+  {
+    "subject": "THTR",
+    "number": 221,
+    "title": "Adv Actg: American Drama",
+    "professor": "Torres, Edward"
+  },
+  {
+    "subject": "UPP",
+    "number": 461,
+    "title": "GIS for Planning and Policy",
+    "professor": "Craft, Andrea"
+  },
+  {
+    "subject": "UPP",
+    "number": 595,
+    "title": "Professional Portfolio",
+    "professor": "Argov, Merav"
+  }
+];
+
+export default courseList

@@ -1,0 +1,77 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+model Department {
+  code    Int      @id
+  name    String
+  courses Course[]
+}
+
+model Professor {
+  id            Int              @id @default(autoincrement())
+  name          String           @unique
+  coursesTaught CourseInstance[]
+}
+
+model Course {
+  subject        String
+  number         Int
+  title          String
+  department     Department       @relation(fields: [departmentID], references: [code])
+  departmentID   Int
+  CourseInstance CourseInstance[]
+  comments       Comment[]
+
+  @@id(name: "courseName", fields: [subject, number])
+}
+
+//For example, the grade data for CS 342, taught by Professor Mark, in Fall 2025 at 8 AM (Although we don't know which section)
+model CourseInstance {
+  courseInstanceID Int       @id @default(autoincrement())
+  course           Course    @relation(fields: [courseID, courseNumber], references: [subject, number])
+  courseID         String
+  courseNumber     Int
+  professor        Professor @relation(fields: [professorID], references: [id])
+  professorID      Int
+  A                Int
+  B                Int
+  C                Int
+  D                Int
+  F                Int
+  ADV              Int
+  CR               Int
+  DFR              Int
+  I                Int
+  NG               Int
+  NR               Int
+  O                Int
+  PR               Int
+  S                Int
+  U                Int
+  W                Int
+  total_students   Int
+  semester         String
+  comments         Comment[]
+}
+
+model Comment {
+    id                Int @id @default(autoincrement())
+    comment           String
+    date              DateTime @default(now())
+    author            String?
+    courseInstance    CourseInstance?    @relation(fields: [courseInstanceID], references: [courseInstanceID])
+    courseInstanceID  Int?
+    course            Course?    @relation(fields: [courseID, courseNumber], references: [subject, number])
+    courseID          String?
+    courseNumber      Int?
+  }
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
