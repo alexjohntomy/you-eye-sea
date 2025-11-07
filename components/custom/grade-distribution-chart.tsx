@@ -45,6 +45,10 @@ const chartConfig = {
         label: "F",
         color: "var(--chart-5)",
     },
+    W: {
+        label: "W",
+        color: "var(--chart-6)",
+    },
 } satisfies ChartConfig
 
 
@@ -52,20 +56,26 @@ function GradeDistributionChart({chartData} : any) {
     console.log(chartData)
     const calculatedGPA = calculateGPA(chartData)
 
-    const { passes, total } = chartData.reduce(
+    const { passes, total, drops, totalWithDrops } = chartData.reduce(
             (accumulator: any, item: any) => {
             if (["A", "B", "C", "D", "F"].includes(item.grade)) {
                 accumulator.total += item.count;
+                accumulator.totalWithDrops += item.count;
                 if (["A", "B", "C", "D"].includes(item.grade)) {
                     accumulator.passes += item.count;
                 }
             }
+            if (["W"].includes(item.grade)) {
+                accumulator.drops += item.count
+                accumulator.totalWithDrops += item.count;
+            }
             return accumulator;
             },
-            { passes: 0, total: 0 }
+            { passes: 0, total: 0, drops: 0, totalWithDrops: 0}
     );
 
     const passRate = total === 0 ? 0 : ((passes / total)*100).toFixed(1);
+    const dropRate = totalWithDrops === 0 ? 0 : ((drops / totalWithDrops)*100).toFixed(1);
     
     return (
         <Card className="flex flex-col grow justify-between h-full flex-1 min-h-60 rounded-lg shadow-[inset_0px_-6px_10px_2px_var(--secondary)]/10 border-foreground/10 gap-0">
@@ -73,11 +83,12 @@ function GradeDistributionChart({chartData} : any) {
                 <CardHeader className="flex flex-row justify-between">
                     <div>
                         <CardTitle className="text-xl font-bold">Grade Distribution</CardTitle>
-                        <CardDescription className="text-sm">(Spring '22 - '25)</CardDescription>
+                        <CardDescription className="text-sm">All Professors (Spring '22 - '25)</CardDescription>
                     </div>
-                    <Card className="px-2 py-1 md:py-2 rounded-md leading-6 md:leading-4 shadow-2xs shadow-foreground text-sm">
+                    <Card className="flex flex-col px-2 py-1 md:py-2 rounded-md gap-1 shadow-2xs shadow-foreground text-sm">
                         <h1><span className="font-semibold">Average GPA: </span> {calculatedGPA}</h1>
                         <h1><span className="font-semibold">Pass Rate: </span> {passRate}%</h1>
+                        <h1><span className="font-semibold">Drop Rate: </span> {dropRate}%</h1>
                     </Card>
                 </CardHeader>
             </div>
@@ -90,9 +101,9 @@ function GradeDistributionChart({chartData} : any) {
                             accessibilityLayer
                             data={chartData}
                             layout="horizontal"
-                            margin={{ top: 16, right: 16, bottom: 8, left: 16 }}
+                            margin={{ top: 24, right: 16, bottom: 0, left: 16 }}
                         >
-
+                            {/* This includes the labels "A-F" */}
                             <XAxis
                                 dataKey="grade"
                                 className="text-xl font-black"
@@ -117,10 +128,11 @@ function GradeDistributionChart({chartData} : any) {
                                 layout="horizontal"
                                 radius={3}>
                                 <LabelList
+                                    dataKey="label"
                                     position="top"
-                                    offset={10}
+                                    offset={6}
                                     className="fill-foreground"
-                                    fontSize={14}
+                                    fontSize={12}
                                 />
                             </Bar>
                     </BarChart>

@@ -52,6 +52,7 @@ async function getCourseInstance(slug: string) {
     C: true,
     D: true,
     F: true,
+    W: true,
   },
   where: { 
     courseID: parsedSlug[0],
@@ -90,7 +91,7 @@ export default async function CourseDetailsPage({
             <div className="">
                 <GradeDistributionChart chartData={GradeDistributionCount}></GradeDistributionChart>
             </div>
-            <h5 className='py-2 text-xs text-center text-foreground/50'>Data is sourced from official UIC grade distributions but statistics is not my strong suit so could be wrong.</h5>
+            <h5 className='py-2 text-xs text-center text-foreground/50'>Data is sourced from official UIC grade distributions but statistics is not my strong suit so could be wrong. The pass rate denominator includes only A-F. The drop rate includes W.</h5>
       </div>
 
       {/* Comments */}
