@@ -79,7 +79,7 @@ function SearchBar() {
     <div className="mx-auto min-w-1/2 md:min-w-1/2">
         <Command shouldFilter={false} className="rounded-2xl inset-shadow-2xs shadow-[0px_8px_16px_-2px_var(--shadow-inset-color)] shadow-shadow-color border-uic-red-300/40 double-border border-2 bg-background text-foreground opacity-90">
           <div className="flex items-center p-2 justify-between-safe gap-4 flex-wrap relative">
-              <div className="pointer-events-none absolute left-12 right-30">
+              <div className="pointer-events-none absolute left-12 right-0">
                   <PlaceholderText query={value}/>
               </div>
               <CommandInput onValueChange={setValue} wrapperClassName="flex flex-1 gap-3 border-b-0 items-center" className="w-full"></CommandInput>

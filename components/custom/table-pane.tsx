@@ -27,7 +27,7 @@ function TablePane({statsFromDB, courseInstanceAggregation} : tablePaneProps) {
     let highestGPA = 0
     let rowClassName = ""
     return (
-        <div className="gap-3 p-8">
+        <div className="gap-3 p-8 h-full overflow-auto">
             <h1 className='text-xl font-bold text-foreground'>Breakdown</h1>
             <Table className="text-foreground">
                 <TableHeader>
