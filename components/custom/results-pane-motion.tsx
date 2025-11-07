@@ -10,32 +10,6 @@ import {
 } from "@/components/ui/command"
 
 import { motion, LayoutGroup, AnimatePresence, easeInOut } from "motion/react"
-
-//imports for command bar
-import {
-  Calculator,
-  Calendar,
-  CreditCard,
-  Settings,
-  Smile,
-  User,
-} from "lucide-react"
-
-import { ChevronDownIcon, MoreHorizontal } from "lucide-react"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-
-import {
-  InputGroup,
-  InputGroupAddon,
-  InputGroupButton,
-  InputGroupInput,
-  InputGroupTextarea,
-} from "@/components/ui/input-group"
           
 import MiniSearch from 'minisearch'
 

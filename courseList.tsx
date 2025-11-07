@@ -19,12 +19,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "ACTG",
-    "number": 210,
-    "title": "Intro to Fin Actg",
-    "professor": "Savoy, Steven J"
-  },
-  {
-    "subject": "ACTG",
     "number": 315,
     "title": "Intermediate Financial Actg I",
     "professor": "Pandit, Shailendra"
@@ -415,12 +409,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "ART",
-    "number": 160,
-    "title": "Intro to Digital Photo(GEN ED)",
-    "professor": "Grad Asst"
-  },
-  {
-    "subject": "ART",
     "number": 212,
     "title": "Topics in Drawing",
     "professor": "Peterman, Dan"
@@ -652,12 +640,6 @@ const courseList : courseObject[] = [
     "number": 594,
     "title": "Special Topics in Biomed Vis",
     "professor": "Kania, Patrick"
-  },
-  {
-    "subject": "CELE",
-    "number": 606,
-    "title": "Research-Medicine",
-    "professor": "Thomas, Dorian E"
   },
   {
     "subject": "CHE",
@@ -1693,12 +1675,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "CELE",
-    "number": 606,
-    "title": "Sleep Medicine",
-    "professor": "Thomas, Dorian E"
-  },
-  {
-    "subject": "CELE",
     "number": 607,
     "title": "M3 Neurology Clerkship",
     "professor": "Thomas, Dorian E"
@@ -1881,12 +1857,6 @@ const courseList : courseObject[] = [
     "subject": "CELE",
     "number": 600,
     "title": "Elective Clerkship",
-    "professor": "Thomas, Dorian E"
-  },
-  {
-    "subject": "CELE",
-    "number": 606,
-    "title": "Critical Care Medicine",
     "professor": "Thomas, Dorian E"
   },
   {
@@ -2163,12 +2133,6 @@ const courseList : courseObject[] = [
     "subject": "CELE",
     "number": 604,
     "title": "Core Emerg Medicine Elective",
-    "professor": "Thomas, Dorian E"
-  },
-  {
-    "subject": "CELE",
-    "number": 620,
-    "title": "Clinical Medical Spanish",
     "professor": "Thomas, Dorian E"
   },
   {
@@ -2788,12 +2752,6 @@ const courseList : courseObject[] = [
     "number": 620,
     "title": "Endodontics Clinic",
     "professor": "Johnson, Bradford Ray"
-  },
-  {
-    "subject": "ACTG",
-    "number": 210,
-    "title": "Intro Financial Accounting",
-    "professor": "Lord Pearson, Eva Marie"
   },
   {
     "subject": "ACTG",
@@ -4650,12 +4608,6 @@ const courseList : courseObject[] = [
     "professor": "Narubin Durbin, Simona Ieva"
   },
   {
-    "subject": "ENGR",
-    "number": 100,
-    "title": "CS Success Seminar",
-    "professor": "Narubin Durbin, Simona Ieva"
-  },
-  {
     "subject": "ENTR",
     "number": 310,
     "title": "Intro to Entrepreneurship",
@@ -5214,12 +5166,6 @@ const courseList : courseObject[] = [
     "professor": "Destigter, Todd D"
   },
   {
-    "subject": "ENGR",
-    "number": 100,
-    "title": "ECE Success Seminar",
-    "professor": "Narubin Durbin, Simona Ieva"
-  },
-  {
     "subject": "EPSY",
     "number": 453,
     "title": "Ed Program & Marketing in ECE",
@@ -5455,12 +5401,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "IDS",
-    "number": 312,
-    "title": "Bus Proj Mgmt for BBA online",
-    "professor": "Gawel, Jeffrey"
-  },
-  {
-    "subject": "IDS",
     "number": 401,
     "title": "Bus Objects Prog using Java",
     "professor": "Lu, Yingda"
@@ -5630,26 +5570,8 @@ const courseList : courseObject[] = [
   {
     "subject": "ACTG",
     "number": 210,
-    "title": "Intro Financial Accounting",
-    "professor": "Zufarov, Rustam"
-  },
-  {
-    "subject": "ACTG",
-    "number": 210,
     "title": "Intro to Fin Actg",
     "professor": "Chang, Nathan"
-  },
-  {
-    "subject": "ACTG",
-    "number": 210,
-    "title": "Intro to Fin Actg",
-    "professor": "Mikhail, Michael B"
-  },
-  {
-    "subject": "ACTG",
-    "number": 211,
-    "title": "Intro Managerial Accounting",
-    "professor": "Patel, Neel Vasudev"
   },
   {
     "subject": "ACTG",
@@ -5782,12 +5704,6 @@ const courseList : courseObject[] = [
     "number": 200,
     "title": "Business Communication",
     "professor": "Wang, Jie"
-  },
-  {
-    "subject": "BA",
-    "number": 220,
-    "title": "Bus Prof Dev II - Bus Scholars",
-    "professor": "Rodriguez, Paul"
   },
   {
     "subject": "ECE",
@@ -5932,12 +5848,6 @@ const courseList : courseObject[] = [
     "number": 585,
     "title": "Theoretical Sites",
     "professor": "Brown, Nicholas Mainey"
-  },
-  {
-    "subject": "ENGR",
-    "number": 100,
-    "title": "CHE Success Seminar",
-    "professor": "Narubin Durbin, Simona Ieva"
   },
   {
     "subject": "ENGR",
@@ -8551,12 +8461,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "IDS",
-    "number": 200,
-    "title": "Intro Mgmt Info Systems",
-    "professor": "Lundquist, Doug E"
-  },
-  {
-    "subject": "IDS",
     "number": 371,
     "title": "Business Statistics II",
     "professor": "Adelman, Canan"
@@ -9025,12 +8929,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "MATH",
-    "number": 294,
-    "title": "Sp Topics: ESP WKSP Math 215",
-    "professor": "Grad Asst"
-  },
-  {
-    "subject": "MATH",
     "number": 313,
     "title": "Analysis I",
     "professor": "Ross, Julius"
@@ -9418,12 +9316,6 @@ const courseList : courseObject[] = [
     "number": 472,
     "title": "Real Estate Finance",
     "professor": "Lopez, Luis"
-  },
-  {
-    "subject": "IPHS",
-    "number": 403,
-    "title": "Syst Mgmt Comm Hlth Methd CohB",
-    "professor": "Erzuah-Amenuvor, Nana Ama Aya"
   },
   {
     "subject": "IPHS",
@@ -9928,12 +9820,6 @@ const courseList : courseObject[] = [
     "number": 401,
     "title": "Applied Stress Analysis I",
     "professor": "Shahbazian-Yassar, Reza"
-  },
-  {
-    "subject": "MGMT",
-    "number": 350,
-    "title": "External Environment of Bus",
-    "professor": "Antwiler, Brandon"
   },
   {
     "subject": "MGMT",
@@ -10548,12 +10434,6 @@ const courseList : courseObject[] = [
     "professor": "Ansari-Lahiri, Naomi Anurag"
   },
   {
-    "subject": "SOCW",
-    "number": 573,
-    "title": "Field Instruction IV: MH",
-    "professor": "Brown, Pamela Renee"
-  },
-  {
     "subject": "PSCH",
     "number": 366,
     "title": "Cognitive Neuroscience",
@@ -10684,12 +10564,6 @@ const courseList : courseObject[] = [
     "number": 565,
     "title": "Research Seminars II: CHF",
     "professor": "Grad Asst"
-  },
-  {
-    "subject": "SOCW",
-    "number": 573,
-    "title": "Field Instruction IV: SCH",
-    "professor": "Brown, Pamela Renee"
   },
   {
     "subject": "SPAN",
@@ -11326,12 +11200,6 @@ const courseList : courseObject[] = [
     "number": 431,
     "title": "Pract II: Fam., Grps. & Comm",
     "professor": "Beeler, Sara E"
-  },
-  {
-    "subject": "SOCW",
-    "number": 573,
-    "title": "Field Instruction IV: CF",
-    "professor": "Brown, Pamela Renee"
   },
   {
     "subject": "SOCW",
@@ -12042,12 +11910,6 @@ const courseList : courseObject[] = [
     "professor": "Takoudis, Christos G"
   },
   {
-    "subject": "CELE",
-    "number": 620,
-    "title": "Urban Medicine (UMed)",
-    "professor": "Thomas, Dorian E"
-  },
-  {
     "subject": "CHE",
     "number": 210,
     "title": "Material & Energy Balances",
@@ -12571,12 +12433,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "SOCW",
-    "number": 565,
-    "title": "Research Seminars II :School",
-    "professor": "Owens, Chastity Lashauna"
-  },
-  {
-    "subject": "SOCW",
     "number": 570,
     "title": "Field Instruction I",
     "professor": "Brown, Pamela Renee"
@@ -12916,18 +12772,6 @@ const courseList : courseObject[] = [
     "number": 572,
     "title": "Novel Workshop",
     "professor": "Urrea, Luis A"
-  },
-  {
-    "subject": "ENGR",
-    "number": 100,
-    "title": "CME Success Seminar",
-    "professor": "Narubin Durbin, Simona Ieva"
-  },
-  {
-    "subject": "ENGR",
-    "number": 100,
-    "title": "MIE Success Seminar",
-    "professor": "Narubin Durbin, Simona Ieva"
   },
   {
     "subject": "EOHS",
@@ -13620,12 +13464,6 @@ const courseList : courseObject[] = [
     "professor": "Forcier, Kaitlin Clifton"
   },
   {
-    "subject": "ENGR",
-    "number": 100,
-    "title": "Engineering Success Seminar",
-    "professor": "Narubin Durbin, Simona Ieva"
-  },
-  {
     "subject": "EPSY",
     "number": 242,
     "title": "Sexuality Development",
@@ -14158,12 +13996,6 @@ const courseList : courseObject[] = [
     "number": 215,
     "title": "Intro to Advanced Math",
     "professor": "Kashcheyeva, Olga S."
-  },
-  {
-    "subject": "MATH",
-    "number": 294,
-    "title": "Spec Topics ESP WKSP Math 313",
-    "professor": "Grad Asst"
   },
   {
     "subject": "MATH",
@@ -15006,12 +14838,6 @@ const courseList : courseObject[] = [
     "professor": "Parker, Brenda"
   },
   {
-    "subject": "RELE",
-    "number": 606,
-    "title": "Pulmonary Medicine",
-    "professor": "Thomas, Dorian E"
-  },
-  {
     "subject": "SJ",
     "number": 201,
     "title": "Theories and Practices of SJ",
@@ -15040,12 +14866,6 @@ const courseList : courseObject[] = [
     "number": 455,
     "title": "Health Inequalities",
     "professor": "Hansen, Christopher R"
-  },
-  {
-    "subject": "SOCW",
-    "number": 431,
-    "title": "Pract II: Fam., Grps & Comm",
-    "professor": "Doyle, Otima"
   },
   {
     "subject": "SOCW",
@@ -15235,12 +15055,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "ART",
-    "number": 160,
-    "title": "Intro:Digital Photo",
-    "professor": "Grad Asst"
-  },
-  {
-    "subject": "ART",
     "number": 250,
     "title": "Between Worlds: Video Games",
     "professor": "Kelley-Hudgins, Jared Christopher"
@@ -15259,39 +15073,9 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "BA",
-    "number": 190,
-    "title": "UIC Business Seminar Program",
-    "professor": "Sanchez, Mayra"
-  },
-  {
-    "subject": "BA",
     "number": 289,
     "title": "Business Internship Prog I",
     "professor": "Lacy, Virginia"
-  },
-  {
-    "subject": "BA",
-    "number": 290,
-    "title": "Business Ethics",
-    "professor": "Leahy, Edward"
-  },
-  {
-    "subject": "BHIS",
-    "number": 437,
-    "title": "Health Care Data",
-    "professor": "Czart, Margaret B"
-  },
-  {
-    "subject": "BHIS",
-    "number": 593,
-    "title": "HI Capstone",
-    "professor": "Isola, Miriam L."
-  },
-  {
-    "subject": "BIOS",
-    "number": 120,
-    "title": "Populations & Communities",
-    "professor": "Molumby, Alan J"
   },
   {
     "subject": "BIOS",
@@ -15334,30 +15118,6 @@ const courseList : courseObject[] = [
     "number": 594,
     "title": "Practical Biocomputing",
     "professor": "Walker, Joseph"
-  },
-  {
-    "subject": "BME",
-    "number": 410,
-    "title": "Medical Device Requirements",
-    "professor": "Browne, Michael Gordon"
-  },
-  {
-    "subject": "AH",
-    "number": 160,
-    "title": "Trends in Contemp Art",
-    "professor": "Grad Asst"
-  },
-  {
-    "subject": "AHS",
-    "number": 200,
-    "title": "Intro Integrated Health",
-    "professor": "Kieso, Tiana Al-Aswad"
-  },
-  {
-    "subject": "AHS",
-    "number": 393,
-    "title": "Synthesis in Health &Rehab Sci",
-    "professor": "Rodriguez, Vanessa"
   },
   {
     "subject": "ANAT",
@@ -15420,36 +15180,6 @@ const courseList : courseObject[] = [
     "professor": "Estrada, William"
   },
   {
-    "subject": "BA",
-    "number": 200,
-    "title": "Business Communication",
-    "professor": "Wang, Jie"
-  },
-  {
-    "subject": "BA",
-    "number": 220,
-    "title": "Business Prof Dev II",
-    "professor": "Lord, Morgan"
-  },
-  {
-    "subject": "BA",
-    "number": 320,
-    "title": "Civic Engagement",
-    "professor": "Lewis, Keith D"
-  },
-  {
-    "subject": "BA",
-    "number": 420,
-    "title": "Professional Presence",
-    "professor": "Anderson, Stephanie Leigh"
-  },
-  {
-    "subject": "BHIS",
-    "number": 530,
-    "title": "Topics in Hlth Informatics",
-    "professor": "Staley, Corinn"
-  },
-  {
     "subject": "BIOS",
     "number": 294,
     "title": "Special Topics in BIOS",
@@ -15498,40 +15228,10 @@ const courseList : courseObject[] = [
     "professor": "Papautsky, Ian"
   },
   {
-    "subject": "CELE",
-    "number": 600,
-    "title": "Elective Clerkship",
-    "professor": "Thomas, Dorian E"
-  },
-  {
-    "subject": "AH",
-    "number": 100,
-    "title": "Intro to Art &Art History",
-    "professor": "Grad Asst"
-  },
-  {
     "subject": "AH",
     "number": 259,
     "title": "Eighteenth-Century Art",
     "professor": "Dubin, Nina"
-  },
-  {
-    "subject": "AHS",
-    "number": 200,
-    "title": "Intro Integrated Health",
-    "professor": "Alve, Mohammad Yeasir Arafat"
-  },
-  {
-    "subject": "AHS",
-    "number": 304,
-    "title": "Sexuality and Health",
-    "professor": "Bengtsson, Helene Strange"
-  },
-  {
-    "subject": "ANTH",
-    "number": 102,
-    "title": "Intro to Archaeology",
-    "professor": "LaMotta, Vincent"
   },
   {
     "subject": "ANTH",
@@ -15570,30 +15270,6 @@ const courseList : courseObject[] = [
     "professor": "Majeed, Faheem"
   },
   {
-    "subject": "ASP",
-    "number": 85,
-    "title": "Boosting Academic Success",
-    "professor": "Mann, Jon"
-  },
-  {
-    "subject": "ASP",
-    "number": 96,
-    "title": "Independent Study",
-    "professor": "Ramirez, Elizabeth"
-  },
-  {
-    "subject": "BA",
-    "number": 100,
-    "title": "Intro to Prof Dev",
-    "professor": "Anderson, Stephanie Leigh"
-  },
-  {
-    "subject": "BA",
-    "number": 100,
-    "title": "Intro to Prof Dev",
-    "professor": "Soriano, Diana Ethel"
-  },
-  {
     "subject": "BA",
     "number": 101,
     "title": "Business First-Year Seminar",
@@ -15608,18 +15284,6 @@ const courseList : courseObject[] = [
   {
     "subject": "BA",
     "number": 200,
-    "title": "Business Communication",
-    "professor": "Bailey, Lisa"
-  },
-  {
-    "subject": "BA",
-    "number": 200,
-    "title": "Business Communication",
-    "professor": "Schraufnagel, William"
-  },
-  {
-    "subject": "BA",
-    "number": 200,
     "title": "Managerial Comm BBA Online",
     "professor": "Hardy, Florence"
   },
@@ -15628,18 +15292,6 @@ const courseList : courseObject[] = [
     "number": 520,
     "title": "Improvisation and Leadership",
     "professor": "Rodriguez, Paul"
-  },
-  {
-    "subject": "BCMG",
-    "number": 595,
-    "title": "Student Research Seminars",
-    "professor": "Segev, Nava"
-  },
-  {
-    "subject": "BHIS",
-    "number": 499,
-    "title": "Info Sources in BHIS",
-    "professor": "Mills, Laura Lynn"
   },
   {
     "subject": "BIOS",
@@ -15672,24 +15324,6 @@ const courseList : courseObject[] = [
     "professor": "Das, Somnath"
   },
   {
-    "subject": "ACTG",
-    "number": 210,
-    "title": "Intro Financial Accounting",
-    "professor": "Lord Pearson, Eva Marie"
-  },
-  {
-    "subject": "ACTG",
-    "number": 211,
-    "title": "Intro Managerial Accounting",
-    "professor": "Patel, Neel Vasudev"
-  },
-  {
-    "subject": "ACTG",
-    "number": 355,
-    "title": "Business Law I",
-    "professor": "Scully, George"
-  },
-  {
     "subject": "AH",
     "number": 201,
     "title": "Reading&Writing Art Criticism",
@@ -15708,18 +15342,6 @@ const courseList : courseObject[] = [
     "professor": "Akinola, Olayemi"
   },
   {
-    "subject": "AHS",
-    "number": 375,
-    "title": "Ethics, Law in Health",
-    "professor": "Jackson, Ann W"
-  },
-  {
-    "subject": "ANTH",
-    "number": 238,
-    "title": "Biology of Women",
-    "professor": "Starkweather, Kathrine Elizabeth"
-  },
-  {
     "subject": "ANTH",
     "number": 243,
     "title": "Archaeology of Buddhism",
@@ -15732,12 +15354,6 @@ const courseList : courseObject[] = [
     "professor": "Alyassir, Lina"
   },
   {
-    "subject": "ARAB",
-    "number": 104,
-    "title": "Intermediate Arabic II",
-    "professor": "Aburqayeq, Ghassan"
-  },
-  {
     "subject": "ARCH",
     "number": 151,
     "title": "Architecture at Chicago",
@@ -15745,33 +15361,9 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "ART",
-    "number": 140,
-    "title": "Introduction to Sculpture",
-    "professor": "Mancini, Matthew Henry"
-  },
-  {
-    "subject": "ART",
-    "number": 151,
-    "title": "Intro to Creative Coding",
-    "professor": "Kelley-Hudgins, Jared Christopher"
-  },
-  {
-    "subject": "ART",
-    "number": 160,
-    "title": "Intro:Digital Photo-Major Only",
-    "professor": "Mueller, Eileen"
-  },
-  {
-    "subject": "ART",
     "number": 190,
     "title": "#LoveChicagoArtFollowMe",
     "professor": "Majeed, Faheem"
-  },
-  {
-    "subject": "ART",
-    "number": 260,
-    "title": "Topic in Photo",
-    "professor": "Washington, Zuri Aqeela"
   },
   {
     "subject": "ART",
@@ -15799,18 +15391,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "BA",
-    "number": 320,
-    "title": "Civic Engagement",
-    "professor": "Ramos, Norma Elena"
-  },
-  {
-    "subject": "BA",
-    "number": 420,
-    "title": "Professional Presence",
-    "professor": "Lord, Morgan"
-  },
-  {
-    "subject": "BA",
     "number": 494,
     "title": "Global Career Accelerator",
     "professor": "Rausch, Kyle Curtis"
@@ -15820,24 +15400,6 @@ const courseList : courseObject[] = [
     "number": 411,
     "title": "Intro to Biochemistry",
     "professor": "Caffrey, Michael S"
-  },
-  {
-    "subject": "BIOS",
-    "number": 220,
-    "title": "Genetics",
-    "professor": "Mc Cutcheon, Suzanne M"
-  },
-  {
-    "subject": "BIOS",
-    "number": 326,
-    "title": "Embryology Laboratory",
-    "professor": "Bassett, Andrea Louise"
-  },
-  {
-    "subject": "ACTG",
-    "number": 417,
-    "title": "Adv Financial Accounting",
-    "professor": "Norden, Mark"
   },
   {
     "subject": "ACTG",
@@ -15862,12 +15424,6 @@ const courseList : courseObject[] = [
     "number": 393,
     "title": "Synthesis in Health &Rehab Sci",
     "professor": "Wescott, Jennifer J"
-  },
-  {
-    "subject": "ANTH",
-    "number": 100,
-    "title": "Human Adventure",
-    "professor": "Roosevelt, Anna C"
   },
   {
     "subject": "ARCH",
@@ -15918,18 +15474,6 @@ const courseList : courseObject[] = [
     "professor": "Reynolds, Laurie Jo"
   },
   {
-    "subject": "ASP",
-    "number": 85,
-    "title": "Boosting Academic Success",
-    "professor": "Baniasad, Bahar"
-  },
-  {
-    "subject": "BA",
-    "number": 100,
-    "title": "Intro to Prof Dev",
-    "professor": "Warner, Kimberly"
-  },
-  {
     "subject": "BA",
     "number": 101,
     "title": "Business First-Year Seminar",
@@ -15949,21 +15493,9 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "BHIS",
-    "number": 540,
-    "title": "Essentials Hlth Data Science",
-    "professor": "Krive, Jacob"
-  },
-  {
-    "subject": "BHIS",
     "number": 567,
     "title": "Healthcare Data Visualization",
     "professor": "Syed, Asif Amir"
-  },
-  {
-    "subject": "BIOS",
-    "number": 104,
-    "title": "Biology for Non-majors",
-    "professor": "Muller, Michael T"
   },
   {
     "subject": "BIOS",
@@ -15984,34 +15516,10 @@ const courseList : courseObject[] = [
     "professor": "Molumby, Alan J"
   },
   {
-    "subject": "BIOS",
-    "number": 350,
-    "title": "General Microbiology",
-    "professor": "Mills, Michael"
-  },
-  {
-    "subject": "BIOS",
-    "number": 399,
-    "title": "Independent Research",
-    "professor": "Jeffery, Constance J"
-  },
-  {
     "subject": "ACTG",
     "number": 211,
     "title": "Intro Managerial Accounting",
     "professor": "Bonham, Jonathan"
-  },
-  {
-    "subject": "ACTG",
-    "number": 211,
-    "title": "Intro Mngrl Actg Bus Scholar",
-    "professor": "Bonham, Jonathan"
-  },
-  {
-    "subject": "ACTG",
-    "number": 435,
-    "title": "Auditing",
-    "professor": "Judd, Joshua Scott"
   },
   {
     "subject": "ACTG",
@@ -16044,12 +15552,6 @@ const courseList : courseObject[] = [
     "professor": "Stankevicius, Simona"
   },
   {
-    "subject": "AHS",
-    "number": 365,
-    "title": "Measurement in Rehab",
-    "professor": "Akinola, Olayemi"
-  },
-  {
     "subject": "ANTH",
     "number": 229,
     "title": "Archaeo Frauds,Myths,Pseudosci",
@@ -16060,12 +15562,6 @@ const courseList : courseObject[] = [
     "number": 170,
     "title": "Introduction to Filmmaking",
     "professor": "Grad Asst"
-  },
-  {
-    "subject": "ART",
-    "number": 261,
-    "title": "Film Photography/Darkroom",
-    "professor": "Keihm, Colleen"
   },
   {
     "subject": "ART",
@@ -16087,33 +15583,9 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "BA",
-    "number": 200,
-    "title": "Business Communication",
-    "professor": "Andrews, Dean"
-  },
-  {
-    "subject": "BA",
     "number": 220,
     "title": "Business Prof Dev II",
     "professor": "Brunlieb, Michael"
-  },
-  {
-    "subject": "BA",
-    "number": 299,
-    "title": "CBA Study Abroad",
-    "professor": "Sady, Elizabeth Virginia"
-  },
-  {
-    "subject": "BA",
-    "number": 320,
-    "title": "Civic Engagement",
-    "professor": "Walthall, Mary"
-  },
-  {
-    "subject": "BA",
-    "number": 420,
-    "title": "Professional Presence",
-    "professor": "Warner, Kimberly"
   },
   {
     "subject": "BHIS",
@@ -16132,12 +15604,6 @@ const courseList : courseObject[] = [
     "number": 520,
     "title": "Hlth Info Syst Analysis & Dsgn",
     "professor": "Foster, LeRoy"
-  },
-  {
-    "subject": "BHIS",
-    "number": 525,
-    "title": "Social&Org Issues in Hlth Info",
-    "professor": "Lui, Dick Ray"
   },
   {
     "subject": "BHIS",
@@ -16165,33 +15631,15 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "ACTG",
-    "number": 316,
-    "title": "Intermediate Financial Actg II",
-    "professor": "McLaughlin, Michael Patrick"
-  },
-  {
-    "subject": "ACTG",
     "number": 445,
     "title": "Federal Income Tax I",
     "professor": "Savor, Stephanie Sikes"
   },
   {
     "subject": "ACTG",
-    "number": 470,
-    "title": "Ethical Environment Business",
-    "professor": "Scully, George"
-  },
-  {
-    "subject": "ACTG",
     "number": 475,
     "title": "Database Accounting Systems",
     "professor": "Kupchek, Michael J"
-  },
-  {
-    "subject": "ACTG",
-    "number": 485,
-    "title": "Valuation",
-    "professor": "McLaughlin, Michael Patrick"
   },
   {
     "subject": "ACTG",
@@ -16219,21 +15667,9 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "AHS",
-    "number": 210,
-    "title": "Intro to Rehab Science",
-    "professor": "Hasnain, Rooshey"
-  },
-  {
-    "subject": "AHS",
     "number": 511,
     "title": "Biostatistics I",
     "professor": "Zejnullahi, Rrita"
-  },
-  {
-    "subject": "ANTH",
-    "number": 101,
-    "title": "World Cultures",
-    "professor": "Mouftah, Nermeen"
   },
   {
     "subject": "ANTH",
@@ -16258,12 +15694,6 @@ const courseList : courseObject[] = [
     "number": 574,
     "title": "Architectural Structures II",
     "professor": "Mojekwu, Eugene Chukwunonso"
-  },
-  {
-    "subject": "ART",
-    "number": 130,
-    "title": "Intro to Paint(Major Only)",
-    "professor": "Schwindt, Samuel"
   },
   {
     "subject": "ART",
@@ -16302,30 +15732,6 @@ const courseList : courseObject[] = [
     "professor": "Valdez-Mansilla, Rosa"
   },
   {
-    "subject": "BA",
-    "number": 420,
-    "title": "Professional Presence",
-    "professor": "Souri, Ranjit J"
-  },
-  {
-    "subject": "BHIS",
-    "number": 460,
-    "title": "Intro to Hlth Informatics",
-    "professor": "Williams, Felecia Altevet"
-  },
-  {
-    "subject": "BHIS",
-    "number": 575,
-    "title": "App Stats Hlth Data Science",
-    "professor": "Bozinovich, Lu"
-  },
-  {
-    "subject": "ACTG",
-    "number": 446,
-    "title": "Federal Income Tax II",
-    "professor": "Savoy, Steven J"
-  },
-  {
     "subject": "ACTG",
     "number": 465,
     "title": "Govt & Non-Profit Actg",
@@ -16348,24 +15754,6 @@ const courseList : courseObject[] = [
     "number": 511,
     "title": "Toward New Hist/Art,1960-Prsnt",
     "professor": "Dubin, Nina"
-  },
-  {
-    "subject": "AHS",
-    "number": 375,
-    "title": "Ethics, Law in Health",
-    "professor": "Swirsky, Eric S"
-  },
-  {
-    "subject": "ANTH",
-    "number": 100,
-    "title": "Human Adventure",
-    "professor": "Bauer, Brian S"
-  },
-  {
-    "subject": "ANTH",
-    "number": 105,
-    "title": "Human Evolution",
-    "professor": "Sacks, Lita"
   },
   {
     "subject": "ANTH",
@@ -16405,30 +15793,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "BA",
-    "number": 220,
-    "title": "Business Prof Dev II",
-    "professor": "Rodriguez, Paul"
-  },
-  {
-    "subject": "BA",
-    "number": 220,
-    "title": "Business Prof Dev II",
-    "professor": "Souri, Ranjit J"
-  },
-  {
-    "subject": "BA",
-    "number": 420,
-    "title": "Professional Presence",
-    "professor": "Rodriguez, Paul"
-  },
-  {
-    "subject": "BA",
-    "number": 494,
-    "title": "Career Exploration for BBA",
-    "professor": "Galeher, Janmarie"
-  },
-  {
-    "subject": "BA",
     "number": 494,
     "title": "Leadership: BBA Online",
     "professor": "Atchley, Cindy J"
@@ -16441,39 +15805,9 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "BIOS",
-    "number": 222,
-    "title": "Cell Biology",
-    "professor": "Dubreuil, Ronald R."
-  },
-  {
-    "subject": "BIOS",
-    "number": 230,
-    "title": "Evolution and Ecology",
-    "professor": "Nelson, Karin Noel"
-  },
-  {
-    "subject": "BIOS",
     "number": 294,
     "title": "Insect Evolution and Diversity",
     "professor": "Molumby, Alan J"
-  },
-  {
-    "subject": "BIOS",
-    "number": 312,
-    "title": "Cell Biology Laboratory",
-    "professor": "Santus, William"
-  },
-  {
-    "subject": "BIOS",
-    "number": 331,
-    "title": "Ecology Laboratory",
-    "professor": "Ale, Som Bahadur"
-  },
-  {
-    "subject": "BIOS",
-    "number": 351,
-    "title": "Microbiology Laboratory",
-    "professor": "Bassett, Andrea Louise"
   },
   {
     "subject": "BIOS",
@@ -16483,45 +15817,15 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "BME",
-    "number": 460,
-    "title": "Materials in Biomed Eng",
-    "professor": "Shokuhfar, Tolou"
-  },
-  {
-    "subject": "BME",
     "number": 525,
     "title": "Phys & Cellular Biomech Forces",
     "professor": "Lee, James Chakman"
-  },
-  {
-    "subject": "BME",
-    "number": 595,
-    "title": "Seminar Biomedical Engineering",
-    "professor": "Takoudis, Christos G"
   },
   {
     "subject": "CEES",
     "number": 247,
     "title": "CEES Sci-fi and Fantasy",
     "professor": "Vaingurt, Julia"
-  },
-  {
-    "subject": "CHE",
-    "number": 210,
-    "title": "Material & Energy Balances",
-    "professor": "Wedgewood, Lewis E"
-  },
-  {
-    "subject": "CHE",
-    "number": 301,
-    "title": "Chem Engr Thermodynamics",
-    "professor": "Caracotsios, Michael"
-  },
-  {
-    "subject": "CHEM",
-    "number": 125,
-    "title": "Foundations of Chem Inquiry II",
-    "professor": "Stec, Ewa"
   },
   {
     "subject": "CHEM",
@@ -16542,12 +15846,6 @@ const courseList : courseObject[] = [
     "professor": "Wang, Bridget Wenya"
   },
   {
-    "subject": "CI",
-    "number": 414,
-    "title": "Middle and High School Lit",
-    "professor": "Grad Asst"
-  },
-  {
     "subject": "CLER",
     "number": 612,
     "title": "Medicine Sub-Internship",
@@ -16555,27 +15853,9 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "CLJ",
-    "number": 355,
-    "title": "Punishmt, Prisons, & Correctns",
-    "professor": "Ben-Moshe, Liat"
-  },
-  {
-    "subject": "CLJ",
-    "number": 422,
-    "title": "Victimization",
-    "professor": "Erez, Edna"
-  },
-  {
-    "subject": "CLJ",
     "number": 493,
     "title": "Contested Concepts Criminology",
     "professor": "Gurusami, Susila"
-  },
-  {
-    "subject": "CME",
-    "number": 211,
-    "title": "Fluid Mechanics and Hydraulics",
-    "professor": "Abokifa, Ahmed"
   },
   {
     "subject": "CME",
@@ -16597,30 +15877,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "COMM",
-    "number": 101,
-    "title": "Intro to Communication",
-    "professor": "Bui, Diem-My Thi"
-  },
-  {
-    "subject": "COMM",
-    "number": 200,
-    "title": "Communication Technologies",
-    "professor": "McDowell, Zachary J"
-  },
-  {
-    "subject": "COMM",
-    "number": 216,
-    "title": "Digital Journalism",
-    "professor": "Reilley, Michael"
-  },
-  {
-    "subject": "COMM",
-    "number": 240,
-    "title": "Data Journalism",
-    "professor": "Reilley, Michael"
-  },
-  {
-    "subject": "COMM",
     "number": 465,
     "title": "Video Games and Society",
     "professor": "Kim, Do Own"
@@ -16633,27 +15889,9 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "CS",
-    "number": 294,
-    "title": "Undergraduate TA Seminar",
-    "professor": "Cranch, Cody Ingersoll"
-  },
-  {
-    "subject": "CS",
-    "number": 301,
-    "title": "Languages and Automata",
-    "professor": "Ibrahim, Omar"
-  },
-  {
-    "subject": "CS",
     "number": 341,
     "title": "Programming Language Concepts",
     "professor": "Solworth, Jon A"
-  },
-  {
-    "subject": "CELE",
-    "number": 606,
-    "title": "Research-Medicine",
-    "professor": "Thomas, Dorian E"
   },
   {
     "subject": "CELE",
@@ -16681,12 +15919,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "CHEM",
-    "number": 124,
-    "title": "Chemical Dynamics",
-    "professor": "Tripa, Cornel Emil"
-  },
-  {
-    "subject": "CHEM",
     "number": 230,
     "title": "Org Chem Bio Systems",
     "professor": "Clark, Ginevra"
@@ -16699,21 +15931,9 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "CI",
-    "number": 464,
-    "title": "Bilingualism and Literacy",
-    "professor": "Grad Asst"
-  },
-  {
-    "subject": "CI",
     "number": 484,
     "title": "Curri & Instruct Middle School",
     "professor": "Podsiadlik, Edward"
-  },
-  {
-    "subject": "CLER",
-    "number": 601,
-    "title": "Obstetrics and Gynecology",
-    "professor": "Thomas, Dorian E"
   },
   {
     "subject": "CLER",
@@ -16735,18 +15955,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "CLJ",
-    "number": 220,
-    "title": "Criminology",
-    "professor": "Schuck, Amie"
-  },
-  {
-    "subject": "CLJ",
-    "number": 261,
-    "title": "Research Methods I",
-    "professor": "Maggio, Christopher"
-  },
-  {
-    "subject": "CLJ",
     "number": 271,
     "title": "Race & Incarceration",
     "professor": "Stovall, David O"
@@ -16759,57 +15967,9 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "CLJ",
-    "number": 423,
-    "title": "Violence",
-    "professor": "Frohmann, Lisa G"
-  },
-  {
-    "subject": "CLJ",
-    "number": 424,
-    "title": "Gender, Crime, & Justice",
-    "professor": "Erez, Edna"
-  },
-  {
-    "subject": "CLJ",
     "number": 547,
     "title": "Race, Class, Gender/Crime",
     "professor": "Thompson, Julian G"
-  },
-  {
-    "subject": "CME",
-    "number": 197,
-    "title": "Intro to Civil Environment Eng",
-    "professor": "Ataei, Hossein"
-  },
-  {
-    "subject": "CME",
-    "number": 261,
-    "title": "Materials For Manufacturing",
-    "professor": "Karpov, Eduard"
-  },
-  {
-    "subject": "CME",
-    "number": 300,
-    "title": "Concrete Properties&Compositn",
-    "professor": "Issa, Mohsen"
-  },
-  {
-    "subject": "CME",
-    "number": 322,
-    "title": "Environmental Engineering",
-    "professor": "Khodadoust, Amid"
-  },
-  {
-    "subject": "CME",
-    "number": 402,
-    "title": "Highway Design",
-    "professor": "Peiravian, Farideddin"
-  },
-  {
-    "subject": "COMM",
-    "number": 140,
-    "title": "Fundamentals of Media Comm",
-    "professor": "Grad Asst"
   },
   {
     "subject": "COMM",
@@ -16824,52 +15984,16 @@ const courseList : courseObject[] = [
     "professor": "Foutty, Kenton Alan"
   },
   {
-    "subject": "ACTG",
-    "number": 211,
-    "title": "Intro Managerial Accounting",
-    "professor": "Chang, Nathan"
-  },
-  {
     "subject": "AH",
     "number": 235,
     "title": "History of Design I",
     "professor": "Mekinda, Jonathan"
   },
   {
-    "subject": "AH",
-    "number": 263,
-    "title": "Latin Amer Colonial Art",
-    "professor": "Deij Prado, Macarena"
-  },
-  {
     "subject": "AHS",
     "number": 100,
     "title": "Applied Hlth Science Seminar I",
     "professor": "Najdzin, Rachel Leigh"
-  },
-  {
-    "subject": "AHS",
-    "number": 330,
-    "title": "Phys and Mental Hlth in Rehab",
-    "professor": "Schwartz, Orit"
-  },
-  {
-    "subject": "AHS",
-    "number": 393,
-    "title": "Synthesis in Health &Rehab Sci",
-    "professor": "Kieso, Tiana Al-Aswad"
-  },
-  {
-    "subject": "AHS",
-    "number": 402,
-    "title": "Inter-professional Seminar",
-    "professor": "Wescott, Jennifer J"
-  },
-  {
-    "subject": "ANTH",
-    "number": 227,
-    "title": "Anc Civ Mex and Cent Amer",
-    "professor": "Solinis Casparius, Rodrigo"
   },
   {
     "subject": "ARCH",
@@ -16897,33 +16021,15 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "ART",
-    "number": 101,
-    "title": "Signifying Practices",
-    "professor": "Reeves, Christopher Matthew"
-  },
-  {
-    "subject": "ART",
     "number": 112,
     "title": "Intro to Drawing(Major Only)",
     "professor": "Peterman, Dan"
   },
   {
     "subject": "ART",
-    "number": 112,
-    "title": "Introduction to Drawing",
-    "professor": "Aguilar, Sarah"
-  },
-  {
-    "subject": "ART",
     "number": 150,
     "title": "Intro to New Media Arts",
     "professor": "Moreno, Sal"
-  },
-  {
-    "subject": "ART",
-    "number": 170,
-    "title": "Intro to Filmmaking-Major Only",
-    "professor": "Wanitwat, Parinda"
   },
   {
     "subject": "ART",
@@ -16945,27 +16051,9 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "BA",
-    "number": 200,
-    "title": "Business Communication",
-    "professor": "Banks, Jacinta"
-  },
-  {
-    "subject": "BA",
     "number": 420,
     "title": "Professional Presence",
     "professor": "Brunlieb, Michael"
-  },
-  {
-    "subject": "BA",
-    "number": 494,
-    "title": "Org Change for BBA Online",
-    "professor": "Atchley, Cindy J"
-  },
-  {
-    "subject": "BHIS",
-    "number": 406,
-    "title": "Medical Terminology for HIM",
-    "professor": "Mills, Laura Lynn"
   },
   {
     "subject": "BHIS",
@@ -16999,12 +16087,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "BME",
-    "number": 250,
-    "title": "Clinical Problems Biomed Eng",
-    "professor": "Hetling, John R"
-  },
-  {
-    "subject": "BME",
     "number": 421,
     "title": "Biomedical Imaging",
     "professor": "Klatt, Dieter"
@@ -17028,18 +16110,6 @@ const courseList : courseObject[] = [
     "professor": "Hu, Ying Samuel"
   },
   {
-    "subject": "CHEM",
-    "number": 592,
-    "title": "Chemical Research",
-    "professor": "Lee, Daesung"
-  },
-  {
-    "subject": "CHEM",
-    "number": 599,
-    "title": "PhD Thesis Research",
-    "professor": "Cabana-Jimenez, Jordi"
-  },
-  {
     "subject": "CHSC",
     "number": 586,
     "title": "Health Behavior Intervent",
@@ -17056,12 +16126,6 @@ const courseList : courseObject[] = [
     "number": 100,
     "title": "Greek Civilization",
     "professor": "Ros, Karen E"
-  },
-  {
-    "subject": "CLER",
-    "number": 603,
-    "title": "Pediatrics",
-    "professor": "Hupert, Jordan"
   },
   {
     "subject": "CLER",
@@ -17083,27 +16147,9 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "CLJ",
-    "number": 402,
-    "title": "Trial Interaction",
-    "professor": "Matoesian, Greg"
-  },
-  {
-    "subject": "CLJ",
     "number": 442,
     "title": "Comparative Crim Justc Inst",
     "professor": "Beaujon, Danielle Jessup"
-  },
-  {
-    "subject": "CME",
-    "number": 290,
-    "title": "Engineering Surveying",
-    "professor": "Peiravian, Farideddin"
-  },
-  {
-    "subject": "CME",
-    "number": 405,
-    "title": "Foundation Dsgn& Analysis",
-    "professor": "Schulenberg, Joseph W"
   },
   {
     "subject": "CME",
@@ -17134,12 +16180,6 @@ const courseList : courseObject[] = [
     "number": 234,
     "title": "History of Television",
     "professor": "Podrazik, Walter J"
-  },
-  {
-    "subject": "COMM",
-    "number": 294,
-    "title": "AI Journalism",
-    "professor": "Reilley, Michael"
   },
   {
     "subject": "COMM",
@@ -17184,28 +16224,10 @@ const courseList : courseObject[] = [
     "professor": "Thomas, Dorian E"
   },
   {
-    "subject": "CELE",
-    "number": 620,
-    "title": "ECM 3-4: M-4 TEACHING ELECTIVE",
-    "professor": "Grad Asst"
-  },
-  {
-    "subject": "CHE",
-    "number": 201,
-    "title": "Intro to Thermodynamics",
-    "professor": "Bilgin, Betul"
-  },
-  {
     "subject": "CHE",
     "number": 396,
     "title": "Senior Design I",
     "professor": "Bilgin, Betul"
-  },
-  {
-    "subject": "CHEM",
-    "number": 100,
-    "title": "Chemistry and Life",
-    "professor": "Rosenhouse-Dantsker, Avia"
   },
   {
     "subject": "CHEM",
@@ -17232,12 +16254,6 @@ const courseList : courseObject[] = [
     "professor": "Floyd, Brenikki R"
   },
   {
-    "subject": "CHSC",
-    "number": 593,
-    "title": "Doc Lab in CHS Research Dev",
-    "professor": "Mitchell, Uchechi"
-  },
-  {
     "subject": "CI",
     "number": 404,
     "title": "Math in Urban Ed",
@@ -17257,12 +16273,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "CLER",
-    "number": 604,
-    "title": "Surgery",
-    "professor": "Thomas, Dorian E"
-  },
-  {
-    "subject": "CLER",
     "number": 621,
     "title": "Family Practice",
     "professor": "Batek, Linda S"
@@ -17272,12 +16282,6 @@ const courseList : courseObject[] = [
     "number": 632,
     "title": "Psychiatry",
     "professor": "Garcia, Raymond C"
-  },
-  {
-    "subject": "CLJ",
-    "number": 261,
-    "title": "Research Methods I",
-    "professor": "Grad Asst"
   },
   {
     "subject": "CLJ",
@@ -17298,34 +16302,10 @@ const courseList : courseObject[] = [
     "professor": "Banjavcic, Scott David"
   },
   {
-    "subject": "CME",
-    "number": 315,
-    "title": "Soil Mechanics & Lab",
-    "professor": "Reddy, Krishna R"
-  },
-  {
-    "subject": "COMM",
-    "number": 103,
-    "title": "Intro to Media",
-    "professor": "Taylor, Samuel H"
-  },
-  {
     "subject": "COMM",
     "number": 315,
     "title": "Group Communication",
     "professor": "Jones, John A"
-  },
-  {
-    "subject": "BIOS",
-    "number": 343,
-    "title": "Animal Physiological Systems",
-    "professor": "Daemicke Hansen, Alexandra Kristin"
-  },
-  {
-    "subject": "BIOS",
-    "number": 352,
-    "title": "Introductory Biochemistry",
-    "professor": "Polikanov, Yury S"
   },
   {
     "subject": "BIOS",
@@ -17344,12 +16324,6 @@ const courseList : courseObject[] = [
     "number": 396,
     "title": "Senior Design I",
     "professor": "Browne, Michael Gordon"
-  },
-  {
-    "subject": "BME",
-    "number": 568,
-    "title": "Emerging Optical Imaging Tech",
-    "professor": "Yao, Xincheng"
   },
   {
     "subject": "BME",
@@ -17418,40 +16392,10 @@ const courseList : courseObject[] = [
     "professor": "Grad Asst"
   },
   {
-    "subject": "CLJ",
-    "number": 114,
-    "title": "Race, Class, Gender, Law",
-    "professor": "Stephens, Ash"
-  },
-  {
-    "subject": "CLJ",
-    "number": 120,
-    "title": "Crime and Society",
-    "professor": "Maggio, Christopher"
-  },
-  {
-    "subject": "CLJ",
-    "number": 492,
-    "title": "Sexual Assault: Legal Reforms",
-    "professor": "Matoesian, Greg"
-  },
-  {
-    "subject": "CME",
-    "number": 310,
-    "title": "Reinforc Concrete Struc Design",
-    "professor": "Iranmanesh, Amirhossein"
-  },
-  {
     "subject": "CME",
     "number": 396,
     "title": "Civil Engr Systems Design",
     "professor": "Ataei, Hossein"
-  },
-  {
-    "subject": "CME",
-    "number": 409,
-    "title": "Structural Analysis II",
-    "professor": "Ansari, Farhad"
   },
   {
     "subject": "CME",
@@ -17464,36 +16408,6 @@ const courseList : courseObject[] = [
     "number": 430,
     "title": "Media, Info & Society",
     "professor": "Quinn, Kelly Ann"
-  },
-  {
-    "subject": "CS",
-    "number": 251,
-    "title": "Data Structures",
-    "professor": "Ordentlich, Ethan"
-  },
-  {
-    "subject": "CS",
-    "number": 362,
-    "title": "Computer Design",
-    "professor": "Theys, Mitchell D"
-  },
-  {
-    "subject": "CS",
-    "number": 377,
-    "title": "Ethical Issues in Computing",
-    "professor": "Harmon, Zaccheus D"
-  },
-  {
-    "subject": "BLST",
-    "number": 100,
-    "title": "Introduction to Black Studies",
-    "professor": "Grad Asst"
-  },
-  {
-    "subject": "BME",
-    "number": 101,
-    "title": "Intro Biomedical Engineering",
-    "professor": "Wang, Zhinan"
   },
   {
     "subject": "BME",
@@ -17527,12 +16441,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "CELE",
-    "number": 606,
-    "title": "Critical Care Medicine",
-    "professor": "Thomas, Dorian E"
-  },
-  {
-    "subject": "CELE",
     "number": 615,
     "title": "Psychiatry - Online",
     "professor": "Grad Asst"
@@ -17548,18 +16456,6 @@ const courseList : courseObject[] = [
     "number": 520,
     "title": "Transport Phenomena",
     "professor": "Wedgewood, Lewis E"
-  },
-  {
-    "subject": "CHEM",
-    "number": 101,
-    "title": "Preparatory Chemistry",
-    "professor": "Schroeder, Lianne E"
-  },
-  {
-    "subject": "CHEM",
-    "number": 122,
-    "title": "Matter and Energy",
-    "professor": "Hatfield, Rita"
   },
   {
     "subject": "CHEM",
@@ -17610,28 +16506,10 @@ const courseList : courseObject[] = [
     "professor": "Grad Asst"
   },
   {
-    "subject": "CLER",
-    "number": 637,
-    "title": "Family Medicine Clerkship",
-    "professor": "Thomas, Dorian E"
-  },
-  {
-    "subject": "CLJ",
-    "number": 210,
-    "title": "Principles of Criminal Law",
-    "professor": "DeWald, Ronald"
-  },
-  {
     "subject": "CLJ",
     "number": 356,
     "title": "Comm Corrections & Reentry",
     "professor": "Washington, Durrell Malik"
-  },
-  {
-    "subject": "CME",
-    "number": 201,
-    "title": "Statics",
-    "professor": "Banjavcic, Scott David"
   },
   {
     "subject": "CME",
@@ -17664,30 +16542,6 @@ const courseList : courseObject[] = [
     "professor": "Grad Asst"
   },
   {
-    "subject": "BIOS",
-    "number": 310,
-    "title": "Genetics Laboratory",
-    "professor": "Chong, Jer Pin"
-  },
-  {
-    "subject": "BIOS",
-    "number": 593,
-    "title": "Intro to Lab Research",
-    "professor": "Orenic, Teresa Vales"
-  },
-  {
-    "subject": "BIOS",
-    "number": 595,
-    "title": "Departmental Seminar",
-    "professor": "Richmond, Janet Elizabeth"
-  },
-  {
-    "subject": "BME",
-    "number": 333,
-    "title": "Bioinstrumentation Lab I",
-    "professor": "Wang, Zhinan"
-  },
-  {
     "subject": "BME",
     "number": 534,
     "title": "Advanced Machine Learning",
@@ -17701,51 +16555,15 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "CELE",
-    "number": 604,
-    "title": "Core Emerg Medicine Elective",
-    "professor": "Thomas, Dorian E"
-  },
-  {
-    "subject": "CELE",
     "number": 618,
     "title": "CRITICAL CARE-SICU",
     "professor": "Grad Asst"
-  },
-  {
-    "subject": "CELE",
-    "number": 620,
-    "title": "Clinical Medical Spanish",
-    "professor": "Thomas, Dorian E"
-  },
-  {
-    "subject": "CHE",
-    "number": 311,
-    "title": "Transport Phenomena I",
-    "professor": "Torabi, Korosh"
-  },
-  {
-    "subject": "CHE",
-    "number": 595,
-    "title": "Seminar In Chem Engr Research",
-    "professor": "Mehraeen, Shafigh"
   },
   {
     "subject": "CHEM",
     "number": 101,
     "title": "Preparatory Chemistry",
     "professor": "Stec, Ewa"
-  },
-  {
-    "subject": "CHEM",
-    "number": 115,
-    "title": "General and Organic Chemistry",
-    "professor": "Hatfield, Rita"
-  },
-  {
-    "subject": "CHEM",
-    "number": 122,
-    "title": "Matter and Energy",
-    "professor": "Clark, Ginevra"
   },
   {
     "subject": "CHEM",
@@ -17797,21 +16615,9 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "CI",
-    "number": 481,
-    "title": "Foundations Bilingual/ESL Ed",
-    "professor": "Razfar, Aria"
-  },
-  {
-    "subject": "CI",
     "number": 540,
     "title": "Linguistics for Teachers",
     "professor": "Razfar, Aria"
-  },
-  {
-    "subject": "CLER",
-    "number": 602,
-    "title": "Psychiatry",
-    "professor": "Blitzstein, Sean Matthew"
   },
   {
     "subject": "CLER",
@@ -17836,12 +16642,6 @@ const courseList : courseObject[] = [
     "number": 548,
     "title": "Adv Illustration Techniques",
     "professor": "Root-Thompson, Amanda S"
-  },
-  {
-    "subject": "CELE",
-    "number": 620,
-    "title": "Doctoring in Clinical Skills",
-    "professor": "Thomas, Dorian E"
   },
   {
     "subject": "CHE",
@@ -17924,12 +16724,6 @@ const courseList : courseObject[] = [
   {
     "subject": "CLJ",
     "number": 394,
-    "title": "QUEERING CRIMINOLOGY",
-    "professor": "Stephens, Ash"
-  },
-  {
-    "subject": "CLJ",
-    "number": 394,
     "title": "THE CARCERAL CAMPUS",
     "professor": "Gurusami, Susila"
   },
@@ -17940,40 +16734,10 @@ const courseList : courseObject[] = [
     "professor": "Abokifa, Ahmed"
   },
   {
-    "subject": "COMM",
-    "number": 301,
-    "title": "Communication Research",
-    "professor": "Page, Janis Teruggi"
-  },
-  {
-    "subject": "COMM",
-    "number": 491,
-    "title": "Seminar in Media & Comm",
-    "professor": "Puig Abril, Eulalia"
-  },
-  {
-    "subject": "CS",
-    "number": 211,
-    "title": "Programming Practicum",
-    "professor": "Hayes, David P"
-  },
-  {
-    "subject": "CS",
-    "number": 377,
-    "title": "Ethical Issues in Computing",
-    "professor": "Burton, Emanuelle Neuman"
-  },
-  {
     "subject": "CS",
     "number": 401,
     "title": "Computer Algorithms I",
     "professor": "Asudeh, Abolfazl"
-  },
-  {
-    "subject": "CS",
-    "number": 401,
-    "title": "Computer Algorithms I",
-    "professor": "Kshemkalyani, Ajay D"
   },
   {
     "subject": "CS",
@@ -17986,12 +16750,6 @@ const courseList : courseObject[] = [
     "number": 441,
     "title": "Cloud Computing Objects",
     "professor": "Grechanik, Mark"
-  },
-  {
-    "subject": "CS",
-    "number": 442,
-    "title": "Software Engineering II",
-    "professor": "Bell, John T"
   },
   {
     "subject": "DES",
@@ -18012,12 +16770,6 @@ const courseList : courseObject[] = [
     "professor": "Ford, Lunaire D."
   },
   {
-    "subject": "DLG",
-    "number": 120,
-    "title": "Dialogue Seminar",
-    "professor": "France, Brandi P"
-  },
-  {
     "subject": "DOST",
     "number": 332,
     "title": "Oral/Systemc Topcs in Dent II",
@@ -18028,12 +16780,6 @@ const courseList : courseObject[] = [
     "number": 418,
     "title": "Biogeochemistry",
     "professor": "Meyer-Dombard, D'Arcy"
-  },
-  {
-    "subject": "ECE",
-    "number": 115,
-    "title": "Intro to Elec & Cmptr Eng",
-    "professor": "Kosmach, James"
   },
   {
     "subject": "ECE",
@@ -18055,39 +16801,9 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "ECON",
-    "number": 111,
-    "title": "Freakonomics",
-    "professor": "Tzachrista, Foteini"
-  },
-  {
-    "subject": "ECON",
-    "number": 215,
-    "title": "Health Economics",
-    "professor": "Grad Asst"
-  },
-  {
-    "subject": "ECON",
-    "number": 333,
-    "title": "International Economics",
-    "professor": "Pieper, Paul J"
-  },
-  {
-    "subject": "ECON",
     "number": 539,
     "title": "Microeconometrics",
     "professor": "Ost, Ben"
-  },
-  {
-    "subject": "ECON",
-    "number": 599,
-    "title": "PhD Thesis Research",
-    "professor": "Lubotsky, Darren Howard"
-  },
-  {
-    "subject": "ED",
-    "number": 100,
-    "title": "Intro to Urban Education",
-    "professor": "Larnell, Gregory Vincent"
   },
   {
     "subject": "ED",
@@ -18127,12 +16843,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "ENGL",
-    "number": 104,
-    "title": "Understanding Drama",
-    "professor": "Krall, Aaron Richard"
-  },
-  {
-    "subject": "ENGL",
     "number": 131,
     "title": "Understand Moving Image Arts",
     "professor": "Burson, Harry"
@@ -18144,24 +16854,6 @@ const courseList : courseObject[] = [
     "professor": "Drown, James Remick"
   },
   {
-    "subject": "ENGL",
-    "number": 160,
-    "title": "Academic Writing I",
-    "professor": "Romero, Katharine Chynna"
-  },
-  {
-    "subject": "ENGL",
-    "number": 161,
-    "title": "Academic Writing II",
-    "professor": "Brand, Mark Robert"
-  },
-  {
-    "subject": "COMM",
-    "number": 491,
-    "title": "Seminar in Media & Comm",
-    "professor": "Rojecki, Andrew"
-  },
-  {
     "subject": "CS",
     "number": 109,
     "title": "Prog for Engineers w/MatLab",
@@ -18169,45 +16861,9 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "CS",
-    "number": 141,
-    "title": "Program Design II",
-    "professor": "Hodges, Mark Richard"
-  },
-  {
-    "subject": "CS",
-    "number": 151,
-    "title": "Foundations of Computing",
-    "professor": "Katok, Zoa"
-  },
-  {
-    "subject": "CS",
-    "number": 261,
-    "title": "Machine Organization",
-    "professor": "Theys, Mitchell D"
-  },
-  {
-    "subject": "CS",
-    "number": 277,
-    "title": "Technical Comm in Comp Sci",
-    "professor": "Carson, Jordan Marie"
-  },
-  {
-    "subject": "CS",
-    "number": 294,
-    "title": "Technical Interview Prep",
-    "professor": "Kanich, Chris"
-  },
-  {
-    "subject": "CS",
     "number": 362,
     "title": "Computer Design",
     "professor": "McCarty, Evan"
-  },
-  {
-    "subject": "CS",
-    "number": 377,
-    "title": "Ethical Issues in Computing",
-    "professor": "Grad Asst"
   },
   {
     "subject": "CS",
@@ -18240,12 +16896,6 @@ const courseList : courseObject[] = [
     "professor": "Kanich, Chris"
   },
   {
-    "subject": "CS",
-    "number": 491,
-    "title": "Seminar",
-    "professor": "Di Eugenio, Barbara"
-  },
-  {
     "subject": "DAOB",
     "number": 322,
     "title": "Applied Oral and Behav Sci IV",
@@ -18256,18 +16906,6 @@ const courseList : courseObject[] = [
     "number": 130,
     "title": "3D Form Studio",
     "professor": "Grad Asst"
-  },
-  {
-    "subject": "DES",
-    "number": 130,
-    "title": "3D Form Studio",
-    "professor": "Twaddle, Alexander Giuseppe"
-  },
-  {
-    "subject": "DES",
-    "number": 150,
-    "title": "Digital Media Design I",
-    "professor": "Flemister, Stephen"
   },
   {
     "subject": "DES",
@@ -18330,18 +16968,6 @@ const courseList : courseObject[] = [
     "professor": "Isola, Miriam L."
   },
   {
-    "subject": "BIOS",
-    "number": 110,
-    "title": "Biol of Cells & Organisms",
-    "professor": "Daemicke Hansen, Alexandra Kristin"
-  },
-  {
-    "subject": "BIOS",
-    "number": 595,
-    "title": "Departmental Seminar",
-    "professor": "Orenic, Teresa Vales"
-  },
-  {
     "subject": "BLST",
     "number": 110,
     "title": "Intro Af Am Lit, 1760-1910",
@@ -18372,18 +16998,6 @@ const courseList : courseObject[] = [
     "professor": "Lin, Meishan"
   },
   {
-    "subject": "BME",
-    "number": 599,
-    "title": "Ph.D. Thesis Research",
-    "professor": "Khetani, Salman"
-  },
-  {
-    "subject": "BME",
-    "number": 599,
-    "title": "Ph.D. Thesis Research",
-    "professor": "Yao, Xincheng"
-  },
-  {
     "subject": "BVIS",
     "number": 502,
     "title": "Clin Sciences for BVIS",
@@ -18408,12 +17022,6 @@ const courseList : courseObject[] = [
     "professor": "Grad Asst"
   },
   {
-    "subject": "CELE",
-    "number": 606,
-    "title": "Infectious Diseases",
-    "professor": "Thomas, Dorian E"
-  },
-  {
     "subject": "CHE",
     "number": 312,
     "title": "Transport Phenomena II",
@@ -18430,12 +17038,6 @@ const courseList : courseObject[] = [
     "number": 499,
     "title": "Professional Develpmnt Seminar",
     "professor": "Zdunek, Alan"
-  },
-  {
-    "subject": "CHEM",
-    "number": 124,
-    "title": "Chemical Dynamics",
-    "professor": "Stec, Ewa"
   },
   {
     "subject": "CHEM",
@@ -18486,12 +17088,6 @@ const courseList : courseObject[] = [
     "professor": "Ros, Karen E"
   },
   {
-    "subject": "CLER",
-    "number": 605,
-    "title": "Medicine",
-    "professor": "Khan, Asra R"
-  },
-  {
     "subject": "CS",
     "number": 412,
     "title": "Intro to Machine Learning",
@@ -18522,12 +17118,6 @@ const courseList : courseObject[] = [
     "professor": "Hayes, David P"
   },
   {
-    "subject": "CS",
-    "number": 599,
-    "title": "PhD Thesis Research",
-    "professor": "Yu, Philip S"
-  },
-  {
     "subject": "DES",
     "number": 120,
     "title": "2D Form Studio",
@@ -18544,12 +17134,6 @@ const courseList : courseObject[] = [
     "number": 140,
     "title": "Design Drawing",
     "professor": "Grad Asst"
-  },
-  {
-    "subject": "DES",
-    "number": 140,
-    "title": "Design Drawing",
-    "professor": "Rynkiewicz, Jacob"
   },
   {
     "subject": "DES",
@@ -18574,12 +17158,6 @@ const courseList : courseObject[] = [
     "number": 501,
     "title": "Research Seminar I",
     "professor": "Brown, Jefferson Dakota"
-  },
-  {
-    "subject": "DHD",
-    "number": 303,
-    "title": "Disability Activism",
-    "professor": "Nishida, Akemi"
   },
   {
     "subject": "DHD",
@@ -18630,12 +17208,6 @@ const courseList : courseObject[] = [
     "professor": "Banerjee, Aritra"
   },
   {
-    "subject": "ECE",
-    "number": 599,
-    "title": "PhD Thesis Research",
-    "professor": "Partin Vaisband, Inna"
-  },
-  {
     "subject": "ECON",
     "number": 475,
     "title": "Urban Econ and Public Policy",
@@ -18646,12 +17218,6 @@ const courseList : courseObject[] = [
     "number": 101,
     "title": "Critical Literacies in a Digit",
     "professor": "Grad Asst"
-  },
-  {
-    "subject": "ED",
-    "number": 200,
-    "title": "Educ Policy Foundations",
-    "professor": "Lipman, Pauline J."
   },
   {
     "subject": "ED",
@@ -18670,24 +17236,6 @@ const courseList : courseObject[] = [
     "number": 100,
     "title": "Discovering Computer Science",
     "professor": "Bell, John T"
-  },
-  {
-    "subject": "CS",
-    "number": 377,
-    "title": "Ethical Issues in Computing",
-    "professor": "Clayville, Kristel"
-  },
-  {
-    "subject": "CS",
-    "number": 401,
-    "title": "Computer Algorithms I",
-    "professor": "Ibrahim, Omar"
-  },
-  {
-    "subject": "CS",
-    "number": 411,
-    "title": "Artificial Intelligence I",
-    "professor": "Gmytrasiewicz, Piotr"
   },
   {
     "subject": "CS",
@@ -18724,12 +17272,6 @@ const courseList : courseObject[] = [
     "number": 594,
     "title": "Found. of Permissionless Sys.",
     "professor": "Sidiropoulos, Anastasios"
-  },
-  {
-    "subject": "CS",
-    "number": 598,
-    "title": "MS Thesis Research",
-    "professor": "Di Eugenio, Barbara"
   },
   {
     "subject": "DAOB",
@@ -18805,24 +17347,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "ECE",
-    "number": 322,
-    "title": "Intro to Electromag and Appl",
-    "professor": "Erricolo, Danilo"
-  },
-  {
-    "subject": "ECE",
-    "number": 333,
-    "title": "Computer Comm Networks I",
-    "professor": "Abu Salah, Lo'Ay Mohammad"
-  },
-  {
-    "subject": "ECE",
-    "number": 341,
-    "title": "Probabil &Rand Proc for Engr",
-    "professor": "Gunderman, Lane Gabriel"
-  },
-  {
-    "subject": "ECE",
     "number": 410,
     "title": "Advanced Circuit Analysis",
     "professor": "Goncharoff, Vladimir"
@@ -18871,12 +17395,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "ENGL",
-    "number": 151,
-    "title": "Intro to Academic Writing",
-    "professor": "Gayle, Robin Carole Petrovic"
-  },
-  {
-    "subject": "ENGL",
     "number": 154,
     "title": "Understanding Rhetoric",
     "professor": "Shearer, Jay B"
@@ -18891,25 +17409,7 @@ const courseList : courseObject[] = [
     "subject": "ENGL",
     "number": 160,
     "title": "Academic Writing I",
-    "professor": "He, Ling"
-  },
-  {
-    "subject": "ENGL",
-    "number": 160,
-    "title": "Academic Writing I",
     "professor": "Stolley, Lisa Anne"
-  },
-  {
-    "subject": "ENGL",
-    "number": 161,
-    "title": "Academic Writing II",
-    "professor": "Dertinger, Nicholas"
-  },
-  {
-    "subject": "ENGL",
-    "number": 161,
-    "title": "Academic Writing II",
-    "professor": "Magoon, Mark"
   },
   {
     "subject": "ENGL",
@@ -18931,24 +17431,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "ENGL",
-    "number": 290,
-    "title": "Intro Writ Poetry",
-    "professor": "Grad Asst"
-  },
-  {
-    "subject": "ENGL",
-    "number": 291,
-    "title": "Intro Writing of Fiction",
-    "professor": "Grad Asst"
-  },
-  {
-    "subject": "ENGL",
-    "number": 380,
-    "title": "Adv Professional Writing",
-    "professor": "Hayek, Philip Wesley"
-  },
-  {
-    "subject": "ENGL",
     "number": 389,
     "title": "Writing for Community Advocacy",
     "professor": "Leick, Karen"
@@ -18958,18 +17440,6 @@ const courseList : courseObject[] = [
     "number": 482,
     "title": "Writing Center Leadership",
     "professor": "Guerrero, Antonio"
-  },
-  {
-    "subject": "ENGR",
-    "number": 100,
-    "title": "ECE Success Seminar - FYF",
-    "professor": "Narubin Durbin, Simona Ieva"
-  },
-  {
-    "subject": "ENGR",
-    "number": 100,
-    "title": "MIE Success Seminar - FYF",
-    "professor": "Narubin Durbin, Simona Ieva"
   },
   {
     "subject": "ENGR",
@@ -19003,12 +17473,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "COMM",
-    "number": 204,
-    "title": "Gender and Popular Culture",
-    "professor": "Celeste, Manoucheka"
-  },
-  {
-    "subject": "COMM",
     "number": 303,
     "title": "Communication and Culture",
     "professor": "Maris, Elena Rosa"
@@ -19018,24 +17482,6 @@ const courseList : courseObject[] = [
     "number": 330,
     "title": "Mass Media and Pop Cultur",
     "professor": "Mukherjee, Ishani"
-  },
-  {
-    "subject": "COMM",
-    "number": 445,
-    "title": "Politics of Platforms",
-    "professor": "Maris, Elena Rosa"
-  },
-  {
-    "subject": "COMM",
-    "number": 490,
-    "title": "Sem in Culture and Comm",
-    "professor": "Taylor, Samuel H"
-  },
-  {
-    "subject": "CS",
-    "number": 361,
-    "title": "Systems Programming",
-    "professor": "Maratos, George P"
   },
   {
     "subject": "CS",
@@ -19104,22 +17550,10 @@ const courseList : courseObject[] = [
     "professor": "Cetin, Ahmet Enis"
   },
   {
-    "subject": "ECON",
-    "number": 300,
-    "title": "Econometrics",
-    "professor": "Grad Asst"
-  },
-  {
     "subject": "ED",
     "number": 151,
     "title": "College Connection I",
     "professor": "Redding, Lori Ann"
-  },
-  {
-    "subject": "ED",
-    "number": 252,
-    "title": "Controversies in U.S. Schools",
-    "professor": "Grad Asst"
   },
   {
     "subject": "ED",
@@ -19158,12 +17592,6 @@ const courseList : courseObject[] = [
     "professor": "Grad Asst"
   },
   {
-    "subject": "ELSI",
-    "number": 43,
-    "title": "Engl for Academic Purposes II",
-    "professor": "Buendia, Jenna Rashel"
-  },
-  {
     "subject": "CS",
     "number": 421,
     "title": "Language Processing",
@@ -19174,12 +17602,6 @@ const courseList : courseObject[] = [
     "number": 423,
     "title": "Natural User Interactions",
     "professor": "Soni, Nikita Nandish"
-  },
-  {
-    "subject": "CS",
-    "number": 479,
-    "title": "Wearables Technology Lab",
-    "professor": "Esmailbeigi, Hananeh"
   },
   {
     "subject": "CS",
@@ -19198,12 +17620,6 @@ const courseList : courseObject[] = [
     "number": 324,
     "title": "Biomed and Clin Sciences IV",
     "professor": "Miloro, Mary Beth"
-  },
-  {
-    "subject": "DES",
-    "number": 160,
-    "title": "Design Photography",
-    "professor": "Nichols, Lauren Manning"
   },
   {
     "subject": "DES",
@@ -19231,33 +17647,9 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "DHD",
-    "number": 201,
-    "title": "Disability, Rights, & Culture",
-    "professor": "Horowitz, Emily A"
-  },
-  {
-    "subject": "DHD",
     "number": 301,
     "title": "Disability Research Methods",
     "professor": "Murthy, Sumithra"
-  },
-  {
-    "subject": "DHD",
-    "number": 401,
-    "title": "DHD & Community Participation",
-    "professor": "Berg, Kristin Lee"
-  },
-  {
-    "subject": "DLG",
-    "number": 120,
-    "title": "Dialogue Seminar",
-    "professor": "Ellis, Christopher Keith"
-  },
-  {
-    "subject": "DLG",
-    "number": 120,
-    "title": "Dialogue Seminar",
-    "professor": "Pleasant, Aisha-Kia Chawnelle"
   },
   {
     "subject": "DLG",
@@ -19309,21 +17701,9 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "ECON",
-    "number": 120,
-    "title": "Principles of Microeconomics",
-    "professor": "Tauras, John Arvydas"
-  },
-  {
-    "subject": "ECON",
     "number": 331,
     "title": "Labor Economics",
     "professor": "Ost, Ben"
-  },
-  {
-    "subject": "ECON",
-    "number": 334,
-    "title": "Economic Development",
-    "professor": "Grad Asst"
   },
   {
     "subject": "ECON",
@@ -19345,38 +17725,8 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "EPSY",
-    "number": 471,
-    "title": "Healthy Development Trauma",
-    "professor": "Torres, Stephanie Andrea"
-  },
-  {
-    "subject": "EPSY",
     "number": 522,
     "title": "Internship in Early Childhood",
-    "professor": "Grad Asst"
-  },
-  {
-    "subject": "FIN",
-    "number": 250,
-    "title": "Personal Finance",
-    "professor": "Bateman, Donald Andrew"
-  },
-  {
-    "subject": "FR",
-    "number": 101,
-    "title": "Elementary French 1",
-    "professor": "Grad Asst"
-  },
-  {
-    "subject": "FR",
-    "number": 103,
-    "title": "Intermediate French I",
-    "professor": "Chidlow, Angela"
-  },
-  {
-    "subject": "FR",
-    "number": 104,
-    "title": "Intermediate French II",
     "professor": "Grad Asst"
   },
   {
@@ -19384,12 +17734,6 @@ const courseList : courseObject[] = [
     "number": 214,
     "title": "Popular Culture and Media",
     "professor": "Weber, Elizabeth D"
-  },
-  {
-    "subject": "GEOG",
-    "number": 161,
-    "title": "Intro to Economic Geog",
-    "professor": "Furlong, Matthew Murphy"
   },
   {
     "subject": "HIM",
@@ -19459,27 +17803,9 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "IDS",
-    "number": 200,
-    "title": "Intro Mgmt Info System",
-    "professor": "Khan, Asfia F"
-  },
-  {
-    "subject": "IDS",
     "number": 270,
     "title": "Business Statistics I",
     "professor": "Sclove, Stanley L"
-  },
-  {
-    "subject": "IDS",
-    "number": 270,
-    "title": "Business Statistics I",
-    "professor": "Talukdar, Manjuri"
-  },
-  {
-    "subject": "IDS",
-    "number": 355,
-    "title": "Operations Management",
-    "professor": "Adelman, Canan"
   },
   {
     "subject": "IDS",
@@ -19513,12 +17839,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "CME",
-    "number": 411,
-    "title": "Chem For Environ Professionals",
-    "professor": "Bentel, Michael J"
-  },
-  {
-    "subject": "CME",
     "number": 422,
     "title": "Wastewater Treatment",
     "professor": "Stabryla, Lisa"
@@ -19540,12 +17860,6 @@ const courseList : courseObject[] = [
     "number": 591,
     "title": "Civil &Material Eng Internship",
     "professor": "Ataei, Hossein"
-  },
-  {
-    "subject": "CS",
-    "number": 111,
-    "title": "Program Design I",
-    "professor": "Franke, Baker E"
   },
   {
     "subject": "CS",
@@ -19609,12 +17923,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "DES",
-    "number": 170,
-    "title": "Color Theory",
-    "professor": "Flemister, Stephen"
-  },
-  {
-    "subject": "DES",
     "number": 208,
     "title": "Typography I: Form",
     "professor": "Barontini, Rafael"
@@ -19645,27 +17953,9 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "DHD",
-    "number": 101,
-    "title": "Disability in U.S. Society",
-    "professor": "van Heumen, Lieke"
-  },
-  {
-    "subject": "DHD",
-    "number": 204,
-    "title": "Disability in the Humanities",
-    "professor": "Vaidya, Shruti"
-  },
-  {
-    "subject": "DHD",
     "number": 440,
     "title": "Intro to Assistive Tech",
     "professor": "Hedman, Glenn"
-  },
-  {
-    "subject": "ECON",
-    "number": 520,
-    "title": "Microecon for Business",
-    "professor": "Ma, Lingjie"
   },
   {
     "subject": "ED",
@@ -19693,24 +17983,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "ENGL",
-    "number": 160,
-    "title": "Academic Writing I",
-    "professor": "Grad Asst"
-  },
-  {
-    "subject": "ENGL",
-    "number": 160,
-    "title": "Academic Writing I",
-    "professor": "Rupert, Jennifer"
-  },
-  {
-    "subject": "ENGL",
-    "number": 161,
-    "title": "Academic Writing II",
-    "professor": "Drown, James Remick"
-  },
-  {
-    "subject": "ENGL",
     "number": 161,
     "title": "Academic Writing II",
     "professor": "Hayek, Philip Wesley"
@@ -19729,12 +18001,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "ENGL",
-    "number": 238,
-    "title": "Fiction, Sci-Fi & Fantasy",
-    "professor": "Mohanraj, Mary Anne"
-  },
-  {
-    "subject": "ENGL",
     "number": 292,
     "title": "Intro Writ Nonfiction Prose",
     "professor": "O'Neil, Kimberly Jean"
@@ -19744,12 +18010,6 @@ const courseList : courseObject[] = [
     "number": 500,
     "title": "Master's Proseminar",
     "professor": "Davis, Lennard J"
-  },
-  {
-    "subject": "ENGR",
-    "number": 100,
-    "title": "CME Success Seminar - Transfer",
-    "professor": "Narubin Durbin, Simona Ieva"
   },
   {
     "subject": "ENGR",
@@ -19795,12 +18055,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "EPSY",
-    "number": 522,
-    "title": "Internship in Early Childhood",
-    "professor": "Abel, Barbara"
-  },
-  {
-    "subject": "EPSY",
     "number": 551,
     "title": "Item Response Theory",
     "professor": "Karabatsos, George"
@@ -19810,12 +18064,6 @@ const courseList : courseObject[] = [
     "number": 594,
     "title": "Spcl Topics in Ed Psych",
     "professor": "Hall, Jori N"
-  },
-  {
-    "subject": "FIN",
-    "number": 300,
-    "title": "Intro to Finance",
-    "professor": "Diaz Bianco, Aaron"
   },
   {
     "subject": "FIN",
@@ -19843,39 +18091,9 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "ECON",
-    "number": 121,
-    "title": "Principles of Macroeconomics",
-    "professor": "Ahundjanov, Behzod"
-  },
-  {
-    "subject": "ECON",
-    "number": 121,
-    "title": "Principles of Macroeconomics",
-    "professor": "Grad Asst"
-  },
-  {
-    "subject": "ECON",
-    "number": 221,
-    "title": "Macroeconomics",
-    "professor": "Grad Asst"
-  },
-  {
-    "subject": "ECON",
     "number": 342,
     "title": "Regional Economics",
     "professor": "Persky, Joseph Jacob"
-  },
-  {
-    "subject": "ED",
-    "number": 200,
-    "title": "Educ Policy Foundations",
-    "professor": "Danns, Dionne A"
-  },
-  {
-    "subject": "ED",
-    "number": 307,
-    "title": "Nature & Practices of Nat Sci",
-    "professor": "Grad Asst"
   },
   {
     "subject": "ED",
@@ -19890,12 +18108,6 @@ const courseList : courseObject[] = [
     "professor": "Nelson, Rita Sherrod"
   },
   {
-    "subject": "ENDO",
-    "number": 620,
-    "title": "Endodontics Clinic",
-    "professor": "Johnson, Bradford Ray"
-  },
-  {
     "subject": "ENGL",
     "number": 160,
     "title": "Academic Writing I",
@@ -19903,51 +18115,9 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "ENGL",
-    "number": 161,
-    "title": "Academic Writing II",
-    "professor": "Hiday, Corbin R"
-  },
-  {
-    "subject": "ENGL",
-    "number": 161,
-    "title": "Academic Writing II",
-    "professor": "Sherfinski, Todd"
-  },
-  {
-    "subject": "ENGL",
-    "number": 237,
-    "title": "Graphic Novels",
-    "professor": "Lannon, Keegan"
-  },
-  {
-    "subject": "ENGL",
-    "number": 382,
-    "title": "Editing and Publishing",
-    "professor": "Christian, Margena A"
-  },
-  {
-    "subject": "ENGL",
     "number": 384,
     "title": "Technical Writing",
     "professor": "Hayek, Philip Wesley"
-  },
-  {
-    "subject": "ENGL",
-    "number": 571,
-    "title": "Fiction Workshop",
-    "professor": "Grimes, Christopher"
-  },
-  {
-    "subject": "ENGR",
-    "number": 100,
-    "title": "Engr Success Seminar - online",
-    "professor": "Narubin Durbin, Simona Ieva"
-  },
-  {
-    "subject": "ENTR",
-    "number": 310,
-    "title": "Intro to Entrepreneurship",
-    "professor": "Ibrahim, Shahnaz"
   },
   {
     "subject": "EPID",
@@ -19969,18 +18139,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "EPSY",
-    "number": 256,
-    "title": "Adolescent & Early Adult Dev",
-    "professor": "Katsiaficas, Dalal Chrysoula Hanna"
-  },
-  {
-    "subject": "EPSY",
-    "number": 326,
-    "title": "Child Hlth Safety & Nutrition",
-    "professor": "Grad Asst"
-  },
-  {
-    "subject": "EPSY",
     "number": 380,
     "title": "Instruct Design and Training",
     "professor": "Riel, Jeremy"
@@ -19993,45 +18151,15 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "EPSY",
-    "number": 522,
-    "title": "Internship in Early Childhood",
-    "professor": "Delgado, Christina"
-  },
-  {
-    "subject": "EPSY",
     "number": 543,
     "title": "Adv Analysis Variance/Ed Res",
     "professor": "Yin, Yue"
   },
   {
     "subject": "ENGL",
-    "number": 161,
-    "title": "Academic Writing II",
-    "professor": "Brici, Ovidiu"
-  },
-  {
-    "subject": "ENGL",
-    "number": 161,
-    "title": "Academic Writing II",
-    "professor": "Guerrero, Antonio"
-  },
-  {
-    "subject": "ENGL",
-    "number": 237,
-    "title": "Graphic Novels",
-    "professor": "Drown, James Remick"
-  },
-  {
-    "subject": "ENGL",
     "number": 253,
     "title": "Environmental Rhetoric",
     "professor": "Boulay, Katherine"
-  },
-  {
-    "subject": "ENGL",
-    "number": 282,
-    "title": "Peer Tutoring in Writing Ctr",
-    "professor": "Aleksa, Vainis"
   },
   {
     "subject": "ENGL",
@@ -20046,34 +18174,10 @@ const courseList : courseObject[] = [
     "professor": "Coviello, Peter M"
   },
   {
-    "subject": "ENGR",
-    "number": 100,
-    "title": "BME Success Seminar - Transfer",
-    "professor": "Narubin Durbin, Simona Ieva"
-  },
-  {
-    "subject": "ENGR",
-    "number": 100,
-    "title": "CME Success Seminar - FYF",
-    "professor": "Narubin Durbin, Simona Ieva"
-  },
-  {
-    "subject": "ENTR",
-    "number": 200,
-    "title": "Survey of Entrepreneurship",
-    "professor": "Shrader, Rodney C"
-  },
-  {
     "subject": "EPID",
     "number": 406,
     "title": "Epidemiologic Computing",
     "professor": "Rauscher, Garth H"
-  },
-  {
-    "subject": "EPSY",
-    "number": 382,
-    "title": "Child, Family, and Comm",
-    "professor": "Torres, Stephanie Andrea"
   },
   {
     "subject": "EPSY",
@@ -20089,12 +18193,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "FIN",
-    "number": 300,
-    "title": "Intro to Finance",
-    "professor": "Shea, Justin M"
-  },
-  {
-    "subject": "FIN",
     "number": 340,
     "title": "International Financial Market",
     "professor": "Arslan Ayaydin, Ozgur"
@@ -20104,18 +18202,6 @@ const courseList : courseObject[] = [
     "number": 422,
     "title": "Alternative Investments",
     "professor": "Farre-Mensa, Joan"
-  },
-  {
-    "subject": "FR",
-    "number": 103,
-    "title": "Intermediate French I",
-    "professor": "Grad Asst"
-  },
-  {
-    "subject": "GAMD",
-    "number": 200,
-    "title": "Art & Science of Medicine",
-    "professor": "Swirsky, Eric S"
   },
   {
     "subject": "GEMS",
@@ -20143,33 +18229,15 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "HIST",
-    "number": 199,
-    "title": "Chicago and the World",
-    "professor": "Davis, Cory A"
-  },
-  {
-    "subject": "HIST",
     "number": 213,
     "title": "Europe: 1815 -1914",
     "professor": "Abbott, John"
   },
   {
     "subject": "HN",
-    "number": 100,
-    "title": "Intro to Nutrition",
-    "professor": "Lam, Uyen"
-  },
-  {
-    "subject": "HN",
     "number": 201,
     "title": "Nutr, Phys Activ, &Hlth Assess",
     "professor": "Straughan, Kirsten Annika"
-  },
-  {
-    "subject": "HN",
-    "number": 202,
-    "title": "Culture and Food",
-    "professor": "Fantuzzi, Giamila"
   },
   {
     "subject": "FR",
@@ -20208,12 +18276,6 @@ const courseList : courseObject[] = [
     "professor": "Chiang, Mark"
   },
   {
-    "subject": "HIM",
-    "number": 410,
-    "title": "Intro to the Hlthcare Sys",
-    "professor": "Einhorn, George W"
-  },
-  {
     "subject": "HIST",
     "number": 204,
     "title": "Greek Art & Archaeology",
@@ -20230,12 +18292,6 @@ const courseList : courseObject[] = [
     "number": 405,
     "title": "Food as Medicine",
     "professor": "Wadhwa, Meenakshi"
-  },
-  {
-    "subject": "HN",
-    "number": 455,
-    "title": "Supervised Practice II",
-    "professor": "Oshita, Shayna Emily"
   },
   {
     "subject": "HON",
@@ -20317,24 +18373,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "IDS",
-    "number": 406,
-    "title": "IDS Consulting Practicum",
-    "professor": "Chandrasekaran, Ranganathan"
-  },
-  {
-    "subject": "IDS",
-    "number": 520,
-    "title": "Info Infrastruc & Security",
-    "professor": "Mohammed, Mustafa N"
-  },
-  {
-    "subject": "IDS",
-    "number": 567,
-    "title": "Business Data Visualization",
-    "professor": "Grad Asst"
-  },
-  {
-    "subject": "IDS",
     "number": 558,
     "title": "Revenue Management",
     "professor": "Kamble, Vijay S"
@@ -20344,12 +18382,6 @@ const courseList : courseObject[] = [
     "number": 342,
     "title": "Probability & Stat for Engr",
     "professor": "Li, Lin"
-  },
-  {
-    "subject": "IE",
-    "number": 594,
-    "title": "Data Science 1",
-    "professor": "Anahideh, Hadis"
   },
   {
     "subject": "IPHS",
@@ -20362,18 +18394,6 @@ const courseList : courseObject[] = [
     "number": 520,
     "title": "Foundations of Public Health",
     "professor": "Almberg, Kirsten Staggs"
-  },
-  {
-    "subject": "IPHS",
-    "number": 650,
-    "title": "Applied Practice Experience",
-    "professor": "Peterson, Caryn Elizabeth"
-  },
-  {
-    "subject": "IPHS",
-    "number": 650,
-    "title": "Applied Practice Experience",
-    "professor": "Shade McCay, Michele LaVerne"
   },
   {
     "subject": "ITAL",
@@ -20404,12 +18424,6 @@ const courseList : courseObject[] = [
     "number": 232,
     "title": "Anatomy & Physiology Lab I",
     "professor": "Carrillo, Alejandro"
-  },
-  {
-    "subject": "KN",
-    "number": 254,
-    "title": "Human Anatomy & Phys II",
-    "professor": "Corbo, Gillian"
   },
   {
     "subject": "KN",
@@ -20445,25 +18459,7 @@ const courseList : courseObject[] = [
     "subject": "LAW",
     "number": 422,
     "title": "LSIII",
-    "professor": "Castaneda, Eric E"
-  },
-  {
-    "subject": "LAW",
-    "number": 422,
-    "title": "LSIII",
-    "professor": "Finkle, Lester Wolfe"
-  },
-  {
-    "subject": "LAW",
-    "number": 422,
-    "title": "LSIII",
     "professor": "Holtkamp, David"
-  },
-  {
-    "subject": "LAW",
-    "number": 532,
-    "title": "3rd yr only Writng for Pra Law",
-    "professor": "Sahota, Ravinder Singh"
   },
   {
     "subject": "LAW",
@@ -20478,22 +18474,10 @@ const courseList : courseObject[] = [
     "professor": "Mock, William"
   },
   {
-    "subject": "LAW",
-    "number": 585,
-    "title": "RIPL Bd",
-    "professor": "Beschle, Donald L"
-  },
-  {
     "subject": "LING",
     "number": 230,
     "title": "Semantics/Pragmatics/Discourse",
     "professor": "Xiang, Xuehua"
-  },
-  {
-    "subject": "MATH",
-    "number": 110,
-    "title": "College Algebra",
-    "professor": "McNamara, Alycia A"
   },
   {
     "subject": "MATH",
@@ -20527,21 +18511,9 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "HPA",
-    "number": 407,
-    "title": "Fundamentals Emergency Mgmt",
-    "professor": "Sambanis, Apostolis Stefanos"
-  },
-  {
-    "subject": "HPA",
     "number": 567,
     "title": "Public Health Policy Analysis",
     "professor": "Hamilton, Kristina Ashley"
-  },
-  {
-    "subject": "IDS",
-    "number": 371,
-    "title": "Business Statistics II",
-    "professor": "Adelman, Canan"
   },
   {
     "subject": "IE",
@@ -20593,33 +18565,15 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "JD",
-    "number": 414,
-    "title": "Const Law I",
-    "professor": "Ford, William K"
-  },
-  {
-    "subject": "JD",
     "number": 421,
     "title": "Civil Procedure II",
     "professor": "Raba, Anna Claire Johnson"
   },
   {
     "subject": "KN",
-    "number": 372,
-    "title": "Motor Control & Learning",
-    "professor": "Goelz, Lisa Gim Chin"
-  },
-  {
-    "subject": "KN",
     "number": 491,
     "title": "Professional Preparation",
     "professor": "Bullard, Kendra Leeann"
-  },
-  {
-    "subject": "KN",
-    "number": 495,
-    "title": "Senior Seminar",
-    "professor": "Miller, Joshua"
   },
   {
     "subject": "KN",
@@ -20664,12 +18618,6 @@ const courseList : courseObject[] = [
     "professor": "Schiltz, Eugene J"
   },
   {
-    "subject": "LAW",
-    "number": 422,
-    "title": "LSIII",
-    "professor": "Stevenson, Tracy E"
-  },
-  {
     "subject": "ELSI",
     "number": 48,
     "title": "Live, Learn, Grow: Bridge",
@@ -20677,27 +18625,9 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "ENGL",
-    "number": 135,
-    "title": "Understanding Popular Culture",
-    "professor": "Grad Asst"
-  },
-  {
-    "subject": "ENGL",
     "number": 150,
     "title": "Intro Acad Writing Nonnat",
     "professor": "Williams, Charitianne"
-  },
-  {
-    "subject": "ENGL",
-    "number": 154,
-    "title": "Understanding Rhetoric",
-    "professor": "Lannon, Keegan"
-  },
-  {
-    "subject": "ENGL",
-    "number": 159,
-    "title": "Academic Writing Workshop",
-    "professor": "Bohne, Amanda"
   },
   {
     "subject": "ENGL",
@@ -20727,12 +18657,6 @@ const courseList : courseObject[] = [
     "subject": "ENGL",
     "number": 160,
     "title": "Academic Writing I",
-    "professor": "McShane, Heather Ann"
-  },
-  {
-    "subject": "ENGL",
-    "number": 160,
-    "title": "Academic Writing I",
     "professor": "Primeau, Sarah J"
   },
   {
@@ -20743,45 +18667,9 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "ENGL",
-    "number": 161,
-    "title": "Academic Writing II",
-    "professor": "Lewis, Jennifer V."
-  },
-  {
-    "subject": "ENGL",
-    "number": 247,
-    "title": "Women & Lit",
-    "professor": "Arrizon-Palomera, Esmeralda"
-  },
-  {
-    "subject": "ENGL",
-    "number": 480,
-    "title": "Intro to Teaching Engl",
-    "professor": "Johnson, Lauren Elizabeth Reine"
-  },
-  {
-    "subject": "ENGL",
-    "number": 487,
-    "title": "Teaching of Reading & Lit",
-    "professor": "Kindelsperger, Abigail Parker"
-  },
-  {
-    "subject": "ENGL",
     "number": 490,
     "title": "Adv Writing of Poetry",
     "professor": "Pugh, Christina A"
-  },
-  {
-    "subject": "ENGR",
-    "number": 100,
-    "title": "CHE Success Seminar - FYF",
-    "professor": "Narubin Durbin, Simona Ieva"
-  },
-  {
-    "subject": "ENTR",
-    "number": 445,
-    "title": "New Venture Planning",
-    "professor": "Hogan, Daniel Mark"
   },
   {
     "subject": "EPSY",
@@ -20803,18 +18691,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "EPSY",
-    "number": 494,
-    "title": "Topics in Ed Psychology",
-    "professor": "Sheridan, Kathleen M"
-  },
-  {
-    "subject": "EPSY",
-    "number": 503,
-    "title": "Quantitative Inquiry in Ed",
-    "professor": "Smith, Everett V"
-  },
-  {
-    "subject": "EPSY",
     "number": 547,
     "title": "Multiple Regress in Educ",
     "professor": "Yin, Yue"
@@ -20832,40 +18708,16 @@ const courseList : courseObject[] = [
     "professor": "Hu, Xiaoqing"
   },
   {
-    "subject": "FIN",
-    "number": 320,
-    "title": "Managerial Finance",
-    "professor": "Erturk, Bilal"
-  },
-  {
     "subject": "DHD",
     "number": 562,
     "title": "Built-In Accessibility Options",
     "professor": "Hooyenga, Kathy A"
   },
   {
-    "subject": "DLG",
-    "number": 120,
-    "title": "Dialogue Seminar",
-    "professor": "Baguilat, Rae Joyce"
-  },
-  {
-    "subject": "ECE",
-    "number": 415,
-    "title": "Imag Analysis & Compt Visn I",
-    "professor": "Cetin, Ahmet Enis"
-  },
-  {
     "subject": "ECE",
     "number": 458,
     "title": "Electromech Energy Conversn",
     "professor": "Caliskan, Vahe"
-  },
-  {
-    "subject": "ECE",
-    "number": 499,
-    "title": "Prof. Development Seminar",
-    "professor": "Kosmach, James"
   },
   {
     "subject": "ECE",
@@ -20899,12 +18751,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "ED",
-    "number": 502,
-    "title": "Qualitative Inquiry in Ed",
-    "professor": "Thomas, Michael K"
-  },
-  {
-    "subject": "ED",
     "number": 504,
     "title": "Urban Contexts and Ed Research",
     "professor": "Lac, Van T"
@@ -20914,18 +18760,6 @@ const courseList : courseObject[] = [
     "number": 520,
     "title": "City as Campus",
     "professor": "Palmer, Gordon John Martin"
-  },
-  {
-    "subject": "EDPS",
-    "number": 592,
-    "title": "Prof Career Training in EDPS",
-    "professor": "Barron, Cynthia K"
-  },
-  {
-    "subject": "ELSI",
-    "number": 13,
-    "title": "Reading/Writing 3, IEP",
-    "professor": "May, Kristine H"
   },
   {
     "subject": "ELSI",
@@ -20967,12 +18801,6 @@ const courseList : courseObject[] = [
     "subject": "ENGL",
     "number": 160,
     "title": "Academic Writing I",
-    "professor": "Croken, Ryan M"
-  },
-  {
-    "subject": "ENGL",
-    "number": 160,
-    "title": "Academic Writing I",
     "professor": "Goldbach, John S"
   },
   {
@@ -20983,51 +18811,9 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "ENGL",
-    "number": 161,
-    "title": "Academic Writing II",
-    "professor": "Costello, Virginia M"
-  },
-  {
-    "subject": "ENGL",
-    "number": 161,
-    "title": "Academic Writing II",
-    "professor": "Jones, Adam"
-  },
-  {
-    "subject": "ENGL",
     "number": 223,
     "title": "Intro Colonial and Postcol Lit",
     "professor": "Agnani, Sunil M"
-  },
-  {
-    "subject": "ENGL",
-    "number": 230,
-    "title": "Intro to Film and Culture",
-    "professor": "Dancey, Angela C"
-  },
-  {
-    "subject": "FIN",
-    "number": 411,
-    "title": "Retirement and Estate Planning",
-    "professor": "Arnold, Warren David"
-  },
-  {
-    "subject": "FIN",
-    "number": 415,
-    "title": "Fixed Income Securities",
-    "professor": "Lin, Jerchern"
-  },
-  {
-    "subject": "FIN",
-    "number": 456,
-    "title": "Advanced Investment Management",
-    "professor": "Wightkin, John"
-  },
-  {
-    "subject": "GAMD",
-    "number": 200,
-    "title": "Medicine Health Policy&Society",
-    "professor": "Swirsky, Eric S"
   },
   {
     "subject": "GC",
@@ -21054,12 +18840,6 @@ const courseList : courseObject[] = [
     "professor": "Fair, Alfretter Latasha"
   },
   {
-    "subject": "GWS",
-    "number": 205,
-    "title": "Race, Class & Gender",
-    "professor": "Horowitz, Emily A"
-  },
-  {
     "subject": "HIST",
     "number": 101,
     "title": "Western Civ Since 1648",
@@ -21076,12 +18856,6 @@ const courseList : courseObject[] = [
     "number": 296,
     "title": "Fascism Europe & Mediterr",
     "professor": "Doumanis, Nicholas"
-  },
-  {
-    "subject": "HN",
-    "number": 110,
-    "title": "Foods",
-    "professor": "Lyles, Renea Michelle"
   },
   {
     "subject": "HN",
@@ -21123,25 +18897,7 @@ const courseList : courseObject[] = [
     "subject": "HON",
     "number": 121,
     "title": "Hon Core Ind & Soc / Creat Art",
-    "professor": "Beverly, Phillip Adrian"
-  },
-  {
-    "subject": "HON",
-    "number": 121,
-    "title": "Hon Core Ind & Soc / Creat Art",
     "professor": "Grad Asst"
-  },
-  {
-    "subject": "HON",
-    "number": 202,
-    "title": "Honors Student Assistant",
-    "professor": "Kaczmarczyk, Laura W"
-  },
-  {
-    "subject": "HON",
-    "number": 222,
-    "title": "Honors Activity",
-    "professor": "Burns-Howard, Kathryn"
   },
   {
     "subject": "HPA",
@@ -21168,12 +18924,6 @@ const courseList : courseObject[] = [
     "professor": "Jarpe-Ratner, Elizabeth"
   },
   {
-    "subject": "IDS",
-    "number": 270,
-    "title": "Business Statistics I",
-    "professor": "Sparks, John"
-  },
-  {
     "subject": "ENGL",
     "number": 236,
     "title": "Young Adult Fiction",
@@ -21193,12 +18943,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "ENGL",
-    "number": 280,
-    "title": "Media & Prof Writing",
-    "professor": "Shearer, Jay B"
-  },
-  {
-    "subject": "ENGL",
     "number": 282,
     "title": "Peer Tutoring in Writing Ctr",
     "professor": "Thompson, Deanna Marie"
@@ -21208,12 +18952,6 @@ const courseList : courseObject[] = [
     "number": 537,
     "title": "Global/Multiethnic Lit & Cult",
     "professor": "Mufti, Nasser"
-  },
-  {
-    "subject": "ENGR",
-    "number": 100,
-    "title": "CS Success Seminar - FYF",
-    "professor": "Narubin Durbin, Simona Ieva"
   },
   {
     "subject": "EOHS",
@@ -21247,12 +18985,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "FIN",
-    "number": 449,
-    "title": "Applied Equity Investment Mgmt",
-    "professor": "Wightkin, John"
-  },
-  {
-    "subject": "FIN",
     "number": 570,
     "title": "Quant Methods in Finance",
     "professor": "Ma, Lingjie"
@@ -21264,28 +18996,10 @@ const courseList : courseObject[] = [
     "professor": "Ireland, Charles John"
   },
   {
-    "subject": "GER",
-    "number": 102,
-    "title": "Elementary German II",
-    "professor": "Grad Asst"
-  },
-  {
-    "subject": "GER",
-    "number": 104,
-    "title": "Intermediate German II",
-    "professor": "Grad Asst"
-  },
-  {
     "subject": "GLAS",
     "number": 100,
     "title": "Intro to Global Asian Studies",
     "professor": "Jin, Michael"
-  },
-  {
-    "subject": "GLAS",
-    "number": 229,
-    "title": "Intro to Asian Film",
-    "professor": "Phan, Justin Quang Nguyen"
   },
   {
     "subject": "HIM",
@@ -21310,12 +19024,6 @@ const courseList : courseObject[] = [
     "number": 461,
     "title": "Topics in Lat Amer Hist",
     "professor": "Chavez, Joaquin M"
-  },
-  {
-    "subject": "HN",
-    "number": 196,
-    "title": "Nutrition",
-    "professor": "Lam, Uyen"
   },
   {
     "subject": "HN",
@@ -21348,24 +19056,6 @@ const courseList : courseObject[] = [
     "professor": "Sandahl, Carrie"
   },
   {
-    "subject": "DLG",
-    "number": 120,
-    "title": "Dialogue Seminar",
-    "professor": "Ramos, Norma Elena"
-  },
-  {
-    "subject": "EAES",
-    "number": 101,
-    "title": "Global Environmental Change",
-    "professor": "Malone, Andrew"
-  },
-  {
-    "subject": "EAES",
-    "number": 111,
-    "title": "Earth, Energy, Environment",
-    "professor": "Sit, Stefany"
-  },
-  {
     "subject": "EAES",
     "number": 230,
     "title": "Earth Materials",
@@ -21376,12 +19066,6 @@ const courseList : courseObject[] = [
     "number": 475,
     "title": "Hydrology/Hydrogeology",
     "professor": "Naude, Kerry Lee"
-  },
-  {
-    "subject": "ECE",
-    "number": 210,
-    "title": "Electric Circuit Analysis",
-    "professor": "Jin, Ning"
   },
   {
     "subject": "ECE",
@@ -21406,18 +19090,6 @@ const courseList : courseObject[] = [
     "number": 121,
     "title": "Principles of Macroeconomics",
     "professor": "Yektansani, Kiana"
-  },
-  {
-    "subject": "ECON",
-    "number": 220,
-    "title": "Microeconomics",
-    "professor": "Grad Asst"
-  },
-  {
-    "subject": "ECON",
-    "number": 220,
-    "title": "Microeconomics",
-    "professor": "Tauras, John Arvydas"
   },
   {
     "subject": "ECON",
@@ -21469,12 +19141,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "ENGL",
-    "number": 103,
-    "title": "Understanding Poetry",
-    "professor": "Grad Asst"
-  },
-  {
-    "subject": "ENGL",
     "number": 151,
     "title": "Intro to Academic Writing",
     "professor": "Bohne, Amanda"
@@ -21490,18 +19156,6 @@ const courseList : courseObject[] = [
     "number": 159,
     "title": "Academic Writing Workshop",
     "professor": "Krall, Aaron Richard"
-  },
-  {
-    "subject": "ENGL",
-    "number": 161,
-    "title": "Academic Writing II",
-    "professor": "Elturki, Eman"
-  },
-  {
-    "subject": "ENGL",
-    "number": 161,
-    "title": "Academic Writing II",
-    "professor": "Sheldon, Douglas Harold"
   },
   {
     "subject": "ENGL",
@@ -21523,21 +19177,9 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "FR",
-    "number": 102,
-    "title": "Elementary French II",
-    "professor": "Grad Asst"
-  },
-  {
-    "subject": "FR",
     "number": 297,
     "title": "Paris in Lit, Film and Culture",
     "professor": "Hoselton, Jessica Leigh Thornton"
-  },
-  {
-    "subject": "GER",
-    "number": 103,
-    "title": "Intermediate German I",
-    "professor": "Grad Asst"
   },
   {
     "subject": "GLAS",
@@ -21589,18 +19231,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "HN",
-    "number": 203,
-    "title": "Culture and Food Lab",
-    "professor": "Lyles, Renea Michelle"
-  },
-  {
-    "subject": "HN",
-    "number": 300,
-    "title": "Science of Foods",
-    "professor": "Wang, Qian"
-  },
-  {
-    "subject": "HN",
     "number": 594,
     "title": "Intermittent Fasting",
     "professor": "Varady, Kristina A"
@@ -21637,18 +19267,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "HON",
-    "number": 301,
-    "title": "Foundations for the Future",
-    "professor": "Amiri, Leila"
-  },
-  {
-    "subject": "HON",
-    "number": 301,
-    "title": "Foundations for the Future",
-    "professor": "Gomez, Kayeromi Donoukounmahou"
-  },
-  {
-    "subject": "HON",
     "number": 322,
     "title": "Honors Capstone",
     "professor": "Burns-Howard, Kathryn"
@@ -21667,33 +19285,9 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "IDS",
-    "number": 270,
-    "title": "Business Stats I BBA Online",
-    "professor": "Sclove, Stanley L"
-  },
-  {
-    "subject": "IDS",
-    "number": 401,
-    "title": "Bus Objects Prog using Java",
-    "professor": "Lu, Yingda"
-  },
-  {
-    "subject": "IDS",
     "number": 570,
     "title": "Statistics for Management",
     "professor": "Sparks, John"
-  },
-  {
-    "subject": "IDS",
-    "number": 572,
-    "title": "Data Mining for Business",
-    "professor": "Bhattacharyya, Siddhartha"
-  },
-  {
-    "subject": "IDS",
-    "number": 576,
-    "title": "Deep Learning and Applications",
-    "professor": "Tulabandhula, Theja"
   },
   {
     "subject": "IDS",
@@ -21721,18 +19315,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "KN",
-    "number": 110,
-    "title": "Life Skills for Stdnt Athletes",
-    "professor": "Marmon, David"
-  },
-  {
-    "subject": "KN",
-    "number": 150,
-    "title": "The Healthy Human",
-    "professor": "Hamstra-Wright, Karrie Lynn"
-  },
-  {
-    "subject": "KN",
     "number": 152,
     "title": "Intro to Exercise Phys & Hlth",
     "professor": "Hibbing, Paul R"
@@ -21748,12 +19330,6 @@ const courseList : courseObject[] = [
     "number": 105,
     "title": "Intro to Mex Studies",
     "professor": "Roa, Cristian"
-  },
-  {
-    "subject": "LALS",
-    "number": 229,
-    "title": "Sociology of Latinos",
-    "professor": "Grad Asst"
   },
   {
     "subject": "LAS",
@@ -21792,30 +19368,6 @@ const courseList : courseObject[] = [
     "professor": "Hatseras Schwartz, Ekaterini"
   },
   {
-    "subject": "LAW",
-    "number": 536,
-    "title": "Criminal Pro: Investigation",
-    "professor": "Mundy, Hugh M"
-  },
-  {
-    "subject": "LAW",
-    "number": 541,
-    "title": "Sales Transactions",
-    "professor": "Lousin, Ann M"
-  },
-  {
-    "subject": "LAW",
-    "number": 588,
-    "title": "Law Review Bd",
-    "professor": "Beschle, Donald L"
-  },
-  {
-    "subject": "LITH",
-    "number": 115,
-    "title": "Lithuanian Culture",
-    "professor": "Subacius, Giedrius"
-  },
-  {
     "subject": "MATH",
     "number": 90,
     "title": "Intermediate Algebra",
@@ -21840,22 +19392,10 @@ const courseList : courseObject[] = [
     "professor": "Protsak, Victor"
   },
   {
-    "subject": "MATH",
-    "number": 181,
-    "title": "Calculus II",
-    "professor": "Bode, Martina"
-  },
-  {
     "subject": "CLER",
     "number": 634,
     "title": "Surgery",
     "professor": "Haley, Theodore"
-  },
-  {
-    "subject": "CLJ",
-    "number": 200,
-    "title": "Law and Society",
-    "professor": "Kurwa, Rahim A"
   },
   {
     "subject": "CLJ",
@@ -21870,24 +19410,6 @@ const courseList : courseObject[] = [
     "professor": "Schuck, Amie"
   },
   {
-    "subject": "CLJ",
-    "number": 321,
-    "title": "Youth, Crime, Law",
-    "professor": "Adams, Dean Lynn"
-  },
-  {
-    "subject": "CME",
-    "number": 297,
-    "title": "Civil Env Eng Drawing Design",
-    "professor": "Peiravian, Farideddin"
-  },
-  {
-    "subject": "CME",
-    "number": 311,
-    "title": "Water Resources Engineering",
-    "professor": "Schulenberg, Joseph W"
-  },
-  {
     "subject": "CME",
     "number": 485,
     "title": "Construction Engrg Management",
@@ -21895,21 +19417,9 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "COMM",
-    "number": 100,
-    "title": "Human Communication",
-    "professor": "Quinn, Kelly Ann"
-  },
-  {
-    "subject": "COMM",
     "number": 103,
     "title": "Intro to Media",
     "professor": "Lind, Rebecca Ann"
-  },
-  {
-    "subject": "COMM",
-    "number": 220,
-    "title": "Social Media and Marketing",
-    "professor": "Mukherjee, Ishani"
   },
   {
     "subject": "CS",
@@ -21931,33 +19441,15 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "CS",
-    "number": 251,
-    "title": "Data Structures",
-    "professor": "Ayala Rodriguez, Daniel"
-  },
-  {
-    "subject": "CS",
     "number": 485,
     "title": "Net Operat Syst Progr",
     "professor": "Lan, Zhiling"
   },
   {
     "subject": "CS",
-    "number": 499,
-    "title": "Prof. Development Seminar",
-    "professor": "Bell, John T"
-  },
-  {
-    "subject": "CS",
     "number": 524,
     "title": "Data Visualization & Analytics",
     "professor": "Miranda, Fabio"
-  },
-  {
-    "subject": "DES",
-    "number": 120,
-    "title": "2D Form Studio",
-    "professor": "Dwyer, Emma Kathleen"
   },
   {
     "subject": "DES",
@@ -22033,24 +19525,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "MATH",
-    "number": 220,
-    "title": "Differential Equations I",
-    "professor": "Shulman, Andrew M"
-  },
-  {
-    "subject": "MATH",
-    "number": 294,
-    "title": "Spec Topics: ESP WKSP Math 313",
-    "professor": "Grad Asst"
-  },
-  {
-    "subject": "MATH",
-    "number": 310,
-    "title": "Applied Linear Algebra",
-    "professor": "Switala, Nicholas"
-  },
-  {
-    "subject": "MATH",
     "number": 435,
     "title": "Found of Number Theory",
     "professor": "Cojocaru, Alina Carmen"
@@ -22080,36 +19554,6 @@ const courseList : courseObject[] = [
     "professor": "Thomas, Dorian E"
   },
   {
-    "subject": "ME",
-    "number": 321,
-    "title": "Heat Transfer",
-    "professor": "Jung, Eunjung"
-  },
-  {
-    "subject": "ME",
-    "number": 325,
-    "title": "Intermediate Thermodynamics",
-    "professor": "Ghashami, Mohammad"
-  },
-  {
-    "subject": "ME",
-    "number": 370,
-    "title": "Mechanical Engineering Design",
-    "professor": "Finan, John Desmond"
-  },
-  {
-    "subject": "ME",
-    "number": 380,
-    "title": "Manufacturing Process Princ",
-    "professor": "Abiade, Jeremiah T"
-  },
-  {
-    "subject": "MGMT",
-    "number": 454,
-    "title": "Labor-Mgmt Relations",
-    "professor": "Kolar, Deanna"
-  },
-  {
     "subject": "MGMT",
     "number": 460,
     "title": "Managing Globally",
@@ -22135,18 +19579,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "MKTG",
-    "number": 464,
-    "title": "Content Marketing",
-    "professor": "Wahlgren, Ann Marie"
-  },
-  {
-    "subject": "MKTG",
-    "number": 469,
-    "title": "Global Marketing",
-    "professor": "Grad Asst"
-  },
-  {
-    "subject": "MKTG",
     "number": 562,
     "title": "Marketing Analytics",
     "professor": "Hermosilla, Manuel"
@@ -22162,18 +19594,6 @@ const courseList : courseObject[] = [
     "number": 107,
     "title": "Fundamentals Of Music Theory",
     "professor": "Carlson, Nicholas"
-  },
-  {
-    "subject": "MUS",
-    "number": 151,
-    "title": "Concert Band",
-    "professor": "Weren, Serena"
-  },
-  {
-    "subject": "MUS",
-    "number": 155,
-    "title": "Treble Choir",
-    "professor": "Calisesi Maidens, Liza Marie"
   },
   {
     "subject": "LAW",
@@ -22218,34 +19638,10 @@ const courseList : courseObject[] = [
     "professor": "Sanchez, Liliana Elizabeth"
   },
   {
-    "subject": "LING",
-    "number": 220,
-    "title": "Intro: Phonetics & Phonology",
-    "professor": "Pichan, Carrie E"
-  },
-  {
-    "subject": "MATH",
-    "number": 109,
-    "title": " College Algebra Workshop",
-    "professor": "Grad Asst"
-  },
-  {
     "subject": "MATH",
     "number": 121,
     "title": "Precalculus Mathematics",
     "professor": "Kursell, Anita"
-  },
-  {
-    "subject": "MATH",
-    "number": 165,
-    "title": "Calculus for Business",
-    "professor": "Simpson, Gilberto"
-  },
-  {
-    "subject": "MATH",
-    "number": 181,
-    "title": "Calculus II",
-    "professor": "McDonald, Peter M"
   },
   {
     "subject": "MATH",
@@ -22257,12 +19653,6 @@ const courseList : courseObject[] = [
     "subject": "MBT",
     "number": 594,
     "title": "Cell  Based Assay",
-    "professor": "Sidik, Khalifah B."
-  },
-  {
-    "subject": "MBT",
-    "number": 597,
-    "title": "Master's Project Research",
     "professor": "Sidik, Khalifah B."
   },
   {
@@ -22290,18 +19680,6 @@ const courseList : courseObject[] = [
     "professor": "Thomas, Dorian E"
   },
   {
-    "subject": "MDR",
-    "number": 641,
-    "title": "Clinical Connections & Comp 4",
-    "professor": "Grad Asst"
-  },
-  {
-    "subject": "ME",
-    "number": 211,
-    "title": "Fluid Mechanics l",
-    "professor": "Jung, Eunjung"
-  },
-  {
     "subject": "ME",
     "number": 211,
     "title": "Fluid Mechanics l",
@@ -22312,12 +19690,6 @@ const courseList : courseObject[] = [
     "number": 328,
     "title": "Numerical Methods in ME",
     "professor": "Bhounsule, Pranav Audhut"
-  },
-  {
-    "subject": "ME",
-    "number": 347,
-    "title": "Computer-Aided Design",
-    "professor": "Hatami Marbini, Hamed"
   },
   {
     "subject": "ME",
@@ -22336,12 +19708,6 @@ const courseList : courseObject[] = [
     "number": 562,
     "title": "Biomedical Implants",
     "professor": "Mathew Thoppil, Mathew"
-  },
-  {
-    "subject": "ME",
-    "number": 595,
-    "title": "Mechanical Engineering Seminar",
-    "professor": "Hatami Marbini, Hamed"
   },
   {
     "subject": "IDS",
@@ -22405,12 +19771,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "JD",
-    "number": 425,
-    "title": "Evidence",
-    "professor": "Ginsberg, Marc"
-  },
-  {
-    "subject": "JD",
     "number": 509,
     "title": "RE: Energy Law",
     "professor": "Rudolphi, Matthew Richard"
@@ -22420,30 +19780,6 @@ const courseList : courseObject[] = [
     "number": 522,
     "title": "Tech and the Law",
     "professor": "Kostopoulos, Mary"
-  },
-  {
-    "subject": "KN",
-    "number": 137,
-    "title": "Personal Fitness",
-    "professor": "Grad Asst"
-  },
-  {
-    "subject": "KN",
-    "number": 194,
-    "title": "Beginning Yoga",
-    "professor": "King, Vera Love"
-  },
-  {
-    "subject": "KN",
-    "number": 194,
-    "title": "First Aid and CPR",
-    "professor": "Jandek, Amy M"
-  },
-  {
-    "subject": "KN",
-    "number": 243,
-    "title": "Exercise Assessment",
-    "professor": "Arbel, Vered"
   },
   {
     "subject": "KN",
@@ -22470,12 +19806,6 @@ const courseList : courseObject[] = [
     "professor": "Miranda, Iliana Jennette"
   },
   {
-    "subject": "LAS",
-    "number": 200,
-    "title": "LAS Career Success",
-    "professor": "Dohse, Brian"
-  },
-  {
     "subject": "LAT",
     "number": 103,
     "title": "Intermediate Latin I",
@@ -22486,36 +19816,6 @@ const courseList : courseObject[] = [
     "number": 402,
     "title": "LSI",
     "professor": "Gutierrez, Richard"
-  },
-  {
-    "subject": "LAW",
-    "number": 402,
-    "title": "LSI",
-    "professor": "Pleasant, Shakira"
-  },
-  {
-    "subject": "LAW",
-    "number": 422,
-    "title": "LSIII",
-    "professor": "Bradley, Thomas"
-  },
-  {
-    "subject": "LAW",
-    "number": 437,
-    "title": "LSIV: Drafting Gen Prac",
-    "professor": "Reiter, Gregory Michael"
-  },
-  {
-    "subject": "LAW",
-    "number": 500,
-    "title": "Remedies",
-    "professor": "Bernabe, Alberto"
-  },
-  {
-    "subject": "HON",
-    "number": 123,
-    "title": "Hon Core Indiv & Soc / US Soc",
-    "professor": "Kling, William C"
   },
   {
     "subject": "HON",
@@ -22561,12 +19861,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "IDS",
-    "number": 521,
-    "title": "Adv Database Management",
-    "professor": "Choi, Michael"
-  },
-  {
-    "subject": "IDS",
     "number": 561,
     "title": "Analytics for Big Data",
     "professor": "Hu, Yuheng"
@@ -22609,12 +19903,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "JD",
-    "number": 401,
-    "title": "Exp Learning",
-    "professor": "Pruitt, Alexandra S"
-  },
-  {
-    "subject": "JD",
     "number": 406,
     "title": "Property",
     "professor": "Hamann, Ardath Ann"
@@ -22638,52 +19926,16 @@ const courseList : courseObject[] = [
     "professor": "Long, Doris Estelle"
   },
   {
-    "subject": "JPN",
-    "number": 102,
-    "title": "Elementary Japanese II",
-    "professor": "Changet, Mika Obana"
-  },
-  {
-    "subject": "KN",
-    "number": 130,
-    "title": "Stress Management",
-    "professor": "Firkins, Rachel Catherine"
-  },
-  {
     "subject": "KN",
     "number": 232,
     "title": "Anatomy & Physiology Lab I",
     "professor": "Martinez, Jacqueline"
   },
   {
-    "subject": "KN",
-    "number": 396,
-    "title": "Special Project",
-    "professor": "Hamstra-Wright, Karrie Lynn"
-  },
-  {
-    "subject": "KN",
-    "number": 493,
-    "title": "Practicum in UG Teaching",
-    "professor": "Arbel, Vered"
-  },
-  {
-    "subject": "KN",
-    "number": 493,
-    "title": "Practicum in UG Teaching",
-    "professor": "Kanan, Tomer"
-  },
-  {
     "subject": "LALS",
     "number": 102,
     "title": "Intro Latino Studies",
     "professor": "Diaz Martin, Esther"
-  },
-  {
-    "subject": "MUS",
-    "number": 159,
-    "title": "Jazz Ensemble",
-    "professor": "Baker, Andrew"
   },
   {
     "subject": "MUS",
@@ -22698,34 +19950,10 @@ const courseList : courseObject[] = [
     "professor": "Vaez, Kelly Ann"
   },
   {
-    "subject": "NUPR",
-    "number": 557,
-    "title": "EBP 5",
-    "professor": "Carlucci, Melissa Ann"
-  },
-  {
-    "subject": "NURS",
-    "number": 331,
-    "title": "Childbearing Women & Families",
-    "professor": "Smith, Pamela Chase"
-  },
-  {
-    "subject": "NURS",
-    "number": 412,
-    "title": "IHC: Wmn/Chldrn/Family",
-    "professor": "Ricca, Paige Quigley"
-  },
-  {
     "subject": "NURS",
     "number": 419,
     "title": "Patho-Pharm 1",
     "professor": "Leipold, Catherine"
-  },
-  {
-    "subject": "NURS",
-    "number": 535,
-    "title": "Advanced Pathophysiology",
-    "professor": "Hinthorne, Summer Alyssa"
   },
   {
     "subject": "NURS",
@@ -22734,40 +19962,10 @@ const courseList : courseObject[] = [
     "professor": "Clarke, Mara Michele"
   },
   {
-    "subject": "PATH",
-    "number": 595,
-    "title": "Pathology Sem & Journal Club",
-    "professor": "Veiga-Lopez, Almudena"
-  },
-  {
-    "subject": "PERI",
-    "number": 611,
-    "title": "Classic Perio Lit Review",
-    "professor": "Schmerman, Michael L"
-  },
-  {
     "subject": "PERI",
     "number": 630,
     "title": "Treatment Planning in Perio",
     "professor": "Schmerman, Michael L"
-  },
-  {
-    "subject": "PHAR",
-    "number": 413,
-    "title": "Pharmacy Practice: Hospital",
-    "professor": "Sawyer, Kathryn Mae"
-  },
-  {
-    "subject": "PHAR",
-    "number": 603,
-    "title": "APPE: Hospital/Health-System",
-    "professor": "Allen, Sheila Mary"
-  },
-  {
-    "subject": "PHIL",
-    "number": 100,
-    "title": "Environmental Philosophy",
-    "professor": "Grad Asst"
   },
   {
     "subject": "PHIL",
@@ -22813,18 +20011,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "POLS",
-    "number": 184,
-    "title": "Intro International Relations",
-    "professor": "Floros, Katharine"
-  },
-  {
-    "subject": "POLS",
-    "number": 200,
-    "title": "Methods of Political Science",
-    "professor": "Watson, John S"
-  },
-  {
-    "subject": "POLS",
     "number": 210,
     "title": "Intro to Urban Politics",
     "professor": "Alexander, S Alba"
@@ -22834,18 +20020,6 @@ const courseList : courseObject[] = [
     "number": 243,
     "title": "Polit & Govt of Middle East",
     "professor": "Grad Asst"
-  },
-  {
-    "subject": "PPOL",
-    "number": 309,
-    "title": "Public Budget & Financial Mgmt",
-    "professor": "Grad Asst"
-  },
-  {
-    "subject": "PROS",
-    "number": 613,
-    "title": "Perio-Prosthetic Seminars",
-    "professor": "Ghunaim, Dima"
   },
   {
     "subject": "ENGL",
@@ -22870,24 +20044,6 @@ const courseList : courseObject[] = [
     "number": 491,
     "title": "Adv Writing of Fiction",
     "professor": "Stolley, Lisa Anne"
-  },
-  {
-    "subject": "ENGL",
-    "number": 496,
-    "title": "Portfolio Practicum",
-    "professor": "Christian, Margena A"
-  },
-  {
-    "subject": "ENGR",
-    "number": 100,
-    "title": "BME Success Seminar - FYF",
-    "professor": "Narubin Durbin, Simona Ieva"
-  },
-  {
-    "subject": "ENGR",
-    "number": 100,
-    "title": "MIE Success Seminar - Transfer",
-    "professor": "Narubin Durbin, Simona Ieva"
   },
   {
     "subject": "EOHS",
@@ -22918,18 +20074,6 @@ const courseList : courseObject[] = [
     "number": 250,
     "title": "Personal Finance",
     "professor": "Diaz Bianco, Aaron"
-  },
-  {
-    "subject": "FIN",
-    "number": 250,
-    "title": "Personal Finance",
-    "professor": "Zabotina, Tatiana V"
-  },
-  {
-    "subject": "FIN",
-    "number": 416,
-    "title": "Options and Futures",
-    "professor": "Golubeva, Evgenia"
   },
   {
     "subject": "FIN",
@@ -22986,12 +20130,6 @@ const courseList : courseObject[] = [
     "professor": "Glondys, Barbara A"
   },
   {
-    "subject": "HIM",
-    "number": 410,
-    "title": "Intro to the Hlthcare Sys",
-    "professor": "Nedbal, Joseph Anthony"
-  },
-  {
     "subject": "HIST",
     "number": 100,
     "title": "Western Civ To 1648",
@@ -23013,31 +20151,7 @@ const courseList : courseObject[] = [
     "subject": "MATH",
     "number": 210,
     "title": "Calculus III",
-    "professor": "Kobotis, Evangelos"
-  },
-  {
-    "subject": "MATH",
-    "number": 210,
-    "title": "Calculus III",
     "professor": "Moreland, Gwyneth Sakarin"
-  },
-  {
-    "subject": "MATH",
-    "number": 210,
-    "title": "Calculus III",
-    "professor": "Whyte, Kevin M."
-  },
-  {
-    "subject": "MATH",
-    "number": 215,
-    "title": "Intro to Advanced Math",
-    "professor": "Groves, Daniel Peter"
-  },
-  {
-    "subject": "MATH",
-    "number": 294,
-    "title": "Spec Topics: ESP WKSP Math 215",
-    "professor": "Grad Asst"
   },
   {
     "subject": "MATH",
@@ -23077,12 +20191,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "ME",
-    "number": 261,
-    "title": "Materials for Manufacturing",
-    "professor": "Karpov, Eduard"
-  },
-  {
-    "subject": "ME",
     "number": 429,
     "title": "Internal Combustion Engines",
     "professor": "Manafzadeh, Saeed"
@@ -23098,12 +20206,6 @@ const courseList : courseObject[] = [
     "number": 564,
     "title": "Negotiations",
     "professor": "Antwiler, Brandon"
-  },
-  {
-    "subject": "MHPE",
-    "number": 598,
-    "title": "Thesis Research",
-    "professor": "Polansky, Maura"
   },
   {
     "subject": "MKTG",
@@ -23122,12 +20224,6 @@ const courseList : courseObject[] = [
     "number": 461,
     "title": "Consumer Behavior",
     "professor": "Duhachek, Adam"
-  },
-  {
-    "subject": "MKTG",
-    "number": 470,
-    "title": "Branding",
-    "professor": "Wahlgren, Ann Marie"
   },
   {
     "subject": "MKTG",
@@ -23160,34 +20256,10 @@ const courseList : courseObject[] = [
     "professor": "Park, Joon"
   },
   {
-    "subject": "MUS",
-    "number": 107,
-    "title": "Fundamentals Of Music Theory",
-    "professor": "Gariazzo, Mariana"
-  },
-  {
-    "subject": "MUS",
-    "number": 183,
-    "title": "Vocal Lessons-30 Min",
-    "professor": "Grad Asst"
-  },
-  {
     "subject": "NURS",
     "number": 304,
     "title": "Professional Nursing 3",
     "professor": "Cajita, Maan Isabella"
-  },
-  {
-    "subject": "MENG",
-    "number": 404,
-    "title": "Math Fundamentals AI Engineers",
-    "professor": "Shulman, Andrew M"
-  },
-  {
-    "subject": "MGMT",
-    "number": 350,
-    "title": "External Environment of Bus",
-    "professor": "Antwiler, Brandon"
   },
   {
     "subject": "MGMT",
@@ -23203,21 +20275,9 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "MGMT",
-    "number": 453,
-    "title": "Human Resource Management",
-    "professor": "Valdez-Mansilla, Rosa"
-  },
-  {
-    "subject": "MGMT",
     "number": 495,
     "title": "Competitive Strategy",
     "professor": "Callahan, Conor"
-  },
-  {
-    "subject": "MGMT",
-    "number": 590,
-    "title": "Strategic Management",
-    "professor": "Shanley, Mark"
   },
   {
     "subject": "MHPE",
@@ -23233,21 +20293,9 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "MKTG",
-    "number": 467,
-    "title": "Business Intelligence in Mktg",
-    "professor": "Razi, Sajna"
-  },
-  {
-    "subject": "MKTG",
     "number": 476,
     "title": "B2B Marketing",
     "professor": "Calzavara, Carolyn"
-  },
-  {
-    "subject": "MKTG",
-    "number": 479,
-    "title": "Digital & Social Media Mktg",
-    "professor": "Barney-McNamara, Barbara"
   },
   {
     "subject": "MKTG",
@@ -23260,12 +20308,6 @@ const courseList : courseObject[] = [
     "number": 400,
     "title": "Methods Tchg Secnd Math I",
     "professor": "Schubert, Erin Rose"
-  },
-  {
-    "subject": "MUS",
-    "number": 127,
-    "title": "Latin American Music",
-    "professor": "McNally, James Edward"
   },
   {
     "subject": "MUS",
@@ -23299,12 +20341,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "NURS",
-    "number": 332,
-    "title": "Caring Theory Prof Nrsg Prac",
-    "professor": "Grad Asst"
-  },
-  {
-    "subject": "NURS",
     "number": 409,
     "title": "Hlth Assessment/Communication",
     "professor": "Krassa, Teresa J"
@@ -23322,18 +20358,6 @@ const courseList : courseObject[] = [
     "professor": "Clarke, Mara Michele"
   },
   {
-    "subject": "NURS",
-    "number": 553,
-    "title": "Strategic & Financial Planning",
-    "professor": "Grad Asst"
-  },
-  {
-    "subject": "NUSP",
-    "number": 512,
-    "title": "Ed Perspectives/School Ns",
-    "professor": "Noga, Mary Elizabeth"
-  },
-  {
     "subject": "NUSP",
     "number": 555,
     "title": "Health Care of Women I",
@@ -23347,33 +20371,9 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "HIST",
-    "number": 255,
-    "title": "History of Chicago",
-    "professor": "Bui, Long B"
-  },
-  {
-    "subject": "HIST",
-    "number": 262,
-    "title": "Latin Amer since 1850",
-    "professor": "Chavez, Joaquin M"
-  },
-  {
-    "subject": "HIST",
     "number": 278,
     "title": "Middle East Modern Period",
     "professor": "Cuyler, Zachary"
-  },
-  {
-    "subject": "HIST",
-    "number": 591,
-    "title": "Prelim Prospectus Prep",
-    "professor": "Fidelis, Malgorzata"
-  },
-  {
-    "subject": "HN",
-    "number": 307,
-    "title": "Nutrition and Metabolism",
-    "professor": "Cienfuegos Muzard, Sofia"
   },
   {
     "subject": "HN",
@@ -23407,12 +20407,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "HON",
-    "number": 127,
-    "title": "Hon Core Creat Art / World Cul",
-    "professor": "Giampaoli, Michelangelo"
-  },
-  {
-    "subject": "HON",
     "number": 201,
     "title": "Honors Seminar",
     "professor": "Hayek, Philip Wesley"
@@ -23425,45 +20419,15 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "HPA",
-    "number": 495,
-    "title": "MHA Preceptorship",
-    "professor": "Andersen, Adam M"
-  },
-  {
-    "subject": "HPA",
     "number": 496,
     "title": "MHA Capstone I",
     "professor": "Andersen, Adam M"
   },
   {
     "subject": "IDS",
-    "number": 312,
-    "title": "Business Project Management",
-    "professor": "Gawel, Jeffrey"
-  },
-  {
-    "subject": "IDS",
-    "number": 331,
-    "title": "Spreadsheet Analysis",
-    "professor": "Ozdogru, Unsal"
-  },
-  {
-    "subject": "IDS",
     "number": 450,
     "title": "Supply Chain Plan & Logistics",
     "professor": "Liotine, Matthew"
-  },
-  {
-    "subject": "IDS",
-    "number": 532,
-    "title": "Intro to Operations Mgmt",
-    "professor": "Dierks, Ludwig"
-  },
-  {
-    "subject": "IDS",
-    "number": 535,
-    "title": "Vendor Management",
-    "professor": "Treleaven, James"
   },
   {
     "subject": "IE",
@@ -23508,12 +20472,6 @@ const courseList : courseObject[] = [
     "professor": "Paniaguas, John S"
   },
   {
-    "subject": "LAW",
-    "number": 536,
-    "title": "Criminal Pro: Investigation",
-    "professor": "Perez Ricardo, Kim D"
-  },
-  {
     "subject": "LING",
     "number": 170,
     "title": "Languages of the World",
@@ -23521,27 +20479,9 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "MATH",
-    "number": 90,
-    "title": "Intermediate Algebra",
-    "professor": "Woldeit, Anthony John"
-  },
-  {
-    "subject": "MATH",
     "number": 104,
     "title": "Math Reasoning Workshop",
     "professor": "Grad Asst"
-  },
-  {
-    "subject": "MATH",
-    "number": 121,
-    "title": "Precalculus Mathematics",
-    "professor": "Jackson, Billy Joe"
-  },
-  {
-    "subject": "MATH",
-    "number": 121,
-    "title": "Precalculus Mathematics",
-    "professor": "Simpson, Gilberto"
   },
   {
     "subject": "MATH",
@@ -23586,46 +20526,16 @@ const courseList : courseObject[] = [
     "professor": "Dai, Mimi"
   },
   {
-    "subject": "MCS",
-    "number": 360,
-    "title": "Intro To Data Structure",
-    "professor": "Adrovic, Danko"
-  },
-  {
     "subject": "ME",
     "number": 118,
     "title": "Energy for Sustainable Society",
     "professor": "Alonso, Matthew Paul"
   },
   {
-    "subject": "ME",
-    "number": 205,
-    "title": "Intro to Thermodynamics",
-    "professor": "Manafzadeh, Saeed"
-  },
-  {
-    "subject": "ME",
-    "number": 599,
-    "title": "PhD Thesis Research",
-    "professor": "Sankaranarayanan, Subramanian"
-  },
-  {
-    "subject": "MGMT",
-    "number": 360,
-    "title": "Strategic Analysis",
-    "professor": "Bullock, Kirsten"
-  },
-  {
     "subject": "MGMT",
     "number": 463,
     "title": "Neg &Conflict Res for BBA",
     "professor": "Tarasievich, Renata A."
-  },
-  {
-    "subject": "MGMT",
-    "number": 553,
-    "title": "Human Resource Management",
-    "professor": "Martin, David"
   },
   {
     "subject": "MILS",
@@ -23646,18 +20556,6 @@ const courseList : courseObject[] = [
     "professor": "Weidemanis Magi, Anne"
   },
   {
-    "subject": "MKTG",
-    "number": 469,
-    "title": "Global Marketing",
-    "professor": "Grubisich, Vernon"
-  },
-  {
-    "subject": "MKTG",
-    "number": 473,
-    "title": "Introduction to Sales",
-    "professor": "Calzavara, Carolyn"
-  },
-  {
     "subject": "MOVI",
     "number": 130,
     "title": "Korean Culture through Films",
@@ -23668,24 +20566,6 @@ const courseList : courseObject[] = [
     "number": 232,
     "title": "Film History I: 1890-WWII",
     "professor": "Rubin, Martin L."
-  },
-  {
-    "subject": "IDS",
-    "number": 400,
-    "title": "Programming for Data Science",
-    "professor": "Grad Asst"
-  },
-  {
-    "subject": "IDS",
-    "number": 460,
-    "title": "Causal Inference",
-    "professor": "Wang, Zisu"
-  },
-  {
-    "subject": "IDS",
-    "number": 495,
-    "title": "Competitive Strategy",
-    "professor": "Treleaven, James"
   },
   {
     "subject": "IDS",
@@ -23710,12 +20590,6 @@ const courseList : courseObject[] = [
     "number": 473,
     "title": "Stochastic Processes & Queuing",
     "professor": "He, David Weihua"
-  },
-  {
-    "subject": "IE",
-    "number": 595,
-    "title": "Industrial Engineering Seminar",
-    "professor": "Hatami Marbini, Hamed"
   },
   {
     "subject": "IPHS",
@@ -23743,39 +20617,9 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "JD",
-    "number": 407,
-    "title": "Torts",
-    "professor": "Bernabe, Alberto"
-  },
-  {
-    "subject": "JD",
     "number": 409,
     "title": "U.S. Copyright Law",
     "professor": "King, Yolanda"
-  },
-  {
-    "subject": "JD",
-    "number": 411,
-    "title": "Civil Procedure I",
-    "professor": "Ford, Stuart K"
-  },
-  {
-    "subject": "JD",
-    "number": 414,
-    "title": "Const Law I",
-    "professor": "Schwinn, Steven D"
-  },
-  {
-    "subject": "JD",
-    "number": 415,
-    "title": "Contracts II",
-    "professor": "Wouters, Hub Conley"
-  },
-  {
-    "subject": "JD",
-    "number": 424,
-    "title": "Const Law II",
-    "professor": "Seng, Michael P"
   },
   {
     "subject": "JD",
@@ -23791,12 +20635,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "KN",
-    "number": 200,
-    "title": "Statistical Methods",
-    "professor": "Hibbing, Paul R"
-  },
-  {
-    "subject": "KN",
     "number": 232,
     "title": "Anatomy & Physiology Lab I",
     "professor": "Davis, Victoria"
@@ -23806,12 +20644,6 @@ const courseList : courseObject[] = [
     "number": 232,
     "title": "Anatomy & Physiology Lab I",
     "professor": "Rodriguez, John M"
-  },
-  {
-    "subject": "KN",
-    "number": 493,
-    "title": "Practicum in UG Teaching",
-    "professor": "Hamstra-Wright, Karrie Lynn"
   },
   {
     "subject": "KN",
@@ -23827,45 +20659,9 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "LALS",
-    "number": 262,
-    "title": "Latin Amer since 1850",
-    "professor": "Chavez, Joaquin M"
-  },
-  {
-    "subject": "LALS",
     "number": 276,
     "title": "Latinas in US",
     "professor": "Grad Asst"
-  },
-  {
-    "subject": "PROS",
-    "number": 623,
-    "title": "Pros Lit Review",
-    "professor": "Ghunaim, Dima"
-  },
-  {
-    "subject": "PSCH",
-    "number": 100,
-    "title": "Introductory Psychology",
-    "professor": "Flynn, Andrea Marie"
-  },
-  {
-    "subject": "PSCH",
-    "number": 352,
-    "title": "Cognition and Memory",
-    "professor": "Coughlin, Christine Ann"
-  },
-  {
-    "subject": "PSCH",
-    "number": 363,
-    "title": "Lab in Behavioral Neurosci",
-    "professor": "Ragozzino, Michael E"
-  },
-  {
-    "subject": "PSCH",
-    "number": 367,
-    "title": "Lab in Cognitive Neurosci",
-    "professor": "Passarotti, Alessandra"
   },
   {
     "subject": "PSCH",
@@ -23893,45 +20689,15 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "PUBH",
-    "number": 110,
-    "title": "Global Societies",
-    "professor": "Caldwell, Jennifer"
-  },
-  {
-    "subject": "PUBH",
     "number": 350,
     "title": "Health Systems, Health Policy",
     "professor": "Gelder, Michael"
-  },
-  {
-    "subject": "RELE",
-    "number": 600,
-    "title": "Doctoring & Clinical Skills",
-    "professor": "Thomas, Dorian E"
   },
   {
     "subject": "RES",
     "number": 250,
     "title": "Real Estate Principles",
     "professor": "Hanson, Andrew"
-  },
-  {
-    "subject": "SOC",
-    "number": 105,
-    "title": "Social Problems",
-    "professor": "Grad Asst"
-  },
-  {
-    "subject": "SOC",
-    "number": 215,
-    "title": "Sociology Childhood and Youth",
-    "professor": "Grad Asst"
-  },
-  {
-    "subject": "SOC",
-    "number": 300,
-    "title": "Sociological Research Methods",
-    "professor": "Somashekhar, Mahesh"
   },
   {
     "subject": "SOCW",
@@ -23970,34 +20736,10 @@ const courseList : courseObject[] = [
     "professor": "Eads, Ray"
   },
   {
-    "subject": "SOCW",
-    "number": 599,
-    "title": "PhD Thesis Research",
-    "professor": "Hsieh, Chang-Ming"
-  },
-  {
-    "subject": "SPAN",
-    "number": 101,
-    "title": "Elementary Spanish I",
-    "professor": "Grad Asst"
-  },
-  {
     "subject": "SPAN",
     "number": 101,
     "title": "Elementary Spanish I",
     "professor": "Maldonado, Elizabeth"
-  },
-  {
-    "subject": "SPAN",
-    "number": 114,
-    "title": "Spanish - Heritage Speakers II",
-    "professor": "Grad Asst"
-  },
-  {
-    "subject": "SPAN",
-    "number": 202,
-    "title": "Spanish Grammar in Practice",
-    "professor": "Betancourt, Angela C"
   },
   {
     "subject": "SPAN",
@@ -24024,12 +20766,6 @@ const courseList : courseObject[] = [
     "professor": "LaLonde, Margaret"
   },
   {
-    "subject": "LAS",
-    "number": 289,
-    "title": "LAS Internship",
-    "professor": "Gallagher, Lauren"
-  },
-  {
     "subject": "LAT",
     "number": 101,
     "title": "Elementary Latin I",
@@ -24037,21 +20773,9 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "LAW",
-    "number": 400,
-    "title": "Fair Housing Legal Internship",
-    "professor": "Seng, Michael P"
-  },
-  {
-    "subject": "LAW",
     "number": 402,
     "title": "LSI",
     "professor": "Sorkin, David E"
-  },
-  {
-    "subject": "LAW",
-    "number": 412,
-    "title": "LSII",
-    "professor": "Meintanis, Elise Lillian"
   },
   {
     "subject": "LAW",
@@ -24076,12 +20800,6 @@ const courseList : courseObject[] = [
     "number": 532,
     "title": "3rd yr only Writng for Pra Law",
     "professor": "Frothingham, Jessica"
-  },
-  {
-    "subject": "LAW",
-    "number": 594,
-    "title": "Special Topics: Dom Violence",
-    "professor": "Stark, Debra P"
   },
   {
     "subject": "LING",
@@ -24109,12 +20827,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "MATH",
-    "number": 215,
-    "title": "Intro to Advanced Math",
-    "professor": "Kashcheyeva, Olga S."
-  },
-  {
-    "subject": "MATH",
     "number": 313,
     "title": "Analysis I",
     "professor": "Greenblatt, Michael"
@@ -24124,12 +20836,6 @@ const courseList : courseObject[] = [
     "number": 480,
     "title": "Appl Differential Equations",
     "professor": "Nicholls, David Peter"
-  },
-  {
-    "subject": "MBA",
-    "number": 570,
-    "title": "Enterprise Strategy",
-    "professor": "Ibrahim, Shahnaz"
   },
   {
     "subject": "MBT",
@@ -24166,18 +20872,6 @@ const courseList : courseObject[] = [
     "number": 205,
     "title": "Intro to Thermodynamics",
     "professor": "Megaridis, Constantine M"
-  },
-  {
-    "subject": "ME",
-    "number": 308,
-    "title": "Mechanical Vibrations",
-    "professor": "Siow, Yeow"
-  },
-  {
-    "subject": "NURS",
-    "number": 361,
-    "title": "Nursing Care of Populations",
-    "professor": "Arriola, Stacy"
   },
   {
     "subject": "NURS",
@@ -24222,58 +20916,16 @@ const courseList : courseObject[] = [
     "professor": "Mirza, Mansha Parven"
   },
   {
-    "subject": "PELE",
-    "number": 604,
-    "title": "Intro to Emergency Medicine",
-    "professor": "Thomas, Dorian E"
-  },
-  {
-    "subject": "PELE",
-    "number": 620,
-    "title": "CREATE - Online",
-    "professor": "Grad Asst"
-  },
-  {
     "subject": "PHAR",
     "number": 469,
     "title": "PhLAMES 5",
     "professor": "Grider, Linda Marie"
   },
   {
-    "subject": "PHAR",
-    "number": 602,
-    "title": "APPE: Community Pharmacy",
-    "professor": "Allen, Sheila Mary"
-  },
-  {
-    "subject": "PHIL",
-    "number": 100,
-    "title": "Intro to Philosophy",
-    "professor": "Sinkler, Georgette"
-  },
-  {
     "subject": "PHYB",
     "number": 531,
     "title": "Metabolism",
     "professor": "Liew, Chong Wee"
-  },
-  {
-    "subject": "PHYB",
-    "number": 591,
-    "title": "Departmental Seminar",
-    "professor": "Brodie, Mark S"
-  },
-  {
-    "subject": "PHYS",
-    "number": 131,
-    "title": "Physics for Life Sciences I",
-    "professor": "Ugalde, Claudio"
-  },
-  {
-    "subject": "PHYS",
-    "number": 142,
-    "title": "General Physics II",
-    "professor": "Barkan, Adrian"
   },
   {
     "subject": "PHYS",
@@ -24301,27 +20953,9 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "PPOL",
-    "number": 230,
-    "title": "Nonprofit Orgs & Civil Society",
-    "professor": "Albrecht, Kate Rose"
-  },
-  {
-    "subject": "PPOL",
     "number": 300,
     "title": "Urban Policy & Metro Governanc",
     "professor": "Carr, Jered"
-  },
-  {
-    "subject": "PSCH",
-    "number": 242,
-    "title": "Intro to Research in Psch",
-    "professor": "Staahl, Tomas Kenth"
-  },
-  {
-    "subject": "PSCH",
-    "number": 381,
-    "title": "Psch of Interviewing",
-    "professor": "Kim-Cohen, Julia Yun Soo"
   },
   {
     "subject": "PSCH",
@@ -24343,12 +20977,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "DHD",
-    "number": 205,
-    "title": "Race, Class & Gender",
-    "professor": "Horowitz, Emily A"
-  },
-  {
-    "subject": "DHD",
     "number": 409,
     "title": "Disability Legal Studies",
     "professor": "McCloskey, Megan E"
@@ -24367,21 +20995,9 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "ECE",
-    "number": 466,
-    "title": "Computer Architecture",
-    "professor": "Roohi, Arman"
-  },
-  {
-    "subject": "ECE",
     "number": 467,
     "title": "Introduc to VLSI Design",
     "professor": "Trivedi, Amit"
-  },
-  {
-    "subject": "ECON",
-    "number": 120,
-    "title": "Principles of Microeconomics",
-    "professor": "Ahundjanov, Behzod"
   },
   {
     "subject": "ECON",
@@ -24439,12 +21055,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "ELSI",
-    "number": 23,
-    "title": "Listening/Speaking 3 IEP",
-    "professor": "Jacob, Rachel S"
-  },
-  {
-    "subject": "ELSI",
     "number": 91,
     "title": "English for Specific Fields",
     "professor": "Vanicek, Vit"
@@ -24471,43 +21081,13 @@ const courseList : courseObject[] = [
     "subject": "ENGL",
     "number": 160,
     "title": "Academic Writing I",
-    "professor": "Dancey, Angela C"
-  },
-  {
-    "subject": "ENGL",
-    "number": 160,
-    "title": "Academic Writing I",
     "professor": "Jones, Janson"
   },
   {
     "subject": "ENGL",
     "number": 161,
     "title": "Academic Writing II",
-    "professor": "Barton, Daniel Robert"
-  },
-  {
-    "subject": "ENGL",
-    "number": 161,
-    "title": "Academic Writing II",
-    "professor": "Casey, John A"
-  },
-  {
-    "subject": "ENGL",
-    "number": 161,
-    "title": "Academic Writing II",
     "professor": "Kessler, Jeffrey"
-  },
-  {
-    "subject": "ENGL",
-    "number": 161,
-    "title": "Academic Writing II",
-    "professor": "Newirth, Michael"
-  },
-  {
-    "subject": "ENGL",
-    "number": 161,
-    "title": "Academic Writing II",
-    "professor": "Shearer, Jay B"
   },
   {
     "subject": "ENGL",
@@ -24582,12 +21162,6 @@ const courseList : courseObject[] = [
     "professor": "Cortez, Christina Maria Carrizales"
   },
   {
-    "subject": "PMPR",
-    "number": 618,
-    "title": "Advanced Community Pharmacy",
-    "professor": "Allen, Sheila Mary"
-  },
-  {
     "subject": "POLS",
     "number": 284,
     "title": "International Security",
@@ -24606,28 +21180,10 @@ const courseList : courseObject[] = [
     "professor": "Grad Asst"
   },
   {
-    "subject": "PROS",
-    "number": 618,
-    "title": "Reconstructive Implantology",
-    "professor": "Ghunaim, Dima"
-  },
-  {
-    "subject": "PSCH",
-    "number": 100,
-    "title": "Introductory Psychology",
-    "professor": "Cervone, Daniel P"
-  },
-  {
     "subject": "PSCH",
     "number": 231,
     "title": "Community Psychology",
     "professor": "Roy, Amanda Leigh"
-  },
-  {
-    "subject": "PSCH",
-    "number": 262,
-    "title": "Behavioral Neuroscience",
-    "professor": "Roitman, Mitchell Franklin"
   },
   {
     "subject": "PSCH",
@@ -24672,18 +21228,6 @@ const courseList : courseObject[] = [
     "professor": "Rausch, Richard W"
   },
   {
-    "subject": "PUBH",
-    "number": 100,
-    "title": "Health and the Public",
-    "professor": "Castillo, Amparo Del Socorro"
-  },
-  {
-    "subject": "PUBH",
-    "number": 100,
-    "title": "Health and the Public",
-    "professor": "Dyer, Sharyn Kaye"
-  },
-  {
     "subject": "JD",
     "number": 439,
     "title": "RE: Transactions",
@@ -24700,30 +21244,6 @@ const courseList : courseObject[] = [
     "number": 518,
     "title": "Info Law, Policy and Privacy",
     "professor": "Robinson, Randolph A"
-  },
-  {
-    "subject": "KN",
-    "number": 230,
-    "title": "Anatomy & Physiology Lecture I",
-    "professor": "Kanan, Tomer"
-  },
-  {
-    "subject": "KN",
-    "number": 245,
-    "title": "Exercise Programming & Instruc",
-    "professor": "Schmidt-McNulty, Tina"
-  },
-  {
-    "subject": "KN",
-    "number": 253,
-    "title": "Human Anatomy & Phys I",
-    "professor": "Corbo, Gillian"
-  },
-  {
-    "subject": "KN",
-    "number": 336,
-    "title": "Health Coaching",
-    "professor": "Bullard, Kendra Leeann"
   },
   {
     "subject": "KN",
@@ -24780,12 +21300,6 @@ const courseList : courseObject[] = [
     "professor": "Lyons, Lisa"
   },
   {
-    "subject": "LAS",
-    "number": 200,
-    "title": "LAS Career Success",
-    "professor": "Drink, Shabree Briunna"
-  },
-  {
     "subject": "LAW",
     "number": 402,
     "title": "LSI",
@@ -24796,12 +21310,6 @@ const courseList : courseObject[] = [
     "number": 404,
     "title": "LSI: CR",
     "professor": "Schwinn, Steven D"
-  },
-  {
-    "subject": "LAW",
-    "number": 412,
-    "title": "LSII",
-    "professor": "Gooden, Tenyse"
   },
   {
     "subject": "LAW",
@@ -24817,27 +21325,9 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "LAW",
-    "number": 532,
-    "title": "3rd yr only Writng for Pra Law",
-    "professor": "Mitchell, Ryan P"
-  },
-  {
-    "subject": "LAW",
-    "number": 534,
-    "title": "Secured Transactions",
-    "professor": "Kilborn, Jason J"
-  },
-  {
-    "subject": "LAW",
     "number": 537,
     "title": "Prod Liability",
     "professor": "Lasso, Rogelio A"
-  },
-  {
-    "subject": "LAW",
-    "number": 538,
-    "title": "Adv Torts",
-    "professor": "Hopkins, Kevin"
   },
   {
     "subject": "LAW",
@@ -24852,12 +21342,6 @@ const courseList : courseObject[] = [
     "professor": "Loentz, Elizabeth A"
   },
   {
-    "subject": "LING",
-    "number": 150,
-    "title": "Intro Study of Lang:PreCS&LING",
-    "professor": "Pichan, Carrie E"
-  },
-  {
     "subject": "LAS",
     "number": 110,
     "title": "Experience UIC",
@@ -24868,12 +21352,6 @@ const courseList : courseObject[] = [
     "number": 110,
     "title": "Experience UIC",
     "professor": "Wessel, McKenzie"
-  },
-  {
-    "subject": "LAS",
-    "number": 200,
-    "title": "LAS Career Success",
-    "professor": "Herrera, Elizabeth"
   },
   {
     "subject": "LAW",
@@ -24930,18 +21408,6 @@ const courseList : courseObject[] = [
     "professor": "Shin, Gyu-Ho"
   },
   {
-    "subject": "LRSC",
-    "number": 594,
-    "title": "Leadership in Math Education",
-    "professor": "Pitvorec, Kathleen A"
-  },
-  {
-    "subject": "MATH",
-    "number": 141,
-    "title": "Algebraic & Geom Structures",
-    "professor": "Lee-Hassan, Alexa"
-  },
-  {
     "subject": "MATH",
     "number": 180,
     "title": "Calculus I",
@@ -24952,12 +21418,6 @@ const courseList : courseObject[] = [
     "number": 180,
     "title": "Calculus I",
     "professor": "Saia, Frederick Vincent"
-  },
-  {
-    "subject": "MATH",
-    "number": 181,
-    "title": "Calculus II",
-    "professor": "Protsak, Victor"
   },
   {
     "subject": "MATH",
@@ -25033,33 +21493,15 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "STAT",
-    "number": 382,
-    "title": "Statistical Methods and Comput",
-    "professor": "Pajda-De La O, Jennifer Marie"
-  },
-  {
-    "subject": "STAT",
     "number": 501,
     "title": "Probability Theory I",
     "professor": "Ouyang, Cheng"
   },
   {
     "subject": "TADR",
-    "number": 400,
-    "title": "Trial Ad",
-    "professor": "Solock, Mark Warren"
-  },
-  {
-    "subject": "TADR",
     "number": 414,
     "title": "ADR",
     "professor": "Van Dyke, Justin"
-  },
-  {
-    "subject": "TADR",
-    "number": 420,
-    "title": "Deposition Practicum",
-    "professor": "Teplinsky, Howard Lee"
   },
   {
     "subject": "TADR",
@@ -25072,12 +21514,6 @@ const courseList : courseObject[] = [
     "number": 261,
     "title": "Voice II: Speech",
     "professor": "Martin, Jason"
-  },
-  {
-    "subject": "THTR",
-    "number": 299,
-    "title": "Individual Topics",
-    "professor": "Dado, Debra"
   },
   {
     "subject": "UPP",
@@ -25099,21 +21535,9 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "ME",
-    "number": 320,
-    "title": "Mechanisms&Dynamics/Machinery",
-    "professor": "Brown, Michael A"
-  },
-  {
-    "subject": "ME",
     "number": 380,
     "title": "Manufacturing Process Princ",
     "professor": "Subramanian, Arunkumar"
-  },
-  {
-    "subject": "ME",
-    "number": 396,
-    "title": "Senior Design Project",
-    "professor": "Brown, Michael A"
   },
   {
     "subject": "ME",
@@ -25126,12 +21550,6 @@ const courseList : courseObject[] = [
     "number": 407,
     "title": "Innovation Tools and Methods",
     "professor": "Hallenbeck, Mark"
-  },
-  {
-    "subject": "MGMT",
-    "number": 350,
-    "title": "Extl Envt of Bus for Bus Schlr",
-    "professor": "Leitzinger, Jocelyn"
   },
   {
     "subject": "MGMT",
@@ -25170,40 +21588,10 @@ const courseList : courseObject[] = [
     "professor": "Bush, Jay William"
   },
   {
-    "subject": "MKTG",
-    "number": 360,
-    "title": "Introduction to Marketing",
-    "professor": "Schanbacher, Anja"
-  },
-  {
-    "subject": "MUS",
-    "number": 111,
-    "title": "Master Class Performance",
-    "professor": "Stryker, Michael"
-  },
-  {
-    "subject": "MUS",
-    "number": 152,
-    "title": "Instrumental Ensembles",
-    "professor": "Kamps, Jordan"
-  },
-  {
     "subject": "NUPR",
     "number": 520,
     "title": "Clinical Synthesis Practi",
     "professor": "Johnson, Robin A"
-  },
-  {
-    "subject": "NURS",
-    "number": 362,
-    "title": "Nursing Health Promotion",
-    "professor": "Grad Asst"
-  },
-  {
-    "subject": "NURS",
-    "number": 406,
-    "title": "IHC: Community",
-    "professor": "Singer, Rebecca M"
   },
   {
     "subject": "NURS",
@@ -25218,12 +21606,6 @@ const courseList : courseObject[] = [
     "professor": "Repking, Sarah Cotler"
   },
   {
-    "subject": "NURS",
-    "number": 534,
-    "title": "Advanced Physiology",
-    "professor": "Quinn, Lauretta T"
-  },
-  {
     "subject": "NUSP",
     "number": 526,
     "title": "C/A Mental Hlth Assess & Inter",
@@ -25236,22 +21618,10 @@ const courseList : courseObject[] = [
     "professor": "Grad Asst"
   },
   {
-    "subject": "ORTD",
-    "number": 620,
-    "title": "Orthodontic Clinic II",
-    "professor": "Kusnoto, Budi"
-  },
-  {
     "subject": "OSCI",
     "number": 560,
     "title": "Regulation Dental Healthcare",
     "professor": "Bilal, Sobia"
-  },
-  {
-    "subject": "PA",
-    "number": 401,
-    "title": "Foundations of Public Service",
-    "professor": "Devereux, Erik August"
   },
   {
     "subject": "PA",
@@ -25269,12 +21639,6 @@ const courseList : courseObject[] = [
     "subject": "RUSS",
     "number": 103,
     "title": "Intermediate Russian I",
-    "professor": "Grad Asst"
-  },
-  {
-    "subject": "SOC",
-    "number": 224,
-    "title": "Gender & Society",
     "professor": "Grad Asst"
   },
   {
@@ -25297,12 +21661,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "SOCW",
-    "number": 572,
-    "title": "Field Instruction III: M. Hlth",
-    "professor": "Brown, Pamela Renee"
-  },
-  {
-    "subject": "SOCW",
     "number": 576,
     "title": "Clinical Interventions",
     "professor": "Salvadore, Lisa M"
@@ -25312,12 +21670,6 @@ const courseList : courseObject[] = [
     "number": 202,
     "title": "Spanish Grammar in Practice",
     "professor": "Cabrelli, Jennifer Lauren"
-  },
-  {
-    "subject": "SPAN",
-    "number": 202,
-    "title": "Spanish Grammar in Practice",
-    "professor": "Grad Asst"
   },
   {
     "subject": "SPAN",
@@ -25344,22 +21696,10 @@ const courseList : courseObject[] = [
     "professor": "Taboada, Inmaculada"
   },
   {
-    "subject": "SPED",
-    "number": 462,
-    "title": "Assessment of Individuals",
-    "professor": "Lindstrom, Esther"
-  },
-  {
     "subject": "TADR",
     "number": 429,
     "title": "Exp Witnesses",
     "professor": "Maliza, Johanes Christian"
-  },
-  {
-    "subject": "THTR",
-    "number": 159,
-    "title": "Fashion and Furniture: History",
-    "professor": "Elliott, Myron Walter"
   },
   {
     "subject": "THTR",
@@ -25393,21 +21733,9 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "PUBH",
-    "number": 100,
-    "title": "Health and the Public",
-    "professor": "MacBeth, Monimia Yvonne"
-  },
-  {
-    "subject": "PUBH",
     "number": 105,
     "title": "Foundations for Public Health",
     "professor": "Suggs, Gia Desvernal"
-  },
-  {
-    "subject": "RELE",
-    "number": 600,
-    "title": "R-Med Cmmnty-Prmry Care Rsrch",
-    "professor": "Grad Asst"
   },
   {
     "subject": "RES",
@@ -25500,22 +21828,10 @@ const courseList : courseObject[] = [
     "professor": "Butterfield, Alice K."
   },
   {
-    "subject": "SOCW",
-    "number": 572,
-    "title": "Field Instruction III: School",
-    "professor": "Brown, Pamela Renee"
-  },
-  {
     "subject": "SPAN",
     "number": 101,
     "title": "Elementary Spanish I",
     "professor": "Costa Neves, Felipe"
-  },
-  {
-    "subject": "SPAN",
-    "number": 104,
-    "title": "Intermediate Spanish II",
-    "professor": "Rodriguez, Mariela"
   },
   {
     "subject": "SPAN",
@@ -25537,27 +21853,9 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "TADR",
-    "number": 413,
-    "title": "Moot Ct Exec Bd",
-    "professor": "Hodge, Joanne Simboli"
-  },
-  {
-    "subject": "TADR",
     "number": 463,
     "title": "Clinic: Pro Bono Lit S/C Class",
     "professor": "Ortiz, Jose D"
-  },
-  {
-    "subject": "TADR",
-    "number": 472,
-    "title": "Extern: Local Gov & NP Field",
-    "professor": "Gunderson, Joanna Belle"
-  },
-  {
-    "subject": "THTR",
-    "number": 155,
-    "title": "Fundamentals of Theatre Design",
-    "professor": "Witteveen, Collette"
   },
   {
     "subject": "ENTR",
@@ -25597,12 +21895,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "FIN",
-    "number": 472,
-    "title": "Real Estate Finance",
-    "professor": "Lopez, Luis"
-  },
-  {
-    "subject": "FIN",
     "number": 494,
     "title": "Intro to Blockchain and Crypto",
     "professor": "Oza, Mabel"
@@ -25612,12 +21904,6 @@ const courseList : courseObject[] = [
     "number": 510,
     "title": "Oral Communication for ITA's",
     "professor": "Loebel, Vandana Loomba"
-  },
-  {
-    "subject": "GER",
-    "number": 101,
-    "title": "Elementary German I",
-    "professor": "Grad Asst"
   },
   {
     "subject": "GLAS",
@@ -25638,12 +21924,6 @@ const courseList : courseObject[] = [
     "professor": "Grad Asst"
   },
   {
-    "subject": "HIM",
-    "number": 486,
-    "title": "Foundations of HIM",
-    "professor": "Kierys, Elizabeth Aletha"
-  },
-  {
     "subject": "HIST",
     "number": 117,
     "title": "Understanding Holocaust",
@@ -25654,24 +21934,6 @@ const courseList : courseObject[] = [
     "number": 199,
     "title": "Chicago and the World",
     "professor": "Kaya, Mustafa Ismail"
-  },
-  {
-    "subject": "HIST",
-    "number": 475,
-    "title": "Educ Pract w/Seminar I",
-    "professor": "Peters, Julie L"
-  },
-  {
-    "subject": "HIST",
-    "number": 476,
-    "title": "Educ Pract w/Seminar II",
-    "professor": "Peters, Julie L"
-  },
-  {
-    "subject": "HN",
-    "number": 594,
-    "title": "Microbiome in Health & Disease",
-    "professor": "Tussing-Humphreys, Lisa Marie"
   },
   {
     "subject": "HON",
@@ -25690,12 +21952,6 @@ const courseList : courseObject[] = [
     "number": 142,
     "title": "Honors Core Creative Arts",
     "professor": "Adiutori, Vincent"
-  },
-  {
-    "subject": "HON",
-    "number": 201,
-    "title": "Honors Seminar",
-    "professor": "Amiri, Leila"
   },
   {
     "subject": "HON",
@@ -25738,12 +21994,6 @@ const courseList : courseObject[] = [
     "number": 565,
     "title": "Pharmacoeconomics and Payment",
     "professor": "Byun, Margaret Hae Young"
-  },
-  {
-    "subject": "PHAR",
-    "number": 601,
-    "title": "APPE: Ambulatory Patient Care",
-    "professor": "Allen, Sheila Mary"
   },
   {
     "subject": "PHIL",
@@ -25813,27 +22063,9 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "PPOL",
-    "number": 210,
-    "title": "Introduction to Public Policy",
-    "professor": "Devereux, Erik August"
-  },
-  {
-    "subject": "PPOL",
     "number": 231,
     "title": "Introduction to Social Policy",
     "professor": "Laurito, Maria Agustina"
-  },
-  {
-    "subject": "PSCH",
-    "number": 242,
-    "title": "Intro to Research in Psch",
-    "professor": "Prims, Julia"
-  },
-  {
-    "subject": "PSCH",
-    "number": 313,
-    "title": "Social Psychology Lab",
-    "professor": "Goh, Jin Xun"
   },
   {
     "subject": "PSCH",
@@ -25846,12 +22078,6 @@ const courseList : courseObject[] = [
     "number": 363,
     "title": "Lab in Behavioral Neurosci",
     "professor": "Keinath, Alexandra"
-  },
-  {
-    "subject": "PSCH",
-    "number": 382,
-    "title": "Psychological Interventions",
-    "professor": "Smith, Lauren Tiffany"
   },
   {
     "subject": "PSCI",
@@ -25896,12 +22122,6 @@ const courseList : courseObject[] = [
     "professor": "Scalise, Jennifer"
   },
   {
-    "subject": "IDS",
-    "number": 201,
-    "title": "Intro to Business Programming",
-    "professor": "Lundquist, Doug E"
-  },
-  {
     "subject": "IE",
     "number": 471,
     "title": "Operations Research I",
@@ -25920,22 +22140,10 @@ const courseList : courseObject[] = [
     "professor": "Welter, Christina Rose"
   },
   {
-    "subject": "IPHS",
-    "number": 650,
-    "title": "Applied Practice Experience",
-    "professor": "Erzuah-Amenuvor, Nana Ama Aya"
-  },
-  {
     "subject": "JD",
     "number": 401,
     "title": "Exp Learning",
     "professor": "Sahota, Ravinder Singh"
-  },
-  {
-    "subject": "JD",
-    "number": 405,
-    "title": "Contracts I",
-    "professor": "Robinson, Randolph A"
   },
   {
     "subject": "JD",
@@ -25948,30 +22156,6 @@ const courseList : courseObject[] = [
     "number": 423,
     "title": "Prof Responsibility",
     "professor": "Keenan, Heidi"
-  },
-  {
-    "subject": "JD",
-    "number": 424,
-    "title": "Const Law II",
-    "professor": "Acevedo, Arthur"
-  },
-  {
-    "subject": "KN",
-    "number": 100,
-    "title": "Kinesiology: First Yr Seminar",
-    "professor": "Arbel, Vered"
-  },
-  {
-    "subject": "KN",
-    "number": 136,
-    "title": "Techniques & Principles Exer",
-    "professor": "Schmidt-McNulty, Tina"
-  },
-  {
-    "subject": "KN",
-    "number": 352,
-    "title": "Physiology of Exercise",
-    "professor": "Miller, Joshua"
   },
   {
     "subject": "KN",
@@ -26052,18 +22236,6 @@ const courseList : courseObject[] = [
     "professor": "Hodal, Joseph A"
   },
   {
-    "subject": "LAW",
-    "number": 532,
-    "title": "3rd yr only Writng for Pra Law",
-    "professor": "Lambertson, Andrew"
-  },
-  {
-    "subject": "RELE",
-    "number": 600,
-    "title": "Elective Clerkship",
-    "professor": "Thomas, Dorian E"
-  },
-  {
     "subject": "RES",
     "number": 420,
     "title": "Real Estate Market Analysis",
@@ -26074,12 +22246,6 @@ const courseList : courseObject[] = [
     "number": 101,
     "title": "Elementary Russian I",
     "professor": "Grad Asst"
-  },
-  {
-    "subject": "SOC",
-    "number": 385,
-    "title": "Sociological Theory",
-    "professor": "Decoteau, Claire Laurier"
   },
   {
     "subject": "SOCW",
@@ -26115,12 +22281,6 @@ const courseList : courseObject[] = [
     "subject": "SPAN",
     "number": 113,
     "title": "Spanish - Heritage Speakers I",
-    "professor": "Grad Asst"
-  },
-  {
-    "subject": "SPAN",
-    "number": 113,
-    "title": "Spanish - Heritage Speakers I",
     "professor": "Navia, Bernardo"
   },
   {
@@ -26148,34 +22308,10 @@ const courseList : courseObject[] = [
     "professor": "Wilson, Seth N"
   },
   {
-    "subject": "THTR",
-    "number": 105,
-    "title": "American Musical Theatre",
-    "professor": "Wilson, Seth N"
-  },
-  {
-    "subject": "UPP",
-    "number": 502,
-    "title": "Planning Skills",
-    "professor": "Kawamura, Kazuya"
-  },
-  {
-    "subject": "LING",
-    "number": 160,
-    "title": "Language and Society",
-    "professor": "Hallett, Jill Maureen"
-  },
-  {
     "subject": "MATH",
     "number": 90,
     "title": "Intermediate Algebra",
     "professor": "Ingebretson, Daniel Jordan"
-  },
-  {
-    "subject": "MATH",
-    "number": 105,
-    "title": "Mathematical Reasoning",
-    "professor": "Woldeit, Anthony John"
   },
   {
     "subject": "MATH",
@@ -26193,25 +22329,7 @@ const courseList : courseObject[] = [
     "subject": "MATH",
     "number": 125,
     "title": "Elementary Linear Algebra",
-    "professor": "Devi, Shavila"
-  },
-  {
-    "subject": "MATH",
-    "number": 125,
-    "title": "Elementary Linear Algebra",
     "professor": "Switala, Nicholas"
-  },
-  {
-    "subject": "MATH",
-    "number": 170,
-    "title": "Calculus for Life Sciences",
-    "professor": "Kobotis, Evangelos"
-  },
-  {
-    "subject": "MATH",
-    "number": 179,
-    "title": "Emerg Schol Workshop/Calc I",
-    "professor": "Grad Asst"
   },
   {
     "subject": "MATH",
@@ -26223,19 +22341,7 @@ const courseList : courseObject[] = [
     "subject": "MATH",
     "number": 210,
     "title": "Calculus III",
-    "professor": "Lequen, Felix Maxime Louis Alfred"
-  },
-  {
-    "subject": "MATH",
-    "number": 210,
-    "title": "Calculus III",
     "professor": "Michelen, Marcus"
-  },
-  {
-    "subject": "MATH",
-    "number": 211,
-    "title": "Emerg Schol Workshop/Calc III",
-    "professor": "Grad Asst"
   },
   {
     "subject": "MATH",
@@ -26292,34 +22398,10 @@ const courseList : courseObject[] = [
     "professor": "Pan, Yayue"
   },
   {
-    "subject": "ME",
-    "number": 499,
-    "title": "Prof Development Seminar",
-    "professor": "Nicolsen, Brynne E"
-  },
-  {
-    "subject": "MGMT",
-    "number": 340,
-    "title": "Intro to Orgs for BBA Online",
-    "professor": "Grad Asst"
-  },
-  {
     "subject": "MGMT",
     "number": 463,
     "title": "Negotiation &Conflict Resolutn",
     "professor": "Grad Asst"
-  },
-  {
-    "subject": "MGMT",
-    "number": 475,
-    "title": "Leadership Theories&Skills Dev",
-    "professor": "Cooper, James Wesley"
-  },
-  {
-    "subject": "MIM",
-    "number": 595,
-    "title": "Microbiology Seminars",
-    "professor": "Alonzo, Francis"
   },
   {
     "subject": "MDP",
@@ -26347,12 +22429,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "ME",
-    "number": 250,
-    "title": "Intro to Engineering Design",
-    "professor": "Siow, Yeow"
-  },
-  {
-    "subject": "ME",
     "number": 308,
     "title": "Mechanical Vibrations",
     "professor": "Shabana, Ahmed"
@@ -26371,39 +22447,15 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "MGMT",
-    "number": 350,
-    "title": "External Environment of Bus",
-    "professor": "Leitzinger, Jocelyn"
-  },
-  {
-    "subject": "MGMT",
     "number": 452,
     "title": "Organizational Behavior",
     "professor": "Subhani, Misha"
   },
   {
     "subject": "MGMT",
-    "number": 460,
-    "title": "Managing Globally",
-    "professor": "Pagano, Anthony M"
-  },
-  {
-    "subject": "MGMT",
     "number": 481,
     "title": "Managerial Logistics",
     "professor": "Pagano, Anthony M"
-  },
-  {
-    "subject": "MGMT",
-    "number": 495,
-    "title": "Competitive Strategy",
-    "professor": "Kolar, Deanna"
-  },
-  {
-    "subject": "MKTG",
-    "number": 360,
-    "title": "Introduction to Marketing",
-    "professor": "Barney-McNamara, Barbara"
   },
   {
     "subject": "MKTG",
@@ -26419,24 +22471,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "MKTG",
-    "number": 474,
-    "title": "Advertising",
-    "professor": "Moon, Kim"
-  },
-  {
-    "subject": "MKTG",
-    "number": 500,
-    "title": "Introduction to Marketing",
-    "professor": "Karsaklian, Eliane"
-  },
-  {
-    "subject": "MKTG",
-    "number": 560,
-    "title": "Marketing Management",
-    "professor": "Malter, Alan Joseph"
-  },
-  {
-    "subject": "MKTG",
     "number": 561,
     "title": "Consumer Behavior",
     "professor": "Barakshina, Tatiana"
@@ -26449,33 +22483,9 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "MUS",
-    "number": 114,
-    "title": "Jazz History",
-    "professor": "Garling, Thomas James"
-  },
-  {
-    "subject": "MUS",
-    "number": 127,
-    "title": "Latin American Music",
-    "professor": "Rodriguez-Barilari, Elbio"
-  },
-  {
-    "subject": "MUS",
-    "number": 154,
-    "title": "Chamber Choir",
-    "professor": "Calisesi Maidens, Liza Marie"
-  },
-  {
-    "subject": "MUS",
     "number": 201,
     "title": "Theory Of Music III",
     "professor": "Gillespie, Amos"
-  },
-  {
-    "subject": "NATS",
-    "number": 106,
-    "title": "Chem and Bio Systems",
-    "professor": "Muller, Michael T"
   },
   {
     "subject": "NUEL",
@@ -26490,28 +22500,10 @@ const courseList : courseObject[] = [
     "professor": "Ricca, Paige Quigley"
   },
   {
-    "subject": "MUS",
-    "number": 100,
-    "title": "Introduction To Music I",
-    "professor": "Lewis, Andrew"
-  },
-  {
-    "subject": "MUS",
-    "number": 157,
-    "title": "University Orchestras",
-    "professor": "Fawkes, Timothy"
-  },
-  {
     "subject": "NEUS",
     "number": 501,
     "title": "Foundations of Neuroscience I",
     "professor": "Gowrishankar, Swetha"
-  },
-  {
-    "subject": "NEUS",
-    "number": 595,
-    "title": "Neuroscience Journal Club",
-    "professor": "Vlasits, Anna Louise"
   },
   {
     "subject": "NS",
@@ -26527,12 +22519,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "NURS",
-    "number": 341,
-    "title": "Care of Children & Families",
-    "professor": "Lebedoff, Karla Li-Ren"
-  },
-  {
-    "subject": "NURS",
     "number": 377,
     "title": "Integrative Practice Exp",
     "professor": "Chapman, Lori Ann"
@@ -26542,18 +22528,6 @@ const courseList : courseObject[] = [
     "number": 377,
     "title": "Integrative Practice Exp",
     "professor": "Moyar, Leslie A"
-  },
-  {
-    "subject": "NURS",
-    "number": 397,
-    "title": "Issues in Nursing Practice",
-    "professor": "Grad Asst"
-  },
-  {
-    "subject": "NURS",
-    "number": 542,
-    "title": "Health Promotion Theories",
-    "professor": "Rivera, Stephanie Eleanor"
   },
   {
     "subject": "NUSP",
@@ -26614,12 +22588,6 @@ const courseList : courseObject[] = [
     "number": 616,
     "title": "Diagnostic Radiology",
     "professor": "Thomas, Dorian E"
-  },
-  {
-    "subject": "PHAR",
-    "number": 200,
-    "title": "Intro to Pharmaceutic Sciences",
-    "professor": "Jaki, Birgit Ursula"
   },
   {
     "subject": "PHAR",
@@ -26689,12 +22657,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "ANTH",
-    "number": 217,
-    "title": "Intro to Museum Anthropology",
-    "professor": "Johnson, Peri"
-  },
-  {
-    "subject": "ANTH",
     "number": 394,
     "title": "Race, Coloniality, Climate",
     "professor": "Doane, Molly"
@@ -26725,69 +22687,15 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "ART",
-    "number": 112,
-    "title": "Introduction to Drawing",
-    "professor": "Grad Asst"
-  },
-  {
-    "subject": "ART",
-    "number": 130,
-    "title": "Intro to Painting + Color",
-    "professor": "Grad Asst"
-  },
-  {
-    "subject": "ART",
-    "number": 140,
-    "title": "Intro to Sculpture(Major Only)",
-    "professor": "Le, Minh Hien"
-  },
-  {
-    "subject": "ART",
-    "number": 151,
-    "title": "Intro to Creative Coding",
-    "professor": "Beiersdorfer, Crystal Lynn"
-  },
-  {
-    "subject": "ART",
     "number": 160,
     "title": "Intro:Digital Photo(GEN ED)",
     "professor": "Washington, Zuri Aqeela"
   },
   {
     "subject": "ART",
-    "number": 170,
-    "title": "Introduction to Filmmaking",
-    "professor": "Hutchinson, Zachary Odell"
-  },
-  {
-    "subject": "ART",
-    "number": 230,
-    "title": "Topics in Painting I",
-    "professor": "Patton, Katelyn"
-  },
-  {
-    "subject": "ART",
     "number": 270,
     "title": "Experimental Analog Film",
     "professor": "Jorge Baralt, Edgar Daniel"
-  },
-  {
-    "subject": "ASP",
-    "number": 81,
-    "title": "Workshop for MATH 181 Students",
-    "professor": "Mankus, Terrance A"
-  },
-  {
-    "subject": "BA",
-    "number": 101,
-    "title": "Business1st-Year Seminar",
-    "professor": "Soriano, Diana Ethel"
-  },
-  {
-    "subject": "BA",
-    "number": 420,
-    "title": "Professional Presence",
-    "professor": "Soriano, Diana Ethel"
   },
   {
     "subject": "BCMG",
@@ -26797,33 +22705,9 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "BHIS",
-    "number": 405,
-    "title": "Med Sci & Humn Pathophysiology",
-    "professor": "Mills, Laura Lynn"
-  },
-  {
-    "subject": "BHIS",
     "number": 410,
     "title": "Hlth Data Struct & Mgmt",
     "professor": "Rhodes, Harry"
-  },
-  {
-    "subject": "BHIS",
-    "number": 510,
-    "title": "Health Care Info Systems",
-    "professor": "Czart, Margaret B"
-  },
-  {
-    "subject": "BIOS",
-    "number": 286,
-    "title": "Biology of Brain",
-    "professor": "Tchernookova, Boriana Krassimirova"
-  },
-  {
-    "subject": "THTR",
-    "number": 183,
-    "title": "Practicum: Build Crew",
-    "professor": "Holmes Robbins, Hannah Rebecca"
   },
   {
     "subject": "THTR",
@@ -26842,12 +22726,6 @@ const courseList : courseObject[] = [
     "number": 317,
     "title": "Movement & Voice II",
     "professor": "Graham, Julie Ann"
-  },
-  {
-    "subject": "UPP",
-    "number": 461,
-    "title": "GIS for Planning and Policy",
-    "professor": "Gomez, Sigfrido"
   },
   {
     "subject": "UPP",
@@ -26887,18 +22765,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "MUS",
-    "number": 118,
-    "title": "American Popular Music",
-    "professor": "Kamps, Jordan"
-  },
-  {
-    "subject": "MUS",
-    "number": 153,
-    "title": "University Choir",
-    "professor": "Lewis, Andrew"
-  },
-  {
-    "subject": "MUS",
     "number": 170,
     "title": "Keyboard Skills I",
     "professor": "Lau, Wing"
@@ -26908,12 +22774,6 @@ const courseList : courseObject[] = [
     "number": 223,
     "title": "Music Technology",
     "professor": "Lopatka, Daniel R"
-  },
-  {
-    "subject": "MUS",
-    "number": 227,
-    "title": "Music Cultures Of World",
-    "professor": "McNally, James Edward"
   },
   {
     "subject": "MUS",
@@ -26928,24 +22788,6 @@ const courseList : courseObject[] = [
     "professor": "Feller Gumucio, Paul"
   },
   {
-    "subject": "NUPR",
-    "number": 514,
-    "title": "School Nursing Internship",
-    "professor": "Moss, Eileen M"
-  },
-  {
-    "subject": "NURS",
-    "number": 232,
-    "title": "Professional Nursing",
-    "professor": "Grad Asst"
-  },
-  {
-    "subject": "NURS",
-    "number": 312,
-    "title": "Research and Statistics",
-    "professor": "Grad Asst"
-  },
-  {
     "subject": "NURS",
     "number": 361,
     "title": "Nursing Care of Populations",
@@ -26953,33 +22795,9 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "NURS",
-    "number": 371,
-    "title": "Acute Care Nursing & Care Mgmt",
-    "professor": "Castro, Helen Johanna"
-  },
-  {
-    "subject": "NURS",
-    "number": 519,
-    "title": "Hlth Equity & Soc Determinants",
-    "professor": "Bostwick, Wendy Beth"
-  },
-  {
-    "subject": "NURS",
-    "number": 531,
-    "title": "Pharmacotherapeutics",
-    "professor": "Vuckovic, Karen Mary"
-  },
-  {
-    "subject": "NURS",
     "number": 532,
     "title": "Comp Hlth Asmnt Adv Nrsng Prac",
     "professor": "Chu, Minseung"
-  },
-  {
-    "subject": "NUSP",
-    "number": 513,
-    "title": "School Nsg Theory/Trends",
-    "professor": "Moss, Eileen M"
   },
   {
     "subject": "NUSP",
@@ -27060,12 +22878,6 @@ const courseList : courseObject[] = [
     "professor": "Pearson, Pamela"
   },
   {
-    "subject": "OSCI",
-    "number": 564,
-    "title": "Interdisciplinary Research Sem",
-    "professor": "Miller, Steven"
-  },
-  {
     "subject": "OT",
     "number": 603,
     "title": "Occupational Development",
@@ -27091,27 +22903,9 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "PHIL",
-    "number": 116,
-    "title": "Biomedical Ethics",
-    "professor": "Grad Asst"
-  },
-  {
-    "subject": "PHIL",
     "number": 206,
     "title": "Intro to Phil of Language",
     "professor": "Goodman, Rachel"
-  },
-  {
-    "subject": "PHYS",
-    "number": 132,
-    "title": "Physics for Life Sciences II",
-    "professor": "Espinoza, Randall"
-  },
-  {
-    "subject": "PHYS",
-    "number": 142,
-    "title": "General Physics II",
-    "professor": "Hazelton, Ryan Lowell Crites"
   },
   {
     "subject": "PHYS",
@@ -27124,12 +22918,6 @@ const courseList : courseObject[] = [
     "number": 329,
     "title": "Dean's Leadership Forum",
     "professor": "Schumock, Glen Thomas"
-  },
-  {
-    "subject": "PMPR",
-    "number": 359,
-    "title": "Topics Post-Grad Training",
-    "professor": "Ohler, Kirsten H"
   },
   {
     "subject": "PMPR",
@@ -27174,28 +22962,10 @@ const courseList : courseObject[] = [
     "professor": "Yuodsnukis, Briahna"
   },
   {
-    "subject": "PSCH",
-    "number": 394,
-    "title": "Special Topics in Psch",
-    "professor": "Coughlin, Christine Ann"
-  },
-  {
-    "subject": "PSCI",
-    "number": 592,
-    "title": "Pharm Sciences Rotation",
-    "professor": "Tonetti, Debra"
-  },
-  {
     "subject": "PSOP",
     "number": 573,
     "title": "Econmc Eval of Hlthcr Interven",
     "professor": "Kim, Kibum"
-  },
-  {
-    "subject": "PSOP",
-    "number": 595,
-    "title": "Seminar Pharm Syst Outcome Pol",
-    "professor": "Lee, Todd A."
   },
   {
     "subject": "PT",
@@ -27229,33 +22999,9 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "PHAR",
-    "number": 515,
-    "title": "Patient Care:Inst/Hospital",
-    "professor": "Schriever, Allison E"
-  },
-  {
-    "subject": "PHAR",
     "number": 520,
     "title": "Clinical Applications",
     "professor": "Carmichael, Annette Alice"
-  },
-  {
-    "subject": "PHAR",
-    "number": 604,
-    "title": "APPE: Medicine Patient Care",
-    "professor": "Allen, Sheila Mary"
-  },
-  {
-    "subject": "PHIL",
-    "number": 101,
-    "title": "Critical Analytical Reasoning",
-    "professor": "Grad Asst"
-  },
-  {
-    "subject": "PHIL",
-    "number": 101,
-    "title": "Critical Analytical Reasoning",
-    "professor": "Whipple, John"
   },
   {
     "subject": "PHIL",
@@ -27280,24 +23026,6 @@ const courseList : courseObject[] = [
     "number": 112,
     "title": "Astronomy and Universe",
     "professor": "Unwin, James"
-  },
-  {
-    "subject": "PHYS",
-    "number": 131,
-    "title": "Physics for Life Sciences I",
-    "professor": "DeJonghe, Richard Jerome"
-  },
-  {
-    "subject": "PMPR",
-    "number": 615,
-    "title": "Academic Elective",
-    "professor": "Allen, Sheila Mary"
-  },
-  {
-    "subject": "PMPR",
-    "number": 616,
-    "title": "Administrative Elective",
-    "professor": "Allen, Sheila Mary"
   },
   {
     "subject": "POL",
@@ -27348,28 +23076,10 @@ const courseList : courseObject[] = [
     "professor": "Passarotti, Alessandra"
   },
   {
-    "subject": "PSCH",
-    "number": 569,
-    "title": "Current Topics Brain & Cog Sci",
-    "professor": "Coughlin, Christine Ann"
-  },
-  {
     "subject": "PT",
     "number": 605,
     "title": "Systems Plasticity",
     "professor": "Sabbahi, Ahmad Samir"
-  },
-  {
-    "subject": "RELE",
-    "number": 600,
-    "title": "R-Med Prcptrshp Fam Med - A",
-    "professor": "Grad Asst"
-  },
-  {
-    "subject": "RELE",
-    "number": 604,
-    "title": "Emergency Medicine",
-    "professor": "Thomas, Dorian E"
   },
   {
     "subject": "LAW",
@@ -27388,18 +23098,6 @@ const courseList : courseObject[] = [
     "number": 90,
     "title": "Intermediate Algebra",
     "professor": "Taylor, Gregory Kyle"
-  },
-  {
-    "subject": "MATH",
-    "number": 180,
-    "title": "Calculus I",
-    "professor": "Hamed, Duha Hamdallah"
-  },
-  {
-    "subject": "MATH",
-    "number": 182,
-    "title": "Emerg Schol Workshop/Calc II",
-    "professor": "Grad Asst"
   },
   {
     "subject": "MATH",
@@ -27475,33 +23173,15 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "MGMT",
-    "number": 340,
-    "title": "Intro to Organizations",
-    "professor": "Tarasievich, Renata A."
-  },
-  {
-    "subject": "MGMT",
     "number": 445,
     "title": "Organizational Theory",
     "professor": "Grad Asst"
   },
   {
     "subject": "MGMT",
-    "number": 564,
-    "title": "Negotiations",
-    "professor": "Brickson, Shelley"
-  },
-  {
-    "subject": "MGMT",
     "number": 570,
     "title": "Business & External Env",
     "professor": "Miller, Michael T."
-  },
-  {
-    "subject": "MILS",
-    "number": 131,
-    "title": "Military Physical Fitness",
-    "professor": "Heredia, Jarrod"
   },
   {
     "subject": "MILS",
@@ -27513,25 +23193,7 @@ const courseList : courseObject[] = [
     "subject": "MKTG",
     "number": 360,
     "title": "Introduction to Marketing",
-    "professor": "Crockett, David"
-  },
-  {
-    "subject": "MKTG",
-    "number": 360,
-    "title": "Introduction to Marketing",
     "professor": "Dienstag, Jesse"
-  },
-  {
-    "subject": "MKTG",
-    "number": 370,
-    "title": "Quantitative Marketing Skills",
-    "professor": "Weidemanis Magi, Anne"
-  },
-  {
-    "subject": "MKTG",
-    "number": 461,
-    "title": "Consumer Behavior",
-    "professor": "Schanbacher, Anja"
   },
   {
     "subject": "MKTG",
@@ -27558,12 +23220,6 @@ const courseList : courseObject[] = [
     "professor": "Dingeldein, Laura B"
   },
   {
-    "subject": "RES",
-    "number": 250,
-    "title": "Real Estate Principles",
-    "professor": "Krueger, Robert Hugh"
-  },
-  {
     "subject": "RUSS",
     "number": 115,
     "title": "Russ Culture Before Revolution",
@@ -27586,12 +23242,6 @@ const courseList : courseObject[] = [
     "number": 430,
     "title": "Practice I: Individuals & Orgs",
     "professor": "Huffman-Gottschling, Kristen Suzanne"
-  },
-  {
-    "subject": "SOCW",
-    "number": 539,
-    "title": "Mental Hlth w/Child&Adolescent",
-    "professor": "Schmitz, Jaime Michelle"
   },
   {
     "subject": "SOCW",
@@ -27631,27 +23281,9 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "SPED",
-    "number": 410,
-    "title": "Exceptional Learners",
-    "professor": "Cushing, Lisa Sharon"
-  },
-  {
-    "subject": "SPED",
     "number": 416,
     "title": "Methods Except Learners",
     "professor": "Boda, Phillip A"
-  },
-  {
-    "subject": "STAT",
-    "number": 381,
-    "title": "Applied Statistical Methods I",
-    "professor": "Hamed, Duha Hamdallah"
-  },
-  {
-    "subject": "STAT",
-    "number": 381,
-    "title": "Applied Statistical Methods I",
-    "professor": "Pajda-De La O, Jennifer Marie"
   },
   {
     "subject": "STAT",
@@ -27696,12 +23328,6 @@ const courseList : courseObject[] = [
     "professor": "Corley, Richard"
   },
   {
-    "subject": "UPP",
-    "number": 459,
-    "title": "Intro Geo Analysis & Vis II",
-    "professor": "Jasek, Thomas A"
-  },
-  {
     "subject": "RELE",
     "number": 616,
     "title": "Radiology",
@@ -27712,12 +23338,6 @@ const courseList : courseObject[] = [
     "number": 212,
     "title": "Human Sexuality",
     "professor": "Grad Asst"
-  },
-  {
-    "subject": "SOC",
-    "number": 251,
-    "title": "Health and Medicine",
-    "professor": "Hansen, Christopher R"
   },
   {
     "subject": "SOC",
@@ -27750,18 +23370,6 @@ const courseList : courseObject[] = [
     "professor": "Johnson, Annette H"
   },
   {
-    "subject": "SOCW",
-    "number": 570,
-    "title": "Field Instruction I",
-    "professor": "Brown, Pamela Renee"
-  },
-  {
-    "subject": "SPAN",
-    "number": 101,
-    "title": "Elementary Spanish I",
-    "professor": "Munoz-Navarro, Stephanie Rae"
-  },
-  {
     "subject": "SPAN",
     "number": 102,
     "title": "Elementary Spanish II",
@@ -27778,12 +23386,6 @@ const courseList : courseObject[] = [
     "number": 206,
     "title": "Intro to Hispanic Linguistics",
     "professor": "Grad Asst"
-  },
-  {
-    "subject": "SPAN",
-    "number": 221,
-    "title": "Spanish: Health Personnel I",
-    "professor": "Gonzalez-Cameron, Diana"
   },
   {
     "subject": "SPAN",
@@ -27816,12 +23418,6 @@ const courseList : courseObject[] = [
     "professor": "Waitoller, Federico R"
   },
   {
-    "subject": "TADR",
-    "number": 464,
-    "title": "Clinic: Pro Bono Lit Clinic",
-    "professor": "Ortiz, Jose D"
-  },
-  {
     "subject": "THTR",
     "number": 361,
     "title": "Voice IV: Text Styles",
@@ -27835,21 +23431,9 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "UPP",
-    "number": 458,
-    "title": "Intro Geo Analysis & Vis I",
-    "professor": "Jasek, Thomas A"
-  },
-  {
-    "subject": "UPP",
     "number": 461,
     "title": "GIS for Planning and Policy",
     "professor": "Wilson, Matthew D"
-  },
-  {
-    "subject": "US",
-    "number": 130,
-    "title": "Principls Urb Sustainability",
-    "professor": "Kocs, Elizabeth A."
   },
   {
     "subject": "US",
@@ -27871,12 +23455,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "PHYS",
-    "number": 141,
-    "title": "General Physics I",
-    "professor": "Hazelton, Ryan Lowell Crites"
-  },
-  {
-    "subject": "PHYS",
     "number": 215,
     "title": "Computational Math/Physics",
     "professor": "Khalili Araghi, Fatemeh"
@@ -27895,27 +23473,9 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "PMPR",
-    "number": 390,
-    "title": "Spec Project in Pharm Pract",
-    "professor": "Drambarean, Beatrice"
-  },
-  {
-    "subject": "PMPR",
-    "number": 390,
-    "title": "Spec Project in Pharm Pract",
-    "professor": "McPherson, Charles E"
-  },
-  {
-    "subject": "PMPR",
     "number": 442,
     "title": "Intro to Specialty Pharmacy",
     "professor": "Kumor, Lisa Marie"
-  },
-  {
-    "subject": "PMPR",
-    "number": 617,
-    "title": "Adv Ambulatory Patient Care",
-    "professor": "Allen, Sheila Mary"
   },
   {
     "subject": "POLS",
@@ -27928,12 +23488,6 @@ const courseList : courseObject[] = [
     "number": 240,
     "title": "Rapid Portuguese",
     "professor": "Costa Neves, Felipe"
-  },
-  {
-    "subject": "PROS",
-    "number": 612,
-    "title": "Dx and Treatment Planning",
-    "professor": "Campbell, Stephen D"
   },
   {
     "subject": "PSCH",
@@ -27951,12 +23505,6 @@ const courseList : courseObject[] = [
     "subject": "PSCH",
     "number": 313,
     "title": "Social Psychology Lab",
-    "professor": "Pasek, Michael Harrison Hirsh"
-  },
-  {
-    "subject": "PSCH",
-    "number": 313,
-    "title": "Social Psychology Lab",
     "professor": "Prims, Julia"
   },
   {
@@ -27967,39 +23515,15 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "PSCH",
-    "number": 331,
-    "title": "Community&Prevention Research",
-    "professor": "Flynn, Andrea Marie"
-  },
-  {
-    "subject": "PSCH",
     "number": 333,
     "title": "Lab in Clinical Psychology",
     "professor": "Guerrero, Mayra"
   },
   {
     "subject": "PSCH",
-    "number": 333,
-    "title": "Lab in Clinical Psychology",
-    "professor": "Herbener, Ellen S"
-  },
-  {
-    "subject": "PSCH",
     "number": 340,
     "title": "Psychological Testing",
     "professor": "Baker, Christopher Albert"
-  },
-  {
-    "subject": "PSCH",
-    "number": 343,
-    "title": "Stat Methods in Behav Sci",
-    "professor": "Prims, Julia"
-  },
-  {
-    "subject": "PSCH",
-    "number": 385,
-    "title": "Field Work in Applied Psch",
-    "professor": "Kim-Cohen, Julia Yun Soo"
   },
   {
     "subject": "PSCH",
@@ -28018,12 +23542,6 @@ const courseList : courseObject[] = [
     "number": 370,
     "title": "Public Health Toolbox",
     "professor": "Zanoni, Joseph P"
-  },
-  {
-    "subject": "PUBH",
-    "number": 395,
-    "title": "Professional Topics",
-    "professor": "Chriqui, Jamie F."
   },
   {
     "subject": "RES",
@@ -28050,18 +23568,6 @@ const courseList : courseObject[] = [
     "professor": "McNally, James Edward"
   },
   {
-    "subject": "MUS",
-    "number": 114,
-    "title": "Jazz History",
-    "professor": "Irabagon, Jonathan"
-  },
-  {
-    "subject": "MUS",
-    "number": 156,
-    "title": "Pep Band",
-    "professor": "Carlson, Nicholas"
-  },
-  {
     "subject": "NUEL",
     "number": 244,
     "title": "History Prof Nursing in U.S.",
@@ -28072,24 +23578,6 @@ const courseList : courseObject[] = [
     "number": 250,
     "title": "Human Development Life Span",
     "professor": "Breitmayer, Bonnie J"
-  },
-  {
-    "subject": "NUPR",
-    "number": 416,
-    "title": "Integrated Practicum IV",
-    "professor": "Robinson, Nadia S"
-  },
-  {
-    "subject": "NUPR",
-    "number": 556,
-    "title": "EBP 4",
-    "professor": "Carlucci, Melissa Ann"
-  },
-  {
-    "subject": "NURS",
-    "number": 212,
-    "title": "Hlth Assessment /Communication",
-    "professor": "Grad Asst"
   },
   {
     "subject": "NURS",
@@ -28117,24 +23605,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "NURS",
-    "number": 511,
-    "title": "Epidemiology & Statistics",
-    "professor": "Eldeirawi, Kamal"
-  },
-  {
-    "subject": "NURS",
-    "number": 517,
-    "title": "Leadership & Policy",
-    "professor": "Gampetro, Pamela J"
-  },
-  {
-    "subject": "NURS",
-    "number": 534,
-    "title": "Advanced Physiology",
-    "professor": "Calik, Michael William"
-  },
-  {
-    "subject": "NURS",
     "number": 588,
     "title": "Nrsg Ldrshp in Global Health",
     "professor": "Culbert, Gabriel John"
@@ -28156,12 +23626,6 @@ const courseList : courseObject[] = [
     "number": 524,
     "title": "Craniofacial Anomalies I",
     "professor": "Nicholas, Christina Lynne"
-  },
-  {
-    "subject": "ORTD",
-    "number": 595,
-    "title": "Seminar in Orthodontics",
-    "professor": "Oubaidin, Maysaa"
   },
   {
     "subject": "OT",
@@ -28188,28 +23652,10 @@ const courseList : courseObject[] = [
     "professor": "Taylor, Michele Rodriguez"
   },
   {
-    "subject": "PCOL",
-    "number": 595,
-    "title": "Pharmacology Seminar",
-    "professor": "Karginov, Andrei"
-  },
-  {
-    "subject": "PELE",
-    "number": 600,
-    "title": "Elective Clerkship",
-    "professor": "Thomas, Dorian E"
-  },
-  {
     "subject": "SJ",
     "number": 101,
     "title": "Intro to Social Justice",
     "professor": "Nishida, Akemi"
-  },
-  {
-    "subject": "SOC",
-    "number": 490,
-    "title": "Senior Capstone",
-    "professor": "Garcia, Lorena"
   },
   {
     "subject": "SOCW",
@@ -28225,21 +23671,9 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "SPAN",
-    "number": 102,
-    "title": "Elementary Spanish II",
-    "professor": "Grad Asst"
-  },
-  {
-    "subject": "SPAN",
     "number": 202,
     "title": "Spanish Grammar in Practice",
     "professor": "Potowski, Kimberly J"
-  },
-  {
-    "subject": "SPAN",
-    "number": 380,
-    "title": "Professional Development",
-    "professor": "Taboada, Inmaculada"
   },
   {
     "subject": "SPED",
@@ -28255,33 +23689,9 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "STAT",
-    "number": 385,
-    "title": "Stat Learning and Big Data I",
-    "professor": "Zhong, Pingshou"
-  },
-  {
-    "subject": "STAT",
-    "number": 481,
-    "title": "Appl Statist Methods II",
-    "professor": "Han, Kyunghee"
-  },
-  {
-    "subject": "STAT",
     "number": 481,
     "title": "Appl Statist Methods II",
     "professor": "Pajda-De La O, Jennifer Marie"
-  },
-  {
-    "subject": "TADR",
-    "number": 461,
-    "title": "LSIV: Drafting Civ Litig",
-    "professor": "Baum, Charles Michael"
-  },
-  {
-    "subject": "TADR",
-    "number": 487,
-    "title": "Clinic: Vet Class",
-    "professor": "Duterte, Yelena C"
   },
   {
     "subject": "THTR",
@@ -28294,12 +23704,6 @@ const courseList : courseObject[] = [
     "number": 120,
     "title": "Urban & Pub Affairs Seminar I",
     "professor": "Campbell, Mirtza"
-  },
-  {
-    "subject": "UPP",
-    "number": 500,
-    "title": "Hist &Theory of Urban Planning",
-    "professor": "Betancur, John-Jairo"
   },
   {
     "subject": "UPP",
@@ -28324,18 +23728,6 @@ const courseList : courseObject[] = [
     "number": 507,
     "title": "PDAT 7: Neurology, Psych, Pain",
     "professor": "Jaki, Birgit Ursula"
-  },
-  {
-    "subject": "PMPR",
-    "number": 619,
-    "title": "Advanced Inpatient Medicine",
-    "professor": "Allen, Sheila Mary"
-  },
-  {
-    "subject": "PMPR",
-    "number": 620,
-    "title": "Advanced Specialty Elective",
-    "professor": "Allen, Sheila Mary"
   },
   {
     "subject": "POLS",
@@ -28375,27 +23767,9 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "PSCH",
-    "number": 343,
-    "title": "Stat Methods in Behav Sci",
-    "professor": "Sargis, Edward George"
-  },
-  {
-    "subject": "PSCH",
-    "number": 366,
-    "title": "Cognitive Neuroscience",
-    "professor": "Passarotti, Alessandra"
-  },
-  {
-    "subject": "PSCH",
     "number": 394,
     "title": "Special Topics in Psch",
     "professor": "Kim-Cohen, Julia Yun Soo"
-  },
-  {
-    "subject": "PSCH",
-    "number": 507,
-    "title": "Emerging Research Issues",
-    "professor": "Keinath, Alexandra"
   },
   {
     "subject": "PSCH",
@@ -28434,24 +23808,6 @@ const courseList : courseObject[] = [
     "professor": "Quadri, Syed Junaid Ahmed"
   },
   {
-    "subject": "RELS",
-    "number": 230,
-    "title": "Islam: Spirit and the Law",
-    "professor": "Doolin, Scott Robert"
-  },
-  {
-    "subject": "SOC",
-    "number": 100,
-    "title": "Introduction to Sociology",
-    "professor": "Luhr, Sigrid Willa"
-  },
-  {
-    "subject": "SOC",
-    "number": 229,
-    "title": "Sociology of Latinos",
-    "professor": "Grad Asst"
-  },
-  {
     "subject": "SOCW",
     "number": 519,
     "title": "Practice III: OCP",
@@ -28470,18 +23826,6 @@ const courseList : courseObject[] = [
     "professor": "Grad Asst"
   },
   {
-    "subject": "SPAN",
-    "number": 101,
-    "title": "Elementary Spanish I",
-    "professor": "Gismondi, Michael Anthony"
-  },
-  {
-    "subject": "SPAN",
-    "number": 104,
-    "title": "Intermediate Spanish II",
-    "professor": "Grad Asst"
-  },
-  {
     "subject": "COMM",
     "number": 323,
     "title": "Argument and Persuasion",
@@ -28492,12 +23836,6 @@ const courseList : courseObject[] = [
     "number": 111,
     "title": "Program Design I",
     "professor": "Dey, Drishika"
-  },
-  {
-    "subject": "CS",
-    "number": 466,
-    "title": "Computer Architecture",
-    "professor": "Roohi, Arman"
   },
   {
     "subject": "CS",
@@ -28528,12 +23866,6 @@ const courseList : courseObject[] = [
     "number": 330,
     "title": "Industrial Design IV",
     "professor": "O'Keefe, Thomas Joseph"
-  },
-  {
-    "subject": "DHD",
-    "number": 203,
-    "title": "Disability in World Cultures",
-    "professor": "Vaidya, Shruti"
   },
   {
     "subject": "DHD",
@@ -28585,12 +23917,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "ED",
-    "number": 210,
-    "title": "Learning and Instruction",
-    "professor": "Grad Asst"
-  },
-  {
-    "subject": "ED",
     "number": 217,
     "title": "STEM, Education, and Society",
     "professor": "Morton, Terrell R"
@@ -28600,12 +23926,6 @@ const courseList : courseObject[] = [
     "number": 515,
     "title": "Urban Higher Ed Org & Context",
     "professor": "Grad Asst"
-  },
-  {
-    "subject": "EDPS",
-    "number": 592,
-    "title": "Prof Career Training in EDPS",
-    "professor": "Allen, Lionel E Jr"
   },
   {
     "subject": "ELSI",
@@ -28638,24 +23958,6 @@ const courseList : courseObject[] = [
     "professor": "English, Bridget"
   },
   {
-    "subject": "ENGL",
-    "number": 160,
-    "title": "Academic Writing I",
-    "professor": "Lannon, Keegan"
-  },
-  {
-    "subject": "ENGL",
-    "number": 161,
-    "title": "Academic Writing II",
-    "professor": "Baez, Marc J"
-  },
-  {
-    "subject": "SPAN",
-    "number": 114,
-    "title": "Spanish - Heritage Speakers II",
-    "professor": "Navia, Bernardo"
-  },
-  {
     "subject": "SPAN",
     "number": 210,
     "title": "Introduction to Hispanic Texts",
@@ -28668,24 +23970,6 @@ const courseList : courseObject[] = [
     "professor": "Gregori, Emily Victoria"
   },
   {
-    "subject": "STAT",
-    "number": 130,
-    "title": "Intro Stat for Life Sciences",
-    "professor": "Embers, Dale Gene"
-  },
-  {
-    "subject": "TADR",
-    "number": 412,
-    "title": "Moot Ct Comp",
-    "professor": "Hodge, Joanne Simboli"
-  },
-  {
-    "subject": "TADR",
-    "number": 421,
-    "title": "Arbitration",
-    "professor": "Rafael, Ashley"
-  },
-  {
     "subject": "TADR",
     "number": 426,
     "title": "Counsel and Neg",
@@ -28693,39 +23977,9 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "TADR",
-    "number": 488,
-    "title": "Clinic: Vet Clinic",
-    "professor": "Duterte, Yelena C"
-  },
-  {
-    "subject": "TADR",
     "number": 491,
     "title": "Clinic: Community Enter Class",
     "professor": "Hatcher, Renee C"
-  },
-  {
-    "subject": "THTR",
-    "number": 150,
-    "title": "Fundamentals of Theatre Tech",
-    "professor": "Bishop, William"
-  },
-  {
-    "subject": "THTR",
-    "number": 182,
-    "title": "Practicum: Run Crew",
-    "professor": "Bachman, Donna"
-  },
-  {
-    "subject": "THTR",
-    "number": 280,
-    "title": "Practicum in Performance",
-    "professor": "Peyankov, Yasen M"
-  },
-  {
-    "subject": "UPP",
-    "number": 462,
-    "title": "Inter GIS for Planning/Policy",
-    "professor": "Craft, Andrea"
   },
   {
     "subject": "US",
@@ -28735,33 +23989,9 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "ENGL",
-    "number": 161,
-    "title": "Academic Writing II",
-    "professor": "Grad Asst"
-  },
-  {
-    "subject": "ENGL",
-    "number": 280,
-    "title": "Media & Prof Writing",
-    "professor": "Leick, Karen"
-  },
-  {
-    "subject": "ENGL",
     "number": 488,
     "title": "Methods of Teaching English",
     "professor": "Grad Asst"
-  },
-  {
-    "subject": "ENGR",
-    "number": 100,
-    "title": "ECE Success Seminar - Transfer",
-    "professor": "Narubin Durbin, Simona Ieva"
-  },
-  {
-    "subject": "ENTR",
-    "number": 310,
-    "title": "Intro to Entrepreneurship",
-    "professor": "Hogan, Daniel Mark"
   },
   {
     "subject": "EOHS",
@@ -28783,12 +24013,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "EPSY",
-    "number": 160,
-    "title": "Games, Learning, & Society",
-    "professor": "Grad Asst"
-  },
-  {
-    "subject": "EPSY",
     "number": 370,
     "title": "ECE and Curriculum",
     "professor": "Mulholland, Larissa"
@@ -28804,30 +24028,6 @@ const courseList : courseObject[] = [
     "number": 509,
     "title": "Research Design in Education",
     "professor": "Dai, Ting"
-  },
-  {
-    "subject": "FIN",
-    "number": 300,
-    "title": "Intro to Finance",
-    "professor": "O'Brien, William John"
-  },
-  {
-    "subject": "FIN",
-    "number": 330,
-    "title": "Quantitative Methods",
-    "professor": "Sipahi Akbas, Rabia Esma"
-  },
-  {
-    "subject": "FIN",
-    "number": 414,
-    "title": "Financial Plan Development",
-    "professor": "Golubeva, Evgenia"
-  },
-  {
-    "subject": "FIN",
-    "number": 500,
-    "title": "Intro to Corp Finance",
-    "professor": "Hu, Xiaoqing"
   },
   {
     "subject": "GC",
@@ -28873,12 +24073,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "HIST",
-    "number": 103,
-    "title": "Early America",
-    "professor": "Whisenhunt, William Benton"
-  },
-  {
-    "subject": "HIST",
     "number": 199,
     "title": "Chicago and the World",
     "professor": "Halsted, David"
@@ -28900,18 +24094,6 @@ const courseList : courseObject[] = [
     "number": 272,
     "title": "China Since 1911",
     "professor": "Gonzalez, Fredy"
-  },
-  {
-    "subject": "HIST",
-    "number": 596,
-    "title": "Independent Study",
-    "professor": "Fidelis, Malgorzata"
-  },
-  {
-    "subject": "HN",
-    "number": 196,
-    "title": "Nutrition",
-    "professor": "Oshita, Shayna Emily"
   },
   {
     "subject": "HN",
@@ -28959,37 +24141,13 @@ const courseList : courseObject[] = [
     "subject": "HON",
     "number": 201,
     "title": "Honors Seminar",
-    "professor": "Bui, Long B"
-  },
-  {
-    "subject": "HON",
-    "number": 201,
-    "title": "Honors Seminar",
     "professor": "Fink, Margaret Louise"
   },
   {
     "subject": "HON",
     "number": 201,
     "title": "Honors Seminar",
-    "professor": "Lymberopoulos, Georgia"
-  },
-  {
-    "subject": "HON",
-    "number": 201,
-    "title": "Honors Seminar",
-    "professor": "Ozdogru, Unsal"
-  },
-  {
-    "subject": "HON",
-    "number": 201,
-    "title": "Honors Seminar",
     "professor": "Pegues, Eric"
-  },
-  {
-    "subject": "HON",
-    "number": 202,
-    "title": "Honors Tutoring",
-    "professor": "Kaczmarczyk, Laura W"
   },
   {
     "subject": "HPA",
@@ -29002,12 +24160,6 @@ const courseList : courseObject[] = [
     "number": 110,
     "title": "Introduction to Humanities I",
     "professor": "Amato, Rebecca"
-  },
-  {
-    "subject": "IDS",
-    "number": 200,
-    "title": "Intro Mgmt Info Systems",
-    "professor": "Khan, Asfia F"
   },
   {
     "subject": "IDS",
@@ -29029,21 +24181,9 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "IDS",
-    "number": 532,
-    "title": "Intro to Operations Mgmt",
-    "professor": "Sturt, Bradley E"
-  },
-  {
-    "subject": "IDS",
     "number": 552,
     "title": "Supply Chain Management",
     "professor": "Liotine, Matthew"
-  },
-  {
-    "subject": "IDS",
-    "number": 560,
-    "title": "Analytics Strategy & Practice",
-    "professor": "Sarayloo, Fatemeh"
   },
   {
     "subject": "IDS",
@@ -29088,24 +24228,6 @@ const courseList : courseObject[] = [
     "professor": "Aparicio, Jose Javier"
   },
   {
-    "subject": "JD",
-    "number": 421,
-    "title": "Civil Procedure II",
-    "professor": "Green, Sonia B"
-  },
-  {
-    "subject": "KN",
-    "number": 194,
-    "title": "Intro to Athletic Training",
-    "professor": "Jandek, Amy M"
-  },
-  {
-    "subject": "KN",
-    "number": 261,
-    "title": "Applied Musculoskel Anatomy",
-    "professor": "Hamstra-Wright, Karrie Lynn"
-  },
-  {
     "subject": "KN",
     "number": 362,
     "title": "Tissue Biomechanics",
@@ -29131,12 +24253,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "LAW",
-    "number": 437,
-    "title": "LSIV: Drafting Gen Prac",
-    "professor": "Schmidt, Anne E"
-  },
-  {
-    "subject": "LAW",
     "number": 445,
     "title": "Environ Law",
     "professor": "Burke, Jennifer Anne"
@@ -29148,40 +24264,10 @@ const courseList : courseObject[] = [
     "professor": "Kalbfleisch, Raleigh"
   },
   {
-    "subject": "LAW",
-    "number": 534,
-    "title": "Secured Transactions",
-    "professor": "Lewis, Paul B"
-  },
-  {
-    "subject": "LRSC",
-    "number": 594,
-    "title": "Number&Oper W/Whole Numbers",
-    "professor": "Tavormina, Mary Jo"
-  },
-  {
     "subject": "MATH",
     "number": 90,
     "title": "Intermediate Algebra",
     "professor": "Dodds, Samuel Robert"
-  },
-  {
-    "subject": "MATH",
-    "number": 160,
-    "title": "Finite Math for Business",
-    "professor": "Meyer, McKinley"
-  },
-  {
-    "subject": "MATH",
-    "number": 165,
-    "title": "Calculus for Business",
-    "professor": "Taylor, Gregory Kyle"
-  },
-  {
-    "subject": "MATH",
-    "number": 180,
-    "title": "Calculus I",
-    "professor": "Ash, William Ray"
   },
   {
     "subject": "MATH",
@@ -29256,18 +24342,6 @@ const courseList : courseObject[] = [
     "professor": "Shahbazian-Yassar, Reza"
   },
   {
-    "subject": "MGMT",
-    "number": 340,
-    "title": "Intro to Organizations",
-    "professor": "Grad Asst"
-  },
-  {
-    "subject": "MGMT",
-    "number": 466,
-    "title": "Mgmt Effectiv Thru Diversity",
-    "professor": "Tarasievich, Renata A."
-  },
-  {
     "subject": "MHPE",
     "number": 501,
     "title": "Scholarship in HPE",
@@ -29293,45 +24367,9 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "MUS",
-    "number": 100,
-    "title": "Introduction To Music I",
-    "professor": "Gariazzo, Mariana"
-  },
-  {
-    "subject": "MUS",
-    "number": 150,
-    "title": "Vocal Jazz Ensemble",
-    "professor": "Allgood, Alyssa"
-  },
-  {
-    "subject": "MUS",
-    "number": 151,
-    "title": "Concert Band",
-    "professor": "Carlson, Nicholas"
-  },
-  {
-    "subject": "MUS",
-    "number": 152,
-    "title": "Instrumental Ensembles",
-    "professor": "Espinosa, Michael A"
-  },
-  {
-    "subject": "MUS",
     "number": 240,
     "title": "Music, Gender and Culture",
     "professor": "Rosenberg, Ruth Emily"
-  },
-  {
-    "subject": "NATS",
-    "number": 105,
-    "title": "Phys Syst Earth and Space Sci",
-    "professor": "Sit, Stefany"
-  },
-  {
-    "subject": "NATS",
-    "number": 200,
-    "title": "Tutoring in Sci Learning Ctr",
-    "professor": "Liubicich, Danielle"
   },
   {
     "subject": "NUPR",
@@ -29347,12 +24385,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "NURS",
-    "number": 372,
-    "title": "Leadership & Mgmnt in Nrsg",
-    "professor": "Grad Asst"
-  },
-  {
-    "subject": "NURS",
     "number": 377,
     "title": "Integrative Practice Exp",
     "professor": "Betka, Alisha Annette"
@@ -29364,28 +24396,10 @@ const courseList : courseObject[] = [
     "professor": "Urish, Haley Lafern"
   },
   {
-    "subject": "PELE",
-    "number": 607,
-    "title": "M3 Neurology Clerkship",
-    "professor": "Grad Asst"
-  },
-  {
-    "subject": "PHAR",
-    "number": 412,
-    "title": "Pharmacy Practice: Community",
-    "professor": "Eades, Amanda Lynn"
-  },
-  {
     "subject": "PHAR",
     "number": 435,
     "title": "Pharmacokinetics",
     "professor": "Chaiyaperm, Varanya"
-  },
-  {
-    "subject": "PHAR",
-    "number": 516,
-    "title": "Patient Care:AmbCare/Community",
-    "professor": "Driscoll, Tara P"
   },
   {
     "subject": "PHYS",
@@ -29431,51 +24445,15 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "PSCH",
-    "number": 210,
-    "title": "Theories of Personality",
-    "professor": "Chen, Jing"
-  },
-  {
-    "subject": "PSCH",
-    "number": 385,
-    "title": "Field Work in Applied Psch",
-    "professor": "Ochoa-Galindo, Carmen"
-  },
-  {
-    "subject": "PSCH",
     "number": 542,
     "title": "Mixed-Effects Models",
     "professor": "Demos, Alexander"
-  },
-  {
-    "subject": "PSCH",
-    "number": 584,
-    "title": "Pract: Clinical Trainees",
-    "professor": "Szerszen, Jenna Rowen"
-  },
-  {
-    "subject": "PSCI",
-    "number": 390,
-    "title": "Special Proj Pharm Sci",
-    "professor": "Bartels, Bradley David"
   },
   {
     "subject": "PSOP",
     "number": 395,
     "title": "Foundations in Urban Health 5",
     "professor": "Okorie-Awe, Clara Uche"
-  },
-  {
-    "subject": "PUBH",
-    "number": 120,
-    "title": "Study of Disease and Epidemics",
-    "professor": "Arguelles, Lester"
-  },
-  {
-    "subject": "RELE",
-    "number": 607,
-    "title": "M3 Neurology Clerkship",
-    "professor": "Grad Asst"
   },
   {
     "subject": "RELS",
@@ -29532,22 +24510,10 @@ const courseList : courseObject[] = [
     "professor": "Wahlskog, Carolyn J"
   },
   {
-    "subject": "SOCW",
-    "number": 572,
-    "title": "Field III OCP",
-    "professor": "Brown, Pamela Renee"
-  },
-  {
     "subject": "SPAN",
     "number": 103,
     "title": "Intermediate Spanish I",
     "professor": "Rodriguez, David Diego"
-  },
-  {
-    "subject": "SPAN",
-    "number": 204,
-    "title": "Composition Heritage Speakers",
-    "professor": "Grad Asst"
   },
   {
     "subject": "SPED",
@@ -29581,18 +24547,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "TADR",
-    "number": 410,
-    "title": "Trial Advocacy ADR Comp",
-    "professor": "Navarro, Kelly A."
-  },
-  {
-    "subject": "TADR",
-    "number": 421,
-    "title": "Arbitration",
-    "professor": "Gauza, Thomas Albert"
-  },
-  {
-    "subject": "TADR",
     "number": 460,
     "title": "LSIV: Drafting Criminal",
     "professor": "Arriaga, Arturo"
@@ -29614,12 +24568,6 @@ const courseList : courseObject[] = [
     "number": 478,
     "title": "Extern: Rest Justice Adv",
     "professor": "Seng, Michael P"
-  },
-  {
-    "subject": "TADR",
-    "number": 481,
-    "title": "Clinic: Int'l Human Rts Class",
-    "professor": "Davila, Sarah"
   },
   {
     "subject": "THTR",
@@ -29652,28 +24600,10 @@ const courseList : courseObject[] = [
     "professor": "Koenig, Richard Francis"
   },
   {
-    "subject": "UPP",
-    "number": 590,
-    "title": "Professional Practice Exp",
-    "professor": "Tilahun, Nebiyou Y"
-  },
-  {
-    "subject": "US",
-    "number": 202,
-    "title": "Social Justice & the City",
-    "professor": "Parker, Brenda"
-  },
-  {
     "subject": "US",
     "number": 220,
     "title": "Lat Amer Cities Global Context",
     "professor": "Lopez Garcia, David"
-  },
-  {
-    "subject": "BIOS",
-    "number": 325,
-    "title": "Human Embryology",
-    "professor": "Bassett, Andrea Louise"
   },
   {
     "subject": "BIOS",
@@ -29698,12 +24628,6 @@ const courseList : courseObject[] = [
     "number": 400,
     "title": "Biostatistics I",
     "professor": "Wang, Meida"
-  },
-  {
-    "subject": "CHEM",
-    "number": 122,
-    "title": "Matter and Energy",
-    "professor": "Carmel, Justin"
   },
   {
     "subject": "CHEM",
@@ -29760,28 +24684,10 @@ const courseList : courseObject[] = [
     "professor": "Burns, Krishni Schaefgen"
   },
   {
-    "subject": "CLJ",
-    "number": 262,
-    "title": "Research Methods II",
-    "professor": "Henricks, Kasey John Patrick"
-  },
-  {
-    "subject": "CLJ",
-    "number": 350,
-    "title": "Courts in Society",
-    "professor": "Thompson, Julian G"
-  },
-  {
     "subject": "CME",
     "number": 205,
     "title": "Structural Analysis I",
     "professor": "Chi, Sheng-Wei"
-  },
-  {
-    "subject": "CME",
-    "number": 302,
-    "title": "Transportation Engr",
-    "professor": "Zou, Bo"
   },
   {
     "subject": "CME",
@@ -29796,46 +24702,10 @@ const courseList : courseObject[] = [
     "professor": "Foster, Craig"
   },
   {
-    "subject": "CME",
-    "number": 493,
-    "title": "Seminar",
-    "professor": "Iranmanesh, Amirhossein"
-  },
-  {
-    "subject": "COMM",
-    "number": 102,
-    "title": "Intro Interpersonal Comm",
-    "professor": "Page, Janis Teruggi"
-  },
-  {
-    "subject": "CS",
-    "number": 211,
-    "title": "Programming Practicum",
-    "professor": "Reckinger, Scott J"
-  },
-  {
-    "subject": "CS",
-    "number": 261,
-    "title": "Machine Organization",
-    "professor": "Koehler, Adam Thomas"
-  },
-  {
-    "subject": "CS",
-    "number": 277,
-    "title": "Technical Comm in Comp Sci",
-    "professor": "Cranch, Cody Ingersoll"
-  },
-  {
     "subject": "CS",
     "number": 342,
     "title": "Software Design",
     "professor": "Hallenbeck, Mark"
-  },
-  {
-    "subject": "CS",
-    "number": 440,
-    "title": "Software Engr I",
-    "professor": "Bell, John T"
   },
   {
     "subject": "CS",
@@ -29893,18 +24763,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "DES",
-    "number": 150,
-    "title": "Digital Media Design I",
-    "professor": "Joseph, Dawn M"
-  },
-  {
-    "subject": "DES",
-    "number": 170,
-    "title": "Color Theory",
-    "professor": "Wandro, Jennifer Marie"
-  },
-  {
-    "subject": "DES",
     "number": 222,
     "title": "Human Experience in Design",
     "professor": "Lee, Latrina Eleanor"
@@ -29932,12 +24790,6 @@ const courseList : courseObject[] = [
     "number": 420,
     "title": "CSD I",
     "professor": "Reiser, Katherine A"
-  },
-  {
-    "subject": "EAES",
-    "number": 595,
-    "title": "Departmental Seminar",
-    "professor": "McNicol, Gavin"
   },
   {
     "subject": "ECE",
@@ -29970,18 +24822,6 @@ const courseList : courseObject[] = [
     "professor": "Chen, Pai-Yen"
   },
   {
-    "subject": "ECE",
-    "number": 599,
-    "title": "PhD Thesis Research",
-    "professor": "Shadmand, Mohammad"
-  },
-  {
-    "subject": "ECON",
-    "number": 270,
-    "title": "Statistics for Economics",
-    "professor": "Grad Asst"
-  },
-  {
     "subject": "ECON",
     "number": 300,
     "title": "Econometrics",
@@ -29995,27 +24835,9 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "ED",
-    "number": 100,
-    "title": "Intro to Urban Education",
-    "professor": "Grad Asst"
-  },
-  {
-    "subject": "ED",
-    "number": 205,
-    "title": "Race, Ethnicity, & Education",
-    "professor": "Grad Asst"
-  },
-  {
-    "subject": "ED",
     "number": 307,
     "title": "Nature & Practices of Nat Sci",
     "professor": "Nishimura, Marlynne K"
-  },
-  {
-    "subject": "ED",
-    "number": 504,
-    "title": "Urban Contexts and Ed Research",
-    "professor": "Germinaro, Kaleb"
   },
   {
     "subject": "EDPS",
@@ -30028,12 +24850,6 @@ const courseList : courseObject[] = [
     "number": 24,
     "title": "Listening/Speaking 4 IEP",
     "professor": "Buendia, Jenna Rashel"
-  },
-  {
-    "subject": "ENGL",
-    "number": 153,
-    "title": "Understanding Grammar & Style",
-    "professor": "Kessler, Jeffrey"
   },
   {
     "subject": "ENGL",
@@ -30051,25 +24867,7 @@ const courseList : courseObject[] = [
     "subject": "ENGL",
     "number": 160,
     "title": "Academic Writing I",
-    "professor": "Burson, Harry"
-  },
-  {
-    "subject": "ENGL",
-    "number": 160,
-    "title": "Academic Writing I",
     "professor": "Gallus-Price, Sibyl J"
-  },
-  {
-    "subject": "ENGL",
-    "number": 161,
-    "title": "Academic Writing II",
-    "professor": "Lapotre, Carly A"
-  },
-  {
-    "subject": "ENGL",
-    "number": 161,
-    "title": "Academic Writing II",
-    "professor": "McGath, Carrie Michele"
   },
   {
     "subject": "ENGL",
@@ -30085,27 +24883,9 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "ENGL",
-    "number": 213,
-    "title": "Intro to Shakespeare",
-    "professor": "Buslik, Gary"
-  },
-  {
-    "subject": "ENGL",
     "number": 383,
     "title": "Writing Digital and New Media",
     "professor": "Kessler, Jeffrey"
-  },
-  {
-    "subject": "ENGL",
-    "number": 486,
-    "title": "Teaching Writing/Mid&Sec Schl",
-    "professor": "Sjostrom, Katharine Sullivan"
-  },
-  {
-    "subject": "ENGL",
-    "number": 493,
-    "title": "Intern in Nonfic Writing",
-    "professor": "Christian, Margena A"
   },
   {
     "subject": "ENGL",
@@ -30120,22 +24900,10 @@ const courseList : courseObject[] = [
     "professor": "Havrelock, Rachel"
   },
   {
-    "subject": "ENGR",
-    "number": 100,
-    "title": "CS Success Seminar - Transfer",
-    "professor": "Narubin Durbin, Simona Ieva"
-  },
-  {
     "subject": "EOHS",
     "number": 556,
     "title": "Risk Assessmnt in Env Hlth",
     "professor": "Erdal, Serap"
-  },
-  {
-    "subject": "EPSY",
-    "number": 210,
-    "title": "Learning and Instruction",
-    "professor": "Grad Asst"
   },
   {
     "subject": "EPSY",
@@ -30162,24 +24930,6 @@ const courseList : courseObject[] = [
     "professor": "Demyanyk, Yuliya"
   },
   {
-    "subject": "FIN",
-    "number": 424,
-    "title": "Financial Communication",
-    "professor": "Badger, Terrance"
-  },
-  {
-    "subject": "FIN",
-    "number": 520,
-    "title": "Corporate Finance",
-    "professor": "Diaz Bianco, Aaron"
-  },
-  {
-    "subject": "FR",
-    "number": 102,
-    "title": "Elementary French II",
-    "professor": "Chidlow, Angela"
-  },
-  {
     "subject": "GC",
     "number": 509,
     "title": "Advanced Pronunciation",
@@ -30190,12 +24940,6 @@ const courseList : courseObject[] = [
     "number": 120,
     "title": "Intro Asian Amer Studies",
     "professor": "Su, Karen"
-  },
-  {
-    "subject": "GWS",
-    "number": 204,
-    "title": "Gender and Popular Culture",
-    "professor": "Celeste, Manoucheka"
   },
   {
     "subject": "HIST",
@@ -30235,12 +24979,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "HON",
-    "number": 122,
-    "title": "Hon Core Ind & Soc / World Cul",
-    "professor": "Kares, Faith"
-  },
-  {
-    "subject": "HON",
     "number": 124,
     "title": "Hon Core Past / Creat Arts",
     "professor": "Bui, Long B"
@@ -30261,19 +24999,7 @@ const courseList : courseObject[] = [
     "subject": "HON",
     "number": 201,
     "title": "Honors Seminar",
-    "professor": "Gottleib, Nicole"
-  },
-  {
-    "subject": "HON",
-    "number": 201,
-    "title": "Honors Seminar",
     "professor": "Williams, Quintin Levurn"
-  },
-  {
-    "subject": "HON",
-    "number": 202,
-    "title": "Ambassadors",
-    "professor": "Arias, Rachel Anne"
   },
   {
     "subject": "HON",
@@ -30282,46 +25008,10 @@ const courseList : courseObject[] = [
     "professor": "DeBoer, Celia Annette"
   },
   {
-    "subject": "HPA",
-    "number": 436,
-    "title": "GIS for E&PH Professionals",
-    "professor": "Cailas, Michael"
-  },
-  {
-    "subject": "HPA",
-    "number": 460,
-    "title": "Intro to Health Economics",
-    "professor": "Kwok, Jennifer Helen"
-  },
-  {
     "subject": "IDEA",
     "number": 130,
     "title": "Introduction to Game Studies",
     "professor": "Funk, Tiffany Ann"
-  },
-  {
-    "subject": "IDS",
-    "number": 200,
-    "title": "Intro Mgmt Info Systems",
-    "professor": "Lundquist, Doug E"
-  },
-  {
-    "subject": "IDS",
-    "number": 270,
-    "title": "Business Stats I - Bus Schlr",
-    "professor": "Talukdar, Manjuri"
-  },
-  {
-    "subject": "IDS",
-    "number": 355,
-    "title": "Operations Management",
-    "professor": "Ouksel, Aris M"
-  },
-  {
-    "subject": "IDS",
-    "number": 410,
-    "title": "Bus Database Technology",
-    "professor": "Mohammed, Mustafa N"
   },
   {
     "subject": "IDS",
@@ -30336,34 +25026,10 @@ const courseList : courseObject[] = [
     "professor": "Sparks, John"
   },
   {
-    "subject": "IDS",
-    "number": 516,
-    "title": "DataAnalytics for Business Pro",
-    "professor": "Bhattacharyya, Siddhartha"
-  },
-  {
-    "subject": "IDS",
-    "number": 517,
-    "title": "Enterprise Application Develop",
-    "professor": "Choi, Michael"
-  },
-  {
-    "subject": "IDS",
-    "number": 534,
-    "title": "Project Management",
-    "professor": "Treleaven, James"
-  },
-  {
     "subject": "IE",
     "number": 118,
     "title": "Energy for Sustainable Society",
     "professor": "Alonso, Matthew Paul"
-  },
-  {
-    "subject": "IE",
-    "number": 342,
-    "title": "Probability & Stat for Engr",
-    "professor": "Nicolsen, Brynne E"
   },
   {
     "subject": "IE",
@@ -30378,34 +25044,16 @@ const courseList : courseObject[] = [
     "professor": "Lofthouse, Alyson Lynn"
   },
   {
-    "subject": "IPHS",
-    "number": 420,
-    "title": "Interprofessional Education",
-    "professor": "Bonney, Tessa Harris"
-  },
-  {
     "subject": "ISA",
     "number": 100,
     "title": "Freshman Seminar",
     "professor": "Jordan, Olivia Tyler"
   },
   {
-    "subject": "ITAL",
-    "number": 102,
-    "title": "Elementary Italian II",
-    "professor": "Iusco, Maria"
-  },
-  {
     "subject": "JD",
     "number": 401,
     "title": "Exp Learning",
     "professor": "Mitchell, Ryan P"
-  },
-  {
-    "subject": "JD",
-    "number": 415,
-    "title": "Contracts II",
-    "professor": "Cross, Karen Halverson"
   },
   {
     "subject": "JD",
@@ -30487,18 +25135,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "LAW",
-    "number": 530,
-    "title": "3rd yr only Leg Fund Re & Test",
-    "professor": "Mitchell, Ryan P"
-  },
-  {
-    "subject": "LAW",
-    "number": 533,
-    "title": "Bus Assoc",
-    "professor": "Acevedo, Arthur"
-  },
-  {
-    "subject": "LAW",
     "number": 538,
     "title": "Adv Torts",
     "professor": "Kream, Lawrence"
@@ -30526,18 +25162,6 @@ const courseList : courseObject[] = [
     "number": 110,
     "title": "College Algebra",
     "professor": "Meyer, McKinley"
-  },
-  {
-    "subject": "MATH",
-    "number": 210,
-    "title": "Calculus III",
-    "professor": "Abramov, Rafail"
-  },
-  {
-    "subject": "MATH",
-    "number": 210,
-    "title": "Calculus III",
-    "professor": "Bridges, Mercer Truett"
   },
   {
     "subject": "MATH",
@@ -30577,45 +25201,15 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "ME",
-    "number": 250,
-    "title": "Intro to Engineering Design",
-    "professor": "Szwalek, Jamison"
-  },
-  {
-    "subject": "ME",
-    "number": 312,
-    "title": "Dynamic Syst & Control",
-    "professor": "Cetin, Sabri"
-  },
-  {
-    "subject": "ME",
     "number": 312,
     "title": "Dynamic Syst & Control",
     "professor": "Kim, Myunghee"
   },
   {
     "subject": "ME",
-    "number": 341,
-    "title": "Exp Methods in Mech Engr",
-    "professor": "Szwalek, Jamison"
-  },
-  {
-    "subject": "ME",
     "number": 410,
     "title": "Automation & Robotics Applic",
     "professor": "Bhounsule, Pranav Audhut"
-  },
-  {
-    "subject": "MGMT",
-    "number": 486,
-    "title": "Managerial Consulting",
-    "professor": "Bullock, Kirsten"
-  },
-  {
-    "subject": "MGMT",
-    "number": 495,
-    "title": "Competitive Strategy",
-    "professor": "Cooper, James Wesley"
   },
   {
     "subject": "MKTG",
@@ -30679,12 +25273,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "NURS",
-    "number": 352,
-    "title": "Population Focused Nursing",
-    "professor": "Grad Asst"
-  },
-  {
-    "subject": "NURS",
     "number": 361,
     "title": "Nursing Care of Populations",
     "professor": "Afolabi, Ibukunoluwa Yemisi"
@@ -30712,18 +25300,6 @@ const courseList : courseObject[] = [
     "number": 421,
     "title": "Pathophysiology",
     "professor": "Fritschi, Cynthia"
-  },
-  {
-    "subject": "NURS",
-    "number": 516,
-    "title": "EBP 2",
-    "professor": "Lamb, Karen V"
-  },
-  {
-    "subject": "NURS",
-    "number": 518,
-    "title": "Quality & Safety",
-    "professor": "Grad Asst"
   },
   {
     "subject": "NURS",
@@ -30762,12 +25338,6 @@ const courseList : courseObject[] = [
     "professor": "Holbrook, Allyson L."
   },
   {
-    "subject": "PHAR",
-    "number": 201,
-    "title": "Pharmaceutical Care in the US",
-    "professor": "Hanakahi, Leslyn"
-  },
-  {
     "subject": "PHIL",
     "number": 210,
     "title": "Symbolic Logic",
@@ -30793,12 +25363,6 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "PMPR",
-    "number": 390,
-    "title": "Spec Project in Pharm Pract",
-    "professor": "Gimbar, Matthew George"
-  },
-  {
-    "subject": "PMPR",
     "number": 536,
     "title": "Concepts in Drug Development",
     "professor": "Drwiega, Emily"
@@ -30810,34 +25374,10 @@ const courseList : courseObject[] = [
     "professor": "Grad Asst"
   },
   {
-    "subject": "PSCH",
-    "number": 312,
-    "title": "Social Psychology",
-    "professor": "Littman, Rebecca"
-  },
-  {
-    "subject": "PSCH",
-    "number": 385,
-    "title": "Field Work in Applied Psch",
-    "professor": "Smith, Lauren Tiffany"
-  },
-  {
-    "subject": "PSCH",
-    "number": 579,
-    "title": "Curr Topics in Clinical Psch",
-    "professor": "Hsueh, Loretta Yao Pei"
-  },
-  {
     "subject": "PSCI",
     "number": 502,
     "title": "Research Presentation",
     "professor": "Burdette, Joanna E"
-  },
-  {
-    "subject": "PT",
-    "number": 496,
-    "title": "Independent Study",
-    "professor": "Strieter, Lindsey B"
   },
   {
     "subject": "PUBH",
@@ -30883,33 +25423,9 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "SOCW",
-    "number": 522,
-    "title": "Crisis Intervention",
-    "professor": "Johnson, Vania Janine"
-  },
-  {
-    "subject": "SOCW",
     "number": 554,
     "title": "Policy II: Mental Health",
     "professor": "Martin, Sarah Heather"
-  },
-  {
-    "subject": "SOCW",
-    "number": 572,
-    "title": "Field Instruction III: SWJS",
-    "professor": "Brown, Pamela Renee"
-  },
-  {
-    "subject": "SPAN",
-    "number": 103,
-    "title": "Intermediate Spanish I",
-    "professor": "Grad Asst"
-  },
-  {
-    "subject": "SPAN",
-    "number": 113,
-    "title": "Spanish - Heritage Speakers I",
-    "professor": "Arana-Rochel, Guadalupe"
   },
   {
     "subject": "SPAN",
@@ -30936,40 +25452,10 @@ const courseList : courseObject[] = [
     "professor": "Grad Asst"
   },
   {
-    "subject": "STAT",
-    "number": 101,
-    "title": "Introduction to Statistics",
-    "professor": "Kursell, Anita"
-  },
-  {
-    "subject": "STAT",
-    "number": 382,
-    "title": "Statistical Methods and Comput",
-    "professor": "Embers, Dale Gene"
-  },
-  {
-    "subject": "TADR",
-    "number": 469,
-    "title": "Extern: Local Gov & NP Sem",
-    "professor": "Gunderson, Joanna Belle"
-  },
-  {
     "subject": "TADR",
     "number": 476,
     "title": "Extern: Rest Justice Class",
     "professor": "Seng, Michael P"
-  },
-  {
-    "subject": "TADR",
-    "number": 482,
-    "title": "Clinic: Int'l Human Rts Clinic",
-    "professor": "Davila, Sarah"
-  },
-  {
-    "subject": "THTR",
-    "number": 102,
-    "title": "Introduction to Theatre",
-    "professor": "Corley, Richard"
   },
   {
     "subject": "THTR",
@@ -30979,28 +25465,10 @@ const courseList : courseObject[] = [
   },
   {
     "subject": "THTR",
-    "number": 145,
-    "title": "Acting Fundamentals Non-majors",
-    "professor": "Felton, Monet Lai-Lani"
-  },
-  {
-    "subject": "THTR",
     "number": 221,
     "title": "Adv Actg: American Drama",
     "professor": "Torres, Edward"
-  },
-  {
-    "subject": "UPP",
-    "number": 461,
-    "title": "GIS for Planning and Policy",
-    "professor": "Craft, Andrea"
-  },
-  {
-    "subject": "UPP",
-    "number": 595,
-    "title": "Professional Portfolio",
-    "professor": "Argov, Merav"
   }
-];
+]
 
 export default courseList
