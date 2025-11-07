@@ -36,7 +36,7 @@ function Header() {
             <div className="flex flex-row gap-2">
                 <NavigationMenuItem>
                 <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                    <Link href="/" className="opacity-70 bg-foreground/8 hover:opacity-100 font-semibold">Home</Link>
+                    <Link href="/" className="opacity-70 bg-foreground/10 hover:opacity-100 hover:text-background font-semibold">Home</Link>
                 </NavigationMenuLink>
                 </NavigationMenuItem>
                         <NavigationMenuItem>

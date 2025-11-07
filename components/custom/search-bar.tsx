@@ -82,7 +82,7 @@ function SearchBar() {
               <div className="pointer-events-none absolute left-12 right-0">
                   <PlaceholderText query={value}/>
               </div>
-              <CommandInput onValueChange={setValue} wrapperClassName="flex flex-1 gap-3 border-b-0 items-center" className="w-full"></CommandInput>
+              <CommandInput placeholder="" onValueChange={setValue} wrapperClassName="flex flex-1 gap-3 border-b-0 items-center" className="w-full text-lg"></CommandInput>
           {/* <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <InputGroupButton variant="ghost" className="w-fit h-10 text-xs items-center">
