@@ -50,6 +50,7 @@ export default function RootLayout({
             <Header/>
               <main className="flex flex-1 min-h-[calc(100svh-120px)] max-h-[calc(100svh-120px)] relative">
                   {children}
+                  <Analytics/>
               </main>
             <Footer/>
         </ThemeProvider>
