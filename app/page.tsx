@@ -1,5 +1,5 @@
-"use client";
 import "@/app/globals.css";
+import type { Metadata } from 'next'
 
 import { Badge } from "@/components/ui/badge"
 
@@ -8,6 +8,10 @@ import {
 } from "@/components/custom/search-bar"
 
 import { motion, AnimatePresence, LayoutGroup, easeInOut } from "motion/react"
+
+export const metadata: Metadata = {
+  title: "Home"
+}
 
 export default function Home() {
   return (

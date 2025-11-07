@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge"
 import { CommentsPaneServer } from '@/components/custom/comments-pane-server'
 import { TablePaneServer } from '@/components/custom/table-pane-server'
 import { formatGradeData } from '@/app/_util/formatGradeData'
+import type { Metadata } from 'next'
 
 // NEED TO TURN THESE INTO FUNCTIONAL COMPONENTS LATER
 import {
@@ -14,6 +15,10 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
+
+export const metadata: Metadata = {
+  title: "Course Details"
+}
 
 async function getCourseDetails(slug: string) {
   const parsedSlug = slug.split("-")

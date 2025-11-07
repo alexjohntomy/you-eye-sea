@@ -83,7 +83,7 @@ function SearchBar() {
                   <PlaceholderText query={value}/>
               </div>
               <CommandInput onValueChange={setValue} wrapperClassName="flex flex-1 gap-3 border-b-0 items-center" className="w-full"></CommandInput>
-          <DropdownMenu>
+          {/* <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <InputGroupButton variant="ghost" className="w-fit h-10 text-xs items-center">
                 All Semesters <ChevronDownIcon className="size-3" />
@@ -94,7 +94,7 @@ function SearchBar() {
               <DropdownMenuItem>Spring 2025</DropdownMenuItem>
               <DropdownMenuItem>Summer 2025</DropdownMenuItem>
             </DropdownMenuContent>
-          </DropdownMenu>
+          </DropdownMenu> */}
           </div>
               {/* <ResultsPane query={value}/> */}
               <ResultsPaneMotionComponent query={value}/>

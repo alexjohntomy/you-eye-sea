@@ -33,32 +33,35 @@ function Header() {
         </div>
         <NavigationMenu viewport={isMobile}>
         <NavigationMenuList className="w-full flex flex-wrap">
-            <div className="flex flex-row gap-5">
+            <div className="flex flex-row gap-2">
                 <NavigationMenuItem>
                 <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                    <Link href="/docs" className="opacity-60 bg-foreground/8 hover:opacity-100 font-semibold">Home</Link>
+                    <Link href="/" className="opacity-70 bg-foreground/8 hover:opacity-100 font-semibold">Home</Link>
                 </NavigationMenuLink>
                 </NavigationMenuItem>
                         <NavigationMenuItem>
-                <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                {/* <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
                     <Link href="/lists" className="opacity-60 bg-foreground/8 hover:bg-red-20 hover:opacity-100 font-semibold">Lists</Link>
                 </NavigationMenuLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
                 <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
                     <Link href="/about" className="opacity-60 bg-foreground/8 hover:bg-red-20 hover:opacity-100 font-semibold">About</Link>
-                </NavigationMenuLink>
+                </NavigationMenuLink> */}
                 </NavigationMenuItem>
                 <NavigationMenuItem>
                 <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
                         <Link href="/github" className="flex flex-row gap-2 bg-uic-red-600 opacity-90 inset-shadow-2xl hover:bg-uic-red-600 hover:text-background hover:opacity-100 font-semibold text-white shadow-lg shadow-primary">
-                            <Image
-                                src={GithubIcon}
-                                alt="Github Icon"
-                                height={20}
-                                className="filter brightness-1000"
-                            />
-                            GitHub
+                            <div className="flex flex-row gap-3 group relative w-full h-full">
+                                <Image
+                                    src={GithubIcon}
+                                    alt="Github Icon"
+                                    height={20}
+                                    className="filter brightness-1000 visible group-hover:invisible"
+                                />
+                                <h4 className="text-s visible group-hover:invisible">Github</h4>
+                                <h4 className="text-xs invisible group-hover:visible absolute inset-0 m-auto w-fit h-fit">Coming Soon</h4>
+                            </div>
                         </Link>
                 </NavigationMenuLink>
                 </NavigationMenuItem>
