@@ -3,6 +3,7 @@
 import { TrendingUp } from "lucide-react"
 import { Bar, BarChart, XAxis, YAxis, LabelList} from "recharts"
 import { calculateGPA } from "@/app/_util/gpaCalculator" 
+import { useEffect } from "react"
 
 import {
   Card,
@@ -20,6 +21,8 @@ import {
 } from "@/components/ui/chart"
 
 export const description = "A bar chart with a label"
+
+let animationNeeded = true
 
 const chartConfig = {
     count: {
@@ -55,6 +58,11 @@ const chartConfig = {
 function GradeDistributionChart({chartData} : any) {
     console.log(chartData)
     const calculatedGPA = calculateGPA(chartData)
+
+    useEffect(() => {
+        console.log("Page loaded...")
+        animationNeeded = false
+    }, []);
 
     const { passes, total, drops, totalWithDrops } = chartData.reduce(
             (accumulator: any, item: any) => {
@@ -126,6 +134,7 @@ function GradeDistributionChart({chartData} : any) {
                                 dataKey="count"
                                 className="stroke-1 stroke-foreground/30"
                                 layout="horizontal"
+                                isAnimationActive={animationNeeded}
                                 radius={3}>
                                 <LabelList
                                     dataKey="label"
