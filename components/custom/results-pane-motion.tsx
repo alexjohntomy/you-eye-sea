@@ -94,7 +94,7 @@ function ResultsPaneMotion({query, ref}: {query: string; ref?: Ref<HTMLElement>}
                         <CommandItem key = {item.id} value = {item.id} className="rounded-xl">
                           <Link href = {"/course/" + item.subject + "-" + item.number} className="w-full">
                             <div className = "flex items-center gap-1 align-bottom">
-                              <h2 className="text-base font-semibold">{item.subject + " " + item.number}</h2>
+                              <h2 className="text-base font-semibold text-gray-600">{item.subject + " " + item.number}</h2>
                               <h2 className="text-s text-gray-600">{item.title}</h2>
                             </div>
                             <h4 className="text-xs font-light italic text-gray-500">{item.professor}</h4>

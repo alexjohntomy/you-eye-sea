@@ -65,68 +65,68 @@ function GradeDistributionChart({chartData} : any) {
             { passes: 0, total: 0 }
     );
 
-    const passRate = total === 0 ? 0 : (passes / total).toFixed(2);
+    const passRate = total === 0 ? 0 : ((passes / total)*100).toFixed(1);
     
     return (
-        <Card className="rounded-lg shadow-[inset_0px_-6px_10px_2px_var(--secondary)]/10 border-foreground/10 py-5 px-0">
-        <CardHeader className="flex flex-row justify-between">
+        <Card className="flex flex-col grow justify-between h-full flex-1 min-h-60 rounded-lg shadow-[inset_0px_-6px_10px_2px_var(--secondary)]/10 border-foreground/10 gap-0">
             <div>
-                <CardTitle className="text-xl font-bold">Grade Distribution</CardTitle>
-                <CardDescription className="text-sm">All Semesters in Database (Spring '22 - '25)</CardDescription>
+                <CardHeader className="flex flex-row justify-between">
+                    <div>
+                        <CardTitle className="text-xl font-bold">Grade Distribution</CardTitle>
+                        <CardDescription className="text-sm">(Spring '22 - '25)</CardDescription>
+                    </div>
+                    <Card className="px-2 py-1 md:py-2 rounded-md leading-6 md:leading-4 shadow-2xs shadow-foreground text-sm">
+                        <h1><span className="font-semibold">Average GPA: </span> {calculatedGPA}</h1>
+                        <h1><span className="font-semibold">Pass Rate: </span> {passRate}%</h1>
+                    </Card>
+                </CardHeader>
             </div>
-            <Card className="px-3 py-1 md:py-4 rounded-md leading-6 md:leading-1 shadow-2xs shadow-foreground">
-                <h1><span className="font-semibold">Average GPA: </span> {calculatedGPA}</h1>
-                <h1><span className="font-semibold">Pass Rate: </span> {passRate}</h1>
-            </Card>
-        </CardHeader>
-    
-        <CardContent className="h-full">
-            <ChartContainer
-                config={chartConfig}
-                className="w-full h-70">
-                <BarChart 
-                    accessibilityLayer
-                    data={chartData}
-                    layout="horizontal"
-                    margin={{ top: 24, right: 16, bottom: 8, left: 16 }}
-                >
+            <CardContent className="flex">
+                <div className="w-full h-full min-w-0 min-h-0 overflow-scroll">
+                    <ChartContainer
+                        config={chartConfig}
+                        className="min-w-full max-h-full">
+                        <BarChart 
+                            accessibilityLayer
+                            data={chartData}
+                            layout="horizontal"
+                            margin={{ top: 16, right: 16, bottom: 8, left: 16 }}
+                        >
 
-                    <XAxis
-                        dataKey="grade"
-                        className="text-xl font-black"
-                        type="category"
-                        tickLine={false}
-                        tickMargin={10}
-                        axisLine={false}
-                        tickFormatter={(value) =>
-                            chartConfig[value as keyof typeof chartConfig]?.label
-                        }
-                    />
+                            <XAxis
+                                dataKey="grade"
+                                className="text-xl font-black"
+                                type="category"
+                                tickLine={false}
+                                tickMargin={5}
+                                axisLine={false}
+                                tickFormatter={(value) =>
+                                    chartConfig[value as keyof typeof chartConfig]?.label
+                                }
+                            />
 
-                    <YAxis
-                        dataKey="count"
-                        type="number"
-                        hide
-                    />
+                            <YAxis
+                                dataKey="count"
+                                type="number"
+                                hide
+                            />
 
-                    <Bar
-                        dataKey="count"
-                        className="stroke-1 stroke-foreground/30"
-                        layout="horizontal"
-                        radius={3}>
-                        <LabelList
-                            position="top"
-                            offset={10}
-                            className="fill-foreground"
-                            fontSize={16}
-                        />
-                    </Bar>
-            </BarChart>
-            </ChartContainer>
-        </CardContent>
-        <CardFooter className="flex-col items-center text-xs opacity-50">
-            The grade codes ADV, CR, DFR, I, NG, NR, O, PR, S, U, & W were not considered for this chart.
-        </CardFooter>
+                            <Bar
+                                dataKey="count"
+                                className="stroke-1 stroke-foreground/30"
+                                layout="horizontal"
+                                radius={3}>
+                                <LabelList
+                                    position="top"
+                                    offset={10}
+                                    className="fill-foreground"
+                                    fontSize={14}
+                                />
+                            </Bar>
+                    </BarChart>
+                    </ChartContainer>
+                </div>
+            </CardContent>
         </Card>
     )
 }

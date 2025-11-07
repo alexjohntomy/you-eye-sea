@@ -65,28 +65,26 @@ export default async function CourseDetailsPage({
   const GradeDistributionCount = await getCourseInstance(slug)
   
   return (
-    <div className="flex flex-col md:flex-row grow bg-background w-full h-full md:h-[calc(100svh-120px)]">
+    <div className="flex flex-col md:flex-row grow bg-background w-full h-full md:h-[calc(100svh-120px)] overflow-hidden">
 
       {/* Stats */}
-      <div className="w-full md:w-6/12 p-8 h-full">
-        <div className='flex-col w-full'>
-          <br></br>
-          <h1 className="text-uic-red-600 font-black text-4xl">{courseDetails.name} {courseDetails.number}</h1>
-          <p className="text-foreground/70 font-medium text-lg">{courseDetails.title}</p>
-          <br></br>
+      <div className="flex flex-col w-full md:w-1/2 p-8 h-full gap-2">
+          <div className='flex-row'>
+            <h1 className="text-uic-red-600 font-black text-4xl">{courseDetails.name} {courseDetails.number}</h1>
+            <p className="text-foreground/70 font-medium text-lg">{courseDetails.title}</p>
+          </div>
             <div className="">
                 <GradeDistributionChart chartData={GradeDistributionCount}></GradeDistributionChart>
             </div>
-            <h1 className='py-2 text-xs text-center text-foreground/50'>Disclaimer: Data is sourced from official UIC grade distributions but statistics is not my strong suit so could be wrong. Use for quick reference only.</h1>
-        </div>
+            <h5 className='py-2 text-xs text-center text-foreground/50'>Data is sourced from official UIC grade distributions but statistics is not my strong suit so could be wrong.</h5>
       </div>
       
       {/* Comments */}
-        <section className='w-full md:w-3/12 h-full relative border-r border-l border-foreground/10'>
-              <CommentsPaneServer slug={slug}/>
+        <section className='w-full md:max-w-1/4 md:w-1/4 h-full relative border-r border-l border-foreground/10'>
+            <CommentsPaneServer slug={slug}/>
         </section>
 
-        <section className="w-full md:w-3/12 h-full">
+        <section className="w-full md:max-w-1/4 md:w-1/4 h-full">
           <TablePaneServer slug={slug}/>
         </section>
       </div>
