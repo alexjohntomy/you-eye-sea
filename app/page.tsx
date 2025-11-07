@@ -10,7 +10,8 @@ import {
 import { motion, AnimatePresence, LayoutGroup, easeInOut } from "motion/react"
 
 export const metadata: Metadata = {
-  title: "Home"
+  title: "Home",
+  description: "Get grade distribution data, tips from former students, and cohort GPAs for any course at University of Illinois at Chicago."
 }
 
 export default function Home() {

@@ -27,7 +27,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: {
     template: '%s | YouEyeSea',
-    default: "YouEyeSea",
+    default: "YouEyeSea - UIC Grade Distributions",
   },
 };
 

@@ -22,15 +22,17 @@ function Header() {
   const isMobile = useIsMobile()
   return (
     <header className = "flex px-5 flex-col gap-3 py-5 md:flex-row border-b border-foreground/15 justify-between items-center bg-background shadow-[inset_0px_-6px_10px_2px_var(--inset-color)] h-fit md:h-15">
-        <div className="flex flex-row">
-            <Image
-                src={Logo}
-                alt="A logo featuring a finger pointing toward the viewer, an eye, and a wave"
-                height={25}
-                className="filter contrast-115"
-            />
-            <h1 className="font-black text-l opacity-100 relative top-.5 text-#001e62">YouEyeSea</h1>
-        </div>
+            <Link href="/">
+                <div className="flex flex-row">
+                    <Image
+                        src={Logo}
+                        alt="A logo featuring a finger pointing toward the viewer, an eye, and a wave"
+                        height={25}
+                        className="filter contrast-115"
+                    />
+                    <h1 className="font-black text-l opacity-100 relative top-.5 text-#001e62">YouEyeSea</h1>
+                </div>
+            </Link>
         <NavigationMenu viewport={isMobile}>
         <NavigationMenuList className="w-full flex flex-wrap">
             <div className="flex flex-row gap-2">
@@ -39,7 +41,7 @@ function Header() {
                     <Link href="/" className="opacity-70 bg-foreground/10 hover:opacity-100 hover:text-background font-semibold">Home</Link>
                 </NavigationMenuLink>
                 </NavigationMenuItem>
-                        <NavigationMenuItem>
+                <NavigationMenuItem>
                 {/* <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
                     <Link href="/lists" className="opacity-60 bg-foreground/8 hover:bg-red-20 hover:opacity-100 font-semibold">Lists</Link>
                 </NavigationMenuLink>

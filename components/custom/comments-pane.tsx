@@ -29,6 +29,9 @@ interface testProps {
     parsedSlug: string[]
 }
 
+import { Filter } from 'bad-words'
+const filter = new Filter()
+
 function CommentsPane({comments, parsedSlug} : testProps) {
     const router = useRouter();
     const [value, setValue] = useState("");
@@ -73,18 +76,24 @@ function CommentsPane({comments, parsedSlug} : testProps) {
                             variant="outline"
                             className="rounded-md w-20 text-foreground border border-secondary/50"
                             size="icon-xs"
-                            onClick={() => { 
-                                postComment(
-                                // Defining comment object
-                                {
-                                comment: value,
-                                author: "Anonymous Fireball",
-                                courseID: parsedSlug[0],
-                                courseNumber: parseInt(parsedSlug[1]),
+                            onClick={() => {
+                                if (filter.isProfane(value)) {
+                                    setValue("Don't use profanity please.")
                                 }
-                            ),
-                            router.refresh()
-                            }}
+                                else {
+                                    postComment(
+                                    // Defining comment object
+                                    {
+                                    comment: value,
+                                    author: "Anonymous Fireball",
+                                    courseID: parsedSlug[0],
+                                    courseNumber: parseInt(parsedSlug[1]),
+                                    }
+                                    ),
+                                    setValue(""),
+                                    router.refresh()
+                                }
+                                }}
                             >Submit
                             </InputGroupButton>
                     </InputGroupAddon>
