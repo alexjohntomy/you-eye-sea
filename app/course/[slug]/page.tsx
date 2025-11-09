@@ -142,7 +142,7 @@ export default async function CourseDetailsPage({
         <section className='w-full md:max-w-1/4 md:w-1/4 h-full p-8 relative border-r border-l border-foreground/10'>
             <DiscussionPane
               commentPaneServerComponent={<CommentsPaneServer slug = {slug} professorID={filteredParams.professor}></CommentsPaneServer>}
-              reviewPaneServerComponent={<ReviewsPaneServer slug = {slug} professorID = {filteredParams.professor}></ReviewsPaneServer>}
+              reviewPaneServerComponent={<ReviewsPaneServer slug = {slug} professorID={filteredParams.professor} listOfProfessors = {courseDetails.professors}></ReviewsPaneServer>}
               >
             </DiscussionPane>
         </section>

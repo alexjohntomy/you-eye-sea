@@ -15,13 +15,14 @@ async function getReviewsFromDB(courseName : any) {
 interface ReviewsPaneServerProps {
   slug: string
   professorID: any
+  listOfProfessors: any
 }
 
-async function ReviewsPaneServer({slug, professorID} : ReviewsPaneServerProps) { 
+async function ReviewsPaneServer({slug, professorID, listOfProfessors} : ReviewsPaneServerProps) { 
     const parsedCourseName = slug.split("-") ?? ["test", "test"]
     const reviewsFromDB = await getReviewsFromDB(parsedCourseName)
     return (
-        <ReviewsPane reviews={reviewsFromDB} parsedSlug={parsedCourseName} professorID={professorID}/>
+        <ReviewsPane reviews={reviewsFromDB} parsedSlug={parsedCourseName} professorID={professorID} listOfProfessors={listOfProfessors}/>
     )
 }
 

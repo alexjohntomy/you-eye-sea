@@ -55,9 +55,27 @@ interface ReviewProps {
     reviews : Review[]
     parsedSlug : string[]
     professorID : any
+    listOfProfessors : any
 }
 
-function ReviewsPane({reviews, parsedSlug, professorID} : ReviewProps) {
+interface Professor {
+    id: string;
+    name: string;
+}
+
+function getProfessorNameFromID(professorID: string, listOfProfessors : Professor[]) {
+    let professorNameFromID : Professor = ({name: "All Professors", id: "all-professors"})
+
+    if (professorID == "all-professors" || !professorID) {
+        professorNameFromID = {name: "All Professors", id: "all-professors"}
+    }
+    else {
+        professorNameFromID = (listOfProfessors.find((professor : Professor) => professor.id === professorID)) ?? {name: "All Professors", id: "all-professors"}
+    }
+    return professorNameFromID.name
+}
+
+function ReviewsPane({reviews, parsedSlug, professorID, listOfProfessors} : ReviewProps) {
     const router = useRouter();
     const [value, setValue] = useState("");
     const handleValueChange : any = (event: any) => {
@@ -66,7 +84,6 @@ function ReviewsPane({reviews, parsedSlug, professorID} : ReviewProps) {
         }
     }
     const [rating, setRating] = useState(0)
-
     return (
         <div className="w-full h-full flex flex-col">
             {/* gradient overlay */}
@@ -75,6 +92,13 @@ function ReviewsPane({reviews, parsedSlug, professorID} : ReviewProps) {
                         <div className="flex flex-col w-full md:min-h-screen max-h-10/12 gap-3">
                         {reviews.map((eachReview : any) => (
                             <Card key={eachReview.id}  className = "border-foreground/20 rounded-md gap-1 py-3 px-3 w-full">
+                            <ReactRating
+                                style={{ maxWidth: 100 }}
+                                value={eachReview.stars}
+                                readOnly
+                                itemStyles={customStyles}
+                                />                                
+                                <h3 className="text-sm text-foreground/50 font-black border-b py-1">Professor: {getProfessorNameFromID(String(eachReview.professorID), listOfProfessors)}</h3>
                                 <h3 className="text-sm text-foreground/80 font-black">{eachReview.review}</h3>
                                 <span className="flex flex-row justify-between opacity-60">
                                     <h4 className="text-xs text-left inline-block text-uic-red-700">{eachReview.author}</h4>
