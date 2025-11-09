@@ -113,6 +113,7 @@ export default async function CourseDetailsPage({
   const parsedSlug = slug.split("-")
   const courseDetails = await getCourseDetails(slug)
   const GradeDistributionCount = await getCourseInstance(slug, filteredParams)
+  const formattedGradeData = formatGradeData(GradeDistributionCount)
   const encodedURL = "https://catalog.uic.edu/ucat/course-descriptions/" + parsedSlug[0].toLowerCase() + "/#:~:text=" + encodeURIComponent(`${courseDetails.name} ${courseDetails.number}`)
   
   return (
@@ -126,14 +127,14 @@ export default async function CourseDetailsPage({
                 </div>
                 <ProfessorDropdown listOfProfessors = {courseDetails.professors}></ProfessorDropdown>
           </div>
-          <Link href = {encodedURL}>
+          <Link href = {encodedURL} className='w-fit'>
               <Badge variant="outline" className="flex-row gap-2 relative bottom-1 rounded-md text-xs font-semibold px-3 py-2 bg-badge-bg/90 text-badge-text border-badge-border/20 shadow-[inset_0px_-6px_10px_2px_var(--badge-shadow-base)]/40 hover:bg-badge-bg ">
                 View in Course Catalog
                 <ExternalLink className='opacity-70 relative'/>
               </Badge>
           </Link>
             <div className="">
-                <GradeDistributionChart chartData={formatGradeData(GradeDistributionCount)} courseDetails = {courseDetails} filteredParams = {filteredParams}></GradeDistributionChart>
+                <GradeDistributionChart chartData={formattedGradeData} professorID={filteredParams.professor} listOfProfessors = {courseDetails.professors}></GradeDistributionChart>
             </div>
             <h5 className='py-2 text-xs text-center text-foreground/50'>Data is sourced from official UIC grade distributions but many of the stats are calculated in the backend, so it may contain errors. The pass rate denominator includes only A-F. The drop rate includes W.</h5>
       </div>

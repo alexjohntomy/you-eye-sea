@@ -57,16 +57,33 @@ const chartConfig = {
 
 interface chartsProp {
     chartData: any
-    courseDetails: any
-    filteredParams: any
+    professorID: any
+    listOfProfessors: Professor[]
+}
+
+interface Professor {
+    id: string;
+    name: string;
+}
+
+function getProfessorNameFromID(professorID: string, listOfProfessors : Professor[]) {
+    let professorNameFromID : Professor = ({name: "All Professors", id: "all-professors"})
+
+    if (professorID == "all-professors" || !professorID) {
+        professorNameFromID = {name: "All Professors", id: "all-professors"}
+    }
+    else {
+        professorNameFromID = (listOfProfessors.find((professor : Professor) => professor.id === professorID)) ?? {name: "All Professors", id: "all-professors"}
+    }
+    return professorNameFromID.name
 }
 
 
-function GradeDistributionChart({chartData, courseDetails, filteredParams} : chartsProp) {
+function GradeDistributionChart({chartData, professorID, listOfProfessors} : chartsProp) {
     console.log(chartData)
     const calculatedGPA = calculateGPA(chartData)
-    console.log(filteredParams)
-    const selectedProfessor = courseDetails.professors.find((professor : any) => professor.id === parseInt(filteredParams.professor)) ?? "test"
+    console.log(professorID)
+    const selectedProfessor = getProfessorNameFromID(professorID, listOfProfessors)
     useEffect(() => {
         console.log("Page loaded...")
         animationNeeded = false
@@ -99,7 +116,7 @@ function GradeDistributionChart({chartData, courseDetails, filteredParams} : cha
                 <CardHeader className="flex flex-row justify-between">
                     <div>
                         <CardTitle className="text-xl font-bold">Grade Distribution</CardTitle>
-                        <CardDescription className="text-sm">{selectedProfessor.name} (Spring '22 - '25)</CardDescription>
+                        <CardDescription className="text-sm">{selectedProfessor} (Spring '22 - '25)</CardDescription>
                     </div>
                     <Card className="flex flex-col px-2 py-1 md:py-2 rounded-md gap-1 shadow-2xs shadow-foreground text-sm">
                         <h1><span className="font-semibold">Average GPA: </span> {calculatedGPA}</h1>

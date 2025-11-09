@@ -64,7 +64,7 @@ function CommentsPane({comments, parsedSlug, professorID} : testProps) {
 
                 <div className='py-6'>
                     <InputGroup className="overflow-y rounded-sm border-2 border-uic-navy-800/40 focus-visible:ring-0 bg-background">
-                        <InputGroupTextarea className="text-xs resize-none border-none shadow-none" placeholder="Post a short compliment, rant, or tip for this course..." value = {value} onChange={handleValueChange}/>
+                        <InputGroupTextarea className="text-xs resize-none border-none shadow-none" placeholder="Post a short tip you have for this course..." value = {value} onChange={handleValueChange}/>
                         <InputGroupAddon align="block-end">
                             <InputGroupText className="ml-auto">{value.length}/280</InputGroupText>
                                 <InputGroupButton

@@ -27,10 +27,10 @@ function DiscussionDropdown({selectedDiscussionType, setDiscussionType} : any) {
                 {selectedDiscussionType}<ChevronDown/>
             </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-56">
+            <DropdownMenuContent className="w-full">
                 <DropdownMenuRadioGroup value={selectedDiscussionType} onValueChange={handleDropdownChange}>
-                    <DropdownMenuRadioItem value="Comments" key="comments" className="text-left">
-                    Comments
+                    <DropdownMenuRadioItem value="Advice" key="advice" className="text-left">
+                    Advice
                     </DropdownMenuRadioItem>
                     <DropdownMenuRadioItem value="Ratings" key="ratings" className="text-left">
                     Ratings
