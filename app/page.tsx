@@ -22,7 +22,6 @@ export default function Home() {
       <h2 className="font-semibold text-l md:text-xl text-center text-uic-navy-800 opacity-80">Get detailed grade distribution data, tips, and more...</h2>
       <br/>
       <SearchBar></SearchBar>
-      {/* <h5 className="py-5 text-foreground/50 text-xs">Note: Some classes may not appear in the search results, but may still be available by visiting YouEyeSea.com/SUBJ-NUMBER</h5> */}
       <div className="absolute inset-0 -z-10 bg-gradient-uic"/>
       <div className="absolute inset-0 -z-10 h-full w-full bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:30px_30px]"></div>
     </div>

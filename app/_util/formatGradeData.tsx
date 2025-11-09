@@ -12,7 +12,6 @@
     let totalCountD = courseInstanceAggregation._sum.D ?? 0;
     let totalCountF = courseInstanceAggregation._sum.F ?? 0;
     let totalCountW = courseInstanceAggregation._sum.W ?? 0;
-
     let totalCountAll = totalCountA + totalCountB + totalCountC + totalCountD + totalCountF
 
     let A: GradeData = {

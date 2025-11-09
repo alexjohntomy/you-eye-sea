@@ -55,10 +55,18 @@ const chartConfig = {
 } satisfies ChartConfig
 
 
-function GradeDistributionChart({chartData} : any) {
+interface chartsProp {
+    chartData: any
+    courseDetails: any
+    filteredParams: any
+}
+
+
+function GradeDistributionChart({chartData, courseDetails, filteredParams} : chartsProp) {
     console.log(chartData)
     const calculatedGPA = calculateGPA(chartData)
-
+    console.log(filteredParams)
+    const selectedProfessor = courseDetails.professors.find((professor : any) => professor.id === parseInt(filteredParams.professor)) ?? "test"
     useEffect(() => {
         console.log("Page loaded...")
         animationNeeded = false
@@ -91,7 +99,7 @@ function GradeDistributionChart({chartData} : any) {
                 <CardHeader className="flex flex-row justify-between">
                     <div>
                         <CardTitle className="text-xl font-bold">Grade Distribution</CardTitle>
-                        <CardDescription className="text-sm">All Professors (Spring '22 - '25)</CardDescription>
+                        <CardDescription className="text-sm">{selectedProfessor.name} (Spring '22 - '25)</CardDescription>
                     </div>
                     <Card className="flex flex-col px-2 py-1 md:py-2 rounded-md gap-1 shadow-2xs shadow-foreground text-sm">
                         <h1><span className="font-semibold">Average GPA: </span> {calculatedGPA}</h1>
@@ -109,7 +117,7 @@ function GradeDistributionChart({chartData} : any) {
                             accessibilityLayer
                             data={chartData}
                             layout="horizontal"
-                            margin={{ top: 24, right: 16, bottom: 0, left: 16 }}
+                            margin={{ top: 24, right: 0, bottom: 0, left: 0 }}
                         >
                             {/* This includes the labels "A-F" */}
                             <XAxis
@@ -141,7 +149,7 @@ function GradeDistributionChart({chartData} : any) {
                                     position="top"
                                     offset={6}
                                     className="fill-foreground"
-                                    fontSize={12}
+                                    fontSize={11}
                                 />
                             </Bar>
                     </BarChart>

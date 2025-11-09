@@ -16,6 +16,7 @@ model Professor {
   id            Int              @id @default(autoincrement())
   name          String           @unique
   coursesTaught CourseInstance[]
+  reviews       Review[]
 }
 
 model Course {
@@ -26,6 +27,7 @@ model Course {
   departmentID   Int
   CourseInstance CourseInstance[]
   comments       Comment[]
+  reviews        Review[]
 
   @@id(name: "courseName", fields: [subject, number])
 }
@@ -66,6 +68,19 @@ model Comment {
     author            String?
     courseInstance    CourseInstance?    @relation(fields: [courseInstanceID], references: [courseInstanceID])
     courseInstanceID  Int?
+    course            Course?    @relation(fields: [courseID, courseNumber], references: [subject, number])
+    courseID          String?
+    courseNumber      Int?
+  }
+
+model Review {
+    id                Int @id @default(autoincrement())
+    review            String
+    stars             Int?
+    date              DateTime @default(now())
+    author            String?
+    professor         Professor? @relation(fields: [professorID], references: [id])
+    professorID       Int?
     course            Course?    @relation(fields: [courseID, courseNumber], references: [subject, number])
     courseID          String?
     courseNumber      Int?

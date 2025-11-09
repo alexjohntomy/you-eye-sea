@@ -14,13 +14,14 @@ async function getCommentsFromDB(courseName : any) {
 
 interface CommentsPaneServerProps {
   slug: string
+  professorID?: any
 }
 
-async function CommentsPaneServer({slug} : CommentsPaneServerProps) { 
+async function CommentsPaneServer({slug, professorID} : CommentsPaneServerProps) { 
     const parsedCourseName = slug.split("-") ?? ["test", "test"]
     const commentsFromDB = await getCommentsFromDB(parsedCourseName)
     return (
-        <CommentsPane comments={commentsFromDB} parsedSlug={parsedCourseName}/>
+        <CommentsPane comments={commentsFromDB} parsedSlug={parsedCourseName} professorID={professorID}/>
     )
 }
 
