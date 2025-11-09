@@ -53,7 +53,7 @@ function Header() {
                 </NavigationMenuItem>
                 <NavigationMenuItem>
                 <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                        <Link href="/github" className="flex flex-row gap-2 bg-uic-red-600 opacity-90 inset-shadow-2xl hover:bg-uic-red-600 hover:text-background hover:opacity-100 font-semibold text-white shadow-lg shadow-primary">
+                        <Link href="/" className="flex flex-row gap-2 bg-uic-red-600 opacity-90 inset-shadow-2xl hover:bg-uic-red-600 hover:text-background hover:opacity-100 font-semibold text-white shadow-lg shadow-primary">
                             <div className="flex flex-row gap-3 group relative w-full h-full">
                                 <Image
                                     src={GithubIcon}
