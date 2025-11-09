@@ -84,11 +84,12 @@ function ReviewsPane({reviews, parsedSlug, professorID, listOfProfessors} : Revi
         }
     }
     const [rating, setRating] = useState(0)
+    const commentPaneText = getProfessorNameFromID(professorID, listOfProfessors) === "General Rating" ? "this course" : getProfessorNameFromID(professorID, listOfProfessors)
     if (reviews.length == 0) {
         return (
         <div className='flex flex-col h-full justify-between'>
             <div className='flex flex-col items-center align-middle justify-center p-4 h-full w-full'>
-                <h1 className='flex text-center italic text-foreground opacity-60'>Looks like no ratings exist for {getProfessorNameFromID(professorID, listOfProfessors)} yet... Help other students by adding your own!</h1>
+                <h1 className='flex text-center italic text-foreground opacity-60'>Looks like no ratings exist for {commentPaneText} yet... Help other students by adding your own!</h1>
             </div>
             <div className='py-6'>
                         <InputGroup className="overflow-y rounded-sm border-2 border-uic-navy-800/40 focus-visible:ring-0 bg-background">
