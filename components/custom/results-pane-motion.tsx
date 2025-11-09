@@ -69,7 +69,7 @@ function ResultsPaneMotion({query, ref}: {query: string; ref?: Ref<HTMLElement>}
                 <AnimatePresence>
                 {getMatches(query).slice(0,5).map((item: any) => {
                   return (
-                        <CommandItem key = {item.id} value = {item.id} className="rounded-xl">
+                        <CommandItem key = {item.id} value = {item.id} className="rounded-lg">
                           <Link href = {"/course/" + item.subject + "-" + item.number} className="w-full">
                             <div className = "flex items-center gap-1 align-bottom">
                               <h2 className="text-base font-semibold text-gray-600">{item.subject + " " + item.number}</h2>
