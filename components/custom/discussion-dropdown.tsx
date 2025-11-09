@@ -23,17 +23,17 @@ function DiscussionDropdown({selectedDiscussionType, setDiscussionType} : any) {
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className='flex flex-row justify-center relative left-2 h-10 w-full text-xl font-bold text-foreground text-center'>
+            <Button variant="ghost" className='flex flex-row justify-center indent-2 gap-1 h-10 w-full text-xl font-bold text-foreground text-center'>
                 {selectedDiscussionType}<ChevronDown/>
             </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-full">
                 <DropdownMenuRadioGroup value={selectedDiscussionType} onValueChange={handleDropdownChange}>
-                    <DropdownMenuRadioItem value="Advice" key="advice" className="text-left">
-                    Advice
-                    </DropdownMenuRadioItem>
                     <DropdownMenuRadioItem value="Ratings" key="ratings" className="text-left">
                     Ratings
+                    </DropdownMenuRadioItem>
+                    <DropdownMenuRadioItem value="Advice" key="advice" className="text-left">
+                    Advice
                     </DropdownMenuRadioItem>
                 </DropdownMenuRadioGroup>
             </DropdownMenuContent>
