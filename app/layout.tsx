@@ -1,4 +1,5 @@
 import { Analytics } from "@vercel/analytics/next"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 import { ThemeProvider } from "@/components/theme-provider"
 
@@ -51,6 +52,7 @@ export default function RootLayout({
               <main className="flex flex-1 min-h-[calc(100svh-120px)] max-h-[calc(100svh-120px)] relative">
                   {children}
                   <Analytics/>
+                  <SpeedInsights/>
               </main>
             <Footer/>
         </ThemeProvider>
