@@ -3,7 +3,7 @@ import prisma from '@/lib/prisma'
 
 
 async function getReviewsFromDB(courseName : any, professorID: any) {
-    if (!professorID || null || "" || "all-professors") {
+    if (!professorID || professorID == null || professorID == "" || professorID == "all-professors") {
         const reviewsFromDB = await prisma.review.findMany({
             where: {
                 courseID: courseName[0],

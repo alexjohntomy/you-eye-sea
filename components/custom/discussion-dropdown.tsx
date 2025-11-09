@@ -23,7 +23,7 @@ function DiscussionDropdown({selectedDiscussionType, setDiscussionType} : any) {
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className='flex flex-row justify-between h-10 text-xl font-bold text-foreground text-right'>
+            <Button variant="ghost" className='flex flex-row justify-center relative left-2 h-10 w-full text-xl font-bold text-foreground text-center'>
                 {selectedDiscussionType}<ChevronDown/>
             </Button>
             </DropdownMenuTrigger>

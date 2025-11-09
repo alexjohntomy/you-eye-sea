@@ -75,6 +75,12 @@ function getProfessorNameFromID(professorID: string, listOfProfessors : Professo
     return professorNameFromID.name
 }
 
+function calculateAverageRating(ratings: Review[]) {
+    const totalStars = ratings.reduce((accumulator, currentValue) => 
+        accumulator + (currentValue.stars ?? 0), 0)
+    return totalStars/ratings.length
+}
+
 function ReviewsPane({reviews, parsedSlug, professorID, listOfProfessors} : ReviewProps) {
     const router = useRouter();
     const [value, setValue] = useState("");
@@ -85,6 +91,7 @@ function ReviewsPane({reviews, parsedSlug, professorID, listOfProfessors} : Revi
     }
     const [rating, setRating] = useState(0)
     const commentPaneText = getProfessorNameFromID(professorID, listOfProfessors) === "General Rating" ? "this course" : getProfessorNameFromID(professorID, listOfProfessors)
+    const avgRating = calculateAverageRating(reviews)
     if (reviews.length == 0) {
         return (
         <div className='flex flex-col h-full justify-between'>
@@ -145,9 +152,9 @@ function ReviewsPane({reviews, parsedSlug, professorID, listOfProfessors} : Revi
         <div className="w-full h-full flex flex-col">
             {/* gradient overlay */}
             <div className='pointer-events-none absolute inset-x-0 bottom-35 h-30 bg-transparent md:bg-linear-to-t from-background/90 to-background/0' ></div>
-                <div className="flex flex-col w-full py-8 overflow-y-scroll gap-3">
+                <div className="flex flex-col w-full py-1 overflow-y-scroll gap-0">
                         <div className="flex flex-col w-full md:min-h-screen max-h-10/12 gap-3">
-                        <h1></h1>
+                        <h1 className='relative text-center text-sm font-medium'>Average Rating: <span className='font-black'>{avgRating}</span></h1>
                         {reviews.map((eachReview : any) => (
                             <Card key={eachReview.id}  className = "border-foreground/20 rounded-md gap-1 py-3 px-3 w-full">
                             <ReactRating
