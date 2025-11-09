@@ -7,11 +7,10 @@ import {
   SearchBar
 } from "@/components/custom/search-bar"
 
-import { motion, AnimatePresence, LayoutGroup, easeInOut } from "motion/react"
 
 export const metadata: Metadata = {
-  title: "Home",
-  description: "Get grade distribution data, tips from former students, and cohort GPAs for any course at University of Illinois at Chicago."
+  title: "YouEyeSea - UIC Grade Distributions",
+  description: "Get grade distribution data, tips from former students, and cohort GPAs for any course at University of Illinois at Chicago (UIC)."
 }
 
 export default function Home() {
