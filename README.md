@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+<h1 align="center">
+  <img src="https://github.com/alexjohntomy/you-eye-sea/blob/main/public/logo.png" alt="YouEyeSea Logo" width="150">
+    <a href="http://youeyesea.com">
+        <h3>YouEyeSea</h3>
+    </a>
+</h1>
 
-First, run the development server:
+## Summary
+YouEyeSea uses UIC’s publicly available official grade data to create a more intuitive front end featuring fuzzy search, fine-grain filtering, discussion boards, and data visualization. 
+
+## Tech Stack
+
+- [Next.js](https://nextjs.org/) – Framework
+- [TypeScript](https://www.typescriptlang.org/) – Language
+- [Tailwind](https://tailwindcss.com/) – CSS
+- [Prisma](https://www.prisma.io/) - Postgres & ORM
+- [PapaParse](https://www.papaparse.com) - CSV Parsing
+- [Prettier](https://prettier.io) - Code Formatting
+- [Vercel](https://vercel.com/) – Deployment
+- [shadcn/ui](https://ui.shadcn.com/) - Components
+
+## Building from Source
+First, create a Prisma database and set up your environment variables. Then, place your CSVs in `/prisma/grade_distribution_data/`. If using CSVs from UIC, you should be able to run the `/prisma/seed.ts` script with minimal changes and see your database populate. 
+
+Then, run the development server as follows:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Contributions
+Want to be part of YouEyeSea's development? You can do so by creating an issue in the repo, forking the project, creating a branch for your addition/fix, committing your changes, pushing to the main branch, and opening a pull request. If you have any ideas for features you'd like to see, feel free to open those in the issues panel too.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## License
+YouEyeSea is licensed under [AGPL-V3](https://opensource.org/license/agpl-v3). See `LICENSE.txt` for more info.
