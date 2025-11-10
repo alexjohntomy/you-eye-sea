@@ -2,8 +2,6 @@
 
 **YouEyeSea**
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-
 <h1 align="center">
   <img src="https://github.com/alexjohntomy/you-eye-sea/blob/main/public/logo.png" alt="YouEyeSea Logo" width="150">
     <a href="http://youeyesea.com">
