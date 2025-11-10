@@ -1,5 +1,3 @@
-![Hero Image]("public/logo.png") 
-
 **YouEyeSea**
 
 <h1 align="center">
