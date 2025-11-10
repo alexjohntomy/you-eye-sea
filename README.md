@@ -1,5 +1,3 @@
-**YouEyeSea**
-
 <h1 align="center">
   <img src="https://github.com/alexjohntomy/you-eye-sea/blob/main/public/logo.png" alt="YouEyeSea Logo" width="150">
     <a href="http://youeyesea.com">
