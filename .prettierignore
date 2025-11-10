@@ -1,0 +1,24 @@
+# Ignore artifacts:
+coverage
+
+# Don't format these folders
+node_modules
+.next
+build
+dist
+
+# Don't format these files
+package-lock.json
+yarn.lock
+.env
+.env.local
+
+# Don't format images and icons
+*.svg
+*.png
+*.jpg
+*.jpg
+
+# Don't format prisma data
+prisma/
+

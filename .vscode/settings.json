@@ -1,9 +1,4 @@
 {
-    "cSpell.ignoreWords": [
-        "papaparse"
-    ],
-    "cSpell.words": [
-        "autoincrement",
-        "minisearch"
-    ]
+  "cSpell.ignoreWords": ["papaparse"],
+  "cSpell.words": ["autoincrement", "minisearch"]
 }
