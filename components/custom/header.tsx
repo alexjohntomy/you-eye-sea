@@ -45,7 +45,7 @@ function Header() {
               >
                 <Link
                   href="/"
-                  className="opacity-70 bg-foreground/10 hover:opacity-100 hover:text-background font-semibold"
+                  className="opacity-70 bg-foreground/10 hover:opacity-100 hover:bg-accent/30 hover:text-uic-navy-900 font-semibold"
                 >
                   Home
                 </Link>

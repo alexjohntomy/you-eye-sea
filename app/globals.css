@@ -229,7 +229,7 @@ body {
   --secondary-foreground: oklch(0.9851 0 0);
   --muted: oklch(0.2739 0.0055 286.0326);
   --muted-foreground: oklch(0.7057 0.0144 286.0246);
-  --accent: oklch(0.9016 0.0471 224.0906);
+  --accent: oklch(0.9516 0.0371 224.0906);
   --accent-foreground: oklch(0.9851 0 0);
   --destructive: oklch(0.7022 0.1892 22.2279);
   --destructive-foreground: oklch(1 0 0);
