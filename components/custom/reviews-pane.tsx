@@ -139,7 +139,7 @@ function ReviewsPane({
               </InputGroupText>
               <InputGroupButton
                 variant="outline"
-                className="rounded-md w-20 text-foreground border border-secondary/50"
+                className="rounded-md w-20 bg-secondary text-background border border-secondary/50"
                 size="icon-xs"
                 onClick={() => {
                   if (filter.isProfane(value)) {
@@ -158,7 +158,7 @@ function ReviewsPane({
                     ),
                       setValue(""),
                       router.refresh());
-                  } else {
+                  } else if (value.trim().length > 1){
                     (postReview({
                       review: value,
                       courseID: parsedSlug[0],
