@@ -174,7 +174,7 @@ function GradeDistributionChart({
 
               <Bar
                 dataKey="count"
-                className="stroke-1 stroke-foreground/30"
+                className="stroke-1 stroke-foreground/10"
                 layout="horizontal"
                 isAnimationActive={animationNeeded}
                 radius={5}
