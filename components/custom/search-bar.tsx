@@ -82,7 +82,7 @@ function SearchBar() {
       setFocus(true);
   };
   const handleOnBlur = () => {
-      setFocus(false);
+      setFocus(true);
   };
 
 

@@ -172,7 +172,6 @@ function ResultsPaneMotion({
             <TrendingUp width={12} className="relative bottom-[1]"/>
             Popular This Week
           </h3>
-          <CommandItem value="-" className="hidden" />
             {trendingClasses.map((item: any) => {
                 return (
                   <CommandItem
