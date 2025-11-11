@@ -125,7 +125,7 @@ export default async function CourseDetailsPage({
   return (
     <div className="flex flex-col md:flex-row grow bg-background w-full h-full md:h-[calc(100svh-120px)] overflow-hidden">
       {/* Stats */}
-      <div className="flex flex-col w-full md:w-1/2 p-8 h-full gap-3 overflow-scroll">
+      <div className="flex flex-col w-full md:w-1/2 p-8 h-full gap-2 overflow-scroll">
         <div className="flex flex-row justify-between">
           <div className="flex flex-col">
             <h1 className="text-uic-red-600 font-black text-4xl">
@@ -148,7 +148,7 @@ export default async function CourseDetailsPage({
             <ExternalLink className="opacity-70 relative" />
           </Badge>
         </Link>
-        <div className="h-3/5">
+        <div className="">
           <GradeDistributionChart
             chartData={formattedGradeData}
             professorID={filteredParams.professor}

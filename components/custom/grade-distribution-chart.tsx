@@ -145,7 +145,7 @@ function GradeDistributionChart({
         </CardHeader>
       </div>
       <CardContent className="flex">
-        <div className="w-full h-3/4 min-w-0 min-h-0 overflow-scroll">
+        <div className="w-full h-full min-w-0 min-h-0 overflow-scroll">
           <ChartContainer
             config={chartConfig}
             className="min-w-full max-h-full"
