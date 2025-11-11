@@ -75,14 +75,23 @@ function PlaceholderText({ query }: testProps) {
   }
 }
 
-const MotionComponent = motion.create("ResultsPane");
-
 function SearchBar() {
   const [value, setValue] = useState("");
+  const [focus, setFocus] = useState(false);
+  const handleOnFocus = () => {
+      setFocus(true);
+  };
+  const handleOnBlur = () => {
+      setFocus(false);
+  };
+
+
   return (
     // <LayoutGroup>
     <div className="mx-auto min-w-1/2 md:min-w-1/2">
       <Command
+        onFocus={handleOnFocus}
+        onBlur={handleOnBlur}
         shouldFilter={false}
         className="rounded-2xl inset-shadow-2xs shadow-[0px_8px_16px_-2px_var(--shadow-inset-color)] shadow-shadow-color border-uic-red-300/40 double-border border-2 bg-background text-foreground opacity-90"
       >
@@ -110,7 +119,7 @@ function SearchBar() {
           </DropdownMenu> */}
         </div>
         {/* <ResultsPane query={value}/> */}
-        <ResultsPaneMotionComponent query={value} />
+        <ResultsPaneMotionComponent query={value} focusStatus={focus} />
       </Command>
     </div>
     // </LayoutGroup>
