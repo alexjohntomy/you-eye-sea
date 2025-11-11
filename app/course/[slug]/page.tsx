@@ -125,7 +125,7 @@ export default async function CourseDetailsPage({
   return (
     <div className="flex flex-col md:flex-row grow bg-background w-full h-full md:h-[calc(100svh-120px)] overflow-hidden">
       {/* Stats */}
-      <div className="flex flex-col w-full md:w-1/2 p-8 h-full gap-2 overflow-scroll">
+      <div className="flex flex-col w-full md:w-1/2 p-8 h-full gap-3 overflow-scroll">
         <div className="flex flex-row justify-between">
           <div className="flex flex-col">
             <h1 className="text-uic-red-600 font-black text-4xl">
@@ -148,7 +148,7 @@ export default async function CourseDetailsPage({
             <ExternalLink className="opacity-70 relative" />
           </Badge>
         </Link>
-        <div className="">
+        <div className="h-3/5">
           <GradeDistributionChart
             chartData={formattedGradeData}
             professorID={filteredParams.professor}
@@ -158,7 +158,7 @@ export default async function CourseDetailsPage({
         <h5 className="py-2 text-xs text-center text-foreground/50">
           Data is sourced from official UIC grade distributions but many of the
           stats are calculated in the backend, so it may contain errors. The
-          pass rate denominator includes only A-F. The drop rate includes W.
+          pass rate denominator includes only A-F. The drop rate denominator includes W.
         </h5>
       </div>
 

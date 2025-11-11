@@ -1,7 +1,7 @@
 "use client";
 
 import { TrendingUp } from "lucide-react";
-import { Bar, BarChart, XAxis, YAxis, LabelList } from "recharts";
+import { Bar, BarChart, CartesianGrid, XAxis, YAxis, LabelList } from "recharts";
 import { calculateGPA } from "@/app/_util/gpaCalculator";
 import { useEffect } from "react";
 
@@ -119,7 +119,7 @@ function GradeDistributionChart({
     totalWithDrops === 0 ? 0 : ((drops / totalWithDrops) * 100).toFixed(1);
 
   return (
-    <Card className="flex flex-col grow justify-between h-full flex-1 min-h-60 rounded-lg shadow-[inset_0px_-6px_10px_2px_var(--secondary)]/10 border-foreground/10 gap-0">
+    <Card className="flex flex-col grow justify-between h-full flex-1 min-h-60 rounded-lg shadow-[inset_0px_-6px_10px_2px_var(--secondary)]/5 border-foreground/10 gap-0">
       <div>
         <CardHeader className="flex flex-row justify-between">
           <div>
@@ -145,7 +145,7 @@ function GradeDistributionChart({
         </CardHeader>
       </div>
       <CardContent className="flex">
-        <div className="w-full h-full min-w-0 min-h-0 overflow-scroll">
+        <div className="w-full h-3/4 min-w-0 min-h-0 overflow-scroll">
           <ChartContainer
             config={chartConfig}
             className="min-w-full max-h-full"
@@ -157,6 +157,7 @@ function GradeDistributionChart({
               margin={{ top: 24, right: 0, bottom: 0, left: 0 }}
             >
               {/* This includes the labels "A-F" */}
+              <CartesianGrid vertical={false} />
               <XAxis
                 dataKey="grade"
                 className="text-xl font-black"
@@ -176,7 +177,7 @@ function GradeDistributionChart({
                 className="stroke-1 stroke-foreground/30"
                 layout="horizontal"
                 isAnimationActive={animationNeeded}
-                radius={3}
+                radius={5}
               >
                 <LabelList
                   dataKey="label"

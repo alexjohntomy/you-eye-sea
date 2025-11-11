@@ -45,3 +45,4 @@ next-env.d.ts
 /prisma/grade_distribution_data
 prisma/no-seed.ts
 prisma/old-seed.ts
+/.idea
