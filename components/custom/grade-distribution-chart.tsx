@@ -170,7 +170,7 @@ function GradeDistributionChart({
                 }
               />
 
-              <YAxis dataKey="count" type="number" domain={["dataMin", "dataMax"]} hide />
+              <YAxis dataKey="count" type="number" domain={[0, "dataMax"]} hide />
               <Tooltip
               content={<ChartTooltipContent/>}
               cursor={{fill: 'transparent', opacity: 0.75}}
