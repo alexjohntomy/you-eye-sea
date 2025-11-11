@@ -154,7 +154,7 @@ function GradeDistributionChart({
               accessibilityLayer
               data={chartData}
               layout="horizontal"
-              margin={{ top: 24, right: 0, bottom: 0, left: 0 }}
+              margin={{ top: 28, right: 0, bottom: 0, left: 0 }}
             >
               {/* This includes the labels "A-F" */}
               <CartesianGrid vertical={false} />
@@ -172,8 +172,9 @@ function GradeDistributionChart({
 
               <YAxis dataKey="count" type="number" domain={["dataMin", "dataMax"]} hide />
               <Tooltip
-              content={<ChartTooltipContent />}
+              content={<ChartTooltipContent/>}
               cursor={{fill: 'transparent', opacity: 0.75}}
+              isAnimationActive={false}
               />
               <Bar
                 dataKey="count"
@@ -187,7 +188,7 @@ function GradeDistributionChart({
                   position="top"
                   offset={5}
                   className="fill-foreground"
-                  fontSize={11}
+                  fontSize={12}
                 />
               </Bar>
 
