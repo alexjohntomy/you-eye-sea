@@ -1,7 +1,7 @@
 "use client";
 
 import { TrendingUp } from "lucide-react";
-import { Bar, BarChart, CartesianGrid, XAxis, YAxis, LabelList } from "recharts";
+import { Bar, BarChart, CartesianGrid, XAxis, YAxis, LabelList, Tooltip} from "recharts";
 import { calculateGPA } from "@/app/_util/gpaCalculator";
 import { useEffect } from "react";
 
@@ -13,7 +13,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { ChartConfig, ChartContainer } from "@/components/ui/chart";
+import { ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
 
 export const description = "A bar chart with a label";
 
@@ -21,7 +21,7 @@ let animationNeeded = true;
 
 const chartConfig = {
   count: {
-    label: "Counts",
+    label: "Count",
   },
   A: {
     label: "A",
@@ -148,7 +148,7 @@ function GradeDistributionChart({
         <div className="w-full h-full min-w-0 min-h-0 overflow-scroll">
           <ChartContainer
             config={chartConfig}
-            className="min-w-full max-h-full"
+            className="min-w-full max-h-full h-full"
           >
             <BarChart
               accessibilityLayer
@@ -170,23 +170,27 @@ function GradeDistributionChart({
                 }
               />
 
-              <YAxis dataKey="count" type="number" hide />
-
+              <YAxis dataKey="count" type="number" domain={["dataMin", "dataMax"]} hide />
+              <Tooltip
+              content={<ChartTooltipContent />}
+              cursor={{fill: 'transparent', opacity: 0.75}}
+              />
               <Bar
                 dataKey="count"
                 className="stroke-1 stroke-foreground/10"
                 layout="horizontal"
                 isAnimationActive={animationNeeded}
-                radius={5}
+                radius={[4, 4, 0, 0]}
               >
                 <LabelList
                   dataKey="label"
                   position="top"
-                  offset={6}
+                  offset={5}
                   className="fill-foreground"
                   fontSize={11}
                 />
               </Bar>
+
             </BarChart>
           </ChartContainer>
         </div>

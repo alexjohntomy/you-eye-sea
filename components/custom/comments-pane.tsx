@@ -74,7 +74,7 @@ function CommentsPane({ comments, parsedSlug, professorID }: testProps) {
       </div>
 
       <div className="py-6">
-        <InputGroup className="overflow-y rounded-sm border-2 border-uic-navy-800/40 focus-visible:ring-0 bg-background">
+        <InputGroup className="overflow-y rounded-md border-2 border-uic-navy-800/30 focus-visible:ring-0 bg-background">
           <InputGroupTextarea
             className="text-xs resize-none border-none shadow-none"
             placeholder="Post a short tip you have for this course..."

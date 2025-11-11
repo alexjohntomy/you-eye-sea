@@ -1,6 +1,6 @@
 export default function Loading() {
   return (
-    <div className="animate-pulse flex flex-col md:flex-row bg-background w-full h-full md:h-[calc(100svh-120px)] overflow-scroll">
+    <div className="animate-pulse duration-1000 flex flex-col md:flex-row bg-background w-full h-full md:h-[calc(100svh-120px)] overflow-scroll">
       {/* Stats Skeleton */}
       <div className="flex flex-col gap-10 h-fit w-full md:w-1/2 p-8 md:h-full">
         <div className="flex items-baseline mt-4 p-8 bg-gray-400/5 rounded-md">

@@ -87,7 +87,7 @@ function calculateAverageRating(ratings: Review[]) {
     (accumulator, currentValue) => accumulator + (currentValue.stars ?? 0),
     0
   );
-  return totalStars / ratings.length;
+  return (totalStars / ratings.length).toFixed(2);
 }
 
 function ReviewsPane({
@@ -119,7 +119,7 @@ function ReviewsPane({
           </h1>
         </div>
         <div className="py-6">
-          <InputGroup className="overflow-y rounded-sm border-2 border-uic-navy-800/40 focus-visible:ring-0 bg-background">
+          <InputGroup className="overflow-y rounded-md border-2 border-uic-navy-800/30 focus-visible:ring-0 bg-background">
             <ReactRating
               className="relative top-2 bottom-2"
               style={{ maxWidth: 150 }}
@@ -186,7 +186,7 @@ function ReviewsPane({
         <div className="flex flex-col w-full py-1 overflow-y-scroll gap-0">
           <div className="flex flex-col w-full md:min-h-screen max-h-10/12 gap-3">
             <h1 className="relative text-center text-sm font-medium">
-              Average Rating: <span className="font-black">{avgRating}</span>
+              Average Rating: <span className="font-black text-lg">{avgRating}</span>
             </h1>
             {reviews.map((eachReview: any) => (
               <Card
@@ -225,7 +225,7 @@ function ReviewsPane({
         </div>
 
         <div className="py-6">
-          <InputGroup className="overflow-y rounded-sm border-2 border-uic-navy-800/40 focus-visible:ring-0 bg-background">
+          <InputGroup className="overflow-y rounded-md border-2 border-uic-navy-800/30 focus-visible:ring-0 bg-background">
             <ReactRating
               className="relative top-2 bottom-2"
               style={{ maxWidth: 150 }}
@@ -245,7 +245,7 @@ function ReviewsPane({
               </InputGroupText>
               <InputGroupButton
                 variant="outline"
-                className="rounded-md w-20 text-foreground border border-secondary/50"
+                className="rounded-md w-20 bg-secondary text-background border border-secondary/50"
                 size="icon-xs"
                 onClick={() => {
                   if (filter.isProfane(value)) {
