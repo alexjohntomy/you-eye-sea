@@ -1,39 +1,11 @@
 import {
-  Command,
   CommandEmpty,
   CommandGroup,
-  CommandInput,
   CommandItem,
   CommandList,
-  CommandSeparator,
-  CommandShortcut,
 } from "@/components/ui/command";
 
 //imports for command bar
-import {
-  Calculator,
-  Calendar,
-  CreditCard,
-  Settings,
-  Smile,
-  User,
-} from "lucide-react";
-
-import { ChevronDownIcon, MoreHorizontal } from "lucide-react";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-
-import {
-  InputGroup,
-  InputGroupAddon,
-  InputGroupButton,
-  InputGroupInput,
-  InputGroupTextarea,
-} from "@/components/ui/input-group";
 
 import MiniSearch from "minisearch";
 
@@ -93,13 +65,6 @@ function ResultsPane({ query }: testProps) {
     return (
       <CommandList className="border-t border-gray-200">
         <CommandEmpty>No results found.</CommandEmpty>
-        {/* <CommandGroup heading="Trending">
-                <CommandItem>
-                  <Calendar />
-                  <span>CS 342</span>
-                </CommandItem>
-              </CommandGroup>
-              <CommandSeparator /> */}
         <CommandGroup heading="Courses">
           {getMatches(query)
             .slice(0, 5)
