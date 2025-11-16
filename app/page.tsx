@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 
 import { Badge } from "@/components/ui/badge";
 
-import { SearchBar } from "@/components/custom/search-bar";
+import { SearchBar } from "@/components/custom/main/search-bar";
 
 export const metadata: Metadata = {
   title: "YouEyeSea - UIC Grade Distributions",

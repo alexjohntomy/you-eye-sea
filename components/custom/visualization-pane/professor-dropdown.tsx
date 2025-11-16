@@ -39,7 +39,7 @@ function ProfessorDropdown({ listOfProfessors }: dropdownTypes) {
     },
     [searchParams]
   );
-  const [professorID, setProfessorID] = useState("all-professors");
+  const [professorID, setProfessorID] = useState(searchParams.get("professor") ?? "all-professors");
   const handleDropdownChange: any = (value: any) => {
     console.log(value);
     setProfessorID(value);

@@ -1,10 +1,10 @@
 import { formatGradeData } from "@/app/_util/formatGradeData";
-import { CommentsPaneServer } from "@/components/custom/comments-pane-server";
-import { DiscussionPane } from "@/components/custom/discussion-pane";
-import { GradeDistributionChart } from "@/components/custom/grade-distribution-chart";
-import { ProfessorDropdown } from "@/components/custom/professor-dropdown";
-import { ReviewsPaneServer } from "@/components/custom/reviews-pane-server";
-import { TablePaneServer } from "@/components/custom/table-pane-server";
+import { CommentsPaneServer } from "@/components/custom/discussion-pane/comments-pane/comments-pane-server";
+import { DiscussionPane } from "@/components/custom/discussion-pane/discussion-pane";
+import { GradeDistributionChart } from "@/components/custom/visualization-pane/grade-distribution-chart";
+import { ProfessorDropdown } from "@/components/custom/visualization-pane/professor-dropdown";
+import { ReviewsPaneServer } from "@/components/custom/discussion-pane/reviews-pane/reviews-pane-server";
+import { TablePaneServer } from "@/components/custom/breakdown-pane/table-pane-server";
 import { Badge } from "@/components/ui/badge";
 import prisma from "@/lib/prisma";
 import { ExternalLink } from "lucide-react";

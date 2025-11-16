@@ -3,9 +3,11 @@ import {
   CommandGroup,
   CommandItem,
   CommandList,
-} from "@/components/custom/dropdown-list";
+} from "@/components/custom/advanced-search/dropdown-list";
 
 import { motion } from "motion/react";
+
+import { Check } from "lucide-react"
 
 interface CommandItem {
   value: string;
@@ -17,18 +19,23 @@ import { useState } from "react";
 interface ResultsTypes {
   resultsList: CommandItem[];
   setValueFunction: any;
+  setInputFunction: any;
   focusStatus: boolean;
+  value: string;
 }
 
 function DropdownResults({
   resultsList,
   setValueFunction,
+  setInputFunction,
   focusStatus,
+  value,
 }: ResultsTypes) {
-  const [open, setOpen] = useState(false);
+
+  //Set the selected value, clear the input
   const handleSelect = (value: string) => {
     setValueFunction(value);
-    setOpen(false);
+    setInputFunction("")
   };
   return (
     focusStatus && (
@@ -52,6 +59,7 @@ function DropdownResults({
                 onSelect={() => handleSelect(result.value)}
               >
                 {result.label}
+                <Check className={(result.value === value) ? "opacity-100 ml-auto" : "opacity-0 ml-auto"}/>
               </CommandItem>
             ))}
           </CommandGroup>

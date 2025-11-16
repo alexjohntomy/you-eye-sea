@@ -1,4 +1,4 @@
-import { CommentsPane } from "@/components/custom/comments-pane";
+import { CommentsPane } from "@/components/custom/discussion-pane/comments-pane/comments-pane";
 import prisma from "@/lib/prisma";
 
 async function getCommentsFromDB(courseName: any) {

@@ -1,6 +1,6 @@
 "use client";
 
-import { DiscussionDropdown } from "@/components/custom/discussion-dropdown";
+import { DiscussionDropdown } from "@/components/custom/discussion-pane/discussion-dropdown";
 import { useState } from "react";
 
 function DiscussionPane({

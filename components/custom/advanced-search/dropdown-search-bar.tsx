@@ -1,83 +1,57 @@
 "use client";
 
-import { Command, CommandInput } from "@/components/custom/dropdown-list";
+import { Command, CommandInput } from "@/components/custom/advanced-search/dropdown-list";
 import { Button } from "@/components/ui/button";
 import { SearchIcon } from "lucide-react";
 import { useCallback, useState } from "react";
+import subjectList from "@/subjectList";
 
 import { DropdownResults } from "./dropdown-results";
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
+interface DropdownValueType {
+  value: string
+  label: string
+}
+
 function DropdownSearchBar() {
-  const subjects = [
-    {
-      value: "all-subjects",
-      label: "All Subjects",
-    },
-    {
-      value: "CS",
-      label: "CS",
-    },
+  //Make Subject Dropdown
+  const subjects = subjectList.map(item => 
+  {
+    const subjectObject : DropdownValueType = {
+      value: item,
+      label: item
+    }
+    
+    return subjectObject
+  })
+  subjects.unshift({value: "all", label: "All Subjects"})
 
-    {
-      value: "CHEM",
-      label: "CHEM",
-    },
-
-    {
-      value: "BIO",
-      label: "BIO",
-    },
-
-    {
-      value: "MATH",
-      label: "MATH",
-    },
-
-    {
-      value: "PHYS",
-      label: "PHYS",
-    },
-
-    {
-      value: "STAT",
-      label: "STAT",
-    },
-
-    {
-      value: "ECON",
-      label: "ECON",
-    },
-
-    {
-      value: "psych",
-      label: "PSYCH",
-    },
-  ];
-
+  //Make Sort Types Dropdown
   const sortTypes = [
     {
-      value: "by-gpa",
+      value: "gpa",
       label: "By GPA",
     },
     {
-      value: "by-drop-rate",
+      value: "dropRate",
       label: "By Drop Rate",
     },
     {
-      value: "by-pass-rate",
+      value: "passRate",
       label: "By Pass Rate",
     },
     {
-      value: "by-num-a",
-      label: "By Number of As",
+      value: "totalStudents",
+      label: "By Total Students",
     },
   ];
 
+  //Make Levels Dropdown
   const levels = [
     {
-      value: "all-levels",
+      value: "all",
       label: "All Levels",
     },
     {
@@ -98,48 +72,29 @@ function DropdownSearchBar() {
     },
   ];
 
+  // Keeps track of focus
   const [focusOne, setFocusOne] = useState(false);
   const [focusTwo, setFocusTwo] = useState(false);
   const [focusThree, setFocusThree] = useState(false);
-  const handleOnFocusOne = () => {
-    setFocusOne(true);
-  };
-  const handleOnFocusTwo = () => {
-    setFocusTwo(true);
-  };
 
-  const handleOnFocusThree = () => {
-    setFocusThree(true);
-  };
+  // Keeps track of the actual selected value
+  const [valueOne, setValueOne] = useState("all");
+  const [valueTwo, setValueTwo] = useState("gpa");
+  const [valueThree, setValueThree] = useState("all");
 
-  const handleOnblurOne = () => {
-    setFocusOne(false);
-  };
-  const handleOnblurTwo = () => {
-    setFocusTwo(false);
-  };
+  // Keeps track of what's been typed
+  const [inputOne, setInputOne] = useState("");
+  const [inputTwo, setInputTwo] = useState("");
+  const [inputThree, setInputThree] = useState("");
 
-  const handleOnblurThree = () => {
-    setFocusThree(false);
-  };
+  const subjectPlaceholder = (subjects.find((obj) => obj.value === valueOne)?? {value: undefined, label: "None Selected"}).label;
+  const sortTypePlaceholder = (sortTypes.find((obj) => obj.value === valueTwo)?? {value: undefined, label: "None Selected"}).label;
+  const levelPlaceholder = (levels.find((obj) => obj.value === valueThree) ?? {value: undefined, label: "None Selected"}).label;
 
-  const [valueOne, setValueOne] = useState("all-subjects");
-  const [valueTwo, setValueTwo] = useState("by-gpa");
-  const [valueThree, setValueThree] = useState("all-levels");
-
-  const subjectPlaceholder = subjects.filter((obj) => obj.value === valueOne)[0]
-    .label;
-  const sortTypePlaceholder = sortTypes.filter(
-    (obj) => obj.value === valueTwo
-  )[0].label;
-  const levelPlaceholder = levels.filter((obj) => obj.value === valueThree)[0]
-    .label;
-  // Trying to add url logic
-
+  //Append search params when button is clicked
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
-
   const handleSearch = () => {
     const params = new URLSearchParams(searchParams.toString());
     params.set("subject", valueOne);
@@ -149,7 +104,7 @@ function DropdownSearchBar() {
   };
 
   return (
-    <div className="flex justify-between md:w-3/4 bg-background py-4 md:py-8 rounded-lg gap-5 border-2 border-uic-red-300/40 md:max-h-20 relative md:items-start opacity-90">
+    <div className="flex justify-between md:w-3/4 bg-background py-4 md:py-8 rounded-lg gap-5 border-2 border-uic-red-300/40 md:max-h-20 relative md:items-start opacity-100">
       <div className="flex flex-col md:flex-row w-full gap-5 justify-center relative md:-top-5 px-2 z-10">
       <Command className="rounded-sm bg-background md:w-1/4">
         <p className="text-xs px-3 tracking-wide opacity-50">SUBJECT</p>
@@ -157,14 +112,17 @@ function DropdownSearchBar() {
           placeholder={subjectPlaceholder}
           className="relative font-semibold"
           wrapperClassName="flex flex-row w-full"
-          onValueChange={setValueOne}
-          onFocus={handleOnFocusOne}
-          onBlur={handleOnblurOne}
+          onValueChange={setInputOne}
+          onFocus={() => setFocusOne(true)}
+          onBlur={() => setFocusOne(false)}
+          value={inputOne}
         />
         <DropdownResults
           resultsList={subjects}
           setValueFunction={setValueOne}
+          setInputFunction={setInputOne}
           focusStatus={focusOne}
+          value={valueOne}
         ></DropdownResults>
       </Command>
 
@@ -174,14 +132,17 @@ function DropdownSearchBar() {
           placeholder={levelPlaceholder}
           className="relative font-semibold"
           wrapperClassName="flex flex-row w-full"
-          onValueChange={setValueThree}
-          onFocus={handleOnFocusThree}
-          onBlur={handleOnblurThree}
+          onValueChange={setInputThree}
+          onFocus={() => setFocusThree(true)}
+          onBlur={() => setFocusThree(false)}
+          value={inputThree}
         />
         <DropdownResults
           resultsList={levels}
           setValueFunction={setValueThree}
+          setInputFunction={setInputThree}
           focusStatus={focusThree}
+          value={valueThree}
         ></DropdownResults>
       </Command>
 
@@ -191,14 +152,17 @@ function DropdownSearchBar() {
           placeholder={sortTypePlaceholder}
           className="relative font-semibold"
           wrapperClassName="flex flex-row w-full"
-          onValueChange={setValueTwo}
-          onFocus={handleOnFocusTwo}
-          onBlur={handleOnblurTwo}
+          onValueChange={setInputTwo}
+          onFocus={() => setFocusTwo(true)}
+          onBlur={() => setFocusTwo(false)}
+          value={inputTwo}
         />
         <DropdownResults
           resultsList={sortTypes}
           setValueFunction={setValueTwo}
+          setInputFunction={setInputTwo}
           focusStatus={focusTwo}
+          value={valueTwo}
         ></DropdownResults>
       </Command>
 

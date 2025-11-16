@@ -1,8 +1,8 @@
 import "@/app/globals.css";
 import type { Metadata } from "next";
 
-import { DropdownSearchBar } from "@/components/custom/dropdown-search-bar";
-import { FilteredDataTableServer } from "@/components/custom/filtered-data-table-server";
+import { DropdownSearchBar } from "@/components/custom/advanced-search/dropdown-search-bar";
+import { FilteredDataTableServer } from "@/components/custom/data-table/filtered-data-table-server";
 
 export const metadata: Metadata = {
   title: "YouEyeSea - UIC Grade Distributions",
@@ -10,10 +10,14 @@ export const metadata: Metadata = {
     "Get grade distribution data, tips from former students, and cohort GPAs for any course at University of Illinois at Chicago (UIC).",
 };
 
-export default function Explore() {
-  return (
+export default async function Explore({
+  searchParams,
+}: {
+  searchParams: Promise<{ [key: string]: string | undefined }>;
+}) {
+  const filteredParams = await searchParams;
+    return (
     <div className="flex flex-col p-4 w-full justify-start min-h-full">
-      <br></br>
       {/* Hero Text */}
       <div className="flex flex-col items-center">
         <h1 className="font-black text-2xl md:text-3xl py-5 text-center text-transparent bg-text-gradient-uic bg-clip-text text-shadow-[0px_0px_0px_20px_var(--inset-color)]">
@@ -28,7 +32,7 @@ export default function Explore() {
         
         {/* Table */}
         <div className="flex">
-          <FilteredDataTableServer></FilteredDataTableServer>
+          <FilteredDataTableServer subject = {filteredParams.subject} sortType = {filteredParams.sort} level = {filteredParams.level}></FilteredDataTableServer>
         </div>
       </div>
       <div className="absolute inset-0 -z-10 bg-gradient-uic" />

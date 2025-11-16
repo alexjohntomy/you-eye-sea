@@ -1,4 +1,4 @@
-import { TablePane } from "@/components/custom/table-pane";
+import { TablePane } from "@/components/custom/breakdown-pane/table-pane";
 import prisma from "@/lib/prisma";
 
 async function getCourseInstanceSums(courseName: any) {

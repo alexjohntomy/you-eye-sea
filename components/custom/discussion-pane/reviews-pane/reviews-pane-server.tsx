@@ -1,4 +1,4 @@
-import { ReviewsPane } from "@/components/custom/reviews-pane";
+import { ReviewsPane } from "@/components/custom/discussion-pane/reviews-pane/reviews-pane";
 import prisma from "@/lib/prisma";
 
 async function getReviewsFromDB(courseName: any, professorID: any) {
