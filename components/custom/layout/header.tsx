@@ -60,7 +60,7 @@ function Header() {
                   className="opacity-80 bg-foreground/10 hover:opacity-80 hover:bg-accent/30 hover:text-uic-navy-900 font-semibold relative"
                 >
                     <motion.div className="flex flex-row justify-evenly gap-2 w-fit items-center relative left-[3.5]"
-                        initial={{ opacity: 1, scale: .95, y: 0}}
+                        initial={{ opacity: 1, scale: 1.05, y: 0}}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         transition={{ ease: "easeInOut", duration: 1, repeat: Infinity, repeatType: "reverse" }}
                     >

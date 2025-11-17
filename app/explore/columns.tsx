@@ -1,10 +1,11 @@
 "use client"
 
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { ColumnDef, createColumnHelper } from "@tanstack/react-table"
 import Link from "next/link";
-import { ChevronRight, ExternalLink } from "lucide-react";
+import { ChevronRight, ExternalLink, ArrowDown } from "lucide-react";
 import { getProfessorNameFromID } from "@/app/_util/getProfessorNameFromID";
-
+import { Button } from "@/components/ui/button";
 
 // This type is used to define the shape of our data.
 // You can use a Zod schema here if you want.
@@ -19,7 +20,8 @@ export type rowDetails = {
 
 const columnHelper = createColumnHelper<rowDetails>()
 
-// type was Payment
+columnHelper.accessor
+
 export const columns: ColumnDef<rowDetails>[] = [
   {
     accessorKey: "course",
@@ -33,28 +35,74 @@ export const columns: ColumnDef<rowDetails>[] = [
   {
     accessorKey: "professor",
     header: "Professor",
-    cell: (info) => getProfessorNameFromID(info.getValue<number>())
+    cell: (info) => <h1 className="italic">{getProfessorNameFromID(info.getValue<number>())}</h1>
   },
   {
     accessorKey: "gpa",
-    header: "GPA",
-    cell: (info) => info.getValue<number>().toFixed(2)
+    header: ({ column }) => {
+      const router = useRouter()
+      const searchParams = useSearchParams()
+      const params = new URLSearchParams(searchParams.toString());
+      const pathname = usePathname();
+      const handleClick = () => {
+          params.set("sort", "gpa");
+          router.push(`${pathname}?${params.toString()}`);
+      }
+      return (<Button variant="ghost" className="font-black hover:bg-transparent hover:underline hover:underline-offset-3 hover:text-background" onClick={handleClick}>GPA<ArrowDown/></Button>) 
+    },
+    cell: (info) => {
+      return <h1 className="ml-3">{info.getValue<number>().toFixed(2)}</h1> 
+    }
   },
   {
     accessorKey: "passRate",
-    header: "Pass Rate",
-    cell: (info) => info.getValue<number>().toFixed(1) + "%"
+    header: ({ column }) => {
+      const router = useRouter()
+      const searchParams = useSearchParams()
+      const params = new URLSearchParams(searchParams.toString());
+      const pathname = usePathname();
+      const handleClick = () => {
+          params.set("sort", "passRate");
+          router.push(`${pathname}?${params.toString()}`);
+      }
+      return (<Button variant="ghost" className="font-black hover:bg-transparent hover:underline hover:underline-offset-3 hover:text-background" onClick={handleClick}>Pass Rate<ArrowDown/></Button>) 
+    },
+    cell: (info) => {
+      return <h1 className="ml-3">{info.getValue<number>().toFixed(1) + "%"}</h1> 
+    }
   },
   {
     accessorKey: "dropRate",
-    header: "Drop Rate",
-    cell: (info) => info.getValue<number>().toFixed(1) + "%"
+      header: ({ column }) => {
+      const router = useRouter()
+      const searchParams = useSearchParams()
+      const params = new URLSearchParams(searchParams.toString());
+      const pathname = usePathname();
+      const handleClick = () => {
+          params.set("sort", "dropRate");
+          router.push(`${pathname}?${params.toString()}`);
+      }
+      return (<Button variant="ghost" className="font-black hover:bg-transparent hover:underline hover:underline-offset-3 hover:text-background" onClick={handleClick}>Drop Rate<ArrowDown/></Button>) 
+    },
+    cell: (info) => {
+        return <h1 className="ml-3">{info.getValue<number>().toFixed(1)}%</h1>
+    }
   },
   {
     accessorKey: "totalStudents",
-    header: "Total Students",
-    cell: (info) => {
-      return <h1>{info.getValue<number>()}</h1>
-    }
+    header: ({ column }) => {
+      const router = useRouter()
+      const searchParams = useSearchParams()
+      const params = new URLSearchParams(searchParams.toString());
+      const pathname = usePathname();
+      const handleClick = () => {
+          params.set("sort", "totalStudents");
+          router.push(`${pathname}?${params.toString()}`);
+      }
+      return (<Button variant="ghost" className="font-black hover:bg-transparent hover:underline hover:underline-offset-3 hover:text-background" onClick={handleClick}>Total Students<ArrowDown/></Button>) 
+      },
+      cell: (info) => {
+        return <h1 className="ml-3">{info.getValue<number>()}</h1>
+      }
   },
 ]

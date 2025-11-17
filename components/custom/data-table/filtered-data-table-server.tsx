@@ -127,7 +127,7 @@ async function FilteredDataTableServer({subject, sortType, level} : FilterTypes)
         <FilteredDataTable columns={columns} data={data}/>
       );
     }
-    else return <h1>Sorry, no results were found...</h1>
+    else return <div className="flex flex-col items-center justify-center w-full h-20"><h1 className="font-bold italic">Sorry, no results were found...</h1></div>
 }
 
 export { FilteredDataTableServer };

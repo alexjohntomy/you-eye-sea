@@ -19,7 +19,7 @@ export default async function Explore({
     return (
     <div className="flex flex-col p-4 w-full justify-start min-h-full">
       {/* Hero Text */}
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center gap-0">
         <h1 className="font-black text-2xl md:text-3xl py-5 text-center text-transparent bg-text-gradient-uic bg-clip-text text-shadow-[0px_0px_0px_20px_var(--inset-color)]">
           Explore
         </h1>

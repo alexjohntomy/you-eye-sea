@@ -143,7 +143,7 @@ function ResultsPaneMotion({ query, focusStatus, ref }: testProps) {
                       <h2 className="text-base font-semibold text-gray-600">
                         {item.subject + " " + item.number}
                       </h2>
-                      <h2 className="text-s text-gray-600">{item.title}</h2>
+                      <h2 className="text-s truncate text-gray-600">{item.title}</h2>
                     </div>
                     <h4 className="text-xs font-light italic text-gray-500">
                       {item.professor}
@@ -176,10 +176,10 @@ function ResultsPaneMotion({ query, focusStatus, ref }: testProps) {
                   className="w-full"
                 >
                   <div className="flex items-center gap-1 align-bottom">
-                    <h2 className="text-base font-semibold text-gray-600">
+                    <h2 className="text-sm md:text-base font-semibold text-gray-600">
                       {item.subject + " " + item.number}
                     </h2>
-                    <h2 className="text-s text-gray-600">{item.title}</h2>
+                    <h2 className="text-s truncate text-gray-600">{item.title}</h2>
                   </div>
                   <h4 className="text-xs font-light italic text-gray-500">
                     {item.professor}

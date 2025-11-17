@@ -29,10 +29,6 @@ interface DataTableProps<TData, TValue> {
   data: TData[]
 }
 
-interface TableProps {
-    queryParams: string
-}
-
 function FilteredDataTable<TData, TValue>({
     columns,
     data,
@@ -48,12 +44,18 @@ function FilteredDataTable<TData, TValue>({
     columns,
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(), //load client-side pagination code
+    initialState: {
+    pagination: {
+      pageIndex: 0, //custom initial page index
+      pageSize: 9, //custom default page size
+    },
+  },
   })
     return (
         <div className='flex flex-col w-full items-center gap-3'>
             <div className='w-full flex justify-center h-full'>
                 <div className="overflow-hidden rounded-sm border w-3/4">
-                    <Table className='bg-background/80'>
+                    <Table className='bg-background/90'>
                         <TableHeader>
                         {table.getHeaderGroups().map((headerGroup) => (
                             <TableRow key={headerGroup.id}>
@@ -76,6 +78,7 @@ function FilteredDataTable<TData, TValue>({
                         {table.getRowModel().rows?.length ? (
                             table.getRowModel().rows.map((row) => (
                             <TableRow
+                                className=' border-foreground/5'
                                 key={row.id}
                                 data-state={row.getIsSelected() && "selected"}
                             >
@@ -98,7 +101,7 @@ function FilteredDataTable<TData, TValue>({
                     </Table>
                 </div>
             </div>
-
+            <h4 className='text-[13px] tracking-wide text-foreground/80 font-light italic'>Each row shows a professor's long-term average for this course, aggregated across all semesters they've taught it.</h4>
             <ButtonGroup className='flex md:flex-row flex-row'>
                 <Button
                 className='rounded-sm border border-uic-navy-600/30 text-sm bg-background text-foreground hover:bg-uic-navy-100'
