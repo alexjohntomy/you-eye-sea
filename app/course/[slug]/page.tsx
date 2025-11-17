@@ -1,15 +1,15 @@
-import { GradeDistributionChart } from "@/components/custom/grade-distribution-chart";
-import prisma from "@/lib/prisma";
-import { Badge } from "@/components/ui/badge";
-import { CommentsPaneServer } from "@/components/custom/comments-pane-server";
-import { TablePaneServer } from "@/components/custom/table-pane-server";
 import { formatGradeData } from "@/app/_util/formatGradeData";
-import Link from "next/link";
-import type { Metadata } from "next";
+import { CommentsPaneServer } from "@/components/custom/discussion-pane/comments-pane/comments-pane-server";
+import { DiscussionPane } from "@/components/custom/discussion-pane/discussion-pane";
+import { GradeDistributionChart } from "@/components/custom/visualization-pane/grade-distribution-chart";
+import { ProfessorDropdown } from "@/components/custom/visualization-pane/professor-dropdown";
+import { ReviewsPaneServer } from "@/components/custom/discussion-pane/reviews-pane/reviews-pane-server";
+import { TablePaneServer } from "@/components/custom/breakdown-pane/table-pane-server";
+import { Badge } from "@/components/ui/badge";
+import prisma from "@/lib/prisma";
 import { ExternalLink } from "lucide-react";
-import { ProfessorDropdown } from "@/components/custom/professor-dropdown";
-import { DiscussionPane } from "@/components/custom/discussion-pane";
-import { ReviewsPaneServer } from "@/components/custom/reviews-pane-server";
+import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Course Details",
@@ -158,7 +158,8 @@ export default async function CourseDetailsPage({
         <h5 className="py-2 text-xs text-center text-foreground/50">
           Data is sourced from official UIC grade distributions but many of the
           stats are calculated in the backend, so it may contain errors. The
-          pass rate denominator includes only A-F. The drop rate denominator includes W.
+          pass rate denominator includes only A-F. The drop rate denominator
+          includes W.
         </h5>
       </div>
 

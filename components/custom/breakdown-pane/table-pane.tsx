@@ -1,22 +1,18 @@
 "use client";
 
-import { useState } from "react";
-
 import { titleCase } from "text-title-case";
 
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
-  TableFooter,
   TableHead,
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
 
-import { calculateGPA } from "@/app/_util/gpaCalculator";
 import { formatGradeData } from "@/app/_util/formatGradeData";
+import { calculateGPA } from "@/app/_util/gpaCalculator";
 
 interface tablePaneProps {
   statsFromDB: any;

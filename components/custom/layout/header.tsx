@@ -1,20 +1,19 @@
 "use client";
 
-import * as React from "react";
-import Link from "next/link";
-import Logo from "@/public/logo.png";
+import { Badge } from "@/components/ui/badge";
 import GithubIcon from "@/public/github-mark.png";
+import Logo from "@/public/logo.png";
 import Image from "next/image";
+import Link from "next/link";
+import { motion } from "motion/react";
 
 import { useIsMobile } from "@/hooks/use-mobile";
 
 import {
   NavigationMenu,
-  NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 
@@ -45,21 +44,36 @@ function Header() {
               >
                 <Link
                   href="/"
-                  className="opacity-70 bg-foreground/10 hover:opacity-100 hover:bg-accent/30 hover:text-uic-navy-900 font-semibold"
+                  className="opacity-80 bg-foreground/10 hover:opacity-80 hover:bg-accent/30 hover:text-uic-navy-900 font-semibold"
                 >
                   Home
                 </Link>
               </NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              {/* <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                    <Link href="/lists" className="opacity-60 bg-foreground/8 hover:bg-red-20 hover:opacity-100 font-semibold">Lists</Link>
-                </NavigationMenuLink>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                    <Link href="/about" className="opacity-60 bg-foreground/8 hover:bg-red-20 hover:opacity-100 font-semibold">About</Link>
-                </NavigationMenuLink> */}
+              <NavigationMenuLink
+                asChild
+                className={navigationMenuTriggerStyle()}
+              >
+                <Link
+                  href="/explore"
+                  className="opacity-80 bg-foreground/10 hover:opacity-80 hover:bg-accent/30 hover:text-uic-navy-900 font-semibold relative"
+                >
+                    <motion.div className="flex flex-row justify-evenly gap-2 w-fit items-center relative left-[3.5]"
+                        initial={{ opacity: 1, scale: 1.05, y: 0}}
+                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                        transition={{ ease: "easeInOut", duration: 1, repeat: Infinity, repeatType: "reverse" }}
+                    >
+                    Explore
+                    <Badge
+                      variant="default"
+                      className="relative bg-secondary text-xs px-3 py-[3] rounded-sm"
+                    >
+                      New!
+                    </Badge>
+                    </motion.div>
+                </Link>
+              </NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem>
               <NavigationMenuLink

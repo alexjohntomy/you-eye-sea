@@ -1,8 +1,8 @@
 "use client";
 
-import { useRouter, usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
-import React, { useState, useCallback } from "react";
+import { useCallback, useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -15,7 +15,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-import { Check, ChevronsUpDown } from "lucide-react";
+import { ChevronsUpDown } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 
 interface Professor {
@@ -39,7 +39,7 @@ function ProfessorDropdown({ listOfProfessors }: dropdownTypes) {
     },
     [searchParams]
   );
-  const [professorID, setProfessorID] = useState("all-professors");
+  const [professorID, setProfessorID] = useState(searchParams.get("professor") ?? "all-professors");
   const handleDropdownChange: any = (value: any) => {
     console.log(value);
     setProfessorID(value);

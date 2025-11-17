@@ -1,19 +1,29 @@
 "use client";
 
-import { TrendingUp } from "lucide-react";
-import { Bar, BarChart, CartesianGrid, XAxis, YAxis, LabelList, Tooltip} from "recharts";
 import { calculateGPA } from "@/app/_util/gpaCalculator";
 import { useEffect } from "react";
+import {
+  Bar,
+  BarChart,
+  CartesianGrid,
+  LabelList,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from "recharts";
 
 import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
+import {
+  ChartConfig,
+  ChartContainer,
+  ChartTooltipContent,
+} from "@/components/ui/chart";
 
 export const description = "A bar chart with a label";
 
@@ -170,11 +180,16 @@ function GradeDistributionChart({
                 }
               />
 
-              <YAxis dataKey="count" type="number" domain={[0, "dataMax"]} hide />
+              <YAxis
+                dataKey="count"
+                type="number"
+                domain={[0, "dataMax"]}
+                hide
+              />
               <Tooltip
-              content={<ChartTooltipContent/>}
-              cursor={{fill: 'transparent', opacity: 0.75}}
-              isAnimationActive={false}
+                content={<ChartTooltipContent />}
+                cursor={{ fill: "transparent", opacity: 0.75 }}
+                isAnimationActive={false}
               />
               <Bar
                 dataKey="count"
@@ -191,7 +206,6 @@ function GradeDistributionChart({
                   fontSize={12}
                 />
               </Bar>
-
             </BarChart>
           </ChartContainer>
         </div>

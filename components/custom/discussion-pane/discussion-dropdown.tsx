@@ -1,19 +1,14 @@
 "use client";
-
-import React, { useState } from "react";
-
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuLabel,
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-import { ChevronDown, Star, MessageSquare } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
 function DiscussionDropdown({
   selectedDiscussionType,

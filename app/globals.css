@@ -97,7 +97,7 @@
   );
 
   --background-image-gradient-uic: radial-gradient(
-    120% 120% at 50% 10%,
+    120% 120% at 50% 0%,
     var(--color-white) 30%,
     var(--color-uic-red-400) 90%
   );
@@ -242,7 +242,7 @@ body {
   --chart-4: oklch(0.62 0.13 50);
   --chart-5: oklch(0.55 0.16 30);
   --chart-6: oklch(0.1408 0.0044 285.8229)
-  --sidebar: oklch(0.2103 0.0059 285.8852);
+    --sidebar: oklch(0.2103 0.0059 285.8852);
   --sidebar-foreground: oklch(0.9851 0 0);
   --sidebar-primary: oklch(0.6378 0.2373 25.4359);
   --sidebar-primary-foreground: oklch(0.9705 0.0129 17.3797);

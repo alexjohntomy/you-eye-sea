@@ -4,12 +4,11 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ThemeProvider } from "@/components/theme-provider";
 
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import { Manrope } from "next/font/google";
+import { Geist, Geist_Mono, Manrope } from "next/font/google";
 
+import { Footer } from "@/components/custom/layout/footer";
+import { Header } from "@/components/custom/layout/header";
 import "./globals.css";
-import { Header } from "@/components/custom/header";
-import { Footer } from "@/components/custom/footer";
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -49,7 +48,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Header />
-          <main className="flex flex-1 min-h-[calc(100svh-120px)] max-h-[calc(100svh-120px)] relative">
+          <main className="flex flex-1 md:min-h-[calc(100svh-120px)] md:max-h-[calc(100svh-120px)] relative">
             {children}
             <Analytics />
             <SpeedInsights />

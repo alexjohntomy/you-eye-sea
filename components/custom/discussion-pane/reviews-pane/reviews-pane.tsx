@@ -1,7 +1,7 @@
 "use client";
-import { useRouter } from "next/navigation";
 import { Rating as ReactRating, ThinStar } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
+import { useRouter } from "next/navigation";
 
 const customStyles = {
   itemShapes: ThinStar,
@@ -9,15 +9,7 @@ const customStyles = {
   inactiveFillColor: "#D5003220",
 };
 
-import {
-  Card,
-  CardAction,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 
 import { useState } from "react";
 
@@ -25,7 +17,6 @@ import {
   InputGroup,
   InputGroupAddon,
   InputGroupButton,
-  InputGroupInput,
   InputGroupText,
   InputGroupTextarea,
 } from "@/components/ui/input-group";
@@ -158,7 +149,7 @@ function ReviewsPane({
                     ),
                       setValue(""),
                       router.refresh());
-                  } else if (value.trim().length > 1){
+                  } else if (value.trim().length > 1) {
                     (postReview({
                       review: value,
                       courseID: parsedSlug[0],
@@ -186,7 +177,8 @@ function ReviewsPane({
         <div className="flex flex-col w-full py-1 overflow-y-scroll gap-0">
           <div className="flex flex-col w-full md:min-h-screen max-h-10/12 gap-3">
             <h1 className="relative text-center text-sm font-medium">
-              Average Rating: <span className="font-black text-lg">{avgRating}</span>
+              Average Rating:{" "}
+              <span className="font-black text-lg">{avgRating}</span>
             </h1>
             {reviews.map((eachReview: any) => (
               <Card
