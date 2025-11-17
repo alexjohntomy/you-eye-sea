@@ -113,7 +113,7 @@ function ResultsPaneMotion({ query, focusStatus, ref }: testProps) {
   ];
   if (query.length > 0) {
     return (
-      <CommandList className="border-t border-gray-200/50">
+      <CommandList className="border-t border-gray-200/50 min-h-fit">
         <CommandGroup>
           <h3 className="flex flex-row gap-2 py-1 text-sm px-2 text-gray-500 font-medium">
             <GraduationCap width={13} className="relative bottom-[1.75]" />
@@ -137,10 +137,10 @@ function ResultsPaneMotion({ query, focusStatus, ref }: testProps) {
                 >
                   <Link
                     href={"/course/" + item.subject + "-" + item.number}
-                    className="w-full"
+                    className="flex flex-col grow min-w-0"
                   >
-                    <div className="flex items-center gap-1 align-bottom">
-                      <h2 className="text-base font-semibold text-gray-600">
+                  <div className="flex md:flex-row flex-col md:items-center md:gap-1 align-bottom">
+                      <h2 className="text-base text-nowrap font-semibold text-gray-600">
                         {item.subject + " " + item.number}
                       </h2>
                       <h2 className="text-s truncate text-gray-600">{item.title}</h2>
@@ -158,7 +158,7 @@ function ResultsPaneMotion({ query, focusStatus, ref }: testProps) {
     );
   } else if (query.length == 0 && focusStatus) {
     return (
-      <CommandList className="border-t border-gray-200/50">
+      <CommandList className="border-t border-gray-200/50 min-h-fit">
         <CommandGroup>
           <h3 className="flex py-1 flex-row gap-2 text-sm px-2 text-gray-500 font-medium">
             <TrendingUp width={12} className="relative bottom-[1]" />
@@ -173,10 +173,10 @@ function ResultsPaneMotion({ query, focusStatus, ref }: testProps) {
               >
                 <Link
                   href={"/course/" + item.subject + "-" + item.number}
-                  className="w-full"
+                    className="flex flex-col grow min-w-0"
                 >
-                  <div className="flex items-center gap-1 align-bottom">
-                    <h2 className="text-sm md:text-base font-semibold text-gray-600">
+                  <div className="flex md:flex-row flex-col md:items-center md:gap-1 align-bottom">
+                    <h2 className="text-sm md:text-base text-nowrap font-semibold text-gray-600">
                       {item.subject + " " + item.number}
                     </h2>
                     <h2 className="text-s truncate text-gray-600">{item.title}</h2>
