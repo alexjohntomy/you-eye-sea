@@ -22,7 +22,7 @@ export default function Home() {
         >
           Spring 2026 Registration Open Now
         </Badge>
-        <h1 className="font-black text-4xl md:text-5xl py-2 px-5 text-center text-transparent bg-text-gradient-uic bg-clip-text text-shadow-[0px_0px_0px_20px_var(--inset-color)]">
+        <h1 className="font-black text-3xl md:text-5xl py-2 px-5 text-center text-transparent bg-text-gradient-uic bg-clip-text text-shadow-[0px_0px_0px_20px_var(--inset-color)]">
           Find Your Next Class Today
         </h1>
         <h2 className="font-semibold text-l md:text-xl px-10 text-center text-uic-navy-800 opacity-80">

@@ -7,6 +7,8 @@ import {
 
 import { motion } from "motion/react";
 
+import { useIsMobile } from "@/hooks/use-mobile"
+
 import MiniSearch from "minisearch";
 
 import Link from "next/link";
@@ -33,6 +35,7 @@ let miniSearch = new MiniSearch({
   fields: ["subject", "number", "title", "professor", "combinedName"],
   storeFields: ["subject", "number", "title", "professor", "combinedName"],
 });
+
 
 const coursesListWithID = courseList.map((course, index) => ({
   ...course,
@@ -127,7 +130,7 @@ function ResultsPaneMotion({ query, focusStatus, ref }: testProps) {
             </div>
           </CommandEmpty>
           {getMatches(query)
-            .slice(0, 5)
+            .slice(0, (useIsMobile() ? 4 : 5))
             .map((item: any) => {
               return (
                 <CommandItem
@@ -140,7 +143,7 @@ function ResultsPaneMotion({ query, focusStatus, ref }: testProps) {
                     className="flex flex-col grow min-w-0"
                   >
                   <div className="flex md:flex-row flex-col md:items-center md:gap-1 align-bottom">
-                      <h2 className="text-base text-nowrap font-semibold text-gray-600">
+                    <h2 className="text-sm md:text-base text-nowrap font-semibold text-gray-600">
                         {item.subject + " " + item.number}
                       </h2>
                       <h2 className="text-s truncate text-gray-600">{item.title}</h2>
@@ -164,7 +167,7 @@ function ResultsPaneMotion({ query, focusStatus, ref }: testProps) {
             <TrendingUp width={12} className="relative bottom-[1]" />
             Popular This Week
           </h3>
-          {trendingClasses.map((item: any) => {
+          {trendingClasses.slice(0, (useIsMobile() ? 4 : 5)).map((item: any) => {
             return (
               <CommandItem
                 key={item.id}
