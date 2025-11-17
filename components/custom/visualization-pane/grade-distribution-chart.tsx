@@ -183,6 +183,7 @@ function GradeDistributionChart({
               <YAxis
                 dataKey="count"
                 type="number"
+                tickLine = {{stroke: '#40000000'}}
                 domain={[0, "dataMax"]}
                 hide
               />
