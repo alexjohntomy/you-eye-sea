@@ -24,9 +24,9 @@ export default async function Explore({
           Explore
         </h1>
       </div>
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-2 md: min-h-[calc(100svh-280px)]">
         {/* Search Bar */}
-        <div className="flex flex-row h-full w-full items-start justify-center z-10">
+        <div className="flex flex-row h-full w-full items-start justify-center grow">
           <DropdownSearchBar></DropdownSearchBar>
         </div>
         
