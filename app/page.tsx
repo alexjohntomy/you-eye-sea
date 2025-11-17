@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div className="flex flex-col p-4 w-full justify-center min-h-full">
+    <div className="flex flex-col px-1 py-2 w-full justify-center min-h-full">
       {/* Hero Text */}
       <div className="flex flex-col items-center mt-10">
         <Badge
