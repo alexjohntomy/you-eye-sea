@@ -118,7 +118,7 @@ function DropdownSearchBar() {
           <PopoverAnchor asChild>
           <CommandInput
             placeholder={subjectPlaceholder}
-            className="relative font-semibold"
+            className="relative font-semibold text-base"
             wrapperClassName="flex flex-row w-full"
             onValueChange={setInputOne}
             onFocus={() => setFocusOne(true)}
@@ -153,7 +153,7 @@ function DropdownSearchBar() {
           <PopoverAnchor asChild>
           <CommandInput
             placeholder={levelPlaceholder}
-            className="relative font-semibold"
+            className="relative font-semibold text-base"
             wrapperClassName="flex flex-row w-full"
             onValueChange={setInputThree}
             onFocus={() => setFocusThree(true)}
@@ -188,7 +188,7 @@ function DropdownSearchBar() {
           <PopoverAnchor asChild>
           <CommandInput
             placeholder={sortTypePlaceholder}
-            className="relative font-semibold"
+            className="relative font-semibold text-base"
             wrapperClassName="flex flex-row w-full"
             onValueChange={setInputTwo}
             onFocus={() => setFocusTwo(true)}
