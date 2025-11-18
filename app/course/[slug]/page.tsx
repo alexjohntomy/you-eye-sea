@@ -8,12 +8,8 @@ import { TablePaneServer } from "@/components/custom/breakdown-pane/table-pane-s
 import { Badge } from "@/components/ui/badge";
 import prisma from "@/lib/prisma";
 import { ExternalLink } from "lucide-react";
-import type { Metadata } from "next";
 import Link from "next/link";
-
-export const metadata: Metadata = {
-  title: "Course Details",
-};
+import type { Metadata } from 'next'
 
 async function getCourseDetails(slug: string) {
   const parsedSlug = slug.split("-");
@@ -100,6 +96,19 @@ async function getCourseInstance(slug: string, queryParams: any) {
         professorID: parseInt(professor),
       },
     });
+  }
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params
+  return {
+    title: slug.replace("-", " ").toUpperCase() + " | UIC Grade Distribution",
+     description:
+    `Grade distribution dashboard for ${slug.replace("-", " ").toUpperCase()} at University of Illinois at Chicago (UIC).`,
   }
 }
 

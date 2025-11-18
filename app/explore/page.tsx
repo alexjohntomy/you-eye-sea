@@ -5,9 +5,9 @@ import { DropdownSearchBar } from "@/components/custom/advanced-search/dropdown-
 import { FilteredDataTableServer } from "@/components/custom/data-table/filtered-data-table-server";
 
 export const metadata: Metadata = {
-  title: "YouEyeSea - UIC Grade Distributions",
+  title: "YouEyeSea - Explore",
   description:
-    "Get grade distribution data, tips from former students, and cohort GPAs for any course at University of Illinois at Chicago (UIC).",
+    "Apply fine-grain filters and sorts to grade distribution data at UIC.",
 };
 
 export default async function Explore({
