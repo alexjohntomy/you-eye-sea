@@ -88,5 +88,4 @@ model Review {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
 }
