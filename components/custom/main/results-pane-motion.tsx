@@ -76,10 +76,10 @@ function ResultsPaneMotion({ query, focusStatus, ref }: testProps) {
     {
       id: 1,
       combinedName: "CS 342",
-      subject: "CS",
-      number: 342,
-      title: "Software Design",
-      professor: "Mark Hallenbeck",
+      subject: "ME",
+      number: 325,
+      title: "Intermediate Thermodynamics",
+      professor: "Patrick Lynch",
     },
     {
       id: 2,
