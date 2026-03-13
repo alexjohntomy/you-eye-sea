@@ -20,7 +20,7 @@ export default function Home() {
           variant="outline"
           className="relative bottom-2 px-2 py-1 bg-background/70 border-secondary/20 text-uic-navy-700/50"
         >
-          Spring 2026 Registration Open Now
+          Fall 2026 Time Tickets Out Now
         </Badge>
         <h1 className="font-black text-3xl md:text-5xl py-2 px-5 text-center text-transparent bg-text-gradient-uic bg-clip-text text-shadow-[0px_0px_0px_20px_var(--inset-color)]">
           Find Your Next Class Today

@@ -31,6 +31,7 @@ interface courseSumsType {
 // across all semesters. 
 async function getGradeTotalsForSubject({subject, sortType, level} : FilterTypes) : Promise<courseSumsType[]> {
   const courseInstanceAggregation = await prisma.courseInstance.groupBy({
+    cacheStrategy: { ttl: 86400, swr: 86400 },
     by: ["courseID", "courseNumber", "professorID"],
     _sum: {
       A: true,

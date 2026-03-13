@@ -16,6 +16,7 @@ async function getCourseDetails(slug: string) {
   console.log(parsedSlug[0]);
   console.log(parsedSlug[1]);
   const courses = await prisma.courseInstance.findMany({
+    cacheStrategy: { ttl: 86400, swr: 86400 },
     where: {
       courseID: parsedSlug[0],
       courseNumber: parseInt(parsedSlug[1]),
@@ -67,6 +68,7 @@ async function getCourseInstance(slug: string, queryParams: any) {
   const professor = queryParams.professor;
   if (professor == "all-professors" || !professor) {
     return await prisma.courseInstance.aggregate({
+      cacheStrategy: { ttl: 86400, swr: 86400 },
       _sum: {
         A: true,
         B: true,
@@ -82,6 +84,7 @@ async function getCourseInstance(slug: string, queryParams: any) {
     });
   } else {
     return await prisma.courseInstance.aggregate({
+      cacheStrategy: { ttl: 86400, swr: 86400 },
       _sum: {
         A: true,
         B: true,
@@ -154,24 +157,26 @@ export default async function CourseDetailsPage({
             listOfProfessors={courseDetails.professors}
           ></ProfessorDropdown>
         </div>
-        <Link href={encodedURL} className="w-fit">
-          <Badge
-            variant="outline"
-            className="flex-row gap-2 relative bottom-1 rounded-md text-xs font-semibold px-3 py-2 bg-badge-bg/90 text-badge-text border-badge-border/20 shadow-[inset_0px_-6px_10px_2px_var(--badge-shadow-base)]/40 hover:bg-badge-bg "
-          >
-            View in Course Catalog
-            <ExternalLink className="opacity-70 relative" />
-          </Badge>
-        </Link>
-        <Link href={rmpURL} className="w-fit">
-          <Badge
-            variant="outline"
-            className="flex-row gap-2 relative bottom-1 rounded-md text-xs font-semibold px-3 py-2 bg-badge-bg/90 text-badge-text border-badge-border/20 shadow-[inset_0px_-6px_10px_2px_var(--badge-shadow-base)]/40 hover:bg-badge-bg "
-          >
-            Search RMP
-            <ExternalLink className="opacity-70 relative" />
-          </Badge>
-        </Link>
+        <div className="flex flex-row gap-2">
+          <Link href={encodedURL} className="w-fit">
+            <Badge
+              variant="outline"
+              className="flex-row gap-2 relative bottom-1 rounded-md text-xs font-semibold px-3 py-2 bg-uic-red-600 text-white border-uic-red-600/20 shadow-[inset_0px_-6px_10px_2px_var(--badge-shadow-base)]/40 hover:bg-uic-red-600/90 "
+            >
+              View in Course Catalog
+              <ExternalLink className="opacity-70 relative" />
+            </Badge>
+          </Link>
+          <Link href={rmpURL} className="w-fit">
+            <Badge
+              variant="outline"
+              className="flex-row gap-2 relative bottom-1 rounded-md text-xs font-semibold px-3 py-2 bg-badge-bg/90 text-badge-text border-badge-border/20 shadow-[inset_0px_-6px_10px_2px_var(--badge-shadow-base)]/40 hover:bg-badge-bg "
+            >
+              Search RMP
+              <ExternalLink className="opacity-70 relative" />
+            </Badge>
+          </Link>
+        </div>
         <div className="">
           <GradeDistributionChart
             chartData={formattedGradeData}
