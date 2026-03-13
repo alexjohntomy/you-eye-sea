@@ -165,7 +165,9 @@ const subjectList: string[] = [
   "EB",
   "IP",
   "IT",
-  "RE"
+  "RE",
+  "DIT",
+  "NUNA"
 ]
 
 export default subjectList

@@ -131,6 +131,12 @@ export default async function CourseDetailsPage({
     "/#:~:text=" +
     encodeURIComponent(`${courseDetails.name} ${courseDetails.number}`);
 
+  const selectedProfessorName =
+    courseDetails.professors.find((p) => p.id === String(filteredParams.professor))?.name ?? "";
+  const rmpURL =
+    "https://www.ratemyprofessors.com/search/professors/1111?q=" +
+    encodeURIComponent(selectedProfessorName);
+
   return (
     <div className="flex flex-col md:flex-row grow bg-background w-full h-full md:h-[calc(100svh-120px)] overflow-hidden">
       {/* Stats */}
@@ -154,6 +160,15 @@ export default async function CourseDetailsPage({
             className="flex-row gap-2 relative bottom-1 rounded-md text-xs font-semibold px-3 py-2 bg-badge-bg/90 text-badge-text border-badge-border/20 shadow-[inset_0px_-6px_10px_2px_var(--badge-shadow-base)]/40 hover:bg-badge-bg "
           >
             View in Course Catalog
+            <ExternalLink className="opacity-70 relative" />
+          </Badge>
+        </Link>
+        <Link href={rmpURL} className="w-fit">
+          <Badge
+            variant="outline"
+            className="flex-row gap-2 relative bottom-1 rounded-md text-xs font-semibold px-3 py-2 bg-badge-bg/90 text-badge-text border-badge-border/20 shadow-[inset_0px_-6px_10px_2px_var(--badge-shadow-base)]/40 hover:bg-badge-bg "
+          >
+            Search RMP
             <ExternalLink className="opacity-70 relative" />
           </Badge>
         </Link>
