@@ -171,15 +171,17 @@ export default async function CourseDetailsPage({
               <ExternalLink className="relative opacity-70" />
             </Badge>
           </Link>
-          <Link href={rmpURL} className="w-fit">
-            <Badge
-              variant="outline"
-              className="bg-badge-bg/10 dark:bg-badge-text/10 text-badge-bg dark:text-badge-text border-badge-bg/15 dark:border-badge-text/15 hover:bg-badge-bg/20 dark:hover:bg-badge-text/20 relative bottom-1 flex-row gap-2 rounded-md px-3 py-2 text-xs font-semibold"
-            >
-              Search RMP
-              <ExternalLink className="relative opacity-70" />
-            </Badge>
-          </Link>
+          {selectedProfessorName && (
+            <Link href={rmpURL} className="w-fit">
+              <Badge
+                variant="outline"
+                className="bg-badge-bg/10 dark:bg-badge-text/10 text-badge-bg dark:text-badge-text border-badge-bg/15 dark:border-badge-text/15 hover:bg-badge-bg/20 dark:hover:bg-badge-text/20 relative bottom-1 flex-row gap-2 rounded-md px-3 py-2 text-xs font-semibold"
+              >
+                Search RMP
+                <ExternalLink className="relative opacity-70" />
+              </Badge>
+            </Link>
+          )}
         </div>
         <div className="pt-2">
           <GradeDistributionChart
@@ -230,10 +232,7 @@ export default async function CourseDetailsPage({
           <section className="h-full w-full p-8 md:w-1/4 md:max-w-1/4">
             <div className="flex h-full flex-col gap-5">
               {Array.from({ length: 7 }).map((_, i) => (
-                <div
-                  key={i}
-                  className="shimmer h-full w-full rounded-md"
-                ></div>
+                <div key={i} className="shimmer h-full w-full rounded-md"></div>
               ))}
             </div>
           </section>

@@ -112,12 +112,12 @@ function ReviewsPane({
     return (
       <div className="flex flex-col h-full justify-between">
         <Empty className="border-0 p-4 opacity-55">
-          <EmptyHeader className="gap-0.5">
+          <EmptyHeader className="max-w-full gap-0.5">
             <EmptyMedia variant="icon" className="bg-muted/50 size-12 mb-0">
               <Star className="text-muted-foreground size-6" />
             </EmptyMedia>
             <EmptyTitle className="text-muted-foreground text-base font-medium">No ratings yet</EmptyTitle>
-            <EmptyDescription className="text-sm">
+            <EmptyDescription className="text-sm max-w-full">
               Looks like no ratings exist for {commentPaneText} yet... Help other students by adding your own!
             </EmptyDescription>
           </EmptyHeader>
