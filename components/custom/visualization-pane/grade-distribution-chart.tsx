@@ -169,7 +169,7 @@ function GradeDistributionChart({
         </CardHeader>
       </div>
       <CardContent className="flex">
-        <div className="h-full min-h-0 w-full min-w-0 overflow-scroll">
+        <div className="h-full w-full overflow-scroll">
           <ChartContainer
             config={chartConfig}
             className="h-full max-h-full min-w-full"
@@ -178,7 +178,7 @@ function GradeDistributionChart({
               accessibilityLayer
               data={chartData}
               layout="horizontal"
-              margin={{ top: 33, right: 0, bottom: 0, left: 0 }}
+              margin={{ top: 40, right: 0, bottom: 0, left: 0 }}
             >
               {/* This includes the labels "A-F" */}
               <CartesianGrid vertical={false} />
@@ -216,12 +216,14 @@ function GradeDistributionChart({
                 <LabelList
                   dataKey="label"
                   position="top"
-                  className="animate-in fade-in duration-750 fill-mode-both"
+                  className="animate-in fade-in fill-mode-both duration-750"
                   content={(props: any) => {
                     const { x, y, width, value } = props;
                     const valueStr = String(value);
                     const hasPercent = valueStr.includes(" (");
-                    const [countText, percentText] = hasPercent ? valueStr.split(" (") : [valueStr, null];
+                    const [countText, percentText] = hasPercent
+                      ? valueStr.split(" (")
+                      : [valueStr, null];
 
                     return (
                       <text
@@ -230,14 +232,29 @@ function GradeDistributionChart({
                         fill="currentColor"
                         textAnchor="middle"
                         dominantBaseline="middle"
-                        className="text-foreground animate-in fade-in duration-750 fill-mode-both"
+                        className="text-foreground animate-in fade-in fill-mode-both duration-750"
                       >
-                        <tspan x={x + width / 2} dy={hasPercent ? "-0.5em" : "0"} className="font-condensed font-medi
-                        " style={{ fontFamily: 'var(--font-condensed)', fontSize: '14px' }}>
+                        <tspan
+                          x={x + width / 2}
+                          dy={hasPercent ? "-0.5em" : "0"}
+                          className="font-condensed font-medi"
+                          style={{
+                            fontFamily: "var(--font-condensed)",
+                            fontSize: "14px",
+                          }}
+                        >
                           {countText}
                         </tspan>
                         {hasPercent && (
-                          <tspan x={x + width / 2} dy="1.2em" className="font-condensed opacity-75 font-normal" style={{ fontFamily: 'var(--font-condensed)', fontSize: '12px' }}>
+                          <tspan
+                            x={x + width / 2}
+                            dy="1.2em"
+                            className="font-condensed font-normal opacity-75"
+                            style={{
+                              fontFamily: "var(--font-condensed)",
+                              fontSize: "12px",
+                            }}
+                          >
                             ({percentText}
                           </tspan>
                         )}
