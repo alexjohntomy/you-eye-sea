@@ -4,7 +4,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ThemeProvider } from "@/components/theme-provider";
 
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Manrope, Sora } from "next/font/google";
+import { Geist, Geist_Mono, Manrope, Sora, Reddit_Sans_Condensed } from "next/font/google";
 
 import { Footer } from "@/components/custom/layout/footer";
 import { Header } from "@/components/custom/layout/header";
@@ -19,6 +19,12 @@ const sora = Sora({
 
 const manrope = Manrope({
   variable: "--font-manrope",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const redditSansCondensed = Reddit_Sans_Condensed({
+  variable: "--font-condensed",
   subsets: ["latin"],
   display: "swap",
 });
@@ -46,7 +52,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${manrope.variable} ${sora.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${manrope.variable} ${sora.variable} ${redditSansCondensed.variable}`} suppressHydrationWarning>
       <body className="flex flex-col min-h-svh">
         <ThemeProvider
           attribute="class"

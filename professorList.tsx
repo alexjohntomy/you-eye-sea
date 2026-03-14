@@ -12752,4 +12752,4 @@ const professorsList = new Map([
   ]
 ]);
 
-export default professorsList
+export default professorsList;

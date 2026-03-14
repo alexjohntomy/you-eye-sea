@@ -168,6 +168,6 @@ const subjectList: string[] = [
   "RE",
   "DIT",
   "NUNA"
-]
+];
 
-export default subjectList
+export default subjectList;

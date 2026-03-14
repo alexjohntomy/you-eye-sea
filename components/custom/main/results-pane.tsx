@@ -36,24 +36,31 @@ const coursesListWithID = courseList.map((course, index) => ({
 miniSearch.addAll(coursesListWithID);
 
 function getMatches(query: string) {
-  let matchedResults = miniSearch.search(query);
+  let matchedResults = miniSearch.search(query, { prefix: true });
   const cleanedQuery = query.trim().toLowerCase();
 
   let exactMatches = matchedResults.filter((course) => {
-    const cleanedCourseName = (
-      course.subject +
-      " " +
-      course.number
-    ).toLowerCase();
+    const cleanedCourseName = (course.subject + " " + course.number).toLowerCase();
+    const cleanedCourseNameNoSpace = (course.subject + course.number).toLowerCase();
     const cleanedProfessorName = course.professor.toLowerCase();
     const cleanedTitle = course.title.toLowerCase();
+    
+    // If the query is exactly the course name or exactly the professor or exactly the title
     if (
-      cleanedCourseName == cleanedQuery ||
-      cleanedProfessorName == cleanedQuery ||
-      cleanedTitle == cleanedQuery
+      cleanedCourseName === cleanedQuery ||
+      cleanedCourseNameNoSpace === cleanedQuery ||
+      cleanedProfessorName === cleanedQuery ||
+      cleanedTitle === cleanedQuery
     ) {
       return true;
     }
+    
+    // Check if the query contains the exact course name and part of the professor name
+    if (cleanedQuery.includes(cleanedCourseName) || cleanedQuery.includes(cleanedCourseNameNoSpace)) {
+       return true;
+    }
+    
+    return false;
   });
 
   matchedResults = exactMatches.length > 0 ? exactMatches : matchedResults;

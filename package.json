@@ -10,6 +10,7 @@
     "build": "next build",
     "start": "next start",
     "postinstall": "prisma generate",
+    "generate-cache": "tsx scripts/generate-cache.ts",
     "lint": "eslint"
   },
   "dependencies": {

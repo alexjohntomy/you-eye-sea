@@ -1,6 +1,7 @@
 "use client";
 
 import { calculateGPA } from "@/app/_util/gpaCalculator";
+import { useState, useEffect } from "react";
 import {
   Bar,
   BarChart,
@@ -106,9 +107,19 @@ function GradeDistributionChart({
     listOfProfessors
   );
 
+  const [isMounted, setIsMounted] = useState(false);
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   const { passes, total, drops, totalWithDrops } = chartData.reduce(
     (
-      accumulator: { passes: number; total: number; drops: number; totalWithDrops: number },
+      accumulator: {
+        passes: number;
+        total: number;
+        drops: number;
+        totalWithDrops: number;
+      },
       item: GradeData
     ) => {
       if (["A", "B", "C", "D", "F"].includes(item.grade)) {
@@ -167,7 +178,7 @@ function GradeDistributionChart({
               accessibilityLayer
               data={chartData}
               layout="horizontal"
-              margin={{ top: 28, right: 0, bottom: 0, left: 0 }}
+              margin={{ top: 33, right: 0, bottom: 0, left: 0 }}
             >
               {/* This includes the labels "A-F" */}
               <CartesianGrid vertical={false} />
@@ -198,15 +209,41 @@ function GradeDistributionChart({
               <Bar
                 dataKey="count"
                 className="stroke-foreground/10 stroke-1"
-                isAnimationActive={false}
+                isAnimationActive={isMounted}
+                animationDuration={500}
                 radius={[4, 4, 0, 0]}
               >
                 <LabelList
                   dataKey="label"
                   position="top"
-                  offset={5}
-                  className="fill-foreground"
-                  fontSize={12}
+                  className="animate-in fade-in duration-750 fill-mode-both"
+                  content={(props: any) => {
+                    const { x, y, width, value } = props;
+                    const valueStr = String(value);
+                    const hasPercent = valueStr.includes(" (");
+                    const [countText, percentText] = hasPercent ? valueStr.split(" (") : [valueStr, null];
+
+                    return (
+                      <text
+                        x={x + width / 2}
+                        y={y - 18}
+                        fill="currentColor"
+                        textAnchor="middle"
+                        dominantBaseline="middle"
+                        className="text-foreground animate-in fade-in duration-750 fill-mode-both"
+                      >
+                        <tspan x={x + width / 2} dy={hasPercent ? "-0.5em" : "0"} className="font-condensed font-medi
+                        " style={{ fontFamily: 'var(--font-condensed)', fontSize: '14px' }}>
+                          {countText}
+                        </tspan>
+                        {hasPercent && (
+                          <tspan x={x + width / 2} dy="1.2em" className="font-condensed opacity-75 font-normal" style={{ fontFamily: 'var(--font-condensed)', fontSize: '12px' }}>
+                            ({percentText}
+                          </tspan>
+                        )}
+                      </text>
+                    );
+                  }}
                 />
               </Bar>
             </BarChart>

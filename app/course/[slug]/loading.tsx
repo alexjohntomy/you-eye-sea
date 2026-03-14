@@ -20,14 +20,14 @@ export default function Loading() {
 
       {/* Middle: discussion */}
       <section className="border-foreground/10 relative flex min-h-60 w-full flex-col gap-4 border-r border-l p-8 md:h-full md:w-1/4 md:max-w-1/4">
-        <div className="shimmer min-h-40 flex-[5] rounded-md" />
+        <div className="shimmer min-h-40 flex-5 rounded-md" />
         <div className="shimmer min-h-12 flex-1 rounded-md" />
       </section>
 
       {/* Right: breakdown table */}
       <section className="flex min-h-60 w-full flex-col justify-between gap-3 p-8 md:h-full md:w-1/4 md:max-w-1/4">
         {Array.from({ length: 7 }).map((_, i) => (
-          <div key={i} className="shimmer min-h-8 flex-1 w-full rounded-md" />
+          <div key={i} className="shimmer min-h-8 w-full flex-1 rounded-md" />
         ))}
       </section>
     </div>

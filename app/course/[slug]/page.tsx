@@ -165,7 +165,7 @@ export default async function CourseDetailsPage({
           <Link href={encodedURL} className="w-fit">
             <Badge
               variant="outline"
-              className="bg-uic-red-500/10 border-uic-red-500/15 hover:bg-uic-red-500/20 text-uic-red-500 relative bottom-1 flex-row gap-2 rounded-md px-3 py-2 text-xs font-semibold"
+              className="bg-uic-red-500/10 border-uic-red-500/15 hover:bg-uic-red-500/20 text-uic-red-500 relative  flex-row gap-2 rounded-md px-3 py-2 text-xs font-semibold"
             >
               View in Course Catalog
               <ExternalLink className="relative opacity-70" />
@@ -175,7 +175,7 @@ export default async function CourseDetailsPage({
             <Link href={rmpURL} className="w-fit">
               <Badge
                 variant="outline"
-                className="bg-badge-bg/10 dark:bg-badge-text/10 text-badge-bg dark:text-badge-text border-badge-bg/15 dark:border-badge-text/15 hover:bg-badge-bg/20 dark:hover:bg-badge-text/20 relative bottom-1 flex-row gap-2 rounded-md px-3 py-2 text-xs font-semibold"
+                className="bg-badge-bg/10 dark:bg-badge-text/10 text-badge-bg dark:text-badge-text border-badge-bg/15 dark:border-badge-text/15 hover:bg-badge-bg/20 dark:hover:bg-badge-text/20 relative flex-row gap-2 rounded-md px-3 py-2 text-xs font-semibold"
               >
                 Search RMP
                 <ExternalLink className="relative opacity-70" />

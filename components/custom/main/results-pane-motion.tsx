@@ -49,25 +49,30 @@ miniSearch.addAll(coursesListWithID);
 
 function getMatches(query: string) {
   const cleanedQuery = query.trim().toLowerCase();
-  let matchedResults = miniSearch.search(cleanedQuery, { fuzzy: 0.2 });
+  let matchedResults = miniSearch.search(cleanedQuery, { prefix: true, fuzzy: 0.2 });
 
   let exactMatches = matchedResults.filter((course) => {
-    const cleanedCourseName = (
-      course.subject +
-      " " +
-      course.number
-    ).toLowerCase();
-    const cleanedCourseNameNoSpaces = course.combinedName.toLowerCase();
+    const cleanedCourseName = (course.subject + " " + course.number).toLowerCase();
+    const cleanedCourseNameNoSpace = course.combinedName.toLowerCase();
     const cleanedProfessorName = course.professor.toLowerCase();
     const cleanedTitle = course.title.toLowerCase();
+
+    // If the query is exactly the course name or exactly the professor or exactly the title
     if (
-      cleanedCourseName == cleanedQuery ||
-      cleanedCourseNameNoSpaces == cleanedQuery ||
-      cleanedProfessorName == cleanedQuery ||
-      cleanedTitle == cleanedQuery
+      cleanedCourseName === cleanedQuery ||
+      cleanedCourseNameNoSpace === cleanedQuery ||
+      cleanedProfessorName === cleanedQuery ||
+      cleanedTitle === cleanedQuery
     ) {
       return true;
     }
+    
+    // Check if the query contains the exact course name and part of the professor name
+    if (cleanedQuery.includes(cleanedCourseName) || cleanedQuery.includes(cleanedCourseNameNoSpace)) {
+       return true;
+    }
+    
+    return false;
   });
 
   matchedResults = exactMatches.length > 0 ? exactMatches : matchedResults;
