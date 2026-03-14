@@ -56,9 +56,16 @@ const chartConfig = {
   },
 } satisfies ChartConfig;
 
+interface GradeData {
+  grade: string;
+  count: number;
+  fill: string;
+  label: string;
+}
+
 interface chartsProp {
-  chartData: any;
-  professorID: any;
+  chartData: GradeData[];
+  professorID: string | null;
   listOfProfessors: Professor[];
 }
 
@@ -68,7 +75,7 @@ interface Professor {
 }
 
 function getProfessorNameFromID(
-  professorID: string,
+  professorID: string | null,
   listOfProfessors: Professor[]
 ) {
   let professorNameFromID: Professor = {
@@ -100,7 +107,10 @@ function GradeDistributionChart({
   );
 
   const { passes, total, drops, totalWithDrops } = chartData.reduce(
-    (accumulator: any, item: any) => {
+    (
+      accumulator: { passes: number; total: number; drops: number; totalWithDrops: number },
+      item: GradeData
+    ) => {
       if (["A", "B", "C", "D", "F"].includes(item.grade)) {
         accumulator.total += item.count;
         accumulator.totalWithDrops += item.count;

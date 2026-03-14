@@ -1,7 +1,7 @@
 import { TablePane } from "@/components/custom/breakdown-pane/table-pane";
 import prisma from "@/lib/prisma";
 
-async function getCourseInstanceSums(courseName: any) {
+async function getCourseInstanceSums(courseName: string[]) {
   const courseInstanceAggregation = await prisma.courseInstance.groupBy({
     cacheStrategy: { ttl: 86400, swr: 86400 },
     by: ["courseInstanceID"],
@@ -18,7 +18,16 @@ async function getCourseInstanceSums(courseName: any) {
     },
   });
 
-  return courseInstanceAggregation;
+  return courseInstanceAggregation as unknown as {
+    courseInstanceID: number;
+    _sum: {
+      A: number | null;
+      B: number | null;
+      C: number | null;
+      D: number | null;
+      F: number | null;
+    };
+  }[];
 }
 
 function semesterToNumber(semester: string): number {
@@ -27,7 +36,7 @@ function semesterToNumber(semester: string): number {
   return parseInt(year) * 10 + (termOrder[term] ?? 0);
 }
 
-async function getStatsFromDB(courseName: any) {
+async function getStatsFromDB(courseName: string[]) {
   const statsFromDB = await prisma.courseInstance.findMany({
     cacheStrategy: { ttl: 86400, swr: 86400 },
     where: {
@@ -47,7 +56,7 @@ async function getStatsFromDB(courseName: any) {
       semester: true,
     },
   });
-  return statsFromDB.sort((a, b) => semesterToNumber(b.semester) - semesterToNumber(a.semester));
+  return statsFromDB.sort((a: { semester: string }, b: { semester: string }) => semesterToNumber(b.semester) - semesterToNumber(a.semester));
 }
 
 interface TablePaneServerProps {

@@ -32,10 +32,12 @@ import {
 import { useState } from "react";
 import { useIsMobile } from "@/hooks/use-mobile"
 
+import React from "react";
+
 interface ResultsTypes {
   resultsList: CommandItem[];
-  setValueFunction: any;
-  setInputFunction: any;
+  setValueFunction: React.Dispatch<React.SetStateAction<string>>;
+  setInputFunction: React.Dispatch<React.SetStateAction<string>>;
   focusStatus: boolean;
   value: string;
 }

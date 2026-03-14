@@ -23,10 +23,19 @@ import {
 
 import { postComment } from "@/app/_util/postComment";
 
+interface Comment {
+  id: number;
+  comment: string;
+  courseID: string | null;
+  courseNumber: number | null;
+  date: Date;
+  author: string | null;
+}
+
 interface testProps {
-  comments: any;
+  comments: Comment[];
   parsedSlug: string[];
-  professorID: any;
+  professorID?: string;
 }
 
 import { Filter } from "bad-words";
@@ -36,7 +45,7 @@ const filter = new Filter();
 function CommentsPane({ comments, parsedSlug, professorID }: testProps) {
   const router = useRouter();
   const [value, setValue] = useState("");
-  const handleValueChange: any = (event: any) => {
+  const handleValueChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     if (event.target.value.length <= 280) {
       setValue(event.target.value);
     }
@@ -106,7 +115,7 @@ function CommentsPane({ comments, parsedSlug, professorID }: testProps) {
       <div className="pointer-events-none absolute inset-x-0 bottom-35 h-30 bg-transparent md:bg-linear-to-t from-background/90 to-background/0"></div>
       <div className="flex flex-col w-full py-2 overflow-y-scroll gap-3">
         <div className="flex flex-col w-full md:min-h-screen max-h-10/12 gap-3">
-          {comments.map((eachComment: any) => (
+          {comments.map((eachComment: Comment) => (
             <Card
               key={eachComment.id}
               className="border-foreground/10 rounded-md gap-1 py-3 px-3 w-full"

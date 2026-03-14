@@ -3,10 +3,15 @@
 import { DiscussionDropdown } from "@/components/custom/discussion-pane/discussion-dropdown";
 import { useState } from "react";
 
+interface DiscussionPaneProps {
+  commentPaneServerComponent: React.ReactNode;
+  reviewPaneServerComponent: React.ReactNode;
+}
+
 function DiscussionPane({
   commentPaneServerComponent,
   reviewPaneServerComponent,
-}: any) {
+}: DiscussionPaneProps) {
   const [selectedDiscussionType, setDiscussionType] = useState("Ratings");
   if (selectedDiscussionType === "Advice") {
     return (

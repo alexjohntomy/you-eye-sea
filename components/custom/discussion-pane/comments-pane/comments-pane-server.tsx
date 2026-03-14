@@ -1,7 +1,7 @@
 import { CommentsPane } from "@/components/custom/discussion-pane/comments-pane/comments-pane";
 import prisma from "@/lib/prisma";
 
-async function getCommentsFromDB(courseName: any) {
+async function getCommentsFromDB(courseName: string[]) {
   const commentsFromDB = await prisma.comment.findMany({
     where: {
       courseID: courseName[0],
@@ -13,7 +13,7 @@ async function getCommentsFromDB(courseName: any) {
 
 interface CommentsPaneServerProps {
   slug: string;
-  professorID?: any;
+  professorID?: string;
 }
 
 async function CommentsPaneServer({

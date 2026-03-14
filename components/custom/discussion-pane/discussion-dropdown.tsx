@@ -10,11 +10,16 @@ import {
 
 import { ChevronDown } from "lucide-react";
 
+interface DiscussionDropdownProps {
+  selectedDiscussionType: string;
+  setDiscussionType: (value: string) => void;
+}
+
 function DiscussionDropdown({
   selectedDiscussionType,
   setDiscussionType,
-}: any) {
-  const handleDropdownChange: any = (value: any) => {
+}: DiscussionDropdownProps) {
+  const handleDropdownChange = (value: string) => {
     setDiscussionType(value);
   };
 

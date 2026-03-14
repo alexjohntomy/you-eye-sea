@@ -6,9 +6,9 @@
 // const filePath = "prisma/grade_distribution_data/spring_2022.csv"
 // const fileName = (path.basename(filePath)).replace(/\.[^/.]+$/, "")
 
-// async function parseCSV(): Promise<any> {
+// async function parseCSV(): Promise<unknown[]> {
 //     const file = fs.createReadStream(filePath);
-//     var csvData: any = [];
+//     var csvData: unknown[] = [];
 //     return new Promise((resolve, reject) => {
 //         Papa.parse(file, {
 //             header: true,
@@ -18,10 +18,10 @@
 //                 cleanHeader = cleanHeader.replace(/^"|"$/g, '');
 //                 return cleanHeader.replace(/ /g,"_");
 //             },
-//             complete: (results: any) => {
+//             complete: (results: { data: unknown[] }) => {
 //                 return resolve(results.data);
 //             },
-//             error: (error: any) => {
+//             error: (error: Error) => {
 //                 return reject(error);
 //             },
 //         });
@@ -40,7 +40,7 @@
 // interface CourseInstance {
 //     courseID: string;
 //     courseNumber: number;
-//     professorID: any;
+//     professorID: number | undefined;
 //     A: number;
 //     B: number;
 //     C: number;
@@ -64,7 +64,7 @@
 // let courseInstanceList : CourseInstance[] = [];
 
 // async function main() {
-//     var csvData: any = await parseCSV() 
+//     var csvData = await parseCSV() as Record<string, string>[]; 
 
 //     await prisma.courseInstance.deleteMany({
 //         where: {

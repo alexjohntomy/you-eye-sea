@@ -97,7 +97,7 @@ function ReviewsPane({
 }: ReviewProps) {
   const router = useRouter();
   const [value, setValue] = useState("");
-  const handleValueChange: any = (event: any) => {
+  const handleValueChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     if (event.target.value.length <= 1500) {
       setValue(event.target.value);
     }
@@ -193,14 +193,14 @@ function ReviewsPane({
               Average Rating:{" "}
               <span className="font-black text-lg">{avgRating}</span>
             </h1>
-            {reviews.map((eachReview: any) => (
+            {reviews.map((eachReview: Review) => (
               <Card
                 key={eachReview.id}
                 className="border-foreground/10 rounded-md gap-1 py-3 px-3 w-full"
               >
                 <ReactRating
                   style={{ maxWidth: 100 }}
-                  value={eachReview.stars}
+                  value={eachReview.stars ?? 0}
                   readOnly
                   itemStyles={customStyles}
                 />

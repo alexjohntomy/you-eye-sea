@@ -60,6 +60,10 @@ function getMatches(query: string) {
   return matchedResults;
 }
 
+export interface SearchResult extends courseObject {
+  id: number;
+}
+
 function ResultsPane({ query }: testProps) {
   if (query.length > 0) {
     return (
@@ -69,10 +73,11 @@ function ResultsPane({ query }: testProps) {
           {getMatches(query)
             .slice(0, 5)
             .map((item: any) => {
+              const resultItem = item as SearchResult;
               return (
-                <CommandItem key={item.id} value={item.id}>
+                <CommandItem key={resultItem.id} value={resultItem.id.toString()}>
                   <Link
-                    href={"/course/" + item.subject + "-" + item.number}
+                    href={"/course/" + resultItem.subject + "-" + resultItem.number}
                     className="w-full"
                   >
                     <div className="flex items-center gap-1 align-bottom">

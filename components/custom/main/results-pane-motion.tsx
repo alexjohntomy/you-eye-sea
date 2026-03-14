@@ -18,6 +18,7 @@ import courseList from "@/courseList";
 import { Ref } from "react";
 
 import { ChevronRight, GraduationCap, TrendingUp, SearchX } from "lucide-react";
+import { SearchResult as CustomSearchResult } from "@/components/custom/main/results-pane";
 
 interface testProps {
   query: string;
@@ -134,12 +135,13 @@ function ResultsPaneMotion({ query, focusStatus, onResetHover, ref }: testProps)
           </CommandEmpty>
           {getMatches(query)
             .slice(0, (useIsMobile() ? 4 : 5))
-            .map((item: any) => {
-              const href = "/course/" + item.subject + "-" + item.number;
+            .map((item) => {
+              const resultItem = item as unknown as CustomSearchResult;
+              const href = "/course/" + resultItem.subject + "-" + resultItem.number;
               return (
                 <CommandItem
-                  key={item.id}
-                  value={item.id}
+                  key={resultItem.id}
+                  value={resultItem.id.toString()}
                   onSelect={() => router.push(href)}
                   className="rounded-lg transition-colors duration-200 ease-out dark:data-[selected=true]:bg-white/5"
                 >
@@ -174,11 +176,12 @@ function ResultsPaneMotion({ query, focusStatus, onResetHover, ref }: testProps)
             Popular This Week
           </h3>
           {trendingClasses.slice(0, (useIsMobile() ? 4 : 5)).map((item: any) => {
-            const href = "/course/" + item.subject + "-" + item.number;
+            const resultItem = item as unknown as CustomSearchResult;
+            const href = "/course/" + resultItem.subject + "-" + resultItem.number;
             return (
               <CommandItem
-                key={item.id}
-                value={item.id}
+                key={resultItem.id}
+                value={resultItem.id.toString()}
                 onSelect={() => router.push(href)}
                 className="rounded-lg transition-colors duration-200 ease-out dark:data-[selected=true]:bg-white/5"
               >

@@ -49,7 +49,7 @@ async function getCourseDetails(slug: string) {
 
   const seen = new Set<number>();
   const professors: Professor[] = [];
-  courses.forEach((course) => {
+  courses.forEach((course: any) => {
     if (!seen.has(course.professor.id)) {
       professors.push({
         id: String(course.professor.id),
@@ -136,7 +136,7 @@ export default async function CourseDetailsPage({
 
   const selectedProfessorName =
     courseDetails.professors.find(
-      (p) => p.id === String(filteredParams.professor)
+      (p: { id: string; name: string }) => p.id === String(filteredParams.professor)
     )?.name ?? "";
   const rmpURL =
     "https://www.ratemyprofessors.com/search/professors/1111?q=" +
@@ -186,7 +186,7 @@ export default async function CourseDetailsPage({
         <div className="pt-2">
           <GradeDistributionChart
             chartData={formattedGradeData}
-            professorID={filteredParams.professor}
+            professorID={Array.isArray(filteredParams.professor) ? filteredParams.professor[0] : (filteredParams.professor as string | undefined) ?? null}
             listOfProfessors={courseDetails.professors}
           ></GradeDistributionChart>
         </div>
@@ -213,13 +213,13 @@ export default async function CourseDetailsPage({
             commentPaneServerComponent={
               <CommentsPaneServer
                 slug={slug}
-                professorID={filteredParams.professor}
+                professorID={Array.isArray(filteredParams.professor) ? filteredParams.professor[0] : (filteredParams.professor as string | undefined)}
               ></CommentsPaneServer>
             }
             reviewPaneServerComponent={
               <ReviewsPaneServer
                 slug={slug}
-                professorID={filteredParams.professor}
+                professorID={Array.isArray(filteredParams.professor) ? filteredParams.professor[0] : (filteredParams.professor as string | undefined) ?? null}
                 listOfProfessors={courseDetails.professors}
               ></ReviewsPaneServer>
             }

@@ -1,7 +1,7 @@
 import { ReviewsPane } from "@/components/custom/discussion-pane/reviews-pane/reviews-pane";
 import prisma from "@/lib/prisma";
 
-async function getReviewsFromDB(courseName: any, professorID: any) {
+async function getReviewsFromDB(courseName: string[], professorID: string | null) {
   if (
     !professorID ||
     professorID == null ||
@@ -27,10 +27,15 @@ async function getReviewsFromDB(courseName: any, professorID: any) {
   }
 }
 
+interface Professor {
+  id: string;
+  name: string;
+}
+
 interface ReviewsPaneServerProps {
   slug: string;
-  professorID: any;
-  listOfProfessors: any;
+  professorID: string | null;
+  listOfProfessors: Professor[];
 }
 
 async function ReviewsPaneServer({

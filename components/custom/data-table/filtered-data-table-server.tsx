@@ -47,7 +47,7 @@ async function getGradeTotalsForSubject({subject, sortType, level} : FilterTypes
       ...((level == "all") ? {} : {courseNumber: {gte: parseInt(level!), lte: parseInt(level!)+99}}), 
     },
   });
-  return courseInstanceAggregation;
+  return courseInstanceAggregation as unknown as courseSumsType[];
 }
 
 async function createTableRowsFromData({subject, sortType, level} : FilterTypes) : Promise<rowDetails[]> {

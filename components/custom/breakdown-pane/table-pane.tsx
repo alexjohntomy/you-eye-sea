@@ -15,19 +15,37 @@ import { formatGradeData } from "@/app/_util/formatGradeData";
 import { calculateGPA } from "@/app/_util/gpaCalculator";
 
 interface tablePaneProps {
-  statsFromDB: any;
-  courseInstanceAggregation: any;
+  statsFromDB: {
+    courseInstanceID: number;
+    semester: string;
+    A: number;
+    total_students: number;
+    professor: {
+      id: number;
+      name: string;
+    };
+  }[];
+  courseInstanceAggregation: {
+    courseInstanceID: number;
+    _sum: {
+      A: number | null;
+      B: number | null;
+      C: number | null;
+      D: number | null;
+      F: number | null;
+    };
+  }[];
 }
 
 function TablePane({ statsFromDB, courseInstanceAggregation }: tablePaneProps) {
   // Pre-compute all GPAs, then find the highest and lowest values
   const rowGPAs: Map<string, number> = new Map();
-  statsFromDB.forEach((row: any) => {
+  statsFromDB.forEach((row) => {
     const data = courseInstanceAggregation.find(
-      (item: any) => item.courseInstanceID === row.courseInstanceID
+      (item) => item.courseInstanceID === row.courseInstanceID
     );
     const gpaStr = calculateGPA(formatGradeData(data));
-    if (gpaStr !== "N/A") rowGPAs.set(row.courseInstanceID, parseFloat(gpaStr));
+    if (gpaStr !== "N/A") rowGPAs.set(row.courseInstanceID.toString(), parseFloat(gpaStr));
   });
   const allGPAs = [...rowGPAs.values()];
   const highestGPA = allGPAs.length > 0 ? Math.max(...allGPAs) : null;
@@ -47,9 +65,9 @@ function TablePane({ statsFromDB, courseInstanceAggregation }: tablePaneProps) {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {statsFromDB.map((row: any) => {
+          {statsFromDB.map((row) => {
             const rowCourseInstanceData = courseInstanceAggregation.find(
-              (item: any) => item.courseInstanceID === row.courseInstanceID
+              (item) => item.courseInstanceID === row.courseInstanceID
             );
             const formattedData = formatGradeData(rowCourseInstanceData);
             const cleanedSemesterText = titleCase(

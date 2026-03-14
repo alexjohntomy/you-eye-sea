@@ -40,7 +40,7 @@ function ProfessorDropdown({ listOfProfessors }: dropdownTypes) {
     [searchParams]
   );
   const [professorID, setProfessorID] = useState(searchParams.get("professor") ?? "all-professors");
-  const handleDropdownChange: any = (value: any) => {
+  const handleDropdownChange = (value: string) => {
     console.log(value);
     setProfessorID(value);
     router.push(pathname + "?" + createQueryString("professor", value));
@@ -77,7 +77,7 @@ function ProfessorDropdown({ listOfProfessors }: dropdownTypes) {
           <DropdownMenuRadioItem value={"all-professors"}>
             All Professors
           </DropdownMenuRadioItem>
-          {listOfProfessors.map((item: any) => {
+          {listOfProfessors.map((item: Professor) => {
             return (
               <DropdownMenuRadioItem value={item.id} key={item.id}>
                 {item.name}
