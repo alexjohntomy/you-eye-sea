@@ -13,12 +13,12 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div className="flex flex-col px-1 py-2 w-full justify-center min-h-full">
+    <div className="flex flex-col px-1 py-2 w-full md:justify-center min-h-[calc(100svh-4rem)] md:min-h-full">
       {/* Hero Text */}
       <div className="flex flex-col items-center mt-10">
         <Badge
           variant="outline"
-          className="relative bottom-2 px-2 py-1 bg-background/70 border-secondary/20 text-uic-navy-700/50"
+          className="relative bottom-2 px-2 py-1 bg-background/70 border-uic-navy-700/20 dark:border-secondary/20 text-uic-navy-700/70 dark:text-uic-navy-700/50"
         >
           Fall 2026 Time Tickets Out Now
         </Badge>

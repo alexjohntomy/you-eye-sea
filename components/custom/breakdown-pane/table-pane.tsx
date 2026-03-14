@@ -20,11 +20,24 @@ interface tablePaneProps {
 }
 
 function TablePane({ statsFromDB, courseInstanceAggregation }: tablePaneProps) {
-  let highestGPA = 0;
-  let rowClassName = "";
+  // Pre-compute all GPAs, then find the highest and lowest values
+  const rowGPAs: Map<string, number> = new Map();
+  statsFromDB.forEach((row: any) => {
+    const data = courseInstanceAggregation.find(
+      (item: any) => item.courseInstanceID === row.courseInstanceID
+    );
+    const gpaStr = calculateGPA(formatGradeData(data));
+    if (gpaStr !== "N/A") rowGPAs.set(row.courseInstanceID, parseFloat(gpaStr));
+  });
+  const allGPAs = [...rowGPAs.values()];
+  const highestGPA = allGPAs.length > 0 ? Math.max(...allGPAs) : null;
+  const lowestGPA = allGPAs.length > 0 ? Math.min(...allGPAs) : null;
+
   return (
-    <div className="gap-3 p-8 h-full overflow-auto">
-      <h1 className="text-xl font-bold text-foreground">Breakdown</h1>
+    <div className="h-full gap-3 overflow-auto py-8 px-6">
+      <h1 className="text-foreground mt-1.5 pb-2 text-center text-xl font-bold">
+        Breakdown
+      </h1>
       <Table className="text-foreground">
         <TableHeader>
           <TableRow>
@@ -43,15 +56,14 @@ function TablePane({ statsFromDB, courseInstanceAggregation }: tablePaneProps) {
               row.semester.replace("_20", " ").replace("-20", " ")
             );
             const professorLastName = row.professor.name.split(",")[0];
-            const rowGPA = parseFloat(calculateGPA(formattedData));
-            highestGPA = highestGPA == 0 ? rowGPA : highestGPA;
-            if (rowGPA > highestGPA) {
-              rowClassName =
-                "text-left font-bold text-s text-foreground bg-green-200/40";
-              highestGPA = rowGPA;
-            } else {
-              rowClassName = "text-foreground";
-            }
+            const gpaStr = calculateGPA(formattedData);
+            const rowGPA = gpaStr === "N/A" ? NaN : parseFloat(gpaStr);
+            const rowClassName =
+              !isNaN(rowGPA) && rowGPA === highestGPA
+                ? "text-foreground font-bold bg-green-200/40"
+                : !isNaN(rowGPA) && rowGPA === lowestGPA
+                  ? "text-foreground font-bold bg-red-200/40"
+                  : "text-foreground";
             return (
               <TableRow key={row.courseInstanceID} className={rowClassName}>
                 <TableCell className="text-left text-xs">
@@ -60,8 +72,8 @@ function TablePane({ statsFromDB, courseInstanceAggregation }: tablePaneProps) {
                 <TableCell className="text-left text-xs">
                   {cleanedSemesterText}
                 </TableCell>
-                <TableCell className="text-left font-bold text-s">
-                  {rowGPA}
+                <TableCell className="text-s text-left font-bold">
+                  {isNaN(rowGPA) ? "N/A" : rowGPA}
                 </TableCell>
               </TableRow>
             );
@@ -69,13 +81,13 @@ function TablePane({ statsFromDB, courseInstanceAggregation }: tablePaneProps) {
         </TableBody>
       </Table>
       <br></br>
-      <div className="text-[10px] flex flex-col gap-6 text-foreground">
+      <div className="text-foreground flex flex-col gap-6 text-[10px]">
         <p className="relative top-3 text-center opacity-50">
           The cohort GPA is an approximated weighted average as follows. Total
           Counts does not include nonstandard grades.
         </p>
-        <div className="flex flex-col text-[10px] min-w-full font-serif flex-fit gap-1 flex-nowrap justify-center text-center text-xs opacity-80">
-          <h4 className="underline underline-offset-4 text-nowrap">
+        <div className="flex-fit flex min-w-full flex-col flex-nowrap justify-center gap-1 text-center font-serif text-xs text-[10px] opacity-80">
+          <h4 className="text-nowrap underline underline-offset-4">
             {" "}
             4(NumAs) + 3(NumBs) + 2(NumCs) + 1(NumDs)
           </h4>

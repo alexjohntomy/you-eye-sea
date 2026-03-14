@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import { useSearchParams } from 'next/navigation'
+import { useSearchParams } from "next/navigation";
 
-import { useState } from "react"
+import { useState } from "react";
 
 import {
   ColumnDef,
@@ -10,8 +10,8 @@ import {
   getCoreRowModel,
   getPaginationRowModel,
   useReactTable,
-} from "@tanstack/react-table"
- 
+} from "@tanstack/react-table";
+
 import {
   Table,
   TableBody,
@@ -19,122 +19,135 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table"
+} from "@/components/ui/table";
 
-import { ButtonGroup } from "@/components/ui/button-group"
-import { Button } from '@/components/ui/button'
- 
+import { ButtonGroup } from "@/components/ui/button-group";
+import { Button } from "@/components/ui/button";
+
 interface DataTableProps<TData, TValue> {
-  columns: ColumnDef<TData, TValue>[]
-  data: TData[]
+  columns: ColumnDef<TData, TValue>[];
+  data: TData[];
 }
 
 function FilteredDataTable<TData, TValue>({
-    columns,
-    data,
+  columns,
+  data,
 }: DataTableProps<TData, TValue>) {
-
-    const [pagination, setPagination] = useState({
+  const [pagination, setPagination] = useState({
     pageIndex: 0, //initial page index
     pageSize: 10, //default page size
-    });
+  });
 
-    const table = useReactTable({
+  const table = useReactTable({
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(), //load client-side pagination code
     initialState: {
-    pagination: {
-      pageIndex: 0, //custom initial page index
-      pageSize: 9, //custom default page size
+      pagination: {
+        pageIndex: 0, //custom initial page index
+        pageSize: 9, //custom default page size
+      },
     },
-  },
-  })
-    return (
-        <div className='flex flex-col w-full items-center gap-3'>
-            <div className='w-full flex justify-center h-full'>
-                <div className="overflow-hidden rounded-sm border w-3/4">
-                    <Table className='bg-background/90'>
-                        <TableHeader>
-                        {table.getHeaderGroups().map((headerGroup) => (
-                            <TableRow key={headerGroup.id}>
-                            {headerGroup.headers.map((header) => {
-                                return (
-                                <TableHead key={header.id} className='font-black bg-uic-navy-500 text-background'>
-                                    {header.isPlaceholder
-                                    ? null
-                                    : flexRender(
-                                        header.column.columnDef.header,
-                                        header.getContext()
-                                        )}
-                                </TableHead>
-                                )
-                            })}
-                            </TableRow>
-                        ))}
-                        </TableHeader>
-                        <TableBody>
-                        {table.getRowModel().rows?.length ? (
-                            table.getRowModel().rows.map((row) => (
-                            <TableRow
-                                className=' border-foreground/5'
-                                key={row.id}
-                                data-state={row.getIsSelected() && "selected"}
-                            >
-                                {/* Basically add whatever content i want here like a div and then that will be card */}
-                                {row.getVisibleCells().map((cell) => (
-                                    <TableCell key={cell.id}>
-                                        {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                                    </TableCell>
-                                    ))}
-                            </TableRow>
-                            ))
-                        ) : (
-                            <TableRow>
-                            <TableCell colSpan={columns.length} className="h-24 text-center">
-                                No results.
-                            </TableCell>
-                            </TableRow>
+  });
+  return (
+    <div className="flex w-full flex-col items-center gap-3">
+      <div className="flex h-full w-full justify-center">
+        <div className="border-foreground/10 w-3/4 overflow-hidden rounded-md border">
+          <Table className="bg-background">
+            <TableHeader>
+              {table.getHeaderGroups().map((headerGroup) => (
+                <TableRow key={headerGroup.id}>
+                  {headerGroup.headers.map((header) => {
+                    return (
+                      <TableHead
+                        key={header.id}
+                        className="bg-uic-navy-500 dark:bg-uic-navy-400/40 text-background dark:text-foreground/80 font-black"
+                      >
+                        {header.isPlaceholder
+                          ? null
+                          : flexRender(
+                              header.column.columnDef.header,
+                              header.getContext()
+                            )}
+                      </TableHead>
+                    );
+                  })}
+                </TableRow>
+              ))}
+            </TableHeader>
+            <TableBody>
+              {table.getRowModel().rows?.length ? (
+                table.getRowModel().rows.map((row) => (
+                  <TableRow
+                    className="border-foreground/8 odd:bg-background even:bg-muted/30 hover:bg-muted/50 transition-colors"
+                    key={row.id}
+                    data-state={row.getIsSelected() && "selected"}
+                  >
+                    {row.getVisibleCells().map((cell) => (
+                      <TableCell key={cell.id} className="py-2">
+                        {flexRender(
+                          cell.column.columnDef.cell,
+                          cell.getContext()
                         )}
-                        </TableBody>
-                    </Table>
-                </div>
-            </div>
-            <h4 className='text-[13px] tracking-wide text-foreground/80 font-light italic'>Each row shows a professor's long-term average for this course, aggregated across all semesters they've taught it.</h4>
-            <ButtonGroup className='flex md:flex-row flex-row'>
-                <Button
-                className='rounded-sm border border-uic-navy-600/30 text-sm bg-background text-foreground hover:bg-uic-navy-100'
-                onClick={() => table.firstPage()}
-                disabled={!table.getCanPreviousPage()}
-                >
-                {'<<'}
-                </Button>
-                <Button
-                className='border border-uic-navy-600/30 text-sm bg-background text-foreground hover:bg-uic-navy-100'
-                onClick={() => table.previousPage()}
-                disabled={!table.getCanPreviousPage()}
-                >
-                {'<'}
-                </Button>
-                <h2 className='flex items-center border border-uic-navy-600/20 tracking-wide text-sm font-medium italic text-foreground bg-background/30 px-5 h-full'>Page {table.getState().pagination.pageIndex + 1} of {table.getPageCount()}</h2>
-                <Button
-                className='border border-uic-navy-600/30 text-sm bg-background text-foreground hover:bg-uic-navy-100'
-                onClick={() => table.nextPage()}
-                disabled={!table.getCanNextPage()}
-                >
-                {'>'}
-                </Button>
-                <Button
-                className='rounded-sm border border-uic-navy-600/30 text-sm bg-background text-foreground hover:bg-uic-navy-100'
-                onClick={() => table.lastPage()}
-                disabled={!table.getCanNextPage()}
-                >
-                {'>>'}
-                </Button>
-            </ButtonGroup>
-    </div>   
-    )
+                      </TableCell>
+                    ))}
+                  </TableRow>
+                ))
+              ) : (
+                <TableRow>
+                  <TableCell
+                    colSpan={columns.length}
+                    className="h-24 text-center"
+                  >
+                    No results.
+                  </TableCell>
+                </TableRow>
+              )}
+            </TableBody>
+          </Table>
+        </div>
+      </div>
+      <ButtonGroup className="flex flex-row md:flex-row">
+        <Button
+          className="border-foreground/10 bg-background text-foreground hover:bg-uic-red-50 disabled:text-foreground/25 disabled:bg-background rounded-sm border text-sm disabled:opacity-100"
+          onClick={() => table.firstPage()}
+          disabled={!table.getCanPreviousPage()}
+        >
+          {"<<"}
+        </Button>
+        <Button
+          className="border-foreground/10 bg-background text-foreground hover:bg-uic-red-50 disabled:text-foreground/25 disabled:bg-background border text-sm disabled:opacity-100"
+          onClick={() => table.previousPage()}
+          disabled={!table.getCanPreviousPage()}
+        >
+          {"<"}
+        </Button>
+        <h2 className="border-foreground/10 text-foreground bg-background flex h-full items-center border px-5 text-sm font-medium tracking-wide italic">
+          Page {table.getState().pagination.pageIndex + 1} of{" "}
+          {table.getPageCount()}
+        </h2>
+        <Button
+          className="border-foreground/10 bg-background text-foreground hover:bg-uic-red-50 disabled:text-foreground/25 disabled:bg-background border text-sm disabled:opacity-100"
+          onClick={() => table.nextPage()}
+          disabled={!table.getCanNextPage()}
+        >
+          {">"}
+        </Button>
+        <Button
+          className="border-foreground/10 bg-background text-foreground hover:bg-uic-red-50 disabled:text-foreground/25 disabled:bg-background rounded-sm border text-sm disabled:opacity-100"
+          onClick={() => table.lastPage()}
+          disabled={!table.getCanNextPage()}
+        >
+          {">>"}
+        </Button>
+      </ButtonGroup>
+      <h4 className="text-uic-navy-800/90 dark:text-uic-navy-300/50 text-[13px] font-light tracking-wide italic">
+        Each row shows a professor's long-term average for this course,
+        aggregated across all semesters they've taught it.
+      </h4>
+    </div>
+  );
 }
 
-export { FilteredDataTable }
+export { FilteredDataTable };

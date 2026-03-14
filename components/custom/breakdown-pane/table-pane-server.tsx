@@ -22,7 +22,7 @@ async function getCourseInstanceSums(courseName: any) {
 }
 
 function semesterToNumber(semester: string): number {
-  const [term, year] = semester.split("_");
+  const [term, year] = semester.split(/[_-]/);
   const termOrder: Record<string, number> = { spring: 1, summer: 2, fall: 3 };
   return parseInt(year) * 10 + (termOrder[term] ?? 0);
 }
@@ -47,7 +47,7 @@ async function getStatsFromDB(courseName: any) {
       semester: true,
     },
   });
-  return statsFromDB.sort((a, b) => semesterToNumber(a.semester) - semesterToNumber(b.semester));
+  return statsFromDB.sort((a, b) => semesterToNumber(b.semester) - semesterToNumber(a.semester));
 }
 
 interface TablePaneServerProps {
@@ -56,9 +56,10 @@ interface TablePaneServerProps {
 
 async function TablePaneServer({ slug }: TablePaneServerProps) {
   const parsedCourseName = slug.split("-") ?? ["test", "test"];
-  const statsFromDB = await getStatsFromDB(parsedCourseName);
-  const courseInstanceAggregation =
-    await getCourseInstanceSums(parsedCourseName);
+  const [statsFromDB, courseInstanceAggregation] = await Promise.all([
+    getStatsFromDB(parsedCourseName),
+    getCourseInstanceSums(parsedCourseName),
+  ]);
   return (
     <TablePane
       statsFromDB={statsFromDB}

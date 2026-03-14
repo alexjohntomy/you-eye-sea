@@ -1,7 +1,6 @@
 "use client";
 
 import { calculateGPA } from "@/app/_util/gpaCalculator";
-import { useEffect } from "react";
 import {
   Bar,
   BarChart,
@@ -26,8 +25,6 @@ import {
 } from "@/components/ui/chart";
 
 export const description = "A bar chart with a label";
-
-let animationNeeded = true;
 
 const chartConfig = {
   count: {
@@ -101,10 +98,6 @@ function GradeDistributionChart({
     professorID,
     listOfProfessors
   );
-  useEffect(() => {
-    console.log("Page loaded...");
-    animationNeeded = false;
-  }, []);
 
   const { passes, total, drops, totalWithDrops } = chartData.reduce(
     (accumulator: any, item: any) => {
@@ -129,7 +122,7 @@ function GradeDistributionChart({
     totalWithDrops === 0 ? 0 : ((drops / totalWithDrops) * 100).toFixed(1);
 
   return (
-    <Card className="flex flex-col grow justify-between h-full flex-1 min-h-60 rounded-lg shadow-[inset_0px_-6px_10px_2px_var(--secondary)]/5 border-foreground/10 gap-0">
+    <Card className="border-uic-navy-300/40 dark:border-foreground/10 shadow-uic-navy-300 flex h-full min-h-60 flex-1 grow flex-col justify-between gap-0 rounded-lg shadow-[inset_0px_-6px_10px_2px_var(--secondary)]/5">
       <div>
         <CardHeader className="flex flex-row justify-between">
           <div>
@@ -137,10 +130,10 @@ function GradeDistributionChart({
               Grade Distribution
             </CardTitle>
             <CardDescription className="text-sm">
-              {selectedProfessor} (Spring '22 - '25)
+              {selectedProfessor} (Spring &apos;22 - &apos;25)
             </CardDescription>
           </div>
-          <Card className="flex flex-col px-2 py-1 md:py-2 rounded-md gap-1 shadow-2xs shadow-foreground text-sm">
+          <Card className="shadow-foreground flex flex-col gap-1 rounded-md px-2 py-1 text-sm shadow-xs md:py-2">
             <h1>
               <span className="font-semibold">Average GPA: </span>{" "}
               {calculatedGPA}
@@ -155,10 +148,10 @@ function GradeDistributionChart({
         </CardHeader>
       </div>
       <CardContent className="flex">
-        <div className="w-full h-full min-w-0 min-h-0 overflow-scroll">
+        <div className="h-full min-h-0 w-full min-w-0 overflow-scroll">
           <ChartContainer
             config={chartConfig}
-            className="min-w-full max-h-full h-full"
+            className="h-full max-h-full min-w-full"
           >
             <BarChart
               accessibilityLayer
@@ -183,7 +176,7 @@ function GradeDistributionChart({
               <YAxis
                 dataKey="count"
                 type="number"
-                tickLine = {{stroke: '#40000000'}}
+                tickLine={{ stroke: "#40000000" }}
                 domain={[0, "dataMax"]}
                 hide
               />
@@ -194,8 +187,8 @@ function GradeDistributionChart({
               />
               <Bar
                 dataKey="count"
-                className="stroke-1 stroke-foreground/10"
-                isAnimationActive={animationNeeded}
+                className="stroke-foreground/10 stroke-1"
+                isAnimationActive={false}
                 radius={[4, 4, 0, 0]}
               >
                 <LabelList

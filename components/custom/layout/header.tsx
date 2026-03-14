@@ -1,6 +1,5 @@
 "use client";
 
-import { Badge } from "@/components/ui/badge";
 import GithubIcon from "@/public/github-mark.png";
 import Logo from "@/public/logo.png";
 import Image from "next/image";
@@ -20,16 +19,15 @@ import {
 function Header() {
   const isMobile = useIsMobile();
   return (
-    <header className="flex px-5 flex-col gap-3 py-5 md:flex-row border-b border-foreground/15 justify-between items-center bg-background shadow-[inset_0px_-6px_10px_2px_var(--inset-color)] h-fit md:h-15">
+    <header className="flex px-5 flex-col gap-3 py-5 md:flex-row border-b border-uic-navy-900/20 dark:border-foreground/15 justify-between items-center bg-uic-navy-900 dark:bg-background h-fit md:h-15">
       <Link href="/">
         <div className="flex flex-row">
           <Image
             src={Logo}
             alt="A logo featuring a finger pointing toward the viewer, an eye, and a wave"
             height={25}
-            className="filter contrast-115"
           />
-          <h1 className="font-black text-l opacity-100 relative top-.5 text-#001e62">
+          <h1 className="text-xl opacity-100 relative top-.5 text-white dark:text-foreground" style={{ fontFamily: "var(--font-sora)", fontWeight: 600 }}>
             YouEyeSea
           </h1>
         </div>
@@ -44,7 +42,7 @@ function Header() {
               >
                 <Link
                   href="/"
-                  className="opacity-80 bg-foreground/10 hover:opacity-80 hover:bg-accent/30 hover:text-uic-navy-900 font-semibold"
+                  className="opacity-80 bg-white/10 hover:opacity-100 hover:bg-white/20 hover:text-white text-white font-semibold dark:bg-foreground/10 dark:text-foreground dark:hover:bg-foreground/8 dark:data-[active]:bg-foreground/10"
                 >
                   Home
                 </Link>
@@ -57,17 +55,9 @@ function Header() {
               >
                 <Link
                   href="/explore"
-                  className="opacity-80 bg-foreground/10 hover:opacity-80 hover:bg-accent/30 hover:text-uic-navy-900 font-semibold relative"
+                  className="opacity-80 bg-white/10 hover:opacity-100 hover:bg-white/20 hover:text-white text-white font-semibold dark:bg-foreground/10 dark:text-foreground dark:hover:bg-foreground/8 dark:data-[active]:bg-foreground/10 relative"
                 >
-                    <div className="flex flex-row justify-evenly gap-2 w-fit items-center relative left-[3.5]">
-                    Explore
-                    <Badge
-                      variant="default"
-                      className="relative bg-secondary text-xs px-3 py-[3] rounded-sm"
-                    >
-                      New!
-                    </Badge>
-                    </div>
+                  Explore
                 </Link>
               </NavigationMenuLink>
             </NavigationMenuItem>

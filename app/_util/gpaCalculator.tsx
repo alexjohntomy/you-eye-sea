@@ -31,5 +31,6 @@ export const calculateGPA = (chartData: any): string => {
       }
     }
   });
+  if (totalCount === 0) return "N/A";
   return (gpa / totalCount).toFixed(2);
 };

@@ -1,6 +1,6 @@
 function Footer() {
   return (
-    <footer className="flex flex-none p-5 border-t border-foreground/15 justify-center items-center h-15 text-xs italic text-foreground/70 bg-background shadow-[inset_0px_6px_10px_2px_var(--inset-color)]">
+    <footer className="flex flex-none p-5 border-t border-foreground/15 justify-center items-center min-h-15 text-xs italic text-foreground/70 bg-[oklch(0.973_0_0)] dark:bg-background">
       YouEyeSea.com • All data sourced from UIC
     </footer>
   );

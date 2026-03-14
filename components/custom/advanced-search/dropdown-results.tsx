@@ -64,7 +64,7 @@ function DropdownResults({
         exit={{ opacity: 0, scale: 1, y: -5 }}
         transition={{ ease: "easeInOut" }}
       >
-        <CommandList className="bg-background rounded-t-none rounded-b-sm border-t-none border-b border-l border-r border-uic-red-300/40">
+        <CommandList className="bg-background rounded-t-none rounded-b-sm border-t-none border-b border-l border-r border-foreground/10">
           <CommandEmpty></CommandEmpty>
           <CommandGroup className="flex flex-col overflow-scroll">
             {resultsList.map((result, index) => 
@@ -89,7 +89,7 @@ function DropdownResults({
   <Drawer open={focusStatus} onOpenChange={setOpen}>
         <DrawerContent>
         <DrawerTitle className="py-2 text-center">Select from the list</DrawerTitle>
-        <CommandList className="bg-background rounded-t-none rounded-b-sm border-t-none border-b border-l border-r border-uic-red-300/40">
+        <CommandList className="bg-background rounded-t-none rounded-b-sm border-t-none border-b border-l border-r border-foreground/10">
           <CommandEmpty></CommandEmpty>
           <CommandGroup className="flex flex-col overflow-scroll">
             {resultsList.map((result, index) => 

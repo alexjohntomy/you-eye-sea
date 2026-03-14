@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 import { AnimatePresence, motion } from "motion/react";
 
@@ -39,7 +40,7 @@ function PlaceholderText({ query }: testProps) {
           exit={{ opacity: 0, scale: 1, y: -5 }}
           transition={{ ease: "easeInOut" }}
         >
-          <h4 className="text-sm text-wrap font-medium text-foreground/70">
+          <h4 className="text-foreground/70 text-sm font-medium text-wrap">
             {placeholderArray.at(count % 3)}
           </h4>
         </motion.div>
@@ -52,16 +53,11 @@ function PlaceholderText({ query }: testProps) {
 
 function SearchBar() {
   const [value, setValue] = useState("");
-  const [focus, setFocus] = useState(true);
-  const handleOnFocus = () => {
-    setFocus(true);
-  };
-  const handleOnBlur = () => {
-    setFocus(true);
-  };
+  const [commandValue, setCommandValue] = useState("-");
+  const isMobile = useIsMobile();
 
   return (
-    <div className="mx-auto min-w-3/4 md:min-w-1/2 md:max-1/2 max-w-1/4">
+    <div className="md:max-1/2 mx-auto max-w-1/4 min-w-3/4 md:min-w-1/2">
       <motion.div
         layout
         style={{
@@ -79,25 +75,29 @@ function SearchBar() {
           }}
         >
           <Command
-            defaultValue={"-"}
-            onFocus={handleOnFocus}
-            onBlur={handleOnBlur}
+            value={commandValue}
+            onValueChange={setCommandValue}
             shouldFilter={false}
-            className="py-[0.5] rounded-none bg-background text-foreground opacity-90"
+            className="dark:bg-background text-foreground rounded-none bg-white py-[0.5] opacity-95"
           >
             <motion.div layout="position">
-              <div className="flex items-center p-2 justify-between-safe gap-4 flex-wrap relative">
-                <div className="pointer-events-none absolute left-12 right-0">
+              <div className="justify-between-safe relative flex flex-wrap items-center gap-4 p-2">
+                <div className="pointer-events-none absolute right-0 left-12">
                   <PlaceholderText query={value} />
                 </div>
                 <CommandInput
                   placeholder=""
+                  autoFocus={!isMobile}
                   onValueChange={setValue}
                   wrapperClassName="flex flex-1 gap-3 border-b-0 items-center"
                   className="w-full text-lg"
                 ></CommandInput>
               </div>
-              <ResultsPaneMotionComponent query={value} focusStatus={focus} />
+              <ResultsPaneMotionComponent
+                query={value}
+                focusStatus={true}
+                onResetHover={() => setCommandValue("-")}
+              />
             </motion.div>
           </Command>
         </motion.div>

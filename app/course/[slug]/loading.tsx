@@ -1,34 +1,34 @@
 export default function Loading() {
   return (
-    <div className="animate-pulse duration-1000 flex flex-col md:flex-row bg-background w-full h-full md:h-[calc(100svh-120px)] overflow-scroll">
-      {/* Stats Skeleton */}
-      <div className="flex flex-col gap-10 h-fit w-full md:w-1/2 p-8 md:h-full">
-        <div className="flex items-baseline mt-4 p-8 bg-gray-400/5 rounded-md">
-          <div className="w-full rounded-md h-80 bg-gray-400/30"></div>
-          <div className="w-full h-60 ms-6 rounded-md bg-gray-400/30"></div>
-          <div className="w-full rounded-md h-70 ms-6 bg-gray-400/30"></div>
-          <div className="w-full h-50 ms-6 rounded-md bg-gray-400/30"></div>
-          <div className="w-full rounded-md h-30 ms-6 bg-gray-400/30"></div>
+    <div className="bg-background flex h-full w-full flex-col overflow-scroll md:h-[calc(100svh-120px)] md:flex-row">
+      {/* Left: chart + stats */}
+      <div className="flex h-full w-full flex-col gap-4 p-6 md:w-1/2">
+        <div className="flex flex-row items-start justify-between">
+          <div className="flex flex-col gap-2">
+            <div className="shimmer h-10 w-44 rounded-md" />
+            <div className="shimmer h-5 w-56 rounded-md" />
+          </div>
+          <div className="shimmer h-9 w-28 rounded-md" />
         </div>
-        <div className="bg-gray-400/30 h-3/4 w-full rounded-md"></div>
-        <div className="bg-gray-400/30 h-1/4 w-full rounded-md"></div>
+        <div className="flex flex-row gap-2">
+          <div className="shimmer h-8 w-36 rounded-full" />
+          <div className="shimmer h-8 w-24 rounded-full" />
+        </div>
+        <div className="shimmer min-h-52 flex-1 rounded-lg" />
+        <div className="shimmer h-8 w-full rounded-md" />
       </div>
 
-      {/* Comments Skeleton */}
-      <section className="flex flex-col gap-10 h-fit md:h-full w-full min-h-0 md:max-w-1/4 md:w-1/4 relative border-r border-l border-foreground/10 p-8">
-        <div className="bg-gray-400/30 h-10/12 rounded-md"></div>
-        <div className="bg-gray-400/30 h-2/12 rounded-md"></div>
+      {/* Middle: discussion */}
+      <section className="border-foreground/10 relative flex min-h-60 w-full flex-col gap-4 border-r border-l p-8 md:h-full md:w-1/4 md:max-w-1/4">
+        <div className="shimmer min-h-40 flex-[5] rounded-md" />
+        <div className="shimmer min-h-12 flex-1 rounded-md" />
       </section>
 
-      {/* Breakdown Skeleton */}
-      <section className="flex flex-col justify-between h-fit md:h-full gap-5 min-h-0 w-full md:max-w-1/4 md:w-1/4 p-8">
-        <div className="bg-gray-400/30 h-full w-full rounded-md"></div>
-        <div className="bg-gray-400/30 h-full w-full rounded-md"></div>
-        <div className="bg-gray-400/30 h-full w-full rounded-md"></div>
-        <div className="bg-gray-400/30 h-full w-full rounded-md"></div>
-        <div className="bg-gray-400/30 h-full w-full rounded-md"></div>
-        <div className="bg-gray-400/30 h-full w-full rounded-md"></div>
-        <div className="bg-gray-400/30 h-full w-full rounded-md"></div>
+      {/* Right: breakdown table */}
+      <section className="flex min-h-60 w-full flex-col justify-between gap-3 p-8 md:h-full md:w-1/4 md:max-w-1/4">
+        {Array.from({ length: 7 }).map((_, i) => (
+          <div key={i} className="shimmer min-h-8 flex-1 w-full rounded-md" />
+        ))}
       </section>
     </div>
   );

@@ -9,12 +9,11 @@ import { Badge } from "@/components/ui/badge";
 import prisma from "@/lib/prisma";
 import { ExternalLink } from "lucide-react";
 import Link from "next/link";
-import type { Metadata } from 'next'
+import type { Metadata } from "next";
+import { Suspense } from "react";
 
 async function getCourseDetails(slug: string) {
   const parsedSlug = slug.split("-");
-  console.log(parsedSlug[0]);
-  console.log(parsedSlug[1]);
   const courses = await prisma.courseInstance.findMany({
     cacheStrategy: { ttl: 86400, swr: 86400 },
     where: {
@@ -107,12 +106,11 @@ export async function generateMetadata({
 }: {
   params: Promise<{ slug: string }>;
 }) {
-  const { slug } = await params
+  const { slug } = await params;
   return {
     title: slug.replace("-", " ").toUpperCase() + " | UIC Grade Distribution",
-     description:
-    `Grade distribution dashboard for ${slug.replace("-", " ").toUpperCase()} at University of Illinois at Chicago (UIC).`,
-  }
+    description: `Grade distribution dashboard for ${slug.replace("-", " ").toUpperCase()} at University of Illinois at Chicago (UIC).`,
+  };
 }
 
 export default async function CourseDetailsPage({
@@ -125,8 +123,10 @@ export default async function CourseDetailsPage({
   const filteredParams = await searchParams;
   const { slug } = await params;
   const parsedSlug = slug.split("-");
-  const courseDetails = await getCourseDetails(slug);
-  const GradeDistributionCount = await getCourseInstance(slug, filteredParams);
+  const [courseDetails, GradeDistributionCount] = await Promise.all([
+    getCourseDetails(slug),
+    getCourseInstance(slug, filteredParams),
+  ]);
   const formattedGradeData = formatGradeData(GradeDistributionCount);
   const encodedURL =
     "https://catalog.uic.edu/ucat/course-descriptions/" +
@@ -135,85 +135,114 @@ export default async function CourseDetailsPage({
     encodeURIComponent(`${courseDetails.name} ${courseDetails.number}`);
 
   const selectedProfessorName =
-    courseDetails.professors.find((p) => p.id === String(filteredParams.professor))?.name ?? "";
+    courseDetails.professors.find(
+      (p) => p.id === String(filteredParams.professor)
+    )?.name ?? "";
   const rmpURL =
     "https://www.ratemyprofessors.com/search/professors/1111?q=" +
     encodeURIComponent(selectedProfessorName);
 
   return (
-    <div className="flex flex-col md:flex-row grow bg-background w-full h-full md:h-[calc(100svh-120px)] overflow-hidden">
+    <div className="bg-background animate-in fade-in flex h-full w-full min-w-87 grow flex-col overflow-hidden duration-150 md:h-[calc(100svh-120px)] md:flex-row">
       {/* Stats */}
-      <div className="flex flex-col w-full md:w-1/2 p-8 h-full gap-2 overflow-scroll">
-        <div className="flex flex-row justify-between">
+      <div className="flex h-full w-full flex-col gap-2 overflow-scroll p-6 md:w-1/2">
+        <div className="flex flex-row items-start justify-between">
           <div className="flex flex-col">
-            <h1 className="text-uic-red-600 font-black text-4xl">
+            <h1 className="text-uic-red-600 text-4xl font-black">
               {courseDetails.name} {courseDetails.number}
             </h1>
-            <p className="text-foreground/70 font-medium text-lg">
+            <p className="text-foreground/70 text-lg font-medium">
               {courseDetails.title}
             </p>
           </div>
-          <ProfessorDropdown
-            listOfProfessors={courseDetails.professors}
-          ></ProfessorDropdown>
+          <div className="mt-1">
+            <ProfessorDropdown
+              listOfProfessors={courseDetails.professors}
+            ></ProfessorDropdown>
+          </div>
         </div>
         <div className="flex flex-row gap-2">
           <Link href={encodedURL} className="w-fit">
             <Badge
               variant="outline"
-              className="flex-row gap-2 relative bottom-1 rounded-md text-xs font-semibold px-3 py-2 bg-uic-red-600 text-white border-uic-red-600/20 shadow-[inset_0px_-6px_10px_2px_var(--badge-shadow-base)]/40 hover:bg-uic-red-600/90 "
+              className="bg-uic-red-500/10 border-uic-red-500/15 hover:bg-uic-red-500/20 text-uic-red-500 relative bottom-1 flex-row gap-2 rounded-md px-3 py-2 text-xs font-semibold"
             >
               View in Course Catalog
-              <ExternalLink className="opacity-70 relative" />
+              <ExternalLink className="relative opacity-70" />
             </Badge>
           </Link>
           <Link href={rmpURL} className="w-fit">
             <Badge
               variant="outline"
-              className="flex-row gap-2 relative bottom-1 rounded-md text-xs font-semibold px-3 py-2 bg-badge-bg/90 text-badge-text border-badge-border/20 shadow-[inset_0px_-6px_10px_2px_var(--badge-shadow-base)]/40 hover:bg-badge-bg "
+              className="bg-badge-bg/10 dark:bg-badge-text/10 text-badge-bg dark:text-badge-text border-badge-bg/15 dark:border-badge-text/15 hover:bg-badge-bg/20 dark:hover:bg-badge-text/20 relative bottom-1 flex-row gap-2 rounded-md px-3 py-2 text-xs font-semibold"
             >
               Search RMP
-              <ExternalLink className="opacity-70 relative" />
+              <ExternalLink className="relative opacity-70" />
             </Badge>
           </Link>
         </div>
-        <div className="">
+        <div className="pt-2">
           <GradeDistributionChart
             chartData={formattedGradeData}
             professorID={filteredParams.professor}
             listOfProfessors={courseDetails.professors}
           ></GradeDistributionChart>
         </div>
-        <h5 className="py-2 text-xs text-center text-foreground/50">
-          Data is sourced from official UIC grade distributions but many of the
-          stats are calculated in the backend, so it may contain errors. The
-          pass rate denominator includes only A-F. The drop rate denominator
-          includes W.
+        <h5 className="text-foreground/50 py-2 text-center text-xs">
+          Data is sourced from official UIC grade distributions but stats are
+          calculated in the backend, so it may contain errors. The pass rate
+          denominator includes only A-F. Drop rate denominator includes W.
         </h5>
       </div>
 
       {/* Comments */}
-      <section className="w-full md:max-w-1/4 md:w-1/4 h-full p-8 relative border-r border-l border-foreground/10">
-        <DiscussionPane
-          commentPaneServerComponent={
-            <CommentsPaneServer
-              slug={slug}
-              professorID={filteredParams.professor}
-            ></CommentsPaneServer>
-          }
-          reviewPaneServerComponent={
-            <ReviewsPaneServer
-              slug={slug}
-              professorID={filteredParams.professor}
-              listOfProfessors={courseDetails.professors}
-            ></ReviewsPaneServer>
-          }
-        ></DiscussionPane>
-      </section>
+      <Suspense
+        fallback={
+          <section className="border-foreground/10 relative h-full w-full border-r border-l p-8 md:w-1/4 md:max-w-1/4">
+            <div className="flex h-full flex-col gap-4">
+              <div className="shimmer h-10/12 rounded-md"></div>
+              <div className="shimmer h-2/12 rounded-md"></div>
+            </div>
+          </section>
+        }
+      >
+        <section className="border-foreground/10 animate-in fade-in relative h-full w-full border-r border-l px-6 py-8 duration-500 md:w-1/4 md:max-w-1/4">
+          <DiscussionPane
+            commentPaneServerComponent={
+              <CommentsPaneServer
+                slug={slug}
+                professorID={filteredParams.professor}
+              ></CommentsPaneServer>
+            }
+            reviewPaneServerComponent={
+              <ReviewsPaneServer
+                slug={slug}
+                professorID={filteredParams.professor}
+                listOfProfessors={courseDetails.professors}
+              ></ReviewsPaneServer>
+            }
+          ></DiscussionPane>
+        </section>
+      </Suspense>
 
-      <section className="w-full md:max-w-1/4 md:w-1/4 h-full">
-        <TablePaneServer slug={slug} />
-      </section>
+      <Suspense
+        fallback={
+          <section className="h-full w-full p-8 md:w-1/4 md:max-w-1/4">
+            <div className="flex h-full flex-col gap-5">
+              {Array.from({ length: 7 }).map((_, i) => (
+                <div
+                  key={i}
+                  className="shimmer h-full w-full rounded-md"
+                ></div>
+              ))}
+            </div>
+          </section>
+        }
+      >
+        <section className="animate-in fade-in h-full w-full duration-500 md:w-1/4 md:max-w-1/4">
+          <TablePaneServer slug={slug} />
+        </section>
+      </Suspense>
     </div>
   );
 }

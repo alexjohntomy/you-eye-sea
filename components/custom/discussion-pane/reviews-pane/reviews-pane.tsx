@@ -2,6 +2,14 @@
 import { Rating as ReactRating, ThinStar } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import { useRouter } from "next/navigation";
+import {
+  Empty,
+  EmptyHeader,
+  EmptyMedia,
+  EmptyTitle,
+  EmptyDescription,
+} from "@/components/ui/empty";
+import { Star } from "lucide-react";
 
 const customStyles = {
   itemShapes: ThinStar,
@@ -103,14 +111,19 @@ function ReviewsPane({
   if (reviews.length == 0) {
     return (
       <div className="flex flex-col h-full justify-between">
-        <div className="flex flex-col items-center align-middle justify-center p-4 h-full w-full">
-          <h1 className="flex text-center italic text-foreground opacity-60">
-            Looks like no ratings exist for {commentPaneText} yet... Help other
-            students by adding your own!
-          </h1>
-        </div>
+        <Empty className="border-0 p-4 opacity-55">
+          <EmptyHeader className="gap-0.5">
+            <EmptyMedia variant="icon" className="bg-muted/50 size-12 mb-0">
+              <Star className="text-muted-foreground size-6" />
+            </EmptyMedia>
+            <EmptyTitle className="text-muted-foreground text-base font-medium">No ratings yet</EmptyTitle>
+            <EmptyDescription className="text-sm">
+              Looks like no ratings exist for {commentPaneText} yet... Help other students by adding your own!
+            </EmptyDescription>
+          </EmptyHeader>
+        </Empty>
         <div className="py-6">
-          <InputGroup className="overflow-y rounded-md border-2 border-uic-navy-800/30 focus-visible:ring-0 bg-background">
+          <InputGroup className="overflow-y rounded-md border border-foreground/10 focus-visible:ring-0 bg-background">
             <ReactRating
               className="relative top-2 bottom-2"
               style={{ maxWidth: 150 }}
@@ -130,7 +143,7 @@ function ReviewsPane({
               </InputGroupText>
               <InputGroupButton
                 variant="outline"
-                className="rounded-md w-20 bg-secondary text-background border border-secondary/50"
+                className="rounded-md w-20 bg-secondary text-background dark:text-foreground border border-secondary/50"
                 size="icon-xs"
                 onClick={() => {
                   if (filter.isProfane(value)) {
@@ -183,7 +196,7 @@ function ReviewsPane({
             {reviews.map((eachReview: any) => (
               <Card
                 key={eachReview.id}
-                className="border-foreground/20 rounded-md gap-1 py-3 px-3 w-full"
+                className="border-foreground/10 rounded-md gap-1 py-3 px-3 w-full"
               >
                 <ReactRating
                   style={{ maxWidth: 100 }}
@@ -217,7 +230,7 @@ function ReviewsPane({
         </div>
 
         <div className="py-6">
-          <InputGroup className="overflow-y rounded-md border-2 border-uic-navy-800/30 focus-visible:ring-0 bg-background">
+          <InputGroup className="overflow-y rounded-md border border-foreground/10 focus-visible:ring-0 bg-background">
             <ReactRating
               className="relative top-2 bottom-2"
               style={{ maxWidth: 150 }}
@@ -237,7 +250,7 @@ function ReviewsPane({
               </InputGroupText>
               <InputGroupButton
                 variant="outline"
-                className="rounded-md w-20 bg-secondary text-background border border-secondary/50"
+                className="rounded-md w-20 bg-secondary text-background dark:text-foreground border border-secondary/50"
                 size="icon-xs"
                 onClick={() => {
                   if (filter.isProfane(value)) {

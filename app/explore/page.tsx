@@ -17,16 +17,16 @@ export default async function Explore({
 }) {
   const filteredParams = await searchParams;
     return (
-    <div className="flex flex-col p-4 w-full justify-start min-h-full">
+    <div className="flex flex-col p-4 w-full justify-start min-h-full overflow-y-hidden">
       {/* Hero Text */}
       <div className="flex flex-col items-center gap-0">
         <h1 className="font-black text-2xl md:text-3xl py-5 text-center text-transparent bg-text-gradient-uic bg-clip-text text-shadow-[0px_0px_0px_20px_var(--inset-color)]">
           Explore
         </h1>
       </div>
-      <div className="flex flex-col gap-2 md: min-h-[calc(100svh-280px)]">
+      <div className="flex flex-col gap-2">
         {/* Search Bar */}
-        <div className="flex flex-row h-full w-full items-start justify-center grow">
+        <div className="flex flex-row w-full items-start justify-center">
           <DropdownSearchBar></DropdownSearchBar>
         </div>
         

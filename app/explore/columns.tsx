@@ -48,7 +48,7 @@ export const columns: ColumnDef<rowDetails>[] = [
           params.set("sort", "gpa");
           router.push(`${pathname}?${params.toString()}`);
       }
-      return (<Button variant="ghost" className="font-black hover:bg-transparent hover:underline hover:underline-offset-3 hover:text-background" onClick={handleClick}>GPA<ArrowDown/></Button>) 
+      return (<Button variant="ghost" className="font-black text-background dark:text-foreground hover:bg-white/10 dark:hover:bg-white/5 hover:text-background dark:hover:text-foreground hover:underline hover:underline-offset-3" onClick={handleClick}>GPA<ArrowDown/></Button>) 
     },
     cell: (info) => {
       return <h1 className="ml-3">{info.getValue<number>().toFixed(2)}</h1> 
@@ -65,7 +65,7 @@ export const columns: ColumnDef<rowDetails>[] = [
           params.set("sort", "passRate");
           router.push(`${pathname}?${params.toString()}`);
       }
-      return (<Button variant="ghost" className="font-black hover:bg-transparent hover:underline hover:underline-offset-3 hover:text-background" onClick={handleClick}>Pass Rate<ArrowDown/></Button>) 
+      return (<Button variant="ghost" className="font-black text-background dark:text-foreground hover:bg-white/10 dark:hover:bg-white/5 hover:text-background dark:hover:text-foreground hover:underline hover:underline-offset-3" onClick={handleClick}>Pass Rate<ArrowDown/></Button>) 
     },
     cell: (info) => {
       return <h1 className="ml-3">{info.getValue<number>().toFixed(1) + "%"}</h1> 
@@ -82,7 +82,7 @@ export const columns: ColumnDef<rowDetails>[] = [
           params.set("sort", "dropRate");
           router.push(`${pathname}?${params.toString()}`);
       }
-      return (<Button variant="ghost" className="font-black hover:bg-transparent hover:underline hover:underline-offset-3 hover:text-background" onClick={handleClick}>Drop Rate<ArrowDown/></Button>) 
+      return (<Button variant="ghost" className="font-black text-background dark:text-foreground hover:bg-white/10 dark:hover:bg-white/5 hover:text-background dark:hover:text-foreground hover:underline hover:underline-offset-3" onClick={handleClick}>Drop Rate<ArrowDown/></Button>) 
     },
     cell: (info) => {
         return <h1 className="ml-3">{info.getValue<number>().toFixed(1)}%</h1>
@@ -99,7 +99,7 @@ export const columns: ColumnDef<rowDetails>[] = [
           params.set("sort", "totalStudents");
           router.push(`${pathname}?${params.toString()}`);
       }
-      return (<Button variant="ghost" className="font-black hover:bg-transparent hover:underline hover:underline-offset-3 hover:text-background" onClick={handleClick}>Total Students<ArrowDown/></Button>) 
+      return (<Button variant="ghost" className="font-black text-background dark:text-foreground hover:bg-white/10 dark:hover:bg-white/5 hover:text-background dark:hover:text-foreground hover:underline hover:underline-offset-3" onClick={handleClick}>Total Students<ArrowDown/></Button>) 
       },
       cell: (info) => {
         return <h1 className="ml-3">{info.getValue<number>()}</h1>

@@ -59,6 +59,9 @@ model CourseInstance {
   total_students   Int
   semester         String
   comments         Comment[]
+
+  @@index([courseID, courseNumber])
+  @@index([professorID])
 }
 
 model Comment {
@@ -71,6 +74,8 @@ model Comment {
     course            Course?    @relation(fields: [courseID, courseNumber], references: [subject, number])
     courseID          String?
     courseNumber      Int?
+
+    @@index([courseID, courseNumber])
   }
 
 model Review {
@@ -84,6 +89,9 @@ model Review {
     course            Course?    @relation(fields: [courseID, courseNumber], references: [subject, number])
     courseID          String?
     courseNumber      Int?
+
+    @@index([courseID, courseNumber])
+    @@index([professorID])
   }
 
 datasource db {
