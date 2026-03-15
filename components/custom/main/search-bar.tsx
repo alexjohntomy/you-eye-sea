@@ -78,7 +78,7 @@ function SearchBar() {
             value={commandValue}
             onValueChange={setCommandValue}
             shouldFilter={false}
-            className="dark:bg-background text-foreground rounded-none bg-white py-[0.5] opacity-95"
+            className="dark:bg-background text-foreground rounded-none bg-background py-[0.5] opacity-95"
           >
             <motion.div layout="position">
               <div className="justify-between-safe relative flex flex-wrap items-center gap-4 p-2">

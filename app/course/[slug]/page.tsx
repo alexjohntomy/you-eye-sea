@@ -5,12 +5,11 @@ import { GradeDistributionChart } from "@/components/custom/visualization-pane/g
 import { ProfessorDropdown } from "@/components/custom/visualization-pane/professor-dropdown";
 import { ReviewsPaneServer } from "@/components/custom/discussion-pane/reviews-pane/reviews-pane-server";
 import { TablePaneServer } from "@/components/custom/breakdown-pane/table-pane-server";
-import { Badge } from "@/components/ui/badge";
 import prisma from "@/lib/prisma";
-import { ExternalLink } from "lucide-react";
-import Link from "next/link";
+import { CourseActionButtons } from "@/components/custom/visualization-pane/course-action-buttons";
 import type { Metadata } from "next";
 import { Suspense } from "react";
+
 
 async function getCourseDetails(slug: string) {
   const parsedSlug = slug.split("-");
@@ -128,19 +127,11 @@ export default async function CourseDetailsPage({
     getCourseInstance(slug, filteredParams),
   ]);
   const formattedGradeData = formatGradeData(GradeDistributionCount);
-  const encodedURL =
-    "https://catalog.uic.edu/ucat/course-descriptions/" +
-    parsedSlug[0].toLowerCase() +
-    "/#:~:text=" +
-    encodeURIComponent(`${courseDetails.name} ${courseDetails.number}`);
-
   const selectedProfessorName =
     courseDetails.professors.find(
-      (p: { id: string; name: string }) => p.id === String(filteredParams.professor)
+      (p: { id: string; name: string }) =>
+        p.id === String(filteredParams.professor)
     )?.name ?? "";
-  const rmpURL =
-    "https://www.ratemyprofessors.com/search/professors/1111?q=" +
-    encodeURIComponent(selectedProfessorName);
 
   return (
     <div className="bg-background animate-in fade-in flex h-full w-full min-w-87 grow flex-col overflow-hidden duration-150 md:h-[calc(100svh-120px)] md:flex-row">
@@ -161,32 +152,19 @@ export default async function CourseDetailsPage({
             ></ProfessorDropdown>
           </div>
         </div>
-        <div className="flex flex-row gap-2">
-          <Link href={encodedURL} className="w-fit">
-            <Badge
-              variant="outline"
-              className="bg-uic-red-500/10 border-uic-red-500/15 hover:bg-uic-red-500/20 text-uic-red-500 relative  flex-row gap-2 rounded-md px-3 py-2 text-xs font-semibold"
-            >
-              View in Course Catalog
-              <ExternalLink className="relative opacity-70" />
-            </Badge>
-          </Link>
-          {selectedProfessorName && (
-            <Link href={rmpURL} className="w-fit">
-              <Badge
-                variant="outline"
-                className="bg-badge-bg/10 dark:bg-badge-text/10 text-badge-bg dark:text-badge-text border-badge-bg/15 dark:border-badge-text/15 hover:bg-badge-bg/20 dark:hover:bg-badge-text/20 relative flex-row gap-2 rounded-md px-3 py-2 text-xs font-semibold"
-              >
-                Search RMP
-                <ExternalLink className="relative opacity-70" />
-              </Badge>
-            </Link>
-          )}
-        </div>
+        <CourseActionButtons
+            courseName={courseDetails.name}
+            courseNumber={courseDetails.number}
+            selectedProfessorName={selectedProfessorName}
+          />
         <div className="pt-2">
           <GradeDistributionChart
             chartData={formattedGradeData}
-            professorID={Array.isArray(filteredParams.professor) ? filteredParams.professor[0] : (filteredParams.professor as string | undefined) ?? null}
+            professorID={
+              Array.isArray(filteredParams.professor)
+                ? filteredParams.professor[0]
+                : ((filteredParams.professor as string | undefined) ?? null)
+            }
             listOfProfessors={courseDetails.professors}
           ></GradeDistributionChart>
         </div>
@@ -200,7 +178,7 @@ export default async function CourseDetailsPage({
       {/* Comments */}
       <Suspense
         fallback={
-          <section className="border-foreground/10 relative h-full w-full border-r border-l p-8 md:w-1/4 md:max-w-1/4">
+          <section className="border-foreground/5 relative h-full w-full border-r border-l p-8 md:w-1/4 md:max-w-1/4">
             <div className="flex h-full flex-col gap-4">
               <div className="shimmer h-10/12 rounded-md"></div>
               <div className="shimmer h-2/12 rounded-md"></div>
@@ -213,13 +191,21 @@ export default async function CourseDetailsPage({
             commentPaneServerComponent={
               <CommentsPaneServer
                 slug={slug}
-                professorID={Array.isArray(filteredParams.professor) ? filteredParams.professor[0] : (filteredParams.professor as string | undefined)}
+                professorID={
+                  Array.isArray(filteredParams.professor)
+                    ? filteredParams.professor[0]
+                    : (filteredParams.professor as string | undefined)
+                }
               ></CommentsPaneServer>
             }
             reviewPaneServerComponent={
               <ReviewsPaneServer
                 slug={slug}
-                professorID={Array.isArray(filteredParams.professor) ? filteredParams.professor[0] : (filteredParams.professor as string | undefined) ?? null}
+                professorID={
+                  Array.isArray(filteredParams.professor)
+                    ? filteredParams.professor[0]
+                    : ((filteredParams.professor as string | undefined) ?? null)
+                }
                 listOfProfessors={courseDetails.professors}
               ></ReviewsPaneServer>
             }

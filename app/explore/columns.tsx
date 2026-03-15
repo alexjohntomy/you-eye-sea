@@ -29,7 +29,15 @@ export const columns: ColumnDef<rowDetails>[] = [
     cell: (info) => {
       const courseName = info.getValue<string>()
       const professorID = info.row.original.professor
-      return <Link className="flex flex-row items-center font-bold text-uic-navy-500 justify-between underline underline-offset-4" href={"/course/" + courseName.replace(" ", "-") + "?professor=" + professorID}>{courseName}</Link>
+      return (
+        <Link 
+          className="group flex w-fit flex-row items-center gap-1 font-medium text-foreground/80 transition-colors hover:text-foreground" 
+          href={"/course/" + courseName.replace(" ", "-") + "?professor=" + professorID}
+        >
+          {courseName}
+          <ChevronRight className="size-3.5 opacity-40 transition-opacity group-hover:opacity-80" />
+        </Link>
+      )
     }
   },
   {
@@ -48,7 +56,7 @@ export const columns: ColumnDef<rowDetails>[] = [
           params.set("sort", "gpa");
           router.push(`${pathname}?${params.toString()}`);
       }
-      return (<Button variant="ghost" className="font-black text-background dark:text-foreground hover:bg-white/10 dark:hover:bg-white/5 hover:text-background dark:hover:text-foreground hover:underline hover:underline-offset-3" onClick={handleClick}>GPA<ArrowDown/></Button>) 
+      return (<Button variant="ghost" className="font-bold text-xs text-foreground hover:bg-foreground/5 dark:hover:bg-foreground/10 hover:text-foreground hover:underline hover:underline-offset-3" onClick={handleClick}>GPA<ArrowDown className="ml-1 size-3"/></Button>) 
     },
     cell: (info) => {
       return <h1 className="ml-3">{info.getValue<number>().toFixed(2)}</h1> 
@@ -65,7 +73,7 @@ export const columns: ColumnDef<rowDetails>[] = [
           params.set("sort", "passRate");
           router.push(`${pathname}?${params.toString()}`);
       }
-      return (<Button variant="ghost" className="font-black text-background dark:text-foreground hover:bg-white/10 dark:hover:bg-white/5 hover:text-background dark:hover:text-foreground hover:underline hover:underline-offset-3" onClick={handleClick}>Pass Rate<ArrowDown/></Button>) 
+      return (<Button variant="ghost" className="font-bold text-xs text-foreground hover:bg-foreground/5 dark:hover:bg-foreground/10 hover:text-foreground hover:underline hover:underline-offset-3" onClick={handleClick}>Pass Rate<ArrowDown className="ml-1 size-3"/></Button>) 
     },
     cell: (info) => {
       return <h1 className="ml-3">{info.getValue<number>().toFixed(1) + "%"}</h1> 
@@ -82,7 +90,7 @@ export const columns: ColumnDef<rowDetails>[] = [
           params.set("sort", "dropRate");
           router.push(`${pathname}?${params.toString()}`);
       }
-      return (<Button variant="ghost" className="font-black text-background dark:text-foreground hover:bg-white/10 dark:hover:bg-white/5 hover:text-background dark:hover:text-foreground hover:underline hover:underline-offset-3" onClick={handleClick}>Drop Rate<ArrowDown/></Button>) 
+      return (<Button variant="ghost" className="font-bold text-xs text-foreground hover:bg-foreground/5 dark:hover:bg-foreground/10 hover:text-foreground hover:underline hover:underline-offset-3" onClick={handleClick}>Drop Rate<ArrowDown className="ml-1 size-3"/></Button>) 
     },
     cell: (info) => {
         return <h1 className="ml-3">{info.getValue<number>().toFixed(1)}%</h1>
@@ -99,7 +107,7 @@ export const columns: ColumnDef<rowDetails>[] = [
           params.set("sort", "totalStudents");
           router.push(`${pathname}?${params.toString()}`);
       }
-      return (<Button variant="ghost" className="font-black text-background dark:text-foreground hover:bg-white/10 dark:hover:bg-white/5 hover:text-background dark:hover:text-foreground hover:underline hover:underline-offset-3" onClick={handleClick}>Total Students<ArrowDown/></Button>) 
+      return (<Button variant="ghost" className="font-bold text-xs text-foreground hover:bg-foreground/5 dark:hover:bg-foreground/10 hover:text-foreground hover:underline hover:underline-offset-3" onClick={handleClick}>Total Students<ArrowDown className="ml-1 size-3"/></Button>) 
       },
       cell: (info) => {
         return <h1 className="ml-3">{info.getValue<number>()}</h1>

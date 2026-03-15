@@ -45,23 +45,30 @@ function TablePane({ statsFromDB, courseInstanceAggregation }: tablePaneProps) {
       (item) => item.courseInstanceID === row.courseInstanceID
     );
     const gpaStr = calculateGPA(formatGradeData(data));
-    if (gpaStr !== "N/A") rowGPAs.set(row.courseInstanceID.toString(), parseFloat(gpaStr));
+    if (gpaStr !== "N/A")
+      rowGPAs.set(row.courseInstanceID.toString(), parseFloat(gpaStr));
   });
   const allGPAs = [...rowGPAs.values()];
   const highestGPA = allGPAs.length > 0 ? Math.max(...allGPAs) : null;
   const lowestGPA = allGPAs.length > 0 ? Math.min(...allGPAs) : null;
 
   return (
-    <div className="h-full gap-3 overflow-auto py-8 px-6">
-      <h1 className="text-foreground mt-1.5 pb-2 text-center text-xl font-bold">
+    <div className="h-full gap-3 overflow-auto px-6 py-8">
+      <h1 className="text-foreground -mt-2 pb-3 text-center text-lg font-bold">
         Breakdown
       </h1>
       <Table className="text-foreground">
-        <TableHeader>
+        <TableHeader className="bg-muted/70">
           <TableRow>
-            <TableHead className="text-left text-xs">Professor</TableHead>
-            <TableHead className="text-left text-xs">Semester</TableHead>
-            <TableHead className="text-left text-xs">GPA</TableHead>
+            <TableHead className="rounded-tl-md text-left text-xs font-bold">
+              Professor
+            </TableHead>
+            <TableHead className="text-left text-xs font-bold">
+              Semester
+            </TableHead>
+            <TableHead className="rounded-tr-md text-left text-xs font-bold">
+              GPA
+            </TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -78,9 +85,9 @@ function TablePane({ statsFromDB, courseInstanceAggregation }: tablePaneProps) {
             const rowGPA = gpaStr === "N/A" ? NaN : parseFloat(gpaStr);
             const rowClassName =
               !isNaN(rowGPA) && rowGPA === highestGPA
-                ? "text-foreground font-bold bg-green-200/40"
+                ? "text-foreground font-bold bg-green-500/20 dark:bg-green-500/30"
                 : !isNaN(rowGPA) && rowGPA === lowestGPA
-                  ? "text-foreground font-bold bg-red-200/40"
+                  ? "text-foreground font-bold bg-red-500/20 dark:bg-red-500/30"
                   : "text-foreground";
             return (
               <TableRow key={row.courseInstanceID} className={rowClassName}>

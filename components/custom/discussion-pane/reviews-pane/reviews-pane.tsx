@@ -1,5 +1,5 @@
 "use client";
-import { Rating as ReactRating, ThinStar } from "@smastrom/react-rating";
+import { Rating as ReactRating, ThinRoundedStar } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import { useRouter } from "next/navigation";
 import {
@@ -12,9 +12,9 @@ import {
 import { Star } from "lucide-react";
 
 const customStyles = {
-  itemShapes: ThinStar,
-  activeFillColor: "#D50032",
-  inactiveFillColor: "#D5003220",
+  itemShapes: ThinRoundedStar,
+  activeFillColor: "var(--color-uic-navy-500)",
+  inactiveFillColor: "color-mix(in srgb, var(--color-uic-navy-500) 20%, transparent)",
 };
 
 import { Card } from "@/components/ui/card";
@@ -110,29 +110,32 @@ function ReviewsPane({
   const avgRating = calculateAverageRating(reviews);
   if (reviews.length == 0) {
     return (
-      <div className="flex flex-col h-full justify-between">
-        <Empty className="border-0 p-4 opacity-55">
-          <EmptyHeader className="max-w-full gap-0.5">
-            <EmptyMedia variant="icon" className="bg-muted/50 size-12 mb-0">
+      <div className="flex h-full w-full flex-col justify-between">
+        <Empty className="w-full border-0 p-4 opacity-55">
+          <EmptyHeader className="gap-0.5 md:w-50">
+            <EmptyMedia variant="icon" className="bg-muted/50 mb-0 size-12">
               <Star className="text-muted-foreground size-6" />
             </EmptyMedia>
-            <EmptyTitle className="text-muted-foreground text-base font-medium">No ratings yet</EmptyTitle>
-            <EmptyDescription className="text-sm max-w-full">
-              Looks like no ratings exist for {commentPaneText} yet... Help other students by adding your own!
+            <EmptyTitle className="text-muted-foreground text-base font-medium">
+              No ratings yet
+            </EmptyTitle>
+            <EmptyDescription className="text-sm">
+              Looks like no ratings exist for {commentPaneText} yet... Help
+              other students by adding your own!
             </EmptyDescription>
           </EmptyHeader>
         </Empty>
         <div className="py-6">
-          <InputGroup className="overflow-y rounded-md border border-foreground/10 focus-visible:ring-0 bg-background">
+          <InputGroup className="overflow-y border-foreground/10 shadow-none bg-background bottom-3 rounded-xl border focus-visible:ring-0 has-[[data-slot=input-group-control]:focus-visible]:ring-0 has-[[data-slot=input-group-control]:focus-visible]:border-foreground/10">
             <ReactRating
-              className="relative top-2 bottom-2"
+              className="relative left-2 top-2"
               style={{ maxWidth: 150 }}
               itemStyles={customStyles}
               value={rating}
               onChange={setRating}
             />
             <InputGroupTextarea
-              className="text-xs resize-none border-none shadow-none"
+              className="resize-none border-none text-xs shadow-none"
               placeholder="How was your experience in this class? Let others know..."
               value={value}
               onChange={handleValueChange}
@@ -143,7 +146,7 @@ function ReviewsPane({
               </InputGroupText>
               <InputGroupButton
                 variant="outline"
-                className="rounded-md w-20 bg-secondary text-background dark:text-foreground border border-secondary/50"
+                className="bg-secondary text-background dark:text-foreground border-secondary/50 shadow-none w-20 rounded-lg border"
                 size="icon-xs"
                 onClick={() => {
                   if (filter.isProfane(value)) {
@@ -184,19 +187,17 @@ function ReviewsPane({
     );
   } else
     return (
-      <div className="w-full h-full flex flex-col">
-        {/* gradient overlay */}
-        <div className="pointer-events-none absolute inset-x-0 bottom-35 h-30 bg-transparent md:bg-linear-to-t from-background/90 to-background/0"></div>
-        <div className="flex flex-col w-full py-1 overflow-y-scroll gap-0">
-          <div className="flex flex-col w-full md:min-h-screen max-h-10/12 gap-3">
+      <div className="flex h-full w-full flex-col">
+        <div className="flex w-full flex-col gap-3 overflow-y-scroll mask-b-from-90% py-2">
+          <div className="flex max-h-10/12 w-full flex-col gap-3 pt-2 pr-2 pb-16 pl-1 md:min-h-screen">
             <h1 className="relative text-center text-sm font-medium">
               Average Rating:{" "}
-              <span className="font-black text-lg">{avgRating}</span>
+              <span className="text-lg font-black">{avgRating}</span>
             </h1>
             {reviews.map((eachReview: Review) => (
               <Card
                 key={eachReview.id}
-                className="border-foreground/10 rounded-md gap-1 py-3 px-3 w-full"
+                className="border-foreground/10 w-full gap-1 rounded-xl shadow-none px-3 py-3"
               >
                 <ReactRating
                   style={{ maxWidth: 100 }}
@@ -204,23 +205,23 @@ function ReviewsPane({
                   readOnly
                   itemStyles={customStyles}
                 />
-                <h3 className="text-sm text-foreground/50 font-black border-b py-1">
+                <h3 className="text-foreground/50 border-b py-1 text-sm font-black truncate">
                   {getProfessorNameFromID(
                     String(eachReview.professorID),
                     listOfProfessors
                   )}
                 </h3>
-                <h3 className="text-sm text-foreground/80 font-black">
+                <h3 className="text-foreground/80 text-sm font-black whitespace-pre-wrap">
                   {eachReview.review}
                 </h3>
                 <span className="flex flex-row justify-between opacity-60">
-                  <h4 className="text-xs text-left inline-block text-uic-red-700">
+                  <h4 className="text-uic-red-700 inline-block text-left text-xs">
                     {eachReview.author}
                   </h4>
-                  <h4 className="text-xs text-left inline-block text-foreground/40">
+                  <h4 className="text-foreground/40 inline-block text-left text-xs">
                     //
                   </h4>
-                  <h4 className="text-xs text-right inline-block text-foreground">
+                  <h4 className="text-foreground inline-block text-right text-xs">
                     {eachReview.date.toLocaleDateString("en-US")}
                   </h4>
                 </span>
@@ -230,16 +231,16 @@ function ReviewsPane({
         </div>
 
         <div className="py-6">
-          <InputGroup className="overflow-y rounded-md border border-foreground/10 focus-visible:ring-0 bg-background">
+          <InputGroup className="overflow-y border-foreground/10 shadow-none bg-background bottom-3 rounded-xl border focus-visible:ring-0 has-[[data-slot=input-group-control]:focus-visible]:ring-0 has-[[data-slot=input-group-control]:focus-visible]:border-foreground/10">
             <ReactRating
-              className="relative top-2 bottom-2"
+              className="relative left-2 top-2"
               style={{ maxWidth: 150 }}
               itemStyles={customStyles}
               value={rating}
               onChange={setRating}
             />
             <InputGroupTextarea
-              className="text-xs resize-none border-none shadow-none"
+              className="resize-none border-none text-xs shadow-none"
               placeholder="How was your experience in this class? Let others know..."
               value={value}
               onChange={handleValueChange}
@@ -250,7 +251,7 @@ function ReviewsPane({
               </InputGroupText>
               <InputGroupButton
                 variant="outline"
-                className="rounded-md w-20 bg-secondary text-background dark:text-foreground border border-secondary/50"
+                className="bg-secondary text-background dark:text-foreground shadow-none border-secondary/50 w-20 rounded-lg border"
                 size="icon-xs"
                 onClick={() => {
                   if (filter.isProfane(value)) {

@@ -7,6 +7,9 @@ async function getCommentsFromDB(courseName: string[]) {
       courseID: courseName[0],
       courseNumber: parseInt(courseName[1]),
     },
+    orderBy: {
+      date: 'desc',
+    },
   });
   return commentsFromDB;
 }

@@ -1,10 +1,11 @@
 import { Analytics } from "@vercel/analytics/next";
+import Script from "next/script";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import { ThemeProvider } from "@/components/theme-provider";
 
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Manrope, Sora, Reddit_Sans_Condensed } from "next/font/google";
+import { Geist, Geist_Mono, Manrope, Sora, Reddit_Sans_Condensed, Sofia_Sans_Condensed } from "next/font/google";
 
 import { Footer } from "@/components/custom/layout/footer";
 import { Header } from "@/components/custom/layout/header";
@@ -25,6 +26,12 @@ const manrope = Manrope({
 
 const redditSansCondensed = Reddit_Sans_Condensed({
   variable: "--font-condensed",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const sofiaSansCondensed = Sofia_Sans_Condensed({
+  variable: "--font-sofia-condensed",
   subsets: ["latin"],
   display: "swap",
 });
@@ -52,7 +59,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${manrope.variable} ${sora.variable} ${redditSansCondensed.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${manrope.variable} ${sora.variable} ${redditSansCondensed.variable} ${sofiaSansCondensed.variable}`} suppressHydrationWarning>
+      <head>
+        {process.env.NODE_ENV === "development" && (
+          <Script
+            src="//unpkg.com/react-grab/dist/index.global.js"
+            crossOrigin="anonymous"
+            strategy="beforeInteractive"
+          />
+        )}
+      </head>
       <body className="flex flex-col min-h-svh">
         <ThemeProvider
           attribute="class"

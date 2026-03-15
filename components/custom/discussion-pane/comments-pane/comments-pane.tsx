@@ -11,7 +11,15 @@ import {
 } from "@/components/ui/empty";
 import { MessageCircleDashed } from "lucide-react";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import {
+  PeelWrapper,
+  PeelTop,
+  PeelBack,
+  PeelBottom,
+  usePeel,
+} from "react-peel";
 
 import {
   InputGroup,
@@ -42,9 +50,132 @@ import { Filter } from "bad-words";
 
 const filter = new Filter();
 
+const postItColors = [
+  { main: "bg-postit-yellow", back: "bg-postit-yellow-back" }, // Yellow
+  { main: "bg-postit-blue", back: "bg-postit-blue-back" }, // Blue
+  { main: "bg-postit-pink", back: "bg-postit-pink-back" }, // Pink
+  { main: "bg-postit-green", back: "bg-postit-green-back" }, // Green
+];
+
+function StickyNoteComment({
+  comment,
+  index,
+  isNew,
+  delay = 500,
+}: {
+  comment: Comment;
+  index: number;
+  isNew: boolean;
+  delay?: number;
+}) {
+  const { peelRef, animate, reset, setPosition } = usePeel();
+  const color = postItColors[comment.id % postItColors.length];
+  const [shouldAnimate, setShouldAnimate] = useState(isNew);
+  const [isVisible, setIsVisible] = useState(!isNew);
+  const [activeDelay] = useState(delay);
+
+  useEffect(() => {
+    if (shouldAnimate) {
+      const stickDown = async () => {
+        if (!peelRef.current) return;
+        const width = peelRef.current.width || 300;
+        const height = peelRef.current.height || 120;
+
+        // Start fully curled/invisible immediately before we become CSS visible
+        setPosition(-width, -height);
+        setIsVisible(true);
+
+        // Sleep 50ms so the CSS fade-in can start and the canvas can draw the curled state
+        await new Promise((resolve) => setTimeout(resolve, 50));
+
+        try {
+          // Bottom-Right corner: x=width, y=height is flat.
+          // x=-width, y=-height is fully curled/pulled all the way top-left.
+          await animate({
+            from: { x: -width, y: -height },
+            to: { x: width, y: height },
+            duration: 500,
+            easing: "easeOut",
+          });
+        } finally {
+          reset();
+          setShouldAnimate(false);
+        }
+      };
+
+      // Delay to allow DOM sizing to settle, plus any staggered entry delay
+      const timeout = setTimeout(stickDown, activeDelay + 50);
+      return () => clearTimeout(timeout);
+    }
+  }, [shouldAnimate, animate, reset, peelRef, setPosition, activeDelay]);
+
+  const content = (
+    <div
+      className={`flex h-full w-full flex-col justify-between gap-2 p-4 pt-5 shadow-sm ${color.main}`}
+    >
+      <h3 className="text-foreground/80 text-sm leading-relaxed font-medium whitespace-pre-wrap">
+        {comment.comment}
+      </h3>
+      <div className="mt-4 flex flex-row justify-between opacity-60">
+        <h4 className="text-foreground inline-block text-left text-xs font-semibold">
+          {comment.author}
+        </h4>
+        <h4 className="text-foreground/50 inline-block text-left text-xs">
+          //
+        </h4>
+        <h4 className="text-foreground inline-block text-right text-xs font-semibold">
+          {comment.date.toLocaleDateString("en-US")}
+        </h4>
+      </div>
+    </div>
+  );
+
+  return (
+    <motion.div
+      layout
+      transition={{ duration: 0.8, type: "spring", bounce: 0.25 }}
+      className={`relative mb-2 min-h-30 w-full transition-opacity duration-150 ${!isVisible ? "opacity-0" : "opacity-100"}`}
+    >
+      {/* Invisible layout driver so PeelWrapper knows its size */}
+      <div className="invisible">{content}</div>
+      <div className="drop-shadow-foreground/5 absolute inset-0 z-10 drop-shadow-xl/3 transition-transform duration-150 hover:-translate-y-0.5">
+        <PeelWrapper
+          preset="stickyNote"
+          ref={peelRef}
+          width="100%"
+          height="100%"
+          fadeThreshold={0.8}
+          constraints={[]}
+          drag
+          options={{
+            topShadowAlpha: 0.1,
+            topShadowBlur: 5,
+            backReflection: true,
+            backReflectionAlpha: 0.05,
+            backShadowAlpha: 0.03,
+            bottomShadowDarkAlpha: 0.05,
+            bottomShadowLightAlpha: 0.02,
+          }}
+        >
+          <PeelTop className="h-full w-full">{content}</PeelTop>
+          <PeelBack className={color.back} />
+          <PeelBottom style={{ backgroundColor: "transparent" }} />
+        </PeelWrapper>
+      </div>
+    </motion.div>
+  );
+}
+
 function CommentsPane({ comments, parsedSlug, professorID }: testProps) {
   const router = useRouter();
   const [value, setValue] = useState("");
+  // By initializing empty, the first render treats all comments as "new"
+  const [prevCommentIds, setPrevCommentIds] = useState<Set<number>>(new Set());
+
+  useEffect(() => {
+    setPrevCommentIds(new Set(comments.map((comment) => comment.id)));
+  }, [comments]);
+
   const handleValueChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     if (event.target.value.length <= 280) {
       setValue(event.target.value);
@@ -53,10 +184,10 @@ function CommentsPane({ comments, parsedSlug, professorID }: testProps) {
 
   const inputBox = (
     <div className="py-6">
-      <InputGroup className="overflow-y rounded-md border border-foreground/10 focus-visible:ring-0 bg-background">
+      <InputGroup className="overflow-y border-foreground/10 shadow-none bg-background bottom-3 rounded-xl border focus-visible:ring-0 has-[[data-slot=input-group-control]:focus-visible]:ring-0 has-[[data-slot=input-group-control]:focus-visible]:border-foreground/10">
         <InputGroupTextarea
-          className="text-xs resize-none border-none shadow-none"
-          placeholder="Post a short tip you have for this course..."
+          className="resize-none border-none text-xs shadow-none"
+          placeholder="Leave a short note about this course..."
           value={value}
           onChange={handleValueChange}
         />
@@ -66,7 +197,7 @@ function CommentsPane({ comments, parsedSlug, professorID }: testProps) {
           </InputGroupText>
           <InputGroupButton
             variant="outline"
-            className="rounded-md w-20 text-foreground border border-secondary/50"
+            className="bg-secondary text-background dark:text-foreground border-secondary/50 shadow-none w-20 rounded-lg border"
             size="icon-xs"
             onClick={() => {
               if (filter.isProfane(value)) {
@@ -92,15 +223,18 @@ function CommentsPane({ comments, parsedSlug, professorID }: testProps) {
 
   if (comments.length === 0) {
     return (
-      <div className="flex flex-col h-full justify-between">
-        <Empty className="border-0 p-4 opacity-55">
-          <EmptyHeader className="max-w-full gap-0.5">
-            <EmptyMedia variant="icon" className="bg-muted/50 size-12 mb-0">
+      <div className="flex h-full w-full flex-col justify-between">
+        <Empty className="w-full border-0 p-4 opacity-55">
+          <EmptyHeader className="gap-0.5 md:w-40">
+            <EmptyMedia variant="icon" className="bg-muted/50 mb-0 size-12">
               <MessageCircleDashed className="text-muted-foreground size-6" />
             </EmptyMedia>
-            <EmptyTitle className="text-muted-foreground text-base font-medium">No tips yet</EmptyTitle>
-            <EmptyDescription className="text-sm max-w-full">
-              Looks like no tips exist for this course yet... Help other students by adding your own!
+            <EmptyTitle className="text-muted-foreground text-base font-medium">
+              No notes yet
+            </EmptyTitle>
+            <EmptyDescription className="text-sm">
+              Looks like no notes exist for this course yet... Help other
+              students by leaving your own!
             </EmptyDescription>
           </EmptyHeader>
         </Empty>
@@ -110,32 +244,32 @@ function CommentsPane({ comments, parsedSlug, professorID }: testProps) {
   }
 
   return (
-    <div className="w-full h-full flex flex-col">
-      {/* gradient overlay */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-35 h-30 bg-transparent md:bg-linear-to-t from-background/90 to-background/0"></div>
-      <div className="flex flex-col w-full py-2 overflow-y-scroll gap-3">
-        <div className="flex flex-col w-full md:min-h-screen max-h-10/12 gap-3">
-          {comments.map((eachComment: Comment) => (
-            <Card
-              key={eachComment.id}
-              className="border-foreground/10 rounded-md gap-1 py-3 px-3 w-full"
-            >
-              <h3 className="text-sm text-foreground/80 font-black">
-                {eachComment.comment}
-              </h3>
-              <span className="flex flex-row justify-between opacity-60">
-                <h4 className="text-xs text-left inline-block text-uic-red-700">
-                  {eachComment.author}
-                </h4>
-                <h4 className="text-xs text-left inline-block text-foreground/40">
-                  //
-                </h4>
-                <h4 className="text-xs text-right inline-block text-foreground">
-                  {eachComment.date.toLocaleDateString("en-US")}
-                </h4>
-              </span>
-            </Card>
-          ))}
+    <div className="flex h-full w-full flex-col">
+      <div className="flex w-full flex-col gap-3 overflow-y-scroll mask-b-from-90% py-2">
+        <div className="flex max-h-10/12 w-full flex-col gap-3 pt-2 pr-2 pb-16 pl-1 md:min-h-screen">
+          <AnimatePresence mode="popLayout">
+            {comments.map((eachComment: Comment, index: number) => {
+              const isInitialRender = prevCommentIds.size === 0;
+              const isNewComment =
+                isInitialRender || !prevCommentIds.has(eachComment.id);
+              // Stagger each
+              const currentDelay = isInitialRender
+                ? index * 500
+                : isNewComment
+                  ? 500
+                  : 0;
+
+              return (
+                <StickyNoteComment
+                  key={eachComment.id}
+                  comment={eachComment}
+                  index={index}
+                  isNew={isNewComment}
+                  delay={currentDelay}
+                />
+              );
+            })}
+          </AnimatePresence>
         </div>
       </div>
       {inputBox}

@@ -2,7 +2,7 @@
 
 import { usePathname, useRouter } from "next/navigation";
 
-import { useCallback, useState } from "react";
+import { useCallback, useState, useTransition } from "react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 import { ChevronsUpDown } from "lucide-react";
+import { Spinner } from "@/components/ui/spinner";
 import { useSearchParams } from "next/navigation";
 
 interface Professor {
@@ -31,6 +32,7 @@ function ProfessorDropdown({ listOfProfessors }: dropdownTypes) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
+  const [isPending, startTransition] = useTransition();
   const createQueryString = useCallback(
     (name: string, value: string) => {
       const params = new URLSearchParams(searchParams.toString());
@@ -39,11 +41,15 @@ function ProfessorDropdown({ listOfProfessors }: dropdownTypes) {
     },
     [searchParams]
   );
-  const [professorID, setProfessorID] = useState(searchParams.get("professor") ?? "all-professors");
+  const [professorID, setProfessorID] = useState(
+    searchParams.get("professor") ?? "all-professors"
+  );
   const handleDropdownChange = (value: string) => {
-    console.log(value);
+    if (value === professorID) return;
     setProfessorID(value);
-    router.push(pathname + "?" + createQueryString("professor", value));
+    startTransition(() => {
+      router.push(pathname + "?" + createQueryString("professor", value));
+    });
   };
 
   let professorNameFromID: Professor = {
@@ -62,24 +68,36 @@ function ProfessorDropdown({ listOfProfessors }: dropdownTypes) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline" className="h-10">
+        <Button
+          variant="outline"
+          className={`h-10 border-foreground/10 shadow-none rounded-xl transition-all duration-300 hover:bg-accent/30 dark:hover:bg-accent/15 ${
+            isPending ? "opacity-50" : "opacity-100"
+          }`}
+        >
           {professorNameFromID.name}
-          <ChevronsUpDown />
+          {isPending ? <Spinner className="size-4" /> : <ChevronsUpDown />}
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-56">
+      <DropdownMenuContent align="end" className="w-52 shadow-none border-foreground/10 rounded-xl">
         <DropdownMenuLabel>Professors</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuRadioGroup
           value={professorID}
           onValueChange={handleDropdownChange}
         >
-          <DropdownMenuRadioItem value={"all-professors"}>
+          <DropdownMenuRadioItem
+            value={"all-professors"}
+            className="rounded-md"
+          >
             All Professors
           </DropdownMenuRadioItem>
           {listOfProfessors.map((item: Professor) => {
             return (
-              <DropdownMenuRadioItem value={item.id} key={item.id}>
+              <DropdownMenuRadioItem
+                value={item.id}
+                key={item.id}
+                className="rounded-md"
+              >
                 {item.name}
               </DropdownMenuRadioItem>
             );

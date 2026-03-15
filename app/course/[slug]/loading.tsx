@@ -1,3 +1,4 @@
+// Skeleton
 export default function Loading() {
   return (
     <div className="bg-background flex h-full w-full flex-col overflow-scroll md:h-[calc(100svh-120px)] md:flex-row">
@@ -19,7 +20,7 @@ export default function Loading() {
       </div>
 
       {/* Middle: discussion */}
-      <section className="border-foreground/10 relative flex min-h-60 w-full flex-col gap-4 border-r border-l p-8 md:h-full md:w-1/4 md:max-w-1/4">
+      <section className="border-foreground/5 relative flex min-h-60 w-full flex-col gap-4 border-r border-l p-8 md:h-full md:w-1/4 md:max-w-1/4">
         <div className="shimmer min-h-40 flex-5 rounded-md" />
         <div className="shimmer min-h-12 flex-1 rounded-md" />
       </section>

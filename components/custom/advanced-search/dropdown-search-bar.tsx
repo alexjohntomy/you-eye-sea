@@ -3,7 +3,8 @@
 import { Command, CommandInput } from "@/components/custom/advanced-search/dropdown-list";
 import { Button } from "@/components/ui/button";
 import { SearchIcon } from "lucide-react";
-import { useCallback, useState } from "react";
+import { useCallback, useState, useTransition } from "react";
+import { Spinner } from "@/components/ui/spinner";
 import subjectList from "@/subjectList";
 
 import { DropdownResults } from "./dropdown-results";
@@ -101,18 +102,22 @@ function DropdownSearchBar() {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
+  const [isPending, startTransition] = useTransition();
+
   const handleSearch = () => {
-    const params = new URLSearchParams(searchParams.toString());
-    params.set("subject", valueOne);
-    params.set("sort", valueTwo);
-    params.set("level", valueThree);
-    router.push(`${pathname}?${params.toString()}`);
+    startTransition(() => {
+      const params = new URLSearchParams(searchParams.toString());
+      params.set("subject", valueOne);
+      params.set("sort", valueTwo);
+      params.set("level", valueThree);
+      router.push(`${pathname}?${params.toString()}`);
+    });
   };
 
   return (
-    <div className="flex justify-between md:w-3/4 bg-white dark:bg-card py-4 md:py-8 rounded-md gap-5 border border-uic-navy-300/40 dark:border-foreground/10 md:max-h-20 relative md:items-start opacity-100">
+    <div className="flex justify-between md:w-3/4 bg-background dark:bg-card py-4 md:py-8 rounded-xl gap-5 border border-foreground/10 shadow-none md:max-h-20 relative md:items-start opacity-100">
       <div className="flex flex-col md:flex-row w-full gap-5 justify-center relative md:-top-5 px-2">
-      <Command className="rounded-sm bg-white dark:bg-card md:w-1/4">
+      <Command className="rounded-sm bg-background dark:bg-card md:w-1/4">
         <p className="text-xs px-3 tracking-wide opacity-50">SUBJECT</p>
           <Popover open={focusOne}>
           <PopoverAnchor asChild>
@@ -147,7 +152,7 @@ function DropdownSearchBar() {
         </Popover>
       </Command>
 
-<Command className="rounded-sm bg-white dark:bg-card md:w-1/4">
+<Command className="rounded-sm bg-background dark:bg-card md:w-1/4">
         <p className="text-xs px-3 tracking-wide opacity-50">LEVEL</p>
           <Popover open={focusThree}>
           <PopoverAnchor asChild>
@@ -182,7 +187,7 @@ function DropdownSearchBar() {
         </Popover>
       </Command>
 
-      <Command className="rounded-sm bg-white dark:bg-card md:w-1/4">
+      <Command className="rounded-sm bg-background dark:bg-card md:w-1/4">
         <p className="text-xs px-3 tracking-wide opacity-50">SORT BY</p>
           <Popover open={focusTwo}>
           <PopoverAnchor asChild>
@@ -219,10 +224,10 @@ function DropdownSearchBar() {
 
       <Button
         onClick={handleSearch}
-        className="relative md:top-1 py-6 rounded-sm bg-uic-red-500 opacity-100 inset-shadow-2xl hover:bg-uic-red-600 hover:text-background hover:opacity-100 font-semibold text-white shadow-lg"
-        variant="default"
+        className="relative md:top-1 py-6 rounded-xl bg-uic-red-500/10 border border-uic-red-500/15 hover:bg-uic-red-500/20 text-uic-red-500 hover:text-uic-red-500 opacity-100 shadow-none font-semibold transition-all duration-300"
+        variant="outline"
       >
-        <SearchIcon></SearchIcon> Show Results
+        {isPending ? <Spinner className="size-4" /> : <SearchIcon className="size-4" />} Show Results
       </Button>
       </div>
     </div>

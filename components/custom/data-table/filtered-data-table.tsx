@@ -53,7 +53,7 @@ function FilteredDataTable<TData, TValue>({
   return (
     <div className="flex w-full flex-col items-center gap-3">
       <div className="flex h-full w-full justify-center">
-        <div className="border-foreground/10 w-3/4 overflow-hidden rounded-md border">
+        <div className="border-foreground/10 shadow-none w-3/4 overflow-hidden rounded-md border">
           <Table className="bg-background">
             <TableHeader>
               {table.getHeaderGroups().map((headerGroup) => (
@@ -62,7 +62,7 @@ function FilteredDataTable<TData, TValue>({
                     return (
                       <TableHead
                         key={header.id}
-                        className="bg-uic-navy-500 dark:bg-uic-navy-400/40 text-background dark:text-foreground/80 font-black"
+                        className="bg-muted/70 text-foreground text-xs font-bold whitespace-nowrap"
                       >
                         {header.isPlaceholder
                           ? null
@@ -110,7 +110,7 @@ function FilteredDataTable<TData, TValue>({
       </div>
       <ButtonGroup className="flex flex-row md:flex-row">
         <Button
-          className="border-foreground/10 bg-background text-foreground hover:bg-uic-red-50 disabled:text-foreground/25 disabled:bg-background rounded-sm border text-sm disabled:opacity-100"
+          className="border-foreground/10 bg-background text-foreground hover:bg-uic-red-50 disabled:text-foreground/25 disabled:bg-background rounded-l-md rounded-r-none border text-sm disabled:opacity-100"
           onClick={() => table.firstPage()}
           disabled={!table.getCanPreviousPage()}
         >
@@ -123,7 +123,7 @@ function FilteredDataTable<TData, TValue>({
         >
           {"<"}
         </Button>
-        <h2 className="border-foreground/10 text-foreground bg-background flex h-full items-center border px-5 text-sm font-medium tracking-wide italic">
+        <h2 className="border-foreground/10 text-foreground bg-background flex h-9 items-center border px-5 text-sm font-medium tracking-wide italic">
           Page {table.getState().pagination.pageIndex + 1} of{" "}
           {table.getPageCount()}
         </h2>
@@ -135,7 +135,7 @@ function FilteredDataTable<TData, TValue>({
           {">"}
         </Button>
         <Button
-          className="border-foreground/10 bg-background text-foreground hover:bg-uic-red-50 disabled:text-foreground/25 disabled:bg-background rounded-sm border text-sm disabled:opacity-100"
+          className="border-foreground/10 bg-background text-foreground hover:bg-uic-red-50 disabled:text-foreground/25 disabled:bg-background rounded-r-md rounded-l-none border text-sm disabled:opacity-100"
           onClick={() => table.lastPage()}
           disabled={!table.getCanNextPage()}
         >

@@ -66,13 +66,13 @@ function DropdownResults({
         exit={{ opacity: 0, scale: 1, y: -5 }}
         transition={{ ease: "easeInOut" }}
       >
-        <CommandList className="bg-background rounded-t-none rounded-b-sm border-t-none border-b border-l border-r border-foreground/10">
+        <CommandList className="bg-background rounded-t-none rounded-b-xl border-t-none border-b border-l border-r border-foreground/10">
           <CommandEmpty></CommandEmpty>
-          <CommandGroup className="flex flex-col overflow-scroll">
+          <CommandGroup className="flex flex-col overflow-scroll p-1 gap-0.5">
             {resultsList.map((result, index) => 
             (
               <CommandItem
-                className= {index == resultsList.length-1 ? "border-gray-400/30 rounded-b-xs rounded-t-none transition-colors duration-200 ease-ou text-foreground/60" : "border-b border-gray-400/30 rounded-none transition-colors duration-200 ease-out text-foreground/60"}
+                className="rounded-md transition-colors duration-200 ease-out text-foreground/70 dark:data-[selected=true]:bg-blue-500/12 dark:data-[selected=true]:text-blue-100"
                 key={result.value}
                 value={result.value}
                 onMouseDown={() => handleSelect(result.value)}
@@ -91,13 +91,13 @@ function DropdownResults({
   <Drawer open={focusStatus} onOpenChange={setOpen}>
         <DrawerContent>
         <DrawerTitle className="py-2 text-center">Select from the list</DrawerTitle>
-        <CommandList className="bg-background rounded-t-none rounded-b-sm border-t-none border-b border-l border-r border-foreground/10">
+        <CommandList className="bg-background rounded-t-none rounded-b-xl border-t-none border-b border-l border-r border-foreground/10">
           <CommandEmpty></CommandEmpty>
-          <CommandGroup className="flex flex-col overflow-scroll">
+          <CommandGroup className="flex flex-col overflow-scroll p-1 gap-0.5">
             {resultsList.map((result, index) => 
             (
               <CommandItem
-                className= {index == resultsList.length-1 ? "border-gray-400/30 rounded-b-xs rounded-t-none transition-colors duration-200 ease-ou text-foreground/60" : "border-b border-gray-400/30 rounded-none transition-colors duration-200 ease-out text-foreground/60"}
+                className="rounded-md transition-colors duration-200 ease-out text-foreground/70 dark:data-[selected=true]:bg-blue-500/12 dark:data-[selected=true]:text-blue-100"
                 key={result.value}
                 value={result.value}
                 onMouseDown={() => handleSelect(result.value)}

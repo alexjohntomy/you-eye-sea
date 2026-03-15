@@ -125,7 +125,9 @@ async function FilteredDataTableServer({subject, sortType, level} : FilterTypes)
     else if ((subjectList.includes(subject) || subject == "all") && validSortTypes.includes(sortType) && validLevels.includes(level)) {
       const data = await createTableRowsFromData({subject, sortType, level})
       return (
-        <FilteredDataTable columns={columns} data={data}/>
+        <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 w-full">
+          <FilteredDataTable columns={columns} data={data}/>
+        </div>
       );
     }
     else return <div className="flex flex-col items-center justify-center w-full h-20"><h1 className="font-bold italic">Sorry, no results were found...</h1></div>
