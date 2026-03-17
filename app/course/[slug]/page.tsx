@@ -10,11 +10,10 @@ import { CourseActionButtons } from "@/components/custom/visualization-pane/cour
 import type { Metadata } from "next";
 import { Suspense } from "react";
 
-
 async function getCourseDetails(slug: string) {
   const parsedSlug = slug.split("-");
   const courses = await prisma.courseInstance.findMany({
-    cacheStrategy: { ttl: 86400, swr: 86400 },
+    cacheStrategy: { ttl: 604800, swr: 86400 },
     where: {
       courseID: parsedSlug[0],
       courseNumber: parseInt(parsedSlug[1]),
@@ -66,7 +65,7 @@ async function getCourseInstance(slug: string, queryParams: any) {
   const professor = queryParams.professor;
   if (professor == "all-professors" || !professor) {
     return await prisma.courseInstance.aggregate({
-      cacheStrategy: { ttl: 86400, swr: 86400 },
+      cacheStrategy: { ttl: 604800, swr: 86400 },
       _sum: {
         A: true,
         B: true,
@@ -85,7 +84,7 @@ async function getCourseInstance(slug: string, queryParams: any) {
     });
   } else {
     return await prisma.courseInstance.aggregate({
-      cacheStrategy: { ttl: 86400, swr: 86400 },
+      cacheStrategy: { ttl: 604800, swr: 86400 },
       _sum: {
         A: true,
         B: true,
@@ -116,7 +115,9 @@ export async function generateMetadata({
   const { slug } = await params;
   const filteredParams = await searchParams;
   const courseIDSlug = slug.replace("-", " ").toUpperCase();
-  const professorQuery = filteredParams.professor ? `&professor=${filteredParams.professor}` : "";
+  const professorQuery = filteredParams.professor
+    ? `&professor=${filteredParams.professor}`
+    : "";
 
   return {
     title: courseIDSlug + " | UIC Grade Distribution",
@@ -161,7 +162,8 @@ export default async function CourseDetailsPage({
         p.id === String(filteredParams.professor)
     )?.name ?? "";
 
-  const averageCourseSize = GradeDistributionCount?._avg?.total_students ?? null;
+  const averageCourseSize =
+    GradeDistributionCount?._avg?.total_students ?? null;
 
   return (
     <div className="bg-background animate-in fade-in flex h-full w-full min-w-87 grow flex-col overflow-hidden duration-150 md:h-[calc(100svh-120px)] md:flex-row">
@@ -183,10 +185,10 @@ export default async function CourseDetailsPage({
           </div>
         </div>
         <CourseActionButtons
-            courseName={courseDetails.name}
-            courseNumber={courseDetails.number}
-            selectedProfessorName={selectedProfessorName}
-          />
+          courseName={courseDetails.name}
+          courseNumber={courseDetails.number}
+          selectedProfessorName={selectedProfessorName}
+        />
         <div className="pt-2">
           <GradeDistributionChart
             chartData={formattedGradeData}

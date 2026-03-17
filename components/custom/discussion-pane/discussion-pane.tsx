@@ -21,16 +21,16 @@ function DiscussionPane({
       onValueChange={setSelectedTab}
       className="-mt-1 flex h-full w-full flex-col"
     >
-      <TabsList className="bg-muted/50 border-foreground/10 h-auto w-full min-w-fit! gap-1 rounded-xl border p-1.5 shadow-none">
+      <TabsList className="bg-muted/50 border-foreground/10 h-auto w-full gap-0.5 md:gap-1 rounded-xl border p-1 md:p-1.5 shadow-none">
         <TabsTrigger
           value="ratings"
-          className="data-[state=active]:bg-background data-[state=active]:text-foreground flex-1 rounded-lg border border-transparent py-1 text-base font-bold transition-all data-[state=active]:border-foreground/10 data-[state=active]:shadow-none"
+          className="data-[state=active]:bg-background data-[state=active]:text-foreground flex-1 rounded-lg border border-transparent py-1 px-1 md:px-2 text-xs lg:text-sm font-bold transition-all data-[state=active]:border-foreground/10 data-[state=active]:shadow-none"
         >
           Ratings
         </TabsTrigger>
         <TabsTrigger
           value="notes"
-          className="data-[state=active]:bg-background data-[state=active]:text-foreground flex-1 rounded-lg border border-transparent py-1 text-base font-bold transition-all data-[state=active]:border-foreground/10 data-[state=active]:shadow-none"
+          className="data-[state=active]:bg-background data-[state=active]:text-foreground flex-1 rounded-lg border border-transparent py-1 px-1 md:px-2 text-xs lg:text-sm font-bold transition-all data-[state=active]:border-foreground/10 data-[state=active]:shadow-none"
         >
           Notes
         </TabsTrigger>

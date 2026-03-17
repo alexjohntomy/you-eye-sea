@@ -3,7 +3,7 @@ import prisma from "@/lib/prisma";
 
 async function getCourseInstanceSums(courseName: string[]) {
   const courseInstanceAggregation = await prisma.courseInstance.groupBy({
-    cacheStrategy: { ttl: 86400, swr: 86400 },
+    cacheStrategy: { ttl: 604800, swr: 86400 },
     by: ["courseInstanceID"],
     _sum: {
       A: true,
@@ -38,7 +38,7 @@ function semesterToNumber(semester: string): number {
 
 async function getStatsFromDB(courseName: string[]) {
   const statsFromDB = await prisma.courseInstance.findMany({
-    cacheStrategy: { ttl: 86400, swr: 86400 },
+    cacheStrategy: { ttl: 604800, swr: 86400 },
     where: {
       courseID: courseName[0],
       courseNumber: parseInt(courseName[1]),
@@ -56,7 +56,10 @@ async function getStatsFromDB(courseName: string[]) {
       semester: true,
     },
   });
-  return statsFromDB.sort((a: { semester: string }, b: { semester: string }) => semesterToNumber(b.semester) - semesterToNumber(a.semester));
+  return statsFromDB.sort(
+    (a: { semester: string }, b: { semester: string }) =>
+      semesterToNumber(b.semester) - semesterToNumber(a.semester)
+  );
 }
 
 interface TablePaneServerProps {

@@ -197,8 +197,8 @@ function CommentsPane({ comments, parsedSlug, professorID }: testProps) {
           </InputGroupText>
           <InputGroupButton
             variant="outline"
-            className="bg-secondary text-background dark:text-foreground border-secondary/50 shadow-none w-20 rounded-lg border"
-            size="icon-xs"
+            className="bg-secondary text-background dark:text-foreground border-secondary/50 shadow-none px-3 rounded-lg border"
+            size="xs"
             onClick={() => {
               if (filter.isProfane(value)) {
                 setValue("Don't use profanity please.");

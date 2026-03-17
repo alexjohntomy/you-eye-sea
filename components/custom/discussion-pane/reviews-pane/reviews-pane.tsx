@@ -13,8 +13,8 @@ import { Star } from "lucide-react";
 
 const customStyles = {
   itemShapes: ThinRoundedStar,
-  activeFillColor: "var(--color-uic-navy-500)",
-  inactiveFillColor: "color-mix(in srgb, var(--color-uic-navy-500) 20%, transparent)",
+  activeFillColor: "var(--color-uic-navy-600)",
+  inactiveFillColor: "color-mix(in srgb, var(--color-uic-navy-600) 20%, transparent)",
 };
 
 import { Card } from "@/components/ui/card";
@@ -128,8 +128,7 @@ function ReviewsPane({
         <div className="py-6">
           <InputGroup className="overflow-y border-foreground/10 shadow-none bg-background bottom-3 rounded-xl border focus-visible:ring-0 has-[[data-slot=input-group-control]:focus-visible]:ring-0 has-[[data-slot=input-group-control]:focus-visible]:border-foreground/10">
             <ReactRating
-              className="relative left-2 top-2"
-              style={{ maxWidth: 150 }}
+              className="relative left-2 top-2 max-w-[110px] md:max-w-[120px] lg:max-w-[150px]"
               itemStyles={customStyles}
               value={rating}
               onChange={setRating}
@@ -233,8 +232,7 @@ function ReviewsPane({
         <div className="py-6">
           <InputGroup className="overflow-y border-foreground/10 shadow-none bg-background bottom-3 rounded-xl border focus-visible:ring-0 has-[[data-slot=input-group-control]:focus-visible]:ring-0 has-[[data-slot=input-group-control]:focus-visible]:border-foreground/10">
             <ReactRating
-              className="relative left-2 top-2"
-              style={{ maxWidth: 150 }}
+              className="relative top-2 max-w-[110px] md:max-w-[120px] lg:max-w-[150px]"
               itemStyles={customStyles}
               value={rating}
               onChange={setRating}
