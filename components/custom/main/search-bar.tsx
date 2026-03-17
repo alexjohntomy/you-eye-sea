@@ -52,11 +52,11 @@ function PlaceholderText({ query }: testProps) {
   }
 }
 
-function SearchBar({ enableHaptics = false }: { enableHaptics?: boolean } = {}) {
+function SearchBar() {
   const [value, setValue] = useState("");
   const [commandValue, setCommandValue] = useState("-");
   const isMobile = useIsMobile();
-  const { trigger } = useWebHaptics({ showSwitch: enableHaptics });
+  const { trigger } = useWebHaptics();
 
   return (
     <div className="md:max-1/2 mx-auto max-w-1/4 min-w-3/4 md:min-w-1/2">
@@ -80,7 +80,7 @@ function SearchBar({ enableHaptics = false }: { enableHaptics?: boolean } = {}) 
             value={commandValue}
             onValueChange={setCommandValue}
             shouldFilter={false}
-            className="dark:bg-background text-foreground rounded-none bg-background py-[0.5] opacity-95"
+            className="dark:bg-background text-foreground bg-background rounded-none py-[0.5] opacity-95"
           >
             <motion.div layout="position">
               <div className="justify-between-safe relative flex flex-wrap items-center gap-4 p-2">
@@ -92,9 +92,7 @@ function SearchBar({ enableHaptics = false }: { enableHaptics?: boolean } = {}) 
                   autoFocus={!isMobile}
                   onValueChange={(val) => {
                     setValue(val);
-                    if (enableHaptics && val !== value) {
-                      trigger("nudge");
-                    }
+                    trigger("nudge");
                   }}
                   wrapperClassName="flex flex-1 gap-3 border-b-0 items-center"
                   className="w-full text-lg"

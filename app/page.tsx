@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div className="flex min-h-[calc(100svh-4rem)] w-full flex-col px-1 py-2 md:min-h-full md:justify-center animate-in fade-in duration-700">
+    <div className="animate-in fade-in flex min-h-[calc(100svh-4rem)] w-full flex-col px-1 py-2 duration-700 md:min-h-full md:justify-center">
       {/* Hero Text */}
       <div className="mt-10 flex flex-col items-center">
         <Badge
@@ -32,7 +32,7 @@ export default function Home() {
       </div>
       {/* Search Bar */}
       <div className="min-h-96">
-        <SearchBar enableHaptics={true} />
+        <SearchBar />
       </div>
       <div className="bg-gradient-uic absolute inset-0 -z-10" />
       <div className="absolute inset-0 -z-10 h-full w-full bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-size-[30px_30px]"></div>
