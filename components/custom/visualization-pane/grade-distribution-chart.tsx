@@ -68,6 +68,7 @@ interface chartsProp {
   chartData: GradeData[];
   professorID: string | null;
   listOfProfessors: Professor[];
+  averageCourseSize: number | null;
 }
 
 interface Professor {
@@ -98,6 +99,7 @@ function GradeDistributionChart({
   chartData,
   professorID,
   listOfProfessors,
+  averageCourseSize,
 }: chartsProp) {
   console.log(chartData);
   const calculatedGPA = calculateGPA(chartData);
@@ -178,19 +180,19 @@ function GradeDistributionChart({
       <div>
         <CardHeader className="flex flex-row justify-between">
           <div>
-            <CardTitle className="text:lg font-black md:text-xl">
+            <CardTitle className="text:lg font-black xl:text-xl ">
               Grade Distribution
             </CardTitle>
-            <CardDescription className="flex flex-col gap-0 pt-1 text-xs opacity-60 md:flex-row md:gap-1 lg:text-sm">
+            <CardDescription className="flex flex-col gap-0 pt-1 text-xs opacity-60 xl:flex-row md:gap-1 lg:text-sm">
               <span className="text-foreground/80 font-bold tracking-wide">
                 {selectedProfessor}
               </span>{" "}
-              <span className="font-medium tracking-wide">
+              <span className="font-medium tracking-wide text-nowrap">
                 (Spring &apos;22 - Fall &apos;25)
               </span>
             </CardDescription>
           </div>
-          <Card className="border-foreground/10 flex flex-col items-end gap-1 rounded-xl px-1.5 py-1 text-sm shadow-none md:px-3 md:py-3">
+          <Card className="border-foreground/10 flex flex-col items-end gap-1 rounded-xl px-2.5 py-2.5 text-sm shadow-none md:px-3 md:py-3">
             <h1 className="-mt-1 -mb-1 flex items-center gap-2">
               <div
                 className={`border-foreground/20 aspect-square size-2 rounded-full border opacity-80 md:size-2.25 ${gpaColorClass}`}
@@ -205,6 +207,11 @@ function GradeDistributionChart({
             <h1 className="text-xs text-nowrap md:text-sm">
               <span className="font-semibold">Drop Rate: </span> {dropRate}%
             </h1>
+            {averageCourseSize !== null && (
+              <h1 className="text-xs text-nowrap md:text-sm">
+                <span className="font-semibold">Avg Class Size: </span> {Math.round(averageCourseSize)}
+              </h1>
+            )}
           </Card>
         </CardHeader>
       </div>

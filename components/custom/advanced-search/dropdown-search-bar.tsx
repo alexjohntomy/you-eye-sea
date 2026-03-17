@@ -3,7 +3,7 @@
 import { Command, CommandInput } from "@/components/custom/advanced-search/dropdown-list";
 import { Button } from "@/components/ui/button";
 import { SearchIcon } from "lucide-react";
-import { useCallback, useState, useTransition } from "react";
+import { useCallback, useEffect, useState, useTransition } from "react";
 import { Spinner } from "@/components/ui/spinner";
 import subjectList from "@/subjectList";
 
@@ -93,6 +93,14 @@ function DropdownSearchBar() {
   const [inputOne, setInputOne] = useState("");
   const [inputTwo, setInputTwo] = useState("");
   const [inputThree, setInputThree] = useState("");
+
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    setValueOne(searchParams.get("subject") ?? "all");
+    setValueTwo(searchParams.get("sort") ?? "gpa");
+    setValueThree(searchParams.get("level") ?? "all");
+  }, [searchParams]);
   
   const subjectPlaceholder = (subjects.find((obj) => obj.value === valueOne)?? {value: undefined, label: "None Selected"}).label;
   const sortTypePlaceholder = (sortTypes.find((obj) => obj.value === valueTwo)?? {value: undefined, label: "None Selected"}).label;
@@ -101,7 +109,6 @@ function DropdownSearchBar() {
   //Append search params when button is clicked
   const router = useRouter();
   const pathname = usePathname();
-  const searchParams = useSearchParams();
   const [isPending, startTransition] = useTransition();
 
   const handleSearch = () => {
@@ -224,7 +231,7 @@ function DropdownSearchBar() {
 
       <Button
         onClick={handleSearch}
-        className="relative md:top-1 py-6 rounded-xl bg-uic-red-500/10 border border-uic-red-500/15 hover:bg-uic-red-500/20 text-uic-red-500 hover:text-uic-red-500 opacity-100 shadow-none font-semibold transition-all duration-300"
+        className="relative md:top-1 py-6 rounded-xl bg-uic-navy-500/10 border border-uic-navy-500/15 hover:bg-uic-navy-500/20 text-uic-navy-500 hover:text-uic-navy-500 opacity-100 shadow-none font-semibold transition-all duration-300"
         variant="outline"
       >
         {isPending ? <Spinner className="size-4" /> : <SearchIcon className="size-4" />} Show Results

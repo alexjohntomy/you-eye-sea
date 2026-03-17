@@ -8,6 +8,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { Command, CommandInput } from "@/components/ui/command";
 
 import { ResultsPaneMotionComponent } from "./results-pane-motion";
+import { useWebHaptics } from "web-haptics/react";
 
 const placeholderArray = [
   "Search for a course...",
@@ -51,10 +52,11 @@ function PlaceholderText({ query }: testProps) {
   }
 }
 
-function SearchBar() {
+function SearchBar({ enableHaptics = false }: { enableHaptics?: boolean } = {}) {
   const [value, setValue] = useState("");
   const [commandValue, setCommandValue] = useState("-");
   const isMobile = useIsMobile();
+  const { trigger } = useWebHaptics({ showSwitch: enableHaptics });
 
   return (
     <div className="md:max-1/2 mx-auto max-w-1/4 min-w-3/4 md:min-w-1/2">
@@ -88,7 +90,12 @@ function SearchBar() {
                 <CommandInput
                   placeholder=""
                   autoFocus={!isMobile}
-                  onValueChange={setValue}
+                  onValueChange={(val) => {
+                    setValue(val);
+                    if (enableHaptics && val !== value) {
+                      trigger("nudge");
+                    }
+                  }}
                   wrapperClassName="flex flex-1 gap-3 border-b-0 items-center"
                   className="w-full text-lg"
                 ></CommandInput>

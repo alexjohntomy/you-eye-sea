@@ -75,6 +75,9 @@ async function getCourseInstance(slug: string, queryParams: any) {
         F: true,
         W: true,
       },
+      _avg: {
+        total_students: true,
+      },
       where: {
         courseID: parsedSlug[0],
         courseNumber: parseInt(parsedSlug[1]),
@@ -91,6 +94,9 @@ async function getCourseInstance(slug: string, queryParams: any) {
         F: true,
         W: true,
       },
+      _avg: {
+        total_students: true,
+      },
       where: {
         courseID: parsedSlug[0],
         courseNumber: parseInt(parsedSlug[1]),
@@ -102,13 +108,35 @@ async function getCourseInstance(slug: string, queryParams: any) {
 
 export async function generateMetadata({
   params,
+  searchParams,
 }: {
   params: Promise<{ slug: string }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
   const { slug } = await params;
+  const filteredParams = await searchParams;
+  const courseIDSlug = slug.replace("-", " ").toUpperCase();
+  const professorQuery = filteredParams.professor ? `&professor=${filteredParams.professor}` : "";
+
   return {
-    title: slug.replace("-", " ").toUpperCase() + " | UIC Grade Distribution",
-    description: `Grade distribution dashboard for ${slug.replace("-", " ").toUpperCase()} at University of Illinois at Chicago (UIC).`,
+    title: courseIDSlug + " | UIC Grade Distribution",
+    description: `Grade distribution dashboard for ${courseIDSlug} at University of Illinois at Chicago (UIC).`,
+    openGraph: {
+      images: [
+        {
+          url: `/api/og?course=${slug}${professorQuery}`,
+          width: 1200,
+          height: 630,
+          alt: `${courseIDSlug} Grade Distribution`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: courseIDSlug + " | UIC Grade Distribution",
+      description: `Grade distribution dashboard for ${courseIDSlug} at University of Illinois at Chicago (UIC).`,
+      images: [`/api/og?course=${slug}${professorQuery}`],
+    },
   };
 }
 
@@ -132,6 +160,8 @@ export default async function CourseDetailsPage({
       (p: { id: string; name: string }) =>
         p.id === String(filteredParams.professor)
     )?.name ?? "";
+
+  const averageCourseSize = GradeDistributionCount?._avg?.total_students ?? null;
 
   return (
     <div className="bg-background animate-in fade-in flex h-full w-full min-w-87 grow flex-col overflow-hidden duration-150 md:h-[calc(100svh-120px)] md:flex-row">
@@ -166,6 +196,7 @@ export default async function CourseDetailsPage({
                 : ((filteredParams.professor as string | undefined) ?? null)
             }
             listOfProfessors={courseDetails.professors}
+            averageCourseSize={averageCourseSize}
           ></GradeDistributionChart>
         </div>
         <h5 className="text-foreground/50 py-2 text-center text-xs">

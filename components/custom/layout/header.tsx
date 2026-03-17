@@ -26,7 +26,7 @@ function Header() {
   const pathname = usePathname();
   const isHomePage = pathname === "/";
   return (
-    <header className="border-uic-navy-900/20 dark:border-foreground/15 bg-uic-navy-900 dark:bg-background flex h-fit flex-col items-center justify-between gap-3 border-b px-5 py-5 md:h-15 md:flex-row">
+    <header className="sticky top-0 z-50 md:static border-uic-navy-900/20 dark:border-foreground/15 bg-uic-navy-900 dark:bg-background flex h-fit flex-col items-center justify-between gap-3 border-b px-5 py-5 md:h-15 md:flex-row">
       <Link href="/">
         <div className="flex flex-row items-start">
           <Image
@@ -98,7 +98,7 @@ function Header() {
               <NavigationMenuLink asChild>
                 <Link
                   href="/changelog"
-                  className="dark:text-foreground/50 dark:hover:text-foreground dark:active:text-foreground -ml-2 flex h-9 items-center justify-center rounded-md bg-transparent! px-4 py-2 font-semibold text-white/70 opacity-80 transition-colors hover:bg-transparent hover:text-white hover:opacity-100 active:bg-transparent active:text-white"
+                  className="dark:text-foreground/50 dark:hover:text-foreground dark:active:text-foreground -ml-2 flex h-9 items-center justify-center rounded-md bg-transparent! pl-4 pr-0 py-2 font-semibold text-white/70 opacity-80 transition-colors hover:bg-transparent hover:text-white hover:opacity-100 active:bg-transparent active:text-white"
                   title="Changelog"
                 >
                   <History size={18} />

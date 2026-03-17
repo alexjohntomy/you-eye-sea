@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 
 import { DropdownSearchBar } from "@/components/custom/advanced-search/dropdown-search-bar";
 import { FilteredDataTableServer } from "@/components/custom/data-table/filtered-data-table-server";
+import { PresetButtons } from "./preset-buttons";
 
 export const metadata: Metadata = {
   title: "YouEyeSea - Explore",
@@ -23,6 +24,7 @@ export default async function Explore({
         <h1 className="font-black text-2xl md:text-3xl py-5 text-center text-transparent bg-text-gradient-uic bg-clip-text text-shadow-[0px_0px_0px_20px_var(--inset-color)]">
           Explore
         </h1>
+        <PresetButtons />
       </div>
       <div className="flex flex-col gap-2">
         {/* Search Bar */}

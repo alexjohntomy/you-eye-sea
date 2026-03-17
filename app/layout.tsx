@@ -47,6 +47,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NODE_ENV === 'production' ? 'https://youeyesea.com' : 'http://localhost:3000'),
   title: {
     template: "%s | YouEyeSea",
     default: "YouEyeSea - UIC Grade Distributions",

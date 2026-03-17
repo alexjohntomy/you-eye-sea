@@ -82,7 +82,7 @@ export function CourseActionButtons({
 
   return (
     <LayoutGroup>
-      <div className="flex min-w-full flex-col gap-2 lg:flex-row">
+      <div className="flex min-w-full flex-col gap-2 xl:flex-row">
         <motion.div
           layout
           className="flex-1"

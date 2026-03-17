@@ -78,7 +78,7 @@ function GlobalSearch() {
       {!isMobile && (
         <button
           onClick={() => setOpen(true)}
-          className="dark:text-foreground/50 dark:hover:text-foreground/80 dark:bg-foreground/5 dark:hover:bg-foreground/10 dark:border-foreground/10 flex min-w-[400px] cursor-pointer items-center justify-between gap-2 rounded-md border border-white/15 bg-white/10 px-3 py-1.5 text-sm text-white/60 transition-colors hover:bg-white/15 hover:text-white/90"
+          className="dark:text-foreground/50 dark:hover:text-foreground/80 dark:bg-foreground/5 dark:hover:bg-foreground/10 dark:border-foreground/10 flex w-[200px] cursor-pointer items-center justify-between gap-2 rounded-md border border-white/15 bg-white/10 px-3 py-1.5 text-sm text-white/60 transition-colors hover:bg-white/15 hover:text-white/90 lg:w-[400px]"
         >
           <div className="flex items-center gap-2">
             <Search className="size-3.5 shrink-0" />
