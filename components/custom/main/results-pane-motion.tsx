@@ -19,6 +19,7 @@ import { Ref } from "react";
 
 import { ChevronRight, GraduationCap, TrendingUp, SearchX } from "lucide-react";
 import { SearchResult as CustomSearchResult } from "@/components/custom/main/results-pane";
+import { useWebHaptics } from "web-haptics/react";
 
 interface testProps {
   query: string;
@@ -97,6 +98,7 @@ function ResultsPaneMotion({
   ref,
 }: testProps) {
   const router = useRouter();
+  const { trigger } = useWebHaptics();
   const trendingClasses: any = [
     {
       id: 1,
@@ -231,6 +233,7 @@ function ResultsPaneMotion({
                 value={resultItem.id.toString()}
                 onSelect={() => {
                   router.push(href);
+                  trigger("nudge");
                   onSelect?.();
                 }}
                 className={`rounded-lg transition-colors duration-200 ease-out ${index === 4 ? "hidden md:flex" : ""}`}
