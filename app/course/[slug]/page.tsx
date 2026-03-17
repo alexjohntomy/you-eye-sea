@@ -141,16 +141,13 @@ export async function generateMetadata({
   };
 }
 
-export default async function CourseDetailsPage({
-  params,
-  searchParams,
+async function StatsSection({
+  slug,
+  filteredParams,
 }: {
-  params: Promise<{ slug: string }>;
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+  slug: string;
+  filteredParams: { [key: string]: string | string[] | undefined };
 }) {
-  const filteredParams = await searchParams;
-  const { slug } = await params;
-  const parsedSlug = slug.split("-");
   const [courseDetails, GradeDistributionCount] = await Promise.all([
     getCourseDetails(slug),
     getCourseInstance(slug, filteredParams),
@@ -166,47 +163,109 @@ export default async function CourseDetailsPage({
     GradeDistributionCount?._avg?.total_students ?? null;
 
   return (
-    <div className="bg-background animate-in fade-in flex h-full w-full min-w-87 grow flex-col overflow-hidden duration-150 md:h-[calc(100svh-120px)] md:flex-row">
-      {/* Stats */}
-      <div className="flex h-full w-full flex-col gap-2 overflow-scroll p-6 md:w-1/2">
-        <div className="flex flex-row items-start justify-between">
-          <div className="flex flex-col">
-            <h1 className="text-uic-red-600 text-4xl font-black">
-              {courseDetails.name} {courseDetails.number}
-            </h1>
-            <p className="text-foreground/70 text-lg font-medium">
-              {courseDetails.title}
-            </p>
-          </div>
-          <div className="mt-1">
-            <ProfessorDropdown
-              listOfProfessors={courseDetails.professors}
-            ></ProfessorDropdown>
-          </div>
+    <div className="flex h-full w-full flex-col gap-2 overflow-scroll p-6 md:w-1/2">
+      <div className="flex flex-row items-start justify-between">
+        <div className="flex flex-col">
+          <h1 className="text-uic-red-600 text-4xl font-black">
+            {courseDetails.name} {courseDetails.number}
+          </h1>
+          <p className="text-foreground/70 text-lg font-medium">
+            {courseDetails.title}
+          </p>
         </div>
-        <CourseActionButtons
-          courseName={courseDetails.name}
-          courseNumber={courseDetails.number}
-          selectedProfessorName={selectedProfessorName}
-        />
-        <div className="pt-2">
-          <GradeDistributionChart
-            chartData={formattedGradeData}
+        <div className="mt-1">
+          <ProfessorDropdown
+            listOfProfessors={courseDetails.professors}
+          ></ProfessorDropdown>
+        </div>
+      </div>
+      <CourseActionButtons
+        courseName={courseDetails.name}
+        courseNumber={courseDetails.number}
+        selectedProfessorName={selectedProfessorName}
+      />
+      <div className="pt-2">
+        <GradeDistributionChart
+          chartData={formattedGradeData}
+          professorID={
+            Array.isArray(filteredParams.professor)
+              ? filteredParams.professor[0]
+              : ((filteredParams.professor as string | undefined) ?? null)
+          }
+          listOfProfessors={courseDetails.professors}
+          averageCourseSize={averageCourseSize}
+        ></GradeDistributionChart>
+      </div>
+      <h5 className="text-foreground/50 py-2 text-center text-xs">
+        Data is sourced from official UIC grade distributions but stats are
+        calculated in the backend, so it may contain errors. The pass rate
+        denominator includes only A-F. Drop rate denominator includes W.
+      </h5>
+    </div>
+  );
+}
+
+async function DiscussionSection({
+  slug,
+  filteredParams,
+}: {
+  slug: string;
+  filteredParams: { [key: string]: string | string[] | undefined };
+}) {
+  const courseDetails = await getCourseDetails(slug);
+  return (
+    <section className="border-foreground/10 animate-in fade-in relative h-full w-full border-r border-l px-6 py-8 duration-500 md:w-1/4 md:max-w-1/4">
+      <DiscussionPane
+        commentPaneServerComponent={
+          <CommentsPaneServer
+            slug={slug}
+            professorID={
+              Array.isArray(filteredParams.professor)
+                ? filteredParams.professor[0]
+                : (filteredParams.professor as string | undefined)
+            }
+          ></CommentsPaneServer>
+        }
+        reviewPaneServerComponent={
+          <ReviewsPaneServer
+            slug={slug}
             professorID={
               Array.isArray(filteredParams.professor)
                 ? filteredParams.professor[0]
                 : ((filteredParams.professor as string | undefined) ?? null)
             }
             listOfProfessors={courseDetails.professors}
-            averageCourseSize={averageCourseSize}
-          ></GradeDistributionChart>
-        </div>
-        <h5 className="text-foreground/50 py-2 text-center text-xs">
-          Data is sourced from official UIC grade distributions but stats are
-          calculated in the backend, so it may contain errors. The pass rate
-          denominator includes only A-F. Drop rate denominator includes W.
-        </h5>
-      </div>
+          ></ReviewsPaneServer>
+        }
+      ></DiscussionPane>
+    </section>
+  );
+}
+
+export default async function CourseDetailsPage({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ slug: string }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}) {
+  const filteredParams = await searchParams;
+  const { slug } = await params;
+
+  return (
+    <div className="bg-background animate-in fade-in flex h-full w-full min-w-87 grow flex-col overflow-hidden duration-150 md:h-[calc(100svh-120px)] md:flex-row">
+      {/* Stats */}
+      <Suspense
+        fallback={
+          <div className="flex h-full w-full flex-col gap-2 overflow-scroll p-6 md:w-1/2">
+            <div className="shimmer h-10 w-48 rounded-md"></div>
+            <div className="shimmer h-6 w-64 rounded-md"></div>
+            <div className="shimmer mt-4 h-64 w-full rounded-md"></div>
+          </div>
+        }
+      >
+        <StatsSection slug={slug} filteredParams={filteredParams} />
+      </Suspense>
 
       {/* Comments */}
       <Suspense
@@ -219,31 +278,7 @@ export default async function CourseDetailsPage({
           </section>
         }
       >
-        <section className="border-foreground/10 animate-in fade-in relative h-full w-full border-r border-l px-6 py-8 duration-500 md:w-1/4 md:max-w-1/4">
-          <DiscussionPane
-            commentPaneServerComponent={
-              <CommentsPaneServer
-                slug={slug}
-                professorID={
-                  Array.isArray(filteredParams.professor)
-                    ? filteredParams.professor[0]
-                    : (filteredParams.professor as string | undefined)
-                }
-              ></CommentsPaneServer>
-            }
-            reviewPaneServerComponent={
-              <ReviewsPaneServer
-                slug={slug}
-                professorID={
-                  Array.isArray(filteredParams.professor)
-                    ? filteredParams.professor[0]
-                    : ((filteredParams.professor as string | undefined) ?? null)
-                }
-                listOfProfessors={courseDetails.professors}
-              ></ReviewsPaneServer>
-            }
-          ></DiscussionPane>
-        </section>
+        <DiscussionSection slug={slug} filteredParams={filteredParams} />
       </Suspense>
 
       <Suspense
