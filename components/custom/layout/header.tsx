@@ -98,7 +98,7 @@ function Header() {
               <NavigationMenuLink asChild>
                 <Link
                   href="/changelog"
-                  className="dark:text-foreground/50 dark:hover:text-foreground dark:active:text-foreground -ml-2 flex h-9 items-center justify-center rounded-md bg-transparent! pl-4 pr-0 py-2 font-semibold text-white/70 opacity-80 transition-colors hover:bg-transparent hover:text-white hover:opacity-100 active:bg-transparent active:text-white"
+                  className="dark:text-foreground/50 dark:hover:text-foreground dark:active:text-foreground -ml-2 flex h-9 items-center justify-center rounded-md bg-transparent! pl-3 pr-0 py-2 font-semibold text-white/70 opacity-80 transition-colors hover:bg-transparent hover:text-white hover:opacity-100 active:bg-transparent active:text-white"
                   title="Changelog"
                 >
                   <History size={18} />

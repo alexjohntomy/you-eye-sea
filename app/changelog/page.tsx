@@ -10,7 +10,7 @@ export const metadata = {
 
 export default function ChangelogPage() {
   return (
-    <div className="bg-background flex h-full min-h-screen w-full flex-col px-6 pt-12 pb-24 animate-in fade-in duration-700">
+    <div className="absolute inset-0 flex flex-col overflow-y-auto overflow-x-hidden px-6 pt-12 pb-24 animate-in fade-in duration-700">
       <div className="mx-auto w-full max-w-2xl">
         {/* Header */}
         <div className="mb-5 flex flex-col gap-3">
@@ -177,8 +177,8 @@ export default function ChangelogPage() {
       </div>
 
       {/* Background patterns */}
-      <div className="bg-gradient-uic absolute inset-0 -z-10 opacity-10" />
-      <div className="absolute inset-0 -z-10 h-full w-full bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-size-[30px_30px]" />
+      <div className="bg-gradient-uic fixed inset-0 -z-10 pointer-events-none opacity-5 dark:opacity-[0.03]" />
+      <div className="fixed inset-0 -z-10 pointer-events-none h-full w-full bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-size-[30px_30px]" />
     </div>
   );
 }

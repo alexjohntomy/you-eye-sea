@@ -26,11 +26,11 @@ export function PresetButtons() {
     };
 
     return (
-        <div className="grid grid-cols-2 lg:grid-cols-4 w-full md:w-3/4 gap-2 pb-4 pt-1 animate-in fade-in slide-in-from-bottom-2 duration-700 delay-200 fill-mode-both mx-auto">
+        <div className="grid max-w-62 md:max-w-full lg:grid-cols-4 w-full md:w-3/4 gap-2 pb-4 pt-1 animate-in fade-in slide-in-from-bottom-2 fill-mode-both mx-auto">
             {presets.map((p) => (
-                <Button 
-                    key={p.label} 
-                    variant="outline" 
+                <Button
+                    key={p.label}
+                    variant="outline"
                     onClick={() => handlePresetClick(p)}
                     className="relative py-5 px-3 rounded-xl bg-uic-red-500/10 border border-uic-red-500/15 hover:bg-uic-red-500/20 text-uic-red-500 hover:text-uic-red-500 opacity-100 shadow-none font-semibold transition-all duration-300 w-full max-w-full overflow-hidden"
                 >
