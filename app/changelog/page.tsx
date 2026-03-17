@@ -22,6 +22,23 @@ export default function ChangelogPage() {
         {/* Versions */}
         <div className="relative">
           <ChangelogItem
+            version="1.5.1"
+            date="March 16, 2026"
+            groups={[
+              {
+                title: "UI/UX & Navigation",
+                icon: Sparkles,
+                changes: [
+                  {
+                    description:
+                      "Introduced a new command palette (cmd+k) and made numerous UI/UX improvements. Added preset buttons on the explore page, refined the OpenGraph image, and rolled out various fixes for charts and medium-sized screens.",
+                  },
+                ],
+              },
+            ]}
+          />
+
+          <ChangelogItem
             version="1.5.0"
             date="March 14, 2026"
             groups={[
