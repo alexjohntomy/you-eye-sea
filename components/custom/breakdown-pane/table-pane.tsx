@@ -13,6 +13,7 @@ import {
 
 import { formatGradeData } from "@/app/_util/formatGradeData";
 import { calculateGPA } from "@/app/_util/gpaCalculator";
+import { GPALineChart } from "./gpa-line-chart";
 
 interface tablePaneProps {
   statsFromDB: {
@@ -52,11 +53,37 @@ function TablePane({ statsFromDB, courseInstanceAggregation }: tablePaneProps) {
   const highestGPA = allGPAs.length > 0 ? Math.max(...allGPAs) : null;
   const lowestGPA = allGPAs.length > 0 ? Math.min(...allGPAs) : null;
 
+  const semesterGroups = new Map<string, { totalGpa: number; count: number }>();
+  statsFromDB.forEach((row) => {
+    const gpa = rowGPAs.get(row.courseInstanceID.toString());
+    if (gpa !== undefined && !isNaN(gpa)) {
+      const cleanedSemesterText = titleCase(
+        row.semester.replace("_20", " ").replace("-20", " ")
+      );
+      const existing = semesterGroups.get(cleanedSemesterText) || {
+        totalGpa: 0,
+        count: 0,
+      };
+      semesterGroups.set(cleanedSemesterText, {
+        totalGpa: existing.totalGpa + gpa,
+        count: existing.count + 1,
+      });
+    }
+  });
+
+  const gpaChartData = Array.from(semesterGroups.entries())
+    .map(([semester, data]) => ({
+      semester,
+      gpa: Number((data.totalGpa / data.count).toFixed(2)),
+    }))
+    .reverse();
+
   return (
     <div className="h-full gap-3 overflow-auto px-6 py-8">
       <h1 className="text-foreground -mt-2 pb-3 text-center text-lg font-bold">
         Breakdown
       </h1>
+      <GPALineChart data={gpaChartData} />
       <Table className="text-foreground">
         <TableHeader className="bg-muted/70">
           <TableRow>
