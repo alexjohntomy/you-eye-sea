@@ -26,7 +26,7 @@ function Header() {
   const pathname = usePathname();
   const isHomePage = pathname === "/";
   return (
-    <header className="sticky top-0 z-50 md:static border-uic-navy-900/20 dark:border-foreground/15 bg-uic-navy-900 dark:bg-background flex h-fit flex-col items-center justify-between gap-3 border-b px-5 py-5 md:h-15 md:flex-row">
+    <header className="border-uic-navy-900/20 dark:border-foreground/15 bg-uic-navy-900 dark:bg-background sticky top-0 z-50 flex h-fit flex-col items-center justify-between gap-3 border-b px-5 py-5 md:static md:h-15 md:flex-row">
       <Link href="/">
         <div className="flex flex-row items-start">
           <Image
@@ -74,7 +74,7 @@ function Header() {
             <NavigationMenuItem>
               <NavigationMenuLink asChild>
                 <Link
-                  href="/github"
+                  href="https://github.com/alexjohntomy/you-eye-sea"
                   className="inset-shadow-2xl shadow-primary bg-uic-red-600 hover:bg-uic-red-600 hover:text-background flex h-9 items-center justify-center rounded-md px-4 py-2 text-sm font-semibold text-white opacity-90 shadow-lg transition-colors hover:opacity-100"
                 >
                   <div className="group relative flex h-full w-full min-w-15 flex-row items-center justify-center gap-3">
@@ -82,14 +82,9 @@ function Header() {
                       src={GithubIcon}
                       alt="Github Icon"
                       height={18}
-                      className="visible brightness-1000 filter group-hover:invisible"
+                      className="brightness-1000"
                     />
-                    <h4 className="visible text-sm group-hover:invisible">
-                      Github
-                    </h4>
-                    <h4 className="invisible absolute inset-0 m-auto h-fit w-fit text-center text-xs group-hover:visible md:text-nowrap">
-                      Coming Soon
-                    </h4>
+                    <h4 className="text-sm">Github</h4>
                   </div>
                 </Link>
               </NavigationMenuLink>
@@ -98,7 +93,7 @@ function Header() {
               <NavigationMenuLink asChild>
                 <Link
                   href="/changelog"
-                  className="dark:text-foreground/50 dark:hover:text-foreground dark:active:text-foreground -ml-2 flex h-9 items-center justify-center rounded-md bg-transparent! pl-3 pr-0 py-2 font-semibold text-white/70 opacity-80 transition-colors hover:bg-transparent hover:text-white hover:opacity-100 active:bg-transparent active:text-white"
+                  className="dark:text-foreground/50 dark:hover:text-foreground dark:active:text-foreground -ml-2 flex h-9 items-center justify-center rounded-md bg-transparent! py-2 pr-0 pl-3 font-semibold text-white/70 opacity-80 transition-colors hover:bg-transparent hover:text-white hover:opacity-100 active:bg-transparent active:text-white"
                   title="Changelog"
                 >
                   <History size={18} />

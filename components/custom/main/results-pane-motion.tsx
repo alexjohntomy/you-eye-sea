@@ -7,8 +7,6 @@ import {
 
 import { motion } from "motion/react";
 
-import { useIsMobile } from "@/hooks/use-mobile";
-
 import MiniSearch from "minisearch";
 
 import Link from "next/link";
@@ -29,14 +27,7 @@ interface testProps {
   ref?: Ref<HTMLElement>;
 }
 
-interface courseObject {
-  subject: string;
-  number: number;
-  title: string;
-  professor: string;
-}
-
-let miniSearch = new MiniSearch({
+const miniSearch = new MiniSearch({
   fields: ["subject", "number", "title", "professor", "combinedName"],
   storeFields: ["subject", "number", "title", "professor", "combinedName"],
 });
@@ -55,7 +46,7 @@ function getMatches(query: string) {
     fuzzy: 0.2,
   });
 
-  let exactMatches = matchedResults.filter((course) => {
+  const exactMatches = matchedResults.filter((course) => {
     const cleanedCourseName = (
       course.subject +
       " " +
@@ -90,16 +81,19 @@ function getMatches(query: string) {
   return matchedResults;
 }
 
-function ResultsPaneMotion({
-  query,
-  focusStatus,
-  onResetHover,
-  onSelect,
-  ref,
-}: testProps) {
+interface courseInstance {
+  id: number;
+  combinedName: string;
+  subject: string;
+  number: number;
+  title: string;
+  professor: string;
+}
+
+function ResultsPaneMotion({ query, onResetHover, onSelect }: testProps) {
   const router = useRouter();
   const { trigger } = useWebHaptics();
-  const trendingClasses: any = [
+  const trendingCourseInstances: courseInstance[] = [
     {
       id: 1,
       combinedName: "CS 342",
@@ -223,45 +217,47 @@ function ResultsPaneMotion({
             <TrendingUp width={12} className="relative bottom-[1]" />
             Popular This Week
           </h3>
-          {trendingClasses.slice(0, 5).map((item: any, index: number) => {
-            const resultItem = item as unknown as CustomSearchResult;
-            const href =
-              "/course/" + resultItem.subject + "-" + resultItem.number;
-            return (
-              <CommandItem
-                key={resultItem.id}
-                value={resultItem.id.toString()}
-                onSelect={() => {
-                  router.push(href);
-                  trigger("nudge");
-                  onSelect?.();
-                }}
-                className={`rounded-lg transition-colors duration-200 ease-out ${index === 4 ? "hidden md:flex" : ""}`}
-              >
-                <Link
-                  href={href}
-                  onClick={(e) => {
-                    e.stopPropagation();
+          {trendingCourseInstances
+            .slice(0, 5)
+            .map((item: courseInstance, index: number) => {
+              const resultItem = item as unknown as CustomSearchResult;
+              const href =
+                "/course/" + resultItem.subject + "-" + resultItem.number;
+              return (
+                <CommandItem
+                  key={resultItem.id}
+                  value={resultItem.id.toString()}
+                  onSelect={() => {
+                    router.push(href);
+                    trigger("nudge");
                     onSelect?.();
                   }}
-                  className="flex min-w-0 grow flex-col"
+                  className={`rounded-lg transition-colors duration-200 ease-out ${index === 4 ? "hidden md:flex" : ""}`}
                 >
-                  <div className="flex flex-col align-bottom md:flex-row md:items-center md:gap-1">
-                    <h2 className="text-uic-navy-800 dark:text-foreground/90 text-sm font-semibold text-nowrap md:text-base">
-                      {item.subject + " " + item.number}
-                    </h2>
-                    <h2 className="text-s text-uic-navy-700 dark:text-foreground/70 truncate">
-                      {item.title}
-                    </h2>
-                  </div>
-                  <h4 className="text-uic-navy-500 dark:text-foreground/50 text-xs font-light italic">
-                    {item.professor}
-                  </h4>
-                </Link>
-                <ChevronRight className="relative -left-1 opacity-50" />
-              </CommandItem>
-            );
-          })}
+                  <Link
+                    href={href}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onSelect?.();
+                    }}
+                    className="flex min-w-0 grow flex-col"
+                  >
+                    <div className="flex flex-col align-bottom md:flex-row md:items-center md:gap-1">
+                      <h2 className="text-uic-navy-800 dark:text-foreground/90 text-sm font-semibold text-nowrap md:text-base">
+                        {item.subject + " " + item.number}
+                      </h2>
+                      <h2 className="text-s text-uic-navy-700 dark:text-foreground/70 truncate">
+                        {item.title}
+                      </h2>
+                    </div>
+                    <h4 className="text-uic-navy-500 dark:text-foreground/50 text-xs font-light italic">
+                      {item.professor}
+                    </h4>
+                  </Link>
+                  <ChevronRight className="relative -left-1 opacity-50" />
+                </CommandItem>
+              );
+            })}
         </CommandGroup>
       </CommandList>
     );
