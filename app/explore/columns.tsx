@@ -2,7 +2,7 @@
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { ColumnDef, createColumnHelper } from "@tanstack/react-table"
-import Link from "next/link";
+import { HoverPrefetchLink as Link } from "@/components/custom/main-ui/hover-prefetch-link";
 import { ChevronRight, ArrowDown } from "lucide-react";
 import { getProfessorNameFromID } from "@/app/_util/getProfessorNameFromID";
 import { Button } from "@/components/ui/button";

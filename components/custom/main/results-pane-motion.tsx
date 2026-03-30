@@ -9,7 +9,7 @@ import { motion } from "motion/react";
 
 import MiniSearch from "minisearch";
 
-import Link from "next/link";
+import { HoverPrefetchLink as Link } from "@/components/custom/main-ui/hover-prefetch-link";
 import { useRouter } from "next/navigation";
 
 import courseList from "@/courseList";
