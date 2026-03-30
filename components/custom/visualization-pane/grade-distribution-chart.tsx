@@ -265,8 +265,11 @@ function GradeDistributionChart({
                   dataKey="label"
                   position="top"
                   // className="animate-in"
-                  content={(props: any) => {
-                    const { x, y, width, value } = props;
+                  content={(props) => {
+                    const x = Number(props.x ?? 0);
+                    const y = Number(props.y ?? 0);
+                    const width = Number(props.width ?? 0);
+                    const { value } = props;
                     const valueStr = String(value);
                     const hasPercent = valueStr.includes(" (");
                     const [countText, percentText] = hasPercent

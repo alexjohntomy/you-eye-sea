@@ -45,6 +45,7 @@ function TablePane({ statsFromDB, courseInstanceAggregation }: tablePaneProps) {
     const data = courseInstanceAggregation.find(
       (item) => item.courseInstanceID === row.courseInstanceID
     );
+    if (!data) return;
     const gpaStr = calculateGPA(formatGradeData(data));
     if (gpaStr !== "N/A")
       rowGPAs.set(row.courseInstanceID.toString(), parseFloat(gpaStr));
@@ -103,6 +104,7 @@ function TablePane({ statsFromDB, courseInstanceAggregation }: tablePaneProps) {
             const rowCourseInstanceData = courseInstanceAggregation.find(
               (item) => item.courseInstanceID === row.courseInstanceID
             );
+            if (!rowCourseInstanceData) return null;
             const formattedData = formatGradeData(rowCourseInstanceData);
             const cleanedSemesterText = titleCase(
               row.semester.replace("_20", " ").replace("-20", " ")

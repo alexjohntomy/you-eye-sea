@@ -1,12 +1,16 @@
-interface GradeData {
+export interface GradeData {
   grade: string;
   count: number;
   fill: string;
   label: string;
 }
 
+interface AggregateSum {
+  _sum: { A: number | null; B: number | null; C: number | null; D: number | null; F: number | null; W?: number | null };
+}
+
 export const formatGradeData = (
-  courseInstanceAggregation: any
+  courseInstanceAggregation: AggregateSum
 ): GradeData[] => {
   let totalCountA = courseInstanceAggregation._sum.A ?? 0;
   let totalCountB = courseInstanceAggregation._sum.B ?? 0;

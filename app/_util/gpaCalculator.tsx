@@ -1,9 +1,11 @@
 //Cohort GPA calculation function
 
-export const calculateGPA = (chartData: any): string => {
+import type { GradeData } from "@/app/_util/formatGradeData";
+
+export const calculateGPA = (chartData: GradeData[]): string => {
   let gpa = 0;
   let totalCount = 0;
-  chartData.forEach((element: any) => {
+  chartData.forEach((element: GradeData) => {
     if (element.count > 0) {
       switch (element.grade) {
         case "A":

@@ -8,9 +8,9 @@ import { TablePaneServer } from "@/components/custom/breakdown-pane/table-pane-s
 import prisma from "@/lib/prisma";
 import { CourseActionButtons } from "@/components/custom/visualization-pane/course-action-buttons";
 import type { Metadata } from "next";
-import { Suspense } from "react";
+import { cache, Suspense } from "react";
 
-async function getCourseDetails(slug: string) {
+const getCourseDetails = cache(async function getCourseDetails(slug: string) {
   const parsedSlug = slug.split("-");
   const courses = await prisma.courseInstance.findMany({
     cacheStrategy: { ttl: 604800, swr: 86400 },
@@ -47,7 +47,7 @@ async function getCourseDetails(slug: string) {
 
   const seen = new Set<number>();
   const professors: Professor[] = [];
-  courses.forEach((course: any) => {
+  courses.forEach((course) => {
     if (!seen.has(course.professor.id)) {
       professors.push({
         id: String(course.professor.id),
@@ -58,11 +58,11 @@ async function getCourseDetails(slug: string) {
   });
 
   return { name: name, number: number, title: title, professors: professors };
-}
+});
 
-async function getCourseInstance(slug: string, queryParams: any) {
+async function getCourseInstance(slug: string, queryParams: { [key: string]: string | string[] | undefined }) {
   const parsedSlug = slug.split("-");
-  const professor = queryParams.professor;
+  const professor = Array.isArray(queryParams.professor) ? queryParams.professor[0] : queryParams.professor;
   if (professor == "all-professors" || !professor) {
     return await prisma.courseInstance.aggregate({
       cacheStrategy: { ttl: 604800, swr: 86400 },

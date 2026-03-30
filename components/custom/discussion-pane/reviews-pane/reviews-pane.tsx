@@ -14,7 +14,8 @@ import { Star } from "lucide-react";
 const customStyles = {
   itemShapes: ThinRoundedStar,
   activeFillColor: "var(--color-uic-navy-600)",
-  inactiveFillColor: "color-mix(in srgb, var(--color-uic-navy-600) 20%, transparent)",
+  inactiveFillColor:
+    "color-mix(in srgb, var(--color-uic-navy-600) 20%, transparent)",
 };
 
 import { Card } from "@/components/ui/card";
@@ -32,7 +33,7 @@ import {
 import { postReview } from "@/app/_util/postReview";
 
 interface testProps {
-  comments: any;
+  comments: Review[];
   parsedSlug: string[];
 }
 
@@ -53,8 +54,8 @@ interface Review {
 interface ReviewProps {
   reviews: Review[];
   parsedSlug: string[];
-  professorID: any;
-  listOfProfessors: any;
+  professorID: string | null;
+  listOfProfessors: Professor[];
 }
 
 interface Professor {
@@ -63,7 +64,7 @@ interface Professor {
 }
 
 function getProfessorNameFromID(
-  professorID: string,
+  professorID: string | null,
   listOfProfessors: Professor[]
 ) {
   let professorNameFromID: Professor = {
@@ -126,9 +127,9 @@ function ReviewsPane({
           </EmptyHeader>
         </Empty>
         <div className="py-6">
-          <InputGroup className="overflow-y border-foreground/10 shadow-none bg-background bottom-3 rounded-xl border focus-visible:ring-0 has-[[data-slot=input-group-control]:focus-visible]:ring-0 has-[[data-slot=input-group-control]:focus-visible]:border-foreground/10">
+          <InputGroup className="overflow-y border-foreground/10 bg-background has-[[data-slot=input-group-control]:focus-visible]:border-foreground/10 bottom-3 rounded-xl border shadow-none focus-visible:ring-0 has-[[data-slot=input-group-control]:focus-visible]:ring-0">
             <ReactRating
-              className="relative left-2 top-2 max-w-[110px] md:max-w-[120px] lg:max-w-[150px]"
+              className="relative top-2 left-2 max-w-27.5 md:max-w-30 lg:max-w-37.5"
               itemStyles={customStyles}
               value={rating}
               onChange={setRating}
@@ -145,7 +146,7 @@ function ReviewsPane({
               </InputGroupText>
               <InputGroupButton
                 variant="outline"
-                className="bg-secondary text-background dark:text-foreground border-secondary/50 shadow-none w-20 rounded-lg border"
+                className="bg-secondary text-background dark:text-foreground border-secondary/50 w-20 rounded-lg border shadow-none"
                 size="icon-xs"
                 onClick={() => {
                   if (filter.isProfane(value)) {
@@ -196,7 +197,7 @@ function ReviewsPane({
             {reviews.map((eachReview: Review) => (
               <Card
                 key={eachReview.id}
-                className="border-foreground/10 w-full gap-1 rounded-xl shadow-none px-3 py-3"
+                className="border-foreground/10 w-full gap-1 rounded-xl px-3 py-3 shadow-none"
               >
                 <ReactRating
                   style={{ maxWidth: 100 }}
@@ -204,7 +205,7 @@ function ReviewsPane({
                   readOnly
                   itemStyles={customStyles}
                 />
-                <h3 className="text-foreground/50 border-b py-1 text-sm font-black truncate">
+                <h3 className="text-foreground/50 truncate border-b py-1 text-sm font-black">
                   {getProfessorNameFromID(
                     String(eachReview.professorID),
                     listOfProfessors
@@ -230,9 +231,9 @@ function ReviewsPane({
         </div>
 
         <div className="py-6">
-          <InputGroup className="overflow-y border-foreground/10 shadow-none bg-background bottom-3 rounded-xl border focus-visible:ring-0 has-[[data-slot=input-group-control]:focus-visible]:ring-0 has-[[data-slot=input-group-control]:focus-visible]:border-foreground/10">
+          <InputGroup className="overflow-y border-foreground/10 bg-background has-[[data-slot=input-group-control]:focus-visible]:border-foreground/10 bottom-3 rounded-xl border shadow-none focus-visible:ring-0 has-[[data-slot=input-group-control]:focus-visible]:ring-0">
             <ReactRating
-              className="relative top-2 max-w-[110px] md:max-w-[120px] lg:max-w-[150px]"
+              className="relative top-2 max-w-27.5 md:max-w-30 lg:max-w-37.5"
               itemStyles={customStyles}
               value={rating}
               onChange={setRating}
@@ -249,7 +250,7 @@ function ReviewsPane({
               </InputGroupText>
               <InputGroupButton
                 variant="outline"
-                className="bg-secondary text-background dark:text-foreground shadow-none border-secondary/50 w-20 rounded-lg border"
+                className="bg-secondary text-background dark:text-foreground border-secondary/50 w-20 rounded-lg border shadow-none"
                 size="icon-xs"
                 onClick={() => {
                   if (filter.isProfane(value)) {
