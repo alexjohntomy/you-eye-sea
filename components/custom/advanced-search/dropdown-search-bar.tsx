@@ -3,7 +3,7 @@
 import { Command, CommandInput } from "@/components/custom/advanced-search/dropdown-list";
 import { Button } from "@/components/ui/button";
 import { SearchIcon } from "lucide-react";
-import { useCallback, useEffect, useState, useTransition } from "react";
+import { useEffect, useState, useTransition } from "react";
 import { Spinner } from "@/components/ui/spinner";
 import subjectList from "@/subjectList";
 

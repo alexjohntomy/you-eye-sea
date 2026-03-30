@@ -1,4 +1,5 @@
 "use client";
+import { getProfessorNameFromList } from "@/app/_util/getProfessorNameFromID";
 import { Rating as ReactRating, ThinRoundedStar } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import { useRouter } from "next/navigation";
@@ -32,10 +33,6 @@ import {
 
 import { postReview } from "@/app/_util/postReview";
 
-interface testProps {
-  comments: Review[];
-  parsedSlug: string[];
-}
 
 import { Filter } from "bad-words";
 const filter = new Filter();
@@ -63,24 +60,6 @@ interface Professor {
   name: string;
 }
 
-function getProfessorNameFromID(
-  professorID: string | null,
-  listOfProfessors: Professor[]
-) {
-  let professorNameFromID: Professor = {
-    name: "General Rating",
-    id: "all-professors",
-  };
-
-  if (professorID == "all-professors" || !professorID) {
-    professorNameFromID = { name: "General Rating", id: "all-professors" };
-  } else {
-    professorNameFromID = listOfProfessors.find(
-      (professor: Professor) => professor.id === professorID
-    ) ?? { name: "General Rating", id: "all-professors" };
-  }
-  return professorNameFromID.name;
-}
 
 function calculateAverageRating(ratings: Review[]) {
   const totalStars = ratings.reduce(
@@ -104,10 +83,8 @@ function ReviewsPane({
     }
   };
   const [rating, setRating] = useState(0);
-  const commentPaneText =
-    getProfessorNameFromID(professorID, listOfProfessors) === "General Rating"
-      ? "this course"
-      : getProfessorNameFromID(professorID, listOfProfessors);
+  const professorName = getProfessorNameFromList(professorID, listOfProfessors, "General Rating");
+  const commentPaneText = professorName === "General Rating" ? "this course" : professorName;
   const avgRating = calculateAverageRating(reviews);
   if (reviews.length == 0) {
     return (
@@ -206,10 +183,7 @@ function ReviewsPane({
                   itemStyles={customStyles}
                 />
                 <h3 className="text-foreground/50 truncate border-b py-1 text-sm font-black">
-                  {getProfessorNameFromID(
-                    String(eachReview.professorID),
-                    listOfProfessors
-                  )}
+                  {getProfessorNameFromList(String(eachReview.professorID), listOfProfessors, "General Rating")}
                 </h3>
                 <h3 className="text-foreground/80 text-sm font-black whitespace-pre-wrap">
                   {eachReview.review}

@@ -32,6 +32,9 @@ export async function GET(request: Request) {
 
   const courseID = parsedSlug[0];
   const courseNumber = parseInt(parsedSlug[1]);
+  if (isNaN(courseNumber)) {
+    return new Response("Invalid course slug", { status: 400 });
+  }
 
   try {
     // Fetch Course Info
@@ -55,6 +58,9 @@ export async function GET(request: Request) {
 
     if (professor && professor !== "all-professors") {
       const professorID = parseInt(professor);
+      if (isNaN(professorID)) {
+        return new Response("Invalid professor ID", { status: 400 });
+      }
       courseInstanceAggregation = await prisma.courseInstance.aggregate({
         _sum: { A: true, B: true, C: true, D: true, F: true, W: true },
         where: {

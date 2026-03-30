@@ -1,6 +1,7 @@
 "use client";
 
 import { calculateGPA } from "@/app/_util/gpaCalculator";
+import { getProfessorNameFromList } from "@/app/_util/getProfessorNameFromID";
 import { useState, useEffect, useRef } from "react";
 import {
   Bar,
@@ -76,24 +77,6 @@ interface Professor {
   name: string;
 }
 
-function getProfessorNameFromID(
-  professorID: string | null,
-  listOfProfessors: Professor[]
-) {
-  let professorNameFromID: Professor = {
-    name: "All Professors",
-    id: "all-professors",
-  };
-
-  if (professorID == "all-professors" || !professorID) {
-    professorNameFromID = { name: "All Professors", id: "all-professors" };
-  } else {
-    professorNameFromID = listOfProfessors.find(
-      (professor: Professor) => professor.id === professorID
-    ) ?? { name: "All Professors", id: "all-professors" };
-  }
-  return professorNameFromID.name;
-}
 
 function GradeDistributionChart({
   chartData,
@@ -101,13 +84,8 @@ function GradeDistributionChart({
   listOfProfessors,
   averageCourseSize,
 }: chartsProp) {
-  console.log(chartData);
   const calculatedGPA = calculateGPA(chartData);
-  console.log(professorID);
-  const selectedProfessor = getProfessorNameFromID(
-    professorID,
-    listOfProfessors
-  );
+  const selectedProfessor = getProfessorNameFromList(professorID, listOfProfessors);
 
   const [shouldAnimate, setShouldAnimate] = useState(true);
   const isInitialMount = useRef(true);

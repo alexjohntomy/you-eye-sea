@@ -116,7 +116,7 @@ export async function generateMetadata({
   const filteredParams = await searchParams;
   const courseIDSlug = slug.replace("-", " ").toUpperCase();
   const professorQuery = filteredParams.professor
-    ? `&professor=${filteredParams.professor}`
+    ? `&professor=${encodeURIComponent(String(filteredParams.professor))}`
     : "";
 
   return {

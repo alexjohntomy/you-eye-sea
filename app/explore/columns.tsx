@@ -3,7 +3,7 @@
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { ColumnDef, createColumnHelper } from "@tanstack/react-table"
 import Link from "next/link";
-import { ChevronRight, ExternalLink, ArrowDown } from "lucide-react";
+import { ChevronRight, ArrowDown } from "lucide-react";
 import { getProfessorNameFromID } from "@/app/_util/getProfessorNameFromID";
 import { Button } from "@/components/ui/button";
 
@@ -19,8 +19,6 @@ export type rowDetails = {
 }
 
 const columnHelper = createColumnHelper<rowDetails>()
-
-columnHelper.accessor
 
 export const columns: ColumnDef<rowDetails>[] = [
   {

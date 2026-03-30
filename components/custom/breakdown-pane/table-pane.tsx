@@ -39,12 +39,14 @@ interface tablePaneProps {
 }
 
 function TablePane({ statsFromDB, courseInstanceAggregation }: tablePaneProps) {
+  const aggregationByID = new Map(
+    courseInstanceAggregation.map((item) => [item.courseInstanceID, item])
+  );
+
   // Pre-compute all GPAs, then find the highest and lowest values
   const rowGPAs: Map<string, number> = new Map();
   statsFromDB.forEach((row) => {
-    const data = courseInstanceAggregation.find(
-      (item) => item.courseInstanceID === row.courseInstanceID
-    );
+    const data = aggregationByID.get(row.courseInstanceID);
     if (!data) return;
     const gpaStr = calculateGPA(formatGradeData(data));
     if (gpaStr !== "N/A")
@@ -101,9 +103,7 @@ function TablePane({ statsFromDB, courseInstanceAggregation }: tablePaneProps) {
         </TableHeader>
         <TableBody>
           {statsFromDB.map((row) => {
-            const rowCourseInstanceData = courseInstanceAggregation.find(
-              (item) => item.courseInstanceID === row.courseInstanceID
-            );
+            const rowCourseInstanceData = aggregationByID.get(row.courseInstanceID);
             if (!rowCourseInstanceData) return null;
             const formattedData = formatGradeData(rowCourseInstanceData);
             const cleanedSemesterText = titleCase(
