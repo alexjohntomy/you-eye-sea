@@ -16,7 +16,6 @@ import courseList from "@/courseList";
 import { Ref } from "react";
 
 import { ChevronRight, GraduationCap, TrendingUp, SearchX } from "lucide-react";
-import { SearchResult as CustomSearchResult } from "@/components/custom/main/results-pane";
 import { useWebHaptics } from "web-haptics/react";
 
 interface testProps {
@@ -166,7 +165,7 @@ function ResultsPaneMotion({ query, onResetHover, onSelect }: testProps) {
           {getMatches(query)
             .slice(0, 5)
             .map((item, index) => {
-              const resultItem = item as unknown as CustomSearchResult;
+              const resultItem = item;
               const href =
                 "/course/" + resultItem.subject + "-" + resultItem.number;
               return (
@@ -220,7 +219,7 @@ function ResultsPaneMotion({ query, onResetHover, onSelect }: testProps) {
           {trendingCourseInstances
             .slice(0, 5)
             .map((item: courseInstance, index: number) => {
-              const resultItem = item as unknown as CustomSearchResult;
+              const resultItem = item;
               const href =
                 "/course/" + resultItem.subject + "-" + resultItem.number;
               return (
