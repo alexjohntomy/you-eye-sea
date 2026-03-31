@@ -1,31 +1,6 @@
 import { ReviewsPane } from "@/components/custom/discussion-pane/reviews-pane/reviews-pane";
-import prisma from "@/lib/prisma";
-
-async function getReviewsFromDB(courseName: string[], professorID: string | null) {
-  if (
-    !professorID ||
-    professorID == null ||
-    professorID == "" ||
-    professorID == "all-professors"
-  ) {
-    const reviewsFromDB = await prisma.review.findMany({
-      where: {
-        courseID: courseName[0],
-        courseNumber: parseInt(courseName[1]),
-      },
-    });
-    return reviewsFromDB;
-  } else {
-    const reviewsFromDB = await prisma.review.findMany({
-      where: {
-        courseID: courseName[0],
-        courseNumber: parseInt(courseName[1]),
-        professorID: parseInt(professorID),
-      },
-    });
-    return reviewsFromDB;
-  }
-}
+import { ReviewsListServer } from "./reviews-list-server";
+import { Suspense } from "react";
 
 interface Professor {
   id: string;
@@ -38,20 +13,35 @@ interface ReviewsPaneServerProps {
   listOfProfessors: Professor[];
 }
 
-async function ReviewsPaneServer({
+function ReviewsPaneServer({
   slug,
   professorID,
   listOfProfessors,
 }: ReviewsPaneServerProps) {
   const parsedCourseName = slug.split("-") ?? ["test", "test"];
-  const reviewsFromDB = await getReviewsFromDB(parsedCourseName, professorID);
+
   return (
     <ReviewsPane
-      reviews={reviewsFromDB}
       parsedSlug={parsedCourseName}
       professorID={professorID}
-      listOfProfessors={listOfProfessors}
-    />
+    >
+      <Suspense
+        fallback={
+          <div className="flex flex-col gap-4 py-4 mt-2">
+            <div className="shimmer h-8 w-32 rounded-md mx-auto" />
+            {Array.from({ length: 3 }).map((_, i) => (
+              <div key={i} className="shimmer h-32 w-full rounded-xl" />
+            ))}
+          </div>
+        }
+      >
+        <ReviewsListServer
+          parsedSlug={parsedCourseName}
+          professorID={professorID}
+          listOfProfessors={listOfProfessors}
+        />
+      </Suspense>
+    </ReviewsPane>
   );
 }
 

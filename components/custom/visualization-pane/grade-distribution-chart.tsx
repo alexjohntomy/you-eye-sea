@@ -154,7 +154,7 @@ function GradeDistributionChart({
   }
 
   return (
-    <Card className="border-uic-navy-300/40 dark:border-foreground/10 shadow-uic-navy-300 flex h-full min-h-60 flex-1 grow flex-col justify-between gap-0 rounded-xl shadow-[inset_0px_-6px_10px_2px_var(--secondary)]/5">
+    <Card className="border-uic-navy-300/40 dark:border-foreground/10 shadow-uic-navy-300 flex min-h-full min-h-60 flex-1 grow flex-col justify-between gap-0 rounded-xl shadow-[inset_0px_-6px_10px_2px_var(--secondary)]/5">
       <div>
         <CardHeader className="flex flex-row justify-between">
           <div>
@@ -261,7 +261,7 @@ function GradeDistributionChart({
                         fill="currentColor"
                         textAnchor="middle"
                         dominantBaseline="middle"
-                        className="text-foreground animate-in fade-in slide-in-from-bottom-1 zoom-in-95 fill-mode-both delay-75 duration-350 ease-out"
+                        className="text-foreground animate-in fade-in slide-in-from-bottom-1 zoom-in-95 fill-mode-both delay-75 duration-300 ease-out"
                         style={{
                           transformOrigin: `${x + width / 2}px ${y - 18}px`,
                         }}

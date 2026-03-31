@@ -141,107 +141,6 @@ export async function generateMetadata({
   };
 }
 
-async function StatsSection({
-  slug,
-  filteredParams,
-}: {
-  slug: string;
-  filteredParams: { [key: string]: string | string[] | undefined };
-}) {
-  const [courseDetails, GradeDistributionCount] = await Promise.all([
-    getCourseDetails(slug),
-    getCourseInstance(slug, filteredParams),
-  ]);
-  const formattedGradeData = formatGradeData(GradeDistributionCount);
-  const selectedProfessorName =
-    courseDetails.professors.find(
-      (p: { id: string; name: string }) =>
-        p.id === String(filteredParams.professor)
-    )?.name ?? "";
-
-  const averageCourseSize =
-    GradeDistributionCount?._avg?.total_students ?? null;
-
-  return (
-    <div className="flex h-full w-full flex-col gap-2 overflow-scroll p-6 md:w-1/2">
-      <div className="flex flex-row items-start justify-between">
-        <div className="flex flex-col">
-          <h1 className="text-uic-red-600 text-4xl font-black">
-            {courseDetails.name} {courseDetails.number}
-          </h1>
-          <p className="text-foreground/70 text-lg font-medium">
-            {courseDetails.title}
-          </p>
-        </div>
-        <div className="mt-1">
-          <ProfessorDropdown
-            listOfProfessors={courseDetails.professors}
-          ></ProfessorDropdown>
-        </div>
-      </div>
-      <CourseActionButtons
-        courseName={courseDetails.name}
-        courseNumber={courseDetails.number}
-        selectedProfessorName={selectedProfessorName}
-      />
-      <div className="pt-2">
-        <GradeDistributionChart
-          chartData={formattedGradeData}
-          professorID={
-            Array.isArray(filteredParams.professor)
-              ? filteredParams.professor[0]
-              : ((filteredParams.professor as string | undefined) ?? null)
-          }
-          listOfProfessors={courseDetails.professors}
-          averageCourseSize={averageCourseSize}
-        ></GradeDistributionChart>
-      </div>
-      <h5 className="text-foreground/50 py-2 text-center text-xs">
-        Data is sourced from official UIC grade distributions but stats are
-        calculated in the backend, so it may contain errors. The pass rate
-        denominator includes only A-F. Drop rate denominator includes W.
-      </h5>
-    </div>
-  );
-}
-
-async function DiscussionSection({
-  slug,
-  filteredParams,
-}: {
-  slug: string;
-  filteredParams: { [key: string]: string | string[] | undefined };
-}) {
-  const courseDetails = await getCourseDetails(slug);
-  return (
-    <section className="border-foreground/10 animate-in fade-in relative h-full w-full border-r border-l px-6 py-8 duration-500 md:w-1/4 md:max-w-1/4">
-      <DiscussionPane
-        commentPaneServerComponent={
-          <CommentsPaneServer
-            slug={slug}
-            professorID={
-              Array.isArray(filteredParams.professor)
-                ? filteredParams.professor[0]
-                : (filteredParams.professor as string | undefined)
-            }
-          ></CommentsPaneServer>
-        }
-        reviewPaneServerComponent={
-          <ReviewsPaneServer
-            slug={slug}
-            professorID={
-              Array.isArray(filteredParams.professor)
-                ? filteredParams.professor[0]
-                : ((filteredParams.professor as string | undefined) ?? null)
-            }
-            listOfProfessors={courseDetails.professors}
-          ></ReviewsPaneServer>
-        }
-      ></DiscussionPane>
-    </section>
-  );
-}
-
 export default async function CourseDetailsPage({
   params,
   searchParams,
@@ -252,50 +151,181 @@ export default async function CourseDetailsPage({
   const filteredParams = await searchParams;
   const { slug } = await params;
 
+  const courseDetails = await getCourseDetails(slug);
+  const selectedProfessorName =
+    courseDetails.professors.find(
+      (p: { id: string; name: string }) =>
+        p.id === String(filteredParams.professor)
+    )?.name ?? "";
+
   return (
     <div className="bg-background animate-in fade-in flex h-full w-full min-w-87 grow flex-col overflow-hidden duration-150 md:h-[calc(100svh-120px)] md:flex-row">
-      {/* Stats */}
-      <Suspense
-        fallback={
-          <div className="flex h-full w-full flex-col gap-2 overflow-scroll p-6 md:w-1/2">
-            <div className="shimmer h-10 w-48 rounded-md"></div>
-            <div className="shimmer h-6 w-64 rounded-md"></div>
-            <div className="shimmer mt-4 h-64 w-full rounded-md"></div>
+      <div className="flex h-full w-full flex-col gap-2 overflow-scroll p-6 md:w-1/2">
+        <div className="flex flex-row items-start justify-between">
+          <div className="flex flex-col">
+            <h1 className="text-uic-red-600 text-4xl font-black">
+              {courseDetails.name} {courseDetails.number}
+            </h1>
+            <p className="text-foreground/70 text-lg font-medium">
+              {courseDetails.title}
+            </p>
           </div>
-        }
-      >
-        <StatsSection slug={slug} filteredParams={filteredParams} />
-      </Suspense>
+          <div className="mt-1">
+            <ProfessorDropdown
+              listOfProfessors={courseDetails.professors}
+            ></ProfessorDropdown>
+          </div>
+        </div>
+        <CourseActionButtons
+          courseName={courseDetails.name}
+          courseNumber={courseDetails.number}
+          selectedProfessorName={selectedProfessorName}
+        />
 
-      {/* Comments */}
-      <Suspense
-        fallback={
-          <section className="border-foreground/5 relative h-full w-full border-r border-l p-8 md:w-1/4 md:max-w-1/4">
-            <div className="flex h-full flex-col gap-4">
-              <div className="shimmer h-10/12 rounded-md"></div>
-              <div className="shimmer h-2/12 rounded-md"></div>
-            </div>
-          </section>
-        }
-      >
-        <DiscussionSection slug={slug} filteredParams={filteredParams} />
-      </Suspense>
+        <div className="pt-2">
+          <Suspense
+            fallback={
+              <div className="flex flex-col gap-4">
+                <div className="border-uic-navy-300/10 dark:border-foreground/5 flex flex-col justify-between gap-0 rounded-xl border py-8 shadow-none">
+                  <div className="flex flex-row justify-between px-6 pb-2">
+                    <div className="flex flex-col gap-2 pt-1">
+                      <div className="shimmer h-5 w-40 rounded-md xl:h-6" />
+                      <div className="shimmer h-4 w-32 rounded-md" />
+                    </div>
+                    <div className="shimmer h-20 w-28 rounded-xl md:w-32" />
+                  </div>
+                  <div className="px-6">
+                    <div className="shimmer aspect-video w-full rounded-lg" />
+                  </div>
+                </div>
 
-      <Suspense
-        fallback={
-          <section className="h-full w-full p-8 md:w-1/4 md:max-w-1/4">
-            <div className="flex h-full flex-col gap-5">
-              {Array.from({ length: 7 }).map((_, i) => (
-                <div key={i} className="shimmer h-full w-full rounded-md"></div>
-              ))}
+                <div className="flex flex-col gap-1.5 py-1">
+                  <div className="shimmer h-3 w-full mx-auto rounded-md" />
+                  <div className="shimmer h-3 w-11/12 mx-auto rounded-md" />
+                  <div className="shimmer h-3 w-10/12 mx-auto rounded-md" />
+                  <div className="md:invisible visible shimmer h-3 w-10/12 mx-auto rounded-md" />
+                </div>
+              </div>
+            }
+          >
+            <GradeDistributionSection
+              slug={slug}
+              filteredParams={filteredParams}
+              courseDetails={courseDetails}
+            />
+          </Suspense>
+        </div>
+      </div>
+
+      {/* Middle: Discussion */}
+      <section className="border-foreground/10 animate-in fade-in relative flex h-full w-full flex-col border-r border-l px-6 py-8 duration-350 md:w-1/4 md:max-w-1/4">
+        <DiscussionSection
+          slug={slug}
+          filteredParams={filteredParams}
+          courseDetails={courseDetails}
+        />
+      </section>
+
+      {/* Right: Breakdown Table */}
+      <section className="flex h-full w-full flex-col md:w-1/4 md:max-w-1/4">
+        <h1 className="text-foreground pt-6 pb-3 text-center text-lg font-bold relative z-10">
+          Breakdown
+        </h1>
+        <Suspense
+          fallback={
+            <div className="flex flex-col gap-4 px-6">
+              <div className="shimmer h-35 w-full rounded-2xl mb-4" />
+              <div className="flex flex-col gap-2">
+                <div className="shimmer h-10 w-full rounded-md" />
+                {Array.from({ length: 6 }).map((_, i) => (
+                  <div key={i} className="shimmer h-12 w-full rounded-md" />
+                ))}
+              </div>
+              <div className="shimmer h-4 w-3/4 rounded-md mx-auto mt-6" />
+              <div className="shimmer h-4 w-1/2 rounded-md mx-auto" />
             </div>
-          </section>
+          }
+        >
+          <div className="animate-in fade-in h-full w-full duration-350">
+            <TablePaneServer slug={slug} />
+          </div>
+        </Suspense>
+      </section>
+    </div>
+  );
+}
+
+async function DiscussionSection({
+  slug,
+  filteredParams,
+  courseDetails,
+}: {
+  slug: string;
+  filteredParams: { [key: string]: string | string[] | undefined };
+  courseDetails: any;
+}) {
+  return (
+    <DiscussionPane
+      commentPaneServerComponent={
+        <Suspense fallback={<div className="shimmer min-h-60 w-full rounded-md mt-4" />}>
+          <CommentsPaneServer
+            slug={slug}
+            professorID={
+              Array.isArray(filteredParams.professor)
+                ? filteredParams.professor[0]
+                : (filteredParams.professor as string | undefined)
+            }
+          />
+        </Suspense>
+      }
+      reviewPaneServerComponent={
+        <Suspense fallback={<div className="shimmer min-h-60 w-full rounded-md mt-4" />}>
+          <ReviewsPaneServer
+            slug={slug}
+            professorID={
+              Array.isArray(filteredParams.professor)
+                ? filteredParams.professor[0]
+                : ((filteredParams.professor as string | undefined) ?? null)
+            }
+            listOfProfessors={courseDetails.professors}
+          />
+        </Suspense>
+      }
+    />
+  );
+}
+
+async function GradeDistributionSection({
+  slug,
+  filteredParams,
+  courseDetails,
+}: {
+  slug: string;
+  filteredParams: { [key: string]: string | string[] | undefined };
+  courseDetails: any;
+}) {
+  const GradeDistributionCount = await getCourseInstance(slug, filteredParams);
+  const formattedGradeData = formatGradeData(GradeDistributionCount);
+  const averageCourseSize =
+    GradeDistributionCount?._avg?.total_students ?? null;
+
+  return (
+    <div className="animate-in fade-in flex flex-col gap-4 duration-350">
+      <GradeDistributionChart
+        chartData={formattedGradeData}
+        professorID={
+          Array.isArray(filteredParams.professor)
+            ? filteredParams.professor[0]
+            : ((filteredParams.professor as string | undefined) ?? null)
         }
-      >
-        <section className="animate-in fade-in h-full w-full duration-500 md:w-1/4 md:max-w-1/4">
-          <TablePaneServer slug={slug} />
-        </section>
-      </Suspense>
+        listOfProfessors={courseDetails.professors}
+        averageCourseSize={averageCourseSize}
+      />
+      <h5 className="text-foreground/50 text-center text-xs">
+        Data is sourced from official UIC grade distributions but stats are
+        calculated in the backend, so it may contain errors. The pass rate
+        denominator includes only A-F. Drop rate denominator includes W.
+      </h5>
     </div>
   );
 }

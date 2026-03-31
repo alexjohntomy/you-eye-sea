@@ -82,10 +82,7 @@ function TablePane({ statsFromDB, courseInstanceAggregation }: tablePaneProps) {
     .reverse();
 
   return (
-    <div className="h-full gap-3 overflow-auto px-6 py-8">
-      <h1 className="text-foreground -mt-2 pb-3 text-center text-lg font-bold">
-        Breakdown
-      </h1>
+    <div className="h-full gap-3 overflow-auto px-6">
       <GPALineChart data={gpaChartData} />
       <Table className="text-foreground">
         <TableHeader className="bg-muted/70">

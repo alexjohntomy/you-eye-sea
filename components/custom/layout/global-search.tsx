@@ -8,13 +8,11 @@ import { Command, CommandInput } from "@/components/ui/command";
 import { Dialog, DialogOverlay, DialogPortal } from "@/components/ui/dialog";
 import { ResultsPaneMotionComponent } from "@/components/custom/main/results-pane-motion";
 import { usePathname } from "next/navigation";
-import { useIsMobile } from "@/hooks/use-mobile";
 
 function GlobalSearch() {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [isMac, setIsMac] = useState(true);
-  const isMobile = useIsMobile();
 
   useEffect(() => {
     const down = (e: KeyboardEvent) => {
@@ -81,31 +79,27 @@ function GlobalSearch() {
   return (
     <>
       {/* Header trigger — desktop only */}
-      {!isMobile && (
-        <button
-          onClick={() => setOpen(true)}
-          className="dark:text-foreground/50 dark:hover:text-foreground/80 dark:bg-foreground/5 dark:hover:bg-foreground/10 dark:border-foreground/10 flex w-40 md:w-48 cursor-pointer items-center justify-between gap-2 rounded-md border border-white/15 bg-white/10 px-3 py-1.5 text-sm text-white/60 transition-colors hover:bg-white/15 hover:text-white/90 lg:w-[400px]"
-        >
-          <div className="flex items-center gap-2 overflow-hidden">
-            <Search className="size-3.5 shrink-0" />
-            <span className="text-sm truncate">Search<span className="hidden lg:inline"> courses...</span></span>
-          </div>
-          <kbd className="dark:border-foreground/15 dark:bg-foreground/5 pointer-events-none inline-flex items-center gap-0.5 rounded border border-white/20 bg-white/10 px-1.5 py-0.5 font-mono text-xs select-none">
-            <span>{isMac ? "⌘" : "Ctrl "}</span>K
-          </kbd>
-        </button>
-      )}
+      <button
+        onClick={() => setOpen(true)}
+        className="dark:text-foreground/50 dark:hover:text-foreground/80 dark:bg-foreground/5 dark:hover:bg-foreground/10 dark:border-foreground/10 hidden md:flex w-40 md:w-48 cursor-pointer items-center justify-between gap-2 rounded-md border border-white/15 bg-white/10 px-3 py-1.5 text-sm text-white/60 transition-colors hover:bg-white/15 hover:text-white/90 lg:w-[400px]"
+      >
+        <div className="flex items-center gap-2 overflow-hidden">
+          <Search className="size-3.5 shrink-0" />
+          <span className="text-sm truncate">Search<span className="hidden lg:inline"> courses...</span></span>
+        </div>
+        <kbd className="dark:border-foreground/15 dark:bg-foreground/5 pointer-events-none inline-flex items-center gap-0.5 rounded border border-white/20 bg-white/10 px-1.5 py-0.5 font-mono text-xs select-none">
+          <span>{isMac ? "⌘" : "Ctrl "}</span>K
+        </kbd>
+      </button>
 
       {/* FAB — mobile only */}
-      {isMobile && (
-        <button
-          onClick={() => setOpen(true)}
-          className="bg-uic-navy-900 dark:bg-foreground/10 dark:border-foreground/10 fixed right-6 bottom-6 z-40 flex h-14 w-14 cursor-pointer items-center justify-center rounded-full border border-white/10 shadow-xl"
-          aria-label="Search courses"
-        >
-          <Search className="dark:text-foreground size-5 text-white" />
-        </button>
-      )}
+      <button
+        onClick={() => setOpen(true)}
+        className="bg-uic-navy-900 dark:bg-foreground/10 dark:border-foreground/10 fixed right-6 bottom-6 z-40 flex md:hidden h-14 w-14 cursor-pointer items-center justify-center rounded-full border border-white/10 shadow-xl"
+        aria-label="Search courses"
+      >
+        <Search className="dark:text-foreground size-5 text-white" />
+      </button>
 
       {/* Dialog — manually composed to control overlay opacity separately */}
       <Dialog open={open} onOpenChange={handleOpenChange}>
