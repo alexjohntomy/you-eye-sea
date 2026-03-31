@@ -74,7 +74,7 @@ export async function ReviewsListServer({
 
   if (reviews.length === 0) {
     return (
-      <div className="flex w-full flex-col p-4 opacity-55 animate-in fade-in duration-500">
+      <div className="flex h-full w-full flex-col p-4 opacity-55 animate-in fade-in duration-500">
         <Empty className="w-full border-0">
           <EmptyHeader className="gap-0.5 md:w-50">
             <EmptyMedia variant="icon" className="bg-muted/50 mb-0 size-12">
