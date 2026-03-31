@@ -102,7 +102,7 @@ function ResultsPaneMotion({ query, onResetHover, onSelect }: testProps) {
       router.push(href, { scroll: false });
       onSelect?.();
       setPressedId(null);
-    }, 100);
+    }, 0);
   };
   const trendingCourseInstances: courseInstance[] = [
     {
