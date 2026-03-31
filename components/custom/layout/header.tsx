@@ -9,6 +9,7 @@ import { usePathname } from "next/navigation";
 
 import { useIsMobile } from "@/hooks/use-mobile";
 import { GlobalSearch } from "@/components/custom/layout/global-search";
+import { cn } from "@/lib/utils";
 
 import {
   NavigationMenu,
@@ -26,7 +27,12 @@ function Header() {
   const pathname = usePathname();
   const isHomePage = pathname === "/";
   return (
-    <header className="border-uic-navy-900/20 dark:border-foreground/15 bg-uic-navy-900 dark:bg-background sticky top-0 z-50 flex h-fit flex-col items-center justify-between gap-3 border-b px-5 py-5 md:static md:h-15 md:flex-row">
+    <header
+      className={cn(
+        "border-uic-navy-900/20 dark:border-foreground/15 bg-uic-navy-900 dark:bg-background flex h-fit flex-col items-center justify-between gap-3 border-b px-5 py-5 md:static md:h-15 md:flex-row",
+        isHomePage ? "relative" : "sticky top-0 z-50"
+      )}
+    >
       <Link href="/">
         <div className="flex flex-row items-start">
           <Image
