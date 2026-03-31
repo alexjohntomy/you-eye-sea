@@ -98,11 +98,9 @@ function ResultsPaneMotion({ query, onResetHover, onSelect }: testProps) {
     setPressedId(id);
     trigger("nudge");
     (document.activeElement as HTMLElement)?.blur();
-    setTimeout(() => {
-      router.push(href, { scroll: false });
-      onSelect?.();
-      setPressedId(null);
-    }, 0);
+    router.push(href, { scroll: false });
+    onSelect?.();
+    setPressedId(null);
   };
   const trendingCourseInstances: courseInstance[] = [
     {
@@ -181,7 +179,7 @@ function ResultsPaneMotion({ query, onResetHover, onSelect }: testProps) {
                   key={resultItem.id}
                   value={resultItem.id.toString()}
                   onSelect={() => handleSelect(href, resultItem.id)}
-                  className={`rounded-lg transition-all duration-200 ease-out active:scale-[0.98] ${pressedId === resultItem.id ? "scale-[0.98] bg-accent/50" : ""} ${index >= 2 ? "hidden md:flex" : ""}`}
+                  className={`rounded-lg transition-all duration-50 ease-out active:scale-[0.992] ${pressedId === resultItem.id ? "scale-[0.992] bg-accent/50" : ""}`}
                 >
                   <Link
                     href={href}
@@ -231,7 +229,7 @@ function ResultsPaneMotion({ query, onResetHover, onSelect }: testProps) {
                   key={resultItem.id}
                   value={resultItem.id.toString()}
                   onSelect={() => handleSelect(href, resultItem.id)}
-                  className={`rounded-lg transition-all duration-200 ease-out active:scale-[0.98] ${pressedId === resultItem.id ? "scale-[0.98] bg-accent/50" : ""}`}
+                  className={`rounded-lg transition-all duration-50 ease-out active:scale-[0.992] ${pressedId === resultItem.id ? "scale-[0.992] bg-accent/50" : ""}`}
                 >
                   <Link
                     href={href}
