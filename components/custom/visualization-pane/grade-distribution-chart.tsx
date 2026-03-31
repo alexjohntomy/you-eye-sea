@@ -25,6 +25,7 @@ import {
   ChartContainer,
   ChartTooltipContent,
 } from "@/components/ui/chart";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 export const description = "A bar chart with a label";
 
@@ -84,6 +85,7 @@ function GradeDistributionChart({
   listOfProfessors,
   averageCourseSize,
 }: chartsProp) {
+  const isMobile = useIsMobile();
   const calculatedGPA = calculateGPA(chartData);
   const selectedProfessor = getProfessorNameFromList(professorID, listOfProfessors);
 
@@ -226,11 +228,13 @@ function GradeDistributionChart({
                 domain={[0, "dataMax"]}
                 hide
               />
-              <Tooltip
-                content={<ChartTooltipContent />}
-                cursor={{ fill: "transparent", opacity: 0.75 }}
-                isAnimationActive={false}
-              />
+              {!isMobile && (
+                <Tooltip
+                  content={<ChartTooltipContent />}
+                  cursor={{ fill: "transparent", opacity: 0.75 }}
+                  isAnimationActive={false}
+                />
+              )}
               <Bar
                 dataKey="count"
                 className="stroke-foreground/10 stroke-1"
