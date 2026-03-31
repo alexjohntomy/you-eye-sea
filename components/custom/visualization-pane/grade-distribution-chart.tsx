@@ -156,7 +156,7 @@ function GradeDistributionChart({
   }
 
   return (
-    <Card className="border-uic-navy-300/40 dark:border-foreground/10 shadow-uic-navy-300 flex min-h-full min-h-60 flex-1 grow flex-col justify-between gap-0 rounded-xl shadow-[inset_0px_-6px_10px_2px_var(--secondary)]/5">
+    <Card className="border-uic-navy-300/40 dark:border-foreground/10 shadow-uic-navy-300 flex min-h-full md:min-h-0 min-h-60 flex-1 grow flex-col justify-between gap-0 rounded-xl shadow-[inset_0px_-6px_10px_2px_var(--secondary)]/5">
       <div>
         <CardHeader className="flex flex-row justify-between">
           <div>
@@ -195,11 +195,11 @@ function GradeDistributionChart({
           </Card>
         </CardHeader>
       </div>
-      <CardContent className="flex-1 min-h-0 px-6 py-2">
-        <div className="h-full w-full">
+      <CardContent className="flex-1 min-h-0 px-6 py-2 flex flex-col">
+        <div className="flex-1 min-h-0 w-full">
           <ChartContainer
             config={chartConfig}
-            className="w-full"
+            className="w-full md:aspect-auto md:h-full"
           >
             <BarChart
               accessibilityLayer

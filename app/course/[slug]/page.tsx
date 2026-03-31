@@ -160,7 +160,7 @@ export default async function CourseDetailsPage({
 
   return (
     <div className="bg-background animate-in fade-in flex h-full w-full min-w-87 grow flex-col overflow-hidden duration-150 md:h-[calc(100svh-120px)] md:flex-row">
-      <div className="flex h-full w-full flex-col gap-2 overflow-scroll p-6 md:w-1/2">
+      <div className="flex h-full w-full flex-col gap-2 overflow-y-auto md:overflow-hidden p-6 md:w-1/2">
         <div className="flex flex-row items-start justify-between">
           <div className="flex flex-col">
             <h1 className="text-uic-red-600 text-4xl font-black leading-tight">
@@ -182,7 +182,7 @@ export default async function CourseDetailsPage({
           selectedProfessorName={selectedProfessorName}
         />
 
-        <div className="pt-2">
+        <div className="pt-2 flex-1 min-h-0 flex flex-col">
           <Suspense
             fallback={
               <div className="flex flex-col gap-4">
@@ -310,7 +310,7 @@ async function GradeDistributionSection({
     GradeDistributionCount?._avg?.total_students ?? null;
 
   return (
-    <div className="animate-in fade-in flex flex-col gap-4 duration-350">
+    <div className="animate-in fade-in flex flex-col gap-4 duration-350 flex-1 min-h-0">
       <GradeDistributionChart
         chartData={formattedGradeData}
         professorID={
