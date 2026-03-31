@@ -22,7 +22,7 @@ export default function Home() {
         >
           Fall 2026 Registration Now Open
         </Badge>
-        <h1 className="bg-text-gradient-uic bg-clip-text px-5 py-2 text-center text-3xl font-black text-transparent text-shadow-[0px_0px_0px_20px_var(--inset-color)] md:text-5xl">
+        <h1 className="bg-text-gradient-uic bg-clip-text px-5 py-2 text-center text-2xl font-black text-transparent text-shadow-[0px_0px_0px_20px_var(--inset-color)] md:text-5xl">
           Find Your Next Class Today
         </h1>
         <h2 className="text-l text-uic-navy-800 px-10 text-center font-semibold opacity-80 md:text-xl">

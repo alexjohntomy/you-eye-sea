@@ -8,8 +8,11 @@ import { Command, CommandInput } from "@/components/ui/command";
 import { Dialog, DialogOverlay, DialogPortal } from "@/components/ui/dialog";
 import { ResultsPaneMotionComponent } from "@/components/custom/main/results-pane-motion";
 import { usePathname } from "next/navigation";
+import { useIsMobile } from "@/hooks/use-mobile";
+import { cn } from "@/lib/utils";
 
 function GlobalSearch() {
+  const isMobile = useIsMobile();
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [isMac, setIsMac] = useState(true);
@@ -95,7 +98,7 @@ function GlobalSearch() {
       {/* FAB — mobile only */}
       <button
         onClick={() => setOpen(true)}
-        className="bg-uic-navy-900 dark:bg-foreground/10 dark:border-foreground/10 fixed right-6 bottom-6 z-40 flex md:hidden h-14 w-14 cursor-pointer items-center justify-center rounded-full border border-white/10 shadow-xl"
+        className="bg-uic-navy-900 dark:bg-secondary dark:border-foreground/20 fixed right-6 bottom-6 z-40 flex md:hidden h-14 w-14 cursor-pointer items-center justify-center rounded-full border border-white/10 shadow-xl"
         aria-label="Search courses"
       >
         <Search className="dark:text-foreground size-5 text-white" />
@@ -107,7 +110,10 @@ function GlobalSearch() {
           {/* Lighter overlay so background colours bleed through the glass */}
           <DialogOverlay className="bg-black/50" />
           <DialogPrimitive.Content
-            className="data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 fixed top-[50%] left-[50%] z-50 w-full max-w-[min(560px,calc(100vw-2rem))] translate-x-[-50%] translate-y-[-50%] overflow-hidden rounded-xl border border-white/30 bg-background/95 shadow-2xl backdrop-blur-3xl backdrop-saturate-200 duration-100 dark:border-white/15 dark:bg-zinc-900/90 dark:text-foreground"
+            className={cn(
+              "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 fixed left-[50%] z-50 w-full max-w-[min(560px,calc(100vw-2rem))] translate-x-[-50%] overflow-hidden rounded-xl border border-white/30 bg-background/95 shadow-2xl backdrop-blur-3xl backdrop-saturate-200 duration-100 dark:border-white/15 dark:bg-zinc-900/90 dark:text-foreground",
+              isMobile ? "top-[15%] translate-y-0" : "top-[50%] translate-y-[-50%]"
+            )}
           >
             <span className="sr-only">
               <DialogPrimitive.Title>Search</DialogPrimitive.Title>
