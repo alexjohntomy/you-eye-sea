@@ -78,7 +78,6 @@ interface Professor {
   name: string;
 }
 
-
 function GradeDistributionChart({
   chartData,
   professorID,
@@ -87,7 +86,10 @@ function GradeDistributionChart({
 }: chartsProp) {
   const isMobile = useIsMobile();
   const calculatedGPA = calculateGPA(chartData);
-  const selectedProfessor = getProfessorNameFromList(professorID, listOfProfessors);
+  const selectedProfessor = getProfessorNameFromList(
+    professorID,
+    listOfProfessors
+  );
 
   const [shouldAnimate, setShouldAnimate] = useState(true);
   const isInitialMount = useRef(true);
@@ -156,14 +158,14 @@ function GradeDistributionChart({
   }
 
   return (
-    <Card className="border-uic-navy-300/40 dark:border-foreground/10 shadow-uic-navy-300 flex min-h-full md:min-h-0 min-h-60 flex-1 grow flex-col justify-between gap-0 rounded-xl shadow-[inset_0px_-6px_10px_2px_var(--secondary)]/5">
+    <Card className="border-uic-navy-300/40 dark:border-foreground/10 shadow-uic-navy-300 flex min-h-60 min-h-full flex-1 grow flex-col justify-between gap-0 rounded-xl shadow-[inset_0px_-6px_10px_2px_var(--secondary)]/5 md:min-h-0">
       <div>
         <CardHeader className="flex flex-row justify-between">
           <div>
-            <CardTitle className="text:lg font-black xl:text-xl ">
+            <CardTitle className="text:lg font-black xl:text-xl">
               Grade Distribution
             </CardTitle>
-            <CardDescription className="flex flex-col gap-0 pt-1 text-xs opacity-60 xl:flex-row md:gap-1 lg:text-sm">
+            <CardDescription className="flex flex-col gap-0 pt-1 text-xs opacity-60 md:gap-1 lg:text-sm xl:flex-row">
               <span className="text-foreground/80 font-bold tracking-wide">
                 {selectedProfessor}
               </span>{" "}
@@ -189,14 +191,15 @@ function GradeDistributionChart({
             </h1>
             {averageCourseSize !== null && (
               <h1 className="text-xs text-nowrap md:text-sm">
-                <span className="font-semibold">Avg Class Size: </span> {Math.round(averageCourseSize)}
+                <span className="font-semibold">Avg Class Size: </span>{" "}
+                {Math.round(averageCourseSize)}
               </h1>
             )}
           </Card>
         </CardHeader>
       </div>
-      <CardContent className="flex-1 min-h-0 px-6 py-2 flex flex-col">
-        <div className="flex-1 min-h-0 w-full">
+      <CardContent className="flex min-h-0 flex-1 flex-col px-6 pt-2 pb-0">
+        <div className="min-h-0 w-full flex-1">
           <ChartContainer
             config={chartConfig}
             className="w-full md:aspect-auto md:h-full"
@@ -214,7 +217,8 @@ function GradeDistributionChart({
                 tick={{ fontSize: 14, fontWeight: 500 }}
                 type="category"
                 tickLine={false}
-                tickMargin={5}
+                tickMargin={2}
+                height={20}
                 axisLine={false}
                 tickFormatter={(value) =>
                   chartConfig[value as keyof typeof chartConfig]?.label
