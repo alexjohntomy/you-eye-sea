@@ -4,6 +4,7 @@ import {
   CommandItem,
   CommandList,
 } from "@/components/custom/advanced-search/dropdown-list";
+import { Button } from "@/components/ui/button";
 
 import { motion } from "motion/react";
 
@@ -39,6 +40,7 @@ interface ResultsTypes {
   setValueFunction: React.Dispatch<React.SetStateAction<string>>;
   setInputFunction: React.Dispatch<React.SetStateAction<string>>;
   focusStatus: boolean;
+  setFocusStatus: React.Dispatch<React.SetStateAction<boolean>>;
   value: string;
 }
 
@@ -47,6 +49,7 @@ function DropdownResults({
   setValueFunction,
   setInputFunction,
   focusStatus,
+  setFocusStatus,
   value,
 }: ResultsTypes) {
 
@@ -54,9 +57,8 @@ function DropdownResults({
   const handleSelect = (value: string) => {
     setValueFunction(value);
     setInputFunction("")
+    setFocusStatus(false)
   };
-
-    const [open, setOpen] = useState(true);
 
     return !useIsMobile() ? (
     focusStatus && (
@@ -88,28 +90,23 @@ function DropdownResults({
       </motion.div>
     )
   ) : (
-  <Drawer open={focusStatus} onOpenChange={setOpen}>
-        <DrawerContent>
-        <DrawerTitle className="py-2 text-center">Select from the list</DrawerTitle>
-        <CommandList className="bg-background rounded-t-none rounded-b-xl border-t-none border-b border-l border-r border-foreground/10">
-          <CommandEmpty></CommandEmpty>
-          <CommandGroup className="flex flex-col overflow-scroll p-1 gap-0.5">
+  <Drawer open={focusStatus} onOpenChange={setFocusStatus}>
+        <DrawerContent className="p-4 px-6 pb-12">
+        <DrawerTitle className="px-0 pb-4 text-left text-lg font-bold">Select from the list</DrawerTitle>
+          <div className="flex flex-col gap-1.5 overflow-y-auto max-h-[50vh]">
             {resultsList.map((result, index) => 
             (
-              <CommandItem
-                className="rounded-md transition-colors duration-200 ease-out text-foreground/70 dark:data-[selected=true]:bg-blue-500/12 dark:data-[selected=true]:text-blue-100"
+              <Button
+                variant={result.value === value ? "secondary" : "ghost"}
+                className="justify-start h-12 rounded-xl text-md font-medium"
                 key={result.value}
-                value={result.value}
-                onMouseDown={() => handleSelect(result.value)}
-                onTouchStart={() => handleSelect(result.value)}
-                onSelect={() => handleSelect(result.value)}
+                onClick={() => handleSelect(result.value)}
               >
                 {result.label}
                 <Check className={(result.value === value) ? "opacity-100 ml-auto" : "opacity-0 ml-auto"}/>
-              </CommandItem>
+              </Button>
             ))}
-          </CommandGroup>
-        </CommandList>
+          </div>
         </DrawerContent>
       </Drawer>
       )

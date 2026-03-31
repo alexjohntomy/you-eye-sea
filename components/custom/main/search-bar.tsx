@@ -92,7 +92,6 @@ function SearchBar() {
                   autoFocus={!isMobile}
                   onValueChange={(val) => {
                     setValue(val);
-                    trigger("nudge");
                   }}
                   wrapperClassName="flex flex-1 gap-3 border-b-0 items-center"
                   className="w-full text-lg"

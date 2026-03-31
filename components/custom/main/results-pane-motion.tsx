@@ -13,9 +13,9 @@ import { HoverPrefetchLink as Link } from "@/components/custom/main-ui/hover-pre
 import { useRouter } from "next/navigation";
 
 import courseList from "@/courseList";
-import { Ref } from "react";
+import { Ref, useState } from "react";
 
-import { ChevronRight, GraduationCap, TrendingUp, SearchX } from "lucide-react";
+import { ChevronRight, GraduationCap, TrendingUp } from "lucide-react";
 import { useWebHaptics } from "web-haptics/react";
 
 interface testProps {
@@ -92,6 +92,18 @@ interface courseInstance {
 function ResultsPaneMotion({ query, onResetHover, onSelect }: testProps) {
   const router = useRouter();
   const { trigger } = useWebHaptics();
+  const [pressedId, setPressedId] = useState<number | null>(null);
+
+  const handleSelect = (href: string, id: number) => {
+    setPressedId(id);
+    trigger("nudge");
+    (document.activeElement as HTMLElement)?.blur();
+    setTimeout(() => {
+      router.push(href, { scroll: false });
+      onSelect?.();
+      setPressedId(null);
+    }, 100);
+  };
   const trendingCourseInstances: courseInstance[] = [
     {
       id: 1,
@@ -141,22 +153,18 @@ function ResultsPaneMotion({ query, onResetHover, onSelect }: testProps) {
         onMouseLeave={onResetHover}
       >
         <CommandGroup>
-          <h3 className="text-foreground/50 dark:text-foreground/50 flex flex-row gap-2 px-2 py-1 text-sm font-medium">
+          <h3 className="text-foreground/50 dark:text-foreground/50 hidden md:flex flex-row gap-2 px-2 py-1 text-sm font-medium">
             <GraduationCap width={13} className="relative bottom-[1.75]" />
             Courses
           </h3>
           <CommandEmpty>
             <div className="flex flex-col items-center gap-2 opacity-90">
-              <SearchX
-                width={25}
-                className="text-gray-400 dark:text-gray-500"
-              />
               <h1 className="dark:text-foreground/50 text-sm text-gray-500">
                 No Results Found :(
               </h1>
               <Link
                 href="/explore"
-                className="hover:bg-uic-red-600 bg-uic-red-500 rounded-lg px-3 py-2 font-semibold text-white"
+                className="bg-uic-red-600 hover:bg-uic-red-600 rounded-lg px-3 py-2 font-semibold text-white opacity-90 transition-colors hover:opacity-100 shadow-md"
               >
                 Try the explore page?
               </Link>
@@ -172,17 +180,13 @@ function ResultsPaneMotion({ query, onResetHover, onSelect }: testProps) {
                 <CommandItem
                   key={resultItem.id}
                   value={resultItem.id.toString()}
-                  onSelect={() => {
-                    router.push(href);
-                    onSelect?.();
-                  }}
-                  className={`rounded-lg transition-colors duration-200 ease-out ${index === 4 ? "hidden md:flex" : ""}`}
+                  onSelect={() => handleSelect(href, resultItem.id)}
+                  className={`rounded-lg transition-all duration-200 ease-out active:scale-[0.98] ${pressedId === resultItem.id ? "scale-[0.98] bg-accent/50" : ""} ${index >= 2 ? "hidden md:flex" : ""}`}
                 >
                   <Link
                     href={href}
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      onSelect?.();
+                    onClick={() => {
+                      // handleSelect(href, resultItem.id); // Bubble to onSelect
                     }}
                     className="flex min-w-0 grow flex-col"
                   >
@@ -212,7 +216,7 @@ function ResultsPaneMotion({ query, onResetHover, onSelect }: testProps) {
         onMouseLeave={onResetHover}
       >
         <CommandGroup>
-          <h3 className="text-foreground/50 dark:text-foreground/50 flex flex-row gap-2 px-2 py-1 text-sm font-medium">
+          <h3 className="text-foreground/50 dark:text-foreground/50 hidden md:flex flex-row gap-2 px-2 py-1 text-sm font-medium">
             <TrendingUp width={12} className="relative bottom-[1]" />
             Popular This Week
           </h3>
@@ -226,18 +230,13 @@ function ResultsPaneMotion({ query, onResetHover, onSelect }: testProps) {
                 <CommandItem
                   key={resultItem.id}
                   value={resultItem.id.toString()}
-                  onSelect={() => {
-                    router.push(href);
-                    trigger("nudge");
-                    onSelect?.();
-                  }}
-                  className={`rounded-lg transition-colors duration-200 ease-out ${index === 4 ? "hidden md:flex" : ""}`}
+                  onSelect={() => handleSelect(href, resultItem.id)}
+                  className={`rounded-lg transition-all duration-200 ease-out active:scale-[0.98] ${pressedId === resultItem.id ? "scale-[0.98] bg-accent/50" : ""}`}
                 >
                   <Link
                     href={href}
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      onSelect?.();
+                    onClick={() => {
+                      // handleSelect(href, resultItem.id); // Bubble to onSelect
                     }}
                     className="flex min-w-0 grow flex-col"
                   >

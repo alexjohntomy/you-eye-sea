@@ -163,10 +163,10 @@ export default async function CourseDetailsPage({
       <div className="flex h-full w-full flex-col gap-2 overflow-scroll p-6 md:w-1/2">
         <div className="flex flex-row items-start justify-between">
           <div className="flex flex-col">
-            <h1 className="text-uic-red-600 text-4xl font-black">
+            <h1 className="text-uic-red-600 text-4xl font-black leading-tight">
               {courseDetails.name} {courseDetails.number}
             </h1>
-            <p className="text-foreground/70 text-lg font-medium">
+            <p className="text-foreground/70 text-lg font-medium leading-tight pb-1">
               {courseDetails.title}
             </p>
           </div>
@@ -321,7 +321,7 @@ async function GradeDistributionSection({
         listOfProfessors={courseDetails.professors}
         averageCourseSize={averageCourseSize}
       />
-      <h5 className="text-foreground/50 text-center text-xs">
+      <h5 className="text-foreground/50 text-center text-xs leading-tight">
         Data is sourced from official UIC grade distributions but stats are
         calculated in the backend, so it may contain errors. The pass rate
         denominator includes only A-F. Drop rate denominator includes W.

@@ -21,10 +21,12 @@ export default async function Explore({
     <div className="flex flex-col p-4 w-full justify-start min-h-full overflow-y-hidden animate-in fade-in duration-700">
       {/* Hero Text */}
       <div className="flex flex-col items-center gap-0">
-        <h1 className="font-black text-2xl md:text-3xl py-5 text-center text-transparent bg-text-gradient-uic bg-clip-text text-shadow-[0px_0px_0px_20px_var(--inset-color)]">
+        <h1 className="font-black text-3xl pt-2 pb-3 text-center text-transparent bg-text-gradient-uic bg-clip-text text-shadow-[0px_0px_0px_20px_var(--inset-color)]">
           Explore
         </h1>
-        <PresetButtons />
+        <div className="w-full">
+          <PresetButtons />
+        </div>
       </div>
       <div className="flex flex-col gap-2">
         {/* Search Bar */}

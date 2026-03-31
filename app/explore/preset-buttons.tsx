@@ -26,13 +26,13 @@ export function PresetButtons() {
     };
 
     return (
-        <div className="grid max-w-62 md:max-w-full lg:grid-cols-4 w-full md:w-3/4 gap-2 pb-4 pt-1 animate-in fade-in slide-in-from-bottom-2 fill-mode-both mx-auto">
+        <div className="grid w-[92%] md:max-w-full lg:grid-cols-4 md:w-3/4 gap-2 pb-4 pt-1 animate-in fade-in slide-in-from-bottom-2 fill-mode-both mx-auto">
             {presets.map((p) => (
                 <Button
                     key={p.label}
                     variant="outline"
                     onClick={() => handlePresetClick(p)}
-                    className="relative py-5 px-3 rounded-xl bg-uic-red-500/10 border border-uic-red-500/15 hover:bg-uic-red-500/20 text-uic-red-500 hover:text-uic-red-500 opacity-100 shadow-none font-semibold transition-all duration-300 w-full max-w-full overflow-hidden"
+                    className="relative py-5 px-3 rounded-xl bg-muted/40 border border-border hover:bg-muted/60 text-muted-foreground hover:text-foreground opacity-100 shadow-none font-semibold transition-all duration-300 w-full max-w-full overflow-hidden"
                 >
                     <div className="flex items-center justify-center truncate w-full">
                         {isPending && activePreset === p.label ? (

@@ -113,7 +113,7 @@ function StickyNoteComment({
     <div
       className={`flex h-full w-full flex-col justify-between gap-2 p-4 pt-5 shadow-sm ${color.main}`}
     >
-      <h3 className="text-foreground/80 text-sm leading-relaxed font-medium whitespace-pre-wrap">
+      <h3 className="text-foreground/80 text-sm leading-snug font-medium whitespace-pre-wrap">
         {comment.comment}
       </h3>
       <div className="mt-4 flex flex-row justify-between opacity-60">

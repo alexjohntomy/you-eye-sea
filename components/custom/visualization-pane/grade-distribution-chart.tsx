@@ -195,11 +195,11 @@ function GradeDistributionChart({
           </Card>
         </CardHeader>
       </div>
-      <CardContent className="flex">
-        <div className="h-full w-full overflow-hidden">
+      <CardContent className="flex-1 min-h-0 px-6 py-2">
+        <div className="h-full w-full">
           <ChartContainer
             config={chartConfig}
-            className="h-full max-h-full min-w-full"
+            className="w-full"
           >
             <BarChart
               accessibilityLayer
