@@ -22,7 +22,7 @@ YouEyeSea uses UIC’s publicly available official grade data to create a more i
 
 ## Building from Source
 
-First, create a Prisma database and set up your environment variables. Then, place your CSVs in `/prisma/grade_distribution_data/`. If using CSVs from UIC, you should be able to run the `/prisma/seed.ts` script with minimal changes and see your database populate.
+First, create a Prisma database and set up your environment variables. Then, place your CSVs in `/prisma/grade_distribution_data/`. If using [CSVs from UIC](https://oir.uic.edu/data/student-data/grade-distribution/), you should be able to run the `/prisma/seed.ts` script with minimal changes and see your database populate.
 
 Then, run the development server as follows:
 

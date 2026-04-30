@@ -3,6 +3,7 @@ import { CommentsPaneServer } from "@/components/custom/discussion-pane/comments
 import { DiscussionPane } from "@/components/custom/discussion-pane/discussion-pane";
 import { GradeDistributionChart } from "@/components/custom/visualization-pane/grade-distribution-chart";
 import { ProfessorDropdown } from "@/components/custom/visualization-pane/professor-dropdown";
+import { SemesterDropdown } from "@/components/custom/visualization-pane/semester-dropdown";
 import { ReviewsPaneServer } from "@/components/custom/discussion-pane/reviews-pane/reviews-pane-server";
 import { TablePaneServer } from "@/components/custom/breakdown-pane/table-pane-server";
 import prisma from "@/lib/prisma";
@@ -47,6 +48,7 @@ const getCourseDetails = cache(async function getCourseDetails(slug: string) {
 
   const seen = new Set<number>();
   const professors: Professor[] = [];
+  const semesterSet = new Set<string>();
   courses.forEach((course) => {
     if (!seen.has(course.professor.id)) {
       professors.push({
@@ -55,54 +57,35 @@ const getCourseDetails = cache(async function getCourseDetails(slug: string) {
       });
       seen.add(course.professor.id);
     }
+    semesterSet.add(course.semester);
   });
+  const semesters = Array.from(semesterSet).sort();
 
-  return { name: name, number: number, title: title, professors: professors };
+  return { name: name, number: number, title: title, professors: professors, semesters: semesters };
 });
 
 async function getCourseInstance(slug: string, queryParams: { [key: string]: string | string[] | undefined }) {
   const parsedSlug = slug.split("-");
   const professor = Array.isArray(queryParams.professor) ? queryParams.professor[0] : queryParams.professor;
-  if (professor == "all-professors" || !professor) {
-    return await prisma.courseInstance.aggregate({
-      cacheStrategy: { ttl: 604800, swr: 86400 },
-      _sum: {
-        A: true,
-        B: true,
-        C: true,
-        D: true,
-        F: true,
-        W: true,
-      },
-      _avg: {
-        total_students: true,
-      },
-      where: {
-        courseID: parsedSlug[0],
-        courseNumber: parseInt(parsedSlug[1]),
-      },
-    });
-  } else {
-    return await prisma.courseInstance.aggregate({
-      cacheStrategy: { ttl: 604800, swr: 86400 },
-      _sum: {
-        A: true,
-        B: true,
-        C: true,
-        D: true,
-        F: true,
-        W: true,
-      },
-      _avg: {
-        total_students: true,
-      },
-      where: {
-        courseID: parsedSlug[0],
-        courseNumber: parseInt(parsedSlug[1]),
-        professorID: parseInt(professor),
-      },
-    });
+  const semester = Array.isArray(queryParams.semester) ? queryParams.semester[0] : queryParams.semester;
+
+  const where: Record<string, unknown> = {
+    courseID: parsedSlug[0],
+    courseNumber: parseInt(parsedSlug[1]),
+  };
+  if (professor && professor !== "all-professors") {
+    where.professorID = parseInt(professor);
   }
+  if (semester && semester !== "all-semesters") {
+    where.semester = semester;
+  }
+
+  return await prisma.courseInstance.aggregate({
+    cacheStrategy: { ttl: 604800, swr: 86400 },
+    _sum: { A: true, B: true, C: true, D: true, F: true, W: true },
+    _avg: { total_students: true },
+    where,
+  });
 }
 
 export async function generateMetadata({
@@ -170,10 +153,9 @@ export default async function CourseDetailsPage({
               {courseDetails.title}
             </p>
           </div>
-          <div className="mt-1">
-            <ProfessorDropdown
-              listOfProfessors={courseDetails.professors}
-            ></ProfessorDropdown>
+          <div className="mt-1 flex flex-row gap-2">
+            <SemesterDropdown semesters={courseDetails.semesters} />
+            <ProfessorDropdown listOfProfessors={courseDetails.professors} />
           </div>
         </div>
         <CourseActionButtons
