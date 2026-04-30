@@ -1,5 +1,6 @@
 import { TablePane } from "@/components/custom/breakdown-pane/table-pane";
 import prisma from "@/lib/prisma";
+import { semesterToNumber } from "@/app/_util/semesterToNumber";
 
 async function getCourseInstanceSums(courseName: string[]) {
   const courseInstanceAggregation = await prisma.courseInstance.groupBy({
@@ -28,12 +29,6 @@ async function getCourseInstanceSums(courseName: string[]) {
       F: number | null;
     };
   }[];
-}
-
-function semesterToNumber(semester: string): number {
-  const [term, year] = semester.split(/[_-]/);
-  const termOrder: Record<string, number> = { spring: 1, summer: 2, fall: 3 };
-  return parseInt(year) * 10 + (termOrder[term] ?? 0);
 }
 
 async function getStatsFromDB(courseName: string[]) {
