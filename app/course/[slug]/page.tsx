@@ -10,6 +10,7 @@ import prisma from "@/lib/prisma";
 import { CourseActionButtons } from "@/components/custom/visualization-pane/course-action-buttons";
 import type { Metadata } from "next";
 import { cache, Suspense } from "react";
+import { semesterToNumber } from "@/app/_util/semesterToNumber";
 
 const getCourseDetails = cache(async function getCourseDetails(slug: string) {
   const parsedSlug = slug.split("-");
@@ -59,15 +60,30 @@ const getCourseDetails = cache(async function getCourseDetails(slug: string) {
     }
     semesterSet.add(course.semester);
   });
-  const semesters = Array.from(semesterSet).sort();
+  const semesters = Array.from(semesterSet).sort(
+    (a: string, b: string) => semesterToNumber(b) - semesterToNumber(a)
+  );
 
-  return { name: name, number: number, title: title, professors: professors, semesters: semesters };
+  return {
+    name: name,
+    number: number,
+    title: title,
+    professors: professors,
+    semesters: semesters,
+  };
 });
 
-async function getCourseInstance(slug: string, queryParams: { [key: string]: string | string[] | undefined }) {
+async function getCourseInstance(
+  slug: string,
+  queryParams: { [key: string]: string | string[] | undefined }
+) {
   const parsedSlug = slug.split("-");
-  const professor = Array.isArray(queryParams.professor) ? queryParams.professor[0] : queryParams.professor;
-  const semester = Array.isArray(queryParams.semester) ? queryParams.semester[0] : queryParams.semester;
+  const professor = Array.isArray(queryParams.professor)
+    ? queryParams.professor[0]
+    : queryParams.professor;
+  const semester = Array.isArray(queryParams.semester)
+    ? queryParams.semester[0]
+    : queryParams.semester;
 
   const where: Record<string, unknown> = {
     courseID: parsedSlug[0],
@@ -143,17 +159,17 @@ export default async function CourseDetailsPage({
 
   return (
     <div className="bg-background animate-in fade-in flex h-full w-full min-w-87 grow flex-col overflow-hidden duration-150 md:h-[calc(100svh-120px)] md:flex-row">
-      <div className="flex h-full w-full flex-col gap-2 overflow-y-auto md:overflow-hidden p-6 md:w-1/2">
+      <div className="flex h-full w-full flex-col gap-2 overflow-y-auto p-6 md:w-1/2 md:overflow-hidden">
         <div className="flex flex-row items-start justify-between">
           <div className="flex flex-col">
-            <h1 className="text-uic-red-600 text-4xl font-black leading-tight">
+            <h1 className="text-uic-red-600 text-4xl leading-tight font-black">
               {courseDetails.name} {courseDetails.number}
             </h1>
-            <p className="text-foreground/70 text-lg font-medium leading-tight pb-1">
+            <p className="text-foreground/70 pb-1 text-lg leading-tight font-medium">
               {courseDetails.title}
             </p>
           </div>
-          <div className="mt-1 flex flex-row gap-2">
+          <div className="mt-1 flex flex-col gap-2 md:flex-row">
             <SemesterDropdown semesters={courseDetails.semesters} />
             <ProfessorDropdown listOfProfessors={courseDetails.professors} />
           </div>
@@ -164,7 +180,7 @@ export default async function CourseDetailsPage({
           selectedProfessorName={selectedProfessorName}
         />
 
-        <div className="pt-2 flex-1 min-h-0 flex flex-col">
+        <div className="flex min-h-0 flex-1 flex-col pt-2">
           <Suspense
             fallback={
               <div className="flex flex-col gap-4">
@@ -182,10 +198,10 @@ export default async function CourseDetailsPage({
                 </div>
 
                 <div className="flex flex-col gap-1.5 py-1">
-                  <div className="shimmer h-3 w-full mx-auto rounded-md" />
-                  <div className="shimmer h-3 w-11/12 mx-auto rounded-md" />
-                  <div className="shimmer h-3 w-10/12 mx-auto rounded-md" />
-                  <div className="md:invisible visible shimmer h-3 w-10/12 mx-auto rounded-md" />
+                  <div className="shimmer mx-auto h-3 w-full rounded-md" />
+                  <div className="shimmer mx-auto h-3 w-11/12 rounded-md" />
+                  <div className="shimmer mx-auto h-3 w-10/12 rounded-md" />
+                  <div className="shimmer visible mx-auto h-3 w-10/12 rounded-md md:invisible" />
                 </div>
               </div>
             }
@@ -210,21 +226,21 @@ export default async function CourseDetailsPage({
 
       {/* Right: Breakdown Table */}
       <section className="flex h-full w-full flex-col md:w-1/4 md:max-w-1/4">
-        <h1 className="text-foreground pt-6 pb-3 text-center text-lg font-bold relative z-10">
+        <h1 className="text-foreground relative z-10 pt-6 pb-3 text-center text-lg font-bold">
           Breakdown
         </h1>
         <Suspense
           fallback={
             <div className="flex flex-col gap-4 px-6">
-              <div className="shimmer h-35 w-full rounded-2xl mb-4" />
+              <div className="shimmer mb-4 h-35 w-full rounded-2xl" />
               <div className="flex flex-col gap-2">
                 <div className="shimmer h-10 w-full rounded-md" />
                 {Array.from({ length: 6 }).map((_, i) => (
                   <div key={i} className="shimmer h-12 w-full rounded-md" />
                 ))}
               </div>
-              <div className="shimmer h-4 w-3/4 rounded-md mx-auto mt-6" />
-              <div className="shimmer h-4 w-1/2 rounded-md mx-auto" />
+              <div className="shimmer mx-auto mt-6 h-4 w-3/4 rounded-md" />
+              <div className="shimmer mx-auto h-4 w-1/2 rounded-md" />
             </div>
           }
         >
@@ -249,7 +265,9 @@ async function DiscussionSection({
   return (
     <DiscussionPane
       commentPaneServerComponent={
-        <Suspense fallback={<div className="shimmer min-h-60 w-full rounded-md mt-4" />}>
+        <Suspense
+          fallback={<div className="shimmer mt-4 min-h-60 w-full rounded-md" />}
+        >
           <CommentsPaneServer
             slug={slug}
             professorID={
@@ -261,7 +279,9 @@ async function DiscussionSection({
         </Suspense>
       }
       reviewPaneServerComponent={
-        <Suspense fallback={<div className="shimmer min-h-60 w-full rounded-md mt-4" />}>
+        <Suspense
+          fallback={<div className="shimmer mt-4 min-h-60 w-full rounded-md" />}
+        >
           <ReviewsPaneServer
             slug={slug}
             professorID={
@@ -292,7 +312,7 @@ async function GradeDistributionSection({
     GradeDistributionCount?._avg?.total_students ?? null;
 
   return (
-    <div className="animate-in fade-in flex flex-col gap-4 duration-350 flex-1 min-h-0">
+    <div className="animate-in fade-in flex min-h-0 flex-1 flex-col gap-4 duration-350">
       <GradeDistributionChart
         chartData={formattedGradeData}
         professorID={
@@ -302,6 +322,11 @@ async function GradeDistributionSection({
         }
         listOfProfessors={courseDetails.professors}
         averageCourseSize={averageCourseSize}
+        selectedSemester={
+          Array.isArray(filteredParams.semester)
+            ? filteredParams.semester[0]
+            : ((filteredParams.semester as string | undefined) ?? null)
+        }
       />
       <h5 className="text-foreground/50 text-center text-xs leading-tight">
         Data is sourced from official UIC grade distributions but stats are

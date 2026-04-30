@@ -26,6 +26,7 @@ import {
   ChartTooltipContent,
 } from "@/components/ui/chart";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { titleCase } from "text-title-case";
 
 export const description = "A bar chart with a label";
 
@@ -71,6 +72,7 @@ interface chartsProp {
   professorID: string | null;
   listOfProfessors: Professor[];
   averageCourseSize: number | null;
+  selectedSemester: string | null;
 }
 
 interface Professor {
@@ -83,6 +85,7 @@ function GradeDistributionChart({
   professorID,
   listOfProfessors,
   averageCourseSize,
+  selectedSemester,
 }: chartsProp) {
   const isMobile = useIsMobile();
   const calculatedGPA = calculateGPA(chartData);
@@ -93,6 +96,12 @@ function GradeDistributionChart({
 
   const [shouldAnimate, setShouldAnimate] = useState(true);
   const isInitialMount = useRef(true);
+
+  // Calculate semester display
+  const semesterRange =
+    selectedSemester && selectedSemester !== "all-semesters"
+      ? titleCase(selectedSemester.replace("_", " ").replace("-", " "))
+      : "Spring '22 - Fall '25";
 
   useEffect(() => {
     // Skip the first run (initial mount already has shouldAnimate = true)
@@ -170,7 +179,7 @@ function GradeDistributionChart({
                 {selectedProfessor}
               </span>{" "}
               <span className="font-medium tracking-wide text-nowrap">
-                (Spring &apos;22 - Fall &apos;25)
+                {semesterRange}
               </span>
             </CardDescription>
           </div>

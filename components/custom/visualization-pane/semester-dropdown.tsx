@@ -22,6 +22,7 @@ import {
 import { ChevronsUpDown } from "lucide-react";
 import { Spinner } from "@/components/ui/spinner";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { titleCase } from "text-title-case";
 
 interface SemesterDropdownProps {
   semesters: string[];
@@ -56,20 +57,23 @@ function SemesterDropdown({ semesters }: SemesterDropdownProps) {
     });
   };
 
-  const label = semester === "all-semesters" ? "All Semesters" : semester;
+  const label =
+    semester === "all-semesters"
+      ? "All Semesters"
+      : titleCase(semester.replace("_", " ").replace("-", " "));
 
   const triggerButton = (
     <Button
       variant="outline"
-      className={`h-10 border-foreground/10 shadow-none rounded-xl transition-all duration-300 hover:bg-accent/30 dark:hover:bg-accent/15 ${
+      className={`border-foreground/10 hover:bg-accent/30 dark:hover:bg-accent/15 h-10 rounded-xl shadow-none transition-all duration-300 ${
         isPending ? "opacity-50" : "opacity-100"
       }`}
     >
-      <span className="truncate max-w-[150px] md:max-w-none">{label}</span>
+      <span className="max-w-[150px] truncate md:max-w-none">{label}</span>
       {isPending ? (
         <Spinner className="size-4" />
       ) : (
-        <ChevronsUpDown className="size-4 opacity-50 shrink-0" />
+        <ChevronsUpDown className="size-4 shrink-0 opacity-50" />
       )}
     </Button>
   );
@@ -84,11 +88,14 @@ function SemesterDropdown({ semesters }: SemesterDropdownProps) {
               Semester
             </DrawerTitle>
           </DrawerHeader>
-          <div className="flex flex-col gap-1.5 overflow-y-auto max-h-[50vh]">
+          <div className="flex max-h-[50vh] flex-col gap-1.5 overflow-y-auto">
             <Button
               variant={semester === "all-semesters" ? "secondary" : "ghost"}
-              className="justify-start h-12 rounded-xl text-md font-medium"
-              onClick={() => { handleChange("all-semesters"); setOpen(false); }}
+              className="text-md h-12 justify-start rounded-xl font-medium"
+              onClick={() => {
+                handleChange("all-semesters");
+                setOpen(false);
+              }}
             >
               All Semesters
             </Button>
@@ -96,10 +103,13 @@ function SemesterDropdown({ semesters }: SemesterDropdownProps) {
               <Button
                 key={s}
                 variant={semester === s ? "secondary" : "ghost"}
-                className="justify-start h-12 rounded-xl text-md font-medium"
-                onClick={() => { handleChange(s); setOpen(false); }}
+                className="text-md h-12 justify-start rounded-xl font-medium"
+                onClick={() => {
+                  handleChange(s);
+                  setOpen(false);
+                }}
               >
-                {s}
+                {titleCase(s.replace("_", " ").replace("-", " "))}
               </Button>
             ))}
           </div>
@@ -113,7 +123,7 @@ function SemesterDropdown({ semesters }: SemesterDropdownProps) {
       <DropdownMenuTrigger asChild>{triggerButton}</DropdownMenuTrigger>
       <DropdownMenuContent
         align="end"
-        className="w-44 shadow-none border-foreground/10 rounded-xl"
+        className="border-foreground/10 w-44 rounded-xl shadow-none"
       >
         <DropdownMenuLabel>Semester</DropdownMenuLabel>
         <DropdownMenuSeparator />
@@ -121,9 +131,13 @@ function SemesterDropdown({ semesters }: SemesterDropdownProps) {
           <DropdownMenuRadioItem value="all-semesters" className="rounded-md">
             All Semesters
           </DropdownMenuRadioItem>
-          {semesters.map((s) => (
-            <DropdownMenuRadioItem key={s} value={s} className="rounded-md">
-              {s}
+          {semesters.map((semester) => (
+            <DropdownMenuRadioItem
+              key={semester}
+              value={semester}
+              className="rounded-md"
+            >
+              {titleCase(semester.replace("_", " ").replace("-", " "))}
             </DropdownMenuRadioItem>
           ))}
         </DropdownMenuRadioGroup>
