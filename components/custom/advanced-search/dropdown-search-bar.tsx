@@ -6,6 +6,7 @@ import { SearchIcon, ChevronsUpDown } from "lucide-react";
 import { useEffect, useState, useTransition } from "react";
 import { Spinner } from "@/components/ui/spinner";
 import subjectList from "@/subjectList";
+import sampleSubjectList from "@/sampleSubjectList";
 
 import { DropdownResults } from "./dropdown-results";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
@@ -24,8 +25,12 @@ interface DropdownValueType {
 }
 
 function DropdownSearchBar() {
+  const activeSubjectList = process.env.NODE_ENV === "development"
+    ? [...new Set([...subjectList, ...sampleSubjectList])]
+    : subjectList;
+
   //Make Subject Dropdown
-  const subjects = subjectList.map(item => {
+  const subjects = activeSubjectList.map(item => {
     const subjectObject: DropdownValueType = {
       value: item,
       label: item
