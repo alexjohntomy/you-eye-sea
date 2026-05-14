@@ -253,6 +253,14 @@ export default async function CourseDetailsPage({
   );
 }
 
+interface CourseDetails {
+  name: string;
+  number: string;
+  title: string;
+  professors: { id: string; name: string }[];
+  semesters: string[];
+}
+
 async function DiscussionSection({
   slug,
   filteredParams,
@@ -260,7 +268,7 @@ async function DiscussionSection({
 }: {
   slug: string;
   filteredParams: { [key: string]: string | string[] | undefined };
-  courseDetails: any;
+  courseDetails: CourseDetails;
 }) {
   return (
     <DiscussionPane
@@ -304,7 +312,7 @@ async function GradeDistributionSection({
 }: {
   slug: string;
   filteredParams: { [key: string]: string | string[] | undefined };
-  courseDetails: any;
+  courseDetails: CourseDetails;
 }) {
   const GradeDistributionCount = await getCourseInstance(slug, filteredParams);
   const formattedGradeData = formatGradeData(GradeDistributionCount);
