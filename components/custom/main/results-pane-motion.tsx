@@ -102,7 +102,7 @@ function ResultsPaneMotion({ query, onResetHover, onSelect }: testProps) {
     onSelect?.();
     setPressedId(null);
   };
-  const trendingCourseInstances: courseInstance[] = [
+  const productionTrendingCourses: courseInstance[] = [
     {
       id: 1,
       combinedName: "CS 342",
@@ -144,6 +144,53 @@ function ResultsPaneMotion({ query, onResetHover, onSelect }: testProps) {
       professor: "Diego Rodriguez",
     },
   ];
+
+  const sampleTrendingCourses: courseInstance[] = [
+    {
+      id: 1,
+      combinedName: "CS 111",
+      subject: "CS",
+      number: 111,
+      title: "Introduction to Centering Divs",
+      professor: "Richard Hendricks",
+    },
+    {
+      id: 2,
+      combinedName: "CS 400",
+      subject: "CS",
+      number: 400,
+      title: "Navigating BSB",
+      professor: "Dennis Reynolds",
+    },
+    {
+      id: 3,
+      combinedName: "PHYS 141",
+      subject: "PHYS",
+      number: 141,
+      title: "Dropping Things",
+      professor: "Dee Reynolds",
+    },
+    {
+      id: 4,
+      combinedName: "ANTH 100",
+      subject: "ANTH",
+      number: 100,
+      title: "Making Friends",
+      professor: "Jared Dunn",
+    },
+    {
+      id: 5,
+      combinedName: "CHEM 101",
+      subject: "CHEM",
+      number: 101,
+      title: "Introduction to Coffee Testing",
+      professor: "Walter White",
+    },
+  ];
+
+  const trendingCourseInstances = process.env.NODE_ENV === "development"
+    ? sampleTrendingCourses
+    : productionTrendingCourses;
   if (query.length > 0) {
     return (
       <CommandList

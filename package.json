@@ -9,12 +9,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "postinstall": "prisma generate",
+    "postinstall": "prisma generate && patch-package",
     "generate-cache": "tsx scripts/generate-cache.ts",
     "lint": "eslint"
   },
   "dependencies": {
     "@fontsource/manrope": "^5.2.8",
+    "@prisma/adapter-pg": "^7.8.0",
     "@prisma/client": "^7.8.0",
     "@prisma/extension-accelerate": "^3.0.1",
     "@radix-ui/react-dialog": "^1.1.15",
@@ -39,6 +40,7 @@
     "next": "^16.2.6",
     "next-themes": "^0.4.6",
     "papaparse": "^5.5.3",
+    "patch-package": "^8.0.1",
     "react": "19.2.6",
     "react-dom": "19.2.6",
     "react-peel": "^2.1.0",

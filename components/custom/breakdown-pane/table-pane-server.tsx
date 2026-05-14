@@ -1,10 +1,10 @@
 import { TablePane } from "@/components/custom/breakdown-pane/table-pane";
-import prisma from "@/lib/prisma";
+import prisma, { prismaCacheStrategy } from "@/lib/prisma";
 import { semesterToNumber } from "@/app/_util/semesterToNumber";
 
 async function getCourseInstanceSums(courseName: string[]) {
   const courseInstanceAggregation = await prisma.courseInstance.groupBy({
-    cacheStrategy: { ttl: 604800, swr: 86400 },
+    ...prismaCacheStrategy(604800, 86400),
     by: ["courseInstanceID"],
     _sum: {
       A: true,
@@ -33,7 +33,7 @@ async function getCourseInstanceSums(courseName: string[]) {
 
 async function getStatsFromDB(courseName: string[]) {
   const statsFromDB = await prisma.courseInstance.findMany({
-    cacheStrategy: { ttl: 604800, swr: 86400 },
+    ...prismaCacheStrategy(604800, 86400),
     where: {
       courseID: courseName[0],
       courseNumber: parseInt(courseName[1]),

@@ -1,0 +1,26 @@
+diff --git a/node_modules/recharts/es6/component/ResponsiveContainer.js b/node_modules/recharts/es6/component/ResponsiveContainer.js
+index 2b4e117..7531842 100644
+--- a/node_modules/recharts/es6/component/ResponsiveContainer.js
++++ b/node_modules/recharts/es6/component/ResponsiveContainer.js
+@@ -132,7 +132,7 @@ var SizeDetectorContainer = /*#__PURE__*/forwardRef((_ref2, ref) => {
+     aspect,
+     maxHeight
+   });
+-  warn(calculatedWidth != null && calculatedWidth > 0 || calculatedHeight != null && calculatedHeight > 0, "The width(%s) and height(%s) of chart should be greater than 0,\n       please check the style of container, or the props width(%s) and height(%s),\n       or add a minWidth(%s) or minHeight(%s) or use aspect(%s) to control the\n       height and width.", calculatedWidth, calculatedHeight, width, height, minWidth, minHeight, aspect);
++  // warn(calculatedWidth != null && calculatedWidth > 0 || calculatedHeight != null && calculatedHeight > 0, "The width(%s) and height(%s) of chart should be greater than 0,\n       please check the style of container, or the props width(%s) and height(%s),\n       or add a minWidth(%s) or minHeight(%s) or use aspect(%s) to control the\n       height and width.", calculatedWidth, calculatedHeight, width, height, minWidth, minHeight, aspect);
+   return /*#__PURE__*/React.createElement("div", {
+     id: id ? "".concat(id) : undefined,
+     className: clsx('recharts-responsive-container', className),
+diff --git a/node_modules/recharts/lib/component/ResponsiveContainer.js b/node_modules/recharts/lib/component/ResponsiveContainer.js
+index ebd3107..f3651b5 100644
+--- a/node_modules/recharts/lib/component/ResponsiveContainer.js
++++ b/node_modules/recharts/lib/component/ResponsiveContainer.js
+@@ -141,7 +141,7 @@ var SizeDetectorContainer = /*#__PURE__*/(0, _react.forwardRef)((_ref2, ref) =>
+     aspect,
+     maxHeight
+   });
+-  (0, _LogUtils.warn)(calculatedWidth != null && calculatedWidth > 0 || calculatedHeight != null && calculatedHeight > 0, "The width(%s) and height(%s) of chart should be greater than 0,\n       please check the style of container, or the props width(%s) and height(%s),\n       or add a minWidth(%s) or minHeight(%s) or use aspect(%s) to control the\n       height and width.", calculatedWidth, calculatedHeight, width, height, minWidth, minHeight, aspect);
++  // (0, _LogUtils.warn)(calculatedWidth != null && calculatedWidth > 0 || calculatedHeight != null && calculatedHeight > 0, "The width(%s) and height(%s) of chart should be greater than 0,\n       please check the style of container, or the props width(%s) and height(%s),\n       or add a minWidth(%s) or minHeight(%s) or use aspect(%s) to control the\n       height and width.", calculatedWidth, calculatedHeight, width, height, minWidth, minHeight, aspect);
+   return /*#__PURE__*/React.createElement("div", {
+     id: id ? "".concat(id) : undefined,
+     className: (0, _clsx.clsx)('recharts-responsive-container', className),

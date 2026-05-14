@@ -1,6 +1,6 @@
 import { FilteredDataTable } from "@/components/custom/data-table/filtered-data-table";
 import { columns, rowDetails } from "@/app/explore/columns";
-import prisma from "@/lib/prisma";
+import prisma, { prismaCacheStrategy } from "@/lib/prisma";
 
 interface TablePaneServerProps {
   slug: string;
@@ -33,7 +33,7 @@ async function getGradeTotalsForSubject({
   level,
 }: FilterTypes): Promise<courseSumsType[]> {
   const courseInstanceAggregation = await prisma.courseInstance.groupBy({
-    cacheStrategy: { ttl: 604800, swr: 86400 },
+    ...prismaCacheStrategy(604800, 86400),
     by: ["courseID", "courseNumber", "professorID"],
     _sum: {
       A: true,
