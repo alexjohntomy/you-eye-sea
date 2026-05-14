@@ -6,7 +6,7 @@ import { ProfessorDropdown } from "@/components/custom/visualization-pane/profes
 import { SemesterDropdown } from "@/components/custom/visualization-pane/semester-dropdown";
 import { ReviewsPaneServer } from "@/components/custom/discussion-pane/reviews-pane/reviews-pane-server";
 import { TablePaneServer } from "@/components/custom/breakdown-pane/table-pane-server";
-import prisma from "@/lib/prisma";
+import prisma, { prismaCacheStrategy } from "@/lib/prisma";
 import { CourseActionButtons } from "@/components/custom/visualization-pane/course-action-buttons";
 import type { Metadata } from "next";
 import { cache, Suspense } from "react";
@@ -15,7 +15,7 @@ import { semesterToNumber } from "@/app/_util/semesterToNumber";
 const getCourseDetails = cache(async function getCourseDetails(slug: string) {
   const parsedSlug = slug.split("-");
   const courses = await prisma.courseInstance.findMany({
-    cacheStrategy: { ttl: 604800, swr: 86400 },
+    ...prismaCacheStrategy(604800, 86400),
     where: {
       courseID: parsedSlug[0],
       courseNumber: parseInt(parsedSlug[1]),
@@ -97,7 +97,7 @@ async function getCourseInstance(
   }
 
   return await prisma.courseInstance.aggregate({
-    cacheStrategy: { ttl: 604800, swr: 86400 },
+    ...prismaCacheStrategy(604800, 86400),
     _sum: { A: true, B: true, C: true, D: true, F: true, W: true },
     _avg: { total_students: true },
     where,
