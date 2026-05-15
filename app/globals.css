@@ -372,7 +372,7 @@ body {
 .shimmer {
   background: linear-gradient(45deg,
       oklch(0.86 0 0 / 0.1) 25%,
-      oklch(0.86 0 0 / 0.4) 50%,
+      oklch(0.86 0 0 / 0.6) 50%,
       oklch(0.86 0 0 / 0.1) 75%);
   background-size: 400% 100%;
   animation: shimmer 1.5s linear infinite, fadeIn 0.8s ease-out;
