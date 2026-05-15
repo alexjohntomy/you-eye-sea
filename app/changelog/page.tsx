@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function ChangelogPage() {
   return (
-    <div className="animate-in fade-in absolute inset-0 flex flex-col overflow-x-hidden overflow-y-auto px-6 pt-12 pb-24 duration-700">
+    <div className="animate-in fade-in absolute inset-0 flex flex-col overflow-x-hidden overflow-y-auto px-6 pt-12 pb-24 duration-350">
       <div className="mx-auto w-full max-w-2xl">
         {/* Header */}
         <div className="mb-5 flex flex-col gap-3">

@@ -1,11 +1,9 @@
 import { ImageResponse } from "next/og";
-import prisma from "@/lib/prisma";
+import prisma, { prismaCacheStrategy } from "@/lib/prisma";
 import { formatGradeData } from "@/app/_util/formatGradeData";
 import { calculateGPA } from "@/app/_util/gpaCalculator";
 import * as fs from "fs";
 import * as path from "path";
-
-export const runtime = "nodejs";
 
 const manropeRegular = fs.readFileSync(path.join(process.cwd(), 'public', 'fonts', 'manrope', 'manrope-latin-400-normal.woff'));
 const manropeMedium = fs.readFileSync(path.join(process.cwd(), 'public', 'fonts', 'manrope', 'manrope-latin-500-normal.woff'));
@@ -39,6 +37,7 @@ export async function GET(request: Request) {
   try {
     // Fetch Course Info
     const courseDetails = await prisma.course.findFirst({
+      ...prismaCacheStrategy(604800, 86400),
       where: {
         subject: courseID,
         number: courseNumber,
@@ -62,6 +61,7 @@ export async function GET(request: Request) {
         return new Response("Invalid professor ID", { status: 400 });
       }
       courseInstanceAggregation = await prisma.courseInstance.aggregate({
+        ...prismaCacheStrategy(604800, 86400),
         _sum: { A: true, B: true, C: true, D: true, F: true, W: true },
         where: {
           courseID: courseID,
@@ -71,6 +71,7 @@ export async function GET(request: Request) {
       });
 
       const prof = await prisma.professor.findUnique({
+        ...prismaCacheStrategy(604800, 86400),
         where: { id: professorID },
       });
       if (prof) {
@@ -78,6 +79,7 @@ export async function GET(request: Request) {
       }
     } else {
       courseInstanceAggregation = await prisma.courseInstance.aggregate({
+        ...prismaCacheStrategy(604800, 86400),
         _sum: { A: true, B: true, C: true, D: true, F: true, W: true },
         where: {
           courseID: courseID,

@@ -12,6 +12,7 @@ import {
   Sofia_Sans_Condensed,
 } from "next/font/google";
 
+import { Suspense } from "react";
 import { Footer } from "@/components/custom/layout/footer";
 import { Header } from "@/components/custom/layout/header";
 import "./globals.css";
@@ -74,20 +75,24 @@ export default function RootLayout({
         )}
       </head>
       <body className="flex min-h-svh flex-col">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Header />
-          <main className="relative flex flex-1 md:max-h-[calc(100svh-120px)] md:min-h-[calc(100svh-120px)]">
-            {children}
-            <Analytics />
-            <SpeedInsights />
-          </main>
-          <Footer />
-        </ThemeProvider>
+        <Suspense fallback={null}>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <Suspense fallback={null}>
+              <Header />
+            </Suspense>
+            <main className="relative flex flex-1 md:max-h-[calc(100svh-120px)] md:min-h-[calc(100svh-120px)]">
+              {children}
+              <Analytics />
+              <SpeedInsights />
+            </main>
+            <Footer />
+          </ThemeProvider>
+        </Suspense>
       </body>
     </html>
   );

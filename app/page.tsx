@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div className="animate-in fade-in flex min-h-[calc(100svh-4rem)] w-full flex-col px-1 py-1 duration-700 md:min-h-full md:justify-center">
+    <div className="animate-in fade-in flex min-h-[calc(100svh-4rem)] w-full flex-col px-1 py-1 duration-350 md:min-h-full md:justify-center">
       {/* Hero Text */}
       <div className="mt-4.5 mb-3 flex flex-col items-center md:mt-10 md:mb-6 md:gap-2">
         <Badge
