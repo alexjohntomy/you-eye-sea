@@ -38,7 +38,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Contributions
 
-Want to be part of YouEyeSea's development? You can do so by creating an issue in the repo, forking the project, creating a branch for your addition/fix, committing your changes, pushing to the main branch, and opening a pull request. If you have any ideas for features you'd like to see, feel free to open those in the issues panel too. See instructions above for local development.
+Want to be part of YouEyeSea's development? You can do so by creating an issue in the repo, forking the project, creating a branch for your addition/fix, committing your changes, pushing to the main branch, and opening a pull request. If you have any ideas for features you'd like to see, feel free to open those in the issues panel too. See instructions above for local development. See [CONTRIBUTING.md](CONTRIBUTING.md) for more detailed development guidelines and [AGENTS.md](AGENTS.md) for codebase context used by coding agents.
 
 ## License
 
