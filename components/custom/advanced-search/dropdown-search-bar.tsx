@@ -131,10 +131,10 @@ function DropdownSearchBar() {
   if (!mounted) return null;
 
   return (
-    <div className="flex justify-between w-full px-4 md:px-0 md:w-3/4 bg-background dark:bg-card py-4 md:py-8 rounded-xl gap-5 border border-foreground/10 shadow-none md:max-h-20 relative md:items-start opacity-100">
-      <div className="flex flex-col md:flex-row w-full gap-5 justify-center relative md:-top-5 px-0 md:px-2">
+    <div className="flex justify-between w-[92%] px-4 md:px-0 md:w-3/4 bg-background dark:bg-card py-5 md:py-8 rounded-xl gap-5 border border-foreground/10 shadow-none relative md:items-start opacity-100">
+      <div className="flex flex-col md:flex-row w-full gap-5 justify-center px-0 md:px-2">
         <Command className="rounded-sm bg-background dark:bg-card md:w-1/4">
-          <p className="text-xs px-3 tracking-wide opacity-50 md:mb-1 mb-2">SUBJECT</p>
+          <p className="text-xs px-3 tracking-wide opacity-50 md:mb-1 mb-2">Subject</p>
           <Popover open={focusOne}>
             <PopoverAnchor asChild>
               {isMobile ? (
@@ -181,7 +181,7 @@ function DropdownSearchBar() {
         </Command>
 
         <Command className="rounded-sm bg-background dark:bg-card md:w-1/4">
-          <p className="text-xs px-3 tracking-wide opacity-50 md:mb-1 mb-2">LEVEL</p>
+          <p className="text-xs px-3 tracking-wide opacity-50 md:mb-1 mb-2">Level</p>
           <Popover open={focusThree}>
             <PopoverAnchor asChild>
               {isMobile ? (
@@ -228,7 +228,7 @@ function DropdownSearchBar() {
         </Command>
 
         <Command className="rounded-sm bg-background dark:bg-card md:w-1/4">
-          <p className="text-xs px-3 tracking-wide opacity-50 md:mb-1 mb-2">SORT BY</p>
+          <p className="text-xs px-3 tracking-wide opacity-50 md:mb-1 mb-2">Sort By</p>
           <Popover open={focusTwo}>
             <PopoverAnchor asChild>
               {isMobile ? (
@@ -276,7 +276,7 @@ function DropdownSearchBar() {
 
         <Button
           onClick={handleSearch}
-          className="relative md:top-1 py-6 rounded-xl bg-uic-navy-500/10 border border-uic-navy-500/15 hover:bg-uic-navy-500/20 text-uic-navy-500 hover:text-uic-navy-500 opacity-100 shadow-none font-semibold transition-all duration-300"
+          className="relative py-7 rounded-xl bg-muted/40 border border-border hover:bg-muted/60 text-muted-foreground hover:text-foreground shadow-none font-semibold transition-all duration-300"
           variant="outline"
         >
           {isPending ? <Spinner className="size-4" /> : <SearchIcon className="size-4" />} Show Results

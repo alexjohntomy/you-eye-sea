@@ -244,7 +244,7 @@ export default async function CourseDetailsPage({
             </div>
           }
         >
-          <div className="animate-in fade-in h-full w-full duration-350">
+          <div className="animate-in fade-in flex flex-1 flex-col min-h-0 w-full duration-350">
             <TablePaneServer slug={slug} />
           </div>
         </Suspense>

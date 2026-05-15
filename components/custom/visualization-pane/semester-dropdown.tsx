@@ -65,7 +65,7 @@ function SemesterDropdown({ semesters }: SemesterDropdownProps) {
   const triggerButton = (
     <Button
       variant="outline"
-      className={`border-foreground/10 hover:bg-accent/30 dark:hover:bg-accent/15 h-10 rounded-xl shadow-none transition-all duration-300 ${
+      className={`border-foreground/10 hover:bg-accent/30 dark:hover:bg-accent/15 dark:hover:text-foreground h-10 rounded-xl shadow-none transition-all duration-300 ${
         isPending ? "opacity-50" : "opacity-100"
       }`}
     >

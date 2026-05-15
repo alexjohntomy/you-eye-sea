@@ -81,7 +81,7 @@ export function ReviewForm({ parsedSlug, professorID }: ReviewFormProps) {
           </InputGroupText>
           <InputGroupButton
             variant="outline"
-            className="bg-uic-navy-900 text-white border-uic-navy-900/50 w-20 rounded-lg border shadow-none hover:bg-uic-navy-800"
+            className="bg-uic-navy-900 text-white border-uic-navy-900/50 w-20 rounded-lg border shadow-none hover:bg-uic-navy-800 hover:text-white"
             size="icon-xs"
             onClick={handleSubmit}
           >

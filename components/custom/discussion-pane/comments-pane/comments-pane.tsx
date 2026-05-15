@@ -197,7 +197,7 @@ function CommentsPane({ comments, parsedSlug, professorID }: CommentsPaneProps) 
           </InputGroupText>
           <InputGroupButton
             variant="outline"
-            className="bg-secondary text-background dark:text-foreground border-secondary/50 shadow-none px-3 rounded-lg border"
+            className="bg-secondary text-background dark:text-foreground dark:hover:text-foreground border-secondary/50 shadow-none px-3 rounded-lg border"
             size="xs"
             onClick={() => {
               if (filter.isProfane(value)) {

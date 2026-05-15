@@ -79,7 +79,7 @@ function ProfessorDropdown({ listOfProfessors }: dropdownTypes) {
   const triggerButton = (
     <Button
       variant="outline"
-      className={`h-10 border-foreground/10 shadow-none rounded-xl transition-all duration-300 hover:bg-accent/30 dark:hover:bg-accent/15 ${
+      className={`h-10 border-foreground/10 shadow-none rounded-xl transition-all duration-300 hover:bg-accent/30 dark:hover:bg-accent/15 dark:hover:text-foreground ${
         isPending ? "opacity-50" : "opacity-100"
       }`}
     >

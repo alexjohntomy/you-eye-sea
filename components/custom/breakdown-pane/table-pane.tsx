@@ -80,7 +80,7 @@ function TablePane({ statsFromDB, courseInstanceAggregation }: tablePaneProps) {
     .reverse();
 
   return (
-    <div className="h-full gap-3 overflow-auto px-6">
+    <div className="flex-1 min-h-0 overflow-auto px-6 pb-6">
       <GPALineChart data={gpaChartData} />
       <Table className="text-foreground">
         <TableHeader className="bg-muted/70">
