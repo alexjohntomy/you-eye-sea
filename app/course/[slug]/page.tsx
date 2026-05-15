@@ -244,7 +244,7 @@ export default async function CourseDetailsPage({
 
       {/* Right: Breakdown Table */}
       <section className="flex h-full w-full flex-col md:w-1/4 md:max-w-1/4">
-        <h1 className="text-foreground relative z-10 pt-6 pb-3 text-center text-lg font-bold">
+        <h1 className="text-foreground relative z-10 mt-2.5 pt-6 pb-3 text-center text-lg font-bold">
           Breakdown
         </h1>
         <Suspense fallback={<BreakdownTableSkeleton />}>

@@ -19,7 +19,7 @@ function DiscussionPane({
       defaultValue="ratings"
       value={selectedTab}
       onValueChange={setSelectedTab}
-      className="-mt-1 flex h-full w-full flex-col"
+      className="mt-1 flex h-full w-full flex-col"
     >
       <TabsList className="bg-muted/50 border-foreground/10 h-auto w-full gap-0.5 md:gap-1 rounded-xl border p-1 md:p-1.5 shadow-none">
         <TabsTrigger
