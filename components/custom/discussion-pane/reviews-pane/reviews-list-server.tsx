@@ -74,7 +74,7 @@ export async function ReviewsListServer({
 
   if (reviews.length === 0) {
     return (
-      <div className="flex h-full w-full flex-col p-4 opacity-55 animate-in fade-in duration-500">
+      <div className="flex h-full w-full flex-col p-4 opacity-55 animate-in fade-in duration-250">
         <Empty className="w-full border-0">
           <EmptyHeader className="gap-0.5 md:w-50">
             <EmptyMedia variant="icon" className="bg-muted/50 mb-0 size-12">
@@ -94,7 +94,7 @@ export async function ReviewsListServer({
   }
 
   return (
-    <div className="flex w-full flex-col gap-3 py-2 animate-in fade-in duration-500">
+    <div className="flex w-full flex-col gap-3 py-2 animate-in fade-in duration-250">
       <div className="flex max-h-11/12 w-full flex-col gap-3 pt-2 pr-2 pb-8 pl-2">
         <h1 className="relative text-center text-sm font-medium">
           Average Rating:{" "}

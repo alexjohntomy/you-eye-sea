@@ -1,5 +1,7 @@
 import { FilteredDataTable } from "@/components/custom/data-table/filtered-data-table";
 import { columns, rowDetails } from "@/app/explore/columns";
+import { cacheLife } from "next/cache";
+import { cacheTag } from "next/cache";
 import prisma, { prismaCacheStrategy } from "@/lib/prisma";
 
 interface TablePaneServerProps {
@@ -32,6 +34,10 @@ async function getGradeTotalsForSubject({
   sortType,
   level,
 }: FilterTypes): Promise<CourseSumsType[]> {
+  'use cache'
+  cacheLife('semesterly')
+  cacheTag('grade-data')
+
   const courseInstanceAggregation = await prisma.courseInstance.groupBy({
     ...prismaCacheStrategy(604800, 86400),
     by: ["courseID", "courseNumber", "professorID"],
@@ -170,7 +176,7 @@ async function FilteredDataTableServer({
   ) {
     const data = await createTableRowsFromData({ subject, sortType, level });
     return (
-      <div className="animate-in fade-in slide-in-from-bottom-4 w-full duration-700">
+      <div className="animate-in fade-in slide-in-from-bottom-4 w-full duration-350">
         <FilteredDataTable columns={columns} data={data} />
       </div>
     );
