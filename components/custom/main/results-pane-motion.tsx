@@ -12,8 +12,7 @@ import MiniSearch from "minisearch";
 import { HoverPrefetchLink as Link } from "@/components/custom/main-ui/hover-prefetch-link";
 import { useRouter } from "next/navigation";
 
-import courseList from "@/courseList";
-import sampleCourseList from "@/sampleCourseList";
+import courseList from "@/cache/course-list";
 import { Ref, useState } from "react";
 
 import { ChevronRight, GraduationCap, TrendingUp } from "lucide-react";
@@ -32,11 +31,7 @@ const miniSearch = new MiniSearch({
   storeFields: ["subject", "number", "title", "professor", "combinedName"],
 });
 
-const activeCourseList = process.env.NODE_ENV === "development"
-  ? [...courseList, ...sampleCourseList]
-  : courseList;
-
-const coursesListWithID = activeCourseList.map((course, index) => ({
+const coursesListWithID = courseList.map((course, index) => ({
   ...course,
   id: index,
   combinedName: course.subject + course.number,

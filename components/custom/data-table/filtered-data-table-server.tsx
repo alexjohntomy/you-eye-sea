@@ -7,8 +7,7 @@ interface TablePaneServerProps {
 }
 
 import { ColumnDef } from "@tanstack/react-table";
-import subjectList from "@/subjectList";
-import sampleSubjectList from "@/sampleSubjectList";
+import subjectList from "@/cache/subject-list";
 
 interface CourseSumsType {
   courseID: string;
@@ -156,9 +155,6 @@ async function FilteredDataTableServer({
   sortType,
   level,
 }: FilterTypes) {
-  const activeSubjectList = process.env.NODE_ENV === "development"
-    ? [...new Set([...subjectList, ...sampleSubjectList])]
-    : subjectList;
   const validSortTypes = ["gpa", "dropRate", "passRate", "totalStudents"];
   const validLevels = ["100", "200", "300", "400", "500", "600", "all"];
 
@@ -168,7 +164,7 @@ async function FilteredDataTableServer({
   }
   //Explicitly checking for valid subject (long array so did not specify it in filter types)
   else if (
-    (activeSubjectList.includes(subject) || subject == "all") &&
+    (subjectList.includes(subject) || subject == "all") &&
     validSortTypes.includes(sortType) &&
     validLevels.includes(level)
   ) {

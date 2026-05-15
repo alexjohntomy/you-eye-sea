@@ -1,12 +1,7 @@
-import professorList from "@/professorList";
-import sampleProfessorList from "@/sampleProfessorList";
-
-const activeProfessorList = process.env.NODE_ENV === "development"
-  ? new Map([...professorList, ...sampleProfessorList])
-  : professorList;
+import professorList from "@/cache/professor-list";
 
 export const getProfessorNameFromID = (professorID: number): string => {
-  return activeProfessorList.get(professorID) ?? String(professorID);
+  return professorList.get(professorID) ?? String(professorID);
 };
 
 export function getProfessorNameFromList(

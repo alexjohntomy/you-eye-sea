@@ -37,14 +37,14 @@ async function main() {
   }));
 
   const courseListContent = `//This file serves to create a cache array of course objects for quick search,\n//to reduce calls to the Prisma DB.\n\ninterface courseObject {\n  subject: string;\n  number: number;\n  title: string;\n  professor: string;\n}\n\nconst courseList: courseObject[] = ${JSON.stringify(courseObjects, null, 2)};\n\nexport default courseList;\n`;
-  fs.writeFileSync(path.join(process.cwd(), 'courseList.tsx'), courseListContent);
+  fs.writeFileSync(path.join(process.cwd(), 'cache/production/course-list.ts'), courseListContent);
 
   console.log("Generating professorList.tsx...");
   const professors = await prisma.professor.findMany();
   let profMapStr = `//This file serves to create a cache map of professor:id pairs for quick search,\n//to reduce calls to the Prisma DB.\n\nconst professorsList = new Map([\n`;
   const profEntries = professors.map(p => `  [\n    ${p.id},\n    ${JSON.stringify(p.name)}\n  ]`).join(',\n');
   profMapStr += profEntries + `\n]);\n\nexport default professorsList;\n`;
-  fs.writeFileSync(path.join(process.cwd(), 'professorList.tsx'), profMapStr);
+  fs.writeFileSync(path.join(process.cwd(), 'cache/production/professor-list.ts'), profMapStr);
 
   console.log("Generating subjectList.tsx...");
   const distinctCourses = await prisma.course.findMany({
@@ -53,7 +53,7 @@ async function main() {
   });
   const subjectList = distinctCourses.map(c => c.subject);
   const subjectListContent = `//This file serves to create a cache array of subjects for quick search,\n//to reduce calls to the Prisma DB.\n\nconst subjectList: string[] = ${JSON.stringify(subjectList, null, 2)};\n\nexport default subjectList;\n`;
-  fs.writeFileSync(path.join(process.cwd(), 'subjectList.tsx'), subjectListContent);
+  fs.writeFileSync(path.join(process.cwd(), 'cache/production/subject-list.ts'), subjectListContent);
 
   console.log("Done generating all cache files.");
 }
