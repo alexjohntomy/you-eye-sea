@@ -128,15 +128,13 @@ async function GradeDistributionSection({
   );
 }
 
-async function DiscussionSection({
+function DiscussionSection({
   slug,
   filteredParams,
 }: {
   slug: string;
   filteredParams: { [key: string]: string | string[] | undefined };
 }) {
-  const courseDetails = await getCourseDetails(slug);
-
   return (
     <DiscussionPane
       commentPaneServerComponent={
@@ -164,7 +162,7 @@ async function DiscussionSection({
                 ? filteredParams.professor[0]
                 : ((filteredParams.professor as string | undefined) ?? null)
             }
-            listOfProfessors={courseDetails.professors}
+            courseDetailsPromise={getCourseDetails(slug)}
           />
         </Suspense>
       }

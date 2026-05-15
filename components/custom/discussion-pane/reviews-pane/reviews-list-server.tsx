@@ -11,6 +11,7 @@ import {
   EmptyDescription,
 } from "@/components/ui/empty";
 import { Star } from "lucide-react";
+import type { CourseDetails } from "@/app/_util/getCourseDetails";
 
 const customStyles = {
   itemShapes: ThinRoundedStar,
@@ -28,11 +29,6 @@ interface Review {
   date: Date;
   author: string | null;
   stars: number | null;
-}
-
-interface Professor {
-  id: string;
-  name: string;
 }
 
 async function getReviewsFromDB(courseName: string[], professorID: string | null) {
@@ -61,12 +57,14 @@ function calculateAverageRating(ratings: Review[]) {
 export async function ReviewsListServer({
   parsedSlug,
   professorID,
-  listOfProfessors,
+  courseDetailsPromise,
 }: {
   parsedSlug: string[];
   professorID: string | null;
-  listOfProfessors: Professor[];
+  courseDetailsPromise: Promise<CourseDetails>;
 }) {
+  const courseDetails = await courseDetailsPromise;
+  const listOfProfessors = courseDetails.professors;
   const reviews = await getReviewsFromDB(parsedSlug, professorID);
   const professorName = getProfessorNameFromList(professorID, listOfProfessors, "General Rating");
   const commentPaneText = professorName === "General Rating" ? "this course" : professorName;

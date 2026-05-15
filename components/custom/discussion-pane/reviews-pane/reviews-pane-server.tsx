@@ -1,22 +1,18 @@
 import { ReviewsPane } from "@/components/custom/discussion-pane/reviews-pane/reviews-pane";
 import { ReviewsListServer } from "./reviews-list-server";
 import { Suspense } from "react";
-
-interface Professor {
-  id: string;
-  name: string;
-}
+import type { CourseDetails } from "@/app/_util/getCourseDetails";
 
 interface ReviewsPaneServerProps {
   slug: string;
   professorID: string | null;
-  listOfProfessors: Professor[];
+  courseDetailsPromise: Promise<CourseDetails>;
 }
 
 function ReviewsPaneServer({
   slug,
   professorID,
-  listOfProfessors,
+  courseDetailsPromise,
 }: ReviewsPaneServerProps) {
   const parsedCourseName = slug.split("-") ?? ["test", "test"];
 
@@ -38,7 +34,7 @@ function ReviewsPaneServer({
         <ReviewsListServer
           parsedSlug={parsedCourseName}
           professorID={professorID}
-          listOfProfessors={listOfProfessors}
+          courseDetailsPromise={courseDetailsPromise}
         />
       </Suspense>
     </ReviewsPane>
