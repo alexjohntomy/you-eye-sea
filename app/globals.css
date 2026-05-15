@@ -87,21 +87,29 @@
   /* Gold */
   --color-uic-champion-gold: oklch(84.25% 0.154 80.5);
 
-  --background-image-text-gradient-uic: linear-gradient(to bottom,
-      var(--color-uic-red-500) 40%,
-      var(--color-red-700) 100%);
+  --background-image-text-gradient-uic: linear-gradient(
+    to bottom,
+    var(--color-uic-red-500) 40%,
+    var(--color-red-700) 100%
+  );
 
-  --background-image-header-gradient-uic: linear-gradient(to bottom,
-      var(--color-gray-950) 40%,
-      var(--color-gray-800) 100%);
+  --background-image-header-gradient-uic: linear-gradient(
+    to bottom,
+    var(--color-gray-950) 40%,
+    var(--color-gray-800) 100%
+  );
 
-  --background-image-gradient-uic: radial-gradient(120% 120% at 50% 0%,
-      oklch(0.995 0.002 87.47) 40%,
-      var(--color-uic-red-400) 90%);
+  --background-image-gradient-uic: radial-gradient(
+    120% 120% at 50% 0%,
+    oklch(0.995 0.002 87.47) 40%,
+    var(--color-uic-red-400) 90%
+  );
 
-  --background-image-gradient-uic-navy: radial-gradient(120% 120% at 50% 0%,
-      oklch(0.995 0.002 87.47) 30%,
-      var(--color-uic-navy-100) 100%);
+  --background-image-gradient-uic-navy: radial-gradient(
+    120% 120% at 50% 0%,
+    oklch(0.995 0.002 87.47) 30%,
+    var(--color-uic-navy-100) 100%
+  );
 
   --badge-bg: oklch(0.5 0.14 261.4);
   --badge-text: oklch(1 0.05 261.4);
@@ -115,7 +123,7 @@
   --color-postit-blue: oklch(0.96 0.038 202.5);
   --color-postit-blue-back: oklch(0.91 0.045 202.5);
   --color-postit-pink: oklch(0.95 0.036 335.7);
-  --color-postit-pink-back: oklch(0.90 0.042 335.7);
+  --color-postit-pink-back: oklch(0.9 0.042 335.7);
   --color-postit-green: oklch(0.94 0.041 146.3);
   --color-postit-green-back: oklch(0.89 0.05 146.3);
 }
@@ -206,9 +214,15 @@
 
   /* Gradient */
   --background-image-gradient-uic: var(--background-image-gradient-uic);
-  --background-image-gradient-uic-navy: var(--background-image-gradient-uic-navy);
-  --background-image-text-gradient-uic: var(--background-image-text-gradient-uic);
-  --background-image-header-gradient-uic: var(--background-image-header-gradient-uic);
+  --background-image-gradient-uic-navy: var(
+    --background-image-gradient-uic-navy
+  );
+  --background-image-text-gradient-uic: var(
+    --background-image-text-gradient-uic
+  );
+  --background-image-header-gradient-uic: var(
+    --background-image-header-gradient-uic
+  );
 
   --color-badge-bg: var(--badge-bg);
   --color-badge-text: var(--badge-text);
@@ -256,8 +270,8 @@ body {
   --accent-foreground: oklch(0.16 0.001 87.47);
   --destructive: oklch(0.7022 0.1892 22.2279);
   --destructive-foreground: oklch(0.97 0.001 87.47);
-  --border: oklch(0.30 0.005 87.47);
-  --input: oklch(0.30 0.005 87.47);
+  --border: oklch(0.3 0.005 87.47);
+  --input: oklch(0.3 0.005 87.47);
   --ring: oklch(0.3967 0.1408 25.7138);
   --chart-1: oklch(0.68 0.12 145);
   --chart-2: oklch(0.65 0.11 200);
@@ -271,7 +285,7 @@ body {
   --sidebar-primary-foreground: oklch(0.9705 0.0129 17.3797);
   --sidebar-accent: oklch(0.23 0.003 87.47);
   --sidebar-accent-foreground: oklch(0.97 0.001 87.47);
-  --sidebar-border: oklch(0.30 0.005 87.47);
+  --sidebar-border: oklch(0.3 0.005 87.47);
   --sidebar-ring: oklch(0.3967 0.1408 25.7138);
   --radius: 0.5rem;
   --shadow-x: 0;
@@ -320,17 +334,23 @@ body {
   --color-uic-navy-600: oklch(0.52 0.18 261.4);
   --color-uic-navy-400: oklch(0.4 0.14 261.4);
 
-  --background-image-text-gradient-uic: linear-gradient(to bottom,
-      var(--color-white) 40%,
-      var(--color-gray-300) 100%);
+  --background-image-text-gradient-uic: linear-gradient(
+    to bottom,
+    var(--color-white) 40%,
+    var(--color-gray-300) 100%
+  );
 
-  --background-image-gradient-uic: radial-gradient(120% 120% at 50% 10%,
-      var(--color-uic-red-50) 10%,
-      var(--color-uic-navy-50) 90%);
+  --background-image-gradient-uic: radial-gradient(
+    120% 120% at 50% 10%,
+    var(--color-uic-red-50) 10%,
+    var(--color-uic-navy-50) 90%
+  );
 
-  --background-image-gradient-uic-navy: radial-gradient(120% 120% at 50% 10%,
-      oklch(0.24 0.05 261.4) 10%,
-      var(--color-uic-navy-50) 90%);
+  --background-image-gradient-uic-navy: radial-gradient(
+    120% 120% at 50% 10%,
+    oklch(0.24 0.05 261.4) 10%,
+    var(--color-uic-navy-50) 90%
+  );
 
   --badge-bg: oklch(0.4 0.14 261.4);
   --badge-text: oklch(0.9 0.05 261.4);
@@ -370,7 +390,7 @@ body {
 }
 
 .shimmer {
-  border: 1px solid oklch(0.1408 0.0044 87.47 / 0.04);
+  border: 1px solid oklch(0.1408 0.0044 87.47 / 0.01);
   background: linear-gradient(
     45deg,
     oklch(0.9 0 0 / 0.1) 25%,
@@ -382,7 +402,7 @@ body {
 }
 
 .dark .shimmer {
-  border: 1px solid oklch(0.97 0.001 87.47 / 0.05);
+  border: 1px solid oklch(0.97 0.001 87.47 / 0.01);
   background: linear-gradient(
     45deg,
     oklch(0.35 0.01 261.4 / 0.2) 25%,
