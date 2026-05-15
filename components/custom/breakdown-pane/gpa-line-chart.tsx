@@ -48,7 +48,7 @@ export function GPALineChart({ data }: GPALineChartProps) {
       </CardHeader>
       <CardContent className="flex-1 min-h-0">
         <ChartContainer config={dynamicChartConfig} className="h-[90px] w-full">
-          <LineChart data={data} margin={{ top: 10, right: 10, left: -25, bottom: 0 }}>
+          <LineChart data={data} margin={{ top: 10, right: -25, left: -25, bottom: 0 }}>
             <CartesianGrid vertical={false} strokeDasharray="3 3" />
             <XAxis
               dataKey="semester"
