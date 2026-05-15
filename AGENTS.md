@@ -25,13 +25,13 @@ No API routes (except `/api/og` for page-specific OpenGraph images). URL search 
 - Use `...prismaCacheStrategy(ttl, swr)` for Accelerate caching (empty object in dev)
 - Local db: `npx prisma dev --name="youeyesea"` → copy `postgres://` URL to `.env`
 
-## Caches (avoids DB calls for autocomplete)
-- `cache/production/` — generated cache arrays (committed), merged with sample data in dev via barrel files
-  - `course-list.ts` — `Array<{subject, number, title, professor}>` for MiniSearch
-  - `professor-list.ts` — `Map<id, name>`
-  - `subject-list.ts` — `string[]`
-- `cache/sample/` — sample data for local development (committed)
-- `cache/course-list.ts`, `cache/professor-list.ts`, `cache/subject-list.ts` — production vs local development routing handled by a single exporter file
+## Caching
+Two cache layers for grade data:
+
+- **`'use cache'`** + `cacheLife('semesterly')` on `getCourseDetails`, `getCourseInstance`, `getGradeTotalsForSubject` — Next.js Data Cache. Profile: stale 30d / revalidate 90d / expire 180d. Tagged `'grade-data'` for `revalidateTag()` on data uploads.
+- **`prismaCacheStrategy(604800, 86400)`** on every Prisma read query — Accelerate edge cache as second layer.
+
+Comments and reviews skip both layers — they use user-submitted content that should appear immediately.
 
 ## Component Pattern
 - **Server Components**: fetch data from Prisma, pass results as props
@@ -47,7 +47,7 @@ No API routes (except `/api/og` for page-specific OpenGraph images). URL search 
 
 ## Notable
 - Recharts SSR warning silenced via `patches/recharts+3.8.1.patch` (auto-applied by `postinstall`)
-- `app/course/[slug]/page.tsx` uses `React.cache()` for `getCourseDetails` (deduplicates within render pass)
+- `getCourseDetails` in `app/_util/getCourseDetails.ts` uses `React.cache()` + `'use cache'`
 - `process.env.NODE_ENV === "development"` used throughout to switch behavior: Prisma adapter vs Accelerate, `prismaCacheStrategy` no-op, sample cache merging (handled by `cache/*.ts` exporter files), trending courses fallback — always check for this pattern before adding dependencies
 - Semesters are stored as `"fall_2025"`, `"spring_2025"` etc. — `semesterToNumber()` converts to numeric sort keys (`20253`), `cleanSemesterName()` handles display (`"Fall 2025"`), optionally `{ format: "mini" }` for `"Fall '25"`
 
