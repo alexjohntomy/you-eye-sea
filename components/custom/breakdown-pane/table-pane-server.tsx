@@ -1,8 +1,13 @@
 import { TablePane } from "@/components/custom/breakdown-pane/table-pane";
+import { cacheLife } from "next/cache";
+import { cacheTag } from "next/cache";
 import prisma, { prismaCacheStrategy } from "@/lib/prisma";
 import { semesterToNumber } from "@/app/_util/semesterToNumber";
 
 async function getStatsFromDB(courseName: string[]) {
+  'use cache'
+  cacheLife('semesterly')
+  cacheTag('grade-data')
   const statsFromDB = await prisma.courseInstance.findMany({
     ...prismaCacheStrategy(604800, 86400),
     where: {
