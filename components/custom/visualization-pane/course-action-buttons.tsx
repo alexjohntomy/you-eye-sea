@@ -85,6 +85,7 @@ export function CourseActionButtons({
       <div className="flex min-w-full flex-col gap-2 xl:flex-row">
         <motion.div
           layout
+          initial={false}
           className="flex-1"
           transition={{ type: "spring", stiffness: 500, damping: 35 }}
         >
@@ -125,6 +126,7 @@ export function CourseActionButtons({
 
         <motion.div
           layout
+          initial={false}
           className="flex-1"
           transition={{ type: "spring", stiffness: 500, damping: 35 }}
         >
