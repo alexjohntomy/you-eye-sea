@@ -26,7 +26,7 @@ export function PresetButtons() {
     };
 
     return (
-        <div className="grid w-[92%] md:max-w-full lg:grid-cols-4 md:w-3/4 gap-2 pb-4 pt-1 animate-in fade-in slide-in-from-bottom-2 fill-mode-both mx-auto">
+        <div className="grid w-[92%] md:max-w-full lg:grid-cols-4 md:w-3/4 gap-2 pb-4 pt-1 animate-in fade-in slide-in-from-bottom-2 fill-mode-both duration-350 mx-auto">
             {presets.map((p) => (
                 <Button
                     key={p.label}
