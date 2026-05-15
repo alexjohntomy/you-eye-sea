@@ -22,7 +22,7 @@ import {
 import { ChevronsUpDown } from "lucide-react";
 import { Spinner } from "@/components/ui/spinner";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { titleCase } from "text-title-case";
+import { cleanSemesterName } from "@/app/_util/cleanSemesterName";
 
 interface SemesterDropdownProps {
   semesters: string[];
@@ -60,7 +60,7 @@ function SemesterDropdown({ semesters }: SemesterDropdownProps) {
   const label =
     semester === "all-semesters"
       ? "All Semesters"
-      : titleCase(semester.replace("_", " ").replace("-", " "));
+      : cleanSemesterName(semester);
 
   const triggerButton = (
     <Button
@@ -99,17 +99,17 @@ function SemesterDropdown({ semesters }: SemesterDropdownProps) {
             >
               All Semesters
             </Button>
-            {semesters.map((s) => (
+            {semesters.map((sem) => (
               <Button
-                key={s}
-                variant={semester === s ? "secondary" : "ghost"}
+                key={sem}
+                variant={semester === sem ? "secondary" : "ghost"}
                 className="text-md h-12 justify-start rounded-xl font-medium"
                 onClick={() => {
-                  handleChange(s);
+                  handleChange(sem);
                   setOpen(false);
                 }}
               >
-                {titleCase(s.replace("_", " ").replace("-", " "))}
+                {cleanSemesterName(sem)}
               </Button>
             ))}
           </div>
@@ -137,7 +137,7 @@ function SemesterDropdown({ semesters }: SemesterDropdownProps) {
               value={semester}
               className="rounded-md"
             >
-              {titleCase(semester.replace("_", " ").replace("-", " "))}
+              {cleanSemesterName(semester)}
             </DropdownMenuRadioItem>
           ))}
         </DropdownMenuRadioGroup>

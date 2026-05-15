@@ -46,7 +46,7 @@ No API routes (except `/api/og` for page-specific OpenGraph images). URL search 
 - Recharts SSR warning silenced via `patches/recharts+3.8.1.patch` (auto-applied by `postinstall`)
 - `app/course/[slug]/page.tsx` uses `React.cache()` for `getCourseDetails` (deduplicates within render pass)
 - `process.env.NODE_ENV === "development"` used throughout to switch behavior: Prisma adapter vs Accelerate, `prismaCacheStrategy` no-op, sample cache merging, trending courses fallback — always check for this pattern before adding dependencies
-- **Semester handling:** semesters are stored as `"fall_2025"`, `"spring_2025"` etc. — `semesterToNumber()` converts to numeric sort keys (`20253`), `titleCase(semester.replace("_", " ").replace("-", " "))` cleans for display (`"Fall 2025"`)
+- **Semester handling:** semesters are stored as `"fall_2025"`, `"spring_2025"` etc. — `semesterToNumber()` converts to numeric sort keys (`20253`), `cleanSemesterName()` handles display (`"Fall 2025"`), optionally `{ format: "mini" }` for `"Fall '25"`
 
 ## Environment Variables
 

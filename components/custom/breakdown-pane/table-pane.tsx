@@ -1,6 +1,6 @@
 "use client";
 
-import { titleCase } from "text-title-case";
+import { cleanSemesterName } from "@/app/_util/cleanSemesterName";
 
 import {
   Table,
@@ -60,9 +60,7 @@ function TablePane({ statsFromDB, courseInstanceAggregation }: tablePaneProps) {
   statsFromDB.forEach((row) => {
     const gpa = rowGPAs.get(row.courseInstanceID.toString());
     if (gpa !== undefined && !isNaN(gpa)) {
-      const cleanedSemesterText = titleCase(
-        row.semester.replace("_20", " ").replace("-20", " ")
-      );
+      const cleanedSemesterText = cleanSemesterName(row.semester, { format: "mini" });
       const existing = semesterGroups.get(cleanedSemesterText) || {
         totalGpa: 0,
         count: 0,
@@ -103,9 +101,7 @@ function TablePane({ statsFromDB, courseInstanceAggregation }: tablePaneProps) {
             const rowCourseInstanceData = aggregationByID.get(row.courseInstanceID);
             if (!rowCourseInstanceData) return null;
             const formattedData = formatGradeData(rowCourseInstanceData);
-            const cleanedSemesterText = titleCase(
-              row.semester.replace("_20", " ").replace("-20", " ")
-            );
+            const cleanedSemesterText = cleanSemesterName(row.semester, { format: "mini" });
             const professorLastName = row.professor.name.split(",")[0];
             const gpaStr = calculateGPA(formattedData);
             const rowGPA = gpaStr === "N/A" ? NaN : parseFloat(gpaStr);

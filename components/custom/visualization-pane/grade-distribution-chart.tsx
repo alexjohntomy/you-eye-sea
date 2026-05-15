@@ -26,7 +26,7 @@ import {
   ChartTooltipContent,
 } from "@/components/ui/chart";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { titleCase } from "text-title-case";
+import { cleanSemesterName } from "@/app/_util/cleanSemesterName";
 
 export const description = "A bar chart with a label";
 
@@ -100,7 +100,7 @@ function GradeDistributionChart({
   // Calculate semester display
   const semesterRange =
     selectedSemester && selectedSemester !== "all-semesters"
-      ? titleCase(selectedSemester.replace("_", " ").replace("-", " "))
+      ? cleanSemesterName(selectedSemester)
       : "Spring '22 - Fall '25";
 
   useEffect(() => {
