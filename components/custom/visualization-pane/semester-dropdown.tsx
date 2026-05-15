@@ -123,19 +123,19 @@ function SemesterDropdown({ semesters }: SemesterDropdownProps) {
       <DropdownMenuTrigger asChild>{triggerButton}</DropdownMenuTrigger>
       <DropdownMenuContent
         align="end"
-        className="border-foreground/10 w-44 rounded-xl shadow-none"
+        className="border-foreground/10 w-44 rounded-xl shadow-none data-[state=open]:animate-none"
       >
         <DropdownMenuLabel>Semester</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuRadioGroup value={semester} onValueChange={handleChange}>
-          <DropdownMenuRadioItem value="all-semesters" className="rounded-md">
+          <DropdownMenuRadioItem value="all-semesters" className="rounded-md focus:bg-accent/30 dark:focus:bg-accent/15 dark:focus:text-foreground">
             All Semesters
           </DropdownMenuRadioItem>
           {semesters.map((semester) => (
             <DropdownMenuRadioItem
               key={semester}
               value={semester}
-              className="rounded-md"
+              className="rounded-md focus:bg-accent/30 dark:focus:bg-accent/15 dark:focus:text-foreground"
             >
               {cleanSemesterName(semester)}
             </DropdownMenuRadioItem>

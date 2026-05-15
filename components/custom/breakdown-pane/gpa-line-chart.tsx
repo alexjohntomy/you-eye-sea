@@ -1,7 +1,5 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
-
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip } from "recharts";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ChartConfig, ChartContainer, ChartTooltipContent } from "@/components/ui/chart";
@@ -15,23 +13,6 @@ interface GPALineChartProps {
 }
 
 export function GPALineChart({ data }: GPALineChartProps) {
-  const [shouldAnimate, setShouldAnimate] = useState(true);
-  const isInitialMount = useRef(true);
-
-  useEffect(() => {
-    if (isInitialMount.current) {
-      isInitialMount.current = false;
-    } else {
-      setShouldAnimate(true);
-    }
-
-    const timer = setTimeout(() => {
-      setShouldAnimate(false);
-    }, 450);
-
-    return () => clearTimeout(timer);
-  }, [data]);
-
   if (!data || data.length === 0) return null;
 
   const minGpa = Math.min(...data.map(d => d.gpa));
@@ -92,9 +73,7 @@ export function GPALineChart({ data }: GPALineChartProps) {
               strokeWidth={2}
               dot={{ r: 3, fill: "var(--color-gpa)", strokeWidth: 0 }}
               activeDot={{ r: 5 }}
-              isAnimationActive={shouldAnimate}
-              animationEasing="ease-out"
-              animationDuration={400}
+              isAnimationActive={false}
             />
           </LineChart>
         </ChartContainer>

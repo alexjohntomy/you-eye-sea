@@ -63,7 +63,7 @@ function SearchBar() {
       <motion.div
         layout
         style={{
-          borderRadius: 16,
+          borderRadius: 12,
           padding: 2,
           background:
             "color-mix(in oklch, var(--color-uic-red-300) 30%, transparent)",
@@ -72,7 +72,7 @@ function SearchBar() {
         <motion.div
           layout
           style={{
-            borderRadius: 14,
+            borderRadius: 12,
             overflow: "hidden",
           }}
         >

@@ -135,7 +135,7 @@ function ProfessorDropdown({ listOfProfessors }: dropdownTypes) {
       <DropdownMenuTrigger asChild>{triggerButton}</DropdownMenuTrigger>
       <DropdownMenuContent
         align="end"
-        className="w-52 shadow-none border-foreground/10 rounded-xl"
+        className="w-52 shadow-none border-foreground/10 rounded-xl data-[state=open]:animate-none"
       >
         <DropdownMenuLabel>Professors</DropdownMenuLabel>
         <DropdownMenuSeparator />
@@ -143,18 +143,18 @@ function ProfessorDropdown({ listOfProfessors }: dropdownTypes) {
           value={professorID}
           onValueChange={handleDropdownChange}
         >
-          <DropdownMenuRadioItem value={"all-professors"} className="rounded-md">
+          <DropdownMenuRadioItem value={"all-professors"} className="rounded-md focus:bg-accent/30 dark:focus:bg-accent/15 dark:focus:text-foreground">
             All Professors
           </DropdownMenuRadioItem>
           {listOfProfessors.map((item: Professor) => {
             return (
-              <DropdownMenuRadioItem
-                value={item.id}
-                key={item.id}
-                className="rounded-md"
-              >
-                {item.name}
-              </DropdownMenuRadioItem>
+                <DropdownMenuRadioItem
+                  value={item.id}
+                  key={item.id}
+                  className="rounded-md focus:bg-accent/30 dark:focus:bg-accent/15 dark:focus:text-foreground"
+                >
+                  {item.name}
+                </DropdownMenuRadioItem>
             );
           })}
         </DropdownMenuRadioGroup>

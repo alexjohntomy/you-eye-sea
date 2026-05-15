@@ -278,7 +278,7 @@ function GradeDistributionChart({
                         fill="currentColor"
                         textAnchor="middle"
                         dominantBaseline="middle"
-                        className="text-foreground animate-in fade-in slide-in-from-bottom-1 zoom-in-95 fill-mode-both delay-75 duration-200 ease-out"
+                        className="text-foreground animate-in fade-in slide-in-from-bottom-1 zoom-in-95 fill-mode-both delay-25 duration-200 ease-out"
                         style={{
                           transformOrigin: `${x + width / 2}px ${y - 18}px`,
                         }}

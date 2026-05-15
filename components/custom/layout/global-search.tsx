@@ -63,7 +63,7 @@ function GlobalSearch() {
   const searchContent = (
     <Command
       shouldFilter={false}
-      className="text-popover-foreground flex h-full w-full flex-col overflow-hidden rounded-md bg-transparent"
+      className="text-popover-foreground flex h-full w-full flex-col overflow-hidden rounded-xl bg-transparent"
     >
       <CommandInput
         value={query}
@@ -84,13 +84,13 @@ function GlobalSearch() {
       {/* Header trigger — desktop only */}
       <button
         onClick={() => setOpen(true)}
-        className="dark:text-foreground/50 dark:hover:text-foreground/80 dark:bg-foreground/5 dark:hover:bg-foreground/10 dark:border-foreground/10 hidden md:flex w-40 md:w-48 cursor-pointer items-center justify-between gap-2 rounded-md border border-white/15 bg-white/10 px-3 py-1.5 text-sm text-white/60 transition-colors hover:bg-white/15 hover:text-white/90 lg:w-[400px]"
+        className="dark:text-foreground/50 dark:hover:text-foreground/80 dark:bg-foreground/5 dark:hover:bg-foreground/10 dark:border-foreground/10 hidden md:flex w-40 md:w-48 cursor-pointer items-center justify-between gap-2 rounded-xl border border-white/15 bg-white/10 px-3 py-1.5 text-sm text-white/60 transition-colors hover:bg-white/15 hover:text-white/90 lg:w-[400px]"
       >
         <div className="flex items-center gap-2 overflow-hidden">
           <Search className="size-3.5 shrink-0" />
           <span className="text-sm truncate">Search<span className="hidden lg:inline"> courses...</span></span>
         </div>
-        <kbd className="dark:border-foreground/15 dark:bg-foreground/5 pointer-events-none inline-flex items-center gap-0.5 rounded border border-white/20 bg-white/10 px-1.5 py-0.5 font-mono text-xs select-none">
+        <kbd className="dark:border-foreground/15 dark:bg-foreground/5 pointer-events-none inline-flex items-center gap-0.5 rounded border border-white/20 bg-white/10 px-1.5 py-0.5 font-mono text-xs select-none -mr-1.25">
           <span>{isMac ? "⌘" : "Ctrl "}</span>K
         </kbd>
       </button>

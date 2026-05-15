@@ -226,7 +226,7 @@ function ResultsPaneMotion({ query, onResetHover, onSelect }: ResultsPaneProps) 
                   key={resultItem.id}
                   value={resultItem.id.toString()}
                   onSelect={() => handleSelect(href, resultItem.id)}
-                  className={`rounded-lg transition-all duration-50 ease-out active:scale-[0.992] ${pressedId === resultItem.id ? "scale-[0.992] bg-accent/50" : ""}`}
+                   className={`rounded-xl transition-all duration-50 ease-out active:scale-[0.992] ${pressedId === resultItem.id ? "scale-[0.992] bg-accent/50" : ""}`}
                 >
                   <Link
                     href={href}
@@ -276,7 +276,7 @@ function ResultsPaneMotion({ query, onResetHover, onSelect }: ResultsPaneProps) 
                   key={resultItem.id}
                   value={resultItem.id.toString()}
                   onSelect={() => handleSelect(href, resultItem.id)}
-                  className={`rounded-lg transition-all duration-50 ease-out active:scale-[0.992] ${pressedId === resultItem.id ? "scale-[0.992] bg-accent/50" : ""}`}
+                   className={`rounded-xl transition-all duration-50 ease-out active:scale-[0.992] ${pressedId === resultItem.id ? "scale-[0.992] bg-accent/50" : ""}`}
                 >
                   <Link
                     href={href}
