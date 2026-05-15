@@ -7,7 +7,7 @@
 
 ## Summary
 
-YouEyeSea uses UIC’s publicly available official grade data to create a more intuitive front end featuring fuzzy search, fine-grain filtering, discussion boards, and data visualization.
+YouEyeSea uses UIC’s publicly available official grade data to create a more intuitive front end featuring fuzzy search, fine-grained filtering, discussion boards, and data visualization.
 
 ## Tech Stack
 
