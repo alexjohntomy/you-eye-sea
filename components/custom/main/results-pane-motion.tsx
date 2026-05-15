@@ -19,7 +19,7 @@ import { Ref, useState } from "react";
 import { ChevronRight, GraduationCap, TrendingUp } from "lucide-react";
 import { useWebHaptics } from "web-haptics/react";
 
-interface testProps {
+interface ResultsPaneProps {
   query: string;
   focusStatus: boolean;
   onResetHover?: () => void;
@@ -94,7 +94,7 @@ interface courseInstance {
   professor: string;
 }
 
-function ResultsPaneMotion({ query, onResetHover, onSelect }: testProps) {
+function ResultsPaneMotion({ query, onResetHover, onSelect }: ResultsPaneProps) {
   const router = useRouter();
   const { trigger } = useWebHaptics();
   const [pressedId, setPressedId] = useState<number | null>(null);

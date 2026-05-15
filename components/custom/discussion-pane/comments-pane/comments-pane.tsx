@@ -40,7 +40,7 @@ interface Comment {
   author: string | null;
 }
 
-interface testProps {
+interface CommentsPaneProps {
   comments: Comment[];
   parsedSlug: string[];
   professorID?: string;
@@ -166,7 +166,7 @@ function StickyNoteComment({
   );
 }
 
-function CommentsPane({ comments, parsedSlug, professorID }: testProps) {
+function CommentsPane({ comments, parsedSlug, professorID }: CommentsPaneProps) {
   const router = useRouter();
   const [value, setValue] = useState("");
   // By initializing empty, the first render treats all comments as "new"

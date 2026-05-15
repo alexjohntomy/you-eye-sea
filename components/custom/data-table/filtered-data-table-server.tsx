@@ -10,7 +10,7 @@ import { ColumnDef } from "@tanstack/react-table";
 import subjectList from "@/subjectList";
 import sampleSubjectList from "@/sampleSubjectList";
 
-interface courseSumsType {
+interface CourseSumsType {
   courseID: string;
   courseNumber: number;
   professorID: number;
@@ -32,7 +32,7 @@ async function getGradeTotalsForSubject({
   subject,
   sortType,
   level,
-}: FilterTypes): Promise<courseSumsType[]> {
+}: FilterTypes): Promise<CourseSumsType[]> {
   const courseInstanceAggregation = await prisma.courseInstance.groupBy({
     ...prismaCacheStrategy(604800, 86400),
     by: ["courseID", "courseNumber", "professorID"],
@@ -54,7 +54,7 @@ async function getGradeTotalsForSubject({
           }),
     },
   });
-  return courseInstanceAggregation as unknown as courseSumsType[];
+  return courseInstanceAggregation as unknown as CourseSumsType[];
 }
 
 async function createTableRowsFromData({
@@ -62,7 +62,7 @@ async function createTableRowsFromData({
   sortType,
   level,
 }: FilterTypes): Promise<rowDetails[]> {
-  const courseSums: courseSumsType[] = await getGradeTotalsForSubject({
+  const courseSums: CourseSumsType[] = await getGradeTotalsForSubject({
     subject,
     sortType,
     level,

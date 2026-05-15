@@ -16,11 +16,11 @@ const placeholderArray = [
   "Search for a professor...",
 ];
 
-interface testProps {
+interface PlaceholderTextProps {
   query: string;
 }
 
-function PlaceholderText({ query }: testProps) {
+function PlaceholderText({ query }: PlaceholderTextProps) {
   const [count, setCount] = useState(0);
   useEffect(() => {
     const interval = setInterval(() => {
