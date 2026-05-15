@@ -1,7 +1,12 @@
 import { CommentsPane } from "@/components/custom/discussion-pane/comments-pane/comments-pane";
 import prisma from "@/lib/prisma";
+import { cacheLife, cacheTag } from "next/cache";
 
 async function getCommentsFromDB(courseName: string[]) {
+  'use cache'
+  cacheLife('weeks')
+  cacheTag(`comments-${courseName[0]}-${courseName[1]}`)
+
   const commentsFromDB = await prisma.comment.findMany({
     where: {
       courseID: courseName[0],
