@@ -2,7 +2,8 @@ import { getProfessorNameFromList } from "@/app/_util/getProfessorNameFromID";
 import { Rating as ReactRating, ThinRoundedStar } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import { Card } from "@/components/ui/card";
-import prisma, { prismaCacheStrategy } from "@/lib/prisma";
+import prisma from "@/lib/prisma";
+import { cacheLife, cacheTag } from "next/cache";
 import {
   Empty,
   EmptyHeader,
@@ -32,9 +33,12 @@ interface Review {
 }
 
 async function getReviewsFromDB(courseName: string[], professorID: string | null) {
+  'use cache'
+  cacheLife('weeks')
+  cacheTag(`reviews-${courseName[0]}-${courseName[1]}`)
+
   const isAllProfessors = !professorID || professorID === "all-professors";
   const reviewsFromDB = await prisma.review.findMany({
-    ...prismaCacheStrategy(60, 30),
     where: {
       courseID: courseName[0],
       courseNumber: parseInt(courseName[1]),
