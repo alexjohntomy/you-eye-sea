@@ -49,3 +49,4 @@ prisma/old-seed.ts
 /.idea
 prisma/seed-fall-2025.ts
 .review-notes/comments.json
+/app/skeleton/

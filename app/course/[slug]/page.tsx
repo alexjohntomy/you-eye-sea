@@ -189,8 +189,8 @@ export default async function CourseDetailsPage({
           <Suspense
             fallback={
               <div className="mt-1 flex flex-col gap-2 md:flex-row">
-                <div className="shimmer h-10 w-34 rounded-xl" />
-                <div className="shimmer h-10 w-34 rounded-xl" />
+                <div className="shimmer h-10 w-32 rounded-xl" />
+                <div className="shimmer h-10 w-32 rounded-xl" />
               </div>
             }
           >
@@ -232,6 +232,7 @@ export default async function CourseDetailsPage({
 
       {/* Middle: Discussion */}
       <section className="border-foreground/10 animate-in fade-in relative flex h-full w-full flex-col border-r border-l px-6 pt-6 pb-8 duration-200 md:w-1/4 md:max-w-1/4">
+
         <Suspense fallback={<DiscussionSkeleton />}>
           <DiscussionSection
             slug={slug}
@@ -241,7 +242,7 @@ export default async function CourseDetailsPage({
       </section>
 
       {/* Right: Breakdown Table */}
-      <section className="flex h-full w-full flex-col md:w-1/4 md:max-w-1/4">
+      <section className="flex h-full w-full flex-col md:w-[23%] md:max-w-[23%]">
         <h1 className="text-foreground relative z-10 mt-2.5 pt-6 pb-3 text-center text-lg font-bold">
           Breakdown
         </h1>

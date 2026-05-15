@@ -1,9 +1,9 @@
 function DiscussionSkeleton() {
   return (
-    <div className="-mt-0.5 flex h-full flex-col gap-4">
-      <div className="flex w-full gap-2">
-        <div className="shimmer h-10 flex-1 rounded-lg" />
-        <div className="shimmer h-10 flex-1 rounded-lg" />
+    <div className="flex h-full flex-col gap-4">
+      <div className="bg-muted/50 border-foreground/10 mt-1 flex w-full gap-0.5 md:gap-1 rounded-xl border p-1 md:p-1.5">
+        <div className="shimmer h-8.5 flex-1 rounded-lg" />
+        <div className="shimmer h-8.5 flex-1 rounded-lg" />
       </div>
       <div className="shimmer w-full flex-1 rounded-md" />
       <div>
