@@ -186,7 +186,7 @@ function CommentsPane({ comments, parsedSlug, professorID }: CommentsPaneProps) 
     <div className="py-6">
       <InputGroup className="overflow-y border-foreground/10 shadow-none bg-background bottom-3 rounded-xl border focus-visible:ring-0 has-[[data-slot=input-group-control]:focus-visible]:ring-0 has-[[data-slot=input-group-control]:focus-visible]:border-foreground/10">
         <InputGroupTextarea
-          className="resize-none border-none text-xs shadow-none"
+          className="resize-none border-none text-xs max-sm:text-sm tracking-wide shadow-none"
           placeholder="Leave a short note about this course..."
           value={value}
           onChange={handleValueChange}
@@ -225,7 +225,7 @@ function CommentsPane({ comments, parsedSlug, professorID }: CommentsPaneProps) 
     return (
       <div className="flex h-full w-full flex-col justify-between">
         <Empty className="w-full border-0 p-4 opacity-55">
-          <EmptyHeader className="gap-0.5 md:w-40">
+          <EmptyHeader className="gap-0.5 md:w-50">
             <EmptyMedia variant="icon" className="bg-muted/50 mb-0 size-12">
               <MessageCircleDashed className="text-muted-foreground size-6" />
             </EmptyMedia>

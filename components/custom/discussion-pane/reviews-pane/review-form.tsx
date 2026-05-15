@@ -64,25 +64,25 @@ export function ReviewForm({ parsedSlug, professorID }: ReviewFormProps) {
     <div className="py-6">
       <InputGroup className="overflow-y border-foreground/10 bg-background has-[[data-slot=input-group-control]:focus-visible]:border-foreground/10 bottom-3 rounded-xl border shadow-none focus-visible:ring-0 has-[[data-slot=input-group-control]:focus-visible]:ring-0">
         <ReactRating
-          className="relative top-2 max-w-27.5 md:max-w-30 lg:max-w-37.5 px-3"
+          className="relative top-2 max-w-44 md:max-w-30 lg:max-w-37.5 px-3 max-sm:mb-1.5"
           itemStyles={customStyles}
           value={rating}
           onChange={setRating}
         />
         <InputGroupTextarea
-          className="resize-none border-none text-xs shadow-none"
+          className="resize-none border-none text-xs max-sm:text-sm tracking-wide placeholder:italic shadow-none"
           placeholder="How was your experience in this class? Let others know..."
           value={value}
           onChange={handleValueChange}
         />
         <InputGroupAddon align="block-end">
-          <InputGroupText className="ml-auto text-[10px] opacity-50">
+          <InputGroupText className="ml-auto">
             {value.length}/1500
           </InputGroupText>
           <InputGroupButton
             variant="outline"
-            className="bg-uic-navy-900 text-white border-uic-navy-900/50 w-20 rounded-lg border shadow-none hover:bg-uic-navy-800 hover:text-white"
-            size="icon-xs"
+            className="bg-secondary text-background dark:text-foreground dark:hover:text-foreground border-secondary/50 shadow-none px-3 rounded-lg border"
+            size="xs"
             onClick={handleSubmit}
           >
             Submit
