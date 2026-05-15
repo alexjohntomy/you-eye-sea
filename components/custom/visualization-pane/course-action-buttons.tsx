@@ -81,7 +81,7 @@ export function CourseActionButtons({
     encodeURIComponent(redditSearchQuery);
 
   return (
-    <LayoutGroup>
+    <LayoutGroup key={`${courseName}-${courseNumber}`}>
       <div className="flex min-w-full flex-col gap-2 xl:flex-row">
         <motion.div
           layout

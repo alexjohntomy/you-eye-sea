@@ -118,7 +118,7 @@ function GradeDistributionChart({
     }, 450); // slightly longer than the 400ms animationDuration
 
     return () => clearTimeout(timer);
-  }, [chartData]);
+  }, [professorID, selectedSemester]);
 
   const { passes, total, drops, totalWithDrops } = chartData.reduce(
     (
@@ -253,7 +253,7 @@ function GradeDistributionChart({
                 className="stroke-foreground/10 stroke-1"
                 isAnimationActive={shouldAnimate}
                 animationEasing="ease-out"
-                animationDuration={400}
+                animationDuration={350}
                 radius={[5, 5, 0, 0]}
               >
                 <LabelList
