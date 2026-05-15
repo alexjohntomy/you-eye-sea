@@ -1,5 +1,5 @@
 import { ChangelogItem } from "@/components/custom/changelog/changelog-item";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Changelog",

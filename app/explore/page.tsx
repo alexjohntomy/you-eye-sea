@@ -8,7 +8,7 @@ import { PresetButtons } from "./preset-buttons";
 export const metadata: Metadata = {
   title: "YouEyeSea - Explore",
   description:
-    "Apply fine-grain filters and sorts to grade distribution data at UIC.",
+    "Apply fine-grained filters and sorts to grade distribution data at UIC.",
 };
 
 export default async function Explore({
