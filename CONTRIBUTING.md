@@ -36,7 +36,9 @@ prisma/           — schema, migrations, seed scripts, sample CSVs
 - Sample data is pre-seeded in `prisma/sample_grade_distribution_data/` with fun characters
 - Sample cache files (`sampleCourseList.tsx` etc.) are committed — search works out of the box in dev
 - `process.env.NODE_ENV === "development"` switches behavior throughout (Prisma adapter, cache strategy, sample data merging)
-- Recharts SSR warning is silenced via `patches/recharts+3.8.1.patch` (auto-applied by `postinstall`)
+- Recharts SSR warning is suppressed via `patches/recharts+3.8.1.patch` (auto-applied by `postinstall`)
+- Semesters are stored as `"fall_2025"`, `"spring_2025"` etc. — `semesterToNumber()` converts to numeric sort keys (`20253`), `cleanSemesterName()` handles display (`"Fall 2025"`), optionally `{ format: "mini" }` for `"Fall '25"`
+
 
 ## Coding Standards
 
