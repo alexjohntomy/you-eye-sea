@@ -5,8 +5,6 @@ import { calculateGPA } from "@/app/_util/gpaCalculator";
 import * as fs from "fs";
 import * as path from "path";
 
-export const runtime = "nodejs";
-
 const manropeRegular = fs.readFileSync(path.join(process.cwd(), 'public', 'fonts', 'manrope', 'manrope-latin-400-normal.woff'));
 const manropeMedium = fs.readFileSync(path.join(process.cwd(), 'public', 'fonts', 'manrope', 'manrope-latin-500-normal.woff'));
 const manropeSemiBold = fs.readFileSync(path.join(process.cwd(), 'public', 'fonts', 'manrope', 'manrope-latin-600-normal.woff'));
