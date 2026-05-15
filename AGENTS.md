@@ -32,7 +32,7 @@ Two cache layers for grade data:
 - **`'use cache'`** + `cacheLife('semesterly')` on `getCourseDetails`, `getCourseInstance`, `getGradeTotalsForSubject` — Next.js Data Cache. Profile: stale 30d / revalidate 90d / expire 180d. Tagged `'grade-data'` for `revalidateTag()` on data uploads.
 - **`prismaCacheStrategy(604800, 86400)`** on every Prisma read query — Accelerate edge cache as second layer.
 
-Comments and reviews use **`'use cache'`** + `cacheLife('weeks')` and are tagged with course-specific tags (`comments-[courseID]-[courseNumber]`, `reviews-[courseID]-[courseNumber]`). Server actions immediately bust this cache via `revalidateTag()` upon new submissions.
+Comments and reviews use **`'use cache'`** + `cacheLife('weeks')` and are tagged with course-specific tags (`comments-[courseID]-[courseNumber]`, `reviews-[courseID]-[courseNumber]`). Server actions immediately bust this cache via `updateTag()` upon new submissions.
 
 ## Component Pattern
 - **Server Components**: fetch data from Prisma, pass results as props

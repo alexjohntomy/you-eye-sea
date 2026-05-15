@@ -1,7 +1,7 @@
 "use server";
 import prisma from "@/lib/prisma";
 import { Filter } from "bad-words";
-import { revalidateTag } from "next/cache";
+import { updateTag } from "next/cache";
 
 const filter = new Filter();
 
@@ -22,5 +22,5 @@ export async function postReview(userReview: Review) {
   await prisma.review.create({
     data: userReview,
   });
-  revalidateTag(`reviews-${userReview.courseID}-${userReview.courseNumber}`);
+  updateTag(`reviews-${userReview.courseID}-${userReview.courseNumber}`);
 }
