@@ -3,6 +3,7 @@
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip } from "recharts";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ChartConfig, ChartContainer, ChartTooltipContent } from "@/components/ui/chart";
+import { motion } from "motion/react";
 
 
 interface GPALineChartProps {
@@ -47,36 +48,42 @@ export function GPALineChart({ data }: GPALineChartProps) {
         </CardTitle>
       </CardHeader>
       <CardContent className="flex-1 min-h-0">
-        <ChartContainer config={dynamicChartConfig} className="h-[90px] w-full">
-          <LineChart data={data} margin={{ top: 10, right: -25, left: -25, bottom: 0 }}>
-            <CartesianGrid vertical={false} strokeDasharray="3 3" />
-            <XAxis
-              dataKey="semester"
-              tickLine={false}
-              axisLine={false}
-              tickMargin={8}
-              tick={{ fontSize: 12 }}
-            />
-            <YAxis
-              domain={[yAxisMin, 4.0]}
-              tickLine={false}
-              axisLine={false}
-              tickMargin={8}
-              tick={{ fontSize: 12 }}
-              tickFormatter={(value) => value.toFixed(1)}
-            />
-            <Tooltip content={<ChartTooltipContent />} />
-            <Line
-              type="monotone"
-              dataKey="gpa"
-              stroke="var(--color-gpa)"
-              strokeWidth={2}
-              dot={{ r: 3, fill: "var(--color-gpa)", strokeWidth: 0 }}
-              activeDot={{ r: 5 }}
-              isAnimationActive={false}
-            />
-          </LineChart>
-        </ChartContainer>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <ChartContainer config={dynamicChartConfig} className="h-[90px] w-full">
+            <LineChart data={data} margin={{ top: 10, right: -25, left: -25, bottom: 0 }}>
+              <CartesianGrid vertical={false} strokeDasharray="3 3" />
+              <XAxis
+                dataKey="semester"
+                tickLine={false}
+                axisLine={false}
+                tickMargin={8}
+                tick={{ fontSize: 12 }}
+              />
+              <YAxis
+                domain={[yAxisMin, 4.0]}
+                tickLine={false}
+                axisLine={false}
+                tickMargin={8}
+                tick={{ fontSize: 12 }}
+                tickFormatter={(value) => value.toFixed(1)}
+              />
+              <Tooltip content={<ChartTooltipContent />} />
+              <Line
+                type="monotone"
+                dataKey="gpa"
+                stroke="var(--color-gpa)"
+                strokeWidth={2}
+                dot={{ r: 3, fill: "var(--color-gpa)", strokeWidth: 0 }}
+                activeDot={{ r: 5 }}
+                isAnimationActive={false}
+              />
+            </LineChart>
+          </ChartContainer>
+        </motion.div>
       </CardContent>
     </Card>
   );

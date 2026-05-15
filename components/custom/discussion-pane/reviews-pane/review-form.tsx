@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Rating as ReactRating, ThinRoundedStar } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
+import { motion } from "motion/react";
 import {
   InputGroup,
   InputGroupAddon,
@@ -63,12 +64,18 @@ export function ReviewForm({ parsedSlug, professorID }: ReviewFormProps) {
   return (
     <div className="py-6">
       <InputGroup className="overflow-y border-foreground/10 bg-background has-[[data-slot=input-group-control]:focus-visible]:border-foreground/10 bottom-3 rounded-xl border shadow-none focus-visible:ring-0 has-[[data-slot=input-group-control]:focus-visible]:ring-0">
-        <ReactRating
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
           className="relative top-2 max-w-44 md:max-w-30 lg:max-w-37.5 px-3 max-sm:mb-1.5"
-          itemStyles={customStyles}
-          value={rating}
-          onChange={setRating}
-        />
+        >
+          <ReactRating
+            itemStyles={customStyles}
+            value={rating}
+            onChange={setRating}
+          />
+        </motion.div>
         <InputGroupTextarea
           className="resize-none border-none text-xs max-sm:text-sm tracking-wide placeholder:italic shadow-none"
           placeholder="How was your experience in this class? Let others know..."

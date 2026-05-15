@@ -25,10 +25,11 @@ import {
   ChartContainer,
   ChartTooltipContent,
 } from "@/components/ui/chart";
-import { useIsMobile } from "@/hooks/use-mobile";
-import { cleanSemesterName } from "@/app/_util/cleanSemesterName";
+  import { useIsMobile } from "@/hooks/use-mobile";
+  import { cleanSemesterName } from "@/app/_util/cleanSemesterName";
+  import { motion } from "motion/react";
 
-export const description = "A bar chart with a label";
+  export const description = "A bar chart with a label";
 
 const chartConfig = {
   count: {
@@ -208,7 +209,12 @@ function GradeDistributionChart({
         </CardHeader>
       </div>
       <CardContent className="flex min-h-0 flex-1 flex-col px-6 pt-2 pb-0">
-        <div className="min-h-0 w-full flex-1">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="min-h-0 w-full flex-1"
+        >
           <ChartContainer
             config={chartConfig}
             className="w-full md:aspect-auto md:h-full"
@@ -314,7 +320,7 @@ function GradeDistributionChart({
               </Bar>
             </BarChart>
           </ChartContainer>
-        </div>
+        </motion.div>
       </CardContent>
     </Card>
   );
