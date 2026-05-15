@@ -9,6 +9,7 @@ Deployed on Vercel, Postgres via Prisma.
 - `app/_util/` — server-safe utilities: `formatGradeData` (Prisma aggregate → chart data), `gpaCalculator` (weighted GPA), `postComment`/`postReview` (server actions), `semesterToNumber` (sort key), `getProfessorNameFromID`
 - `components/ui/` — shadcn/ui radix-based components
 - `components/custom/` — feature components grouped by pane/feature
+- `components/custom/skeleton/` — reusable loading-state components extracted from inline shimmers, used in `loading.tsx` and Suspense fallbacks
 - `lib/` — `prisma.ts` (client + `prismaCacheStrategy`), `utils.ts` (`cn`)
 - `prisma/` — schema, migrations, seed scripts, sample CSVs
 - `hooks/` — `use-mobile.tsx` (`useIsMobile()`)
@@ -37,6 +38,8 @@ Comments and reviews skip both layers — they use user-submitted content that s
 - **Server Components**: fetch data from Prisma, pass results as props
 - **Client Components**: all UI rendering and interactivity (charts, forms, tables, dropdowns)
 - Each data pane: `*Server.tsx` (async, Prisma) → `*Pane.tsx` (client, receives props)
+- **Sync Server Components**: not all server components need `async`. `CourseHeaderTitle` reads the course title from the static `@/cache/course-list` synchronously — renders instantly, no DB round-trip.
+- **Split Suspense**: title data available from static cache renders outside Suspense; controls that need DB (dropdowns, actions) suspend independently.
 
 ## Conventions
 - `"use client"` only when React hooks or browser APIs are needed
