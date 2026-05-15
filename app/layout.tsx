@@ -82,9 +82,7 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <Suspense fallback={null}>
-              <Header />
-            </Suspense>
+            <Header />
             <main className="relative flex flex-1 md:max-h-[calc(100svh-120px)] md:min-h-[calc(100svh-120px)]">
               {children}
               <Analytics />
