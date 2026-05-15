@@ -37,7 +37,7 @@ function PlaceholderText({ query }: PlaceholderTextProps) {
         <motion.div
           key={count}
           initial={{ opacity: 0, scale: 1, y: 5 }}
-          animate={{ opacity: 1, scale: 1, y: 0, animationDuration: 0.5 }}
+          animate={{ opacity: 1, scale: 1, y: 0, animationDuration: 0.25 }}
           exit={{ opacity: 0, scale: 1, y: -5 }}
           transition={{ ease: "easeInOut" }}
         >

@@ -235,7 +235,7 @@ function ResultsPaneMotion({ query, onResetHover, onSelect }: ResultsPaneProps) 
                     }}
                     className="flex min-w-0 grow flex-col"
                   >
-                    <div className="flex flex-col align-bottom md:flex-row md:items-center md:gap-1">
+                    <div className="flex flex-col align-bottom md:flex-row md:items-baseline md:gap-1">
                       <h2 className="text-uic-navy-800 dark:text-foreground/90 text-sm font-semibold text-nowrap md:text-base">
                         {item.subject + " " + item.number}
                       </h2>
@@ -285,7 +285,7 @@ function ResultsPaneMotion({ query, onResetHover, onSelect }: ResultsPaneProps) 
                     }}
                     className="flex min-w-0 grow flex-col"
                   >
-                    <div className="flex flex-col align-bottom md:flex-row md:items-center md:gap-1">
+                    <div className="flex flex-col align-bottom md:flex-row md:items-baseline md:gap-1">
                       <h2 className="text-uic-navy-800 dark:text-foreground/90 text-sm font-semibold text-nowrap md:text-base">
                         {item.subject + " " + item.number}
                       </h2>

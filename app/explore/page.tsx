@@ -18,7 +18,7 @@ export default async function Explore({
 }) {
   const filteredParams = await searchParams;
   return (
-    <div className="flex flex-col p-4 w-full justify-start min-h-full overflow-y-hidden animate-in fade-in duration-700">
+    <div className="flex flex-col p-4 w-full justify-start min-h-full overflow-y-hidden animate-in fade-in duration-350">
       {/* Hero Text */}
       <div className="flex flex-col items-center gap-0">
         <h1 className="font-black text-3xl pt-2 pb-3 text-center text-transparent bg-text-gradient-uic bg-clip-text text-shadow-[0px_0px_0px_20px_var(--inset-color)]">
