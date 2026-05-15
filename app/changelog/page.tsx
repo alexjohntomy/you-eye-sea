@@ -20,6 +20,18 @@ export default function ChangelogPage() {
         {/* Versions */}
         <div className="relative">
           <ChangelogItem
+            version="1.5.3"
+            date="May 15, 2026"
+            description="Made it easier to contribute by adding sample data and local database setup info, as well as an AGENTS.md and CONTRIBUTING.md. Added 'use cache' with semesterly revalidation and cache tags to reduce redundant database queries. Merged queries. Minor UI improvements."
+          />
+
+          <ChangelogItem
+            version="1.5.2"
+            date="April 29, 2026"
+            description="New contributor ddomir added a semester dropdown to the grade distribution chart and a new 'where' const for cleaner query code."
+          />
+
+          <ChangelogItem
             version="1.5.1"
             date="March 16, 2026"
             description="Added a command palette (cmd+k) for easy navigation and made lots of minor UI/UX improvements. Added preset buttons on the explore page, refined the OpenGraph image, and rolled out various fixes for charts and medium-sized screens."
