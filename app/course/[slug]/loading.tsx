@@ -1,36 +1,31 @@
-// Skeleton
+import { CourseHeaderSkeleton } from "@/components/custom/skeleton/course-header-skeleton";
+import { GradeDistributionSkeleton } from "@/components/custom/skeleton/grade-distribution-skeleton";
+import { DiscussionSkeleton } from "@/components/custom/skeleton/discussion-skeleton";
+import { BreakdownTableSkeleton } from "@/components/custom/skeleton/breakdown-table-skeleton";
+
 export default function Loading() {
-    return (
-        <div className="bg-background flex h-full w-full flex-col overflow-scroll md:h-[calc(100svh-120px)] md:flex-row">
-            {/* Left: chart + stats */}
-            <div className="flex h-full w-full flex-col gap-4 p-6 md:w-1/2">
-                <div className="flex flex-row items-start justify-between">
-                    <div className="flex flex-col gap-2">
-                        <div className="shimmer h-10 w-44 rounded-md" />
-                        <div className="shimmer h-5 w-56 rounded-md" />
-                    </div>
-                    <div className="shimmer h-9 w-28 rounded-md" />
-                </div>
-                <div className="flex flex-row gap-2">
-                    <div className="shimmer h-8 w-36 rounded-full" />
-                    <div className="shimmer h-8 w-24 rounded-full" />
-                </div>
-                <div className="shimmer min-h-52 flex-1 rounded-lg" />
-                <div className="shimmer h-8 w-full rounded-md" />
-            </div>
-
-            {/* Middle: discussion */}
-            <section className="border-foreground/5 relative flex min-h-60 w-full flex-col gap-4 border-r border-l p-8 md:h-full md:w-1/4 md:max-w-1/4">
-                <div className="shimmer min-h-40 flex-5 rounded-md" />
-                <div className="shimmer min-h-12 flex-1 rounded-md" />
-            </section>
-
-            {/* Right: breakdown table */}
-            <section className="flex min-h-60 w-full flex-col justify-between gap-3 p-8 md:h-full md:w-1/4 md:max-w-1/4">
-                {Array.from({ length: 7 }).map((_, i) => (
-                    <div key={i} className="shimmer min-h-8 w-full flex-1 rounded-md" />
-                ))}
-            </section>
+  return (
+    <div className="bg-background flex h-full w-full flex-col overflow-scroll md:h-[calc(100svh-120px)] md:flex-row">
+      {/* Left: header + chart */}
+      <div className="flex h-full w-full flex-col gap-2 p-6 md:w-1/2">
+        <CourseHeaderSkeleton />
+        <div className="flex min-h-0 flex-1 flex-col pt-2">
+          <GradeDistributionSkeleton />
         </div>
-    );
+      </div>
+
+      {/* Middle: discussion */}
+      <section className="border-foreground/5 relative flex min-h-60 w-full flex-col gap-4 border-r border-l px-6 pt-6 pb-4 md:h-full md:w-1/4 md:max-w-1/4">
+        <DiscussionSkeleton />
+      </section>
+
+      {/* Right: breakdown table */}
+      <section className="flex min-h-60 w-full flex-col md:h-full md:w-1/4 md:max-w-1/4">
+        <h1 className="text-foreground relative z-10 pt-6 pb-3 text-center text-lg font-bold">
+          Breakdown
+        </h1>
+        <BreakdownTableSkeleton />
+      </section>
+    </div>
+  );
 }

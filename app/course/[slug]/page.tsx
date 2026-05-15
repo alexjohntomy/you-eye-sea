@@ -4,7 +4,10 @@ import { DiscussionPane } from "@/components/custom/discussion-pane/discussion-p
 import { GradeDistributionChart } from "@/components/custom/visualization-pane/grade-distribution-chart";
 import { ReviewsPaneServer } from "@/components/custom/discussion-pane/reviews-pane/reviews-pane-server";
 import { TablePaneServer } from "@/components/custom/breakdown-pane/table-pane-server";
-import { CourseHeaderServer } from "@/components/custom/visualization-pane/course-header-server";
+import { CourseHeaderTitle, CourseHeaderDropdownGroup, CourseHeaderActionGroup } from "@/components/custom/visualization-pane/course-header-server";
+import { GradeDistributionSkeleton } from "@/components/custom/skeleton/grade-distribution-skeleton";
+import { DiscussionSkeleton } from "@/components/custom/skeleton/discussion-skeleton";
+import { BreakdownTableSkeleton } from "@/components/custom/skeleton/breakdown-table-skeleton";
 import { getCourseDetails } from "@/app/_util/getCourseDetails";
 import { cacheLife } from "next/cache";
 import { cacheTag } from "next/cache";
@@ -178,59 +181,49 @@ export default async function CourseDetailsPage({
 }) {
   const filteredParams = await searchParams;
   const { slug } = await params;
-  const slugParts = slug.split("-");
 
   return (
     <div className="bg-background animate-in fade-in flex h-full w-full min-w-87 grow flex-col overflow-hidden duration-150 md:h-[calc(100svh-120px)] md:flex-row">
       <div className="flex h-full w-full flex-col gap-2 overflow-y-auto p-6 md:w-1/2 md:overflow-hidden">
+        {/* Title renders instantly from cache — no DB needed */}
+        <div className="flex flex-row items-start justify-between">
+          <CourseHeaderTitle slug={slug} />
+          <Suspense
+            fallback={
+              <div className="mt-1 flex flex-col gap-2 md:flex-row">
+                <div className="shimmer h-10 w-34 rounded-xl" />
+                <div className="shimmer h-10 w-34 rounded-xl" />
+              </div>
+            }
+          >
+            <CourseHeaderDropdownGroup
+              slug={slug}
+              filteredParams={filteredParams}
+            />
+          </Suspense>
+        </div>
+
+        {/* Action buttons suspend separately */}
         <Suspense
           fallback={
-            <div className="flex flex-row items-start justify-between">
-              <div className="flex flex-col gap-2">
-                <h1 className="text-uic-red-600 text-4xl leading-tight font-black">
-                  {slugParts[0]} {slugParts[1]}
-                </h1>
-                <div className="shimmer h-5 w-56 rounded-md" />
+            <div className="flex min-w-full flex-col gap-2 pt-2 xl:flex-row">
+              <div className="flex-1">
+                <div className="shimmer h-8.5 w-full rounded-lg" />
               </div>
-              <div className="flex flex-row gap-2">
-                <div className="shimmer h-8 w-28 rounded-md" />
-                <div className="shimmer h-8 w-24 rounded-md" />
+              <div className="flex-1">
+                <div className="shimmer h-8.5 w-full rounded-lg" />
               </div>
             </div>
           }
         >
-          <CourseHeaderServer
+          <CourseHeaderActionGroup
             slug={slug}
             filteredParams={filteredParams}
           />
         </Suspense>
 
         <div className="flex min-h-0 flex-1 flex-col pt-2">
-          <Suspense
-            fallback={
-              <div className="flex flex-col gap-4">
-                <div className="border-uic-navy-300/10 dark:border-foreground/5 flex flex-col justify-between gap-0 rounded-xl border py-8 shadow-none">
-                  <div className="flex flex-row justify-between px-6 pb-2">
-                    <div className="flex flex-col gap-2 pt-1">
-                      <div className="shimmer h-5 w-40 rounded-md xl:h-6" />
-                      <div className="shimmer h-4 w-32 rounded-md" />
-                    </div>
-                    <div className="shimmer h-20 w-28 rounded-xl md:w-32" />
-                  </div>
-                  <div className="px-6">
-                    <div className="shimmer aspect-video w-full rounded-lg" />
-                  </div>
-                </div>
-
-                <div className="flex flex-col gap-1.5 py-1">
-                  <div className="shimmer mx-auto h-3 w-full rounded-md" />
-                  <div className="shimmer mx-auto h-3 w-11/12 rounded-md" />
-                  <div className="shimmer mx-auto h-3 w-10/12 rounded-md" />
-                  <div className="shimmer visible mx-auto h-3 w-10/12 rounded-md md:invisible" />
-                </div>
-              </div>
-            }
-          >
+          <Suspense fallback={<GradeDistributionSkeleton />}>
             <GradeDistributionSection
               slug={slug}
               filteredParams={filteredParams}
@@ -240,15 +233,8 @@ export default async function CourseDetailsPage({
       </div>
 
       {/* Middle: Discussion */}
-      <section className="border-foreground/10 animate-in fade-in relative flex h-full w-full flex-col border-r border-l px-6 py-8 duration-200 md:w-1/4 md:max-w-1/4">
-        <Suspense
-          fallback={
-            <div className="flex flex-col gap-4 pt-4">
-              <div className="shimmer h-10 w-full rounded-lg" />
-              <div className="shimmer mt-4 min-h-60 w-full rounded-md" />
-            </div>
-          }
-        >
+      <section className="border-foreground/10 animate-in fade-in relative flex h-full w-full flex-col border-r border-l px-6 pt-6 pb-8 duration-200 md:w-1/4 md:max-w-1/4">
+        <Suspense fallback={<DiscussionSkeleton />}>
           <DiscussionSection
             slug={slug}
             filteredParams={filteredParams}
@@ -261,21 +247,7 @@ export default async function CourseDetailsPage({
         <h1 className="text-foreground relative z-10 pt-6 pb-3 text-center text-lg font-bold">
           Breakdown
         </h1>
-        <Suspense
-          fallback={
-            <div className="flex flex-col gap-4 px-6">
-              <div className="shimmer mb-4 h-35 w-full rounded-2xl" />
-              <div className="flex flex-col gap-2">
-                <div className="shimmer h-10 w-full rounded-md" />
-                {Array.from({ length: 6 }).map((_, i) => (
-                  <div key={i} className="shimmer h-12 w-full rounded-md" />
-                ))}
-              </div>
-              <div className="shimmer mx-auto mt-6 h-4 w-3/4 rounded-md" />
-              <div className="shimmer mx-auto h-4 w-1/2 rounded-md" />
-            </div>
-          }
-        >
+        <Suspense fallback={<BreakdownTableSkeleton />}>
           <div className="animate-in fade-in flex flex-1 flex-col min-h-0 w-full duration-200">
             <TablePaneServer slug={slug} />
           </div>
