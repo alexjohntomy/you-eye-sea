@@ -20,7 +20,7 @@ export default function Home() {
           variant="outline"
           className="bg-background/70 border-uic-navy-700/20 dark:border-secondary/20 text-uic-navy-700/70 dark:text-uic-navy-700/50 relative bottom-2 flex px-2 py-1 md:inline-flex"
         >
-          Fall 2026 Registration Now Open
+          Spring 2026 Data Now Added
         </Badge>
         <h1 className="bg-text-gradient-uic bg-clip-text px-5 pt-0 pb-0 text-center text-2xl font-black text-transparent text-shadow-[0px_0px_0px_20px_var(--inset-color)] md:text-5xl">
           Find Your Next Class<span className="hidden md:inline"> Today</span>
