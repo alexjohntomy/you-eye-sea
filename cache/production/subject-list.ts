@@ -167,7 +167,8 @@ const subjectList: string[] = [
   "IT",
   "RE",
   "DIT",
-  "NUNA"
+  "NUNA",
+  "HPE"
 ];
 
 export default subjectList;
