@@ -20,6 +20,12 @@ export default function ChangelogPage() {
         {/* Versions */}
         <div className="relative">
           <ChangelogItem
+            version="1.5.4"
+            date="August 29, 2026"
+            description="Added Spring 2026 grade distribution data and updated dependencies."
+          />
+
+          <ChangelogItem
             version="1.5.3"
             date="May 15, 2026"
             description="Made it easier to contribute by adding sample data and local database setup info, as well as an AGENTS.md and CONTRIBUTING.md. Added 'use cache' with semesterly revalidation and cache tags to reduce redundant database queries. Merged queries. Minor UI improvements."
