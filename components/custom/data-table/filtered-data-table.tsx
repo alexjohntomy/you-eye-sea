@@ -2,13 +2,8 @@
 
 import { useState } from "react";
 
-import {
-  ColumnDef,
-  flexRender,
-  getCoreRowModel,
-  getPaginationRowModel,
-  useReactTable,
-} from "@tanstack/react-table";
+import { ColumnDef, flexRender, useTable } from "@tanstack/react-table";
+import { features } from "@/components/custom/data-table/table-features";
 
 import {
   Table,
@@ -22,25 +17,24 @@ import {
 import { ButtonGroup } from "@/components/ui/button-group";
 import { Button } from "@/components/ui/button";
 
-interface DataTableProps<TData, TValue> {
-  columns: ColumnDef<TData, TValue>[];
+interface DataTableProps<TData extends object> {
+  columns: ColumnDef<typeof features, TData>[];
   data: TData[];
 }
 
-function FilteredDataTable<TData, TValue>({
+function FilteredDataTable<TData extends object>({
   columns,
   data,
-}: DataTableProps<TData, TValue>) {
+}: DataTableProps<TData>) {
   const [pagination, setPagination] = useState({
     pageIndex: 0, //initial page index
     pageSize: 10, //default page size
   });
 
-  const table = useReactTable({
+  const table = useTable({
     data,
     columns,
-    getCoreRowModel: getCoreRowModel(),
-    getPaginationRowModel: getPaginationRowModel(), //load client-side pagination code
+    features,
     initialState: {
       pagination: {
         pageIndex: 0, //custom initial page index
@@ -51,7 +45,7 @@ function FilteredDataTable<TData, TValue>({
   return (
     <div className="flex w-full flex-col items-center gap-3">
       <div className="flex h-full w-full justify-center">
-        <div className="border-foreground/10 shadow-none w-3/4 overflow-hidden rounded-md border">
+        <div className="border-foreground/10 w-3/4 overflow-hidden rounded-md border shadow-none">
           <Table className="bg-background">
             <TableHeader>
               {table.getHeaderGroups().map((headerGroup) => (
@@ -122,8 +116,7 @@ function FilteredDataTable<TData, TValue>({
           {"<"}
         </Button>
         <h2 className="border-foreground/10 text-foreground bg-background flex h-9 items-center border px-5 text-sm font-medium tracking-wide italic">
-          Page {table.getState().pagination.pageIndex + 1} of{" "}
-          {table.getPageCount()}
+          Page {table.state.pagination.pageIndex + 1} of {table.getPageCount()}
         </h2>
         <Button
           className="border-foreground/10 bg-background text-foreground hover:bg-uic-red-50 disabled:text-foreground/25 disabled:bg-background border text-sm disabled:opacity-100"
@@ -133,7 +126,7 @@ function FilteredDataTable<TData, TValue>({
           {">"}
         </Button>
         <Button
-          className="border-foreground/10 bg-background text-foreground hover:bg-uic-red-50 disabled:text-foreground/25 disabled:bg-background rounded-r-md rounded-l-none border text-sm disabled:opacity-100"
+          className="border-foreground/10 bg-background text-foreground hover:bg-uic-red-50 disabled:text-foreground/25 disabled:bg-background rounded-l-none rounded-r-md border text-sm disabled:opacity-100"
           onClick={() => table.lastPage()}
           disabled={!table.getCanNextPage()}
         >
