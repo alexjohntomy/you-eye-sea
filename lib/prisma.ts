@@ -9,7 +9,10 @@ function createProductionPrismaClient() {
 }
 
 export function prismaCacheStrategy(ttl: number, swr: number) {
-  if (process.env.NODE_ENV === "development")
+  if (
+    process.env.NODE_ENV === "development" ||
+    process.env.INVALIDATE_PRISMA_CACHE === "true"
+  )
     return {} as { cacheStrategy?: { ttl: number; swr: number } };
   return { cacheStrategy: { ttl, swr } };
 }
