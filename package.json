@@ -1,6 +1,6 @@
 {
   "name": "you-eye-sea",
-  "version": "1.5.3",
+  "version": "1.5.4",
   "private": true,
   "prisma": {
     "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
